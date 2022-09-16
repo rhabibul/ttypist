@@ -1,0 +1,28 @@
+:root {
+  --caret-color: black;
+  --roundness: 0.5rem;
+  --font: "Roboto Mono", "Vazirmatn";
+  scroll-padding-top: 2rem;
+  font-weight: 400;
+}
+
+#caret {
+  height: 1.2em;
+  background: var(--caret-color);
+
+  border-radius: var(--roundness);
+}
+
+.default {
+  width: 0.1em;
+}
+#caret.default {
+  width: 0.1em;
+}
+
+#caret.block {
+  width: 0.5em;
+  border-radius: 0;
+  z-index: -1;
+  border-radius: calc(var(--roundness) / 4);
+}
