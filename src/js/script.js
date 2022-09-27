@@ -32,6 +32,9 @@ function handle_keypress(keyevent) {
     letter[active_letter].classList.remove("caret");
     letter[++active_letter].classList.add("caret");
   } else {
-    words[active_word].classList.toggle("incorrect");
+    words[active_word].classList.add("incorrect");
   }
 }
+
+// next feature
+// add random english word generator
