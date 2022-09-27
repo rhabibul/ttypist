@@ -20,27 +20,13 @@ div.words {
   padding: 10px;
 }
 
-output {
-  display: grid;
-  place-items: center;
-
-  color: yellow;
-  background-color: black;
-  font-size: 4rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  width: 100px;
-  height: 100px;
-}
-
-letter.caret {
+.caret {
+  padding: 0px 1px;
   color: whitesmoke;
   background-color: black;
 }
 
 .active {
-  /* background-color: cornsilk; */
-}
-.correct {
   color: green;
 }
 .incorrect {
@@ -48,11 +34,13 @@ letter.caret {
 }
 
 #wordsInput {
-  writing-mode: horizontal-tb !important;
+  border: none;
+  color: white;
+  background-color: white;
+  outline: none;
 }
 
 letter {
-  display: inline;
   font-size: 1.2rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

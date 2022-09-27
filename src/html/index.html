@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>touchtype</title>
-    <link rel="stylesheet" href="../css/caret.css" />
+    <!-- <link rel="stylesheet" href="../css/caret.css" /> -->
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <h1 style="text-align: center; color: salmon">Welcome to touchtype</h1>
     <div class="typingTest">
       <input
         autofocus
@@ -23,11 +22,12 @@
         data-gramm_editor="false"
         data-enable-grammarly="false"
         list="autocompleteOff"
+        spellcheck="false"
       />
       <div class="wordsWrapper">
         <div class="words">
           <span class="word active">
-            <letter>a</letter>
+            <letter class="caret">a</letter>
             <letter>b</letter>
             <letter>c</letter>
             <letter>d</letter>
