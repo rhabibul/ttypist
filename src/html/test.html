@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 1px solid gray;
+      }
+      td {
+        padding: 5px 8px;
+        border: 1px solid gray;
+      }
+      .attributes td {
+        color: blueviolet;
+      }
+      .col {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        KeyboardEvent
+      </caption>
+      <tr id="attributes">
+        <td class="col col-0">&nbsp;</td>
+        <td class="col col-1">timeStamp</td>
+        <td class="col col-2">code</td>
+        <td class="col col-3">charCode</td>
+        <td class="col col-4">key</td>
+        <td class="col col-5">keyCode</td>
+        <td class="col col-6">shiftKey</td>
+        <td class="col col-7">ctrlKey</td>
+        <td class="col col-8">metaKey</td>
+        <td class="col col-9">altKey</td>
+        <td class="col col-10">type</td>
+      </tr>
+      <tr class="keydown"></tr>
+      <tr class="keypress"></tr>
+      <tr class="keyup"></tr>
+    </table>
+
+    <input type="text" autofocus />
+    <script>
+      const input = document.getElementsByTagName("input")[0];
+      const msg = document.getElementsByTagName("h1")[0];
+
+      let keydown = document.querySelector(".keydown");
+      let keypress = document.querySelector(".keypress");
+      let keyup = document.querySelector(".keyup");
+
+      input.addEventListener("keydown", function (keyboardevent) {
+        keydown.innerHTML = `
+				<td class="col col-0">keydown</td>
+				<td class="col col-1">${keyboardevent.timeStamp.toFixed(0)}</td>
+        <td class="col col-2">${keyboardevent.code}</td>
+        <td class="col col-3">${keyboardevent.charCode}</td>
+        <td class="col col-4">${keyboardevent.key}</td>
+        <td class="col col-5">${keyboardevent.keyCode}</td>
+        <td class="col col-6">${keyboardevent.shiftKey}</td>
+        <td class="col col-7">${keyboardevent.ctrlKey}</td>
+        <td class="col col-8">${keyboardevent.metaKey}</td>
+        <td class="col col-9">${keyboardevent.altKey}</td>
+        <td class="col col-10">${keyboardevent.type}</td>`;
+
+        console.log(keyboardevent);
+      });
+      // design a keyboard
+    </script>
+  </body>
+</html>
