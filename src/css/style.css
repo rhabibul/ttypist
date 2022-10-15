@@ -12,6 +12,7 @@ div.typingTest {
   flex-direction: column;
   align-items: center;
 }
+
 div.wordsWrapper {
   overflow: hidden;
 }
@@ -29,15 +30,16 @@ div.words {
 .active {
   color: green;
 }
+
 .incorrect {
   color: red;
 }
 
-#wordsInput {
+input#wordsInput {
   border: none;
-  color: white;
-  background-color: white;
   outline: none;
+  /* color: white; */
+  /* background-color: white; */
 }
 
 letter {
