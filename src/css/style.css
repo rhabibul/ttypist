@@ -14,17 +14,16 @@ div.typingTest {
 }
 
 div.wordsWrapper {
-  overflow: hidden;
+  border: 1px dashed red;
+
+  width: 1000px;
+  height: 500px;
 }
 
 div.words {
+  width: 800px;
+  border: 1px solid gray;
   padding: 10px;
-}
-
-.caret {
-  padding: 0px 1px;
-  color: whitesmoke;
-  background-color: black;
 }
 
 .active {
@@ -38,12 +37,40 @@ div.words {
 input#wordsInput {
   border: none;
   outline: none;
-  /* color: white; */
-  /* background-color: white; */
+  color: white;
+  background-color: white;
 }
 
 letter {
-  font-size: 1.2rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+
+  /* prevents change in letter width when caret moves along letters */
+  border-left: 1px solid white;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* 📌 later divide caret into block, line, underline as individual css property */
+.caret {
+  /* block cursor */
+  /*
+  color: white;
+  background-color: black;
+  */
+
+  /* line cursor */
+  background-color: white;
+  border-left: 1px solid black; /* you have an option to select thickness of the caret */
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+
+  /* underline cursor */
+  /* 
+  background-color: white;
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  */
 }

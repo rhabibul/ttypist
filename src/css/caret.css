@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --caret-color: black;
   --roundness: 0.5rem;
   --font: "Roboto Mono", "Vazirmatn";
@@ -25,4 +25,4 @@
   border-radius: 0;
   z-index: -1;
   border-radius: calc(var(--roundness) / 4);
-}
+} */
