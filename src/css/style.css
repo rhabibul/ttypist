@@ -1,22 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --wordsWrapper-hidden-borderLeft__backgroundColor: rgb(229, 255, 255);
+  --cursor__color: black;
+  --line-cursor__width: 2px;
+  --underline-cursor__width: 1px;
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
 }
 
-:root {
-  --cursor__color: black;
-  --line-cursor__width: 2px;
-  --underline-cursor__width: 1px;
-}
-
 div.typingTest {
   width: 100%;
-}
-
-div.wordsWrapper {
-  border: 1px solid black;
-  width: 80%;
 }
 
 .active {
@@ -34,7 +38,9 @@ input#wordsInput {
   background-color: white;
 }
 
-div.words {
+div.words_container {
+  background-color: var(--wordsWrapper-hidden-borderLeft__backgroundColor);
+
   display: flex; /* fixes the extra space between letters */
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -46,55 +52,48 @@ span.word {
   display: flex; /* fixes the extra space between letters */
   justify-content: flex-start;
 }
+
 letter {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
 
   /* prevents change in letter width when caret moves along letters while typing */
-  border-left: var(--line-cursor__width) solid white;
+  border-left: var(--line-cursor__width) solid
+    var(--wordsWrapper-hidden-borderLeft__backgroundColor);
   border-top: none;
   border-bottom: none;
   border-right: none;
-  /* margin-inline: 0px; */
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* 📌 later divide caret into block, line, underline as individual css property */
 .caret {
-  /* block cursor */
-  /*
-  color: white;
-  background-color: black;
+  /* block
+        color: white;
+        background-color: black;
+  */
+
+  /* underline
+        border-bottom: 2px solid black;
+        border-top: none;
+        border-left: none;
+        border-right: none;
   */
 
   /* line cursor */
-  background-color: white;
   border-left: var(--line-cursor__width) solid var(--cursor__color);
   border-top: none;
   border-bottom: none;
   border-right: none;
 
-  /* underline cursor */
-  /* 
-  background-color: white;
-  border-bottom: 2px solid black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  */
-
-  animation-name: animateCaret;
-  animation-iteration-count: infinite;
+  animation-name: cursorBlinkAnimation;
+  animation-duration: 1.2s;
   animation-timing-function: ease;
-  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
-@keyframes animateCaret {
+@keyframes cursorBlinkAnimation {
   0%,
   100% {
-    background-color: white;
-
-    /* 📌 have an option to select thickness of the caret */
     border-left: var(--line-cursor__width) solid var(--cursor__color);
     border-top: none;
     border-bottom: none;
@@ -102,7 +101,7 @@ letter {
   }
 
   50% {
-    background-color: white;
-    border-left: var(--line-cursor__width) solid white;
+    border-left: var(--line-cursor__width) solid
+      var(--wordsWrapper-hidden-borderLeft__backgroundColor);
   }
 }

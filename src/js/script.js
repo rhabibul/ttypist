@@ -19,7 +19,7 @@ function handle_keypress(keyevent) {
       letter[active_letter].classList.remove("caret");
 
       wordsInput.removeEventListener("keydown", handle_keypress, false);
-      wordsInput.disabled = true;
+      // wordsInput.disabled = true;
       // wordsInput.remove();
       return;
     }
