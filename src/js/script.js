@@ -37,7 +37,6 @@ function handle_keypress(keyevent) {
     letter = words[active_word].children;
 
     letter[active_letter].classList.add("caret");
-    //
   } else if (keypressed === letter[active_letter].textContent) {
     words[active_word].classList.remove("incorrect");
 

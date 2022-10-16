@@ -4,30 +4,23 @@ body {
   width: 100%;
 }
 
+:root {
+  --cursor__color: black;
+  --line-cursor__width: 2px;
+  --underline-cursor__width: 1px;
+}
+
 div.typingTest {
-  margin-top: 100px;
   width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 div.wordsWrapper {
-  border: 1px dashed red;
-
-  width: 1000px;
-  height: 500px;
-}
-
-div.words {
-  width: 800px;
-  border: 1px solid gray;
-  padding: 10px;
+  border: 1px solid black;
+  width: 80%;
 }
 
 .active {
-  color: green;
+  color: darkorchid;
 }
 
 .incorrect {
@@ -41,11 +34,27 @@ input#wordsInput {
   background-color: white;
 }
 
-letter {
-  font-size: 2rem;
+div.words {
+  display: flex; /* fixes the extra space between letters */
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
-  /* prevents change in letter width when caret moves along letters */
-  border-left: 1px solid white;
+  padding: 10px;
+}
+
+span.word {
+  display: flex; /* fixes the extra space between letters */
+  justify-content: flex-start;
+}
+letter {
+  font-size: 1.1rem;
+
+  /* prevents change in letter width when caret moves along letters while typing */
+  border-left: var(--line-cursor__width) solid white;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  /* margin-inline: 0px; */
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -60,7 +69,7 @@ letter {
 
   /* line cursor */
   background-color: white;
-  border-left: 1px solid black; /* you have an option to select thickness of the caret */
+  border-left: var(--line-cursor__width) solid var(--cursor__color);
   border-top: none;
   border-bottom: none;
   border-right: none;
@@ -73,4 +82,27 @@ letter {
   border-left: none;
   border-right: none;
   */
+
+  animation-name: animateCaret;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+}
+
+@keyframes animateCaret {
+  0%,
+  100% {
+    background-color: white;
+
+    /* 📌 have an option to select thickness of the caret */
+    border-left: var(--line-cursor__width) solid var(--cursor__color);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+  }
+
+  50% {
+    background-color: white;
+    border-left: var(--line-cursor__width) solid white;
+  }
 }
