@@ -7,7 +7,7 @@
 }
 
 :root {
-  --wordsWrapper-hidden-borderLeft__backgroundColor: rgb(229, 255, 255);
+  --wordsWrapper-hidden-borderLeft__backgroundColor: rgb(236, 255, 225);
   --cursor__color: black;
   --line-cursor__width: 2px;
   --underline-cursor__width: 1px;
