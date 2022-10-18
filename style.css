@@ -60,8 +60,7 @@ input#wordsInput {
 }
 
 div.words {
-  width: 750px;
-
+  width: 350px;
   background-color: var(--wordsContainer_and_hidden-borderLeft__bg);
 
   display: flex; /* fixes the extra space between letters */
