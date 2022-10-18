@@ -1,3 +1,7 @@
+// Next features
+// 1. add random english word generator
+// 2. option to reset everything without reloading the page
+
 const SPACE = " ";
 const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
@@ -80,6 +84,3 @@ function handle_keypress(keyevent) {
     words[active_word].classList.add("incorrect");
   }
 }
-
-// next feature
-// add random english word generator
