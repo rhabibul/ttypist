@@ -1,17 +1,16 @@
+:root {
+  --wordsContainer_and_hidden-borderLeft__bg: lightgray;
+  --caret__color: black;
+  --caret__blinkTime: 1.5s;
+  --caret__width: 2px;
+}
+
 *,
 *::after,
 *::before {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-}
-
-:root {
-  --wordsWrapper-hidden-borderLeft__backgroundColor: rgb(236, 255, 225);
-  --cursor__blinkTime: 1s;
-  --cursor__color: black;
-  --line-cursor__width: 2px;
-  --underline-cursor__width: 1px;
 }
 
 html,
@@ -25,7 +24,7 @@ div.typingTest {
 }
 
 .active {
-  color: darkorchid;
+  color: rgb(0, 0, 184);
 }
 
 .incorrect {
@@ -39,8 +38,8 @@ input#wordsInput {
   background-color: white;
 }
 
-div.words_container {
-  background-color: var(--wordsWrapper-hidden-borderLeft__backgroundColor);
+div.words {
+  background-color: var(--wordsContainer_and_hidden-borderLeft__bg);
 
   display: flex; /* fixes the extra space between letters */
   justify-content: flex-start;
@@ -58,51 +57,11 @@ letter {
   font-size: 1.3rem;
 
   /* prevents change in letter width when caret moves along letters while typing */
-  border-left: var(--line-cursor__width) solid
-    var(--wordsWrapper-hidden-borderLeft__backgroundColor);
+  border-left: var(--caret__width) solid
+    var(--wordsContainer_and_hidden-borderLeft__bg);
   border-top: none;
   border-bottom: none;
   border-right: none;
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.caret {
-  /* block
-        color: white;
-        background-color: black;
-  */
-
-  /* underline
-        border-bottom: 2px solid black;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-  */
-
-  /* line cursor */
-  border-left: var(--line-cursor__width) solid var(--cursor__color);
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-
-  animation-name: cursorBlinkAnimation;
-  animation-duration: var(--cursor__blinkTime);
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-}
-
-@keyframes cursorBlinkAnimation {
-  0%,
-  100% {
-    border-left: var(--line-cursor__width) solid var(--cursor__color);
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
-  }
-
-  50% {
-    border-left: var(--line-cursor__width) solid
-      var(--wordsWrapper-hidden-borderLeft__backgroundColor);
-  }
 }

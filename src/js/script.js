@@ -13,6 +13,7 @@ function handle_keypress(keyevent) {
   const keypressed = keyevent.key;
 
   if (keypressed === " ") {
+    // move to next word
     if (active_word + 1 == words.length) {
       words[active_word].classList.remove("active");
 
