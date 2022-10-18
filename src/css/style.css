@@ -1,19 +1,25 @@
 :root {
-  --wordsContainer_and_hidden-borderLeft__bg: rgb(28, 28, 28);
+  --wordsContainer_and_hidden-borderLeft__bg: black;
   --caret__color: yellow;
   --caret__width: 2px;
   --caret__blinkTime: 1.5s;
 
-  --text__color: #015701;
-  --active-word__color: #15ff00;
-  --incorrect-word__color: red;
+  --text__color: #016801;
+  --active-word__color: #13df00;
+  --incorrect-word__color: #da3333;
 
-  --words-input__color: black;
-  --words-input__backgroundColor: black;
+  --body-input__background: azure;
+
+  --body__backgroundColor: var(--body-input__background);
+  --words-inputTag__color: var(--body-input__background);
+  --words-inputTag__backgroundColor: var(--body-input__background);
 }
 
 body {
-  background-color: rgb(20, 20, 20);
+  display: grid;
+  place-content: center;
+
+  background-color: var(--body__backgroundColor);
 }
 
 *,
@@ -30,10 +36,6 @@ body {
   width: 100%;
 }
 
-div.typingTest {
-  width: 100%;
-}
-
 .active {
   color: var(--active-word__color);
 }
@@ -46,11 +48,13 @@ input#wordsInput {
   border: none;
   outline: none;
 
-  color: var(--words-input__color);
-  background-color: var(--words-input__backgroundColor);
+  color: var(--words-inputTag__color);
+  background-color: var(--words-inputTag__backgroundColor);
 }
 
 div.words {
+  width: 750px;
+
   background-color: var(--wordsContainer_and_hidden-borderLeft__bg);
 
   display: flex; /* fixes the extra space between letters */
