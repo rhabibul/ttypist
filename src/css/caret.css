@@ -5,7 +5,7 @@
   border-bottom: none;
   border-right: none;
 
-  /* animation-name: cursorBlinkAnimation; */
+  animation-name: cursorBlinkAnimation;
   animation-duration: var(--caret__blinkTime);
   animation-timing-function: ease;
   animation-iteration-count: infinite;

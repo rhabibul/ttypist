@@ -8,11 +8,21 @@
   --active-word__color: #13df00;
   --incorrect-word__color: #da3333;
 
-  --body-input__background: azure;
+  --body-input__background: rgb(29, 29, 29);
 
   --body__backgroundColor: var(--body-input__background);
   --words-inputTag__color: var(--body-input__background);
   --words-inputTag__backgroundColor: var(--body-input__background);
+
+  --fontSize: 1.5rem;
+
+  --fontWeight__300: 300;
+  --fontWeight__400: 400;
+  --fontWeight__500: 500;
+
+  --fontFamily__robotoMono: "Roboto Mono", sans-serif;
+  --fontFamily__firaCode: "Fira Code", monospace;
+  --fontFamily__nunito: "Nunito", sans-serif;
 }
 
 body {
@@ -71,7 +81,7 @@ word {
 }
 
 letter {
-  font-size: 1.3rem;
+  font-size: var(--fontSize);
 
   /* prevents change in letter width when caret moves along letters while typing */
   border-left: var(--caret__width) solid
@@ -80,5 +90,6 @@ letter {
   border-bottom: none;
   border-right: none;
 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--fontFamily__robotoMono);
+  font-weight: var(--fontWeight__400);
 }
