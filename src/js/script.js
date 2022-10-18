@@ -35,13 +35,35 @@ function handle_keypress(keyevent) {
 
     letters = words[active_word].children;
 
-    letters[active_letter].classList.add("caret"); // move caret to next word
+    // move caret to next word's first letter
+    letters[active_letter].classList.add("caret");
     //
   } else if (keypressed === letters[active_letter].textContent) {
     words[active_word].classList.remove("incorrect");
 
-    letters[active_letter].classList.remove("caret"); // remove caret
-    letters[++active_letter].classList.add("caret"); // move caret
+    letters[active_letter].classList.remove("caret");
+
+    letters[++active_letter].classList.add("caret");
+  } else if (keyevent.altKey && keypressed == "Backspace") {
+    letters[active_letter].classList.remove("caret");
+
+    active_letter = 0;
+
+    letters[active_letter].classList.add("caret");
+  } else if (keyevent.metaKey && keypressed == "Backspace") {
+    letters[active_letter].classList.remove("caret");
+
+    active_letter = 0;
+
+    letters[active_letter].classList.add("caret");
+  } else if (keypressed == "Backspace") {
+    letters[active_letter].classList.remove("caret");
+
+    if (active_letter > 0) {
+      active_letter--;
+    }
+
+    letters[active_letter].classList.add("caret");
   } else {
     words[active_word].classList.add("incorrect");
   }
