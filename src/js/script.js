@@ -37,27 +37,37 @@ function handle_keypress(keyevent) {
 
     // move caret to next word's first letter
     letters[active_letter].classList.add("caret");
-    //
   } else if (keypressed === letters[active_letter].textContent) {
+    // move the caret to next letter in the word
     words[active_word].classList.remove("incorrect");
 
     letters[active_letter].classList.remove("caret");
 
     letters[++active_letter].classList.add("caret");
   } else if (keyevent.altKey && keypressed == "Backspace") {
+    // set caret to first letter of the current word
     letters[active_letter].classList.remove("caret");
-
     active_letter = 0;
 
     letters[active_letter].classList.add("caret");
   } else if (keyevent.metaKey && keypressed == "Backspace") {
+    // set caret to first letter of first word
     letters[active_letter].classList.remove("caret");
 
-    active_letter = 0;
+    for (let i = 0; i < words.length; ++i) {
+      words[i].classList.remove("active");
+      words[i].classList.remove("incorrect");
+    }
 
+    active_letter = 0;
+    active_word = 0;
+    letters = words[active_word].children;
+
+    words[active_word].classList.add("active");
     letters[active_letter].classList.add("caret");
   } else if (keypressed == "Backspace") {
     letters[active_letter].classList.remove("caret");
+    words[active_word].classList.remove("incorrect");
 
     if (active_letter > 0) {
       active_letter--;
