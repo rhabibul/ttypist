@@ -8,6 +8,7 @@
 
 :root {
   --wordsWrapper-hidden-borderLeft__backgroundColor: rgb(236, 255, 225);
+  --cursor__blinkTime: 1s;
   --cursor__color: black;
   --line-cursor__width: 2px;
   --underline-cursor__width: 1px;
@@ -48,13 +49,13 @@ div.words_container {
   padding: 10px;
 }
 
-span.word {
+word {
   display: flex; /* fixes the extra space between letters */
   justify-content: flex-start;
 }
 
 letter {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 
   /* prevents change in letter width when caret moves along letters while typing */
   border-left: var(--line-cursor__width) solid
@@ -86,7 +87,7 @@ letter {
   border-right: none;
 
   animation-name: cursorBlinkAnimation;
-  animation-duration: 1.2s;
+  animation-duration: var(--cursor__blinkTime);
   animation-timing-function: ease;
   animation-iteration-count: infinite;
 }

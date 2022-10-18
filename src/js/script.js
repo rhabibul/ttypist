@@ -1,6 +1,6 @@
 let wordsInput = document.querySelector("#wordsInput");
 
-const words = document.querySelectorAll(".word");
+const words = document.getElementsByTagName("word");
 
 let active_word = 0;
 let active_letter = 0;
