@@ -47,6 +47,8 @@ function handle_keypress(keyevent) {
   } else if (keyevent.altKey && keypressed == "Backspace") {
     // set caret to first letter of the current word
     letters[active_letter].classList.remove("caret");
+    words[active_word].classList.remove("incorrect");
+
     active_letter = 0;
 
     letters[active_letter].classList.add("caret");
