@@ -14,7 +14,7 @@
   --words-inputTag__color: var(--body-input__background);
   --words-inputTag__backgroundColor: var(--body-input__background);
 
-  --fontSize: 1.5rem;
+  --fontSize: 1rem;
 
   --fontWeight__300: 300;
   --fontWeight__400: 400;
@@ -26,9 +26,6 @@
 }
 
 body {
-  display: grid;
-  place-content: center;
-
   background-color: var(--body__backgroundColor);
 }
 
