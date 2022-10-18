@@ -1,8 +1,19 @@
 :root {
-  --wordsContainer_and_hidden-borderLeft__bg: lightgray;
-  --caret__color: black;
-  --caret__blinkTime: 1.5s;
+  --wordsContainer_and_hidden-borderLeft__bg: rgb(28, 28, 28);
+  --caret__color: yellow;
   --caret__width: 2px;
+  --caret__blinkTime: 1.5s;
+
+  --text__color: #015701;
+  --active-word__color: #15ff00;
+  --incorrect-word__color: red;
+
+  --words-input__color: black;
+  --words-input__backgroundColor: black;
+}
+
+body {
+  background-color: rgb(20, 20, 20);
 }
 
 *,
@@ -24,18 +35,19 @@ div.typingTest {
 }
 
 .active {
-  color: rgb(0, 0, 184);
+  color: var(--active-word__color);
 }
 
 .incorrect {
-  color: red;
+  color: var(--incorrect-word__color);
 }
 
 input#wordsInput {
   border: none;
   outline: none;
-  color: white;
-  background-color: white;
+
+  color: var(--words-input__color);
+  background-color: var(--words-input__backgroundColor);
 }
 
 div.words {
@@ -49,6 +61,7 @@ div.words {
 }
 
 word {
+  color: var(--text__color);
   display: flex; /* fixes the extra space between letters */
   justify-content: flex-start;
 }

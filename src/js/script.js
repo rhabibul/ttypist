@@ -1,27 +1,25 @@
-let wordsInput = document.querySelector("#wordsInput");
-
+const SPACE = " ";
+const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
 
 let active_word = 0;
 let active_letter = 0;
 
-let letter = words[active_word].children;
+let letters = words[active_word].children;
 
 wordsInput.addEventListener("keydown", handle_keypress);
 
 function handle_keypress(keyevent) {
   const keypressed = keyevent.key;
 
-  if (keypressed === " ") {
+  if (keypressed === SPACE) {
     // move to next word
     if (active_word + 1 == words.length) {
       words[active_word].classList.remove("active");
 
-      letter[active_letter].classList.remove("caret");
+      letters[active_letter].classList.remove("caret");
 
       wordsInput.removeEventListener("keydown", handle_keypress, false);
-      // wordsInput.disabled = true;
-      // wordsInput.remove();
       return;
     }
 
@@ -31,19 +29,19 @@ function handle_keypress(keyevent) {
 
     words[active_word].classList.add("active");
 
-    letter[active_letter].classList.remove("caret");
+    letters[active_letter].classList.remove("caret");
 
     active_letter = 0;
 
-    letter = words[active_word].children;
+    letters = words[active_word].children;
 
-    letter[active_letter].classList.add("caret");
-  } else if (keypressed === letter[active_letter].textContent) {
+    letters[active_letter].classList.add("caret"); // move caret to next word
+    //
+  } else if (keypressed === letters[active_letter].textContent) {
     words[active_word].classList.remove("incorrect");
 
-    letter[active_letter].classList.remove("caret"); // remove caret from correctly typed letter
-
-    letter[++active_letter].classList.add("caret"); // move caret to next letter in the word
+    letters[active_letter].classList.remove("caret"); // remove caret
+    letters[++active_letter].classList.add("caret"); // move caret
   } else {
     words[active_word].classList.add("incorrect");
   }
