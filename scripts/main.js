@@ -75,15 +75,12 @@ function handle_keypress(keyevent) {
     letters[active_letter].classList.remove("caret");
 
     letters[++active_letter].classList.add("caret");
-  } else if (keyevent.altKey && keypressed == "Backspace") {
-    // set caret to first letter of the current word
-    letters[active_letter].classList.remove("caret");
-    words[active_word].classList.remove("incorrect");
-
-    active_letter = 0;
-
-    letters[active_letter].classList.add("caret");
-  } else if (keyevent.metaKey && keypressed == "Backspace") {
+  } else if (
+    (keyevent.metaKey && keypressed == "Backspace") ||
+    (operating_system == "Windows" &&
+      keyevent.altKey &&
+      keypressed == "Backspace")
+  ) {
     // set caret to first letter of first word
     letters[active_letter].classList.remove("caret");
 
@@ -97,6 +94,17 @@ function handle_keypress(keyevent) {
     letters = words[active_word].children;
 
     words[active_word].classList.add("active");
+    letters[active_letter].classList.add("caret");
+  } else if (
+    (keyevent.altKey && keypressed == "Backspace") ||
+    (keyevent.ctrlKey && keypressed == "Backspace")
+  ) {
+    // set caret to first letter of the current word
+    letters[active_letter].classList.remove("caret");
+    words[active_word].classList.remove("incorrect");
+
+    active_letter = 0;
+
     letters[active_letter].classList.add("caret");
   } else if (keypressed == "Backspace") {
     letters[active_letter].classList.remove("caret");
