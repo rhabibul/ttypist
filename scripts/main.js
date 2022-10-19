@@ -78,9 +78,9 @@ function handle_keypress(keyevent) {
   } else if (keyevent.metaKey && keypressed == "Backspace") {
     // set caret to first letter of first word
     letters[active_letter].classList.remove("caret");
+    words[active_word].classList.remove("active");
 
-    for (let i = 0; i < words.length; ++i) {
-      words[i].classList.remove("active");
+    for (let i = active_word; i >= 0; --i) {
       words[i].classList.remove("incorrect");
     }
 
@@ -96,7 +96,7 @@ function handle_keypress(keyevent) {
   ) {
     // if is already at first letter of a word and user hits ctrl+bs or opt+bs
     // then go back to previous word
-    if (active_letter == 0) {
+    if (active_letter == 0 && active_word > 0) {
       letters[active_letter].classList.remove("caret");
       words[active_word].classList.remove("active");
       words[active_word].classList.remove("incorrect");
@@ -116,14 +116,31 @@ function handle_keypress(keyevent) {
 
     letters[active_letter].classList.add("caret");
   } else if (keypressed == "Backspace") {
-    letters[active_letter].classList.remove("caret");
     words[active_word].classList.remove("incorrect");
 
     if (active_letter > 0) {
-      active_letter--;
+      letters[active_letter].classList.remove("caret");
+      --active_letter;
+      letters[active_letter].classList.add("caret");
     }
 
-    letters[active_letter].classList.add("caret");
+    // Now user can go all the way to first letter of first word of the sentence
+    // by continously hitting backspace
+    if (active_letter == 0 && active_word > 0) {
+      words[active_word].classList.remove("incorrect");
+      letters[active_letter].classList.remove("caret");
+      words[active_word].classList.remove("active");
+
+      --active_word;
+
+      words[active_word].classList.add("active");
+
+      letters = words[active_word].children;
+
+      active_letter = letters.length - 1;
+
+      letters[active_letter].classList.add("caret");
+    }
   } else {
     words[active_word].classList.add("incorrect");
   }
