@@ -75,12 +75,7 @@ function handle_keypress(keyevent) {
     letters[active_letter].classList.remove("caret");
 
     letters[++active_letter].classList.add("caret");
-  } else if (
-    (keyevent.metaKey && keypressed == "Backspace") ||
-    (operating_system == "Windows" &&
-      keyevent.altKey &&
-      keypressed == "Backspace")
-  ) {
+  } else if (keyevent.metaKey && keypressed == "Backspace") {
     // set caret to first letter of first word
     letters[active_letter].classList.remove("caret");
 
