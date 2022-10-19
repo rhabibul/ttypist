@@ -2,3 +2,12 @@
 2. Option to to select the thickness of line cursor.
 3. Divide caret into block, line, underline as individual css property.
 4. Auto word generation
+
+
+Windows
+		ctrl + backspace	(clear one word)
+		alt  + backspace	(clear all words)
+
+Mac
+		opt + backspace 	(clear one word)
+		cmd + backspace		(clear all words)

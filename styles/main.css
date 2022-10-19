@@ -1,20 +1,20 @@
 :root {
-  --wordsContainer_and_hidden-borderLeft__bg: black;
-  --caret__color: orange;
+  --wordsContainer_and_hidden-borderLeft__bg: white;
+  --caret__color: darkred;
   --caret__width: 2px;
   --caret__blinkTime: 1.5s;
 
-  --text__color: #016801;
-  --active-word__color: #13df00;
+  --text__color: black;
+  --active-word__color: darkcyan;
   --incorrect-word__color: #da3333;
 
-  --body-input__background: rgb(29, 29, 29);
+  --body-input__background: black;
 
   --body__backgroundColor: var(--body-input__background);
   --words-inputTag__color: var(--body-input__background);
   --words-inputTag__backgroundColor: var(--body-input__background);
 
-  --fontSize: 1rem;
+  --fontSize: 1.35rem;
 
   --fontWeight__300: 300;
   --fontWeight__400: 400;

@@ -11,9 +11,35 @@ let active_letter = 0;
 
 let letters = words[active_word].children;
 
+let cursorBlinking = true;
+
+function detect_os(userAgent) {
+  if (userAgent.search("Mac") !== -1) {
+    return "Mac";
+  } else if (userAgent.search("Windows") !== -1) {
+    return "Windows";
+  } else if (
+    userAgent.search("X11") !== -1 &&
+    !(userAgent.search("Linux") !== -1)
+  ) {
+    return "Unix";
+  } else if (
+    userAgent.search("Linux") !== -1 &&
+    !(userAgent.search("X11") !== -1)
+  ) {
+    return "Linux";
+  }
+}
+
+let operating_system = detect_os(navigator.userAgent);
+
 wordsInput.addEventListener("keydown", handle_keypress);
 
 function handle_keypress(keyevent) {
+  if (cursorBlinking) {
+    cursorBlinking = false;
+  }
+
   keyevent.preventDefault();
   const keypressed = keyevent.key;
 
