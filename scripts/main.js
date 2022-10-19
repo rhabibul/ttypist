@@ -94,6 +94,20 @@ function handle_keypress(keyevent) {
     (keyevent.altKey && keypressed == "Backspace") ||
     (keyevent.ctrlKey && keypressed == "Backspace")
   ) {
+    // if is already at first letter of a word and user hits ctrl+bs or opt+bs
+    // then go back to previous word
+    if (active_letter == 0) {
+      letters[active_letter].classList.remove("caret");
+      words[active_word].classList.remove("active");
+      words[active_word].classList.remove("incorrect");
+      if (active_word > 0) {
+        --active_word;
+        words[active_word].classList.add("active");
+        letters = words[active_word].children;
+        letters[active_letter].classList.add("caret");
+      }
+    }
+
     // set caret to first letter of the current word
     letters[active_letter].classList.remove("caret");
     words[active_word].classList.remove("incorrect");
