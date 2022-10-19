@@ -14,6 +14,7 @@ let letters = words[active_word].children;
 wordsInput.addEventListener("keydown", handle_keypress);
 
 function handle_keypress(keyevent) {
+  keyevent.preventDefault();
   const keypressed = keyevent.key;
 
   if (keypressed === SPACE) {

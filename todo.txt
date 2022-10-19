@@ -1,3 +1,4 @@
 1. Option to select between different cursors.
 2. Option to to select the thickness of line cursor.
 3. Divide caret into block, line, underline as individual css property.
+4. Auto word generation

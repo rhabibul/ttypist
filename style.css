@@ -52,6 +52,11 @@ body {
 }
 
 input#wordsInput {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  width: 1em;
+  height: 1em;
   border: none;
   outline: none;
 
@@ -60,7 +65,6 @@ input#wordsInput {
 }
 
 div.words {
-  width: 350px;
   background-color: var(--wordsContainer_and_hidden-borderLeft__bg);
 
   display: flex; /* fixes the extra space between letters */
