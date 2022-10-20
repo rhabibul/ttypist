@@ -89,17 +89,15 @@ function handle_keypress(keyevent) {
     words[active_word].classList.remove("active");
 
     // remove error highlight from current word till first word
-    for (let i = active_word - 1; i >= 0; --i) {
+    for (let i = words.length - 1; i >= 0; --i) {
       words[i].classList.remove("incorrect");
-      words[i].classList.add('caret');
-      words[i].classList.remove('caret');
     }
 
     // reseet variables to initial state
     active_letter = 0;
     active_word = 0;
 
-    // store letters of first word
+    // store letters of the first word
     letters = words[active_word].children;
 
     // highlight first word & set care to first letter of first word
@@ -109,27 +107,35 @@ function handle_keypress(keyevent) {
     (keyevent.altKey && keypressed == "Backspace") ||
     (keyevent.ctrlKey && keypressed == "Backspace")
   ) {
-    // if is already at first letter of a word and user hits ctrl+bs or opt+bs
-    // then go back to previous word
+    // (alt + backspace) || (opt + backspace)
+    // clear one word at a time putting caret at first letter of previous word
+
+    // if care is already at first letter of a word and user then go back
+    // to previous word
     if (active_letter == 0 && active_word > 0) {
+      // remove incorrect or active highlight as well as caret from current word
+      words[active_word].classList.remove("incorrect");
       letters[active_letter].classList.remove("caret");
       words[active_word].classList.remove("active");
-      words[active_word].classList.remove("incorrect");
+
       if (active_word > 0) {
         --active_word;
-        words[active_word].classList.add("active");
-        letters = words[active_word].children;
-        letters[active_letter].classList.add("caret");
+
+        words[active_word].classList.add("active"); // highlight previous word
+        letters = words[active_word].children; // store letters of previous word
+        letters[active_letter].classList.add("caret"); // add caret to first letter
       }
     }
 
-    // set caret to first letter of the current word
+    // remove caret & highlight color from current word
     letters[active_letter].classList.remove("caret");
     words[active_word].classList.remove("incorrect");
 
-    active_letter = 0;
+    active_letter = 0; // point to first letter of current word
 
+    // set caret to first letter of the current word
     letters[active_letter].classList.add("caret");
+
   } else if (keypressed == "Backspace") {
     // BACKSPACE: Take caret one letter back.
 
