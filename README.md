@@ -1,1 +1,1 @@
-# touchtyping
+# touchtypist
