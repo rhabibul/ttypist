@@ -5,49 +5,46 @@
 const SPACE = " ";
 const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
+const total_words = words.length;
+
+let total_characters = 0;
+
+for (let word of words) {
+  total_characters += word.children.length;
+}
+// 1 word = 5 characters
+// 93 / 5 = 18.6 => 19 words of length 5
+// 14s = 93 characters
 
 let active_word = 0;
 let active_letter = 0;
 
+let test_started = true;
+let startTime = 0;
+let endTime = 0;
+
+// store letters of first word
 let letters = words[active_word].children;
 
-let cursorBlinking = true;
-
-function detect_os(userAgent) {
-  if (userAgent.search("Mac") !== -1) {
-    return "Mac";
-  } else if (userAgent.search("Windows") !== -1) {
-    return "Windows";
-  } else if (
-    userAgent.search("X11") !== -1 &&
-    !(userAgent.search("Linux") !== -1)
-  ) {
-    return "Unix";
-  } else if (
-    userAgent.search("Linux") !== -1 &&
-    !(userAgent.search("X11") !== -1)
-  ) {
-    return "Linux";
-  }
-}
-
-let operating_system = detect_os(navigator.userAgent);
-
-wordsInput.addEventListener("keydown", handle_keypress);
-
 function handle_keypress(keyevent) {
-  if (cursorBlinking) {
-    cursorBlinking = false;
+  if (test_started) {
+    startTime = Date.now();
+    test_started = false;
   }
 
   keyevent.preventDefault();
   const keypressed = keyevent.key;
 
+  // move to next word a space is typed
   if (keypressed === SPACE) {
-    // move to next word
-    if (active_word + 1 == words.length) {
-      words[active_word].classList.remove("active");
+    if (active_word + 1 == total_words) {
+      endTime = Date.now();
 
+      const milliseconds = endTime - startTime;
+      console.log(milliseconds);
+      console.log(`${(milliseconds / 1000).toFixed(1)}s`);
+      // enter this block after uses has typed all words
+      words[active_word].classList.remove("active");
       letters[active_letter].classList.remove("caret");
 
       wordsInput.removeEventListener("keydown", handle_keypress, false);
@@ -145,3 +142,26 @@ function handle_keypress(keyevent) {
     words[active_word].classList.add("incorrect");
   }
 }
+
+// Event Listeners
+wordsInput.addEventListener("keydown", handle_keypress);
+
+// function detect_os(userAgent) {
+//   if (userAgent.search("Mac") !== -1) {
+//     return "Mac";
+//   } else if (userAgent.search("Windows") !== -1) {
+//     return "Windows";
+//   } else if (
+//     userAgent.search("X11") !== -1 &&
+//     !(userAgent.search("Linux") !== -1)
+//   ) {
+//     return "Unix";
+//   } else if (
+//     userAgent.search("Linux") !== -1 &&
+//     !(userAgent.search("X11") !== -1)
+//   ) {
+//     return "Linux";
+//   }
+// }
+
+// let operating_system = detect_os(navigator.userAgent);

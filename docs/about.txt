@@ -1,11 +1,12 @@
 ABOUT THE PROJECT:
 
-	- There's a word tag which has letter tags which contains single alpanumeric
-		letters, the last letter tag in a word tag contains a non-breaking space.
+	- There's a word tag which has letter tags that contains single alpanumeric
+		symbol, the last letter tag in a word tag contains a non-breaking space.
 
 	- Each letter is given border left, at any given time only one of the letter
-		tags will have a differenct color and rest of them will have color which is
-		same as words container's background color.
+		tags will have a differenct color and rest of them will have same color and
+		this color will be same as words container's background color. This is how
+		cursor is emulated in this project.
 		
 				* words container's color === letters border left color
 
@@ -16,6 +17,7 @@ FEATURES TO BE IMPLEMENTED:
 	2. Option to to select the thickness of line cursor. 🔖
 	3. Divide caret into block, line, underline as individual css property. 🔖
 	4. Auto word generation 🔖
+	5. 
 
 
 
