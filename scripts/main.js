@@ -144,27 +144,27 @@ function handle_keypress(keyevent) {
     // Take caret to previous letter of the current word as long as there is a
     // letter before it.
     if (active_letter > 0) {
+
       letters[active_letter].classList.remove("caret");
       --active_letter;
       letters[active_letter].classList.add("caret");
-    }
-
-    // If caret is at first letter of current word then put the caret after last
-    // letter of previous word.
-    if (active_letter == 0 && active_word > 0) {
+      
+    } else if (active_letter == 0 && active_word > 0) {
+      // if caret is on first letter of the current word then, put caret on space
+      // character of previous word i.e, caret should appear after last 
+      // non-whitespace character of previous word.
 
       // remove caret and highlight color from current word
       letters[active_letter].classList.remove("caret");
       words[active_word].classList.remove("active");
 
       --active_word; // go to previous word
+      
       letters = words[active_word].children; // store letters of previous word
       words[active_word].classList.add("active"); // highlight the previous word
 
       active_letter = letters.length - 1; // point to last letter of previous word
 
-      // put caret on space character of previous word i.e, caret should appear
-      // after last non-whitespace character of previous word
       letters[active_letter].classList.add("caret");
     }
   } else  {
