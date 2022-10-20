@@ -1,32 +1,28 @@
 :root {
-  --wordsContainer_and_hidden-borderLeft__bg: white;
-  --caret__color: darkred;
-  --caret__width: 2px;
-  --caret__blinkTime: 1.5s;
+  --letter-border-left__color: white;
+  --thin-caret: 1px;
+  --thick-caret: 2px;
+  --caret__color: brown;
+  --caret__width: var(--thick-caret);
+  --caret__blink-time: 1.5s;
 
-  --text__color: black;
-  --active-word__color: darkcyan;
-  --incorrect-word__color: #da3333;
+  --active-word__color: black;
+  --incorrect-word__color: rgb(255, 61, 61);
 
-  --body-input__background: black;
+  --input__color: white;
+  --inputtag__color: var(--input__color);
+  --inputtag__background-color: var(--input__color);
 
-  --body__backgroundColor: var(--body-input__background);
-  --words-inputTag__color: var(--body-input__background);
-  --words-inputTag__backgroundColor: var(--body-input__background);
+  --letter__font-size: 1.4rem;
+  --letter__color: rgb(128, 127, 127);
 
-  --fontSize: 1.35rem;
+  --letter__font-weight__300: 300;
+  --letter__font-weight__400: 400;
+  --letter__font-weight__500: 500;
 
-  --fontWeight__300: 300;
-  --fontWeight__400: 400;
-  --fontWeight__500: 500;
-
-  --fontFamily__robotoMono: "Roboto Mono", sans-serif;
-  --fontFamily__firaCode: "Fira Code", monospace;
-  --fontFamily__nunito: "Nunito", sans-serif;
-}
-
-body {
-  background-color: var(--body__backgroundColor);
+  --letter__font-family__robotoMono: "Roboto Mono", sans-serif;
+  --letter__font-family__firaCode: "Fira Code", monospace;
+  --letter__font-family__nunito: "Nunito", sans-serif;
 }
 
 *,
@@ -60,36 +56,39 @@ input#wordsInput {
   border: none;
   outline: none;
 
-  color: var(--words-inputTag__color);
-  background-color: var(--words-inputTag__backgroundColor);
+  color: var(--inputtag__color);
+  background-color: var(--inputtag__background-color);
 }
 
 div.words {
-  background-color: var(--wordsContainer_and_hidden-borderLeft__bg);
+  background-color: var(--letter-border-left__color);
 
-  display: flex; /* fixes the extra space between letters */
-  justify-content: flex-start;
+  /* Keeps the words in a single lines */
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 
-  padding: 10px;
+  padding: 5px 0px;
+  border: 1px dashed black;
 }
 
 word {
-  color: var(--text__color);
-  display: flex; /* fixes the extra space between letters */
+  color: var(--letter__color);
+
+  /* fixes the extra space between letters */
+  display: flex;
   justify-content: flex-start;
 }
 
 letter {
-  font-size: var(--fontSize);
+  font-size: var(--letter__font-size);
+
+  padding: 0px;
+  margin: 0px;
 
   /* prevents change in letter width when caret moves along letters while typing */
-  border-left: var(--caret__width) solid
-    var(--wordsContainer_and_hidden-borderLeft__bg);
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
+  border-left: var(--caret__width) solid var(--letter-border-left__color);
 
-  font-family: var(--fontFamily__robotoMono);
-  font-weight: var(--fontWeight__400);
+  font-family: var(--letter__font-family__nunito);
+  font-weight: var(--letter__font-weight__400);
 }

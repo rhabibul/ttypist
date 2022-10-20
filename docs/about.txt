@@ -1,0 +1,24 @@
+DONE
+	- There's a word tag which has letter tags which contains single alpanumeric
+		letters, the last letter tag in a word tag contains a non-breaking space.
+
+	- Each letter is given border left, at any given time only one of the letter
+		tags will have a differenct color and rest of them will have color which is
+		same as words container's background color.
+		
+				* words container's color === letters border left color
+
+1. Option to select between different cursors. 🔖
+2. Option to to select the thickness of line cursor. 🔖
+3. Divide caret into block, line, underline as individual css property. 🔖
+4. Auto word generation 🔖
+
+
+
+Windows
+		ctrl + backspace	(clear one word)
+		alt  + backspace	(clear all words)
+
+Mac
+		opt + backspace 	(clear one word)
+		cmd + backspace		(clear all words)

@@ -6,7 +6,7 @@
   border-right: none;
 
   animation-name: cursorBlinkAnimation;
-  animation-duration: var(--caret__blinkTime);
+  animation-duration: var(--caret__blink-time);
   animation-timing-function: ease;
   animation-iteration-count: infinite;
 }
@@ -15,13 +15,9 @@
   0%,
   100% {
     border-left: var(--caret__width) solid var(--caret__color);
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
   }
 
   50% {
-    border-left: var(--caret__width) solid
-      var(--wordsContainer_and_hidden-borderLeft__bg);
+    border-left: var(--caret__width) solid var(--letter-border-left__color);
   }
 }
