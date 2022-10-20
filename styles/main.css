@@ -6,15 +6,15 @@
   --caret__width: var(--thick-caret);
   --caret__blink-time: 1.5s;
 
-  --active-word__color: black;
   --incorrect-word__color: rgb(255, 61, 61);
 
   --input__color: white;
   --inputtag__color: var(--input__color);
   --inputtag__background-color: var(--input__color);
 
+  --active-word__color: black;
+  --letter__color: rgb(187, 187, 187);
   --letter__font-size: 1.3rem;
-  --letter__color: rgb(128, 127, 127);
 
   --letter__font-weight__300: 300;
   --letter__font-weight__400: 400;
@@ -37,6 +37,16 @@ body {
   width: 100%;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.typist {
+  margin-top: 20px;
+}
+
 .active {
   color: var(--active-word__color);
 }
@@ -47,10 +57,13 @@ body {
 
 input#wordsInput {
   display: block;
+
   margin: 0px;
   padding: 0px;
-  width: 1em;
-  height: 1em;
+
+  width: 1px;
+  height: 1px;
+
   border: none;
   outline: none;
 
@@ -68,7 +81,9 @@ div.words {
   flex-wrap: wrap;
   row-gap: 2px;
 
-  border: 1px dashed black;
+  padding: 5px;
+  border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
 }
 
 word {
