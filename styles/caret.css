@@ -1,9 +1,9 @@
 /* line caret */
 .caret {
   border-left: var(--caret__width) solid var(--caret__color);
+  border-right: none;
   border-top: none;
   border-bottom: none;
-  border-right: none;
 
   animation-name: cursorBlinkAnimation;
   animation-duration: var(--caret__blink-time);
@@ -15,9 +15,15 @@
   0%,
   100% {
     border-left: var(--caret__width) solid var(--caret__color);
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
   }
 
   50% {
     border-left: var(--caret__width) solid var(--letter-border-left__color);
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
   }
 }

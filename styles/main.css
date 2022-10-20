@@ -13,7 +13,7 @@
   --inputtag__color: var(--input__color);
   --inputtag__background-color: var(--input__color);
 
-  --letter__font-size: 1.4rem;
+  --letter__font-size: 1.3rem;
   --letter__color: rgb(128, 127, 127);
 
   --letter__font-weight__300: 300;
@@ -21,8 +21,6 @@
   --letter__font-weight__500: 500;
 
   --letter__font-family__robotoMono: "Roboto Mono", sans-serif;
-  --letter__font-family__firaCode: "Fira Code", monospace;
-  --letter__font-family__nunito: "Nunito", sans-serif;
 }
 
 *,
@@ -63,32 +61,35 @@ input#wordsInput {
 div.words {
   background-color: var(--letter-border-left__color);
 
-  /* Keeps the words in a single lines */
+  /* Keeps the words in a single lines. */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-content: flex-start;
   flex-wrap: wrap;
+  row-gap: 2px;
 
-  padding: 5px 0px;
   border: 1px dashed black;
 }
 
 word {
   color: var(--letter__color);
 
-  /* fixes the extra space between letters */
+  /* Fixes the extra space between letters. */
   display: flex;
   justify-content: flex-start;
 }
 
 letter {
-  font-size: var(--letter__font-size);
-
   padding: 0px;
   margin: 0px;
 
   /* prevents change in letter width when caret moves along letters while typing */
   border-left: var(--caret__width) solid var(--letter-border-left__color);
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
 
-  font-family: var(--letter__font-family__nunito);
+  font-size: var(--letter__font-size);
   font-weight: var(--letter__font-weight__400);
+  font-family: var(--letter__font-family__robotoMono);
 }
