@@ -1,5 +1,4 @@
 ABOUT THE PROJECT:
-
 	- There's a word tag which has letter tags that contains single alpanumeric
 		symbol, the last letter tag in a word tag contains a non-breaking space.
 
@@ -12,12 +11,11 @@ ABOUT THE PROJECT:
 
 
 FEATURES TO BE IMPLEMENTED:
-
 	1. Option to select between different cursors. 🔖
 	2. Option to to select the thickness of line cursor. 🔖
 	3. Divide caret into block, line, underline as individual css property. 🔖
-	4. Auto word generation 🔖
-	5. 
+	4. Auto random word generation 🔖
+	5. Option to restart test without reloading page 🔖
 
 
 
@@ -30,7 +28,7 @@ FEATURES TO BE IMPLEMENTED:
 			cmd + backspace		(clear all words)
 
 
-Weird behaviours:
+WEIRD BEHAVIOURS:
 	- Sometimes when you type, the caret doesn't move?
 		It happens because you click somewhere or for any other action the focus is
 		removed input tag.

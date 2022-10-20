@@ -1,8 +1,3 @@
-// Next features
-// 1. add random english word generator
-// 2. option to reset everything without reloading the page
-
-const SPACE = " ";
 const speedtag = document.querySelector(".stats > .speed");
 const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
@@ -49,9 +44,9 @@ function handle_keypress(keyevent) {
 
   const keypressed = keyevent.key;
 
-  if (keypressed === SPACE) { // move to next word a space is typed
+  if (keypressed === SPACE) { // move to next word if a space is typed
 
-    if (active_word + 1 == totalWords) { // finished typing all words
+    if (active_word + 1 == totalWords) { // exit if finished typing all words
       endTime = Date.now();
 
       words[active_word].classList.remove("active");
@@ -64,21 +59,19 @@ function handle_keypress(keyevent) {
       return;
     }
 
-    // remove caret and color hightlight from current word
+    // remove caret and color highlight from current word
     letters[active_letter].classList.remove("caret");
     words[active_word].classList.remove("active");
 
-    ++active_word;
+    ++active_word; // move to next word
     letters = words[active_word].children; // store all letters of the next word
+    words[active_word].classList.add("active"); // highlight the next word
 
-    words[active_word].classList.add("active"); // make the next word active word
-
-    active_letter = 0; // reset active_letter to first letter for next word
-
+    active_letter = 0; // point active_letter to first letter of next word
+    
     letters[active_letter].classList.add("caret"); // put caret on first letter of the word
 
-  } else if (keypressed === letters[active_letter].textContent) {
-    // move the caret to next letter in the word
+  } else if (keypressed === letters[active_letter].textContent) { // move caret to next letter
     
     words[active_word].classList.remove("incorrect");
     letters[active_letter].classList.remove("caret");
