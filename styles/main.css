@@ -39,8 +39,26 @@ body {
 
 body {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.stats {
+  margin-top: 20px;
+  background-color: lightcyan;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  font-family: monospace;
+  font-size: 1.4rem;
+}
+.stats .label {
+  color: blue;
+}
+.stats .speed {
+  color: deeppink;
 }
 
 .typist {

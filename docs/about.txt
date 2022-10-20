@@ -6,17 +6,31 @@ ABOUT THE PROJECT:
 		tags will have a differenct color and rest of them will have same color and
 		this color will be same as words container's background color. This is how
 		cursor is emulated in this project.
-		
-				* words container's color === letters border left color
+				= words container's color EQUAL letters border left color
+	- 
 
 
 FEATURES TO BE IMPLEMENTED:
-	1. Option to select between different cursors. 🔖
-	2. Option to to select the thickness of line cursor. 🔖
-	3. Divide caret into block, line, underline as individual css property. 🔖
-	4. Auto random word generation 🔖
-	5. Option to restart test without reloading page 🔖
-
+	1. 	Option to select between different cursors. ❌
+	2. 	Option to to select the thickness of line cursor. ❌
+	3. 	Divide caret into block, line, underline as individual css property. ❌
+	4. 	Auto random word generation ❌
+	5. 	Option to restart test without reloading page ❌
+	6. 	Highlight mode
+			Change what is highlighted during the test --> letter❌ | word📌
+				- letter: Like keybr.com
+					= note: first add fade class then move cursor to next letter
+					= forgive errors me bus tum letter ko red kr k care ko aage badha do
+					  agar forgive error off hai to error letter ko insert karo, aur bina
+						us errored letter ko user backspace daba de clear nhi krta tabtak
+						caret ko aage mat badhana, user space dabai tab v nhi. jab sab error
+						clear krke user aage badhe toh jis letter k liye galat letter type
+						ki gai thi us letter ko red kr den aur caret ko aage badha dena.
+				- word: 	Like monkeytype.com
+				- in both scenarios we will insert error letters whenever it is typed.
+			Gather more information about letter & word highlight mode from keybr and
+			monkeytype (also from other websites).
+				
 
 
 	Windows
