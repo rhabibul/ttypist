@@ -28,3 +28,9 @@ FEATURES TO BE IMPLEMENTED:
 	Mac
 			opt + backspace 	(clear one word)
 			cmd + backspace		(clear all words)
+
+
+Weird behaviours:
+	- Sometimes when you type, the caret doesn't move?
+		It happens because you click somewhere or for any other action the focus is
+		removed input tag.
