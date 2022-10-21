@@ -33,28 +33,35 @@ function calculate_speed(startTime, endTime) {
   return Math.round(wpm);
 }
 
-function handle_keypress(keyevent) {
-
+function handleKeydown(keyevent) {
   keyevent.preventDefault();
 
-  if (test_started) { // start timers as soon as the first letter is typed
+  if (test_started) {
+    // start timers as soon as the first letter is typed
     startTime = Date.now();
     test_started = false;
   }
 
-  const keypressed = keyevent.key;
+  const keytyped = keyevent.key;
 
   // ===================== HIGHLIGHT MODE: Word =====================
-  
-  if (keypressed === ' ') { // move to next word if a space is typed
 
-    if (active_word + 1 == totalWords) { // exit if finished typing all words
+  // charCode is checked so that caret doesn't go to next word by just
+  // hitting space character
+  if (
+    keytyped === " " &&
+    letters[active_letter].textContent.charCodeAt(0) == 160
+  ) {
+    // move to next word if a space is typed
+
+    if (active_word + 1 == totalWords) {
+      // exit if finished typing all words
       endTime = Date.now();
 
       words[active_word].classList.remove("active");
       letters[active_letter].classList.remove("caret");
 
-      wordsInput.removeEventListener("keydown", handle_keypress, false);
+      wordsInput.removeEventListener("keydown", handleKeydown, false);
 
       let wpm = calculate_speed(startTime, endTime);
       speedtag.textContent = `${wpm}wpm`;
@@ -71,18 +78,15 @@ function handle_keypress(keyevent) {
 
     active_letter = 0; // point active_letter to first letter of next word
 
-    letters[active_letter].classList.add("caret"); // put caret on first letter of the word
+    letters[active_letter].classList.add("caret"); // put caret on 1st letter of the next word
 
-  } else if (keypressed === letters[active_letter].textContent) {
-    // CORRECTLY TYPED: Move caret to next letter
-
+  } else if ( keytyped === letters[active_letter].textContent ) {
+    // Move caret to next letter
     words[active_word].classList.remove("incorrect");
     letters[active_letter].classList.remove("caret");
-
     ++active_letter;
-
     letters[active_letter].classList.add("caret");
-  } else if (keyevent.metaKey && keypressed == "Backspace") {
+  } else if (keyevent.metaKey && keytyped == "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
 
@@ -106,8 +110,8 @@ function handle_keypress(keyevent) {
     words[active_word].classList.add("active");
     letters[active_letter].classList.add("caret");
   } else if (
-    (keyevent.altKey && keypressed == "Backspace") ||
-    (keyevent.ctrlKey && keypressed == "Backspace")
+    (keyevent.altKey && keytyped == "Backspace") ||
+    (keyevent.ctrlKey && keytyped == "Backspace")
   ) {
     // (alt + backspace) || (opt + backspace)
     // clear one word at a time putting caret at first letter of previous word
@@ -137,8 +141,7 @@ function handle_keypress(keyevent) {
 
     // set caret to first letter of the current word
     letters[active_letter].classList.add("caret");
-
-  } else if (keypressed == "Backspace") {
+  } else if (keytyped == "Backspace") {
     // BACKSPACE: Take caret one letter back.
 
     words[active_word].classList.remove("incorrect");
@@ -146,14 +149,12 @@ function handle_keypress(keyevent) {
     // Take caret to previous letter of the current word as long as there is a
     // letter before it.
     if (active_letter > 0) {
-
       letters[active_letter].classList.remove("caret");
       --active_letter;
       letters[active_letter].classList.add("caret");
-      
     } else if (active_letter == 0 && active_word > 0) {
       // if caret is on first letter of the current word then, put caret on space
-      // character of previous word i.e, caret should appear after last 
+      // character of previous word i.e, caret should appear after last
       // non-whitespace character of previous word.
 
       // remove caret and highlight color from current word
@@ -169,31 +170,11 @@ function handle_keypress(keyevent) {
 
       letters[active_letter].classList.add("caret");
     }
-  } else  {
+  } else {
     // INCORRECTLY TYPED: Inserted the wrongly typed letter
     words[active_word].classList.add("incorrect");
   }
 }
 
 // Event Listeners
-wordsInput.addEventListener("keydown", handle_keypress);
-
-// function detect_os(userAgent) {
-//   if (userAgent.search("Mac") !== -1) {
-//     return "Mac";
-//   } else if (userAgent.search("Windows") !== -1) {
-//     return "Windows";
-//   } else if (
-//     userAgent.search("X11") !== -1 &&
-//     !(userAgent.search("Linux") !== -1)
-//   ) {
-//     return "Unix";
-//   } else if (
-//     userAgent.search("Linux") !== -1 &&
-//     !(userAgent.search("X11") !== -1)
-//   ) {
-//     return "Linux";
-//   }
-// }
-
-// let operating_system = detect_os(navigator.userAgent);
+wordsInput.addEventListener("keydown", handleKeydown);

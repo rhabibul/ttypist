@@ -37,15 +37,26 @@ FEATURES TO BE IMPLEMENTED:
 
 
 	Windows
-			ctrl + backspace	(clear one word)
-			alt  + backspace	(clear all words)
+			ctrl + backspace	(clear one word)  ✅
+			alt  + backspace	(clear all words) ✅
 
 	Mac
-			opt + backspace 	(clear one word)
-			cmd + backspace		(clear all words)
+			opt + backspace 	(clear one word) ✅
+			cmd + backspace		(clear all words)✅
 
 
 WEIRD BEHAVIOURS:
 	- Sometimes when you type, the caret doesn't move?
 		It happens because you click somewhere or for any other action the focus is
 		removed input tag.
+	
+
+Note:
+		&nbsp; and &#160; is non-breaking space
+		&#32; is ascii space character (ascii value: 32)
+
+		letters[active_letter].textContent for the letter which contains &nbsp; 
+		returnsa string of length 1, 160 is return if we get the value of &nbsp; 
+		using charCodeAt() method
+
+		therefore we need to map 160 to 32 i.e, &nbsp; to space character.
