@@ -4,7 +4,9 @@
   border-right: none;
   border-top: none;
   border-bottom: none;
+}
 
+.blink {
   animation-name: cursorBlinkAnimation;
   animation-duration: var(--caret__blink-time);
   animation-timing-function: ease;

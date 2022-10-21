@@ -1,3 +1,17 @@
 1. 	Avoiding caret blinking for letters other than first letter.
 				- just add animation properties to first letter.
 				- as soon as a key is pressed remove the animation property.
+
+		Implementation ✅
+				- Firstly don't have 'caret' class on first letter of first word then 'blink' 
+					class do the job of adding it.
+				- remove the 'blink' class as soon as the user types his/her first letter.
+				- when user hits (cmd + backspace) then add the 'blink' class again.
+				- when user goes to first letter of first word by hitting (ctrl + backspace)
+					or (opt/alt + backspace) then add 'blink' class again.
+				- when user uses his/her backspace key to go all the way to first letter 
+				 	of first word then add a 'blink' caret again.
+				
+				Issue
+						- the blinking caret vanishes away when we hit an incorrect letter
+							also so debug it later.

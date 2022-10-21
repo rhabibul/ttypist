@@ -3,18 +3,13 @@ const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
 const totalWords = words.length;
 
-let totalCharacters = 0;
-
-for (let word of words) {
-  totalCharacters += word.children.length;
-}
-
 class Stack {
+  #word;
   constructor() {
     this.#word = new Array();
   }
   push(element) {
-    this.word.push(element);
+    this.#word.push(element);
   }
   pop() {
     let letter = this.#word.pop();
@@ -24,10 +19,11 @@ class Stack {
     return this.#word.length == 0;
   }
   top() {
-    if ( this.empty() ) return -1;
+    if (this.empty()) return -1;
     return this.#word[this.#word.length - 1];
   }
 }
+
 
 let active_word = 0;
 let active_letter = 0;
@@ -35,20 +31,35 @@ let active_letter = 0;
 let test_started = true;
 let startTime = 0;
 let endTime = 0;
+let caret_blinking = true;
 
 let letters = words[active_word].children; // store letters of first word
+letters[active_word].classList.add('blink'); // add a blinking caret to first letter of first word
+
+function total_characters(words) {
+  let chars = 0;
+  for (let word of words) {
+    chars += word.children.length;
+  }
+  return chars;
+}
 
 function calculate_speed(startTime, endTime) {
 
-  const totalSeconds = (endTime - startTime) / 1000;
-  const totalWordsTyped = totalCharacters / 5;
-  const wpm = (totalWordsTyped / totalSeconds) * 60;
+  const sec = (endTime - startTime) / 1000;
+  const wordsTyped = (total_characters(words) / 5);
+  const wpm = (wordsTyped / sec) * 60;
 
   return Math.round(wpm);
 }
 
 function handleKeydown(keyevent) {
   keyevent.preventDefault();
+
+  if ( caret_blinking ) {
+    letters[active_letter].classList.remove('blink');
+    caret_blinking = false;
+  }
 
   if (test_started) {
     // start timers as soon as the first letter is typed
@@ -68,7 +79,7 @@ function handleKeydown(keyevent) {
   ) {
     // move to next word if a space is typed
 
-    if (active_word + 1 == totalWords) {
+    if (active_word + 1 === totalWords) {
       // exit if finished typing all words
       endTime = Date.now();
 
@@ -100,7 +111,7 @@ function handleKeydown(keyevent) {
     letters[active_letter].classList.remove("caret");
     ++active_letter;
     letters[active_letter].classList.add("caret");
-  } else if (keyevent.metaKey && keytyped == "Backspace") {
+  } else if (keyevent.metaKey && keytyped === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
 
@@ -113,38 +124,38 @@ function handleKeydown(keyevent) {
       words[i].classList.remove("incorrect");
     }
 
-    // reseet variables to initial state
+    // reset variables to initial state
     active_letter = 0;
     active_word = 0;
 
     // store letters of the first word
     letters = words[active_word].children;
 
-    // highlight first word & set care to first letter of first word
-    words[active_word].classList.add("active");
-    letters[active_letter].classList.add("caret");
+    words[active_word].classList.add("active"); // highlight first word
+    
+    caret_blinking = true;
+    letters[active_letter].classList.add("blink"); // add blinking caret to first letter of first word
   } else if (
-    (keyevent.altKey && keytyped == "Backspace") ||
-    (keyevent.ctrlKey && keytyped == "Backspace")
+    (keyevent.altKey && keytyped === "Backspace") ||
+    (keyevent.ctrlKey && keytyped === "Backspace")
   ) {
     // (alt + backspace) || (opt + backspace)
     // clear one word at a time putting caret at first letter of previous word
 
     // if care is already at first letter of a word and user then go back
     // to previous word
-    if (active_letter == 0 && active_word > 0) {
+    if (active_letter === 0 && active_word > 0) {
       // remove incorrect or active highlight as well as caret from current word
       words[active_word].classList.remove("incorrect");
       letters[active_letter].classList.remove("caret");
       words[active_word].classList.remove("active");
 
-      if (active_word > 0) {
-        --active_word;
+      --active_word;
 
-        words[active_word].classList.add("active"); // highlight previous word
-        letters = words[active_word].children; // store letters of previous word
-        letters[active_letter].classList.add("caret"); // add caret to first letter
-      }
+      words[active_word].classList.add("active"); // highlight previous word
+      letters = words[active_word].children; // store letters of previous word
+      letters[active_letter].classList.add("caret"); // add caret to first letter
+
     }
 
     // remove caret & highlight color from current word
@@ -153,9 +164,13 @@ function handleKeydown(keyevent) {
 
     active_letter = 0; // point to first letter of current word
 
-    // set caret to first letter of the current word
-    letters[active_letter].classList.add("caret");
-  } else if (keytyped == "Backspace") {
+    if ( active_word === 0 ) {
+      caret_blinking = true;
+      letters[active_letter].classList.add("blink"); // add a blinking caret to first letter of first word
+    } else {
+      letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
+    }
+  } else if (keytyped === "Backspace") {
     // BACKSPACE: Take caret one letter back.
 
     words[active_word].classList.remove("incorrect");
@@ -166,7 +181,7 @@ function handleKeydown(keyevent) {
       letters[active_letter].classList.remove("caret");
       --active_letter;
       letters[active_letter].classList.add("caret");
-    } else if (active_letter == 0 && active_word > 0) {
+    } else if (active_letter === 0 && active_word > 0) {
       // if caret is on first letter of the current word then, put caret on space
       // character of previous word i.e, caret should appear after last
       // non-whitespace character of previous word.
@@ -182,8 +197,11 @@ function handleKeydown(keyevent) {
 
       active_letter = letters.length - 1; // point to last letter of previous word
 
-      letters[active_letter].classList.add("caret");
-    }
+      letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
+    } else if (active_letter === 0 && active_word === 0) {
+      caret_blinking = true;
+      letters[active_letter].classList.add("blink"); // add a blinking caret to first letter of first word
+    } 
   } else {
     // INCORRECTLY TYPED: Inserted the wrongly typed letter
     words[active_word].classList.add("incorrect");
