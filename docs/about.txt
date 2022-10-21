@@ -32,7 +32,7 @@ FEATURES TO BE IMPLEMENTED:
 			monkeytype (also from other websites).
 
 	7. 	If a user hits alt, opt, ctrl, meta or shift key then we should not count
-		 	as error and avoiding giving an error highlight to the word/letter.
+		 	it as error and avoiding giving an error highlight to the word/letter.
 				
 
 

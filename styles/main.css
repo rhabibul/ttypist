@@ -3,10 +3,11 @@
   --thin-caret: 1px;
   --thick-caret: 2px;
   --caret__color: brown;
-  --caret__width: var(--thick-caret);
+  --caret__width: var(--thin-caret);
   --caret__blink-time: 1.5s;
 
-  --incorrect-word__color: rgb(255, 61, 61);
+  --incorrect-word__color: red;
+  --incorrect-letter__color: hsl(0, 100%, 35%);
 
   --input__color: white;
   --inputtag__color: var(--input__color);
@@ -71,6 +72,10 @@ body {
 
 .incorrect {
   color: var(--incorrect-word__color);
+}
+
+.error {
+  color: var(--incorrect-letter__color);
 }
 
 input#wordsInput {

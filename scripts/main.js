@@ -44,6 +44,8 @@ function handle_keypress(keyevent) {
 
   const keypressed = keyevent.key;
 
+  // ===================== HIGHLIGHT MODE: Word =====================
+  
   if (keypressed === ' ') { // move to next word if a space is typed
 
     if (active_word + 1 == totalWords) { // exit if finished typing all words
@@ -159,7 +161,7 @@ function handle_keypress(keyevent) {
       words[active_word].classList.remove("active");
 
       --active_word; // go to previous word
-      
+
       letters = words[active_word].children; // store letters of previous word
       words[active_word].classList.add("active"); // highlight the previous word
 
