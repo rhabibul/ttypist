@@ -22,7 +22,16 @@ class Stack {
     if (this.empty()) return -1;
     return this.#word[this.#word.length - 1];
   }
+  get length() {
+    return this.#word.length;
+  }
 }
+
+let errorsOfWord = new Array(totalWords);
+let errorCountOfWord = new Array(totalWords);
+
+errorsOfWord.fill(new Stack());
+errorCountOfWord.fill(0);
 
 let active_word = 0;
 let active_letter = 0;
@@ -192,6 +201,30 @@ function handleKeydown(keyevent) {
   } else {
     // INCORRECTLY TYPED: Inserted the wrongly typed letter
     words[active_word].classList.add("incorrect");
+
+    let cnt = errorCountOfWord[active_word]; // used for accessing second last element in stack
+    ++errorCountOfWord[active_word];
+    let error_id = `extra-${errorCountOfWord[active_word]}`;
+    let error_letter = document.createElement('letter');
+    error_letter.classList.add('error');
+    error_letter.id = error_id;
+    error_letter.style.textDecoration = 'underline';
+
+    if ( keytyped === ' ' ) {
+      error_letter.innerHTML = 'ᐧ';
+    } else {
+      error_letter.textContent = keytyped;
+    }
+
+    errorsOfWord[active_word].push(error_id);
+    
+    if ( errorsOfWord[active_word].length == 1 ) {
+      letters[active_letter].insertAdjacentElement('beforebegin', error_letter);
+      
+    } else {
+      let previousErrorLetter = document.getElementById(`extra-${cnt}`);
+      previousErrorLetter.insertAdjacentElement('afterend', error_letter);
+    }
   }
 }
 

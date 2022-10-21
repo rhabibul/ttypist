@@ -53,8 +53,14 @@ FEATURES TO BE IMPLEMENTED:
 					when the user hits backspace, pop an element from the stack find that
 					letter in the word using its id and delete it. the cursor should not
 					move.
-		9. 	Only first letter has blinking cursor i.e, as soon as the user starts
-				typing the caret stops blinking.
+
+		9. 	while pressing ctrl/alt/opt + backspace the caret should be put after 
+				these ({[]}),.;:'"`~!@#$%^&*/?<> symbols 
+
+				for example use ctrl+bs or opt+bs on this string which contains 
+				all these symbols.
+				~adf`adf!adf@ad#adf$adf%adfd^dfd&adfds*dfa(dfadsf)dfsd-dsf_dfdf=sdfasf+dfa{dfsf[dfsdf}dsfsaf]sfsdf\dfds|dfsad’f”sdfds;sdffd:dfasdf/sdf?df.sdf>fdsf,sdf<adf
+
 
 	Windows
 			ctrl + backspace	(clear one word)  ✅
