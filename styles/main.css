@@ -6,7 +6,7 @@
   --caret__width: var(--thin-caret);
   --caret__blink-time: 1.1s;
 
-  --incorrect-word__color: red;
+  --incorrect-word__color: deeppink;
   --incorrect-letter__color: hsl(0, 88%, 29%);
 
   --input__color: white;
@@ -46,19 +46,13 @@ body {
 }
 .stats {
   margin-top: 20px;
-  background-color: lightcyan;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 250px;
+  width: 150px;
   height: 50px;
   font-family: monospace;
-  font-size: 1.4rem;
-}
-.stats .label {
-  color: blue;
-}
-.stats .speed {
+  font-size: 1.6rem;
   color: deeppink;
 }
 

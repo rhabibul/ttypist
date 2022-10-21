@@ -27,9 +27,9 @@ class Stack {
 let active_word = 0;
 let active_letter = 0;
 
-let test_started = true;
-let startTime = 0;
-let endTime = 0;
+let testStarted = true;
+let testStartTime = 0;
+let testEndTime = 0;
 
 // store letters of first word
 let letters = words[active_word].children; 
@@ -44,9 +44,9 @@ function total_characters(words) {
   return chars;
 }
 
-function calculate_speed(startTime, endTime) {
+function calculate_speed(testStartTime, testEndTime) {
 
-  const sec = (endTime - startTime) / 1000;
+  const sec = (testEndTime - testStartTime) / 1000;
   const wordsTyped = (total_characters(words) / 5);
   const wpm = (wordsTyped / sec) * 60;
 
@@ -56,10 +56,10 @@ function calculate_speed(startTime, endTime) {
 function handleKeydown(keyevent) {
   keyevent.preventDefault();
 
-  if (test_started) {
+  if (testStarted) {
     // start timers as soon as the first letter is typed
-    startTime = Date.now();
-    test_started = false;
+    testStartTime = Date.now();
+    testStarted = false;
   }
 
   const keytyped = keyevent.key;
@@ -76,14 +76,14 @@ function handleKeydown(keyevent) {
 
     if (active_word + 1 === totalWords) {
       // exit if finished typing all words
-      endTime = Date.now();
+      testEndTime = Date.now();
 
       words[active_word].classList.remove("active");
       letters[active_letter].classList.remove("caret");
 
       wordsInput.removeEventListener("keydown", handleKeydown, false);
 
-      let wpm = calculate_speed(startTime, endTime);
+      let wpm = calculate_speed(testStartTime, testEndTime);
       speedtag.textContent = `${wpm}wpm`;
       return;
     }
