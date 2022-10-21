@@ -3,11 +3,11 @@
   --thin-caret: 1px;
   --thick-caret: 2px;
   --caret__color: brown;
-  --caret__width: var(--thin-caret);
-  --caret__blink-time: 1.5s;
+  --caret__width: var(--thick-caret);
+  --caret__blink-time: 1.1s;
 
   --incorrect-word__color: red;
-  --incorrect-letter__color: hsl(0, 100%, 35%);
+  --incorrect-letter__color: hsl(0, 88%, 29%);
 
   --input__color: white;
   --inputtag__color: var(--input__color);

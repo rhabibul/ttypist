@@ -15,3 +15,8 @@
 				Issue
 						- the blinking caret vanishes away when we hit an incorrect letter
 							also so debug it later.
+				
+				Alternate Solution 🌟
+						- You could have set animation-delay property.
+						- This way you would have emulated the same behaviour as 
+							VS Code's caret.

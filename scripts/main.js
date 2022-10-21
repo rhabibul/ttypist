@@ -24,7 +24,6 @@ class Stack {
   }
 }
 
-
 let active_word = 0;
 let active_letter = 0;
 
