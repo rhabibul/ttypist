@@ -54,7 +54,7 @@ FEATURES TO BE IMPLEMENTED:
 					letter in the word using its id and delete it. the cursor should not
 					move.
 		9. 	Only first letter has blinking cursor i.e, as soon as the user starts
-				typing the caret stops blinking
+				typing the caret stops blinking.
 
 	Windows
 			ctrl + backspace	(clear one word)  ✅

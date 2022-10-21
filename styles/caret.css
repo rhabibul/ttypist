@@ -1,31 +1,21 @@
 /* line caret */
 .caret {
-  border-left: var(--caret__width) solid var(--caret__color);
-  border-right: none;
-  border-top: none;
-  border-bottom: none;
-}
+  border-left-color: var(--caret__color);
 
-.blink {
-  animation-name: cursorBlinkAnimation;
+  animation-name: blinkingCaret;
   animation-duration: var(--caret__blink-time);
   animation-timing-function: ease;
+  animation-delay: 1.5s;
   animation-iteration-count: infinite;
 }
 
-@keyframes cursorBlinkAnimation {
+@keyframes blinkingCaret {
   0%,
   100% {
-    border-left: var(--caret__width) solid var(--caret__color);
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
+    border-left-color: var(--caret__color);
   }
 
   50% {
-    border-left: var(--caret__width) solid var(--letter-border-left__color);
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
+    border-left-color: var(--letter-border-left__color);
   }
 }

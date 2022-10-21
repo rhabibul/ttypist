@@ -2,8 +2,8 @@
   --letter-border-left__color: white;
   --thin-caret: 1px;
   --thick-caret: 2px;
-  --caret__color: brown;
-  --caret__width: var(--thick-caret);
+  --caret__color: red;
+  --caret__width: var(--thin-caret);
   --caret__blink-time: 1.1s;
 
   --incorrect-word__color: red;
@@ -15,7 +15,7 @@
 
   --active-word__color: black;
   --letter__color: rgb(187, 187, 187);
-  --letter__font-size: 1.3rem;
+  --letter__font-size: 1rem;
 
   --letter__font-weight__300: 300;
   --letter__font-weight__400: 400;
@@ -121,13 +121,16 @@ letter {
   padding: 0px;
   margin: 0px;
 
-  /* prevents change in letter width when caret moves along letters while typing */
-  border-left: var(--caret__width) solid var(--letter-border-left__color);
-  border-right: none;
   border-top: none;
   border-bottom: none;
+  border-right: none;
+
+  /* prevents change in letter width when caret moves along letters while typing */
+  border-left-color: var(--letter-border-left__color);
+  border-left-width: var(--caret__width);
+  border-left-style: solid;
 
   font-size: var(--letter__font-size);
-  font-weight: var(--letter__font-weight__400);
+  font-weight: var(--letter__font-weight__300);
   font-family: var(--letter__font-family__robotoMono);
 }

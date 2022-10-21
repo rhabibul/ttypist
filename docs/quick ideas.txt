@@ -2,7 +2,7 @@
 				- just add animation properties to first letter.
 				- as soon as a key is pressed remove the animation property.
 
-		Implementation ✅
+		Implementation ❌ (dumped this solution & used the alternate solution)
 				- Firstly don't have 'caret' class on first letter of first word then 'blink' 
 					class do the job of adding it.
 				- remove the 'blink' class as soon as the user types his/her first letter.
@@ -16,7 +16,6 @@
 						- the blinking caret vanishes away when we hit an incorrect letter
 							also so debug it later.
 				
-				Alternate Solution 🌟
-						- You could have set animation-delay property.
-						- This way you would have emulated the same behaviour as 
-							VS Code's caret.
+				Alternate Solution ✅
+						- You can set animation-delay property.
+						- This way you will emulate the same behaviour as VSCode's caret.
