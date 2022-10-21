@@ -8,12 +8,26 @@ let totalCharacters = 0;
 for (let word of words) {
   totalCharacters += word.children.length;
 }
-// 1 word = 5 characters
-// 93 / 5 = 18.6 => 19 words of length 5
-//
-// 14s = 19 words
-// 1s = 19/14 words
-// 60s = 19/14 * 60 => 81wpm
+
+class Stack {
+  constructor() {
+    this.#word = new Array();
+  }
+  push(element) {
+    this.word.push(element);
+  }
+  pop() {
+    let letter = this.#word.pop();
+    return letter;
+  }
+  empty() {
+    return this.#word.length == 0;
+  }
+  top() {
+    if ( this.empty() ) return -1;
+    return this.#word[this.#word.length - 1];
+  }
+}
 
 let active_word = 0;
 let active_letter = 0;

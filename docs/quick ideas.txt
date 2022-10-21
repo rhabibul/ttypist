@@ -1,0 +1,3 @@
+1. 	Avoiding caret blinking for letters other than first letter.
+				- just add animation properties to first letter.
+				- as soon as a key is pressed remove the animation property.

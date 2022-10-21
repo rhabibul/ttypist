@@ -18,22 +18,41 @@ FEATURES TO BE IMPLEMENTED:
 	5. 	Option to restart test without reloading page ❌
 	6. 	Highlight mode
 			Change what is highlighted during the test --> letter❌ | word📌
-				- letter: Like keybr.com
+				- letter: (keybr + monkeytype)
 					= note: first add fade class then move cursor to next letter
-					= forgive errors me bus tum letter ko red kr k care ko aage badha do
+					= forgive errors me bus tum letter ko red kr k caret ko aage badha do
 					  agar forgive error off hai to error letter ko insert karo, aur bina
 						us errored letter ko user backspace daba de clear nhi krta tabtak
 						caret ko aage mat badhana, user space dabai tab v nhi. jab sab error
 						clear krke user aage badhe toh jis letter k liye galat letter type
 						ki gai thi us letter ko red kr den aur caret ko aage badha dena.
-				- word: 	Like monkeytype.com
-				- in both scenarios we will insert error letters whenever it is typed.
-			Gather more information about letter & word highlight mode from keybr and
-			monkeytype (also from other websites).
+
+				- word: (monkeytype)
+					 	a. if letter correctly typed then move caret forward by one letter.
+						b. if wrong letter typed then insert it with darkred color in-between
+							 or after the current word it its typed after the last non-whitespace
+							 character (letters.length - 1)
+						
+				- in both scenarios we will insert error letters whenever it is typed
 
 	7. 	If a user hits alt, opt, ctrl, meta or shift key then we should not count
 		 	it as error and avoiding giving an error highlight to the word/letter.
-				
+
+	8. 	Error collection
+					Array of word = [w1, w2, ... ,wN]
+					Array of stack = [stack1, stack2, ... ,stackN]
+
+					stack: ✅
+							- empty: determine if stack is empty or not
+							-  push: an error letter
+							-   pop: delete the top error letter and return it
+							-   top: view the top error letter
+					
+					give an id to each error letter of the word, then push it on the stack
+					for that particular word.
+					when the user hits backspace, pop an element from the stack find that
+					letter in the word using its id and delete it. the cursor should not
+					move.
 
 
 	Windows
@@ -60,3 +79,10 @@ Note:
 		using charCodeAt() method
 
 		therefore we need to map 160 to 32 i.e, &nbsp; to space character.
+
+Speed:
+		1 word = 5 characters
+		93 / 5 = 18.6 => 19 words of length 5
+		14s = 19 words
+		1s = 19/14 words
+		60s = 19/14 * 60 => 81wpm
