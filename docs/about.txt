@@ -93,3 +93,18 @@ Speed:
 		14s = 19 words
 		1s = 19/14 words
 		60s = 19/14 * 60 => 81wpm
+
+
+WHAT I WANT:
+		- Use only:
+				- keydown, keyup
+				- keyboardevent.code, keyboardevent.key
+		- &nbsp;/&#160; is a non-break whitespace and not a space character (ascii: 32)
+			its code is 160
+		- caret moves as the user types
+		- backspace works as normal (like normal texteditor)
+		- (alt + backspace), (opt + backspace), (ctrl + backspace)
+					- All these key combinations work the same as it works in a texteditor
+					- Also have same behaviour for these special symbols:
+						~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+		- there should be two highlight modes: letter | word
