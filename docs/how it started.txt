@@ -112,12 +112,12 @@ WHAT I WANT:
 		- backspace should work like normal texteditor, it should clear letters
 			all the way to first letter of first word if the user keeps on hitting backspace.
 			
-		- alt + backspace | opt + backspace | ctrl + backspace
+		- [alt + bs], [opt + bs], [ctrl + bs]
 				- All these key combinations should work the same way as it works in 
 					a texteditor i.e, clear an entire word and put the caret at the 
 					first letter of thecurrent word.
-				- Also have same behaviour for these special symbols when using these
-					key combinations.
+				- Also have special behaviour for these special symbols when using these
+					key combinations i.e, caret should stop before these symbols.
 					~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
 					
 		- hightlight modes

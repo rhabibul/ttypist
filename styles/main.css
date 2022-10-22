@@ -2,20 +2,22 @@
   --letter-border-left__color: white;
   --thin-caret: 1px;
   --thick-caret: 2px;
-  --caret__color: black;
+  --caret__color: red;
   --caret__width: var(--thin-caret);
-  --caret__blink-time: 1.1s;
+  --caret__blinkTime: 1.1s;
 
   --incorrect-word__color: red;
-  --incorrect-letter__color: brown;
+  --incorrect-letter__color: rgb(152, 28, 28);
 
   --input__color: white;
   --inputtag__color: var(--input__color);
   --inputtag__background-color: var(--input__color);
 
-  --active-word__color: rgb(149, 149, 149);
-  --letter__color: black;
-  --letter__font-size: 1rem;
+  --line-gap: 5px;
+
+  --active-word__color: black;
+  --letter__color: rgb(149, 149, 149);
+  --letter__font-size: 1.2rem;
 
   --letter__font-weight__300: 300;
   --letter__font-weight__400: 400;
@@ -46,8 +48,8 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-.stats {
-  margin-top: 20px;
+
+.speed {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,19 +61,10 @@ body {
 }
 
 .typist {
-  margin-top: 20px;
-}
+  width: 100%;
 
-.active {
-  color: var(--active-word__color);
-}
-
-.incorrect {
-  color: var(--incorrect-word__color);
-}
-
-.error {
-  color: var(--incorrect-letter__color);
+  display: grid;
+  place-items: center;
 }
 
 input#wordsInput {
@@ -90,7 +83,7 @@ input#wordsInput {
   background-color: var(--inputtag__background-color);
 }
 
-div.words {
+div.words_container {
   background-color: var(--letter-border-left__color);
 
   /* Keeps the words in a single lines. */
@@ -98,14 +91,15 @@ div.words {
   justify-content: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
-  row-gap: 2px;
+  row-gap: var(--line-gap);
 
-  padding: 5px;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  padding-left: 5px;
 }
 
 word {
+  padding: 0px;
+  margin: 0px;
+
   color: var(--letter__color);
 
   /* Fixes the extra space between letters. */
@@ -114,6 +108,8 @@ word {
 }
 
 letter {
+  /* text-decoration-thickness: 1px; */
+
   padding: 0px;
   margin: 0px;
 
@@ -129,4 +125,16 @@ letter {
   font-size: var(--letter__font-size);
   font-weight: var(--letter__font-weight__300);
   font-family: var(--letter__font-family__robotoMono);
+}
+
+.active {
+  color: var(--active-word__color);
+}
+
+.incorrect {
+  color: var(--incorrect-word__color);
+}
+
+.error {
+  color: var(--incorrect-letter__color);
 }

@@ -1,4 +1,4 @@
-const speedtag = document.querySelector(".stats > .speed");
+const speedtag = document.querySelector(".speed");
 const wordsInput = document.querySelector("#wordsInput");
 const words = document.getElementsByTagName("word");
 const totalWords = words.length;
@@ -42,8 +42,6 @@ let testEndTime = 0;
 
 // store letters of first word
 let letters = words[active_word].children; 
-
-letters[active_word].classList.add('caret'); 
 
 function total_characters(words) {
   let chars = 0;
@@ -107,12 +105,14 @@ function handleKeydown(keyevent) {
 
     letters[active_letter].classList.add("caret"); // put caret on first letter of the next word
 
-  } else if ( keytyped === letters[active_letter].textContent ) {
-    // Move caret to next letter
+  } else if ( keytyped === letters[active_letter].textContent ) { // Move caret to next letter
+    
     words[active_word].classList.remove("incorrect");
     letters[active_letter].classList.remove("caret");
+  
     ++active_letter;
     letters[active_letter].classList.add("caret");
+
   } else if (keyevent.metaKey && keytyped === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
@@ -200,29 +200,29 @@ function handleKeydown(keyevent) {
     // INCORRECTLY TYPED: Inserted the wrongly typed letter
     words[active_word].classList.add("incorrect");
 
-    let cnt = errorCountOfWord[active_word]; // used for accessing second last element in stack
-    ++errorCountOfWord[active_word];
-    let error_id = `extra-${errorCountOfWord[active_word]}`;
-    let error_letter = document.createElement('letter');
-    error_letter.classList.add('error');
-    error_letter.id = error_id;
-    // error_letter.style.textDecoration = 'underline';
+    // let cnt = errorCountOfWord[active_word]; // used for accessing second last element in stack
+    // ++errorCountOfWord[active_word];
+    // let error_id = `extra-${errorCountOfWord[active_word]}`;
+    // let error_letter = document.createElement('letter');
+    // error_letter.classList.add('error');
+    // error_letter.id = error_id;
+    // // error_letter.style.textDecoration = 'underline';
 
-    if ( keytyped === ' ' ) {
-      error_letter.innerHTML = "•";
-    } else {
-      error_letter.textContent = keytyped;
-    }
+    // if ( keytyped === ' ' ) {
+    //   error_letter.innerHTML = "•";
+    // } else {
+    //   error_letter.textContent = keytyped;
+    // }
 
-    errorsOfWord[active_word].push(error_id);
+    // errorsOfWord[active_word].push(error_id);
     
-    if ( errorsOfWord[active_word].length == 1 ) {
-      letters[active_letter].insertAdjacentElement('beforebegin', error_letter);
+    // if ( errorsOfWord[active_word].length == 1 ) {
+    //   letters[active_letter].insertAdjacentElement('beforebegin', error_letter);
       
-    } else {
-      let previousErrorLetter = document.getElementById(`extra-${cnt}`);
-      previousErrorLetter.insertAdjacentElement('afterend', error_letter);
-    }
+    // } else {
+    //   let previousErrorLetter = document.getElementById(`extra-${cnt}`);
+    //   previousErrorLetter.insertAdjacentElement('afterend', error_letter);
+    // }
   }
 }
 

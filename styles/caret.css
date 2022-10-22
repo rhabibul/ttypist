@@ -3,7 +3,7 @@
   border-left-color: var(--caret__color);
 
   animation-name: blinkingCaret;
-  animation-duration: var(--caret__blink-time);
+  animation-duration: var(--caret__blinkTime);
   animation-timing-function: ease;
   animation-delay: 1.5s;
   animation-iteration-count: infinite;
