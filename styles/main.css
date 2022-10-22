@@ -60,18 +60,13 @@ body {
   color: deeppink;
 }
 
-.typist {
-  width: 100%;
-
-  display: grid;
-  place-items: center;
-}
-
 input#wordsInput {
   display: block;
 
   margin: 0px;
   padding: 0px;
+
+  color: black;
 
   width: 1px;
   height: 1px;
@@ -83,7 +78,14 @@ input#wordsInput {
   background-color: var(--inputtag__background-color);
 }
 
-div.words_container {
+.typist {
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+div.words {
   background-color: var(--letter-border-left__color);
 
   /* Keeps the words in a single lines. */
