@@ -15,7 +15,7 @@
 
   --active-word__color: rgb(149, 149, 149);
   --letter__color: black;
-  --letter__font-size: 1.2rem;
+  --letter__font-size: 1rem;
 
   --letter__font-weight__300: 300;
   --letter__font-weight__400: 400;
@@ -128,7 +128,5 @@ letter {
 
   font-size: var(--letter__font-size);
   font-weight: var(--letter__font-weight__300);
-  /* font-family: var(--letter__font-family__poppins); */
   font-family: var(--letter__font-family__robotoMono);
-  /* font-family: var(--letter__font-family__fuzzyBubbles); */
 }

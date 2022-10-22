@@ -94,17 +94,51 @@ Speed:
 		1s = 19/14 words
 		60s = 19/14 * 60 => 81wpm
 
+--------------------------------------------------------------------------------
+################################################################################
+--------------------------------------------------------------------------------
 
 WHAT I WANT:
 		- Use only:
 				- keydown, keyup
 				- keyboardevent.code, keyboardevent.key
-		- &nbsp;/&#160; is a non-break whitespace and not a space character (ascii: 32)
-			its code is 160
-		- caret moves as the user types
-		- backspace works as normal (like normal texteditor)
-		- (alt + backspace), (opt + backspace), (ctrl + backspace)
-					- All these key combinations work the same as it works in a texteditor
-					- Also have same behaviour for these special symbols:
-						~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
-		- there should be two highlight modes: letter | word
+
+		- &nbsp; | &#160; is a non-break whitespace and not a space character which
+			has ascii value 32. nbsp is a string of length 1, whose char code is 160,
+			which you can get using "".charCodeAt(0)
+			
+		- caret moves forward one letter at a time as the user types
+
+		- backspace should work like normal texteditor, it should clear letters
+			all the way to first letter of first word if the user keeps on hitting backspace.
+			
+		- alt + backspace | opt + backspace | ctrl + backspace
+				- All these key combinations should work the same way as it works in 
+					a texteditor i.e, clear an entire word and put the caret at the 
+					first letter of thecurrent word.
+				- Also have same behaviour for these special symbols when using these
+					key combinations.
+					~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+					
+		- hightlight modes
+				- letter
+				- word
+
+		- caret style (line, underline, box, block)
+				- BLINKING LINE CARET
+							apply border left to all individual letters and give all of them transparent
+							color except one and all the other three borders (right, top, bottom) 
+							should be set to none.
+
+				- BLINKING UNDERLINE CARET
+							apply border bottom to all individual letters and give all of them
+							transparent color except one and all the other borders (left, right, top) 
+							should be set to none. 
+					
+				- BLINKING BOX CARET
+							apply border left, right, top and bottom to all individual letters and give
+							all of them transparent color except one. 
+
+				- NON-BLINKING BLOCK CARET
+							apply defferent text color and background color to a letter on which the
+							caret is present, rest of the letters should be untouched.
