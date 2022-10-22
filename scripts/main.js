@@ -67,7 +67,7 @@ function handleKeydown(keyevent) {
 
   if (testStarted) {
     // start timers as soon as the first letter is typed
-    testStartTime = Date.now();
+    testStartTime = window.performance.now();
     testStarted = false;
   }
 
@@ -80,12 +80,10 @@ function handleKeydown(keyevent) {
   if (
     keytyped === " " &&
     letters[active_letter].textContent.charCodeAt(0) == 160
-  ) {
-    // move to next word if a space is typed
+  ) { // move to next word if a space is typed
 
-    if (active_word + 1 === totalWords) {
-      // exit if finished typing all words
-      testEndTime = Date.now();
+    if (active_word + 1 === totalWords) { // exit if finished typing all words
+      testEndTime = window.performance.now();
 
       words[active_word].classList.remove("active");
       letters[active_letter].classList.remove("caret");
@@ -208,10 +206,10 @@ function handleKeydown(keyevent) {
     let error_letter = document.createElement('letter');
     error_letter.classList.add('error');
     error_letter.id = error_id;
-    error_letter.style.textDecoration = 'underline';
+    // error_letter.style.textDecoration = 'underline';
 
     if ( keytyped === ' ' ) {
-      error_letter.innerHTML = 'ᐧ';
+      error_letter.innerHTML = "•";
     } else {
       error_letter.textContent = keytyped;
     }

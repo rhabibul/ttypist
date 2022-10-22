@@ -3,11 +3,11 @@
   --thin-caret: 1px;
   --thick-caret: 2px;
   --caret__color: black;
-  --caret__width: var(--thick-caret);
+  --caret__width: var(--thin-caret);
   --caret__blink-time: 1.1s;
 
   --incorrect-word__color: red;
-  --incorrect-letter__color: rgb(201, 0, 0);
+  --incorrect-letter__color: brown;
 
   --input__color: white;
   --inputtag__color: var(--input__color);
@@ -127,7 +127,7 @@ letter {
   border-left-style: solid;
 
   font-size: var(--letter__font-size);
-  font-weight: var(--letter__font-weight__400);
+  font-weight: var(--letter__font-weight__300);
   /* font-family: var(--letter__font-family__poppins); */
   font-family: var(--letter__font-family__robotoMono);
   /* font-family: var(--letter__font-family__fuzzyBubbles); */
