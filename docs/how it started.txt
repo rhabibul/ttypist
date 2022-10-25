@@ -99,32 +99,37 @@ Speed:
 --------------------------------------------------------------------------------
 
 WHAT I WANT:
-		- Use only:
+		> Use only:
 				- keydown, keyup
 				- keyboardevent.code, keyboardevent.key
 
-		- &nbsp; | &#160; is a non-break whitespace and not a space character which
+		> &nbsp; | &#160; is a non-break whitespace and not a space character which
 			has ascii value 32. nbsp is a string of length 1, whose char code is 160,
 			which you can get using "".charCodeAt(0)
 			
-		- caret moves forward one letter at a time as the user types
+		> caret moves forward one letter at a time as the user types
 
-		- backspace should work like normal texteditor, it should clear letters
+		> backspace should work like normal texteditor, it should clear letters
 			all the way to first letter of first word if the user keeps on hitting backspace.
 			
-		- [alt + bs], [opt + bs], [ctrl + bs]
+		> alt  + backspace
+			opt  + backspace
+			ctrl + backspace
 				- All these key combinations should work the same way as it works in 
 					a texteditor i.e, clear an entire word and put the caret at the 
-					first letter of thecurrent word.
+					first letter of the current word. If caret is at first letter of a word
+					then you should clear the previous word and put the creat on first
+					letter of previous word.
+
 				- Also have special behaviour for these special symbols when using these
 					key combinations i.e, caret should stop before these symbols.
 					~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
 					
-		- hightlight modes
+		> hightlight modes
 				- letter
 				- word
 
-		- caret style (line, underline, box, block)
+		> caret style (line, underline, box, block)
 				- BLINKING LINE CARET
 							apply border left to all individual letters and give all of them transparent
 							color except one and all the other three borders (right, top, bottom) 
@@ -142,3 +147,16 @@ WHAT I WANT:
 				- NON-BLINKING BLOCK CARET
 							apply defferent text color and background color to a letter on which the
 							caret is present, rest of the letters should be untouched.
+
+		> default caret:
+				- thin caret having color red
+				- whenever there's a typo, the color of the caret will change to black
+					as soon the typo is fixed then it will again turn into a red caret
+
+
+ISSUES:
+
+		> Special keys:
+				- when user hits (alt/opt, ctrl, meta, shift) any of these keys, it should
+					not be regarded as error.
+				- while inserting wronly typed letters, don't insert these special keys

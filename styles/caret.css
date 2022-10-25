@@ -4,8 +4,8 @@
 
   animation-name: blinkingCaret;
   animation-duration: var(--caret__blinkTime);
-  animation-timing-function: ease;
-  animation-delay: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
   animation-iteration-count: infinite;
 }
 

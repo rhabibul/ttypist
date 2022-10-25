@@ -1,22 +1,24 @@
 :root {
-  --letter-border-left__color: white;
+  --tmp: #e4e4e4;
+
+  --letter-border-left__color: #0a0a0a;
   --thin-caret: 1px;
   --thick-caret: 2px;
-  --caret__color: red;
+
+  --caret__color: deeppink;
   --caret__width: var(--thin-caret);
   --caret__blinkTime: 1.1s;
 
   --incorrect-word__color: red;
-  --incorrect-letter__color: rgb(152, 28, 28);
+  --incorrect-letter__color: rgb(135, 6, 6);
 
-  --input__color: white;
   --inputtag__color: var(--input__color);
   --inputtag__background-color: var(--input__color);
 
   --line-gap: 5px;
 
-  --active-word__color: black;
-  --letter__color: rgb(149, 149, 149);
+  --active-word__color: rgb(205, 205, 205);
+  --letter__color: #6d6d6d;
   --letter__font-size: 1.2rem;
 
   --letter__font-weight__300: 300;
@@ -43,6 +45,8 @@ body {
 }
 
 body {
+  background-color: var(--letter-border-left__color);
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -74,7 +78,7 @@ input#wordsInput {
   border: none;
   outline: none;
 
-  color: var(--inputtag__color);
+  caret-color: transparent;
   background-color: var(--inputtag__background-color);
 }
 
@@ -125,7 +129,7 @@ letter {
   border-left-style: solid;
 
   font-size: var(--letter__font-size);
-  font-weight: var(--letter__font-weight__300);
+  font-weight: var(--letter__font-weight__400);
   font-family: var(--letter__font-family__robotoMono);
 }
 

@@ -1,3 +1,10 @@
+let special_characters = [
+      'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
+      'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
+      'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp',, 'PageDown',
+      'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
+    ];
+
 const speedtag = document.querySelector(".speed");
 const wordsInput = document.querySelector("#wordsInput");
 let words = Array.from(document.getElementsByTagName("word"));
@@ -58,7 +65,7 @@ const words1000 = [
   "answer", "school", "grow", "study", "still", "learn", "plant", "cover",
   "food", "sun", "four", "between", "state", "keep", "eye", "never", "last",
   "let", "thought", "city", "tree", "cross", "farm", "hard", "start", "might",
-  "story", "saw", "far", "sea", "draw", "left", "late", "run", "don’t", "while",
+  "story", "saw", "far", "sea", "draw", "left", "late", "run", "don't", "while",
   "press", "close", "night", "real", "life", "few", "north", "book", "carry",
   "took", "science", "eat", "room", "friend", "began", "idea", "fish", "mountain",
   "stop", "once", "base", "hear", "horse", "cut", "sure", "watch", "color",
@@ -115,7 +122,7 @@ const words1000 = [
   "cook", "floor", "either", "result", "burn", "hill", "safe", "cat", "century",
   "consider", "type", "law", "bit", "coast", "copy", "phrase", "silent", "tall",
   "sand", "soil", "roll", "temperature", "finger", "industry", "value", "fight",
-  "lie", "beat", "excite", "natural", "view", "sense", "capital", "wont",
+  "lie", "beat", "excite", "natural", "view", "sense", "capital", "won't",
   "chair", "danger", "fruit", "rich", "thick", "soldier", "process", "operate",
   "practice", "separate", "difficult", "doctor", "please", "protect", "noon", "crop",
   "modern", "element", "hit", "student", "corner", "party", "supply", "whose",
@@ -149,7 +156,6 @@ const words1000 = [
 ];
 let active_word = 0;
 let active_letter = 0;
-
 
 let testStarted = true;
 let testStartTime = 0;
@@ -194,8 +200,7 @@ function handleKeydown(keyevent) {
     letters[active_letter].textContent.charCodeAt(0) == 160
   ) { // move to next word if a space is typed
 
-    if (active_word + 1 === totalWords) {
-      // exit if finished typing all words
+    if (active_word + 1 === totalWords) { // exit if finished typing all words
       testEndTime = window.performance.now();
 
       words[active_word].classList.remove("active");
@@ -229,7 +234,7 @@ function handleKeydown(keyevent) {
         words[active_word].classList.add('active');
         letters[active_letter].classList.add("caret");
         wordsInput.focus();
-        wordsInput.addEventListener("keydown", handleKeydown);  
+        wordsInput.addEventListener("keydown", handleKeydown); // this brings everything live again
 
         setTimeout(() => {
           speedtag.textContent = '';
@@ -259,6 +264,7 @@ function handleKeydown(keyevent) {
     letters[active_letter].classList.remove("caret");
   
     ++active_letter;
+
     letters[active_letter].classList.add("caret");
 
   } else if (keyevent.metaKey && keytyped === "Backspace") {
@@ -292,25 +298,21 @@ function handleKeydown(keyevent) {
     // (alt + backspace) || (opt + backspace)
     // clear one word at a time putting caret at first letter of previous word
 
-    // if care is already at first letter of a word and user then go back
-    // to previous word
+    // remove caret & highlight color from current word
+    letters[active_letter].classList.remove("caret");
+    words[active_word].classList.remove("incorrect");
+
+    // if care is already at first letter of a word and user then goes back to
+    // previous word
     if (active_letter === 0 && active_word > 0) {
-      // remove incorrect or active highlight as well as caret from current word
-      words[active_word].classList.remove("incorrect");
-      letters[active_letter].classList.remove("caret");
-      words[active_word].classList.remove("active");
+      words[active_word].classList.remove("active"); // remove active word status
 
       --active_word;
 
       words[active_word].classList.add("active"); // highlight previous word
       letters = words[active_word].children; // store letters of previous word
       letters[active_letter].classList.add("caret"); // add caret to first letter
-
     }
-
-    // remove caret & highlight color from current word
-    letters[active_letter].classList.remove("caret");
-    words[active_word].classList.remove("incorrect");
 
     active_letter = 0; // point to first letter of current word
 
@@ -344,33 +346,43 @@ function handleKeydown(keyevent) {
 
       letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
     }
-  } else {
-    // INCORRECTLY TYPED: Inserted the wrongly typed letter
-    words[active_word].classList.add("incorrect");
+  } else { // INCORRECTLY TYPED: Inserted the wrongly typed letter
 
-    // let cnt = errorCountOfWord[active_word]; // used for accessing second last element in stack
-    // ++errorCountOfWord[active_word];
-    // let error_id = `extra-${errorCountOfWord[active_word]}`;
-    // let error_letter = document.createElement('letter');
-    // error_letter.classList.add('error');
-    // error_letter.id = error_id;
-    // // error_letter.style.textDecoration = 'underline';
+    if ( !special_characters.includes(keytyped) ) {
+      words[active_word].classList.add("incorrect");
 
-    // if ( keytyped === ' ' ) {
-    //   error_letter.innerHTML = "•";
-    // } else {
-    //   error_letter.textContent = keytyped;
-    // }
+      // // used for accessing second last element in stack
+      // let cnt = errorCountOfWord[active_word];
 
-    // errorsOfWord[active_word].push(error_id);
-    
-    // if ( errorsOfWord[active_word].length == 1 ) {
-    //   letters[active_letter].insertAdjacentElement('beforebegin', error_letter);
-      
-    // } else {
-    //   let previousErrorLetter = document.getElementById(`extra-${cnt}`);
-    //   previousErrorLetter.insertAdjacentElement('afterend', error_letter);
-    // }
+      // ++errorCountOfWord[active_word];
+      // let error_id = `extra-${errorCountOfWord[active_word]}`;
+      // let error_letter = document.createElement("letter");
+      // error_letter.classList.add("error");
+      // error_letter.id = error_id;
+      // error_letter.style.textDecoration = "underline";
+      // error_letter.style.textDecorationColor = "#ff8a8a";
+
+      // if (keytyped === " ") {
+      //   error_letter.textContent = "·";
+      //   error_letter.style.fontWeight = "bold";
+      //   error_letter.style.textDecoration = "";
+      //   error_letter.style.textDecorationColor = "";
+      // } else {
+      //   error_letter.textContent = keytyped;
+      // }
+
+      // errorsOfWord[active_word].push(error_id);
+
+      // if (errorsOfWord[active_word].length == 1) {
+      //   letters[active_letter].insertAdjacentElement(
+      //     "beforebegin",
+      //     error_letter
+      //   );
+      // } else {
+      //   let previousErrorLetter = document.getElementById(`extra-${cnt}`);
+      //   previousErrorLetter.insertAdjacentElement("afterend", error_letter);
+      // }
+    }
   }
 }
 
