@@ -1,14 +1,4 @@
-let special_characters = [
-      'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
-      'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
-      'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp',, 'PageDown',
-      'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
-    ];
-
-const speedtag = document.querySelector(".speed");
-const wordsInput = document.querySelector("#wordsInput");
-let words = Array.from(document.getElementsByTagName("word"));
-let totalWords = words.length;
+const initialstring = 'the quick brown fox jumps over the lazy dog';
 
 const words1000 = [
   "as", "I", "his", "that", "he", "was", "for", "on", "are", "with", "they",
@@ -125,35 +115,39 @@ const words1000 = [
   "broad", "prepare", "salt", "nose", "plural", "anger", "claim", "continent",
 ];
 
-const initialstring = 'the quick brown fox jumps over the lazy dog';
+const special_characters = [
+  'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
+  'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
+  'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp',, 'PageDown',
+  'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
+];
+
+const speedtag = document.querySelector(".speed");
+const wordsInput = document.querySelector("#wordsInput");
+let wordsContainer = document.querySelector(".words");
 
 let active_word = 0;
 let active_letter = 0;
 
-let testStarted = true;
 let testStartTime = 0;
 let testEndTime = 0;
+let testStarted = true;
 
-// store letters of first word
-let letters = words[active_word].children; 
-
-
-function total_characters(words) {
-  let chars = 0;
-  for (let word of words) {
-    chars += word.children.length;
-  }
-  return chars;
+// use initial string when website loads for the first time.
+const randomWords = generateRandomWords(undefined);
+for (let i = 0; i < randomWords.length; ++i) {
+  wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
 }
 
-function calculate_speed(testStartTime, testEndTime) {
-  const sec = (testEndTime - testStartTime) / 1000;
-  const wordsTyped = total_characters(words) / 5;
-  const wpm = (wordsTyped / sec) * 60;
+let words = Array.from(document.getElementsByTagName("word"));
+let totalWords = words.length;
+let letters = words[active_word].children; // store letters of first word
 
-  return Math.round(wpm);
-}
+words[active_word].classList.add("active");
+letters[active_letter].classList.add("caret");
+wordsInput.focus();
 
+wordsInput.addEventListener("keydown", handleKeydown);
 
 function handleKeydown(keyevent) {
   keyevent.preventDefault();
@@ -166,14 +160,16 @@ function handleKeydown(keyevent) {
 
   const keytyped = keyevent.key;
 
-  // charCode is checked so that caret doesn't go to next word by just
-  // hitting space character
+  // move to next word if a space is typed
   if (
     keytyped === " " &&
     letters[active_letter].textContent.charCodeAt(0) == 160
-  ) { // move to next word if a space is typed
+  ) {
+    // charCode is checked so that caret doesn't go to next word by just
+    // hitting space character
 
-    if (active_word + 1 === totalWords) { // exit if finished typing all words
+    if (active_word + 1 === totalWords) {
+      // exit if finished typing all words
       testEndTime = window.performance.now();
 
       words[active_word].classList.remove("active");
@@ -183,7 +179,7 @@ function handleKeydown(keyevent) {
 
       let wpm = calculate_speed(testStartTime, testEndTime);
       speedtag.textContent = `${wpm}wpm`;
-      speedtag.style.color = 'deeppink';
+      speedtag.style.color = "deeppink";
 
       function restart_test() {
         let wordsContainer = document.querySelector(".words");
@@ -205,18 +201,18 @@ function handleKeydown(keyevent) {
         testEndTime = 0;
 
         letters = words[active_word].children;
-        words[active_word].classList.add('active');
+        words[active_word].classList.add("active");
         letters[active_letter].classList.add("caret");
         wordsInput.focus();
         wordsInput.addEventListener("keydown", handleKeydown); // this brings everything live again
 
         setTimeout(() => {
-          speedtag.style.color = 'pink';
+          speedtag.style.color = "pink";
         }, 2000);
       }
 
       restart_test();
-      
+
       return;
     }
 
@@ -231,16 +227,15 @@ function handleKeydown(keyevent) {
     active_letter = 0; // point active_letter to first letter of next word
 
     letters[active_letter].classList.add("caret"); // put caret on first letter of the next word
+  } else if (keytyped === letters[active_letter].textContent) {
+    // Move caret to next letter
 
-  } else if ( keytyped === letters[active_letter].textContent ) { // Move caret to next letter
-    
     words[active_word].classList.remove("incorrect");
     letters[active_letter].classList.remove("caret");
-  
+
     ++active_letter;
 
     letters[active_letter].classList.add("caret");
-
   } else if (keyevent.metaKey && keytyped === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
@@ -262,7 +257,7 @@ function handleKeydown(keyevent) {
     letters = words[active_word].children;
 
     words[active_word].classList.add("active"); // highlight first word
-    
+
     caret_blinking = true;
     letters[active_letter].classList.add("caret");
   } else if (
@@ -276,7 +271,7 @@ function handleKeydown(keyevent) {
     letters[active_letter].classList.remove("caret");
     words[active_word].classList.remove("incorrect");
 
-    // if care is already at first letter of a word and user then goes back to
+    // if caret is already at first letter of a word and user then goes back to
     // previous word
     if (active_letter === 0 && active_word > 0) {
       words[active_word].classList.remove("active"); // remove active word status
@@ -320,46 +315,66 @@ function handleKeydown(keyevent) {
 
       letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
     }
-  } else { // INCORRECTLY TYPED: Inserted the wrongly typed letter
-
-    if ( !special_characters.includes(keytyped) ) {
-      words[active_word].classList.add("incorrect");     
+  } else {
+    // insert '·' this instead of &nbsp; when user hits space character 
+    // in the wrong place
+    if (!special_characters.includes(keytyped)) {
+      words[active_word].classList.add("incorrect");
     }
   }
 }
 
-// Event Listeners
-wordsInput.addEventListener("keydown", handleKeydown);
-
-function generateRandomWords(noOfWordsToGenerate, useInitialString = false) {
-
-  if ( useInitialString ) {
-
-  } else {
-    let words = new Array(noOfWordsToGenerate);
-
-    for (let i = 0; i < noOfWordsToGenerate; ++i) {
-      words[i] = words1000[Math.trunc(Math.random() * 1000)];
-    }
-
-    let randomWords = new Array(noOfWordsToGenerate);
-
-    for (let i = 0; i < noOfWordsToGenerate; ++i) {
-      let word = document.createElement("word");
-
-      for (let j = 0; j < words[i].length; ++j) {
-        let letter = document.createElement("letter");
-
-        letter.textContent = words[i][j];
-        word.appendChild(letter);
-      }
-      let letterWithSpace = document.createElement("letter");
-      letterWithSpace.innerHTML = "&nbsp;";
-      word.appendChild(letterWithSpace);
-
-      randomWords[i] = word;
-    }
-    
-    return randomWords;
+function total_characters(words) {
+  let chars = 0;
+  for (let word of words) {
+    chars += word.children.length;
   }
+  return chars;
+}
+
+function calculate_speed(testStartTime, testEndTime) {
+  const sec = (testEndTime - testStartTime) / 1000;
+  const wordsTyped = total_characters(words) / 5;
+  const wpm = (wordsTyped / sec) * 60;
+
+  return Math.round(wpm);
+}
+
+
+function generateRandomWords(noOfWordsToGenerate) {
+
+  if ( !noOfWordsToGenerate ) {
+    let words = initialstring.split(' ');
+    console.log(words);
+    return createWordElements(words);
+  } else {
+    let wordsAsStrings = new Array(noOfWordsToGenerate);
+    for (let i = 0; i < noOfWordsToGenerate; ++i) {
+      wordsAsStrings[i] = words1000[Math.trunc(Math.random() * 1000)];
+    }
+    return createWordElements(wordsAsStrings);
+  }
+}
+
+function createWordElements(wordsAsStrings) {
+
+  let len = wordsAsStrings.length;
+  let randomWords = new Array(len);
+
+  for (let i = 0; i < len; ++i) {
+    let word = document.createElement("word");
+
+    for (let j = 0; j < wordsAsStrings[i].length; ++j) {
+      let letter = document.createElement("letter");
+
+      letter.textContent = wordsAsStrings[i][j];
+      word.appendChild(letter);
+    }
+    let letterWithSpace = document.createElement("letter");
+    letterWithSpace.innerHTML = "&nbsp;";
+    word.appendChild(letterWithSpace);
+
+    randomWords[i] = word;
+  }
+  return randomWords;
 }
