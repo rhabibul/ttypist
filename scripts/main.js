@@ -10,36 +10,6 @@ const wordsInput = document.querySelector("#wordsInput");
 let words = Array.from(document.getElementsByTagName("word"));
 let totalWords = words.length;
 
-class Stack {
-  #word;
-  constructor() {
-    this.#word = new Array();
-  }
-  push(element) {
-    this.#word.push(element);
-  }
-  pop() {
-    let letter = this.#word.pop();
-    return letter;
-  }
-  empty() {
-    return this.#word.length == 0;
-  }
-  top() {
-    if (this.empty()) return -1;
-    return this.#word[this.#word.length - 1];
-  }
-  get length() {
-    return this.#word.length;
-  }
-}
-
-let errorsOfWord = new Array(totalWords);
-let errorCountOfWord = new Array(totalWords);
-
-errorsOfWord.fill(new Stack());
-errorCountOfWord.fill(0);
-
 const words1000 = [
   "as", "I", "his", "that", "he", "was", "for", "on", "are", "with", "they",
   "be", "at", "one", "have", "this", "from", "by", "hot", "word", "but", "what",
@@ -154,6 +124,9 @@ const words1000 = [
   "property", "column", "molecule", "select", "wrong", "gray", "repeat", "require",
   "broad", "prepare", "salt", "nose", "plural", "anger", "claim", "continent",
 ];
+
+const initialstring = 'the quick brown fox jumps over the lazy dog';
+
 let active_word = 0;
 let active_letter = 0;
 
@@ -210,13 +183,14 @@ function handleKeydown(keyevent) {
 
       let wpm = calculate_speed(testStartTime, testEndTime);
       speedtag.textContent = `${wpm}wpm`;
+      speedtag.style.color = 'deeppink';
 
       function restart_test() {
         let wordsContainer = document.querySelector(".words");
         wordsContainer.innerHTML = "";
         wordsInput.value = "";
 
-        const randomWords = generateRandomWords(20);
+        const randomWords = generateRandomWords(25);
 
         for (let i = 0; i < randomWords.length; ++i) {
           wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
@@ -237,7 +211,7 @@ function handleKeydown(keyevent) {
         wordsInput.addEventListener("keydown", handleKeydown); // this brings everything live again
 
         setTimeout(() => {
-          speedtag.textContent = '';
+          speedtag.style.color = 'pink';
         }, 2000);
       }
 
@@ -349,39 +323,7 @@ function handleKeydown(keyevent) {
   } else { // INCORRECTLY TYPED: Inserted the wrongly typed letter
 
     if ( !special_characters.includes(keytyped) ) {
-      words[active_word].classList.add("incorrect");
-
-      // // used for accessing second last element in stack
-      // let cnt = errorCountOfWord[active_word];
-
-      // ++errorCountOfWord[active_word];
-      // let error_id = `extra-${errorCountOfWord[active_word]}`;
-      // let error_letter = document.createElement("letter");
-      // error_letter.classList.add("error");
-      // error_letter.id = error_id;
-      // error_letter.style.textDecoration = "underline";
-      // error_letter.style.textDecorationColor = "#ff8a8a";
-
-      // if (keytyped === " ") {
-      //   error_letter.textContent = "·";
-      //   error_letter.style.fontWeight = "bold";
-      //   error_letter.style.textDecoration = "";
-      //   error_letter.style.textDecorationColor = "";
-      // } else {
-      //   error_letter.textContent = keytyped;
-      // }
-
-      // errorsOfWord[active_word].push(error_id);
-
-      // if (errorsOfWord[active_word].length == 1) {
-      //   letters[active_letter].insertAdjacentElement(
-      //     "beforebegin",
-      //     error_letter
-      //   );
-      // } else {
-      //   let previousErrorLetter = document.getElementById(`extra-${cnt}`);
-      //   previousErrorLetter.insertAdjacentElement("afterend", error_letter);
-      // }
+      words[active_word].classList.add("incorrect");     
     }
   }
 }
@@ -389,30 +331,35 @@ function handleKeydown(keyevent) {
 // Event Listeners
 wordsInput.addEventListener("keydown", handleKeydown);
 
-function generateRandomWords(noOfWordsToGenerate) {
-  let randomWords = new Array(noOfWordsToGenerate);
+function generateRandomWords(noOfWordsToGenerate, useInitialString = false) {
 
-  for (let i = 0; i < noOfWordsToGenerate; ++i) {
-    randomWords[i] = words1000[Math.trunc(Math.random() * 1000)];
-  }
+  if ( useInitialString ) {
 
-  let wordtags = new Array(noOfWordsToGenerate);
+  } else {
+    let words = new Array(noOfWordsToGenerate);
 
-  for (let i = 0; i < noOfWordsToGenerate; ++i) {
-    let word = document.createElement("word");
-
-    for (let j = 0; j < randomWords[i].length; ++j) {
-      let letter = document.createElement("letter");
-
-      letter.textContent = randomWords[i][j];
-      word.appendChild(letter);
+    for (let i = 0; i < noOfWordsToGenerate; ++i) {
+      words[i] = words1000[Math.trunc(Math.random() * 1000)];
     }
-    let letterWithSpace = document.createElement("letter");
-    letterWithSpace.innerHTML = "&nbsp;";
-    word.appendChild(letterWithSpace);
 
-    wordtags[i] = word;
+    let randomWords = new Array(noOfWordsToGenerate);
+
+    for (let i = 0; i < noOfWordsToGenerate; ++i) {
+      let word = document.createElement("word");
+
+      for (let j = 0; j < words[i].length; ++j) {
+        let letter = document.createElement("letter");
+
+        letter.textContent = words[i][j];
+        word.appendChild(letter);
+      }
+      let letterWithSpace = document.createElement("letter");
+      letterWithSpace.innerHTML = "&nbsp;";
+      word.appendChild(letterWithSpace);
+
+      randomWords[i] = word;
+    }
+    
+    return randomWords;
   }
-
-  return wordtags;
 }
