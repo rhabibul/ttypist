@@ -158,5 +158,10 @@ ISSUES:
 
 		> Special keys:
 				- when user hits (alt/opt, ctrl, meta, shift) any of these keys, it should
-					not be regarded as error.
+					not be regarded as error. ✅
 				- while inserting wronly typed letters, don't insert these special keys
+		
+		> Test end:
+				- the test should end when the user types the last letter of last word
+					correctly. (suggestion: have the user decide like monkeytype which has
+					this feature)
