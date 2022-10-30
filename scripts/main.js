@@ -124,7 +124,7 @@ const special_characters = [
 
 const speedtag = document.querySelector(".speed");
 const wordsInput = document.querySelector("#wordsInput");
-let wordsContainer = document.querySelector(".words");
+const wordsContainer = document.querySelector(".words");
 
 let active_word = 0;
 let active_letter = 0;
@@ -145,7 +145,6 @@ let letters = words[active_word].children; // store letters of first word
 
 words[active_word].classList.add("active");
 letters[active_letter].classList.add("caret");
-wordsInput.focus();
 
 wordsInput.addEventListener("keydown", handleKeydown);
 
@@ -162,8 +161,8 @@ function handleKeydown(keyevent) {
 
   // move to next word if a space is typed
   if (
-    keytyped === " " &&
-    letters[active_letter].textContent.charCodeAt(0) == 160
+    (keytyped === " " &&
+    letters[active_letter].textContent.charCodeAt(0) == 160)
   ) {
     // charCode is checked so that caret doesn't go to next word by just
     // hitting space character
@@ -171,7 +170,7 @@ function handleKeydown(keyevent) {
     // 🔴 this needs to be changed since I removed the space from last word.
     // it has bad consequences if I type any other character other than a
     // space character after last word
-    if (active_word + 1 === totalWords) {
+    if (active_word === totalWords - 1) {
       // exit if finished typing all words
       testEndTime = window.performance.now();
 
@@ -211,7 +210,7 @@ function handleKeydown(keyevent) {
 
         setTimeout(() => {
           speedtag.style.color = "pink";
-        }, 2000);
+        }, 1500);
       }
 
       restart_test();
