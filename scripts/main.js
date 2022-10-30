@@ -168,6 +168,9 @@ function handleKeydown(keyevent) {
     // charCode is checked so that caret doesn't go to next word by just
     // hitting space character
 
+    // 🔴 this needs to be changed since I removed the space from last word.
+    // it has bad consequences if I type any other character other than a
+    // space character after last word
     if (active_word + 1 === totalWords) {
       // exit if finished typing all words
       testEndTime = window.performance.now();
