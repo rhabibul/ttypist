@@ -258,7 +258,6 @@ function handleKeydown(keyevent) {
 
     words[active_word].classList.add("active"); // highlight first word
 
-    caret_blinking = true;
     letters[active_letter].classList.add("caret");
   } else if (
     (keyevent.altKey && keytyped === "Backspace") ||
@@ -343,36 +342,49 @@ function calculate_speed(testStartTime, testEndTime) {
 
 function generateRandomWords(noOfWordsToGenerate) {
 
+  let words = new Array();
+  
   if ( !noOfWordsToGenerate ) {
-    let words = initialstring.split(' ');
-    console.log(words);
+    
+    words = initialstring.split(' ');
     return createWordElements(words);
+
   } else {
-    let wordsAsStrings = new Array(noOfWordsToGenerate);
+    
+    words = new Array(noOfWordsToGenerate);
     for (let i = 0; i < noOfWordsToGenerate; ++i) {
-      wordsAsStrings[i] = words1000[Math.trunc(Math.random() * 1000)];
+      words[i] = words1000[Math.trunc(Math.random() * 1000)];
     }
-    return createWordElements(wordsAsStrings);
+    return createWordElements(words);
   }
 }
 
-function createWordElements(wordsAsStrings) {
+function createWordElements(wordsInStringForm) {
 
-  let len = wordsAsStrings.length;
-  let randomWords = new Array(len);
+  let totalwords = wordsInStringForm.length;
+  
+  let randomWords = new Array(totalwords);
 
-  for (let i = 0; i < len; ++i) {
+  for (let i = 0; i < totalwords; ++i) {
+
     let word = document.createElement("word");
 
-    for (let j = 0; j < wordsAsStrings[i].length; ++j) {
+    for (let j = 0; j < wordsInStringForm[i].length; ++j) {
       let letter = document.createElement("letter");
 
-      letter.textContent = wordsAsStrings[i][j];
+      letter.textContent = wordsInStringForm[i][j];
       word.appendChild(letter);
     }
-    let letterWithSpace = document.createElement("letter");
-    letterWithSpace.innerHTML = "&nbsp;";
-    word.appendChild(letterWithSpace);
+
+
+    // don't add space at the end for last word
+    if ( totalwords !== wordsInStringForm.length - 1) {
+      
+      // add &nbsp; as space at the end of each word
+      let letterWithSpace = document.createElement("letter");
+      letterWithSpace.innerHTML = "&nbsp;";
+      word.appendChild(letterWithSpace);
+    }
 
     randomWords[i] = word;
   }
