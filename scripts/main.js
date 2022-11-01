@@ -167,9 +167,9 @@ function handleKeydown(keyevent) {
     // charCode is checked so that caret doesn't go to next word by just
     // hitting space character
 
-    // 🔴 this needs to be changed since I removed the space from last word.
-    // it has bad consequences if I type any other character other than a
-    // space character after last word
+    // 🔴 This needs to be fixed since I removed the space from last word.
+    // It has bad consequences if you type any other character other than
+    // a space character after last word, it won't finish the test.
     if (active_word === totalWords - 1) {
       // exit if finished typing all words
       testEndTime = window.performance.now();
@@ -334,13 +334,13 @@ function total_characters(words) {
 }
 
 function calculate_speed(testStartTime, testEndTime) {
+
   const sec = (testEndTime - testStartTime) / 1000;
   const wordsTyped = total_characters(words) / 5;
   const wpm = (wordsTyped / sec) * 60;
 
   return Math.round(wpm);
 }
-
 
 function generateRandomWords(noOfWordsToGenerate) {
 
@@ -378,11 +378,10 @@ function createWordElements(wordsInStringForm) {
       word.appendChild(letter);
     }
 
-
     // don't add space at the end for last word
     if ( totalwords !== wordsInStringForm.length - 1) {
       
-      // add &nbsp; as space at the end of each word
+      // add "&nbsp;" as space at the end of each word other than last word
       let letterWithSpace = document.createElement("letter");
       letterWithSpace.innerHTML = "&nbsp;";
       word.appendChild(letterWithSpace);
