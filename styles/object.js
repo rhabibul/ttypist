@@ -1,21 +1,25 @@
-/*
-
-Stats:
-		Speed
-				raw,
-				wpm,
-				cpm,
-				accuracy,
-			
-History {
-	#tests
+class History {
+	#tests;
+	#totaltests;
+	constructor() {
+		this.#tests = new Array();
+		this.#totaltests = this.#tests.length;
+	}
 }
 
-*/
-
-
 class Stats {
-
+	
+	#wpm;
+	#cpm;
+	#raw;
+	#accuracy;
+	
+	constructor() {
+		this.#cpm = 0;
+		this.#wpm = 0;
+		this.#raw = 0;
+		this.#accuracy = 0;
+	}
 }
 
 class Time {
