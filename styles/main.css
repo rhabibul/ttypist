@@ -140,14 +140,14 @@ letter {
 
 .speed {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 150px;
   height: 50px;
   font-family: monospace;
   letter-spacing: 1px;
   font-size: 1.6rem;
   color: deeppink;
-  font-weight: var(--letter__font-weight__300);
+  font-weight: var(--letter__font-weight__400);
   font-family: var(--letter__font-family__robotoMono);
 }
