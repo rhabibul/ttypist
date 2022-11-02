@@ -38,3 +38,5 @@ node_modules
 
 # All swap files of vim
 *.swp
+
+*.txt
