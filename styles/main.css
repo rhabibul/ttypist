@@ -17,8 +17,8 @@
 
   --line-gap: 5px;
 
-  --word__color: #1b1b1b;
-  --letter__color: #a3a3a3;
+  --word__color: black;
+  --letter__color: #5d5d5d;
   --letter__font-size: 1.2rem;
 
   --letter__font-weight__300: 300;
@@ -122,7 +122,7 @@ letter {
   border-left-style: solid;
 
   font-size: var(--letter__font-size);
-  font-weight: var(--letter__font-weight__300);
+  font-weight: var(--letter__font-weight__400);
   font-family: var(--letter__font-family__robotoMono);
 }
 

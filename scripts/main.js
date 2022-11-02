@@ -310,7 +310,7 @@ function newtest() {
   wordsInput.addEventListener("keydown", handleKeydown); // this brings everything live again
 
   setTimeout(() => {
-    speedtag.style.color = "pink";
+    speedtag.style.color = "lightgray";
   }, 1000);
 }
 
