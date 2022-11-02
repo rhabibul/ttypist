@@ -311,7 +311,7 @@ function newtest() {
 
   setTimeout(() => {
     speedtag.style.color = "lightgray";
-  }, 1000);
+  }, 1500);
 }
 
 function totalcharacters(words) {
