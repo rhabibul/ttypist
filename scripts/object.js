@@ -59,9 +59,9 @@ class Test {
 
 class Sentence {
 
-  #words;
-  #currentWordIndex;
-  #currentLetterIndex;
+  #words; // array of strings
+  #currentWordIndex; // stores index for current word which the user is typing
+  #currentLetterIndex; // stores the index for current letter of current word
 
   constructor(words) {
 
