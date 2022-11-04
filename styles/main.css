@@ -6,9 +6,9 @@
 
   --active-word__color: black;
 
-  --letter__borderLeftColor: whitesmoke;
+  --letter__borderLeftColor: white;
   --letter__color: #a3a3a3;
-  --letter__fontSize: 1.4rem;
+  --letter__fontSize: 1.3rem;
 
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
@@ -33,11 +33,15 @@ body {
 
 body {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-  background-color: var(--letter__borderLeftColor);
+.speed {
+  color: deeppink;
+  font-size: var(--letter__fontSize);
+  font-family: var(--letter__fontFamilyRobotoMono);
 }
 
 .active {
@@ -114,20 +118,5 @@ letter {
 
   font-size: var(--letter__fontSize);
   font-weight: var(--letter__fontWeight300);
-  font-family: var(--letter__fontFamilyRobotoMono);
-}
-
-.speed {
-  width: 150px;
-  height: 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  letter-spacing: 1px;
-
-  color: deeppink;
-  font-size: var(--letter__fontSize);
   font-family: var(--letter__fontFamilyRobotoMono);
 }

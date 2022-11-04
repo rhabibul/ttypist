@@ -115,7 +115,7 @@ function handleKeydown(keyevent) {
 
     // remove caret & highlight color from current word
     letters[active_letter].classList.remove("caret");
-    words[active_word].classList.remove("incorrect");
+    words[active_word].classList.remove("incorrect"); // remove error from current word
 
     // if caret is already at first letter of a word and user then goes back to
     // previous word
@@ -130,9 +130,9 @@ function handleKeydown(keyevent) {
     }
 
     active_letter = 0; // point to first letter of current word
+    words[active_word].classList.remove("incorrect");
 
     letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
-
   } else if (keytyped === "Backspace") { // Take caret one letter back.
 
     words[active_word].classList.remove("incorrect");
