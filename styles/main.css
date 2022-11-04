@@ -12,9 +12,7 @@
 
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
-  --letter__fontWeight500: 500;
 
-  --letter__fontFamilyPoppins: "Poppins", sans-serif;
   --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
   --letter__fontFamilyFuzzyBubbles: "Fuzzy Bubbles", cursive;
 }
