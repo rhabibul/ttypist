@@ -29,17 +29,17 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 body {
-  background-color: var(--letter__borderLeftColor);
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+
+  background-color: var(--letter__borderLeftColor);
 }
 
 .active {
@@ -49,7 +49,12 @@ body {
   color: red;
 }
 
-#textinput {
+.touchtypist {
+  margin: 0px;
+  padding: 0px;
+}
+
+.touchtypist > input {
   display: block;
 
   margin: 0px;
@@ -66,11 +71,6 @@ body {
   caret-color: transparent;
   color: var(--textinput__color);
   background-color: var(--textinput__backgroundColor);
-}
-
-.touchtypist {
-  margin: 0px;
-  padding: 0px;
 }
 
 .sentence {

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/keyboard.png" />
 
-    <title>Touchtypist</title>
-
-    <!-- Google fonts -->
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -18,38 +16,39 @@
       rel="stylesheet"
     />
 
-    <!-- Poppins -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Fuzzy Bubbles -->
     <link
       href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Styles sheets -->
     <link rel="stylesheet" href="./styles/caret.css" />
     <link rel="stylesheet" href="./styles/main.css" />
+
+    <!-- Tab icon -->
+    <link rel="icon" href="./assets/keyboard.png" />
+
+    <!-- Title -->
+    <title>Touchtypist</title>
   </head>
+
   <body>
     <span class="speed"></span>
 
     <div class="touchtypist">
-      <div class="sentence"></div>
-
       <input
-        id="textinput"
         autofocus
-        type="text"
+        autocorrect="off"
         autocomplete="off"
         autocapitalize="off"
-        autocorrect="off"
         spellcheck="false"
       />
+      <div class="sentence"></div>
     </div>
-    <script type="module" src="./scripts/modules/random-words.js"></script>
+
+    <!-- Scripts -->
+    <script type="module" src="./scripts/modules/words1k.js"></script>
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>

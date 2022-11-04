@@ -1,4 +1,4 @@
-import w1000 from "./modules/random-words.js";
+import w1000 from "./modules/words1k.js";
 
 const initialstring = 'the quick brown fox jumps over the lazy dog';
 
@@ -10,7 +10,7 @@ const nonPrintableCharacters = [
 ];
 
 const speedtag = document.querySelector(".speed");
-const textinput = document.querySelector("#textinput");
+const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
 
 const testwords = 10;
