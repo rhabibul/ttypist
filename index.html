@@ -35,20 +35,19 @@
   </head>
   <body>
     <span class="speed"></span>
-    <div class="typist">
-      <div class="words"></div>
+    <div class="touchtypist">
+      <div class="sentence"></div>
       <input
-        id="wordsInput"
+        id="textinput"
         autofocus
         type="text"
-        list="autocompleteOff"
         autocomplete="off"
         autocapitalize="off"
         autocorrect="off"
         spellcheck="false"
       />
     </div>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/data.js"></script>
+    <script type="module" src="./scripts/modules/random-words.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>

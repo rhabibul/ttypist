@@ -1,21 +1,28 @@
-/* line caret */
-.caret {
-  border-left-color: var(--caret__color);
+:root {
+  --thin-caret: 1px;
+  --thick-caret: 2px;
 
-  animation-name: blinkingCaret;
+  --caret__color: red;
+  --caret__blinkTime: 1.1s;
+  --caret__width: var(--thin-caret);
+}
+
+.caret {
+  border-left-color: var(--caret__color); /* line caret */
+
+  animation-name: blinkCaret;
   animation-duration: var(--caret__blinkTime);
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   animation-delay: 2s;
   animation-iteration-count: infinite;
 }
 
-@keyframes blinkingCaret {
+@keyframes blinkCaret {
   0%,
   100% {
     border-left-color: var(--caret__color);
   }
-
   50% {
-    border-left-color: var(--letter-border-left__color);
+    border-left-color: var(--letter__borderLeftColor);
   }
 }

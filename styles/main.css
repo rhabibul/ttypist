@@ -1,33 +1,22 @@
 :root {
-  --tmp: #e4e4e4;
-
-  --letter-border-left__color: white;
-  --thin-caret: 1px;
-  --thick-caret: 2px;
-
-  --caret__color: red;
-  --caret__width: var(--thin-caret);
-  --caret__blinkTime: 1.2s;
-
-  --incorrect-word__color: red;
-  --incorrect-letter__color: #870606;
-
-  --inputtag__color: var(--input__color);
-  --inputtag__background-color: var(--input__color);
+  --textinput__color: white;
+  --textinput__backgroundColor: white;
 
   --line-gap: 5px;
 
-  --word__color: black;
-  --letter__color: #898989;
-  --letter__font-size: 1.4rem;
+  --active-word__color: black;
 
-  --letter__font-weight__300: 300;
-  --letter__font-weight__400: 400;
-  --letter__font-weight__500: 500;
+  --letter__borderLeftColor: white;
+  --letter__color: #a3a3a3;
+  --letter__fontSize: 1.4rem;
 
-  --letter__font-family__poppins: "Poppins", sans-serif;
-  --letter__font-family__robotoMono: "Roboto Mono", sans-serif;
-  --letter__font-family__fuzzyBubbles: "Fuzzy Bubbles", cursive;
+  --letter__fontWeight300: 300;
+  --letter__fontWeight400: 400;
+  --letter__fontWeight500: 500;
+
+  --letter__fontFamilyPoppins: "Poppins", sans-serif;
+  --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
+  --letter__fontFamilyFuzzyBubbles: "Fuzzy Bubbles", cursive;
 }
 
 *,
@@ -45,17 +34,22 @@ body {
 }
 
 body {
-  background-color: var(--letter-border-left__color);
-
-  padding: 0px 25px;
+  background-color: var(--letter__borderLeftColor);
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
-input#wordsInput {
+.active {
+  color: var(--active-word__color);
+}
+.incorrect {
+  color: red;
+}
+
+#textinput {
   display: block;
 
   margin: 0px;
@@ -70,84 +64,72 @@ input#wordsInput {
   outline: none;
 
   caret-color: transparent;
-  background-color: var(--inputtag__background-color);
+  color: var(--textinput__color);
+  background-color: var(--textinput__backgroundColor);
 }
 
-.typist {
-  width: 100%;
-
-  display: grid;
-  place-items: center;
+.touchtypist {
+  margin: 0px;
+  padding: 0px;
 }
 
-div.words {
-  background-color: var(--letter-border-left__color);
+.sentence {
+  margin: 0px;
+  padding: 0px;
 
-  /* Keeps the words in a single lines. */
+  /* This keeps the words in a single lines. */
   display: flex;
-  justify-content: flex-start;
-  align-content: flex-start;
   flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+
   row-gap: var(--line-gap);
 
-  padding-left: 5px;
+  background-color: var(--letter__borderLeftColor);
 }
 
 word {
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
 
   color: var(--letter__color);
+  background-color: var(--letter__borderLeftColor);
 
-  /* Fixes the extra space between letters. */
+  /* This fixes the extra spaces between the letters of the words */
   display: flex;
   justify-content: flex-start;
 }
 
 letter {
-  /* text-decoration-thickness: 1px; */
-
-  text-shadow: none;
-
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
 
   border-top: none;
-  border-bottom: none;
   border-right: none;
+  border-bottom: none;
 
-  /* prevents change in letter width when caret moves along letters while typing */
-  border-left-color: var(--letter-border-left__color);
-  border-left-width: var(--caret__width);
+  /* This Prevents change in letter width when caret moves along 
+  letters while typing */
   border-left-style: solid;
+  border-left-width: var(--caret__width);
+  border-left-color: var(--letter__borderLeftColor);
 
-  font-size: var(--letter__font-size);
-  font-weight: var(--letter__font-weight__300);
-  font-family: var(--letter__font-family__robotoMono);
-}
-
-.active {
-  color: var(--word__color);
-}
-
-.incorrect {
-  color: var(--incorrect-word__color);
-}
-
-.error {
-  color: var(--incorrect-letter__color);
+  font-size: var(--letter__fontSize);
+  font-weight: var(--letter__fontWeight300);
+  font-family: var(--letter__fontFamilyRobotoMono);
 }
 
 .speed {
+  width: 150px;
+  height: 50px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 50px;
-  font-family: monospace;
+
   letter-spacing: 1px;
-  font-size: 1.6rem;
+
   color: deeppink;
-  font-weight: var(--letter__font-weight__400);
-  font-family: var(--letter__font-family__robotoMono);
+  font-size: var(--letter__fontSize);
+  font-family: var(--letter__fontFamilyRobotoMono);
 }
