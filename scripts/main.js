@@ -197,8 +197,7 @@ function newtest() {
   textinput.addEventListener("keydown", handleKeydown); // this brings everything live again
 
   setTimeout(() => {
-    speedtag.style.color = "lightgray";
-    speedtag.style.fontWeight = "300";
+    speedtag.style.color = "whitesmoke";
   }, 1500);
 }
 
