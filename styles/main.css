@@ -33,15 +33,17 @@ body {
 }
 
 body {
+  padding-top: 15px;
+  padding-left: 30px;
+
   display: flex;
   flex-direction: column;
-
-  padding: 40px;
 }
 
 .speed {
-  color: deeppink;
+  color: whitesmoke;
   font-size: var(--letter__fontSize);
+  font-weight: var(--letter__fontWeight300);
   font-family: var(--letter__fontFamilyRobotoMono);
 }
 
