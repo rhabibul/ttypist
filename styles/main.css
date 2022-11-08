@@ -4,9 +4,9 @@
 
   --line-gap: 5px;
 
-  --active-word__color: #bdbdbd;
+  --active-word__color: black;
 
-  --letter__color: black;
+  --letter__color: #9f9f9f;
   --letter__fontSize: 1.2rem;
   --letter__borderLeftColor: white;
 
