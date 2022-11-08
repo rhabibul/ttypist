@@ -1,7 +1,7 @@
 import words1k from "./modules/words1k.js";
 import words3k from "./modules/words3k.js";
 
-const initialstring = 'the quick brown fox jumps over the lazy dog';
+const initialstring = 'the quick brown fox jumped over the lazy dog';
 
 const nonPrintableCharacters = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
@@ -14,7 +14,7 @@ const speedtag = document.querySelector(".speed");
 const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
 
-const newtestwords = 10;
+const newtestwords = 15;
 
 let active_word = 0;
 let active_letter = 0;
@@ -199,7 +199,7 @@ function newtest() {
 
   setTimeout(() => {
     speedtag.style.color = "whitesmoke";
-  }, 1500);
+  }, 2000);
 }
 
 function totalcharacters(words) {

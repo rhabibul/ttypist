@@ -6,9 +6,9 @@
 
   --active-word__color: black;
 
-  --letter__borderLeftColor: white;
-  --letter__color: #a3a3a3;
+  --letter__color: #bdbdbd;
   --letter__fontSize: 1.2rem;
+  --letter__borderLeftColor: white;
 
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
@@ -33,6 +33,7 @@ body {
 }
 
 body {
+  background-color: white;
   padding-top: 15px;
   padding-left: 30px;
 
