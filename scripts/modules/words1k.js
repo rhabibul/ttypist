@@ -1,4 +1,4 @@
-const w1000 = [
+const words1k = [
   "as", "I", "his", "that", "he", "was", "for", "on", "are", "with", "they",
   "be", "at", "one", "have", "this", "from", "by", "hot", "word", "but", "what",
   "some", "is", "it", "you", "or", "had", "the", "of", "to", "and", "a", "in",
@@ -113,4 +113,4 @@ const w1000 = [
   "broad", "prepare", "salt", "nose", "plural", "anger", "claim", "continent",
 ];
 
-export default w1000;
+export default words1k;

@@ -1,4 +1,5 @@
-import w1000 from "./modules/words1k.js";
+import words1k from "./modules/words1k.js";
+import words3k from "./modules/words3k.js";
 
 const initialstring = 'the quick brown fox jumps over the lazy dog';
 
@@ -13,7 +14,7 @@ const speedtag = document.querySelector(".speed");
 const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
 
-const testwords = 10;
+const newtestwords = 10;
 
 let active_word = 0;
 let active_letter = 0;
@@ -175,7 +176,7 @@ function newtest() {
   wordsContainer.innerHTML = "";
   textinput.value = "";
 
-  const randomWords = generateRandomWords(testwords);
+  const randomWords = generateRandomWords(newtestwords);
 
   for (let i = 0; i < randomWords.length; ++i) {
     wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
@@ -229,7 +230,7 @@ function generateRandomWords(noOfWordsToGenerate) {
   } else {
     wordsInStringForm = new Array(noOfWordsToGenerate);
     for (let i = 0; i < noOfWordsToGenerate; ++i) {
-      wordsInStringForm[i] = w1000[Math.trunc(Math.random() * 1000)];
+      wordsInStringForm[i] = words3k[Math.trunc(Math.random() * words3k.length)];
     }
   }
 

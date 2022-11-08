@@ -8,11 +8,12 @@
 
   --letter__borderLeftColor: white;
   --letter__color: #a3a3a3;
-  --letter__fontSize: 1.3rem;
+  --letter__fontSize: 1.2rem;
 
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
 
+  --letter__fontFamilyFiraCode: "Fira Code", monospace;
   --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
   --letter__fontFamilyFuzzyBubbles: "Fuzzy Bubbles", cursive;
 }
