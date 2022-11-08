@@ -111,7 +111,7 @@ letter {
   border-right: none;
   border-bottom: none;
 
-  /* This Prevents change in letter width when caret moves along 
+  /* These properties prevents change in letter width when caret moves along 
   letters while typing */
   border-left-style: solid;
   border-left-width: var(--caret__width);
