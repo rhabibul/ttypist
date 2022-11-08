@@ -1,4 +1,2 @@
-> # Touchtypist
-### https://touchtypist.netlify.app/
-
+# Touchtypist
 ![website demo run](./assets/demo.gif)
