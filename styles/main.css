@@ -1,13 +1,10 @@
 :root {
-  --textinput__color: white;
-  --textinput__backgroundColor: white;
-
   --line-gap: 5px;
 
-  --active-word__color: black;
-
-  --letter__color: #9f9f9f;
+  --word__color: black;
+  --letter__color: #9d9d9d;
   --letter__fontSize: 1.2rem;
+
   --letter__borderLeftColor: white;
 
   --letter__fontWeight300: 300;
@@ -16,6 +13,9 @@
   --letter__fontFamilyFiraCode: "Fira Code", monospace;
   --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
   --letter__fontFamilyFuzzyBubbles: "Fuzzy Bubbles", cursive;
+
+  --textinput__color: var(--letter__borderLeftColor);
+  --textinput__backgroundColor: var(--letter__borderLeftColor);
 }
 
 *,
@@ -33,7 +33,7 @@ body {
 }
 
 body {
-  background-color: white;
+  background-color: var(--letter__borderLeftColor);
   padding-top: 15px;
   padding-left: 30px;
 
@@ -49,7 +49,7 @@ body {
 }
 
 .active {
-  color: var(--active-word__color);
+  color: var(--word__color);
 }
 .incorrect {
   color: red;

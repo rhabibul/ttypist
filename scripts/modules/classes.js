@@ -37,22 +37,18 @@ class Time {
 	}
 }
 
+let testHasStarted = true;
+
 class Test {
 
 		#stats;
-		#words;
-		#testHasStarted;
+		#sentence;
+    #time;
 
 		constructor() {
-			this.#words = new Words(generateRandomWords());
+      this.#time = new Time();
 			this.#stats = new Stats();
-			this.#testHasStarted = true;
-		}
-		get teststarted() {
-			return this.#testHasStarted;
-		}
-		set teststarted(value) {
-			this.#testHasStarted = value;
+			this.#sentence = new Sentence();
 		}
 		generateRandomWords(N);
 }
@@ -75,7 +71,7 @@ class Sentence {
     this.#currentLetterIndex = 0;
   }
 
-	showWords() {
+	showwords() {
 		console.log(this.#words.join(' '));
 	}
 
