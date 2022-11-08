@@ -1,7 +1,8 @@
-# Touchtypist
+<h1 align="center"><samp>Touchtypist</samp></h1>
+
 ![website demo run](./assets/demo.gif)
 
-> ## Basic features: [touchtypist](https://touchtypist.netlify.app/)
+> ## Basic features of [touchtypist](https://touchtypist.netlify.app/)
   - **_by default_** this version will forgive your errors i.e, after typing incorrect
     letter(s) if you type the correct letter then caret will move forward.
   - If you type a wrong character then whole word will be highlighted with red color.
