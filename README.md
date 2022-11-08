@@ -1,4 +1,4 @@
 # Touchtypist
+### https://touchtypist.netlify.app/
 
-<a href="https://touchtypist.netlify.app/" target="_blank">Learn touchtype</a>
-<img src="./assets/demo.gif">
+![website demo run](./assets/demo.gif)
