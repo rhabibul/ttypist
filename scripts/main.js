@@ -14,7 +14,7 @@ const speedtag = document.querySelector(".speed");
 const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
 
-const newtestwords = 15;
+const newtestwords = 10;
 
 let active_word = 0;
 let active_letter = 0;

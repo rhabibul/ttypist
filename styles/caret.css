@@ -2,7 +2,7 @@
   --thin: 1px;
   --thick: 2px;
 
-  --caret__color: deeppink;
+  --caret__color: rgb(228, 0, 0);
   --caret__blinktime: 1.1s;
   --caret__width: var(--thin);
   --caret__blinkmode: hardflash;
