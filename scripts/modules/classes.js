@@ -1,4 +1,36 @@
-const s = "the brown fox jumped over the lazy dog";
+const Config = {
+  theme: "molokai",
+  theme_dark: true,
+  theme_light: "off",
+  add_punctuation: false,
+  add_numbers: false,
+  totalWordsToType: 50,
+  totalTimeAvailable: 30,
+  mode: "time" || "words" || "quote" || "custom",
+  fontSize: 1.5,
+  difficulty: "normal",
+  quickEnd: false,
+  caretStyle: "line" || "underline" || "box" || "block",
+  flipTestColors: false,
+  confidenceMode: "off",
+  indicateTypos: "off",
+  stopOnError: "off",
+	caretColor: "",
+	caretWidth: "thin" || "thick",
+	keymap: "on" || "off",
+  fontFamily: "Roboto_Mono",
+	fontWeight: "normal" || "bold" || "bolder",
+  highlightMode: "letter" || "word",
+	forgiveErrors: true,
+	endTestWithSpace: false,
+	liveStats: false,
+};
+
+const wordstats = {
+	correct: 0,
+	incorrect: 0,
+	missed: 0,
+};
 
 class History {
 	#tests;
@@ -67,7 +99,7 @@ class Sentence {
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
 
-  constructor(words) {
+  constructor(words) { // expects an 1D array of strings
 
     if (arguments.length === 0) {
       this.#words = new Array();
