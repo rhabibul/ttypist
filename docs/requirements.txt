@@ -207,6 +207,12 @@ WHAT I WANT:
 					deletes on word at a time, need to take a special care of special
 					character like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
 
+		> hide once user types letter/word
+				- if hightlight mode is letter then once the user types the letter correctly
+					make it invisible by adding "display: none". do the same thing for word tag
+					if hightlight mode is word.
+				
+
 
 
 

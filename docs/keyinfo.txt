@@ -1,0 +1,26 @@
+KeyboardEvent
+			.key
+			.code
+			.repeat
+			.location  (0, 1, 2, 3)
+			.isComposing
+			.ctrlKey
+			.altKey	
+			.shiftKey
+			.metaKey	
+
+			e.key
+						(Control, Shift, Alt, Meta)
+			e.code 
+						(ControlLeft,	ControlRight)
+						(AltLeft,	AltRight)
+						(ShiftLeft,	ShiftRight)
+						(MetaLeft, MetaRight)
+location
+ 				0 is standard
+				1 is left
+				2 is right
+				3 is numpad's keys (locked, unlocked)
+				You can distinguish normal arrow keys vs numpad arrows and numpad digits
+				vs number row digits using the location property. Numpad version's value
+				will be 3 and standard ones will have value 0.

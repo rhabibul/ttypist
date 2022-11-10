@@ -28,13 +28,21 @@ class Time {
 	
 	#testStartTime;
 	#testEndTime;
-	#duration;
 	
 	constructor() {
 		this.#testStartTime = 0;
 		this.#testEndTime = 0;
-		this.#duration = 0;
 	}
+
+  startTimer() {
+    this.#testStartTime = performance.now();
+  }
+  stopTimer() {
+    this.#testEndTime = performance.now();
+  }
+  testDuration() {
+    return this.#testStartTime - this.#testEndTime;
+  }
 }
 
 let testHasStarted = true;
