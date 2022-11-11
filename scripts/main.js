@@ -53,7 +53,7 @@ function handleKeydown(keyevent) {
   const keytyped = keyevent.key;
 
   // move to next word if a space is typed
-  if ( (letters[active_letter].textContent.charCodeAt(0) === 160) && (keytyped === " ") ) {
+  if ( letters[active_letter].textContent.charCodeAt(0) === 160 && keytyped === " " ) {
     // charCode is checked so that caret doesn't go to next word when user just
     // hits a space character
 
@@ -64,16 +64,17 @@ function handleKeydown(keyevent) {
     words[active_word].classList.add("active"); // add highlight to next word
     active_letter = 0; // go to first letter of next word
     letters[active_letter].classList.add("caret"); // put caret on first letter of the next word
-    
   } else if (keytyped === letters[active_letter].textContent) {
-
     // Move caret to next letter
     words[active_word].classList.remove("incorrect");
     letters[active_letter].classList.remove("caret");
     ++active_letter;
     letters[active_letter].classList.add("caret");
 
-    if ( (active_word === totalwords - 1) && (active_letter === letters.length - 1) ) {
+    if (
+      active_word === totalwords - 1 &&
+      active_letter === letters.length - 1
+    ) {
       // restart new test if user has finished typing all the words
 
       testEndTime = window.performance.now();
@@ -84,7 +85,6 @@ function handleKeydown(keyevent) {
       textinput.removeEventListener("keydown", handleKeydown, false);
       newtest();
     }
-
   } else if (keyevent.metaKey && keytyped === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
@@ -135,7 +135,8 @@ function handleKeydown(keyevent) {
     words[active_word].classList.remove("incorrect");
 
     letters[active_letter].classList.add("caret"); // add caret to first letter of the current word
-  } else if (keytyped === "Backspace") { // Take caret one letter back.
+  } else if (keytyped === "Backspace") {
+    // Take caret one letter back.
 
     words[active_word].classList.remove("incorrect");
 
@@ -252,7 +253,7 @@ function generateRandomWords(noOfWordsToGenerate) {
 
     // letter with space
     let letterWithSpace = document.createElement("letter");
-    letterWithSpace.innerHTML = "&nbsp;";
+    letterWithSpace.innerHTML = `&nbsp;`;
     word.appendChild(letterWithSpace);
   
     randomWords[i] = word;

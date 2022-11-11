@@ -46,3 +46,8 @@ addEventListener
 								mouseenter
 								compositionstart
 								compositionend
+
+whitespace:
+				> "&nbsp;".charCodeAt(0) = 160
+				> "⸱".charCodeAt(0)	= 11825
+					<span style="padding: 0px 4px;">⸱</span>
