@@ -7,7 +7,7 @@ const wordstats = {
 };
 
 class History {
-  
+
   #tests;
   constructor() {
     this.#tests = new Array();
@@ -194,3 +194,35 @@ class Sentence {
     this.#currentWordIndex--;
   }
 }
+
+/**
+ * Gross Words
+ * Total number of words typed by user (correct + incorrect)
+ *
+ * 				GWPM = (gross words) / (time taken in mins)
+ * 
+ * Net Words
+ * Total number of corrects words typed by the user
+ * 
+ * 				NWPM = (net words) / (time taken in mins)
+ * 
+ * Accuracy
+ * The number of correct words entered
+ * 				Acc = (NWPM / GWPM) * 100
+ * Note that all errors, whether corrected or not, should be 
+ * counted in the accuracy calculation, unlike the net WPM 
+ * calculation.
+ * 
+ * https://www.speedtypingonline.com/typing-equations
+ * 
+ * With no error penalties:
+ * Include spaces, numbers, letters & punctuations but ignore function 
+ * keys like backspace, ctrl, alt, meta, shift etc.
+ * 				Gross WPM = ((all typed entries) / 5) / (time in minutes)
+ * 
+ * Error rate = (errors left) / (total time taken for typing all words)
+ * 
+ * Net WPM = [((all typed entries) / 5) - (uncorrected errors)] / (time in mins)
+ * 				 = [(total words) - (uncorrect errors)] / (time in mins)
+ *
+**/

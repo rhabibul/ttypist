@@ -19,8 +19,8 @@ const Config = {
   forgive_errors: true, // Inserts wrongly typed letters
   deletion_allowed: true, // Enables backspace, (alt/ctrl + backspace) and (meta + backspace)
 
-  caret_width: "thin", // ["thin", "thick"]
-  caret_style: "line", // ["none", "line", "underline", "box", "block"],
+  caretwidth: "thin", // ["thin", "thick"]
+  caretstyle: "line", // ["none", "line", "underline", "box", "block"],
 
   fontsize: "1.4",
   fontweight: "300",
