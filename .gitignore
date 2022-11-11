@@ -39,4 +39,8 @@ node_modules
 # All swap files of vim
 *.swp
 
-./vscode
+# PhpStorm
+.idea
+
+# VSCode
+.vscode
