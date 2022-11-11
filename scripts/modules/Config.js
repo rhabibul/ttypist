@@ -1,23 +1,23 @@
 // Empty string means none/false/off
 const Config = {
-  liveStats: false,
-  customText: false,
-  guidedLessons: false,
-  includeNumbers: false,
-  includePunctuations: false,
+  // live_stats: false,
+  // custom_text: false,
+  // guided_lesson: false,
+  // include_numbers: false,
+  // include_punctuations: false,
+	// whitespace: "&nbsp;", // ["&nbsp;", "⸱"]
+  // keyboard: "on", // ["on", "off"]
 
   highlight_mode: "word", // ["letter", "word"]
   flip_highlightcolors: false,
 
-  // Normal is the classic type test experience.
-  // Expert fails the test if you submit (press space) an incorrect word.
-  // Master fails if you press a single incorrect key.
-  difficulty: "normal", // ["normal", "expert", "master"]
+  // beginner is the classic type test experience.
+  // intermediate fails the test if you submit (press space) an incorrect word.
+  // advanced fails if you press a single incorrect key.
+  difficulty: "beginner", // ["beginner", "intermediate", "advanced"]
 
   forgive_errors: true, // Inserts wrongly typed letters
   deletion_allowed: true, // Enables backspace, (alt/ctrl + backspace) and (meta + backspace)
-
-  keyboard: "on", // ["on", "off"]
 
   caret_width: "thin", // ["thin", "thick"]
   caret_style: "line", // ["none", "line", "underline", "box", "block"],

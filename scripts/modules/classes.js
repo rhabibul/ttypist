@@ -7,12 +7,14 @@ const wordstats = {
 };
 
 class History {
+  
   #tests;
-  #totaltests;
-
   constructor() {
     this.#tests = new Array();
-    this.#totaltests = this.#tests.length;
+  }
+
+  totaltests() {
+    return this.#tests.length;
   }
 }
 
