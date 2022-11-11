@@ -14,8 +14,8 @@ const Config = {
   // Master fails if you press a single incorrect key.
   difficulty: "normal", // ["normal", "expert", "master"]
 
-  backspace: true, // Enables backspace, (alt/ctrl + backspace) and (meta + backspace)
-  forgive_errors: false, // Inserts wrongly typed letters
+  forgive_errors: true, // Inserts wrongly typed letters
+  deletion_allowed: true, // Enables backspace, (alt/ctrl + backspace) and (meta + backspace)
 
   keyboard: "on", // ["on", "off"]
 
