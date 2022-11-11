@@ -1,13 +1,19 @@
 KeyboardEvent
-			.key
-			.code
-			.repeat
-			.location  (0, 1, 2, 3)
-			.isComposing
-			.ctrlKey
-			.altKey	
-			.shiftKey
-			.metaKey	
+						.DOM_KEY_LOCATION_STANDARD =  0
+						.DOM_KEY_LOCATION_LEFT 		 =  1
+						.DOM_KEY_LOCATION_RIGHT 	 =  2
+						.DOM_KEY_LOCATION_NUMPAD 	 =  3
+						.key
+						.code
+						.repeat
+						.location = [0, 1, 2, 3]
+						.isComposing
+						.ctrlKey
+						.altKey	
+						.shiftKey
+						.metaKey	
+
+--------------------------------------------------------------------------------
 
 			e.key
 						(Control, Shift, Alt, Meta)
@@ -25,16 +31,10 @@ location
 				vs number row digits using the location property. Numpad version's value
 				will be 3 and standard ones will have value 0.
 
-
-if character is equal to "ArrowLeft" then letter is  "a"
-if character is equal to "ArrowRight" then letter is  "d"
-if character is equal to "ArrowDown" then letter is  "s"
-if character is equal to "ArrowUp" then letter is  "w"
-
-keyboardevent.DOM_KEY_LOCATION_STANDARD 	==  0
-keyboardevent.DOM_KEY_LOCATION_LEFT 			==  1
-keyboardevent.DOM_KEY_LOCATION_RIGHT 			==  2
-keyboardevent.DOM_KEY_LOCATION_NUMPAD 		==  3
+ ArrowLeft: a
+ArrowRight: d
+ ArrowDown: s
+   ArrowUp: w
 
 addEventListener
 								keydown
