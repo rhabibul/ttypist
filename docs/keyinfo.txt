@@ -31,10 +31,10 @@ location
 				vs number row digits using the location property. Numpad version's value
 				will be 3 and standard ones will have value 0.
 
- ArrowLeft: a
-ArrowRight: d
- ArrowDown: s
-   ArrowUp: w
+   ArrowUp	-  KeyW	 - 	Numpad8
+ ArrowLeft	-  KeyA	 - 	Numpad4
+ArrowRight	-  KeyD	 - 	Numpad6
+ ArrowDown	-  KeyS	 - 	Numpad2
 
 addEventListener
 								keydown
