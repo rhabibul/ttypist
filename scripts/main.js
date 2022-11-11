@@ -37,6 +37,7 @@ let letters = words[active_word].children; // store letters of first word
 
 words[active_word].classList.add("active");
 letters[active_letter].classList.add("caret");
+textinput.focus();
 
 textinput.addEventListener("keydown", handleKeydown);
 

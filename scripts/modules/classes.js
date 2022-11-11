@@ -1,42 +1,29 @@
+let testHasStarted = true;
+
 const wordstats = {
-	correct: 0,
-	incorrect: 0,
-	missed: 0,
+  correct: 0,
+  incorrect: 0,
+  missed: 0,
 };
 
 class History {
-	#tests;
-	#totaltests;
-	constructor() {
-		this.#tests = new Array();
-		this.#totaltests = this.#tests.length;
-	}
+  #tests;
+  #totaltests;
+
+  constructor() {
+    this.#tests = new Array();
+    this.#totaltests = this.#tests.length;
+  }
 }
 
-class Stats {
-	
-	#wpm;
-	#cpm;
-	#raw;
-	#accuracy;
-	
-	constructor() {
-		this.#cpm = 0;
-		this.#wpm = 0;
-		this.#raw = 0;
-		this.#accuracy = 0;
-	}
-}
+class Timer {
+  #testStartTime;
+  #testEndTime;
 
-class Time {
-	
-	#testStartTime;
-	#testEndTime;
-	
-	constructor() {
-		this.#testStartTime = 0;
-		this.#testEndTime = 0;
-	}
+  constructor() {
+    this.#testStartTime = 0;
+    this.#testEndTime = 0;
+  }
 
   startTimer() {
     this.#testStartTime = performance.now();
@@ -49,29 +36,39 @@ class Time {
   }
 }
 
-let testHasStarted = true;
+class Stats {
+  #wpm;
+  #cpm;
+  #raw;
+  #accuracy;
+
+  constructor() {
+    this.#cpm = 0;
+    this.#wpm = 0;
+    this.#raw = 0;
+    this.#accuracy = 0;
+  }
+}
 
 class Test {
+  #stats;
+  #sentence;
+  #time;
 
-		#stats;
-		#sentence;
-    #time;
-
-		constructor() {
-      this.#time = new Time();
-			this.#stats = new Stats();
-			this.#sentence = new Sentence();
-		}
-		generateRandomWords(N);
+  constructor() {
+    this.#time = new Timer();
+    this.#stats = new Stats();
+    this.#sentence = new Sentence();
+  }
 }
 
 class Sentence {
-
   #words; // array of strings
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
 
-  constructor(words) { // expects an 1D array of strings
+  constructor(words) {
+    // expects an 1D array of strings
 
     if (arguments.length === 0) {
       this.#words = new Array();
@@ -83,32 +80,34 @@ class Sentence {
     this.#currentLetterIndex = 0;
   }
 
-	showwords() {
-		console.log(this.#words.join(' '));
-	}
+  showwords() {
+    console.log(this.#words.join(" "));
+  }
 
-	push_front(...words) {
-		for ( let word of words ) {
-			this.#words.unshift(word);
-		}
-	}
-	push_back(...words) {
-		for ( let word of words ) {
-			this.#words.push(word);
-		}
-	}
-	pop_front() {
+  push_front(...words) {
+    for (let word of words) {
+      this.#words.unshift(word);
+    }
+  }
+  push_back(...words) {
+    for (let word of words) {
+      this.#words.push(word);
+    }
+  }
+  pop_front() {
     return this.#words.shift();
-	}
-	pop_back() {
-		return this.#words.pop();
-	}
+  }
+  pop_back() {
+    return this.#words.pop();
+  }
 
-  get totalwords() { // return the total number of words present in words array
+  get totalwords() {
+    // return the total number of words present in words array
     return this.#words.length;
   }
 
-  get activeWord() { // return the active word
+  get activeWord() {
+    // return the active word
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -123,7 +122,8 @@ class Sentence {
     }
   }
 
-  get activeLetter() { // return the active letter
+  get activeLetter() {
+    // return the active letter
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -145,21 +145,26 @@ class Sentence {
     }
   }
 
-  get activeWordLength() { // return length of active word
+  get activeWordLength() {
+    // return length of active word
     return this.#words[this.#currentWordIndex].length;
   }
-	
-  get activeWordIndex() { // return active word's index
+
+  get activeWordIndex() {
+    // return active word's index
     return this.#currentWordIndex;
   }
-  set activeWordIndex(index) { // set new index for active word
+  set activeWordIndex(index) {
+    // set new index for active word
     this.#currentWordIndex = index;
   }
 
-  get activeLetterIndex() { // return active letter's index
+  get activeLetterIndex() {
+    // return active letter's index
     return this.#currentLetterIndex;
   }
-  set activeLetterIndex(index) { // set new index for active letter in active word
+  set activeLetterIndex(index) {
+    // set new index for active letter in active word
     this.#currentLetterIndex = index;
   }
 
@@ -187,5 +192,3 @@ class Sentence {
     this.#currentWordIndex--;
   }
 }
-
-const sentence = new Sentence(s.split(" "));

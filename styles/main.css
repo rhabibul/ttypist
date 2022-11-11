@@ -121,6 +121,6 @@ letter {
   border-left-color: var(--letter__borderLeftColor);
 
   font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight300);
+  font-weight: var(--letter__fontWeight400);
   font-family: var(--letter__fontFamilyRobotoMono);
 }

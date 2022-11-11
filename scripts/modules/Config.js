@@ -1,6 +1,5 @@
+// Empty string means none/false/off
 const Config = {
-  // Empty string means false | off | none
-
   theme: {
     name: "molokai",
     dark: true,
@@ -9,31 +8,35 @@ const Config = {
 
   whitespace: "" || "⸱" || "␣",
 
-  customText: false,
+  practiceNumpad: false,
+  practiceNumrow: false,
+
+  liveStats: false,
   guidedLesson: false,
 
   time: 60,
-  words: 50,
-  number: false,
-  punctuation: false,
+  words: 25,
+  includeNumbers: false,
+  includePunctuations: false,
+
   mode: "time" || "words" || "custom",
 
   highlightMode: "letter" || "word",
   flipHighlightModeColors: false,
 
+  // Normal is the classic type test experience.
+  // Expert fails the test if you submit (press space) an incorrect word.
+  // Master fails if you press a single incorrect key.
   difficulty: "normal" || "expert" || "master",
-  quickEnd: false,
-  forgiveErrors: true,
+
+  forgiveErrors: false,
   confidence: "low" || "high", // backspace | alt/ctrl + backspace | meta + backspace
-  stopOnError: "letter" || "word",
 
   keymap: "on" || "off",
 
-  liveStats: false,
-
-  caretColor: "black",
-  caretWidth: "thin" || "thick",
-  caretStyle: "" || "line" || "underline" || "box" || "block",
+	caret_type: "solid",
+  caret_width: "thin", // ["thin", "thick"]
+  caret_style: "line", // ["none", "line", "underline", "box", "block"],
 
   fontSize: "1.5rem",
   fontWeight: "thin" || "bold",
