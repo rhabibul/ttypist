@@ -19,6 +19,7 @@ class History {
 }
 
 class Timer {
+  
   #testStartTime;
   #testEndTime;
 
