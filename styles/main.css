@@ -1,8 +1,8 @@
 :root {
-  --line-gap: 5px;
+  --line-gap: 6px;
 
   --word__color: black;
-  --letter__color: #c8c8c8;
+  --letter__color: rgba(167, 167, 167, 0.731);
   --letter__fontSize: 1.4rem;
 
   --letter__borderLeftColor: white;
@@ -116,11 +116,11 @@ letter {
 
   /* These properties prevents change in letter width when caret moves along 
   letters while typing */
-  border-left-style: solid;
+  border-left-style: var(--caret__type);
   border-left-width: var(--caret__width);
   border-left-color: var(--letter__borderLeftColor);
 
   font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight400);
+  font-weight: var(--letter__fontWeight300);
   font-family: var(--letter__fontFamilyRobotoMono);
 }
