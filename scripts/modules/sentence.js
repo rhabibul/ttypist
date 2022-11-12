@@ -4,8 +4,7 @@ class Sentence {
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
 
-  constructor(words) {
-    // expects an 1D array of strings
+  constructor(words) { // expects an 1D array of strings
 
     if (arguments.length === 0) {
       this.#words = new Array();
@@ -17,34 +16,28 @@ class Sentence {
     this.#currentLetterIndex = 0;
   }
 
-  showwords() {
-    console.log(this.#words.join(" "));
-  }
-
-  push_front(...words) {
+  push_front(...words) { // expects a string or array of strings
     for (let word of words) {
       this.#words.unshift(word);
     }
   }
-  push_back(...words) {
+  push_back(...words) { // expects a string or array of strings
     for (let word of words) {
       this.#words.push(word);
     }
   }
-  pop_front() {
+  pop_front() { // removes first word
     return this.#words.shift();
   }
-  pop_back() {
+  pop_back() { // removes last word
     return this.#words.pop();
   }
 
-  get totalwords() {
-    // return the total number of words present in words array
+  get totalwords() { // return the total number of words present in words array
     return this.#words.length;
   }
 
-  get activeWord() {
-    // return the active word
+  get activeWord() { // returns the active word
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -59,8 +52,7 @@ class Sentence {
     }
   }
 
-  get activeLetter() {
-    // return the active letter
+  get activeLetter() { // returns the active letter
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -82,30 +74,25 @@ class Sentence {
     }
   }
 
-  get activeWordLength() {
-    // return length of active word
+  get activeWordLength() { // returns length of active word
     return this.#words[this.#currentWordIndex].length;
   }
 
-  get activeWordIndex() {
-    // return active word's index
+  get activeWordIndex() { // returns active word's index
     return this.#currentWordIndex;
   }
-  set activeWordIndex(index) {
-    // set new index for active word
-    this.#currentWordIndex = index;
-  }
-
-  get activeLetterIndex() {
-    // return active letter's index
+  get activeLetterIndex() { // returns active letter's index of active word
     return this.#currentLetterIndex;
   }
-  set activeLetterIndex(index) {
-    // set new index for active letter in active word
+
+  set activeWordIndex(index) { // set new index for active word
+    this.#currentWordIndex = index;
+  }
+  set activeLetterIndex(index) { // set new index for active letter of active word
     this.#currentLetterIndex = index;
   }
 
-  resetIndexes() {
+  resetindexes() {
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
