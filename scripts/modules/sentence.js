@@ -133,6 +133,6 @@ class CorrectedWords {
 
 }
 
-class WordNotCorrect {
+class WordsNotCorrect {
 
 }

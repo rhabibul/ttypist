@@ -1,5 +1,3 @@
-let lastTimeKeypressed = performance.now();
-
 class Timer {
   #testStartTime;
   #testEndTime;
@@ -54,31 +52,3 @@ const Stats = {
   correctwords: 0,
   incorrectwords: 0,
 };
-
-let testHasStarted = true;
-
-let wpm = [];
-let acc = [];
-
-class History {
-	#wpm;
-  #tests;
-  constructor() {
-    this.#tests = new Array();
-  }
-  totaltests() {
-    return this.#tests.length;
-  }
-}
-
-class Test {
-  #stats;
-  #sentence;
-  #time;
-
-  constructor() {
-    this.#time = new Timer();
-    this.#stats = new Stats();
-    this.#sentence = new Sentence();
-  }
-}
