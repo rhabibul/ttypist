@@ -1,34 +1,40 @@
-// Empty string means none/false/off
-const Config = {
-  // live_stats: false,
-  // custom_text: false,
-  // guided_lesson: false,
-  // include_numbers: false,
-  // include_punctuations: false,
-	// whitespace: "&nbsp;", // ["&nbsp;", "⸱"]
-  // keyboard: "on", // ["on", "off"]
-
-  highlight_mode: "word", // ["letter", "word"]
-  flip_highlightcolors: false,
-
-  // beginner is the classic type test experience.
-  // intermediate fails the test if you submit (press space) an incorrect word.
-  // advanced fails if you press a single incorrect key.
-  difficulty: "beginner", // ["beginner", "intermediate", "advanced"]
-
-  forgive_errors: true, // Inserts wrongly typed letters
-  deletion_allowed: true, // Enables backspace, (alt/ctrl + backspace) and (meta + backspace)
-
-  caretwidth: "thin", // ["thin", "thick"]
-  caretstyle: "line", // ["none", "line", "underline", "box", "block"],
-
-  fontsize: "1.4",
-  fontweight: "300",
-  fontfamily: "Roboto Mono",
+const whitespace = {
+  space: "&nbsp;",
+  bullet: "⸱",
 };
 
+const Config = {
+  customtext: false, // custom text
+  guidedlessions: false, // guided lessions for noobs
 
-const SelectKeys = {
+  flipcolors: false, // flip highlight mode colors
+  livestats: false, // live stats
+  livekeyboard: true, // live keyboard
+  highlight: "word", // highlight mode: letter, word
+  deletion: true, // enables backspace, (alt/ctrl + bs) and (meta + bs)
+  forgiveerrors: true, // inserts wrongly typed letters
+
+  // "beginner" is the classic type test experience.
+  // "intermediate" fails the test if you submit (press space) an incorrect word.
+  // "advanced" fails if you press a single incorrect key.
+  difficulty: "beginner",
+
+  caretwidth: "thin", // caret width: thin, thick
+  caretstyle: "line", // caret style: none, line, box, underline, block
+
+  fontsize: "1.4", // font size
+  fontweight: "300", // font weight
+  fontfamily: "Roboto Mono", // font family
+
+  text: {
+    numbers: false,
+    punctuations: false,
+    wordseparator: whitespace.space,
+  },
+};
+
+const userDefinedPractice = {
+	
   numpad: false,
   numrow: false,
   alphanumeric: false,
@@ -40,5 +46,3 @@ const SelectKeys = {
   // KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
   arrowkeys: false,
 };
-
-export { Config, SelectKeys };

@@ -226,4 +226,5 @@ class Sentence {
  * Net WPM = [((all typed entries) / 5) - (uncorrected errors)] / (time in mins)
  * 				 = [(total words) - (uncorrect errors)] / (time in mins)
  *
+ * Raw WPM = [(correct + incorrect + extra_chars) / 5] / (time in minutes)
 **/
