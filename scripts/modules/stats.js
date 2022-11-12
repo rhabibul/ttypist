@@ -1,3 +1,5 @@
+let lastTimeKeypressed = performance.now();
+
 class Timer {
   #testStartTime;
   #testEndTime;
@@ -15,20 +17,6 @@ class Timer {
   }
   testDuration() {
     return this.#testStartTime - this.#testEndTime;
-  }
-}
-
-class Stats {
-  #wpm;
-  #cpm;
-  #raw;
-  #accuracy;
-
-  constructor() {
-    this.#cpm = 0;
-    this.#wpm = 0;
-    this.#raw = 0;
-    this.#accuracy = 0;
   }
 }
 
@@ -69,12 +57,15 @@ const Stats = {
 
 let testHasStarted = true;
 
+let wpm = [];
+let acc = [];
+
 class History {
+	#wpm;
   #tests;
   constructor() {
     this.#tests = new Array();
   }
-
   totaltests() {
     return this.#tests.length;
   }

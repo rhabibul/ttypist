@@ -198,14 +198,23 @@ WHAT I WANT:
 
 		> deletion of wrongly typed letters:
 				- while backspacing
-					deletes on letter at a time so no concept of stopping at special
+					deletes on letter at a time so NO concept of stopping at special
 					symbols like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
 				- while cmd+backspace
 					deletes all a wrongly/correctly typed letters at once putting the
-					caret on first letter of first word.
+					caret on first letter of first word. NO concept of stopping on
+					special characters
 				- while ctrl+backspace or alt+backspace
 					deletes on word at a time, need to take a special care of special
 					character like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+
+					Note: 
+					Please test these two combinations on windows & mac extensively
+					to understand their behaviour in a text editor
+
+					Test this string by moving along with arrow keys & also deleting them
+					with ctrl+bs & alt+bs key combinations.
+					a~b`c!d@e#f$g%h^i&j*k(l)m-n=o_p+q{r[s]t}u|v\w;x:y"z'a,b<c.d>e/f?g
 
 		> hide once user types letter/word
 				- if hightlight mode is letter then once the user types the letter correctly

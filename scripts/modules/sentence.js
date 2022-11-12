@@ -1,10 +1,10 @@
 class Sentence {
-
   #words; // array of strings
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
 
-  constructor(words) { // expects an 1D array of strings
+  constructor(words) {
+    // expects an 1D array of strings
 
     if (arguments.length === 0) {
       this.#words = new Array();
@@ -16,28 +16,34 @@ class Sentence {
     this.#currentLetterIndex = 0;
   }
 
-  push_front(...words) { // expects a string or array of strings
+  push_front(...words) {
+    // expects a string or array of strings
     for (let word of words) {
       this.#words.unshift(word);
     }
   }
-  push_back(...words) { // expects a string or array of strings
+  push_back(...words) {
+    // expects a string or array of strings
     for (let word of words) {
       this.#words.push(word);
     }
   }
-  pop_front() { // removes first word
+  pop_front() {
+    // removes first word
     return this.#words.shift();
   }
-  pop_back() { // removes last word
+  pop_back() {
+    // removes last word
     return this.#words.pop();
   }
 
-  get totalwords() { // return the total number of words present in words array
+  get totalwords() {
+    // return the total number of words present in words array
     return this.#words.length;
   }
 
-  get activeWord() { // returns the active word
+  get activeWord() {
+    // returns the active word
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -52,7 +58,8 @@ class Sentence {
     }
   }
 
-  get activeLetter() { // returns the active letter
+  get activeLetter() {
+    // returns the active letter
     try {
       if (
         this.#currentWordIndex < 0 ||
@@ -74,33 +81,38 @@ class Sentence {
     }
   }
 
-  get activeWordLength() { // returns length of active word
+  get activeWordLength() {
+    // returns length of active word
     return this.#words[this.#currentWordIndex].length;
   }
 
-  get activeWordIndex() { // returns active word's index
+  get activeWordIndex() {
+    // returns active word's index
     return this.#currentWordIndex;
   }
-  get activeLetterIndex() { // returns active letter's index of active word
+  get activeLetterIndex() {
+    // returns active letter's index of active word
     return this.#currentLetterIndex;
   }
 
-  set activeWordIndex(index) { // set new index for active word
+  set activeWordIndex(index) {
+    // set new index for active word
     this.#currentWordIndex = index;
   }
-  set activeLetterIndex(index) { // set new index for active letter of active word
+  set activeLetterIndex(index) {
+    // set new index for active letter of active word
     this.#currentLetterIndex = index;
   }
 
-  resetindexes() {
-    this.#currentWordIndex = 0;
-    this.#currentLetterIndex = 0;
-  }
   resetActiveWordIndex() {
     this.#currentWordIndex = 0;
   }
   resetActiveLetterIndex() {
     this.#currentLetterIndex = 0;
+  }
+  resetindexes() {
+    this.resetActiveWordIndex();
+    this.resetActiveLetterIndex();
   }
 
   goToNextLetter() {
@@ -115,4 +127,12 @@ class Sentence {
   goToPreviousWord() {
     this.#currentWordIndex--;
   }
+}
+
+class CorrectedWords {
+
+}
+
+class WordNotCorrect {
+
 }
