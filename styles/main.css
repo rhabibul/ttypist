@@ -1,9 +1,9 @@
 :root {
-  --line-gap: 6px;
+  --line-gap: 5px;
 
   --word__color: black;
   --letter__color: rgba(167, 167, 167, 0.731);
-  --letter__fontSize: 1.4rem;
+  --letter__fontSize: 1.35rem;
 
   --letter__borderLeftColor: white;
 

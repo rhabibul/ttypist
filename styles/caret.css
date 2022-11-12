@@ -6,13 +6,12 @@
   --caret__color: black;
   --caret__blinktime: 1.1s;
   --caret__width: var(--thin);
-  --caret__blinkmode: hardflash;
 }
 
 .caret {
   border-left-color: var(--caret__color); /* line caret */
 
-  animation-name: var(--caret__blinkmode);
+  animation-name: flashcaret;
   animation-duration: var(--caret__blinktime);
 
   animation-delay: 2s;
@@ -20,7 +19,7 @@
   animation-timing-function: ease-out;
 }
 
-@keyframes hardflash {
+@keyframes flashcaret {
   0%,
   50% {
     border-left-color: var(--caret__color);
@@ -28,17 +27,6 @@
 
   51%,
   100% {
-    border-left-color: var(--letter__borderLeftColor);
-  }
-}
-
-@keyframes smoothflash {
-  0%,
-  100% {
-    border-left-color: var(--caret__color);
-  }
-
-  50% {
     border-left-color: var(--letter__borderLeftColor);
   }
 }
