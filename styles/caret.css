@@ -2,8 +2,8 @@
   --thin: 1px;
   --thick: 2px;
 
-  --caret__type: solid;
-  --caret__color: black;
+  --caret__type: solid; /* solid | dotted */
+  --caret__color: #ff0000;
   --caret__blinktime: 1.1s;
   --caret__width: var(--thin);
 }
