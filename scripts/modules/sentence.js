@@ -1,9 +1,11 @@
 class Caret {
 
   #blinking;
+  #carettype; // line, underline, box, block
 
   constructor() {
-    this.#blinking = true;  
+    this.#blinking = true;
+    this.#carettype = 'line';
   }
 
   get isblinking() {

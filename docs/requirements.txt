@@ -228,7 +228,7 @@ WHAT I WANT:
 
 ---------------------------------------------------------------------------------------------
 RANDOM THOUGHTS:
-		> No matter what, the user has turned on forgive errors or not we, will count
+		> No matter what, the user has turned on forgive errors or not we will count
 		  each and every character typed by the user. If the user has forgive errors 
 			off, then we will insert it otherwise not.
 
