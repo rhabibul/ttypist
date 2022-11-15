@@ -1,3 +1,57 @@
+// TakeCaret Object:
+//               TakeCaret.toNextLetter()
+//               TakeCaret.toPreviousLetter()
+//               TakeCaret.toNextWord()
+//               TakeCaret.toPreviousWord()
+
+class Caret {
+
+  #blinking;
+
+  constructor() {
+    this.#blinking = true;  
+  }
+
+  get isblinking() {
+    return this.#blinking;
+  }
+
+  hide() {
+    this.#blinking = false;
+    // hide the caret
+    // ...
+  }
+
+  show() {
+    this.#blinking = true;
+    // unhide the caret
+    // ...
+  }
+
+  putOnIndex(index) {
+    // put on any letter of the sentence
+  }
+
+  putOnNextWord() {
+    // put caret on next word of the sentence
+  }
+  putOnPreviousWord() {
+    // put caret on previous word of the sentence
+  }
+  
+  putOnNextLetter() {
+    // put caret on next letter of the word
+  }
+
+  putOnPreviousLetter() {
+    // put caret on prevoius letter of the word
+  }
+}
+
+const caret = new Caret();
+
+caret.caretOnNextLetter();
+
 class Sentence {
   #words; // array of strings
   #currentWordIndex; // stores index for current word which the user is typing
@@ -129,10 +183,5 @@ class Sentence {
   }
 }
 
-class CorrectedWords {
-
-}
-
-class WordsNotCorrect {
-
-}
+class ErrorsCorrected {}
+class ErrorsNotCorrected {}
