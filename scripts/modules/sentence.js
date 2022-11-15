@@ -1,9 +1,3 @@
-// TakeCaret Object:
-//               TakeCaret.toNextLetter()
-//               TakeCaret.toPreviousLetter()
-//               TakeCaret.toNextWord()
-//               TakeCaret.toPreviousWord()
-
 class Caret {
 
   #blinking;
@@ -28,6 +22,13 @@ class Caret {
     // ...
   }
 
+  setCaretColor(color) {
+    // set color of caret
+  }
+  setCaretWidth(width) {
+    // set width of caret
+  }
+
   putOnIndex(index) {
     // put on any letter of the sentence
   }
@@ -47,10 +48,6 @@ class Caret {
     // put caret on prevoius letter of the word
   }
 }
-
-const caret = new Caret();
-
-caret.caretOnNextLetter();
 
 class Sentence {
   #words; // array of strings
@@ -183,5 +180,8 @@ class Sentence {
   }
 }
 
-class ErrorsCorrected {}
-class ErrorsNotCorrected {}
+class ErrorOnWordCorrected {}
+class ErrorOnWordNotCorrected {}
+
+const caret = new Caret();
+const sentence = new Sentence();
