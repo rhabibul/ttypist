@@ -10,8 +10,8 @@ const Config = {
   flipcolors: false, // flip highlight mode colors
   livestats: false, // live stats
   livekeyboard: true, // live keyboard
-  highlight: "word", // highlight mode: letter, word
   deletion: true, // enables backspace, (alt/ctrl + bs) and (meta + bs)
+  highlight: "word", // highlight mode: letter, word
   forgiveerrors: true, // inserts wrongly typed letters
 
   // "beginner" is the classic type test experience.
@@ -22,14 +22,14 @@ const Config = {
   caretwidth: "thin", // caret width: thin, thick
   caretstyle: "line", // caret style: none, line, box, underline, block
 
-  fontsize: "1.4", // font size
-  fontweight: "300", // font weight
-  fontfamily: "Roboto Mono", // font family
-
   text: {
     numbers: false,
     punctuations: false,
     wordseparator: whitespace.space,
+
+    fontsize: "1.4", // font size
+    fontweight: "300", // font weight
+    fontfamily: "Roboto Mono", // font family
   },
 };
 
