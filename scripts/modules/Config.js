@@ -17,7 +17,7 @@ const Config = {
   // "intermediate" fails the test if you submit (press space) an incorrect word.
   // "advanced" fails if you press a single incorrect key.
   difficulty: "beginner",
-  deletion: true, // enables backspace, (alt/ctrl + bs) and (meta + bs)
+  deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   forgiveerrors: true, // inserts wrongly typed letters
 
   caretwidth: "thin", // thin, thick
