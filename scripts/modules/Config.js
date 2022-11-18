@@ -19,8 +19,8 @@ const Config = {
   // "advanced" fails if you press a single incorrect key.
   difficulty: "beginner",
 
-  caretwidth: "thin", // caret width: thin, thick
-  caretstyle: "line", // caret style: none, line, box, underline, block
+  caretwidth: "thin", // thin, thick
+  caretstyle: "line", // none, line, box, underline, block
 
   text: {
     numbers: false,

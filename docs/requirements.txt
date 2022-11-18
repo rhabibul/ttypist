@@ -169,7 +169,7 @@ WHAT I WANT:
 						implement every feature of word hightlight mode of "monkeytype"
 				- in both modes if forget error is turned on then insert letters.
 
-		> caret style (line, underline, box, block)
+		> caret style (none, line, underline, box, block) 🟢
 				- BLINKING LINE CARET
 							apply border left to all individual letters and give all of them transparent
 							color except one and all the other three borders (right, top, bottom) 
