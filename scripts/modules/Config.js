@@ -33,7 +33,7 @@ const Config = {
   },
 };
 
-const userDefinedPractice = {
+const Practice = {
 	
   numpad: false,
   numrow: false,
