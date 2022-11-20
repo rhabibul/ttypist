@@ -19,10 +19,27 @@
   animation-timing-function: ease-out;
 }
 
+/**
+ * Whenever user changes caret style you need to change border left, right
+ * top, bottom accordingly i.e, you need to remove border from all letters for
+ * current caret style and border for new caret style which user has chosen
+**/
+.line {
+}
+
+.underline {
+}
+
+.box {
+}
+
+.block {
+}
+
 @keyframes flashcaret {
   0%,
   50% {
-    border-left-color: var(--caret__color);
+    border-left-color: var(-__color);
   }
 
   51%,
