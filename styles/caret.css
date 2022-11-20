@@ -1,50 +1,63 @@
-:root {
-  --thin: 1px;
-  --thick: 2px;
-
-  --caret__type: solid;
-  --caret__color: #ff0000;
-  --caret__width: var(--thin);
-  --caret__blinktime: 1.1s;
+.line {
+  animation-name: linecaret;
+  border-left-color: var(--caret__color);
 }
-
-.caret {
-  border-left-color: var(--caret__color); /* line caret */
-
-  animation-name: flashcaret;
-  animation-duration: var(--caret__blinktime);
-
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-}
-
-@keyframes flashcaret {
+@keyframes linecaret {
   0%,
   50% {
     border-left-color: var(--caret__color);
   }
-
   51%,
   100% {
     border-left-color: var(--letter__borderLeftColor);
   }
 }
 
-/**
- * Whenever user changes caret style you need to change border left, right
- * top, bottom accordingly i.e, you need to remove border from all letters for
- * current caret style and border for new caret style which user has chosen
- **/
-
-.line {
-}
-
 .underline {
+  animation-name: underlinecaret;
+  border-bottom-color: var(--caret__color);
+}
+@keyframes underlinecaret {
+  0%,
+  50% {
+    border-bottom-color: var(--caret__color);
+  }
+  51%,
+  100% {
+    border-bottom-color: var(--letter__borderLeftColor);
+  }
 }
 
 .box {
+  animation-name: boxcaret;
+  border: var(--caret__type) 1px var(--caret__color);
+}
+@keyframes boxcaret {
+  0%,
+  50% {
+    border: var(--caret__type) 1px var(--caret__color);
+  }
+  51%,
+  100% {
+    border: var(--caret__type) 1px var(--letter__borderLeftColor);
+  }
 }
 
 .block {
+  animation-name: blockcaret;
+
+  color: white;
+  background-color: black;
+}
+@keyframes blockcaret {
+  0%,
+  50% {
+    color: white;
+    background-color: black;
+  }
+  51%,
+  100% {
+    color: black;
+    background-color: var(--letter__borderLeftColor);
+  }
 }

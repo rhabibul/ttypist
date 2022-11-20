@@ -3,7 +3,7 @@
 
   --word__color: black;
   --letter__color: rgba(167, 167, 167, 0.731);
-  --letter__fontSize: 1.35rem;
+  --letter__fontSize: 1.25rem;
 
   --letter__borderLeftColor: white;
 
@@ -16,6 +16,17 @@
 
   --textinput__color: var(--letter__borderLeftColor);
   --textinput__backgroundColor: var(--letter__borderLeftColor);
+}
+
+:root {
+  --thin: 1px;
+  --thick: 2px;
+
+  --caret__type: solid;
+  --caret__color: black;
+  --caret__width: var(--thin);
+  --caret__blinkduration: 1.15s;
+  --caret__blinkdelay: 2s;
 }
 
 *,
@@ -110,17 +121,41 @@ letter {
   margin: 0px;
   padding: 0px;
 
+  /**
+   * These properties prevents change in letter width when caret moves along 
+   * letters while typing.
+  **/
+
+  /* line caret */
   border-top: none;
   border-right: none;
   border-bottom: none;
-
-  /* These properties prevents change in letter width when caret moves along 
-  letters while typing */
   border-left-style: var(--caret__type);
   border-left-width: var(--caret__width);
   border-left-color: var(--letter__borderLeftColor);
 
+  /* underline caret */
+  /* border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-style: var(--caret__type);
+  border-bottom-width: var(--caret__width);
+  border-bottom-color: var(--letter__borderLeftColor);
+  */
+
+  /* box caret */
+  /* border: var(--caret__type) 1px var(--letter__borderLeftColor); */
+
+  /* block caret */
+  /* color: white;
+  background-color: black; */
+
   font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight300);
+  font-weight: var(--letter__fontWeight400);
   font-family: var(--letter__fontFamilyRobotoMono);
+
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
