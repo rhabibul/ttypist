@@ -4,8 +4,8 @@
 
   --caret__type: solid;
   --caret__color: #ff0000;
-  --caret__blinktime: 1.1s;
   --caret__width: var(--thin);
+  --caret__blinktime: 1.1s;
 }
 
 .caret {
