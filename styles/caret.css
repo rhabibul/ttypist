@@ -2,7 +2,7 @@
   --thin: 1px;
   --thick: 2px;
 
-  --caret__type: solid; /* solid | dotted */
+  --caret__type: solid;
   --caret__color: #ff0000;
   --caret__blinktime: 1.1s;
   --caret__width: var(--thin);
@@ -19,11 +19,24 @@
   animation-timing-function: ease-out;
 }
 
+@keyframes flashcaret {
+  0%,
+  50% {
+    border-left-color: var(--caret__color);
+  }
+
+  51%,
+  100% {
+    border-left-color: var(--letter__borderLeftColor);
+  }
+}
+
 /**
  * Whenever user changes caret style you need to change border left, right
  * top, bottom accordingly i.e, you need to remove border from all letters for
  * current caret style and border for new caret style which user has chosen
-**/
+ **/
+
 .line {
 }
 
@@ -34,16 +47,4 @@
 }
 
 .block {
-}
-
-@keyframes flashcaret {
-  0%,
-  50% {
-    border-left-color: var(-__color);
-  }
-
-  51%,
-  100% {
-    border-left-color: var(--letter__borderLeftColor);
-  }
 }
