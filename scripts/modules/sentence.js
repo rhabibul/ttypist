@@ -1,3 +1,9 @@
+// 🌟🌟🌟
+// Next step is to implement sentence object along with config object.
+// after that reimplement caretstyles with javascript and resolve the
+// animation delay problem.
+// 
+
 class Sentence {
   #words; // array of strings
   #currentWordIndex; // stores index for current word which the user is typing
