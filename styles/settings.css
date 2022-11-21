@@ -9,7 +9,7 @@
 }
 
 #caret div.name,
-#caret div.symbols {
+#caret div.caretsymbols-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -18,29 +18,33 @@
   flex-basis: 20%;
   height: 100%;
   font-size: 1.4rem;
-  color: darkred;
+  color: blueviolet;
   font-family: "Roboto Mono", sans-serif;
 }
-#caret div.symbols {
+#caret div.caretsymbols-container {
   height: 100%;
   flex-basis: 75%;
 }
 
-#caret div.symbols span.outer {
-  width: 25px;
+#caret div.caretsymbols-container span.outer {
+  width: 35px;
   height: 100%;
   border-radius: 5px;
   display: grid;
   place-items: center;
-  background-color: whitesmoke;
+  background-color: hsla(0, 0%, 97%, 0.75);
 }
-#caret div.symbols span.outer {
-  width: 35px;
+#caret div.caretsymbols-container span.outer.off {
+  font-size: 1.25rem;
+  width: 45px;
+}
+#caret div.caretsymbols-container span.outer:hover {
+  background-color: rgb(194, 255, 194);
 }
 
 span.outer span.inner#line,
 span.outer span.inner#box,
-div.symbols span.inner#block,
+div.caretsymbols-container span.inner#block,
 span.outer span.inner#underline {
   height: 20px;
 }
@@ -56,7 +60,7 @@ span.outer span.inner#box {
   width: 11px;
   border: 2px solid black;
 }
-div.symbols span.inner#block {
+div.caretsymbols-container span.inner#block {
   width: 10px;
   background-color: black;
 }
