@@ -19,12 +19,10 @@
 }
 
 :root {
-  --thin: 1px;
-  --thick: 2px;
-
+  --caret__width: 1px;
   --caret__color: black;
-  --caret__width: var(--thin);
-  /* --caret__blinkdelay: 0s; */
+
+  --caret__blinkdelay: 2s;
   --caret__blinkduration: 1.15s;
 }
 

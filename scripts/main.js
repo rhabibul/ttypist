@@ -212,7 +212,7 @@ function newtest() {
         letter.style["border-bottom"] = "none";
         letter.style["border-right"] = "none";
         letter.style["border-left-style"] = "solid";
-        letter.style["border-left-width"] = "var(--caret__width)";
+        letter.style["border-left-width"] = "1px";
         letter.style["border-left-color"] = "var(--letter__borderLeftColor)";
       }
     }
