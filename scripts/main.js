@@ -14,10 +14,9 @@ const nonPrintableCharacters = [
 const speedtag = document.querySelector(".speed");
 const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
+const root = document.querySelector(":root");
 
 const newtestwords = 10;
-
-config.caretstyle = "underline";
 
 let active_word = 0;
 let active_letter = 0;
@@ -86,7 +85,6 @@ function handleKeydown(keyevent) {
       letters[active_letter].classList.remove(config.caretstyle);
 
       speed_wpm(testStartTime, testEndTime); // display typing speed
-      textinput.removeEventListener("keydown", handleKeydown);
       newtest();
     }
   } else if (keyevent.metaKey && keytyped === "Backspace") {
@@ -178,6 +176,8 @@ function handleKeydown(keyevent) {
 }
 
 function newtest() {
+  textinput.removeEventListener("keydown", handleKeydown);
+
   let wordsContainer = document.querySelector(".sentence");
   wordsContainer.innerHTML = "";
   textinput.value = "";
@@ -197,11 +197,52 @@ function newtest() {
   testStartTime = 0;
   testEndTime = 0;
 
+  if (config.caretstyle === "block" || config.caretstyle === "off") {
+    for (let word of words) {
+      let letters = word.children;
+      for (let letter of letters) {
+        letter.style["border"] = "none";
+      }
+    }
+  } else if (config.caretstyle === "line") {
+    for (let word of words) {
+      let letters = word.children;
+      for (let letter of letters) {
+        letter.style["border-top"] = "none";
+        letter.style["border-bottom"] = "none";
+        letter.style["border-right"] = "none";
+        letter.style["border-left-style"] = "solid";
+        letter.style["border-left-width"] = "var(--caret__width)";
+        letter.style["border-left-color"] = "var(--letter__borderLeftColor)";
+      }
+    }
+  } else if (config.caretstyle === "underline") {
+    for (let word of words) {
+      let letters = word.children;
+      for (let letter of letters) {
+        letter.style["border-top"] = "none";
+        letter.style["border-left"] = "none";
+        letter.style["border-right"] = "none";
+        letter.style["border-bottom-style"] = "solid";
+        letter.style["border-bottom-width"] = "2px";
+        letter.style["border-bottom-color"] = "var(--letter__borderLeftColor)";
+      }
+    }
+  } else if (config.caretstyle === "box") {
+    for (let word of words) {
+      let letters = word.children;
+      for (let letter of letters) {
+        letter.style["border"] = "solid 1px var(--letter__borderLeftColor)";
+      }
+    }
+  }
+
   letters = words[active_word].children;
   words[active_word].classList.add("active");
-  letters[active_letter].classList.add(config.caretstyle);
-  textinput.focus();
+  letters[active_letter].classList.add(config.caretstyle);  
+
   textinput.addEventListener("keydown", handleKeydown); // this brings everything live again
+  textinput.focus();
 
   setTimeout(() => {
     speedtag.style.color = "whitesmoke";
@@ -266,8 +307,44 @@ function generateRandomWords(noOfWordsToGenerate) {
   return randomWords;
 }
 
-const caretoff = document.querySelector("#caret > #off");
-const caretline = document.querySelector("#caret > #line");
-const caretunderline = document.querySelector("#caret > #underline");
-const caretbox = document.querySelector("#caret > #box");
-const caretblock = document.querySelector("#caret > #block");
+// =============================================================================
+
+const       caretoff = document.querySelector(".caretstyles > .caretoff");
+const caretoff_icon = document.querySelector("#off-icon .fa-ban")
+const      caretline = document.querySelector(".caretstyles > .caretline");
+const caretunderline = document.querySelector(".caretstyles > .caretunderline");
+const       caretbox = document.querySelector(".caretstyles > .caretbox");
+const     caretblock = document.querySelector(".caretstyles > .caretblock");
+
+const allcaretstyles = document.querySelectorAll(".caretstyles > .caret");
+
+function updateCaretStyle(evt) {
+
+  evt.preventDefault();
+  
+  for ( let othercaret of allcaretstyles ) {
+
+    if ( this !== othercaret ) { // reset default background color of other caretstyles
+      othercaret.style.backgroundColor = "#f5f5f5ba";
+      if ( othercaret === caretoff ) {
+        caretoff_icon.style.color = "#626262";
+      }
+    }
+  }
+
+  if ( this === caretoff ) {
+    caretoff_icon.style.color = "#ff0000";
+    caretoff.style.backgroundColor = "#ffeaea";
+  } else {
+    this.style.backgroundColor = "#d5ffd5";
+  }
+
+  config.caretstyle = this.title;
+  newtest();
+}
+
+caretoff.addEventListener('click', updateCaretStyle);
+caretbox.addEventListener('click', updateCaretStyle);
+caretline.addEventListener('click', updateCaretStyle);
+caretblock.addEventListener('click', updateCaretStyle);
+caretunderline.addEventListener('click', updateCaretStyle);

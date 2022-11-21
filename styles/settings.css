@@ -1,14 +1,13 @@
-:root {
-  --linecaret-bgcolor: black;
-  --linecaret-bgcolor-hover: #a4ffa4;
-}
-
 .caretstyles {
   width: 200px;
 
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  padding: 5px;
+  border: solid 1px lightgray;
+  border-radius: 3px;
 }
 
 .caret {
@@ -17,17 +16,31 @@
 
   border-radius: 3px;
 
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: #f5f5f5;
+  background-color: #f5f5f5ba;
+}
+.caret.caretline {
+  background-color: #d5ffd5;
 }
 
-.caret #off-icon i {
-  font-size: 1.35rem;
+.caret.caretoff {
+  width: 27px;
+}
+.caret icon#off-icon {
   width: 100%;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caret #off-icon i {
+  color: #626262;
+  font-size: 1.3rem;
+  transform: translateY(2px);
 }
 .caret #line-icon,
 .caret #box-icon,
@@ -50,12 +63,4 @@
 .caret #box-icon {
   width: 11px;
   border: 2px solid black;
-}
-
-.caretstyles .caret:hover {
-  background-color: #b3ffb3;
-}
-.caretstyles .caret.off:hover {
-  color: #ff0000;
-  background-color: #ffdbdb;
 }

@@ -33,16 +33,16 @@
 /* BOX CARET */
 .box {
   animation-name: boxcaret;
-  border: var(--caret__type) 1px var(--caret__color);
+  border: solid 1px var(--caret__color);
 }
 @keyframes boxcaret {
   0%,
   50% {
-    border: var(--caret__type) 1px var(--caret__color);
+    border: solid 1px var(--caret__color);
   }
   51%,
   100% {
-    border: var(--caret__type) 1px var(--letter__borderLeftColor);
+    border: solid 1px var(--letter__borderLeftColor);
   }
 }
 
