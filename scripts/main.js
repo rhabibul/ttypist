@@ -84,7 +84,7 @@ function handleKeydown(keyevent) {
       letters[active_letter].classList.remove(caret);
 
       speed_wpm(testStartTime, testEndTime); // display typing speed
-      textinput.removeEventListener("keydown", handleKeydown, false);
+      textinput.removeEventListener("keydown", handleKeydown);
       newtest();
     }
   } else if (keyevent.metaKey && keytyped === "Backspace") {
@@ -263,3 +263,25 @@ function generateRandomWords(noOfWordsToGenerate) {
 
   return randomWords;
 }
+
+// -----------------------------------------------------------------------------
+
+const caretsettings = document.querySelector("#settings > #caret");
+const offcaret = document.querySelector("#off");
+const linecaret = document.querySelector("#line");
+const underlinecaret = document.querySelector("#underline");
+const boxcaret = document.querySelector("#box");
+const blockcaret = document.querySelector("#block");
+
+function changeCaretStyle() {
+  if (linecaret.checked && linecaret.value !== caret) {
+  } else if (underlinecaret.checked && underlinecaret.value !== caret) {
+  } else if (boxcaret.checked && boxcaret.value !== caret) {
+  } else if (blockcaret.checked && blockcaret.value !== caret) {
+  } else if (offcaret.checked && offcaret.value !== caret) {
+  } else {
+    // don't trouble you mom & dad brother
+  }
+}
+
+caretsettings.addEventListener('click', changeCaretStyle);

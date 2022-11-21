@@ -48,6 +48,45 @@
       <div class="sentence"></div>
     </div>
 
+    <div id="settings">
+      <div id="caret">
+        <div class="caretstyle off">
+          <input checked type="radio" value="off" name="caretstyle" id="off" />
+          <label for="off">line</label>
+        </div>
+        <div class="caretstyle linecaret">
+          <input
+            checked
+            type="radio"
+            value="line"
+            name="caretstyle"
+            id="line"
+          />
+          <label for="line">line</label>
+        </div>
+
+        <div class="caretstyle underlinecaret">
+          <input
+            type="radio"
+            value="underline"
+            name="caretstyle"
+            id="underline"
+          />
+          <label for="underline">underline</label>
+        </div>
+
+        <div class="caretstyle boxcaret">
+          <input type="radio" value="box" name="caretstyle" id="box" />
+          <label for="box">box</label>
+        </div>
+
+        <div class="caretstyle blockcaret">
+          <input type="radio" value="block" name="caretstyle" id="block" />
+          <label for="block">block</label>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script type="module" src="./scripts/modules/words1k.js"></script>
     <script type="module" src="./scripts/modules/words3k.js"></script>

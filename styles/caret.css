@@ -1,3 +1,4 @@
+/* LINE CARET */
 .line {
   animation-name: linecaret;
   border-left-color: var(--caret__color);
@@ -13,6 +14,7 @@
   }
 }
 
+/* UNDERLINE CARET */
 .underline {
   animation-name: underlinecaret;
   border-bottom-color: var(--caret__color);
@@ -28,6 +30,7 @@
   }
 }
 
+/* BOX CARET */
 .box {
   animation-name: boxcaret;
   border: var(--caret__type) 1px var(--caret__color);
@@ -43,21 +46,22 @@
   }
 }
 
+/* BLOCK CARET */
 .block {
   animation-name: blockcaret;
 
-  color: white;
-  background-color: black;
+  color: #ffffff;
+  background-color: #000000;
 }
 @keyframes blockcaret {
   0%,
   50% {
-    color: white;
-    background-color: black;
+    color: #ffffff;
+    background-color: #000000;
   }
   51%,
   100% {
-    color: black;
+    color: #000000;
     background-color: var(--letter__borderLeftColor);
   }
 }
