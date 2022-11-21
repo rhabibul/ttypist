@@ -1,56 +1,3 @@
-class Caret {
-
-  #blinking;
-  #carettype; // line, underline, box, block
-
-  constructor() {
-    this.#blinking = true;
-    this.#carettype = 'line';
-  }
-
-  get isblinking() {
-    return this.#blinking;
-  }
-
-  hide() {
-    this.#blinking = false;
-    // hide the caret
-    // ...
-  }
-
-  show() {
-    this.#blinking = true;
-    // unhide the caret
-    // ...
-  }
-
-  setCaretColor(color) {
-    // set color of caret
-  }
-  setCaretWidth(width) {
-    // set width of caret
-  }
-
-  putOnIndex(index) {
-    // put on any letter of the sentence
-  }
-
-  putOnNextWord() {
-    // put caret on next word of the sentence
-  }
-  putOnPreviousWord() {
-    // put caret on previous word of the sentence
-  }
-  
-  putOnNextLetter() {
-    // put caret on next letter of the word
-  }
-
-  putOnPreviousLetter() {
-    // put caret on prevoius letter of the word
-  }
-}
-
 class Sentence {
   #words; // array of strings
   #currentWordIndex; // stores index for current word which the user is typing
@@ -182,8 +129,7 @@ class Sentence {
   }
 }
 
-class ErrorOnWordCorrected {}
-class ErrorOnWordNotCorrected {}
+class WordsCorrected {}
+class WordsNotCorrected {}
 
-const caret = new Caret();
 const sentence = new Sentence();
