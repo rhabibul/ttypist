@@ -28,6 +28,12 @@
       rel="stylesheet"
     />
 
+    <!-- fontawesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
     <!-- Styles sheets -->
     <link rel="stylesheet" href="./styles/caret.css" />
     <link rel="stylesheet" href="./styles/main.css" />
@@ -50,25 +56,24 @@
     </div>
 
     <div id="settings">
-      <div id="caret">
-        <div class="name">Caret&colon;</div>
-        <div class="caretsymbols-container">
-          <span class="outer off" title="No Caret">
-            <span class="inner" id="off">off</span>
-          </span>
-          <span class="outer" title="Line Caret">
-            <span class="inner" id="line"></span>
-          </span>
-          <span class="outer" title="Underline Caret">
-            <span class="inner" id="underline"></span>
-          </span>
-          <span class="outer" title="Box Caret">
-            <span class="inner" id="box"></span>
-          </span>
-          <span class="outer" title="Block Caret">
-            <span class="inner" id="block"></span>
-          </span>
-        </div>
+      <div class="caretstyles">
+        <span class="caret off" title="turn off caret">
+          <icon id="off-icon">
+            <i class="fa-solid fa-ban"></i>
+          </icon>
+        </span>
+        <span class="caret" title="underline caret">
+          <icon id="underline-icon"></icon>
+        </span>
+        <span class="caret" title="line caret">
+          <icon id="line-icon"></icon>
+        </span>
+        <span class="caret" title="block caret">
+          <icon id="block-icon"></icon>
+        </span>
+        <span class="caret" title="box caret">
+          <icon id="box-icon"></icon>
+        </span>
       </div>
     </div>
 
