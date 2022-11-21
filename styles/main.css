@@ -23,8 +23,8 @@
   --thick: 2px;
 
   --caret__type: solid;
-  --caret__color: black;
-  --caret__width: var(--thin);
+  --caret__color: red;
+  --caret__width: var(--thick);
   --caret__blinkduration: 1.15s;
   --caret__blinkdelay: 2s;
 }
@@ -127,21 +127,20 @@ letter {
   **/
 
   /* line caret */
-  border-top: none;
+  /* border-top: none;
   border-right: none;
   border-bottom: none;
   border-left-style: var(--caret__type);
   border-left-width: var(--caret__width);
-  border-left-color: var(--letter__borderLeftColor);
+  border-left-color: var(--letter__borderLeftColor); */
 
   /* underline caret */
-  /* border-top: none;
+  border-top: none;
   border-right: none;
   border-bottom: none;
   border-bottom-style: var(--caret__type);
   border-bottom-width: var(--caret__width);
   border-bottom-color: var(--letter__borderLeftColor);
-  */
 
   /* box caret */
   /* border: var(--caret__type) 1px var(--letter__borderLeftColor); */
