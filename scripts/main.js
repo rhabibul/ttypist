@@ -11,10 +11,18 @@ const nonPrintableCharacters = [
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
+const carettypes = new Map([
+  ["off", "caret_off"],
+  ["line", "linetype"],
+  ["underline", "underlinetype"],
+  ["box", "boxtype"],
+  ["block", "blocktype"],
+]);
+
 const speedtag = document.querySelector(".speed");
 const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
-const root = document.querySelector(":root");
+// const root = document.querySelector(":root");
 
 const newtestwords = 10;
 
@@ -37,9 +45,8 @@ let words = Array.from(document.getElementsByTagName("word"));
 let totalwords = words.length;
 let letters = words[active_word].children; // store letters of first word
 
-// config.caretstyle
 words[active_word].classList.add("active");
-letters[active_letter].classList.add(config.caretstyle);
+letters[active_letter].setAttribute("id", config.caret); // add caret
 textinput.focus();
 
 textinput.addEventListener("keydown", handleKeydown);
@@ -60,19 +67,20 @@ function handleKeydown(keyevent) {
     // charCode is checked so that caret doesn't go to next word when user just
     // hits a space character
 
-    letters[active_letter].classList.remove(config.caretstyle); // remove caret
+    letters[active_letter].removeAttribute("id"); // remove caret
     words[active_word].classList.remove("active"); // remove highlight from active word
     ++active_word; // move to next word
     letters = words[active_word].children; // store all letters of the next word
     words[active_word].classList.add("active"); // add highlight to next word
     active_letter = 0; // go to first letter of next word
-    letters[active_letter].classList.add(config.caretstyle); // put caret on first letter of the next word
+    letters[active_letter].setAttribute("id", config.caret); // add caret
+
   } else if (keytyped === letters[active_letter].textContent) {
     // Move caret to next letter
     words[active_word].classList.remove("incorrect");
-    letters[active_letter].classList.remove(config.caretstyle);
+    letters[active_letter].removeAttribute("id"); // remove caret
     ++active_letter;
-    letters[active_letter].classList.add(config.caretstyle);
+    letters[active_letter].setAttribute("id", config.caret); // add caret
 
     if (
       active_word === totalwords - 1 &&
@@ -82,17 +90,17 @@ function handleKeydown(keyevent) {
 
       testEndTime = window.performance.now();
       words[active_word].classList.remove("active");
-      letters[active_letter].classList.remove(config.caretstyle);
+      letters[active_letter].removeAttribute("id"); // remove caret
 
       speed_wpm(testStartTime, testEndTime); // display typing speed
+      textinput.removeEventListener("keydown", handleKeydown);
       newtest();
     }
   } else if (keyevent.metaKey && keytyped === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
 
-    // remove caret and color highlight from current word
-    letters[active_letter].classList.remove(config.caretstyle);
+    letters[active_letter].removeAttribute("id"); // remove caret
     words[active_word].classList.remove("active");
 
     // remove error highlight from current word till first word
@@ -109,7 +117,7 @@ function handleKeydown(keyevent) {
 
     words[active_word].classList.add("active"); // highlight first word
 
-    letters[active_letter].classList.add(config.caretstyle);
+    letters[active_letter].setAttribute("id", config.caret); // add caret
   } else if (
     (keyevent.altKey && keytyped === "Backspace") ||
     (keyevent.ctrlKey && keytyped === "Backspace")
@@ -117,8 +125,7 @@ function handleKeydown(keyevent) {
     // (alt + backspace) || (opt + backspace)
     // clear one word at a time putting caret at first letter of previous word
 
-    // remove caret & highlight color from current word
-    letters[active_letter].classList.remove(config.caretstyle);
+    letters[active_letter].removeAttribute("id"); // remove caret
     words[active_word].classList.remove("incorrect"); // remove error from current word
 
     // if caret is already at first letter of a word and user then goes back to
@@ -130,13 +137,13 @@ function handleKeydown(keyevent) {
 
       words[active_word].classList.add("active"); // highlight previous word
       letters = words[active_word].children; // store letters of previous word
-      letters[active_letter].classList.add(config.caretstyle); // add caret to first letter
+      letters[active_letter].setAttribute("id", config.caret); // add caret
     }
 
     active_letter = 0; // point to first letter of current word
     words[active_word].classList.remove("incorrect");
+    letters[active_letter].setAttribute("id", config.caret); // add caret
 
-    letters[active_letter].classList.add(config.caretstyle); // add caret to first letter of the current word
   } else if (keytyped === "Backspace") {
     // Take caret one letter back.
 
@@ -145,16 +152,17 @@ function handleKeydown(keyevent) {
     // Take caret to previous letter of the current word as long as there is a
     // letter before it.
     if (active_letter > 0) {
-      letters[active_letter].classList.remove(config.caretstyle);
+      
+      letters[active_letter].removeAttribute("id"); // remove caret
       --active_letter;
-      letters[active_letter].classList.add(config.caretstyle);
+      letters[active_letter].setAttribute("id", config.caret); // add caret
+
     } else if (active_letter === 0 && active_word > 0) {
       // if caret is on first letter of the current word then, put caret on space
       // character of previous word i.e, caret should appear after last
       // non-whitespace character of previous word.
 
-      // remove caret and highlight color from current word
-      letters[active_letter].classList.remove(config.caretstyle);
+      letters[active_letter].removeAttribute("id"); // remove caret
       words[active_word].classList.remove("active");
 
       --active_word; // go to previous word
@@ -164,7 +172,7 @@ function handleKeydown(keyevent) {
 
       active_letter = letters.length - 1; // point to last letter of previous word
 
-      letters[active_letter].classList.add(config.caretstyle); // add caret to first letter of the current word
+      letters[active_letter].setAttribute("id", config.caret); // add caret
     }
   } else {
     // insert '·' this instead of &nbsp; when user hits space character
@@ -176,8 +184,6 @@ function handleKeydown(keyevent) {
 }
 
 function newtest() {
-  textinput.removeEventListener("keydown", handleKeydown);
-
   let wordsContainer = document.querySelector(".sentence");
   wordsContainer.innerHTML = "";
   textinput.value = "";
@@ -197,49 +203,9 @@ function newtest() {
   testStartTime = 0;
   testEndTime = 0;
 
-  if (config.caretstyle === "block" || config.caretstyle === "off") {
-    for (let word of words) {
-      let letters = word.children;
-      for (let letter of letters) {
-        letter.style["border"] = "none";
-      }
-    }
-  } else if (config.caretstyle === "line") {
-    for (let word of words) {
-      let letters = word.children;
-      for (let letter of letters) {
-        letter.style["border-top"] = "none";
-        letter.style["border-bottom"] = "none";
-        letter.style["border-right"] = "none";
-        letter.style["border-left-style"] = "solid";
-        letter.style["border-left-width"] = "1px";
-        letter.style["border-left-color"] = "var(--letter__borderLeftColor)";
-      }
-    }
-  } else if (config.caretstyle === "underline") {
-    for (let word of words) {
-      let letters = word.children;
-      for (let letter of letters) {
-        letter.style["border-top"] = "none";
-        letter.style["border-left"] = "none";
-        letter.style["border-right"] = "none";
-        letter.style["border-bottom-style"] = "solid";
-        letter.style["border-bottom-width"] = "2px";
-        letter.style["border-bottom-color"] = "var(--letter__borderLeftColor)";
-      }
-    }
-  } else if (config.caretstyle === "box") {
-    for (let word of words) {
-      let letters = word.children;
-      for (let letter of letters) {
-        letter.style["border"] = "solid 1px var(--letter__borderLeftColor)";
-      }
-    }
-  }
-
   letters = words[active_word].children;
   words[active_word].classList.add("active");
-  letters[active_letter].classList.add(config.caretstyle);  
+  letters[active_letter].setAttribute("id", config.caret); // add caret
 
   textinput.addEventListener("keydown", handleKeydown); // this brings everything live again
   textinput.focus();
@@ -294,12 +260,14 @@ function generateRandomWords(noOfWordsToGenerate) {
       let letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
       word.appendChild(letter);
+      letter.classList.add(carettypes.get(config.caret));
     }
 
     // letter with space
     let letterWithSpace = document.createElement("letter");
     letterWithSpace.innerHTML = `&nbsp;`;
     word.appendChild(letterWithSpace);
+    letterWithSpace.classList.add(carettypes.get(config.caret));
   
     randomWords[i] = word;
   }
@@ -310,7 +278,7 @@ function generateRandomWords(noOfWordsToGenerate) {
 // =============================================================================
 
 const       caretoff = document.querySelector(".caretstyles > .caretoff");
-const caretoff_icon = document.querySelector("#off-icon .fa-ban")
+const  caretoff_icon = document.querySelector("#off-icon .fa-ban")
 const      caretline = document.querySelector(".caretstyles > .caretline");
 const caretunderline = document.querySelector(".caretstyles > .caretunderline");
 const       caretbox = document.querySelector(".caretstyles > .caretbox");
@@ -339,7 +307,7 @@ function updateCaretStyle(evt) {
     this.style.backgroundColor = "#d5ffd5";
   }
 
-  config.caretstyle = this.title;
+  config.caret = this.title;
   newtest();
 }
 

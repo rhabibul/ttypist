@@ -32,7 +32,7 @@ const config = {
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   forgiveerrors: true, // inserts wrongly typed letters
   highlight: "word", // highlight mode: letter, word
-  caretstyle: "line", // none, line, box, underline, block
+  caret: "line", // none, line, underline, box, block
 
   text: {
     numbers: false,

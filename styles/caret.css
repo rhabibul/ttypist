@@ -1,7 +1,25 @@
+/* CARET TURRNED OFF */
+.offtype {
+  border: none;
+}
+
 /* LINE CARET */
-.line {
-  animation-name: linecaret;
+#line {
   border-left-color: var(--caret__color);
+  animation-name: linecaret;
+}
+.linetype {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: var(--letter__borderLeftColor);
+
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
 @keyframes linecaret {
   0%,
@@ -15,9 +33,22 @@
 }
 
 /* UNDERLINE CARET */
-.underline {
-  animation-name: underlinecaret;
+#underline {
   border-bottom-color: var(--caret__color);
+  animation-name: underlinecaret;
+}
+.underlinetype {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--letter__borderLeftColor);
+
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
 @keyframes underlinecaret {
   0%,
@@ -31,27 +62,43 @@
 }
 
 /* BOX CARET */
-.box {
+#box {
+  border-color: var(--caret__color);
   animation-name: boxcaret;
-  border: solid 1px var(--caret__color);
+}
+.boxtype {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--letter__borderLeftColor);
+
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
 @keyframes boxcaret {
   0%,
   50% {
-    border: solid 1px var(--caret__color);
+    border-color: var(--caret__color);
   }
   51%,
   100% {
-    border: solid 1px var(--letter__borderLeftColor);
+    border-color: var(--letter__borderLeftColor);
   }
 }
 
 /* BLOCK CARET */
-.block {
-  animation-name: blockcaret;
-
+#block {
   color: #ffffff;
   background-color: #000000;
+  animation-name: blockcaret;
+}
+.blocktype {
+  border: none;
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
 @keyframes blockcaret {
   0%,
