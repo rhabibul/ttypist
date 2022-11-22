@@ -12,6 +12,26 @@ body {
   height: 100%;
 }
 
+body {
+  background-color: var(--letter__borderLeftColor);
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+  display: flex;
+  row-gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.speed {
+  color: whitesmoke;
+  font-size: var(--letter__fontSize);
+  font-weight: var(--letter__fontWeight300);
+  font-family: var(--letter__fontFamilyRobotoMono);
+}
+
 :root {
   --line-gap: 5px;
 
@@ -38,23 +58,6 @@ body {
 
   --caret__blinkdelay: 2s;
   --caret__blinkduration: 1.15s;
-}
-
-body {
-  background-color: var(--letter__borderLeftColor);
-
-  display: flex;
-  row-gap: 10px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.speed {
-  color: whitesmoke;
-  font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight300);
-  font-family: var(--letter__fontFamilyRobotoMono);
 }
 
 .active {
