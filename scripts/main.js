@@ -214,36 +214,32 @@ function speed_wpm(testStartTime, testEndTime) {
   speedtag.style.fontWeight = '400';
 }
 
-// =============================================================================
-
-const  offtype_icon = document.querySelector("#off-icon > .fa-ban")
-const       offtype = document.querySelector(".carettypes > .offtype");
-const      linetype = document.querySelector(".carettypes > .linetype");
+const offtype_icon = document.querySelector("#off-icon > .fa-ban");
+const offtype = document.querySelector(".carettypes > .offtype");
+const linetype = document.querySelector(".carettypes > .linetype");
 const underlinetype = document.querySelector(".carettypes > .underlinetype");
-const       boxtype = document.querySelector(".carettypes > .boxtype");
-const     blocktype = document.querySelector(".carettypes > .blocktype");
+const boxtype = document.querySelector(".carettypes > .boxtype");
+const blocktype = document.querySelector(".carettypes > .blocktype");
 
 const allcarettypes = document.querySelectorAll(".carettypes > .caret");
 
 function updateCaretStyle(evt) {
-
   evt.preventDefault();
 
   let clickedcaret = this;
 
-  if ( clickedcaret.title === Config.caret ) return;
+  if (clickedcaret.title === Config.caret) return;
 
-  for ( let carettype of allcarettypes ) {
-
-    if ( clickedcaret !== carettype ) { // reset default background color of other carettypes
+  for (let carettype of allcarettypes) {
+    if (clickedcaret !== carettype) {
       carettype.style.backgroundColor = "var(--settings-caret__bg)";
-      if ( carettype === offtype ) {
+      if (carettype === offtype) {
         offtype_icon.style.color = "var(--settings-offtypeIcon__color)";
       }
     }
   }
 
-  if ( clickedcaret === offtype ) {
+  if (clickedcaret === offtype) {
     offtype_icon.style.color = "#ff0000";
     offtype.style.backgroundColor = "#ffeaea";
   } else {
@@ -254,8 +250,8 @@ function updateCaretStyle(evt) {
   newtest();
 }
 
-offtype.addEventListener('click', updateCaretStyle);
-boxtype.addEventListener('click', updateCaretStyle);
-linetype.addEventListener('click', updateCaretStyle);
-blocktype.addEventListener('click', updateCaretStyle);
-underlinetype.addEventListener('click', updateCaretStyle);
+offtype.addEventListener("click", updateCaretStyle);
+boxtype.addEventListener("click", updateCaretStyle);
+linetype.addEventListener("click", updateCaretStyle);
+blocktype.addEventListener("click", updateCaretStyle);
+underlinetype.addEventListener("click", updateCaretStyle);
