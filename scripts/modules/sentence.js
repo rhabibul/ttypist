@@ -14,15 +14,14 @@ class Sentence {
   }
 
   get totalwords() {
-    // return the total number of words present in words array
     return this.#words.length;
   }
   get totalcharacters() {
-    let chars = 0;
+    let count = 0;
     for (let word of this.#words) {
-      chars += word.children.length;
+      count += word.children.length;
     }
-    return chars;
+    return count;
   }
 
   get activeWord() {
@@ -57,10 +56,6 @@ class Sentence {
     }
   }
 
-  get activeWordLength() {
-    return this.#words[this.#currentWordIndex].length;
-  }
-
   get activeWordIndex() {
     return this.#currentWordIndex;
   }
@@ -81,7 +76,7 @@ class Sentence {
   resetActiveLetterIndex() {
     this.#currentLetterIndex = 0;
   }
-  resetindexes() {
+  resetIndexes() {
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }

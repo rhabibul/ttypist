@@ -216,44 +216,46 @@ function speed_wpm(testStartTime, testEndTime) {
 
 // =============================================================================
 
-const       caretoff = document.querySelector(".caretstyles > .caretoff");
-const  caretoff_icon = document.querySelector("#off-icon .fa-ban")
-const      caretline = document.querySelector(".caretstyles > .caretline");
-const caretunderline = document.querySelector(".caretstyles > .caretunderline");
-const       caretbox = document.querySelector(".caretstyles > .caretbox");
-const     caretblock = document.querySelector(".caretstyles > .caretblock");
+const  offtype_icon = document.querySelector("#off-icon > .fa-ban")
+const       offtype = document.querySelector(".carettypes > .offtype");
+const      linetype = document.querySelector(".carettypes > .linetype");
+const underlinetype = document.querySelector(".carettypes > .underlinetype");
+const       boxtype = document.querySelector(".carettypes > .boxtype");
+const     blocktype = document.querySelector(".carettypes > .blocktype");
 
-const allcaretstyles = document.querySelectorAll(".caretstyles > .caret");
+const allcarettypes = document.querySelectorAll(".carettypes > .caret");
 
 function updateCaretStyle(evt) {
 
-  if ( this.title === Config.caret ) return;
-
   evt.preventDefault();
-  
-  for ( let othercaret of allcaretstyles ) {
 
-    if ( this !== othercaret ) { // reset default background color of other caretstyles
-      othercaret.style.backgroundColor = "var(--setting-carets__bgcolor)";
-      if ( othercaret === caretoff ) {
-        caretoff_icon.style.color = "var(--setting-offcaret-icon__color)";
+  let clickedcaret = this;
+
+  if ( clickedcaret.title === Config.caret ) return;
+
+  for ( let carettype of allcarettypes ) {
+
+    if ( clickedcaret !== carettype ) { // reset default background color of other carettypes
+      carettype.style.backgroundColor = "var(--settings-caret__bgcolor)";
+      if ( carettype === offtype ) {
+        offtype_icon.style.color = "var(--settings-offtypeIcon__color)";
       }
     }
   }
 
-  if ( this === caretoff ) {
-    caretoff_icon.style.color = "#ff0000";
-    caretoff.style.backgroundColor = "#ffeaea";
+  if ( clickedcaret === offtype ) {
+    offtype_icon.style.color = "#ff0000";
+    offtype.style.backgroundColor = "#ffeaea";
   } else {
-    this.style.backgroundColor = "var(--setting-carets__bgcoloractive)";
+    clickedcaret.style.backgroundColor = "var(--settings-caret__bgcoloractive)";
   }
 
-  Config.caret = this.title;
+  Config.caret = clickedcaret.title;
   newtest();
 }
 
-caretoff.addEventListener('click', updateCaretStyle);
-caretbox.addEventListener('click', updateCaretStyle);
-caretline.addEventListener('click', updateCaretStyle);
-caretblock.addEventListener('click', updateCaretStyle);
-caretunderline.addEventListener('click', updateCaretStyle);
+offtype.addEventListener('click', updateCaretStyle);
+boxtype.addEventListener('click', updateCaretStyle);
+linetype.addEventListener('click', updateCaretStyle);
+blocktype.addEventListener('click', updateCaretStyle);
+underlinetype.addEventListener('click', updateCaretStyle);
