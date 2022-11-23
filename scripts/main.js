@@ -1,33 +1,12 @@
-// import words1k from "./modules/words1k.js";
-import words3k from "./modules/words3k.js";
-import Config from "./modules/Config.js";
-// import Sentence from "./modules/sentence.js";
-// const sentence = new Sentence();
-// sentence.showwords();
+import Config from "./modules/config.js";
+import Sentence from "./modules/sentence.js";
+import * as Misc from "./modules/misc.js";
+import * as Constants from "./modules/constants.js";
 
-const initialstring = 'the quick brown fox jumps over the lazy dog';
-
-const nonPrintableCharacters = [
-  'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
-  'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
-  'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp',, 'PageDown',
-  'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
-];
-
-const carettypes = new Map([
-  ["off", "caret_off"],
-  ["line", "linetype"],
-  ["underline", "underlinetype"],
-  ["box", "boxtype"],
-  ["block", "blocktype"],
-]);
-
+const root = document.querySelector(":root");
 const speedtag = document.querySelector(".speed");
-const textinput = document.querySelector(".touchtypist > input");
-const wordsContainer = document.querySelector(".sentence");
-// const root = document.querySelector(":root");
-
-const newtestwords = Config.wordscount;
+const textinput = document.getElementById("textinput");
+const wordsContainer = document.getElementById("sentence");
 
 let active_word = 0;
 let active_letter = 0;
@@ -36,10 +15,8 @@ let testStartTime = 0;
 let testEndTime = 0;
 let testStarted = true;
 
-// use initial string when website loads for the first time.
-const randomWords = generateRandomWords();
+const randomWords = Misc.getRandomWords();
 
-// load the initial string for first test for the typist
 for (let i = 0; i < randomWords.length; ++i) {
   wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
 }
@@ -180,18 +157,18 @@ function handleKeydown(keyevent) {
   } else {
     // insert '·' this instead of &nbsp; when user hits space character
     // in the wrong place
-    if (!nonPrintableCharacters.includes(keytyped)) {
+    if (!Constants.invisibles.includes(keytyped)) {
       words[active_word].classList.add("incorrect");
     }
   }
 }
 
 function newtest() {
-  let wordsContainer = document.querySelector(".sentence");
+  let wordsContainer = document.getElementById("sentence");
   wordsContainer.innerHTML = "";
   textinput.value = "";
 
-  const randomWords = generateRandomWords(newtestwords);
+  const randomWords = Misc.getRandomWords();
 
   for (let i = 0; i < randomWords.length; ++i) {
     wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
@@ -235,47 +212,6 @@ function speed_wpm(testStartTime, testEndTime) {
   speedtag.textContent = `${Math.round(wpm)}wpm`;
   speedtag.style.color = "deeppink";
   speedtag.style.fontWeight = '400';
-}
-
-function generateRandomWords(noOfWordsToGenerate) {
-
-  let wordsInStringForm = [];
-  
-  if ( arguments.length === 0 ) {
-    wordsInStringForm = initialstring.split(" ");
-  } else {
-    wordsInStringForm = new Array(noOfWordsToGenerate);
-    for (let i = 0; i < noOfWordsToGenerate; ++i) {
-      wordsInStringForm[i] = words3k[Math.trunc(Math.random() * words3k.length)];
-    }
-  }
-
-  let totalwords  = wordsInStringForm.length;
-  let randomWords = new Array(totalwords);
-
-  for (let i = 0; i < totalwords; ++i) {
-
-    let word = document.createElement("word");
-    let wordlength = wordsInStringForm[i].length;
-
-    for (let j = 0; j < wordlength; ++j) {
-
-      let letter = document.createElement("letter");
-      letter.textContent = wordsInStringForm[i][j];
-      word.appendChild(letter);
-      letter.classList.add(carettypes.get(Config.caret));
-    }
-
-    // letter with space
-    let letterWithSpace = document.createElement("letter");
-    letterWithSpace.classList.add(carettypes.get(Config.caret));
-    letterWithSpace.innerHTML = `&nbsp;`;
-    word.appendChild(letterWithSpace);
-  
-    randomWords[i] = word;
-  }
-
-  return randomWords;
 }
 
 // =============================================================================

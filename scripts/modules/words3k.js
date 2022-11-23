@@ -1,4 +1,4 @@
-const words3k = [
+export default [
   "a",
   "abandon",
   "ability",
@@ -3000,4 +3000,3 @@ const words3k = [
   "youth",
   "zone",
 ];
-export default words3k;

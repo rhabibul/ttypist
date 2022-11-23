@@ -1,51 +1,51 @@
-const CustomPractice = {
-  numpad: false,
-  numrow: false,
-  alphanumeric: false, // ascii
-  brackets: false, // {[()]}
-  specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-  functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+import * as Constants from "./constants.js";
 
-  // ArrowUp, ArrowLeft, ArrowRight, ArrowDown,
-  // KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-  arrowkeys: false,
-};
-
-const whitespace = {
-  space: "&nbsp;",
-  bullet: "⸱",
-};
-
-const Config = {
-  theme: "molokai",
-
-  customtext: false, // custom text
-  guidedlessions: false, // guided lessions for noobs
+export default {
+  firsttest: true,
 
   livestats: false, // live stats
   livekeyboard: true, // live keyboard
+
+  theme: "molokai",
 
   // "beginner" is the classic type test experience.
   // "intermediate" fails the test if you submit (press space) an incorrect word.
   // "advanced" fails if you press a single incorrect key.
   difficulty: "beginner",
+
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
-  forgiveerrors: true, // inserts wrongly typed letters
-  highlight: "word", // highlight mode: letter, word
+  forgiveerrors: true, // inserts wrongly typed letters if set to true
+
   caret: "line", // none, line, underline, box, block
+  highlight: "word", // letter, word
 
-  // text configs
-  numbers: false,
-  punctuations: false,
+  numbers: false, // include digits along words
+  punctuations: false, // include punctuation marks along with words
 
-  wordscount: 25,
-  wordseparator: whitespace.space,
+  wordcount: 10, // total number of words to generate for every test
+  wordseparator: Constants.whitespace.space, // space/dot
 
   flipcolors: false, // flip highlight mode colors
 
   fontsize: "1.4", // font size
-  fontweight: "300", // font weight
+  fontweight: "400", // font weight
   fontfamily: "Roboto Mono", // font family
-};
 
-export default Config;
+  practice: {
+    customtext: false, // custom text
+    guidedlessions: false, // guided lessions for noobs
+  },
+
+  custom: {
+    numpad: false,
+    numrow: false,
+    brackets: false, // {[()]}
+    alphanumeric: false, // ascii
+    functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+
+    // ArrowUp, ArrowLeft, ArrowRight, ArrowDown,
+    // KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    arrowkeys: false,
+  },
+};
