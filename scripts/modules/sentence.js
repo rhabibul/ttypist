@@ -51,12 +51,12 @@ class Sentence {
 
       if (
         this.#currentLetterIndex < 0 ||
-        this.#currentLetterIndex >= this.#words[this.#currentWordIndex].length
+        this.#currentLetterIndex >= this.#words[this.#currentWordIndex].children.length
       ) {
         throw `'currentLetterIndex' is out of bound (${this.#currentLetterIndex})`;
       }
       return this.#words[this.#currentWordIndex].children[this.#currentLetterIndex];
-      
+
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
