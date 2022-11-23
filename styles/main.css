@@ -13,15 +13,8 @@ body {
 }
 
 body {
-  background-color: var(--letter__borderLeftColor);
   padding: 20px;
-}
-
-.speed {
-  color: whitesmoke;
-  font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight300);
-  font-family: var(--letter__fontFamilyRobotoMono);
+  background-color: var(--letter__borderLeftColor);
 }
 
 :root {

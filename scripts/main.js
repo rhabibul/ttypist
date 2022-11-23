@@ -236,7 +236,7 @@ function updateCaretStyle(evt) {
   for ( let carettype of allcarettypes ) {
 
     if ( clickedcaret !== carettype ) { // reset default background color of other carettypes
-      carettype.style.backgroundColor = "var(--settings-caret__bgcolor)";
+      carettype.style.backgroundColor = "var(--settings-caret__bg)";
       if ( carettype === offtype ) {
         offtype_icon.style.color = "var(--settings-offtypeIcon__color)";
       }
@@ -247,7 +247,7 @@ function updateCaretStyle(evt) {
     offtype_icon.style.color = "#ff0000";
     offtype.style.backgroundColor = "#ffeaea";
   } else {
-    clickedcaret.style.backgroundColor = "var(--settings-caret__bgcoloractive)";
+    clickedcaret.style.backgroundColor = "var(--settings-caret__bg-active)";
   }
 
   Config.caret = clickedcaret.title;
