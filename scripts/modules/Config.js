@@ -1,7 +1,7 @@
-const Practice = {
+const CustomPractice = {
   numpad: false,
   numrow: false,
-  alphanumeric: false,
+  alphanumeric: false, // ascii
   brackets: false, // {[()]}
   specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
@@ -16,7 +16,7 @@ const whitespace = {
   bullet: "⸱",
 };
 
-const config = {
+const Config = {
   theme: "molokai",
 
   customtext: false, // custom text
@@ -47,4 +47,4 @@ const config = {
   },
 };
 
-export {config, whitespace};
+export default Config;
