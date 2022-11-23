@@ -31,6 +31,7 @@ class Sentence {
         throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
       return this.#words[this.#currentWordIndex];
+
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
@@ -52,11 +53,10 @@ class Sentence {
         this.#currentLetterIndex < 0 ||
         this.#currentLetterIndex >= this.#words[this.#currentWordIndex].length
       ) {
-        throw `'currentLetterIndex' is out of bound (${
-          this.#currentLetterIndex
-        })`;
+        throw `'currentLetterIndex' is out of bound (${this.#currentLetterIndex})`;
       }
       return this.#words[this.#currentWordIndex].children[this.#currentLetterIndex];
+      
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
