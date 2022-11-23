@@ -36,6 +36,11 @@ class Sentence {
     }
   }
 
+  // get active word in string type
+  get activeWordValue() {
+    // here...
+  }
+
   // get letter element
   get activeLetter() {
     try {
@@ -55,6 +60,11 @@ class Sentence {
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
+  }
+
+  // get active letter in string type
+  get activeLetterValue() {
+    // here...
   }
 
   // getters (indexes)
