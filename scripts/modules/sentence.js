@@ -1,8 +1,5 @@
-// 🌟🌟🌟
-// Next step is to implement sentence object along with config object.
-// after that reimplement caretstyles with javascript and resolve the
-// animation delay problem.
-// 
+import Config from "./Config.js";
+import randomWordsGenerator from "./misc.js";
 
 class Sentence {
   #words; // array of strings
@@ -12,34 +9,38 @@ class Sentence {
   constructor(words) {
     // expects an 1D array of strings
 
-    if (arguments.length === 0) {
-      this.#words = new Array();
+    if ( arguments.length === 0 ) {
+
     } else {
-      this.#words = Array.from(words);
+      if ( typeof(words) === 'string' ) {
+        this.#words = words.split(' ');
+      } else {
+        this.#words = Array.from(words); // for node list
+      }
     }
 
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
 
+  showwords() {
+    console.log(this.#words);
+  }
+
   push_front(...words) {
-    // expects a string or array of strings
     for (let word of words) {
       this.#words.unshift(word);
     }
   }
   push_back(...words) {
-    // expects a string or array of strings
     for (let word of words) {
       this.#words.push(word);
     }
   }
   pop_front() {
-    // removes first word
     return this.#words.shift();
   }
   pop_back() {
-    // removes last word
     return this.#words.pop();
   }
 
@@ -55,7 +56,7 @@ class Sentence {
         this.#currentWordIndex < 0 ||
         this.#currentWordIndex >= this.#words.length
       ) {
-        throw "'currentWordIndex' is out of bound";
+        throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
 
       return this.#words[this.#currentWordIndex];
@@ -71,14 +72,14 @@ class Sentence {
         this.#currentWordIndex < 0 ||
         this.#currentWordIndex >= this.#words.length
       ) {
-        throw "'currentWordIndex' is out of bound";
+        throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
 
       if (
         this.#currentLetterIndex < 0 ||
         this.#currentLetterIndex >= this.#words[this.#currentWordIndex].length
       ) {
-        throw "'currentLetterIndex' is out of bound";
+        throw `'currentLetterIndex' is out of bound (${this.#currentLetterIndex})`;
       }
 
       return this.#words[this.#currentWordIndex][this.#currentLetterIndex];
@@ -138,4 +139,4 @@ class Sentence {
 class WordsCorrected {}
 class WordsNotCorrected {}
 
-const sentence = new Sentence();
+export default Sentence;

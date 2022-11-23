@@ -1,8 +1,11 @@
 // import words1k from "./modules/words1k.js";
 import words3k from "./modules/words3k.js";
 import Config from "./modules/Config.js";
+// import Sentence from "./modules/sentence.js";
+// const sentence = new Sentence();
+// sentence.showwords();
 
-const initialstring = 'the quick brown fox jumped over the lazy dog';
+const initialstring = 'the quick brown fox jumps over the lazy dog';
 
 const nonPrintableCharacters = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
@@ -24,7 +27,7 @@ const textinput = document.querySelector(".touchtypist > input");
 const wordsContainer = document.querySelector(".sentence");
 // const root = document.querySelector(":root");
 
-const newtestwords = 10;
+const newtestwords = Config.wordscount;
 
 let active_word = 0;
 let active_letter = 0;
@@ -265,9 +268,9 @@ function generateRandomWords(noOfWordsToGenerate) {
 
     // letter with space
     let letterWithSpace = document.createElement("letter");
+    letterWithSpace.classList.add(carettypes.get(Config.caret));
     letterWithSpace.innerHTML = `&nbsp;`;
     word.appendChild(letterWithSpace);
-    letterWithSpace.classList.add(carettypes.get(Config.caret));
   
     randomWords[i] = word;
   }
@@ -287,6 +290,8 @@ const     caretblock = document.querySelector(".caretstyles > .caretblock");
 const allcaretstyles = document.querySelectorAll(".caretstyles > .caret");
 
 function updateCaretStyle(evt) {
+
+  if ( this.title === Config.caret ) return;
 
   evt.preventDefault();
   

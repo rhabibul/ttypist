@@ -34,17 +34,18 @@ const Config = {
   highlight: "word", // highlight mode: letter, word
   caret: "line", // none, line, underline, box, block
 
-  text: {
-    numbers: false,
-    punctuations: false,
-    wordseparator: whitespace.space,
+  // text configs
+  numbers: false,
+  punctuations: false,
 
-    flipcolors: false, // flip highlight mode colors
+  wordscount: 25,
+  wordseparator: whitespace.space,
 
-    fontsize: "1.4", // font size
-    fontweight: "300", // font weight
-    fontfamily: "Roboto Mono", // font family
-  },
+  flipcolors: false, // flip highlight mode colors
+
+  fontsize: "1.4", // font size
+  fontweight: "300", // font weight
+  fontfamily: "Roboto Mono", // font family
 };
 
 export default Config;
