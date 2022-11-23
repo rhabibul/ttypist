@@ -1,3 +1,10 @@
+:root {
+  --setting-offcaret-icon__color: #626262;
+  --setting-carets__color: #000000;
+  --setting-carets__bgcolor: #f5f5f5ba;
+  --setting-carets__bgcoloractive: #b5ffb5;
+}
+
 .caretstyles {
   width: 200px;
 
@@ -6,8 +13,6 @@
   justify-content: space-evenly;
 
   padding: 5px;
-  border: solid 1px lightgray;
-  border-radius: 3px;
 }
 
 .caret {
@@ -20,10 +25,10 @@
   align-items: center;
   justify-content: center;
 
-  background-color: #f5f5f5ba;
+  background-color: var(--setting-carets__bgcolor);
 }
 .caret.caretline {
-  background-color: #d5ffd5;
+  background-color: var(--setting-carets__bgcoloractive);
 }
 
 .caret.caretoff {
@@ -38,7 +43,7 @@
   justify-content: center;
 }
 .caret #off-icon i {
-  color: #626262;
+  color: var(--setting-offcaret-icon__color);
   font-size: 1.3rem;
   transform: translateY(2px);
 }
@@ -50,17 +55,17 @@
 }
 .caret #line-icon {
   width: 2px;
-  background-color: black;
+  background-color: var(--setting-carets__color);
 }
 .caret #block-icon {
   width: 10px;
-  background-color: black;
+  background-color: var(--setting-carets__color);
 }
 .caret #underline-icon {
   width: 13px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--setting-carets__color);
 }
 .caret #box-icon {
   width: 11px;
-  border: 2px solid black;
+  border: 2px solid var(--setting-carets__color);
 }

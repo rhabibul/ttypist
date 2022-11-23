@@ -188,6 +188,10 @@ WHAT I WANT:
 							apply defferent text color and background color to a letter on which the
 							caret is present, rest of the letters should be untouched.
 
+		> words length choice
+				- users will get which type & length of words they want to practice
+					(study english grammer for type of words)
+
 		> default caret:
 				- thin caret having color red
 				- whenever there's a typo, the color of the caret will change to black

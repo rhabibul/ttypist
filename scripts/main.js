@@ -293,9 +293,9 @@ function updateCaretStyle(evt) {
   for ( let othercaret of allcaretstyles ) {
 
     if ( this !== othercaret ) { // reset default background color of other caretstyles
-      othercaret.style.backgroundColor = "#f5f5f5ba";
+      othercaret.style.backgroundColor = "var(--setting-carets__bgcolor)";
       if ( othercaret === caretoff ) {
-        caretoff_icon.style.color = "#626262";
+        caretoff_icon.style.color = "var(--setting-offcaret-icon__color)";
       }
     }
   }
@@ -304,7 +304,7 @@ function updateCaretStyle(evt) {
     caretoff_icon.style.color = "#ff0000";
     caretoff.style.backgroundColor = "#ffeaea";
   } else {
-    this.style.backgroundColor = "#d5ffd5";
+    this.style.backgroundColor = "var(--setting-carets__bgcoloractive)";
   }
 
   config.caret = this.title;
