@@ -1,6 +1,6 @@
 import * as Constants from "./constants.js";
 
-export default {
+const Config = {
   firsttest: true,
 
   livestats: false, // live stats
@@ -32,13 +32,13 @@ export default {
   fontfamily: "Roboto Mono", // font family
 
   practice: {
-    customtext: false, // custom text
+    customtext: false, // custom text provided by user
     guidedlessions: false, // guided lessions for noobs
   },
 
   custom: {
-    numpad: false,
-    numrow: false,
+    numpad: false, // practice numpad digits and symbols
+    numrow: false, // practice numrow digits and symbols
     brackets: false, // {[()]}
     alphanumeric: false, // ascii
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
@@ -49,3 +49,5 @@ export default {
     arrowkeys: false,
   },
 };
+
+export default Config;

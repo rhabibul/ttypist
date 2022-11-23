@@ -24,8 +24,8 @@ class Sentence {
     return count;
   }
 
+  // get word element
   get activeWord() {
-
     try {
       if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
         throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
@@ -36,6 +36,7 @@ class Sentence {
     }
   }
 
+  // get letter element
   get activeLetter() {
     try {
       if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
@@ -50,12 +51,13 @@ class Sentence {
           this.#currentLetterIndex
         })`;
       }
-      return this.#words[this.#currentWordIndex][this.#currentLetterIndex];
+      return this.#words[this.#currentWordIndex].children[this.#currentLetterIndex];
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
   }
 
+  // getters (indexes)
   get activeWordIndex() {
     return this.#currentWordIndex;
   }
@@ -63,6 +65,7 @@ class Sentence {
     return this.#currentLetterIndex;
   }
 
+  // setters (indexes)
   set activeWordIndex(index) {
     this.#currentWordIndex = index;
   }
@@ -70,28 +73,32 @@ class Sentence {
     this.#currentLetterIndex = index;
   }
 
+  // increment letter & word indexes
+  incrementLetterIndex() {
+    this.#currentLetterIndex++;
+  }
+  incrementWordIndex() {
+    this.#currentWordIndex++;
+  }
+
+  // decrement letter & word indexes
+  decrementLetterIndex() {
+    this.#currentLetterIndex--;
+  }
+  decrementWordIndex() {
+    this.#currentWordIndex--;
+  }
+
+  // reset letter & word indexes
+  resetIndexes() {
+    this.#currentWordIndex = 0;
+    this.#currentLetterIndex = 0;
+  }
   resetActiveWordIndex() {
     this.#currentWordIndex = 0;
   }
   resetActiveLetterIndex() {
     this.#currentLetterIndex = 0;
-  }
-  resetIndexes() {
-    this.#currentWordIndex = 0;
-    this.#currentLetterIndex = 0;
-  }
-
-  incrementLetterIndex() {
-    this.#currentLetterIndex++;
-  }
-  decrementLetterIndex() {
-    this.#currentLetterIndex--;
-  }
-  incrementWordIndex() {
-    this.#currentWordIndex++;
-  }
-  decrementWordIndex() {
-    this.#currentWordIndex--;
   }
 }
 
