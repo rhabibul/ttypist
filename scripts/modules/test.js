@@ -54,10 +54,13 @@ class Test {
     this.#sentence = new Sentence();
   }
 
-  // test.isOver()
+  // test.over()
   over() {
-    return (this.#sentence.activeLetterIndex() === this.#sentence.activeWordLength()) && 
-           (this.#sentence.activeWordIndex() === this.#sentence.totalwords());
+
+    let l = this.#sentence.activeLetterIndex() === this.#sentence.activeWordLength();
+    let w = this.#sentence.activeWordIndex()   === this.#sentence.totalwords();
+
+    return l && w;
   }
 
   start() {
