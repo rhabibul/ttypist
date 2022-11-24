@@ -15,6 +15,10 @@ class Sentence {
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
+
+  get getwords() {
+    return this.#words;
+  }
   
   get totalwords() {
     return this.#words.length;

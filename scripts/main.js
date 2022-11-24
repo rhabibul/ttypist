@@ -1,12 +1,14 @@
-import Config from "./modules/config.js";
-import Sentence from "./modules/sentence.js";
 import * as Misc from "./modules/misc.js";
 import * as Constants from "./modules/constants.js";
+
+import Config from "./modules/config.js";
+// import Test from "./modules/test.js"
+import Sentence from "./modules/sentence.js";
 
 const root = document.querySelector(":root");
 const speedtag = document.querySelector(".speed");
 const textinput = document.getElementById("textinput");
-const wordsContainer = document.getElementById("sentence");
+const wordcontainer = document.getElementById("sentence");
 
 let active_word = 0;
 let active_letter = 0;
@@ -16,6 +18,17 @@ let testEndTime = 0;
 let testStarted = true;
 
 let randomWords, words, totalwords, letters;
+
+function cleanTestArea() {
+  textinput.value = "";
+  wordcontainer.innerHTML = "";
+}
+
+function loadWordsInTestArea(words) {
+  for (let word of words) {
+    wordcontainer.insertAdjacentElement("beforeend", word);
+  }
+}
 
 function totalcharacters(words) {
   let chars = 0;
@@ -168,15 +181,10 @@ function handleKeydown(keyevent) {
 }
 
 function newtest() {
-  wordsContainer.innerHTML = "";
-  textinput.value = "";
 
-  randomWords = Misc.getRandomWords();
-
-  for (let i = 0; i < randomWords.length; ++i) {
-    wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
-  }
-
+  cleanTestArea();
+  loadWordsInTestArea(Misc.getRandomWords());
+  
   words = Array.from(document.getElementsByTagName("word"));
   totalwords = words.length;
 

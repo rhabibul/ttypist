@@ -286,6 +286,12 @@ Note: no error insertion and forgiveerror & deletion is turned on.
 let test = new Test();
 
 Inside test object
+		> if test is completed by the user then we will create a new test object, 
+			if test is stopped abruptly then we will discared the stats and use the 
+			same object to start a new test by creating a new sentence object.
+		
+		> you need a button to start new test
+
 		> creating sentence object will load random words, so test object will just
 		  create a new sentence. (word generation will be customised using config
 			object).
@@ -365,7 +371,7 @@ Inside test object
 								- decrement word index
 								- set active letter index for this previous word to (word.length - 1)
 								- put caret on the last letter of this previous word
-								
+
 				} else {
 					
 						- if typedkey is not an invisible character then add incorrect class

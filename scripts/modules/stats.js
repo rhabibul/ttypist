@@ -19,6 +19,7 @@ class Timer {
     return this.#start - this.#end;
   }
 }
+
 class Stats {
   #wpm;
   #rawwpm;
@@ -40,7 +41,7 @@ class Stats {
       correct: 0,
       incorrect: 0,
     },
-    
+
     this.#wordstats = {
       totalwords: 0,
       correct: 0,
@@ -51,3 +52,5 @@ class Stats {
 
 class WordsCorrected {}
 class WordsNotCorrected {}
+
+export { Timer, Stats };
