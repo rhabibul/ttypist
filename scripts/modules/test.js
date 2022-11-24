@@ -21,10 +21,12 @@ const wordcontainer = document.getElementById("sentence");
 const starttest = document.querySelector("#settings > button.newtest");
 
 let test = new Test();
-test.start();
+test.startfirsttest();
 
 starttest.addEventListener("click", function (evt) {
   evt.preventDefault();
+
+  // check if this button is hit before completing the test
 
   test = new Test();
   test.start();
@@ -54,18 +56,23 @@ class Test {
     this.#sentence = new Sentence();
   }
 
-  // test.over()
-  over() {
-
-    let l = this.#sentence.activeLetterIndex() === this.#sentence.activeWordLength();
-    let w = this.#sentence.activeWordIndex()   === this.#sentence.totalwords();
-
-    return l && w;
+  startfirsttest() {
+    cleanTestArea();
+    loadWordsInTestArea(this.#sentence.getwords);
   }
 
   start() {
+    this.#timer = new Timer();
+    this.#stats = new Stats();
+    this.#sentence = new Sentence();
     cleanTestArea();
     loadWordsInTestArea(this.#sentence.getwords);
+  }
+
+  over() {
+    let l = this.#sentence.activeLetterIndex() === this.#sentence.activeWordLength();
+    let w = this.#sentence.activeWordIndex()   === this.#sentence.totalwords();
+    return l && w;
   }
 }
 
