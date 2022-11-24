@@ -38,10 +38,15 @@ class Sentence {
 
   // get active word in string type
   get activeWordValue() {
-    let word = this.activeWord.children;
+    //       "⸱".charCodeAt(0) = 11825
+    // "&nbsp;".charCodeAt(0) = 160
+    let code = 0;
     let stringform = "";
+    let word = this.activeWord.children;
+
     for (let letter of word) {
-      if (letter.textContent.charCodeAt(0) === 160) {
+      code = letter.textContent.charCodeAt(0);
+      if (code === 160 || code === 11825) {
         stringform += " ";
       } else {
         stringform += letter.textContent;
