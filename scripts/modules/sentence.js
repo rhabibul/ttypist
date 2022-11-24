@@ -25,9 +25,6 @@ class Sentence {
     }
     return count;
   }
-  activeWordLength() {
-    return this.#activeWord.children.length;
-  }
 
   // get word element
   get activeWord() {
@@ -54,6 +51,11 @@ class Sentence {
       }
     }
     return stringform;
+  }
+
+  get activeWordLength() {
+    let word = this.activeWord.children;
+    return word.length;
   }
 
   // get letter element

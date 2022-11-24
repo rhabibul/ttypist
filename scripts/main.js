@@ -15,21 +15,26 @@ let testStartTime = 0;
 let testEndTime = 0;
 let testStarted = true;
 
-const randomWords = Misc.getRandomWords();
+let randomWords, words, totalwords, letters;
 
-for (let i = 0; i < randomWords.length; ++i) {
-  wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
+function totalcharacters(words) {
+  let chars = 0;
+  for (let word of words) {
+    chars += word.children.length;
+  }
+  return chars;
 }
 
-let words = Array.from(document.getElementsByTagName("word"));
-let totalwords = words.length;
-let letters = words[active_word].children; // store letters of first word
+function speed_wpm(testStartTime, testEndTime) {
+  const sec = (testEndTime - testStartTime) / 1000;
+  const wordsTyped = totalcharacters(words) / 5;
+  const wpm = (wordsTyped / sec) * 60;
 
-words[active_word].classList.add("active");
-letters[active_letter].setAttribute("id", Config.caret); // add caret
-textinput.focus();
+  speedtag.textContent = `${Math.round(wpm)}wpm`;
+  speedtag.style.color = "deeppink";
+  speedtag.style.fontWeight = "400";
+}
 
-textinput.addEventListener("keydown", handleKeydown);
 
 function handleKeydown(keyevent) {
   keyevent.preventDefault();
@@ -43,7 +48,10 @@ function handleKeydown(keyevent) {
   const keytyped = keyevent.key;
 
   // move to next word if a space is typed
-  if ( letters[active_letter].textContent.charCodeAt(0) === 160 && keytyped === " " ) {
+  if (
+    letters[active_letter].textContent.charCodeAt(0) === 160 &&
+    keytyped === " "
+  ) {
     // charCode is checked so that caret doesn't go to next word when user just
     // hits a space character
 
@@ -54,7 +62,6 @@ function handleKeydown(keyevent) {
     words[active_word].classList.add("active"); // add highlight to next word
     active_letter = 0; // go to first letter of next word
     letters[active_letter].setAttribute("id", Config.caret); // add caret
-
   } else if (keytyped === letters[active_letter].textContent) {
     // Move caret to next letter
     words[active_word].classList.remove("incorrect");
@@ -123,7 +130,6 @@ function handleKeydown(keyevent) {
     active_letter = 0; // point to first letter of current word
     words[active_word].classList.remove("incorrect");
     letters[active_letter].setAttribute("id", Config.caret); // add caret
-
   } else if (keytyped === "Backspace") {
     // Take caret one letter back.
 
@@ -132,11 +138,9 @@ function handleKeydown(keyevent) {
     // Take caret to previous letter of the current word as long as there is a
     // letter before it.
     if (active_letter > 0) {
-      
       letters[active_letter].removeAttribute("id"); // remove caret
       --active_letter;
       letters[active_letter].setAttribute("id", Config.caret); // add caret
-
     } else if (active_letter === 0 && active_word > 0) {
       // if caret is on first letter of the current word then, put caret on space
       // character of previous word i.e, caret should appear after last
@@ -164,16 +168,15 @@ function handleKeydown(keyevent) {
 }
 
 function newtest() {
-  let wordsContainer = document.getElementById("sentence");
   wordsContainer.innerHTML = "";
   textinput.value = "";
 
-  const randomWords = Misc.getRandomWords();
+  randomWords = Misc.getRandomWords();
 
   for (let i = 0; i < randomWords.length; ++i) {
     wordsContainer.insertAdjacentElement("beforeend", randomWords[i]);
   }
-  
+
   words = Array.from(document.getElementsByTagName("word"));
   totalwords = words.length;
 
@@ -195,24 +198,7 @@ function newtest() {
   }, 2000);
 }
 
-function totalcharacters(words) {
-  let chars = 0;
-  for (let word of words) {
-    chars += word.children.length;
-  }
-  return chars;
-}
-
-function speed_wpm(testStartTime, testEndTime) {
-
-  const sec = (testEndTime - testStartTime) / 1000;
-  const wordsTyped = totalcharacters(words) / 5;
-  const wpm = (wordsTyped / sec) * 60;
-
-  speedtag.textContent = `${Math.round(wpm)}wpm`;
-  speedtag.style.color = "deeppink";
-  speedtag.style.fontWeight = '400';
-}
+newtest(); // start the first test
 
 const offtype_icon = document.querySelector("#off-icon > .fa-ban");
 const offtype = document.querySelector(".carettypes > .offtype");
