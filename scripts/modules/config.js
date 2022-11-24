@@ -14,8 +14,8 @@ const Config = {
   difficulty: "beginner",
 
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
-  forgiveerrors: true, // inserts wrongly typed letters if set to true
-
+  inserterror: true, 
+  forgiveerror: false,
   caret: "line", // none, line, underline, box, block
   highlight: "word", // letter, word
 

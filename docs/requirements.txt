@@ -12,7 +12,7 @@ ABOUT THE PROJECT:
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 FEATURES TO BE IMPLEMENTED:
 	1. 	Option to select between different cursors. ❌
 	2. 	Option to to select the thickness of line cursor. ❌
@@ -68,7 +68,7 @@ FEATURES TO BE IMPLEMENTED:
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Windows
 		ctrl + backspace	(clear one word)  ✅
 		alt  + backspace	(clear all words) ✅
@@ -80,7 +80,7 @@ Mac
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Quick Ideas:
 		Avoiding caret blinking for letters other than first letter.
 				- just add animation properties to first letter.
@@ -107,7 +107,7 @@ Quick Ideas:
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 WEIRD BEHAVIOURS:
 	- Sometimes when you type, the caret doesn't move?
 		It happens because you click somewhere or for any other action the focus is
@@ -134,7 +134,7 @@ Speed:
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 WHAT I WANT:
 		> Use only:
 				- keydown, keyup
@@ -220,7 +220,7 @@ WHAT I WANT:
 					with ctrl+bs & alt+bs key combinations.
 					a~b`c!d@e#f$g%h^i&j*k(l)m-n=o_p+q{r[s]t}u|v\w;x:y"z'a,b<c.d>e/f?g
 
-		> hide once user types letter/word
+		> hide letter/word
 				- if hightlight mode is letter then once the user types the letter correctly
 					make it invisible by adding "display: none". do the same thing for word tag
 					if hightlight mode is word.
@@ -230,7 +230,7 @@ WHAT I WANT:
 
 
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 RANDOM THOUGHTS:
 		> No matter what, the user has turned on forgive errors or not we will count
 		  each and every character typed by the user. If the user has forgive errors 
@@ -242,3 +242,94 @@ ISSUES:
 				- when user hits (alt/opt, ctrl, meta, shift) any of these keys, it should
 					not be regarded as error. ✅
 				- while inserting wronly typed letters, don't insert these special keys.
+
+
+
+
+--------------------------------------------------------------------------------
+🌟 GameLogic
+
+
+
+> inserterror is turned 'on'
+> inserterror is turned 'off'
+
+
+> forgiveerror is turned 'on'
+		- insert wrongly type letters, whenever user types a letter correctly then
+			move the caret forward.
+		- if user hits a space after typing first letter (not before that) then
+			take caret to next word marking the previous word red colored.
+		- hitting space before typing first letter will insert the space character "⸱"
+			and after that whenever user hits space then go to next word.
+
+> forgiveerror is turned 'off'
+		- only way to move the caret is to correct all mistakes and type letters
+		  correctly, care will move to next word only when all inserted letters
+			are deleted.
+		- if forgiveerror is turned of then by default inserterror will be turned on
+		- as soon as the user starts typing incorrect letter it will get inserted
+			user needs to clear the incorrectly typed letters inorder to move the caret
+			forward.
+
+
+> deletion is turned 'on'
+> deletion is turned 'off'
+
+
+Goal:
+	- Implement Sentence object
+	- Implement hightlight mode (letter, word)
+
+Note: no error insertion and forgiveerror & deletion is turned on.
+
+let test = new Test();
+
+Inside test object
+		> creating sentence object will load random words, so test object will just
+		  create a new sentence. (word generation will be customised using config
+			object).
+
+		> test object will put letter/word hightlight according to config object and
+		  put caret on first letter of first word.
+			
+		> if user wants to change any setting of the game then current test will be
+		  discareded, no new test object will be created just we will load new
+			random words by creating new sentence object.
+
+		> if test is complete then we will store the stats and create a new test
+		  object.
+
+		> game logic will be a method in test object.
+
+				if ( letter typed is a space ) {
+					
+					1. if forgive errors is 'on' then move to next word regardless of whether
+						typed letter key is wrong or correct.
+						
+					2. if forgive errors is 'off' then check whether the active letter is space
+						and typed key is also a space, only then move to next word otherwise
+						insert the wrongly typed space in the word.
+
+				} else if ( keytyped is correct ) {
+
+					- remove caret from current letter
+					- increment letter index
+					- put caret on next letter
+
+					if ( test.complete() ) {
+						delegate these tasks to test object
+							- end timer here
+							- remove active letter/word hightlight & caret
+							- display stats
+							- remove eventlistener
+							- start new test
+					}
+
+				} else if ( metakey + backspace ) {
+
+				} else if ( ctrl/alt + backspace ) {
+
+				} else {
+					
+				}

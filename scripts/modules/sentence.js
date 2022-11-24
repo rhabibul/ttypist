@@ -2,8 +2,10 @@ import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Constants from "./constants.js"
 
+// stores all the word & letter elements and also keeps track of active word
+// and active letter.
 class Sentence {
-  #words; // array of strings
+  #words; // array of word elements
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
 
@@ -12,7 +14,7 @@ class Sentence {
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
-
+  
   get totalwords() {
     return this.#words.length;
   }
@@ -22,6 +24,9 @@ class Sentence {
       count += word.children.length;
     }
     return count;
+  }
+  activeWordLength() {
+    return this.#activeWord.children.length;
   }
 
   // get word element
@@ -39,7 +44,16 @@ class Sentence {
 
   // get active word in string type
   get activeWordValue() {
-    // here...
+    let word = this.activeWord.children;
+    let stringform = "";
+    for ( let letter of word ) {
+      if ( letter.textContent.charCodeAt(0) === 160 ) {
+        stringform += " ";
+      } else {
+        stringform += letter.textContent;
+      }
+    }
+    return stringform;
   }
 
   // get letter element
@@ -64,7 +78,7 @@ class Sentence {
 
   // get active letter in string type
   get activeLetterValue() {
-    // here...
+    return this.activeLetter.textContent;
   }
 
   // getters (indexes)
