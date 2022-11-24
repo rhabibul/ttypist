@@ -3,13 +3,17 @@
 // All these function will be provide the sentence object as parameter.
 import * as Caret from "./caret.js";
 
+const teststats = {
+  completed: 0,
+  incompleted: 0,
+};
+
 // Test object will run the game
 class Test {
-  #testStarted; // boolean
-  #lastKeypressedTimestamp; // performance.now();
   #stats;
   #timer;
   #sentence;
+  #lastKeypressTimestamp; // performance.now();
 
   constructor() {
     this.#timer = new Timer();
@@ -17,9 +21,10 @@ class Test {
     this.#sentence = new Sentence();
   }
 
-  // test.complete()
-  complete() {
-    return (sentence.activeLetterIndex() === sentence.activeWordLength()) && (sentence.activeWordIndex() === sentence.totalwords());
+  // test.isOver()
+  isOver() {
+    return (sentence.activeLetterIndex() === sentence.activeWordLength()) && 
+           (sentence.activeWordIndex() === sentence.totalwords());
   }
 }
 

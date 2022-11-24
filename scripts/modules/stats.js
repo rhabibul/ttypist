@@ -1,8 +1,10 @@
 class Timer {
+  #testNotStarted;
   #start;
   #end;
 
   constructor() {
+    this.#testNotStarted = true;
     this.#start = 0;
     this.#end = 0;
   }
@@ -17,33 +19,35 @@ class Timer {
     return this.#start - this.#end;
   }
 }
+class Stats {
+  #wpm;
+  #rawwpm;
+  #accuracy;
+  #charstats;
+  #wordstats;
+  #netwpm;
+  #grosswpm;
 
-const Stats = {
-  wpm: 0, // ((correctchars / 5) / 60)
-  rawwpm: 0, // ((correctchars + incorrectchars + extrachars) / 5) / 60)
-  accuracy: 0, // (correctchars / (correctchars + incorrectchars)) * 100)
+  
+  constructor() {
+    this.#wpm = 0, // ((correctchars / 5) / 60)
+    this.#rawwpm = 0, // ((correctchars + incorrectchars + extrachars) / 5) / 60)
+    this.#accuracy = 0, // (correctchars / (correctchars + incorrectchars)) * 100)
 
-  netwpm: 0,
-  grosswpm: 0,
-
-  charstats: {
-    extra: 0,
-    totalchars: 0,
-
-    correct: 0,
-    incorrect: 0,
-  },
-
-  wordstats: {
-    correct: 0,
-    incorrect: 0,
-  },
-
-  teststats: {
-    completed: 0,
-    incompleted: 0,
-  },
-};
+    this.#charstats = {
+      extra: 0,
+      totalchars: 0,
+      correct: 0,
+      incorrect: 0,
+    },
+    
+    this.#wordstats = {
+      totalwords: 0,
+      correct: 0,
+      incorrect: 0,
+    }
+  }
+}
 
 class WordsCorrected {}
 class WordsNotCorrected {}

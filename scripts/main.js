@@ -45,12 +45,12 @@ function handleKeydown(keyevent) {
     testStarted = false;
   }
 
-  const keytyped = keyevent.key;
+  const typedkey = keyevent.key;
 
   // move to next word if a space is typed
   if (
     letters[active_letter].textContent.charCodeAt(0) === 160 &&
-    keytyped === " "
+    typedkey === " "
   ) {
     // charCode is checked so that caret doesn't go to next word when user just
     // hits a space character
@@ -62,7 +62,7 @@ function handleKeydown(keyevent) {
     words[active_word].classList.add("active"); // add highlight to next word
     active_letter = 0; // go to first letter of next word
     letters[active_letter].setAttribute("id", Config.caret); // add caret
-  } else if (keytyped === letters[active_letter].textContent) {
+  } else if (typedkey === letters[active_letter].textContent) {
     // Move caret to next letter
     words[active_word].classList.remove("incorrect");
     letters[active_letter].removeAttribute("id"); // remove caret
@@ -83,7 +83,7 @@ function handleKeydown(keyevent) {
       textinput.removeEventListener("keydown", handleKeydown);
       newtest();
     }
-  } else if (keyevent.metaKey && keytyped === "Backspace") {
+  } else if (keyevent.metaKey && typedkey === "Backspace") {
     // cmd + backspace
     // clear all typed words: restart without resetting the timer
 
@@ -106,8 +106,8 @@ function handleKeydown(keyevent) {
 
     letters[active_letter].setAttribute("id", Config.caret); // add caret
   } else if (
-    (keyevent.altKey && keytyped === "Backspace") ||
-    (keyevent.ctrlKey && keytyped === "Backspace")
+    (keyevent.altKey && typedkey === "Backspace") ||
+    (keyevent.ctrlKey && typedkey === "Backspace")
   ) {
     // (alt + backspace) || (opt + backspace)
     // clear one word at a time putting caret at first letter of previous word
@@ -130,7 +130,7 @@ function handleKeydown(keyevent) {
     active_letter = 0; // point to first letter of current word
     words[active_word].classList.remove("incorrect");
     letters[active_letter].setAttribute("id", Config.caret); // add caret
-  } else if (keytyped === "Backspace") {
+  } else if (typedkey === "Backspace") {
     // Take caret one letter back.
 
     words[active_word].classList.remove("incorrect");
@@ -161,7 +161,7 @@ function handleKeydown(keyevent) {
   } else {
     // insert '·' this instead of &nbsp; when user hits space character
     // in the wrong place
-    if (!Constants.invisibles.includes(keytyped)) {
+    if (!Constants.invisibles.includes(typedkey)) {
       words[active_word].classList.add("incorrect");
     }
   }

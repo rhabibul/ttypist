@@ -317,7 +317,7 @@ Inside test object
 					- increment letter index
 					- put caret on next letter
 
-					if ( test.complete() ) {
+					if ( test.isOver() ) {
 						delegate these tasks to test object
 							- end timer here
 							- remove active letter/word hightlight & caret
@@ -328,8 +328,46 @@ Inside test object
 
 				} else if ( metakey + backspace ) {
 
+						- remove caret from current letter/word
+						- remove active status for current word (if hightlight mode is word)
+						- remove incorrect class & extra errors for each word typed
+						- reset active letter & word indexes
+						- add caret to first letter of first word
+
 				} else if ( ctrl/alt + backspace ) {
 
+						- remove caret from current letter
+						- remove incorrect class from current word (if caret is on 1st letter)
+						- remove any extra errors inserted for the word
+						- if caret is already at first letter of the word then
+									- remove active status from current word (if hightlight mode is word)
+									- decrease word index (go to previous word if not the first word)
+									- add active status word (if hightlight mode is word)
+									- add caret to first letter of the word
+						- reset active letter index of the current word
+						- remove incorrect class from current word (if caret is somewhere in middle of the word)
+						- add caret to first letter of the word
+						
+				} else if ( backspace ) {
+						
+						- remove incorrect class from active word
+						- if  active letter index > 0 then
+								- take caret to previous letter of the current word as long as there 
+									is a letter before it i.e, activeLetterIndex > 0
+								- remove caret from active letter
+								- decrement active letter index
+								- add caret to previous letter
+						- if active letter is at 0
+								- caret is at first letter of the word then put caret on last 
+									letter of previous word i.e, put caret on space character
+								- remove caret from current letter
+								- remove active status from active word (if hightlight mode is word)
+								- decrement word index
+								- set active letter index for this previous word to (word.length - 1)
+								- put caret on the last letter of this previous word
+								
 				} else {
 					
+						- if typedkey is not an invisible character then add incorrect class
+						  to the active word.
 				}

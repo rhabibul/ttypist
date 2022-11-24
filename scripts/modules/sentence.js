@@ -2,8 +2,9 @@ import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Constants from "./constants.js"
 
-// stores all the word & letter elements and also keeps track of active word
-// and active letter.
+// Used for:
+// storing all the word & letter elements and also keeps track of indexes of
+// active word and active letter.
 class Sentence {
   #words; // array of word elements
   #currentWordIndex; // stores index for current word which the user is typing
