@@ -38,9 +38,7 @@ body {
 }
 
 :root {
-  --caret__width: 1px;
   --caret__color: black;
-
   --caret__blinkdelay: 2s;
   --caret__blinkduration: 1.15s;
 }

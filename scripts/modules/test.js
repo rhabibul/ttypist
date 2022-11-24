@@ -6,6 +6,11 @@ import Config from "./config.js";
 import Sentence from "./sentence.js";
 import { Timer, Stats } from "./stats.js"
 
+// Caret.goToNextLetter(sentence);
+// Caret.goToPreviousLetter(sentence);
+// Caret.goToNextWord(sentence);
+// Caret.goToPreviousWord(sentence);
+
 const teststats = {
   completed: 0,
   incompleted: 0,

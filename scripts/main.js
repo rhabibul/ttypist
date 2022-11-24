@@ -48,7 +48,6 @@ function speed_wpm(testStartTime, testEndTime) {
   speedtag.style.fontWeight = "400";
 }
 
-
 function handleKeydown(keyevent) {
   keyevent.preventDefault();
 
@@ -69,23 +68,24 @@ function handleKeydown(keyevent) {
     // hits a space character
 
     letters[active_letter].removeAttribute("id"); // remove caret
+    
     words[active_word].classList.remove("active"); // remove highlight from active word
     ++active_word; // move to next word
-    letters = words[active_word].children; // store all letters of the next word
     words[active_word].classList.add("active"); // add highlight to next word
+    
+    letters = words[active_word].children; // store all letters of the next word
     active_letter = 0; // go to first letter of next word
     letters[active_letter].setAttribute("id", Config.caret); // add caret
+    
   } else if (typedkey === letters[active_letter].textContent) {
     // Move caret to next letter
     words[active_word].classList.remove("incorrect");
+
     letters[active_letter].removeAttribute("id"); // remove caret
     ++active_letter;
     letters[active_letter].setAttribute("id", Config.caret); // add caret
 
-    if (
-      active_word === totalwords - 1 &&
-      active_letter === letters.length - 1
-    ) {
+    if ( active_word === totalwords - 1 && active_letter === letters.length - 1 ) {
       // restart new test if user has finished typing all the words
 
       testEndTime = window.performance.now();
@@ -131,11 +131,11 @@ function handleKeydown(keyevent) {
     // if caret is already at first letter of a word and user then goes back to
     // previous word
     if (active_letter === 0 && active_word > 0) {
+      
       words[active_word].classList.remove("active"); // remove active word status
-
       --active_word;
-
       words[active_word].classList.add("active"); // highlight previous word
+
       letters = words[active_word].children; // store letters of previous word
       letters[active_letter].setAttribute("id", Config.caret); // add caret
     }
@@ -143,6 +143,7 @@ function handleKeydown(keyevent) {
     active_letter = 0; // point to first letter of current word
     words[active_word].classList.remove("incorrect");
     letters[active_letter].setAttribute("id", Config.caret); // add caret
+
   } else if (typedkey === "Backspace") {
     // Take caret one letter back.
 
@@ -151,29 +152,29 @@ function handleKeydown(keyevent) {
     // Take caret to previous letter of the current word as long as there is a
     // letter before it.
     if (active_letter > 0) {
+
       letters[active_letter].removeAttribute("id"); // remove caret
       --active_letter;
       letters[active_letter].setAttribute("id", Config.caret); // add caret
+      
     } else if (active_letter === 0 && active_word > 0) {
       // if caret is on first letter of the current word then, put caret on space
       // character of previous word i.e, caret should appear after last
       // non-whitespace character of previous word.
 
       letters[active_letter].removeAttribute("id"); // remove caret
+      
       words[active_word].classList.remove("active");
-
       --active_word; // go to previous word
-
-      letters = words[active_word].children; // store letters of previous word
       words[active_word].classList.add("active"); // highlight the previous word
 
-      active_letter = letters.length - 1; // point to last letter of previous word
+      letters = words[active_word].children; // store letters of previous word
 
+      active_letter = letters.length - 1; // point to last letter of previous word
       letters[active_letter].setAttribute("id", Config.caret); // add caret
     }
   } else {
-    // insert '·' this instead of &nbsp; when user hits space character
-    // in the wrong place
+    // insert '·' this instead of &nbsp; when user hits space character in the wrong place
     if (!Constants.invisibles.includes(typedkey)) {
       words[active_word].classList.add("incorrect");
     }

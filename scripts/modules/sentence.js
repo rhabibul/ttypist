@@ -19,7 +19,7 @@ class Sentence {
   get getwords() {
     return this.#words;
   }
-  
+
   get totalwords() {
     return this.#words.length;
   }
@@ -31,25 +31,17 @@ class Sentence {
     return count;
   }
 
-  // get word element
-  get activeWord() {
-    try {
-      if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
-        throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
-      }
-      return this.#words[this.#currentWordIndex];
-
-    } catch (outofbounderror) {
-      console.error(outofbounderror);
-    }
+  // get active letter in string type
+  get activeLetterValue() {
+    return this.activeLetter.textContent;
   }
 
   // get active word in string type
   get activeWordValue() {
     let word = this.activeWord.children;
     let stringform = "";
-    for ( let letter of word ) {
-      if ( letter.textContent.charCodeAt(0) === 160 ) {
+    for (let letter of word) {
+      if (letter.textContent.charCodeAt(0) === 160) {
         stringform += " ";
       } else {
         stringform += letter.textContent;
@@ -63,29 +55,43 @@ class Sentence {
     return word.length;
   }
 
+  // get word element
+  get activeWord() {
+    try {
+      if (
+        this.#currentWordIndex < 0 ||
+        this.#currentWordIndex >= this.#words.length
+      ) {
+        throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
+      }
+      return this.#words[this.#currentWordIndex];
+      
+    } catch (outofbounderror) {
+      console.error(outofbounderror);
+    }
+  }
+
   // get letter element
   get activeLetter() {
     try {
-      if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
+      if (
+        this.#currentWordIndex < 0 ||
+        this.#currentWordIndex >= this.#words.length
+      ) {
         throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
 
       if (
-        this.#currentLetterIndex < 0 ||
+        this.#currentLetterIndex < 0 || 
         this.#currentLetterIndex >= this.#words[this.#currentWordIndex].children.length
       ) {
-        throw `'currentLetterIndex' is out of bound (${this.#currentLetterIndex})`;
+        throw `'currentLetterIndex' is out of bound (${ this.#currentLetterIndex })`;
       }
       return this.#words[this.#currentWordIndex].children[this.#currentLetterIndex];
 
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
-  }
-
-  // get active letter in string type
-  get activeLetterValue() {
-    return this.activeLetter.textContent;
   }
 
   // getters (indexes)
