@@ -31,6 +31,20 @@ class Stats {
 
   
   constructor() {
+    /**
+     * Gross Words (typed words): This is the total number of words typed by the
+     * candidate; it includes both correct and incorrect words. Gross words per
+     * minnute is total number of words typed in one minute.
+     * gwpm = (gross words)/(time taken in minutes)
+     * 
+     * Net words (correct words): The number of correct words typed.
+     * nwpm = (net words)/(time taken in minutes)
+     * 
+     * Accuracy: 
+     * The number of correct words entered, calculated as (nwpm * 100)/(gwpm)
+     * 
+     **/
+    
     this.#wpm = 0, // ((correctchars / 5) / 60)
     this.#rawwpm = 0, // ((correctchars + incorrectchars + extrachars) / 5) / 60)
     this.#accuracy = 0, // (correctchars / (correctchars + incorrectchars)) * 100)
