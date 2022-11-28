@@ -13,6 +13,22 @@
   font-family: var(--letter__fontFamilyRobotoMono);
 }
 
+.restart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 1.3rem;
+  border-radius: 3px;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+
 .carettypes {
   margin-top: 10px;
   border-radius: 3px;

@@ -9,7 +9,7 @@ function removeCaretFrom(letter) {
 }
 
 function addHighlightTo(word) {
-	word.classList.add("active");	
+	word.classList.add("active");
 }
 
 function removeHighlightFrom(word) {

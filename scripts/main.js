@@ -7,7 +7,7 @@ import Sentence from "./modules/sentence.js";
 
 const root = document.querySelector(":root");
 const speedtag = document.querySelector(".speed");
-const textinput = document.getElementById("textinput");
+const inputbox = document.getElementById("inputbox");
 const wordcontainer = document.getElementById("sentence");
 
 let active_word = 0;
@@ -19,12 +19,10 @@ let testStarted = true;
 
 let randomWords, words, totalwords, letters;
 
-function cleanTestArea() {
-  textinput.value = "";
+function loadwords(words) {
+  inputbox.value = "";
   wordcontainer.innerHTML = "";
-}
 
-function loadWordsInTestArea(words) {
   for (let word of words) {
     wordcontainer.insertAdjacentElement("beforeend", word);
   }
@@ -93,7 +91,7 @@ function handleKeydown(keyevent) {
       letters[active_letter].removeAttribute("id"); // remove caret
 
       speed_wpm(testStartTime, testEndTime); // display typing speed
-      textinput.removeEventListener("keydown", handleKeydown);
+      inputbox.removeEventListener("keydown", handleKeydown);
       newtest();
     }
   } else if (keyevent.metaKey && typedkey === "Backspace") {
@@ -183,8 +181,7 @@ function handleKeydown(keyevent) {
 
 function newtest() {
 
-  cleanTestArea();
-  loadWordsInTestArea(Misc.getRandomWords());
+  loadwords(Misc.getRandomWords());
   
   words = Array.from(document.getElementsByTagName("word"));
   totalwords = words.length;
@@ -199,8 +196,8 @@ function newtest() {
   words[active_word].classList.add("active");
   letters[active_letter].setAttribute("id", Config.caret); // add caret
 
-  textinput.addEventListener("keydown", handleKeydown); // this brings everything live again
-  textinput.focus();
+  inputbox.addEventListener("keydown", handleKeydown); // this brings everything live again
+  inputbox.focus();
 
   setTimeout(() => {
     speedtag.style.color = "whitesmoke";
@@ -218,7 +215,7 @@ const blocktype = document.querySelector(".carettypes > .blocktype");
 
 const allcarettypes = document.querySelectorAll(".carettypes > .caret");
 
-function updateCaretStyle(evt) {
+function changeCaret(evt) {
   evt.preventDefault();
 
   let clickedcaret = this;
@@ -245,8 +242,11 @@ function updateCaretStyle(evt) {
   newtest();
 }
 
-offtype.addEventListener("click", updateCaretStyle);
-boxtype.addEventListener("click", updateCaretStyle);
-linetype.addEventListener("click", updateCaretStyle);
-blocktype.addEventListener("click", updateCaretStyle);
-underlinetype.addEventListener("click", updateCaretStyle);
+offtype.addEventListener      ("click", changeCaret);
+boxtype.addEventListener      ("click", changeCaret);
+linetype.addEventListener     ("click", changeCaret);
+blocktype.addEventListener    ("click", changeCaret);
+underlinetype.addEventListener("click", changeCaret);
+
+inputbox.addEventListener("focus",     (evt) => { Config.typing = true;  });
+inputbox.addEventListener("focusout",  (evt) => { Config.typing = false; });
