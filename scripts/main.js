@@ -1,23 +1,31 @@
 import * as Misc from "./modules/misc.js";
+import * as Caret from "./modules/caret.js";
 import * as Elements from "./modules/elements.js"
 import * as Constants from "./modules/constants.js";
 
-import Test from "./modules/test.js"
+import Test from "./modules/test.js";
 import Config from "./modules/config.js";
 import Sentence from "./modules/sentence.js";
 
+let testEndTime = 0;
+let testStartTime = 0;
+let testNotStarted = true;
+
 let sentence = new Sentence();
 
-Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
+function ignite(afterburn = false) { 
 
-function ignite() { 
+  if ( afterburn ) {
+    sentence = new Sentence();
+  }
+  
   Caret.addHighlightTo(sentence.activeWord);
   Caret.addCaretTo(sentence.activeLetter);
   
   Elements.inputbox.addEventListener('keydown', handlekeydown, false);
   Elements.inputbox.focus();
 }
-
+ignite(); // first test
 
 function testover(sentence) {
   let l = sentence.activeLetterIndex === sentence.activeWordLength - 1;
@@ -36,8 +44,7 @@ function handlekeydown(evt) {
   let typedkey = evt.key;
 
   if ( 
-    (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) &&
-    (typedkey === " ")
+    (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) && (typedkey === " ")
    ) {
 
     Caret.removeCaretFrom(sentence.activeLetter);
@@ -51,13 +58,15 @@ function handlekeydown(evt) {
     sentence.activeWord.classList.remove('error');
     Caret.goToNextLetter(sentence);
     
-    if ( testover() ) {
+    if ( testover(sentence) ) {
       testEndTime = window.performance.now();
 
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       
-      // start a new test...
+      Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
+      sentence = new Sentence();
+      ignite();
     }
     
   } else if (evt.metaKey && typedkey === "Backspace") {
@@ -73,7 +82,9 @@ function handlekeydown(evt) {
       if ( sentence.activeWordIndex < 0 ) break;
     }
 
-    sentence.resetIndexes();
+    sentence.resetActiveWordIndex();
+    sentence.resetActiveLetterIndex();
+    
     Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
     
@@ -111,7 +122,7 @@ function handlekeydown(evt) {
     }
     
   } else {
-    console.log(`Error: '${sentence.activeWordValue}'`);
+
     // insert '·' this instead of &nbsp; when user hits space character in the wrong place
     if (!Constants.invisibles.includes(typedkey)) {
       sentence.activeWord.classList.add("error");
@@ -123,3 +134,5 @@ Elements.restart.addEventListener('click', (evt) => {
   evt.preventDefault();
 })
 
+
+export { ignite };

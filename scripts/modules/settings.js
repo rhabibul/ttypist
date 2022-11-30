@@ -1,4 +1,5 @@
 import Config from "./config.js";
+import { ignite } from "../main.js";
 
 const offtype_icon  = document.querySelector("#off-icon > .fa-ban");
 const offtype       = document.querySelector(".carettypes > .offtype");
@@ -33,8 +34,7 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
-	
-  // start a new test...
+  ignite(true);
 }
 
 offtype.addEventListener      ("click", changeCaret);
