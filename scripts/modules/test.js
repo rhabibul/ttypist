@@ -1,6 +1,7 @@
 import * as Caret from "./caret.js";
 import * as Constants from "./constants.js";
 import * as Elements from "./elements.js";
+import * as Misc from "./misc.js"
 import Config from "./config.js";
 import Sentence from "./sentence.js";
 
@@ -27,24 +28,19 @@ class Test {
   }
 }
 
-function charcode(char) {
-  if ( char === Constants.whitespace.space ) return 160;
-  if ( char === Constants.whitespace.bullet) return 11825;
-  return char.charCodeAt(0);
-}
-
 function handlekeydown(evt) {
   evt.preventDefault();
 
-  if ( this.testNotStarted ) {
-    this.testStartTime = window.performance.now();
-    this.testNotStarted = false;
-  }
+  // if ( this.testNotStarted ) {
+  //   this.testStartTime = window.performance.now();
+  //   this.testNotStarted = false;
+  // }
 
   let typedkey = evt.key;
+  console.log(this.sentence.activeWordIndex, this.sentence.activeLetterIndex);
 
   if ( 
-    (charcode(this.sentence.activeLetterValue) === charcode(Config.wordseparator)) &&
+    (Misc.charcode(this.sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) &&
     (typedkey === " ")
    ) {
 
@@ -60,7 +56,7 @@ function handlekeydown(evt) {
     Caret.goToNextLetter(this.sentence);
     
     if (this.over()) {
-      this.testEndTime = window.performance.now();
+      // this.testEndTime = window.performance.now();
 
       Caret.removeCaretFrom(this.sentence.activeLetter);
       Caret.removeHighlightFrom(this.sentence.activeWord);

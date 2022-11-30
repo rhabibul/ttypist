@@ -5,6 +5,12 @@ import * as Constants from "./constants.js";
 
 const firstsentence = "the quick brown fox jumps over the lazy dog";
 
+function charcode(char) {
+  if ( char === Constants.whitespace.space ) return 160;
+  if ( char === Constants.whitespace.dot) return 11825;
+  return char.charCodeAt(0);
+}
+
 function getRandomWords() {
   if (Config.firsttest) {
     Config.firsttest = false;
@@ -47,4 +53,4 @@ function convertToWordElements(wordsInStringForm) {
   return wordelements;
 }
 
-export { getRandomWords, convertToWordElements };
+export { getRandomWords, convertToWordElements, charcode };
