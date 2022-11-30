@@ -1,56 +1,64 @@
 import * as Caret from "./caret.js";
+import * as Constants from "./constants.js";
 import Config from "./config.js";
-import { whitespace } from "./constants.js";
 import Sentence from "./sentence.js";
-import { Timer, Stats } from "./stats.js"
+// import * as Misc from "./misc.js";
+// import { Timer, Stats, teststats } from "./stats.js";
 
-// lastKeypressTimestamp  ->  performance.now();
-const teststats = {
-  completed: 0,
-  incompleted: 0,
-};
-
-const inputbox = document.getElementById("textinput");
+const inputbox = document.getElementById("inputbox");
 const wordcontainer = document.getElementById("sentence");
-const restart = document.querySelector("#settings > button.restart");
 
+function loadwords(words) {
+  inputbox.value = "";
+  wordcontainer.innerHTML = "";
+
+  for (let word of words) {
+    wordcontainer.insertAdjacentElement("beforeend", word);
+  }
+}
+
+// If test if stopped midway by clicking restart button then we will use
+// the current test object.
+// If test is finished then new test object will be created.
 class Test {
   sentence;
+  testStartTime;
+  testEndTime;
+  testNotStarted;
 
   constructor() {
     this.sentence = new Sentence();
+    this.testStartTime = 0;
+    this.testEndTime = 0;
+    this.testNotStarted = true;
   }
 
-  loadwords(words) {
-    inputbox.value = "";
-    wordcontainer.innerHTML = "";
-  
-    for (let word of words) {
-      wordcontainer.insertAdjacentElement("beforeend", word);
-    }
-  }
-  
-  // If test if stopped midway by clicking restart button then we will use
-  // the current test object.
-  //
-  // If test is finished then new test object will be created.
-  
   restart() {
     this.sentence = new Sentence();
-    // updateUI();
+    this.testStartTime = 0;
+    this.testEndTime = 0;
+    this.testNotStarted = true;
     this.start();
   }
 
   start() {
-    this.loadwords(this.sentence.getwords);
+    loadwords(this.sentence.getwords);
+    this.testStartTime = 0;
+    this.testEndTime = 0;
+    this.testNotStarted = true;
+
+    Caret.addHighlightTo(this.sentence.activeWord);
+    Caret.addCaretTo(this.sentence.activeLetter);
 
     inputbox.addEventListener('keydown', handlekeydown);
     inputbox.addEventListener('keyup', handlekeyup);
+    inputbox.focus();
   }
 
   removeListenersFromInput() {
     inputbox.removeEventListeners('keydown', handlekeydown);
     inputbox.removeEventListeners('keyup', handlekeyup);
+    inputbox.blur();
   }
 
   over() {
@@ -60,30 +68,18 @@ class Test {
   }
 }
 
-let test = new Test();
-
-restart.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  test.restart();
-});
-
-function startBrandNewTest() {
-  test = new Test();
-  test.start();
-}
-
 function charcode(char) {
-  if ( char === whitespace.space ) return 160;
-  if ( char === whitespace.bullet) return 11825;
+  if ( char === Constants.whitespace.space ) return 160;
+  if ( char === Constants.whitespace.bullet) return 11825;
   return char.charCodeAt(0);
 }
 
 function handlekeydown(evt) {
   evt.preventDefault();
 
-  if ( testNotStarted ) {
-    testStartTime = window.performance.now();
-    testNotStarted = false;
+  if ( this.testNotStarted ) {
+    this.testStartTime = window.performance.now();
+    this.testNotStarted = false;
   }
 
   let typedkey = evt.key;
@@ -105,26 +101,76 @@ function handlekeydown(evt) {
     Caret.goToNextLetter(this.sentence);
     
     if (this.over()) {
-      testEndTime = window.performance.now();
+      this.testEndTime = window.performance.now();
 
       Caret.removeCaretFrom(this.sentence.activeLetter);
       Caret.removeHighlightFrom(this.sentence.activeWord);
 
-      showspeed(testStartTime, testEndTime);
       this.removeListenersFromInput();
+      showspeed(this.testStartTime, this.testEndTime);
       startBrandNewTest();
     }
-  } else if () {
     
+  } else if (evt.metaKey && typedkey === "Backspace") {
+
+    Caret.removeCaretFrom(this.sentence.activeLetter);
+    Caret.removeHighlightFrom(this.sentence.activeWord);
+
+    let i = this.sentence.totalwords - 1;
+    while ( i >= 0 ) {
+      this.sentence.activeWord.classList.remove("incorrect");
+      --i;
+    }
+
+    this.sentence.resetIndexes();
+    Caret.addHighlightTo(this.sentence.activeWord);
+    Caret.addCaretTo(this.sentence.activeLetter);
+    
+  } else if (
+    evt.altKey  && typedkey === "Backspace" ||
+    evt.ctrlKey && typedkey === "Backspace"
+  ) {
+
+    Caret.removeCaretFrom(this.sentence.activeLetter);
+    Caret.removeHighlightFrom(this.sentence.activeWord);
+
+    if ( this.sentence.activeWordIndex > 0 && this.sentence.activeLetterIndex === 0 ) {
+      Caret.goToPreviousWord(this.sentence);
+    }
+
+    this.sentence.activeWord.classList.remove("incorrect");
+    this.sentence.resetActiveLetterIndex();
+    Caret.addCaretTo(this.sentence.activeLetter);
+
+  } else if ( typedkey === "Backspace" ) {
+
+    this.sentence.activeWord.classList.remove("incorrect");
+
+    if ( this.sentence.activeLetterIndex > 0 ) {
+      Caret.goToPreviousLetter();
+    } else {
+      if ( this.sentence.activeLetterIndex === 0 && this.sentence.activeWordIndex > 0 ) {
+        
+        Caret.removeCaretFrom(this.sentence.activeLetter);
+        Caret.goToPreviousWord(this.sentence);
+
+        this.sentence.activeLetterIndex = this.sentence.activeWordLength - 1;
+        Caret.addCaretTo(this.sentence.activeLetter);
+      }
+    }
+    
+  } else {
+
+    // insert '·' this instead of &nbsp; when user hits space character in the wrong place
+    if (!Constants.invisibles.includes(typedkey)) {
+      words[active_word].classList.add("incorrect");
+    }
   }
 }
 
 function handlekeyup(evt) {
   evt.preventDefault();
-
   let keyup = evt.key;
 }
-
-class History { }
 
 export default Test;

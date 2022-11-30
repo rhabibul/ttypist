@@ -1,3 +1,8 @@
+const teststats = {
+  completed: 0,
+  incompleted: 0,
+};
+
 class Timer {
   #testNotStarted;
   #start;
@@ -64,7 +69,9 @@ class Stats {
   }
 }
 
+class History { }
 class WordsCorrected {}
 class WordsNotCorrected {}
 
-export { Timer, Stats };
+
+export { Timer, Stats, teststats };

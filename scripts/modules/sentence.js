@@ -23,6 +23,7 @@ class Sentence {
   get totalwords() {
     return this.#words.length;
   }
+  
   get totalcharacters() {
     let count = 0;
     for (let word of this.#words) {
