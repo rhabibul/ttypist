@@ -47,20 +47,14 @@ class Test {
     Caret.addHighlightTo(this.sentence.activeWord);
     Caret.addCaretTo(this.sentence.activeLetter);
 
-    inputbox.addEventListener('keydown', handlekeydown);
-    inputbox.addEventListener('keyup', handlekeyup);
+    inputbox.addEventListener('keydown', handlekeydown.bind(this), false);
+    inputbox.addEventListener('keyup', handlekeyup.bind(this), false);
     inputbox.focus();
   }
 
-  removeListenersFromInput() {
-    inputbox.removeEventListeners('keydown', handlekeydown);
-    inputbox.removeEventListeners('keyup', handlekeyup);
-    inputbox.blur();
-  }
-
   over() {
-    let l = this.sentence.activeLetterIndex() === this.sentence.activeWordLength() - 1;
-    let w = this.sentence.activeWordIndex()   === this.sentence.totalwords() - 1;
+    let l = this.sentence.activeLetterIndex === this.sentence.activeWordLength - 1;
+    let w = this.sentence.activeWordIndex   === this.sentence.totalwords - 1;
     return l && w;
   }
 }
@@ -69,6 +63,18 @@ function charcode(char) {
   if ( char === Constants.whitespace.space ) return 160;
   if ( char === Constants.whitespace.bullet) return 11825;
   return char.charCodeAt(0);
+}
+
+
+function showspeed(totalchars, testStartTime, testEndTime) {
+  const sec = (testEndTime - testStartTime) / 1000;
+  const wordsTyped = totalchars / 5;
+  const wpm = (wordsTyped / sec) * 60;
+
+  let speedelement = document.querySelector(".speed");
+  speedelement.textContent = `${Math.round(wpm)}wpm`;
+  speedelement.style.color = "deeppink";
+  speedelement.style.fontWeight = "400";
 }
 
 function handlekeydown(evt) {
@@ -103,9 +109,10 @@ function handlekeydown(evt) {
       Caret.removeCaretFrom(this.sentence.activeLetter);
       Caret.removeHighlightFrom(this.sentence.activeWord);
 
-      this.removeListenersFromInput();
-      showspeed(this.testStartTime, this.testEndTime);
-      startBrandNewTest();
+      
+      inputbox.blur();
+      showspeed(this.sentence.totalcharacters, this.testStartTime, this.testEndTime);
+      this.restart();
     }
     
   } else if (evt.metaKey && typedkey === "Backspace") {
@@ -116,7 +123,9 @@ function handlekeydown(evt) {
     let i = this.sentence.totalwords - 1;
     while ( i >= 0 ) {
       this.sentence.activeWord.classList.remove("incorrect");
+      this.sentence.decrementWordIndex();
       --i;
+      if ( this.sentence.activeWordIndex < 0 ) break;
     }
 
     this.sentence.resetIndexes();
@@ -144,7 +153,7 @@ function handlekeydown(evt) {
     this.sentence.activeWord.classList.remove("incorrect");
 
     if ( this.sentence.activeLetterIndex > 0 ) {
-      Caret.goToPreviousLetter();
+      Caret.goToPreviousLetter(this.sentence);
     } else {
       if ( this.sentence.activeLetterIndex === 0 && this.sentence.activeWordIndex > 0 ) {
         
@@ -160,7 +169,7 @@ function handlekeydown(evt) {
 
     // insert '·' this instead of &nbsp; when user hits space character in the wrong place
     if (!Constants.invisibles.includes(typedkey)) {
-      words[active_word].classList.add("incorrect");
+      this.sentence.activeWord.classList.add("incorrect");
     }
   }
 }

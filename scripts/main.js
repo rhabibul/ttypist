@@ -18,16 +18,6 @@ const speedEl = document.querySelector(".speed");
 
 let test;
 
-function showspeed(testStartTime, testEndTime) {
-  const sec = (testEndTime - testStartTime) / 1000;
-  const wordsTyped = this.sentence.totalcharacters() / 5;
-  const wpm = (wordsTyped / sec) * 60;
-
-  speedEl.textContent = `${Math.round(wpm)}wpm`;
-  speedEl.style.color = "deeppink";
-  speedEl.style.fontWeight = "400";
-}
-
 function startBrandNewTest() {
 
   test = new Test();

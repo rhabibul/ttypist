@@ -37,6 +37,12 @@ class Sentence {
     return this.activeLetter.textContent;
   }
 
+
+  get activeWordLength() {
+    let word = this.activeWord.children;
+    return word.length;
+  }
+
   // get active word in string type
   get activeWordValue() {
     //       "⸱".charCodeAt(0) = 11825
@@ -54,11 +60,6 @@ class Sentence {
       }
     }
     return stringform;
-  }
-
-  get activeWordLength() {
-    let word = this.activeWord.children;
-    return word.length;
   }
 
   // get word element
