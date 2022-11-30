@@ -34,18 +34,15 @@ class Test {
   }
 
   restart() {
-    this.sentence = new Sentence();
     this.testStartTime = 0;
     this.testEndTime = 0;
     this.testNotStarted = true;
+    this.sentence = new Sentence();
     this.start();
   }
 
   start() {
     loadwords(this.sentence.getwords);
-    this.testStartTime = 0;
-    this.testEndTime = 0;
-    this.testNotStarted = true;
 
     Caret.addHighlightTo(this.sentence.activeWord);
     Caret.addCaretTo(this.sentence.activeLetter);

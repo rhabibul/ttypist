@@ -8,8 +8,8 @@ import Sentence from "./modules/sentence.js";
 const root = document.querySelector(":root");
 const restart = document.querySelector("#settings > button.restart");
 const speedEl = document.querySelector(".speed");
-const inputbox = document.getElementById("inputbox");
-const wordcontainer = document.getElementById("sentence");
+// const inputbox = document.getElementById("inputbox");
+// const wordcontainer = document.getElementById("sentence");
 
 // let lastKeypressTimestamp = window.performance.now();
 // let testStartTime = 0;
@@ -31,7 +31,6 @@ function showspeed(testStartTime, testEndTime) {
 function startBrandNewTest() {
 
   test = new Test();
-
   test.start();
   
   setTimeout(() => {
@@ -275,7 +274,7 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
-  newtest();
+  startBrandNewTest();
 }
 
 offtype.addEventListener      ("click", changeCaret);
