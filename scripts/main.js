@@ -15,6 +15,10 @@ let sentence = new Sentence();
 
 function ignite(afterburn = false) { 
 
+  testEndTime = 0;
+  testStartTime = 0;
+  testNotStarted = true;
+
   if ( afterburn ) {
     sentence = new Sentence();
   }
@@ -26,6 +30,14 @@ function ignite(afterburn = false) {
   Elements.inputbox.focus();
 }
 ignite(); // first test
+
+
+function wpm(testStartTime, testEndTime) {
+  const x = ((sentence.totalcharacters / 5) / ((testEndTime - testStartTime) / 1000)) * 60;
+  Elements.speedtag.textContent = `${Math.round(x)}wpm`;
+  Elements.speedtag.style.color = "deeppink";
+  Elements.speedtag.style.fontWeight = "400";
+}
 
 function testover(sentence) {
   let l = sentence.activeLetterIndex === sentence.activeWordLength - 1;
@@ -65,6 +77,7 @@ function handlekeydown(evt) {
       Caret.removeHighlightFrom(sentence.activeWord);
       
       Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
+      wpm(testStartTime, testEndTime);
       sentence = new Sentence();
       ignite();
     }

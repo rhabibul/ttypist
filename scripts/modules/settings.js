@@ -34,6 +34,8 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
+
+	// you'll have to generate new random numbers in order to see the caret change
   ignite(true);
 }
 

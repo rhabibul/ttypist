@@ -145,10 +145,6 @@ class Sentence {
   }
 
   // reset letter & word indexes
-  resetIndexes() {
-    this.#currentWordIndex = 0;
-    this.#currentLetterIndex = 0;
-  }
   resetActiveWordIndex() {
     this.#currentWordIndex = 0;
   }
