@@ -5,8 +5,10 @@ import Config from "./modules/config.js";
 // import Test from "./modules/test.js"
 import Sentence from "./modules/sentence.js";
 
-const root = document.querySelector(":root");
-const speedtag = document.querySelector(".speed");
+// const root = document.querySelector(":root");
+const restart = document.querySelector("#settings > button.restart");
+const sppedEl = document.querySelector(".speed");
+
 const inputbox = document.getElementById("inputbox");
 const wordcontainer = document.getElementById("sentence");
 
@@ -36,14 +38,14 @@ function totalcharacters(words) {
   return chars;
 }
 
-function speed_wpm(testStartTime, testEndTime) {
+function showspeed(testStartTime, testEndTime) {
   const sec = (testEndTime - testStartTime) / 1000;
   const wordsTyped = totalcharacters(words) / 5;
   const wpm = (wordsTyped / sec) * 60;
 
-  speedtag.textContent = `${Math.round(wpm)}wpm`;
-  speedtag.style.color = "deeppink";
-  speedtag.style.fontWeight = "400";
+  sppedEl.textContent = `${Math.round(wpm)}wpm`;
+  sppedEl.style.color = "deeppink";
+  sppedEl.style.fontWeight = "400";
 }
 
 function handleKeydown(keyevent) {
@@ -90,7 +92,7 @@ function handleKeydown(keyevent) {
       words[active_word].classList.remove("active");
       letters[active_letter].removeAttribute("id"); // remove caret
 
-      speed_wpm(testStartTime, testEndTime); // display typing speed
+      showspeed(testStartTime, testEndTime); // display typing speed
       inputbox.removeEventListener("keydown", handleKeydown);
       newtest();
     }
@@ -200,7 +202,7 @@ function newtest() {
   inputbox.focus();
 
   setTimeout(() => {
-    speedtag.style.color = "whitesmoke";
+    sppedEl.style.color = "whitesmoke";
   }, 2000);
 }
 
@@ -248,5 +250,5 @@ linetype.addEventListener     ("click", changeCaret);
 blocktype.addEventListener    ("click", changeCaret);
 underlinetype.addEventListener("click", changeCaret);
 
-inputbox.addEventListener("focus",     (evt) => { Config.typing = true;  });
-inputbox.addEventListener("focusout",  (evt) => { Config.typing = false; });
+inputbox.addEventListener("focus",     (evt) => { evt.preventDefault(); Config.typing = true;  });
+inputbox.addEventListener("focusout",  (evt) => { evt.preventDefault(); Config.typing = false; });

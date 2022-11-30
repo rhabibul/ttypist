@@ -249,7 +249,8 @@ ISSUES:
 --------------------------------------------------------------------------------
 🌟 GameLogic
 
-
+> clicking on restart will start a new test
+> 
 
 > inserterror is turned 'on'
 > inserterror is turned 'off'

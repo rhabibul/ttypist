@@ -30,8 +30,8 @@ const carettypes = {
 };
 
 const whitespace = {
-  space: "&nbsp;",
-  bullet: "⸱",
+  space: "&nbsp;", // 160
+  bullet: "⸱", // 11825
 };
 
 export { whitespace, carettypes, invisibles, ascii_equivalent };
