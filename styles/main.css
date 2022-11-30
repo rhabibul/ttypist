@@ -46,7 +46,7 @@ body {
 .active {
   color: var(--word__color);
 }
-.incorrect {
+.error {
   color: red;
 }
 

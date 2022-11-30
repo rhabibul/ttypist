@@ -1,40 +1,17 @@
 import * as Misc from "./modules/misc.js";
 import * as Constants from "./modules/constants.js";
+import * as Elements from "./modules/elements.js"
 
 import Config from "./modules/config.js";
 import Test from "./modules/test.js"
 import Sentence from "./modules/sentence.js";
 
-const root = document.querySelector(":root");
-const restart = document.querySelector("#settings > button.restart");
-const speedEl = document.querySelector(".speed");
-// const inputbox = document.getElementById("inputbox");
-// const wordcontainer = document.getElementById("sentence");
-
-// let lastKeypressTimestamp = window.performance.now();
-// let testStartTime = 0;
-// let testEndTime = 0;
-// let testNotStarted = true;
-
-let test;
-
-function startBrandNewTest() {
-
-  test = new Test();
-  test.start();
-  
-  setTimeout(() => {
-    speedEl.style.color = "whitesmoke";
-  }, 2000);
-}
-
-startBrandNewTest();
-
-restart.addEventListener("click", function (evt) {
+Elements.restart.addEventListener('click', (evt) => {
   evt.preventDefault();
-  test.restart();
-});
 
+  let test = new Test();
+  test.start();
+})
 
 // let active_word = 0;
 // let active_letter = 0;
@@ -264,7 +241,7 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
-  startBrandNewTest();
+  Elements.inputbox.focus(); // do this instead of starting a new test
 }
 
 offtype.addEventListener      ("click", changeCaret);

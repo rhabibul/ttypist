@@ -96,5 +96,5 @@
 }
 .caret #box-icon {
   width: 11px;
-  border: 2px solid var(--settings-caret__color);
+  border: 1px solid var(--settings-caret__color);
 }

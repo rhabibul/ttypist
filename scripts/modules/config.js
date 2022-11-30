@@ -17,10 +17,17 @@ const Config = {
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   inserterror: true, 
   forgiveerror: false,
-  caret: "line", // none, line, underline, box, block
+  caret: "line", // off, line, underline, box, block
   highlight: "word", // letter, word
 
-  numbers: false, // include digits along words
+  // sentence: {
+  //   wordcount: 10,
+  //   wordseparator: Constants.whitespace.space, // space/dot
+  //   numbers: false,
+  //   punctuations: false,
+  // },
+  
+  numbers: false, // include digits along with words
   punctuations: false, // include punctuation marks along with words
 
   wordcount: 10, // total number of words to generate for every test

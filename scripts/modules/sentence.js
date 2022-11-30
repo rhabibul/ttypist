@@ -1,5 +1,6 @@
 import Config from "./config.js";
 import * as Misc from "./misc.js";
+import * as Elements from "./elements.js";
 import * as Constants from "./constants.js"
 
 // Used for:
@@ -12,10 +13,20 @@ class Sentence {
 
   constructor() {
     this.#words = Misc.getRandomWords();
+    this.loadwords();
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
 
+  loadwords() {
+    Elements.inputbox.value = "";
+    Elements.wordcontainer.innerHTML = "";
+
+    for (let word of this.#words) {
+      Elements.wordcontainer.insertAdjacentElement("beforeend", word);
+    }
+  }
+  
   get getwords() {
     return this.#words;
   }
