@@ -33,6 +33,7 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
+	
   // start a new test...
 }
 
