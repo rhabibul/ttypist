@@ -3,21 +3,30 @@ import * as Caret from "./modules/caret.js";
 import * as Elements from "./modules/elements.js"
 import * as Constants from "./modules/constants.js";
 
-import Test from "./modules/test.js";
+import Test, { Time } from "./modules/test.js";
 import Config from "./modules/config.js";
 import Sentence from "./modules/sentence.js";
 
-let testEndTime = 0;
-let testStartTime = 0;
-let testNotStarted = true;
-
+let time = new Time();
 let sentence = new Sentence();
+
+function showspeed() {
+  const wpm = ((sentence.totalcharacters / 5) / (time.duration / 1000)) * 60;
+  Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
+  Elements.speedtag.style.color = "deeppink";
+  Elements.speedtag.style.fontWeight = "400";
+}
+
+function testover(sentence) {
+  let l = sentence.activeLetterIndex === sentence.activeWordLength - 1;
+  let w = sentence.activeWordIndex   === sentence.totalwords - 1;
+  return l && w;
+}
 
 function ignite(afterburn = false) { 
 
-  testEndTime = 0;
-  testStartTime = 0;
-  testNotStarted = true;
+  time.reset();
+  time.notstarted = true;
 
   if ( afterburn ) {
     sentence = new Sentence();
@@ -31,33 +40,17 @@ function ignite(afterburn = false) {
 }
 ignite(); // first test
 
-
-function wpm(testStartTime, testEndTime) {
-  const x = ((sentence.totalcharacters / 5) / ((testEndTime - testStartTime) / 1000)) * 60;
-  Elements.speedtag.textContent = `${Math.round(x)}wpm`;
-  Elements.speedtag.style.color = "deeppink";
-  Elements.speedtag.style.fontWeight = "400";
-}
-
-function testover(sentence) {
-  let l = sentence.activeLetterIndex === sentence.activeWordLength - 1;
-  let w = sentence.activeWordIndex   === sentence.totalwords - 1;
-  return l && w;
-}
-
 function handlekeydown(evt) {
   evt.preventDefault();
 
-  if ( testNotStarted ) {
-    testStartTime = window.performance.now();
-    testNotStarted = false;
+  if ( time.notstarted ) {
+    time.start();
+    time.notstarted = false;
   }
 
   let typedkey = evt.key;
 
-  if ( 
-    (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) && (typedkey === " ")
-   ) {
+  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) && (typedkey === " ") ) {
 
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);
@@ -71,13 +64,13 @@ function handlekeydown(evt) {
     Caret.goToNextLetter(sentence);
     
     if ( testover(sentence) ) {
-      testEndTime = window.performance.now();
+      time.stop();
 
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       
       Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
-      wpm(testStartTime, testEndTime);
+      showspeed();
       sentence = new Sentence();
       ignite();
     }
@@ -146,6 +139,5 @@ function handlekeydown(evt) {
 Elements.restart.addEventListener('click', (evt) => {
   evt.preventDefault();
 })
-
 
 export { ignite };
