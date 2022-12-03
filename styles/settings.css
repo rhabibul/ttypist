@@ -6,6 +6,10 @@
   --settings-offtypeIcon__color: #6b6b6b;
 }
 
+#settings {
+  margin-top: 20px;
+}
+
 .speed {
   color: whitesmoke;
   font-size: var(--letter__fontSize);
@@ -14,32 +18,32 @@
 }
 
 .restart {
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  outline: none;
+
+  font-size: 1.1rem;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background-color: white;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: none;
-  outline: none;
-  padding: 5px;
-  font-size: 1.2rem;
-  border-radius: 3px;
-  background-color: white;
-  border: 1px solid lightgray;
 }
 
 .carettypes {
-
-  width: 200px;
-  border: 1px solid black;
-
+  width: 180px;
+  
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
-  border: none;
-  margin: 0px;
-  padding: 5px;
 }
 
 .caret {
