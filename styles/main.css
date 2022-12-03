@@ -29,9 +29,7 @@ body {
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
 
-  --letter__fontFamilyFiraCode: "Fira Code", monospace;
   --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
-  --letter__fontFamilyFuzzyBubbles: "Fuzzy Bubbles", cursive;
 
   --textinput__color: var(--letter__borderLeftColor);
   --textinput__backgroundColor: var(--letter__borderLeftColor);
@@ -90,6 +88,5 @@ letter {
 
   font-size: var(--letter__fontSize);
   font-weight: var(--letter__fontWeight400);
-  /* font-family: var(--letter__fontFamilyRobotoMono); */
-  font-family: var(--letter__fontFamilyFuzzyBubbles);
+  font-family: var(--letter__fontFamilyRobotoMono);
 }
