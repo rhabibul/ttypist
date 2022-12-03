@@ -7,30 +7,20 @@ import Test, { Time } from "./modules/test.js";
 import Config from "./modules/config.js";
 import Sentence from "./modules/sentence.js";
 
-let time = new Time();
 let sentence = new Sentence();
+let time = new Time();
 
 function showspeed() {
-  const wpm = ((sentence.totalcharacters / 5) / (time.duration / 1000)) * 60;
+  const wpm = ((sentence.letterCount / 5) / (time.duration / 1000)) * 60;
   Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
   Elements.speedtag.style.color = "deeppink";
   Elements.speedtag.style.fontWeight = "400";
 }
 
-function testover(sentence) {
-  let l = sentence.activeLetterIndex === sentence.activeWordLength - 1;
-  let w = sentence.activeWordIndex   === sentence.totalwords - 1;
-  return l && w;
-}
-
-function ignite(afterburn = false) { 
+function init() { 
 
   time.reset();
-  time.notstarted = true;
-
-  if ( afterburn ) {
-    sentence = new Sentence();
-  }
+  sentence.reset();
   
   Caret.addHighlightTo(sentence.activeWord);
   Caret.addCaretTo(sentence.activeLetter);
@@ -38,15 +28,12 @@ function ignite(afterburn = false) {
   Elements.inputbox.addEventListener('keydown', handlekeydown, false);
   Elements.inputbox.focus();
 }
-ignite(); // first test
+init(); // first test
 
 function handlekeydown(evt) {
   evt.preventDefault();
 
-  if ( time.notstarted ) {
-    time.start();
-    time.notstarted = false;
-  }
+  if ( !time.started ) time.start();
 
   let typedkey = evt.key;
 
@@ -63,7 +50,7 @@ function handlekeydown(evt) {
     sentence.activeWord.classList.remove('error');
     Caret.goToNextLetter(sentence);
     
-    if ( testover(sentence) ) {
+    if ( sentence.typed ) {
       time.stop();
 
       Caret.removeCaretFrom(sentence.activeLetter);
@@ -71,8 +58,7 @@ function handlekeydown(evt) {
       
       Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
       showspeed();
-      sentence = new Sentence();
-      ignite();
+      init();
     }
     
   } else if (evt.metaKey && typedkey === "Backspace") {
@@ -140,4 +126,4 @@ Elements.restart.addEventListener('click', (evt) => {
   evt.preventDefault();
 })
 
-export { ignite };
+export { init };

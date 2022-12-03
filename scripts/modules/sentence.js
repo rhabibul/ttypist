@@ -12,30 +12,29 @@ class Sentence {
   #currentLetterIndex; // stores the index for current letter of current word
 
   constructor() {
-    this.#words = Misc.getRandomWords();
-    this.loadwords();
+    this.#words = new Array();
     this.#currentWordIndex = 0;
     this.#currentLetterIndex = 0;
   }
+  
+  reset() {
+    this.resetActiveWordIndex();
+    this.resetActiveLetterIndex();
+    this.#words = Misc.getRandomWords();
 
-  loadwords() {
     Elements.inputbox.value = "";
     Elements.wordcontainer.innerHTML = "";
-
+  
     for (let word of this.#words) {
       Elements.wordcontainer.insertAdjacentElement("beforeend", word);
     }
   }
   
-  get getwords() {
-    return this.#words;
-  }
-
-  get totalwords() {
+  get wordCount() {
     return this.#words.length;
   }
   
-  get totalcharacters() {
+  get letterCount() {
     let count = 0;
     for (let word of this.#words) {
       count += word.children.length;
@@ -43,15 +42,14 @@ class Sentence {
     return count;
   }
 
-  // get active letter in string type
-  get activeLetterValue() {
-    return this.activeLetter.textContent;
-  }
-
-
   get activeWordLength() {
     let word = this.activeWord.children;
     return word.length;
+  }
+
+  // get active letter in string type
+  get activeLetterValue() {
+    return this.activeLetter.textContent;
   }
 
   // get active word in string type
@@ -110,6 +108,10 @@ class Sentence {
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
+  }
+
+  get typed() {
+    return (this.activeLetterIndex === this.activeWordLength - 1) && (this.activeWordIndex   === this.wordCount - 1);
   }
 
   // getters (indexes)

@@ -8,35 +8,33 @@ import Sentence from "./sentence.js";
 class Test { }
 
 class Time {
-  #flag;
-  #endtimer;
-  #starttimer;
+  #timerend;
+  #timerstart;
+  #timerstarted;
 
   constructor() {
-    this.#flag = true;
-    this.#endtimer = 0;
-    this.#starttimer = 0;
+    this.#timerend = 0;
+    this.#timerstart = 0;
+    this.#timerstarted = false;
   }
 
   start() {
-    this.#starttimer = performance.now();
+    this.#timerstart = performance.now();
+    this.#timerstarted = true;
   }
   stop() {
-    this.#endtimer = performance.now();
+    this.#timerend = performance.now();
+  }
+  get started() {
+    return this.#timerstarted;
   }
   get duration() {
-    return this.#endtimer - this.#starttimer;
-  }
-  get notstarted() {
-    return this.#flag;
-  }
-  set notstarted(value) {
-    this.#flag = value;
+    return this.#timerend - this.#timerstart;
   }
   reset() {
-    this.#flag = true;
-    this.#endtimer = 0;
-    this.#starttimer = 0;
+    this.#timerend = 0;
+    this.#timerstart = 0;
+    this.#timerstarted = false;
   }
 }
 

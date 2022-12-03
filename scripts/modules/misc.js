@@ -1,6 +1,7 @@
 import Config from "./config.js";
 import words1k from "./words1k.js";
 import words3k from "./words3k.js";
+import * as Elements from "./elements.js"
 import * as Constants from "./constants.js";
 
 const firstsentence = "the quick brown fox jumps over the lazy dog";
@@ -12,11 +13,11 @@ function charcode(char) {
 }
 
 function getRandomWords() {
-  if (Config.firsttest) {
+  if ( Config.firsttest ) {
     Config.firsttest = false;
-    return convertToWordElements(firstsentence.split(" "));
+    return convertToWordElements(firstsentence.split(' '));
   }
-
+  
   let words = new Array(Config.wordcount);
   let randomindex = 0;
 
@@ -28,7 +29,7 @@ function getRandomWords() {
   return convertToWordElements(words);
 }
 
-function convertToWordElements(wordsInStringForm) {
+function convertToWordElements(wordsInStringForm) {  
   let wordelements = new Array(wordsInStringForm.length);
   let word, letter;
 

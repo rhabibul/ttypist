@@ -1,5 +1,5 @@
 import Config from "./config.js";
-import { ignite } from "../main.js";
+import { init } from "../main.js";
 
 const offtype_icon  = document.querySelector("#off-icon > .fa-ban");
 const offtype       = document.querySelector(".carettypes > .offtype");
@@ -34,9 +34,7 @@ function changeCaret(evt) {
   }
 
   Config.caret = clickedcaret.title;
-
-	// you'll have to generate new random numbers in order to see the caret change
-  ignite(true);
+  init();
 }
 
 offtype.addEventListener      ("click", changeCaret);
