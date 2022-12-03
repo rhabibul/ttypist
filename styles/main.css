@@ -20,8 +20,8 @@ body {
 :root {
   --line-gap: 4px;
 
-  --word__color: black;
-  --letter__color: rgba(167, 167, 167, 0.731);
+  --word__color: #000000;
+  --letter__color: #a7a7a7ba;
   --letter__fontSize: 1.25rem;
 
   --letter__borderLeftColor: white;
@@ -38,7 +38,7 @@ body {
 }
 
 :root {
-  --caret__color: black;
+  --caret__color: #000000;
   --caret__blinkdelay: 2s;
   --caret__blinkduration: 1.15s;
 }

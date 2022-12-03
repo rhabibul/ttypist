@@ -1,6 +1,6 @@
 :root {
   --settings-caret__color: hsl(0, 0%, 0%);
-  --settings-caret__bg: rgb(249, 249, 249);
+  --settings-caret__bg: rgb(247, 247, 247);
   --settings-caret__bg-active: rgb(157, 255, 157);
 
   --settings-offtypeIcon__color: #6b6b6b;
@@ -26,20 +26,19 @@
   outline: none;
 
   font-size: 1.1rem;
-  border: 1px solid lightgray;
   border-radius: 3px;
   background-color: white;
+  border: 1px solid rgb(232, 232, 232);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+}
+.restart i {
+  transform: translateY(2px);
 }
 
 .carettypes {
   width: 180px;
-  
-  border: 1px solid lightgray;
-  border-radius: 3px;
   
   display: flex;
   align-items: center;
