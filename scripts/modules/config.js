@@ -2,7 +2,6 @@ import * as Constants from "./constants.js";
 
 const Config = {
   typing: false,
-  firsttest: true,
 
   livestats: false, // live stats
   livekeyboard: true, // live keyboard

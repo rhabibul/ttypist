@@ -50,7 +50,7 @@ body {
   color: red;
 }
 
-.touchtypist #inputbox {
+.ttypist #inputbox {
   display: block;
   margin: 0px;
   padding: 0px;
@@ -63,8 +63,8 @@ body {
   background-color: var(--textinput__backgroundColor);
 }
 
-.touchtypist #sentence {
-  /* This keeps the words in a single lines. */
+.ttypist #sentence {
+  /* these keep the words in a single line */
   display: flex;
   flex-wrap: wrap;
   row-gap: var(--line-gap);
@@ -78,7 +78,7 @@ word {
   color: var(--letter__color);
   background-color: var(--letter__borderLeftColor);
 
-  /* This fixes the extra spaces between the letters of the words */
+  /* these fixes the extra spaces between the letters of the words */
   display: flex;
   justify-content: flex-start;
 }
@@ -90,5 +90,6 @@ letter {
 
   font-size: var(--letter__fontSize);
   font-weight: var(--letter__fontWeight400);
-  font-family: var(--letter__fontFamilyRobotoMono);
+  /* font-family: var(--letter__fontFamilyRobotoMono); */
+  font-family: var(--letter__fontFamilyFuzzyBubbles);
 }

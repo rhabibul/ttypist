@@ -4,8 +4,6 @@ import words3k from "./words3k.js";
 import * as Elements from "./elements.js"
 import * as Constants from "./constants.js";
 
-const firstsentence = "the quick brown fox jumps over the lazy dog";
-
 function charcode(char) {
   if ( char === Constants.whitespace.space ) return 160;
   if ( char === Constants.whitespace.dot) return 11825;
@@ -13,11 +11,6 @@ function charcode(char) {
 }
 
 function getRandomWords() {
-  if ( Config.firsttest ) {
-    Config.firsttest = false;
-    return convertToWordElements(firstsentence.split(' '));
-  }
-  
   let words = new Array(Config.wordcount);
   let randomindex = 0;
 

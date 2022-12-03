@@ -3,9 +3,10 @@ import * as Caret from "./modules/caret.js";
 import * as Elements from "./modules/elements.js"
 import * as Constants from "./modules/constants.js";
 
-import Test, { Time } from "./modules/test.js";
+import Test from "./modules/test.js";
 import Config from "./modules/config.js";
 import Sentence from "./modules/sentence.js";
+import { History, Time } from "./modules/stats.js"
 
 let sentence = new Sentence();
 let time = new Time();
