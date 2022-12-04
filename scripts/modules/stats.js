@@ -32,6 +32,7 @@ class Stats {
     });
 
     this.#charstats = new Object({
+      extra: 0,
       correct: 0,
       incorrect: 0,
     });
@@ -56,6 +57,9 @@ class Stats {
   }
 
   // getters for charstats
+  get extrachar() {
+    return this.#charstats.extra;
+  }
   get correctchar() {
     return this.#charstats.correct;
   }
@@ -64,6 +68,9 @@ class Stats {
   }
 
   // setters for charstats
+  set extrachar(number) {
+    this.#charstats.extra = number;
+  }
   set correctchar(number) {
     this.#charstats.correct = number;
   }
