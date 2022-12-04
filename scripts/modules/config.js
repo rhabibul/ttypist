@@ -18,25 +18,18 @@ const Config = {
   forgiveerror: false,
   caret: "line", // off, line, underline, box, block
   highlight: "word", // letter, word
+  flipcolors: false, // flip letter/word highlight mode colors
 
-  // sentence: {
-  //   wordcount: 10,
-  //   wordseparator: Constants.whitespace.space, // space/dot
-  //   numbers: false,
-  //   punctuations: false,
-  // },
-  
-  numbers: false, // include digits along with words
-  punctuations: false, // include punctuation marks along with words
+  sentence: {
+    wordcount: 10,
+    wordseparator: Constants.whitespace.space, // space/dot
+    numbers: false, // include digits along with words
+    punctuations: false, // include punctuation marks along with words
 
-  wordcount: 10, // total number of words to generate for every test
-  wordseparator: Constants.whitespace.space, // space/dot
-
-  flipcolors: false, // flip highlight mode colors
-
-  fontsize: "1.4", // font size
-  fontweight: "400", // font weight
-  fontfamily: "Roboto Mono", // font family
+    fontsize: "1.4", // font size
+    fontweight: "400", // font weight
+    fontfamily: "Roboto Mono", // font family
+  },
 
   practice: {
     customtext: false, // custom text provided by user

@@ -11,10 +11,15 @@ function charcode(char) {
 }
 
 function getRandomWords() {
-  let words = new Array(Config.wordcount);
+
+  if (Config.sentence.numbers) { console.log("user wants numbers"); };
+  if (Config.sentence.punctuations) { console.log("user wants punctuations"); };
+  
+  let totalwords = Config.sentence.wordcount;
+  let words = new Array(totalwords);
   let randomindex = 0;
 
-  for (let i = 0; i < Config.wordcount; ++i) {
+  for (let i = 0; i < totalwords; ++i) {
     randomindex = Math.floor(Math.random() * words1k.length);
     words[i] = words1k[randomindex];
   }
@@ -37,7 +42,7 @@ function convertToWordElements(wordsInStringForm) {
     }
 
     letter = document.createElement("letter"); // letter with space/dot
-    letter.innerHTML = `${Config.wordseparator}`;
+    letter.innerHTML = `${Config.sentence.wordseparator}`;
     letter.classList.add(Constants.carettypes[Config.caret]);
     word.appendChild(letter);
 

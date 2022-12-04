@@ -8,7 +8,7 @@ const linetype      = document.querySelector(".carettypes > .linetype");
 const blocktype     = document.querySelector(".carettypes > .blocktype");
 const underlinetype = document.querySelector(".carettypes > .underlinetype");
 
-const carettypes = document.querySelectorAll(".carettypes > .caret");
+const caretstyles = document.querySelectorAll(".carettypes > .caret");
 
 function changeCaret(evt) {
   evt.preventDefault();
@@ -17,10 +17,10 @@ function changeCaret(evt) {
 
   if (clickedcaret.title === Config.caret) return;
 
-  for (let carettype of carettypes) {
-    if (clickedcaret !== carettype) {
-      carettype.style.backgroundColor = "var(--settings-caret__bg)";
-      if (carettype === offtype) {
+  for (let caret of caretstyles) {
+    if (clickedcaret !== caret) {
+      caret.style.backgroundColor = "var(--settings-caret__bg)";
+      if (caret === offtype) {
         offtype_icon.style.color = "var(--settings-offtypeIcon__color)";
       }
     }

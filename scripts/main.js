@@ -38,7 +38,7 @@ function handlekeydown(evt) {
 
   let typedkey = evt.key;
 
-  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.wordseparator)) && (typedkey === " ") ) {
+  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.wordseparator)) && (typedkey === " ") ) {
 
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);

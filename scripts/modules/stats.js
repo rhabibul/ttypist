@@ -1,6 +1,6 @@
 
 /**
- * Gross Words (typed words):
+ * grosswords (typed words):
  * This is the total number of words typed by the candidate; it includes 
  * both correct and incorrect words. Gross words per minnute is total 
  * number of words typed in one minute. ((gross words)/(time taken in minutes))
