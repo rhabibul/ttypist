@@ -6,19 +6,15 @@ const Config = {
   livestats: false, // live stats
   livekeyboard: true, // live keyboard
 
-  theme: "molokai",
-
-  // "beginner" is the classic type test experience.
-  // "intermediate" fails the test if you submit (press space) an incorrect word.
-  // "advanced" fails if you press a single incorrect key.
-  difficulty: "beginner",
-
+  instantdeath: false, // fails the test if user presses a single incorrect key
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   inserterror: true, 
   forgiveerror: false,
   caret: "line", // off, line, underline, box, block
   highlight: "word", // letter, word
   flipcolors: false, // flip letter/word highlight mode colors
+
+  theme: "molokai",
 
   sentence: {
     wordcount: 10,
