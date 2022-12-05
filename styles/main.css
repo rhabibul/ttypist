@@ -47,6 +47,10 @@ body {
   color: red;
 }
 
+.ttypist {
+  max-width: 800px;
+}
+
 .ttypist #inputbox {
   display: block;
   margin: 0px;
