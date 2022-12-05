@@ -13,8 +13,13 @@ body {
 }
 
 body {
-  padding: 20px;
-  background-color: var(--letter__borderLeftColor);
+  margin-top: 20px;
+  padding: 0px 20px;
+
+  display: flex;
+  row-gap: 10px;
+  align-items: center;
+  flex-direction: column;
 }
 
 :root {
@@ -33,12 +38,6 @@ body {
 
   --textinput__color: var(--letter__borderLeftColor);
   --textinput__backgroundColor: var(--letter__borderLeftColor);
-}
-
-:root {
-  --caret__color: #000000;
-  --caret__blinkdelay: 2s;
-  --caret__blinkduration: 1.15s;
 }
 
 .active {

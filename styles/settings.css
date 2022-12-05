@@ -1,13 +1,9 @@
 :root {
-  --settings-caret__color: hsl(0, 0%, 0%);
-  --settings-caret__bg: rgb(247, 247, 247);
-  --settings-caret__bg-active: rgb(157, 255, 157);
+  --settings-caret__color: #000000;
+  --settings-caret__bg: #f3f3f3;
+  --settings-caret__bg-active: #9dff9d;
 
   --settings-offtypeIcon__color: #6b6b6b;
-}
-
-#settings {
-  margin-top: 20px;
 }
 
 .speed {
@@ -16,9 +12,7 @@
   font-weight: var(--letter__fontWeight300);
   font-family: var(--letter__fontFamilyRobotoMono);
 }
-
 .restart {
-
   width: 30px;
   height: 30px;
 
@@ -42,7 +36,7 @@
   
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .caret {

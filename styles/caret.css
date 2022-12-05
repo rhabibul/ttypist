@@ -1,3 +1,9 @@
+:root {
+  --caret__color: #000000;
+  --caret__blinkdelay: 2s;
+  --caret__blinkduration: 1.15s;
+}
+
 /* CARET TURRNED OFF */
 .offtype {
   border: none;

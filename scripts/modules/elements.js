@@ -1,6 +1,6 @@
 const root = document.querySelector(":root");
-const btn_restart = document.querySelector("#settings > button.restart");
-const btn_restart_icon = document.querySelector("#settings > button.restart > .fa-sharp");
+const btn_restart = document.querySelector("button.restart");
+const btn_restart_icon = document.querySelector("button.restart > .fa-sharp");
 const speedtag = document.querySelector(".speed");
 const inputbox = document.getElementById("inputbox");
 const wordcontainer = document.getElementById("sentence");
