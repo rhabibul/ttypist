@@ -10,10 +10,23 @@ function charcode(char) {
   return char.charCodeAt(0);
 }
 
+function showspeed(sentence, time) {
+
+  const wpm = (((sentence.letterCount - 1) / 5) / (time.duration)) * 60;
+
+  Elements.speedtag.style.color = "deeppink";
+  Elements.speedtag.style.fontWeight = "400";
+  Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
+  
+  setTimeout(() => {
+    Elements.speedtag.style.color = "whitesmoke";
+  }, 2500);
+}
+
 function getRandomWords() {
 
-  if (Config.sentence.numbers) { console.log("user wants numbers"); };
-  if (Config.sentence.punctuations) { console.log("user wants punctuations"); };
+  if (Config.sentence.numbers) {  };
+  if (Config.sentence.punctuations) {  };
   
   let totalwords = Config.sentence.wordcount;
   let words = new Array(totalwords);
@@ -52,4 +65,4 @@ function convertToWordElements(wordsInStringForm) {
   return wordelements;
 }
 
-export { getRandomWords, convertToWordElements, charcode };
+export { getRandomWords, convertToWordElements, charcode, showspeed };

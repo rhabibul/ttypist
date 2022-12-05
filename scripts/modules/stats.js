@@ -17,100 +17,8 @@
  * incorrect? -> Typed character which is not equal to active letter. (count)
 **/
 
-class Stats {
-  #speeds;
-  #accuracy;
-  #charstats;
-  #wordstats;
-
-  constructor() {
-    this.#accuracy = 0;
-    
-    this.#speeds = new Object({
-      net: 0, // wpm: ((correct / 5) / 60)
-      gross: 0, // raw: (((correct + incorrect) / 5) / 60)
-    });
-
-    this.#charstats = new Object({
-      extra: 0,
-      correct: 0,
-      incorrect: 0,
-    });
-    
-    this.#wordstats = new Object({
-      correct: 0,
-      incorrect: 0,
-    });
-  }
-
-  // Call it on every keystoke when live update speed & accuracy is turned on.
-  compute() {
-    // Calculate and set net & gross speeds and accuracy
-    // 1. net speed
-    // 2. gross speed
-    // 3. accuracy
-  }
-
-  speedstat() {
-    this.compute();
-    return { acc: this.#accuracy, wpm: this.#speeds.net, raw: this.#speeds.gross };
-  }
-
-  // getters for charstats
-  get extrachar() {
-    return this.#charstats.extra;
-  }
-  get correctchar() {
-    return this.#charstats.correct;
-  }
-  get incorrectchar() {
-    return this.#charstats.incorrect;
-  }
-
-  // setters for charstats
-  set extrachar(number) {
-    this.#charstats.extra = number;
-  }
-  set correctchar(number) {
-    this.#charstats.correct = number;
-  }
-  set incorrectchar(number) {
-    this.#charstats.incorrect = number;
-  }
-
-  // getters for wordstats
-  get correctword() {
-    return this.#wordstats.correct;
-  }
-  get incorrectword() {
-    return this.#wordstats.incorrect;
-  }
-
-  // setters for wordstats
-  set correctword(number) {
-    this.#wordstats.correct = number
-  }
-  set incorrectword(number) {
-    this.#wordstats.incorrect = number;
-  }
-
-  reset() {
-    // reset character stats
-    this.#charstats.correct   = 0;
-    this.#charstats.incorrect = 0;
-  
-    // reset word stats
-    this.#wordstats.correct   = 0;
-    this.#wordstats.incorrect = 0;
-
-    // reset accuracy and speed stats
-    this.#accuracy     = 0;
-    this.#speeds.net   = 0;
-    this.#speeds.gross = 0;
-  }
-}
-
 class Time {
+  
   #timerend;
   #timerstart;
   #timerstarted;
@@ -132,7 +40,7 @@ class Time {
     return this.#timerstarted;
   }
   get duration() {
-    return this.#timerend - this.#timerstart;
+    return (this.#timerend - this.#timerstart) / 1000;
   }
   reset() {
     this.#timerend = 0;
@@ -141,8 +49,27 @@ class Time {
   }
 }
 
+let accuracy = 0;   // acc
+let netspeed = 0;   // wpm: ((correct / 5) / 60)
+let grossspeed = 0; // raw: (((correct + incorrect + extra) / 5) / 60)
+
+function compute() {} // Call it on every keystoke when live update speed & accuracy is turned on.
+
+let wordstatus = {
+  word: "",
+  typos_left: false,
+  typos_corrected: false,
+  typed_correctly: false,
+  
+  char: {
+    extra: 0,
+    correct: 0,
+    incorrect: 0,
+  }
+}
+
 class History {
-  #tests;
+  #testcount;
   #stats;
   #sentences;
   
@@ -150,11 +77,11 @@ class History {
     this.#stats = new Array(), // stores stats for corresponding for sentences
     this.#sentences = new Array(), // stores all sentences typed by user
 
-    this.#tests = new Object({
+    this.#testcount = new Object({
       completed: 0, // should be equal to sentences.length and stats.length
       notcompleted: 0, // can be greater/less/equal to sentence.length and stats.length
     })
   }
 }
 
-export { Time, Stats, History };
+export { Time, History };

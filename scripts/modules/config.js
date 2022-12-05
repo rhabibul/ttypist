@@ -17,7 +17,7 @@ const Config = {
   theme: "molokai",
 
   sentence: {
-    wordcount: 10,
+    wordcount: 2,
     wordseparator: Constants.whitespace.space, // space/dot
     numbers: false, // include digits along with words
     punctuations: false, // include punctuation marks along with words
