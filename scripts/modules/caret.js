@@ -41,8 +41,8 @@ function goToPreviousWord(sentence) {
 }
 
 export { 
+	goToPreviousWord, 	goToNextWord,
+	goToPreviousLetter, goToNextLetter,
 	addCaretTo, 				removeCaretFrom,
 	addHighlightTo, 		removeHighlightFrom,
-	goToPreviousLetter, goToNextLetter,
-	goToPreviousWord, 	goToNextWord,
 };

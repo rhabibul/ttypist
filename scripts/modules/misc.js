@@ -33,8 +33,8 @@ function getRandomWords() {
   let randomindex = 0;
 
   for (let i = 0; i < totalwords; ++i) {
-    randomindex = Math.floor(Math.random() * words1k.length);
-    words[i] = words1k[randomindex];
+    randomindex = Math.floor(Math.random() * words3k.length);
+    words[i] = words3k[randomindex];
   }
 
   return convertToWordElements(words);

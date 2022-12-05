@@ -1,7 +1,5 @@
-import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Elements from "./elements.js";
-import * as Constants from "./constants.js"
 
 // Used for:
 // storing all the word & letter elements and also keeps track of indexes of

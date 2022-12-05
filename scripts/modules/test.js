@@ -110,7 +110,8 @@ function handlekeydown(evt) {
   }
 }
 
-export default class Test {
+class Test {
+
   constructor () { }
 
   start() {
@@ -125,3 +126,5 @@ export default class Test {
     Elements.inputbox.focus();
   }
 }
+
+export default Test;
