@@ -192,12 +192,12 @@ WHAT I WANT:
 				- users will get which type & length of words they want to practice
 					(study english grammer for type of words)
 
-		> default caret:
-				- thin caret having color red
-				- whenever there's a typo, the color of the caret will change to black
-					as soon the typo is fixed then it will again turn into a red caret
+		> ✅ default caret:
+				- default color is black
+				- default thickness will be thin of type line caret
+			
 		
-		> test end:
+		> ✅ test end:
 				- test ends as soon as the user types the last letter of last word.
 
 		> deletion of wrongly typed letters:
@@ -250,7 +250,6 @@ ISSUES:
 🌟 GameLogic
 
 > clicking on restart will start a new test
-> 
 
 > inserterror is turned 'on'
 > inserterror is turned 'off'
@@ -378,3 +377,32 @@ Inside test object
 						- if typedkey is not an invisible character then add incorrect class
 						  to the active word.
 				}
+
+
+
+
+--------------------------------------------------------------------------------
+🌟 TEST CONFIGURATION OPTIONS
+
+> inserterror is turned 'on'
+> inserterror is turned 'off'
+
+> deletion is turned 'on'
+> deletion is turned 'off'
+
+> forgiveerror is turned 'on'
+		- insert wrongly type letters, whenever user types a letter correctly then
+			move the caret forward.
+		- if user hits a space after typing first letter (not before that) then
+			take caret to next word marking the previous word red colored.
+		- hitting space before typing first letter will insert the space character "⸱"
+			and after that whenever user hits space then go to next word.
+
+> forgiveerror is turned 'off'
+		- only way to move the caret is to correct all mistakes and type letters
+		  correctly, care will move to next word only when all inserted letters
+			are deleted.
+		- if forgiveerror is turned of then by default inserterror will be turned on
+		- as soon as the user starts typing incorrect letter it will get inserted
+			user needs to clear the incorrectly typed letters inorder to move the caret
+			forward.
