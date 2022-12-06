@@ -1,7 +1,7 @@
 import * as Misc from "./misc.js";
 import * as Elements from "./elements.js";
 
-// Used for:
+// Task of sentence object:
 // storing all the word & letter elements and also keeps track of indexes of
 // active word and active letter.
 class Sentence {
@@ -45,21 +45,17 @@ class Sentence {
     return word.length;
   }
 
-  // get active letter in string type
   get activeLetterValue() {
     return this.activeLetter.textContent;
   }
 
-  // get active word in string type
   get activeWordValue() {
-    //       "⸱".charCodeAt(0) = 11825
-    // "&nbsp;".charCodeAt(0) = 160
     let code = 0;
     let stringform = "";
     let word = this.activeWord.children;
 
     for (let letter of word) {
-      code = letter.textContent.charCodeAt(0);
+      code = letter.textContent.charCodeAt(0); //  "⸱" (11825)  |  "&nbsp;" (160)
       if (code === 160 || code === 11825) {
         stringform += " ";
       } else {

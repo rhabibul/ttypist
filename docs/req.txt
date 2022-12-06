@@ -437,6 +437,12 @@ whitespace
 
 
 
+--------------------------------------------------------------------------------
+🌟 ERROR INSERTION & STATS OBJECT IMPLEMENTATION
+
+> start from here...
+
+
 
 --------------------------------------------------------------------------------
 🌟 TEST CONFIGURATION OPTIONS
