@@ -13,7 +13,7 @@ function changeCaret(evt) {
     if (clickedcaret !== caret) {
       caret.style.backgroundColor = "var(--settings-caret__bg)";
       if (caret === Elements.offtype) {
-        Elements.offtype_icon.style.color = "var(--settings-offtypeIcon__color)";
+        Elements.offtype_icon.style.color = "#6b6b6b";
       }
     }
   }

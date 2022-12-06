@@ -6,12 +6,12 @@ KeyboardEvent
 						key
 						code
 						repeat
-						location = [0, 1, 2, 3]
-						isComposing
+						location -> (0, 1, 2, 3)
 						altKey
 						ctrlKey
 						metaKey	
 						shiftKey
+						isComposing
 
 --------------------------------------------------------------------------------
 

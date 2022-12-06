@@ -2,6 +2,10 @@
   --caret__color: #000000;
   --caret__blinkdelay: 2s;
   --caret__blinkduration: 1.15s;
+
+  --settings-caret__color: #000000;
+  --settings-caret__bg: #f9f9f9;
+  --settings-caret__bg-active: #ffdc9f;
 }
 
 /* CARET TURRNED OFF */
@@ -117,4 +121,72 @@
     color: #000000;
     background-color: var(--letter__borderLeftColor);
   }
+}
+
+
+/* --------------------------------------------------------------------------- */
+/* CARET SETTINGS SECTION */
+
+.carettypes {
+  width: 180px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.caret {
+  width: 25px;
+  height: 35px;
+
+  border: none;
+  border-radius: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--settings-caret__bg);
+}
+
+.caret.linetype {
+  background-color: var(--settings-caret__bg-active);
+}
+
+.caret #off-icon,
+.caret #box-icon,
+.caret #line-icon,
+.caret #block-icon,
+.caret #underline-icon {
+  height: 20px;
+}
+.caret #line-icon {
+  width: 1px;
+  background-color: var(--settings-caret__color);
+}
+.caret #block-icon {
+  width: 10px;
+  background-color: var(--settings-caret__color);
+}
+.caret #underline-icon {
+  width: 12px;
+  display: block;
+  border-bottom: 1px solid var(--settings-caret__color);
+}
+.caret #box-icon {
+  width: 10px;
+  border: 1px solid var(--settings-caret__color);
+}
+
+.caret icon#off-icon {
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caret #off-icon i {
+  font-size: 1.25rem;
+  transform: translateY(2px);
 }

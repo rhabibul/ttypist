@@ -93,3 +93,28 @@ letter {
   font-weight: var(--letter__fontWeight400);
   font-family: var(--letter__fontFamilyRobotoMono);
 }
+
+.speed {
+  color: lightgray;
+  font-size: var(--letter__fontSize);
+  font-weight: var(--letter__fontWeight300);
+  font-family: var(--letter__fontFamilyRobotoMono);
+}
+.restart {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  outline: none;
+
+  font-size: 1.15rem;
+  border-radius: 3px;
+  background-color: white;
+
+  display: grid;
+  place-items: center;
+}
+.restart i {
+  color: #6b6b6b;
+  transform: translateY(2px);
+}
