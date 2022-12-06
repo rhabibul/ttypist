@@ -1,13 +1,13 @@
 :root {
   --settings-caret__color: #000000;
-  --settings-caret__bg: #f3f3f3;
-  --settings-caret__bg-active: #9dff9d;
+  --settings-caret__bg: #f9f9f9;
+  --settings-caret__bg-active: #ffdc9f;
 
   --settings-offtypeIcon__color: #6b6b6b;
 }
 
 .speed {
-  color: whitesmoke;
+  color: lightgray;
   font-size: var(--letter__fontSize);
   font-weight: var(--letter__fontWeight300);
   font-family: var(--letter__fontFamilyRobotoMono);
@@ -65,7 +65,7 @@
   height: 20px;
 }
 .caret #line-icon {
-  width: 2px;
+  width: 1px;
   background-color: var(--settings-caret__color);
 }
 .caret #block-icon {
@@ -75,7 +75,7 @@
 .caret #underline-icon {
   width: 12px;
   display: block;
-  border-bottom: 2px solid var(--settings-caret__color);
+  border-bottom: 1px solid var(--settings-caret__color);
 }
 .caret #box-icon {
   width: 10px;

@@ -19,7 +19,7 @@ function showspeed(sentence, time) {
   Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
   
   setTimeout(() => {
-    Elements.speedtag.style.color = "whitesmoke";
+    Elements.speedtag.style.color = "lightgray";
   }, 2500);
 }
 
