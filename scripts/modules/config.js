@@ -3,16 +3,17 @@ import * as Constants from "./constants.js";
 const Config = {
   typing: false,
 
+  keyboard: true, // live keyboard
   livestats: false, // live stats
-  livekeyboard: true, // live keyboard
 
-  instantdeath: false, // fails the test if user presses a single incorrect key
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   inserterror: true, 
   forgiveerror: false,
+  instantdeath: false, // fails the test if user presses a single incorrect key
+
   caret: "line", // off, line, underline, box, block
   highlight: "word", // letter, word
-  flipcolors: false, // flip letter/word highlight mode colors
+  flipcolor: false, // flip letter/word highlight mode colors
 
   theme: "molokai",
 

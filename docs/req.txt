@@ -441,25 +441,29 @@ whitespace
 --------------------------------------------------------------------------------
 🌟 TEST CONFIGURATION OPTIONS
 
-> inserterror is turned 'on'
-> inserterror is turned 'off'
+> caret ✨
+> flipcolor
+> hightlight
 
-> deletion is turned 'on'
-> deletion is turned 'off'
+> deletion
+> inserterror
+> instantdeath
 
-> forgiveerror is turned 'on'
-		- insert wrongly type letters, whenever user types a letter correctly then
-			move the caret forward.
-		- if user hits a space after typing first letter (not before that) then
-			take caret to next word marking the previous word red colored.
-		- hitting space before typing first letter will insert the space character "⸱"
-			and after that whenever user hits space then go to next word.
+> forgiveerror
 
-> forgiveerror is turned 'off'
-		- only way to move the caret is to correct all mistakes and type letters
-		  correctly, care will move to next word only when all inserted letters
-			are deleted.
-		- if forgiveerror is turned of then by default inserterror will be turned on
-		- as soon as the user starts typing incorrect letter it will get inserted
-			user needs to clear the incorrectly typed letters inorder to move the caret
-			forward.
+  turned 'on'
+  		- insert wrongly type letters, whenever user types a letter correctly then
+  			move the caret forward.
+  		- if user hits a space after typing first letter (not before that) then
+  			take caret to next word marking the previous word red colored.
+  		- hitting space before typing first letter will insert the space character "⸱"
+  			and after that whenever user hits space then go to next word.
+  
+  turned 'off'
+  		- only way to move the caret is to correct all mistakes and type letters
+  		  correctly, care will move to next word only when all inserted letters
+  			are deleted.
+  		- if forgiveerror is turned of then by default inserterror will be turned on
+  		- as soon as the user starts typing incorrect letter it will get inserted
+  			user needs to clear the incorrectly typed letters inorder to move the caret
+  			forward.
