@@ -104,6 +104,7 @@ function handlekeydown(evt) {
   } else {
     
     // insert '·' this instead of &nbsp; when user hits space character in the wrong place
+    // <span style="padding: 0px 4px;">⸱</span>
     if (!Constants.invisibles.includes(typedkey)) {
       sentence.activeWord.classList.add("error");
     }
