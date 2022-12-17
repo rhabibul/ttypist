@@ -438,7 +438,7 @@ whitespace
 
 
 --------------------------------------------------------------------------------
-🌟 ERROR INSERTION & STATS OBJECT IMPLEMENTATION
+🌟 ERROR INSERTION
 
 > start from here...
 

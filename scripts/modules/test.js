@@ -5,8 +5,8 @@ import * as Constants from "./constants.js";
 
 import Config from "./config.js";
 import Sentence from "./sentence.js";
-import { Time, History } from "./stats.js";
 import { test } from "../main.js";
+import { Time, History } from "./stats.js";
 
 let time = new Time();
 let history = new History();
@@ -129,3 +129,4 @@ class Test {
 }
 
 export default Test;
+export { time, history, sentence };
