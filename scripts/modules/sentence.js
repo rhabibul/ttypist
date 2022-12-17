@@ -1,5 +1,7 @@
+import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Elements from "./elements.js";
+import * as Constants from "./constants.js"
 
 // Task of sentence object:
 // storing all the word & letter elements and also keeps track of indexes of
@@ -146,6 +148,13 @@ class Sentence {
   }
   resetActiveLetterIndex() {
     this.#currentLetterIndex = 0;
+  }
+
+  addCaretToActiveLetter() {
+    this.activeLetter.id = Config.caret;
+  }
+  removeCaretFromActiveLetter() {
+    this.activeLetter.id = "";
   }
 }
 

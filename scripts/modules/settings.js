@@ -1,6 +1,8 @@
 import Config from "./config.js";
 import { test } from "../main.js";
 import * as Elements from "./elements.js";
+import * as Constants from "./constants.js"
+import { time, history, sentence } from "./test.js";
 
 function changeCaret(evt) {
   evt.preventDefault();
@@ -25,8 +27,22 @@ function changeCaret(evt) {
     clickedcaret.style.backgroundColor = "var(--settings-caret__bg-active)";
   }
 
-  Config.caret = clickedcaret.title;
-  test.start();
+  let lastcaret = Config.caret; // previous caret type
+
+  Config.caret = clickedcaret.title; // current caret type
+
+
+  Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
+    letter.classList.remove(Constants.carettypes[lastcaret]);
+    sentence.removeCaretFromActiveLetter();
+
+    letter.classList.add(Constants.carettypes[Config.caret]);
+    sentence.addCaretToActiveLetter();
+
+    Elements.inputbox.focus();
+  });
+
+  // test.start();
 }
 
 Elements.offtype.addEventListener      ("click", changeCaret);

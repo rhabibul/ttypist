@@ -9,3 +9,10 @@ let test = new Test();
 test.start();
 
 export { test };
+
+/**
+ * 	> start designing data structures for error insertion
+ * 	> after that work on stats object integration
+ * 	> then make core test configuration options like deletion/inserterror/instantdeath
+ * 		forgiveerror etc work together & in harmony
+ **/ 
