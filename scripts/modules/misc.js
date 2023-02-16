@@ -62,6 +62,7 @@ function convertToWordElements(wordsInStringForm) {
     // }
 
     letter = document.createElement("letter"); // for letter with space/dot
+    letter.classList.add("whitespace");
     if ( Config.sentence.wordseparator == Constants.whitespace.space ) {
       letter.innerHTML = `${Config.sentence.wordseparator}`;
     } else {
