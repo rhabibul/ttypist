@@ -2,7 +2,7 @@
   --line-gap: 4px;
 
   --word__color: #000000;
-  --letter__color: #919191ba;
+  --letter__color: #868686;
   --letter__fontSize: 1.3rem;
 
   --inuse__color: #ffdc9f;
@@ -133,7 +133,7 @@ letter {
 .wordseparator_dot {
   padding: 0px 5px;
   font-weight: bolder;
-  color: #bcbcbcba;
+  color: #a4a4a4;
   font-size: var(--letter__fontSize);
   font-family: var(--letter__fontFamilyRobotoMono);
 }
