@@ -1,26 +1,3 @@
-*,
-*::after,
-*::before {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  margin-top: 30px;
-
-  display: flex;
-  row-gap: 10px;
-  align-items: center;
-  flex-direction: column;
-}
-
 :root {
   --line-gap: 4px;
 
@@ -50,6 +27,29 @@ body {
   --settings-caret__bg-active: var(--inuse__color);
 }
 
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin-top: 30px;
+
+  display: flex;
+  row-gap: 10px;
+  align-items: center;
+  flex-direction: column;
+}
+
 .active {
   color: var(--word__color);
 }
@@ -57,12 +57,12 @@ body {
   color: red;
 }
 
-.ttypist {
+.engine {
   max-width: 800px;
   margin-left: 30px;
 }
 
-.ttypist #inputbox {
+.engine #inputbox {
   display: block;
   margin: 0px;
   padding: 0px;
@@ -75,7 +75,7 @@ body {
   background-color: var(--textinput__backgroundColor);
 }
 
-.ttypist #sentence {
+.engine #sentence {
   /* these keep the words in a single line */
   display: flex;
   flex-wrap: wrap;
@@ -141,12 +141,10 @@ letter {
 .ws {
   width: 140px;
 
-  padding-bottom: 10px; /* remove */
-  border-bottom: 1px dashed #e8e8e8; /* remove */
-
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
   font-family: var(--letter__fontFamilyRobotoMono);
 }
 

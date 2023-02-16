@@ -114,7 +114,6 @@ Elements.ws_space.addEventListener('click', updatewhitespace);
 // underline styling
 // 
 //      Add
-//         .style.color                            = "black";
 //         .style["text-decoration-line"]          = "underline";
 //         .style["text-decoration-thickness"]     = "1px";
 //         .style["text-underline-offset"]         = "4px";

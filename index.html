@@ -32,11 +32,13 @@
 
   <body>
 
+    <!-- setting: whitespace -->
     <div class="ws">
       <span class="ws_space" id="ws_active">space</span>
       <span class="ws_dot">dot</span>
     </div>
     
+    <!-- setting: carettype -->
     <div class="carettypes">
       <span class="caret offtype" title="off">
         <icon id="off-icon"> <i style="color: #6b6b6b;" class="fa-sharp fa-solid fa-ban"></i> </icon>
@@ -55,13 +57,16 @@
       </span>
     </div>
     
+    <!-- stats: speed -->
     <div class="speed">0wpm</div>
 
-    <div class="ttypist">
+    <!-- container: texts to type -->
+    <div class="engine">
       <input id="inputbox" autocorrect="off" autocomplete="off" spellcheck="false" />
       <div id="sentence"></div>
     </div>
 
+    <!-- setting: restart test -->
     <button class="restart">
       <i class="fa-sharp fa-solid fa-rotate-left"></i>
     </button>
