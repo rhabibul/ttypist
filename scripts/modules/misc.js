@@ -54,7 +54,7 @@ function convertToWordElements(wordsInStringForm) {
       word.appendChild(letter);
     }
 
-    letter = document.createElement("letter"); // letter with space/dot
+    letter = document.createElement("letter"); // for letter with space/dot
     letter.innerHTML = `${Config.sentence.wordseparator}`;
     letter.classList.add(Constants.carettypes[Config.caret]);
     word.appendChild(letter);

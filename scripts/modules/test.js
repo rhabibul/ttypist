@@ -8,6 +8,24 @@ import Sentence from "./sentence.js";
 import { test } from "../main.js";
 import { Time, History } from "./stats.js";
 
+class Test {
+
+  constructor () { }
+
+  start() {
+    time.reset();
+    sentence.reset();
+
+    Caret.addHighlightTo(sentence.activeWord);
+    Caret.addCaretTo(sentence.activeLetter);
+
+    Elements.inputbox.addEventListener('keydown', handlekeydown, false);
+    Elements.btn_restart.blur();
+    Elements.inputbox.focus();
+  }
+}
+
+
 let time = new Time();
 let history = new History();
 let sentence = new Sentence();
@@ -108,23 +126,6 @@ function handlekeydown(evt) {
     if (!Constants.invisibles.includes(typedkey)) {
       sentence.activeWord.classList.add("error");
     }
-  }
-}
-
-class Test {
-
-  constructor () { }
-
-  start() {
-    time.reset();
-    sentence.reset();
-
-    Caret.addHighlightTo(sentence.activeWord);
-    Caret.addCaretTo(sentence.activeLetter);
-
-    Elements.inputbox.addEventListener('keydown', handlekeydown, false);
-    Elements.btn_restart.blur();
-    Elements.inputbox.focus();
   }
 }
 

@@ -19,7 +19,7 @@ const Config = {
 
   sentence: {
     wordcount: 15,
-    wordseparator: Constants.whitespace.space, // space/dot
+    wordseparator: Constants.whitespace.dot, // space/dot
     numbers: false, // include digits along with words
     punctuations: false, // include punctuation marks along with words
 

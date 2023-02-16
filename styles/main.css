@@ -26,12 +26,13 @@ body {
 
   --word__color: #000000;
   --letter__color: #a7a7a7ba;
-  --letter__fontSize: 1.2rem;
+  --letter__fontSize: 1.35rem;
 
   --letter__borderLeftColor: white;
 
   --letter__fontWeight300: 300;
   --letter__fontWeight400: 400;
+  --letter__fontWeight500: 500;
 
   --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
 
@@ -117,4 +118,14 @@ letter {
 .restart i {
   color: #6b6b6b;
   transform: translateY(1px);
+}
+
+.whitespace {
+  font-family: var(--letter__fontFamilyRobotoMono);
+}
+#dot {
+  padding: 0px 5px;
+  color: var(--letter__color);
+  font-size: var(--letter__fontSize);
+  font-family: var(--letter__fontFamilyRobotoMono);
 }
