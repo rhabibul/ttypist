@@ -23,7 +23,7 @@
   border-right: none;
   border-left-style: solid;
   border-left-width: 1px;
-  border-bottom-width: 1px; /* so that transition between underline & line caret is smooth */
+  border-bottom-width: 2px; /* so that transition between underline & line caret is smooth */
   border-left-color: var(--letter__borderLeftColor);
 
   animation-delay: var(--caret__blinkdelay);

@@ -33,8 +33,10 @@ function getRandomWords() {
   let randomindex = 0;
 
   for (let i = 0; i < totalwords; ++i) {
-    randomindex = Math.floor(Math.random() * words3k.length);
-    words[i] = words3k[randomindex];
+    randomindex = Math.floor(Math.random() * words1k.length);
+    words[i] = words1k[randomindex];
+    // randomindex = Math.floor(Math.random() * words3k.length);
+    // words[i] = words3k[randomindex];
   }
 
   return convertToWordElements(words);
@@ -54,10 +56,13 @@ function convertToWordElements(wordsInStringForm) {
       word.appendChild(letter);
     }
 
-    letter = document.createElement("letter"); // for letter with space/dot
-    letter.innerHTML = `${Config.sentence.wordseparator}`;
-    letter.classList.add(Constants.carettypes[Config.caret]);
-    word.appendChild(letter);
+    // if ( i !== wordsInStringForm.length - 1 ) { // to avoid addition of space/dot on last word of the sentence (bug: test ends after typing 2nd last character of last word)
+      letter = document.createElement("letter"); // for letter with space/dot
+      letter.innerHTML = `${Config.sentence.wordseparator}`;
+      letter.classList.add(Constants.carettypes[Config.caret]);
+      word.appendChild(letter);
+    // }
+
 
     wordelements[i] = word;
   }

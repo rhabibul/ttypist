@@ -64,7 +64,7 @@ function handlekeydown(evt) {
       Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
 
       Misc.showspeed(sentence, time);
-      test.start();
+      test.start();      
     }
     
   } else if (evt.metaKey && typedkey === "Backspace") {
