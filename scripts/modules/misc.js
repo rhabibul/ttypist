@@ -56,13 +56,19 @@ function convertToWordElements(wordsInStringForm) {
       word.appendChild(letter);
     }
 
-    // if ( i !== wordsInStringForm.length - 1 ) { // to avoid addition of space/dot on last word of the sentence (bug: test ends after typing 2nd last character of last word)
-      letter = document.createElement("letter"); // for letter with space/dot
-      letter.innerHTML = `${Config.sentence.wordseparator}`;
-      letter.classList.add(Constants.carettypes[Config.caret]);
-      word.appendChild(letter);
+    // avoid addition of space/dot on last word of the sentence 
+    // if ( i !== wordsInStringForm.length - 1 ) { 
+    //   // bug: test ends after typing 2nd last character of last word
     // }
 
+    letter = document.createElement("letter"); // for letter with space/dot
+    if ( Config.sentence.wordseparator == Constants.whitespace.space ) {
+      letter.innerHTML = `${Config.sentence.wordseparator}`;
+    } else {
+      letter.innerHTML = `<span class="wordseparator_dot">${Config.sentence.wordseparator}</span>`;
+    }
+    letter.classList.add(Constants.carettypes[Config.caret]);
+    word.appendChild(letter);
 
     wordelements[i] = word;
   }

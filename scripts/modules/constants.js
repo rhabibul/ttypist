@@ -30,8 +30,8 @@ const carettypes = {
 };
 
 const whitespace = {
+  dot: "⸱", // 11825
   space: "&nbsp;", // 160
-  dot: `<span id="dot" style="font-weight: bolder;">⸱</span>`, // 11825
 };
 
 export { whitespace, carettypes, invisibles, ascii_equivalent };

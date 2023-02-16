@@ -25,8 +25,8 @@ body {
   --line-gap: 4px;
 
   --word__color: #000000;
-  --letter__color: #a7a7a7ba;
-  --letter__fontSize: 1.35rem;
+  --letter__color: #919191ba;
+  --letter__fontSize: 1.3rem;
 
   --letter__borderLeftColor: white;
 
@@ -120,15 +120,40 @@ letter {
   transform: translateY(1px);
 }
 
-.whitespace {
-  height: 40px;
-  border: 1px solid black;
-  display: flex;
-  font-family: var(--letter__fontFamilyRobotoMono);
-}
-#dot {
+.wordseparator_dot {
   padding: 0px 5px;
-  color: var(--letter__color);
+  font-weight: bolder;
+  color: #bcbcbcba;
   font-size: var(--letter__fontSize);
   font-family: var(--letter__fontFamilyRobotoMono);
+}
+
+.ws {
+  width: 180px;
+
+  /* remove */
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e8e8e8;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: var(--letter__fontFamilyRobotoMono);
+}
+
+.ws .ws_dot,
+.ws .ws_space {
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  color: rgb(44, 44, 44);
+
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+.ws .ws_space {
+  background-color: #f5f5f5;
+}
+#ws_active {
+  background-color: #ffdc9f;
 }

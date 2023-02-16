@@ -15,13 +15,13 @@ function changeCaret(evt) {
     if (clickedcaret !== caret) {
       caret.style.backgroundColor = "var(--settings-caret__bg)";
       if (caret === Elements.offtype) {
-        Elements.offtype_icon.style.color = "#6b6b6b";
+        Elements.icon_offtype.style.color = "#6b6b6b";
       }
     }
   }
 
   if (clickedcaret === Elements.offtype) {
-    Elements.offtype_icon.style.color = "#ff0000";
+    Elements.icon_offtype.style.color = "#ff0000";
     Elements.offtype.style.backgroundColor = "#ffeaea";
   } else {
     clickedcaret.style.backgroundColor = "var(--settings-caret__bg-active)";
@@ -42,7 +42,8 @@ function changeCaret(evt) {
     Elements.inputbox.focus();
   });
 
-  // test.start();
+  // can add new random words and startover the test
+  // test.start(); 
 }
 
 Elements.offtype.addEventListener      ("click", changeCaret);
@@ -61,10 +62,32 @@ Elements.btn_restart.addEventListener('click', (evt) => {
 
 Elements.btn_restart.addEventListener('focus', (evt) => { 
   Elements.btn_restart.style.border = "1px solid lightgray"
-  Elements.btn_restart_icon.style.color = "black"
+  Elements.icon_restart.style.color = "black"
 });
 
 Elements.btn_restart.addEventListener('focusout', (evt) => { 
   Elements.btn_restart.style.border = ""
-  Elements.btn_restart_icon.style.color = "#6b6b6b"
+  Elements.icon_restart.style.color = "#6b6b6b"
 });
+
+Elements.ws_dot.addEventListener('click', (evt) => { 
+  console.log('dot');
+});
+Elements.ws_space.addEventListener('click', (evt) => {
+  console.log('space');
+});
+
+// underline styling
+// 
+//      Add
+//         .style.color                            = "black";
+//         .style["text-decoration-line"]          = "underline";
+//         .style["text-decoration-thickness"]     = "1px";
+//         .style["text-underline-offset"]         = "4px";
+//         .style["text-decoration-color"]         = "#c0c0c0";
+//      
+//      Remove
+//         .style["text-decoration-line"]          = "";
+//         .style["text-decoration-thickness"]     = "";
+//         .style["text-underline-offset"]         = "";
+//         .style["text-decoration-color"]         = "";
