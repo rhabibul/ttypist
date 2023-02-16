@@ -1,16 +1,9 @@
-:root {
-  --caret__color: #000000;
-  --caret__blinkdelay: 2s;
-  --caret__blinkduration: 1.15s;
-
-  --settings-caret__color: #000000;
-  --settings-caret__bg: #f5f5f5;
-  --settings-caret__bg-active: #ffdc9f;
-}
-
 /* CARET TURRNED OFF */
 .offtype {
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
 }
 
 /* LINE CARET */
@@ -133,6 +126,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  padding-bottom: 10px; /* remove */
+  border-bottom: 1px dashed #e8e8e8; /* remove */
 }
 
 .caret {
