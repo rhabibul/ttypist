@@ -15,10 +15,12 @@
   border-top: none;
   border-right: none;
   border-left-style: solid;
-  border-left-width: 1px;
-  border-bottom-width: 2px; /* so that transition between underline & line caret is smooth */
   border-left-color: var(--letter__borderLeftColor);
+  border-left-width: 1px;
 
+  /* so that transition between line, underline, block carets are smooth */
+  border-bottom-width: var(--caret__underlinecaretwidth);
+  
   animation-delay: var(--caret__blinkdelay);
   animation-duration: var(--caret__blinkduration);
   animation-iteration-count: infinite;
@@ -45,7 +47,8 @@
   border-left: none;
   border-right: none;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: var(--caret__underlinecaretwidth);
+
   border-bottom-color: var(--letter__borderLeftColor);
 
   animation-delay: var(--caret__blinkdelay);
@@ -64,32 +67,6 @@
   }
 }
 
-/* BOX CARET */
-#box {
-  border-color: var(--caret__color);
-  animation-name: boxcaret;
-}
-.boxtype {
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--letter__borderLeftColor);
-
-  animation-delay: var(--caret__blinkdelay);
-  animation-duration: var(--caret__blinkduration);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-}
-@keyframes boxcaret {
-  0%,
-  50% {
-    border-color: var(--caret__color);
-  }
-  51%,
-  100% {
-    border-color: var(--letter__borderLeftColor);
-  }
-}
-
 /* BLOCK CARET */
 #block {
   color: #ffffff;
@@ -97,7 +74,13 @@
   animation-name: blockcaret;
 }
 .blocktype {
-  border: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+
+  /* so that transition between line, underline, block carets are smooth */
+  border-bottom-width: var(--caret__underlinecaretwidth); 
+
   animation-delay: var(--caret__blinkdelay);
   animation-duration: var(--caret__blinkduration);
   animation-iteration-count: infinite;
@@ -116,9 +99,32 @@
   }
 }
 
+/* BOX CARET */
+#box {
+  border-color: var(--caret__color);
+  animation-name: boxcaret;
+}
+.boxtype {
+  border: 1px solid var(--letter__borderLeftColor);
 
-/* --------------------------------------------------------------------------- */
-/* CARET SETTINGS SECTION */
+  animation-delay: var(--caret__blinkdelay);
+  animation-duration: var(--caret__blinkduration);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+@keyframes boxcaret {
+  0%,
+  50% {
+    border-color: var(--caret__color);
+  }
+  51%,
+  100% {
+    border-color: var(--letter__borderLeftColor);
+  }
+}
+
+
+/* --------------- CARET SETTINGS SECTION ---------------  */
 
 .carettypes {
   width: 180px;

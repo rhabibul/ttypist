@@ -47,11 +47,8 @@ function updatecaret(evt) {
   if (clickedcaret.title === Config.caret) return;
 
   for (let caret of Elements.allcarettype) {
-
     if (clickedcaret !== caret) {
-      
       caret.style.backgroundColor = "var(--settings-caret__bg)";
-
       if (caret === Elements.offtype) {
         Elements.icon_offtype.style.color = "#6b6b6b";
       }

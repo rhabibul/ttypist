@@ -73,17 +73,41 @@
     </button>
 
     <keyboard>
-
-      <!-- function keys -->
-      <function></function>
-
-      <!-- typewriter keys -->
-      <typewriter></typewriter>
-
-      <!-- numpad keys -->
-      <numpad></numpad>
+      <!-- will be implemented using svg in future versions of ttypist app -->
     </keyboard>
 
+    <style>
+      .contactme {
+        background-color: #f5f5f5;
+        border-radius: 7px;
+        width: 250px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .contactme i {
+        font-size: 1.3rem;
+        color: #868686;
+      }
+      .contactme a {
+        margin-top: 5px;
+        padding: 8px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      .contactme a:hover i {
+        color: black;
+      }
+    </style>
+
+    <div class="contactme">
+      <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-solid fa-code"></i> </a>
+      <a target="_blank" href="https://www.facebook.com/ttypist/"> <i class="fa-brands fa-facebook-square"></i> </a>
+      <a target="_blank" href="https://www.linkedin.com/in/ttypist/"> <i class="fa-brands fa-linkedin"></i> </a>
+      <a target="_blank" href="https://twitter.com/lgoncf/"> <i class="fa-brands fa-twitter"></i> </a>
+      <a target="_blank" href="https://instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
+    </div>
     <!-- Scripts -->
     <script type="module" src="./scripts/main.js"></script>
     <script type="module" src="./scripts/modules/settings.js"></script>
