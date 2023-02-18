@@ -1,9 +1,5 @@
-/*----------------- turnoff caret -----------------*/
 .offtype {
-  border-top: none;
-  border-left: none;
-  border-bottom: none;
-  border-right: none;
+  border: none; /* turnoff caret */
 }
 
 /*----------------- line -----------------*/
@@ -13,11 +9,9 @@
 }
 .linetype {
   border-top: none;
+  border-bottom: none;
   border-right: none;
   border-left: var(--line-caret-width) solid var(--caret-color-hidden);
-
-  /* so that transition between line, underline, block carets are smooth */
-  border-bottom-width: var(--underline-caret-width);
   
   animation-delay: var(--caret-blink-delay);
   animation-duration: var(--caret-blink-duration);
@@ -69,12 +63,7 @@
   animation-name: blockcaret;
 }
 .blocktype {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-
-  /* so that transition between line, underline, block carets are smooth */
-  border-bottom-width: var(--underline-caret-width); 
+  border: none;
 
   animation-delay: var(--caret-blink-delay);
   animation-duration: var(--caret-blink-duration);
