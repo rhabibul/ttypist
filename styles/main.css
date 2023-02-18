@@ -1,31 +1,26 @@
 :root {
   --line-gap: 4px;
 
-  --word__color: #000000;
-  --letter__color: #959595;
-  --letter__fontSize: 1.3rem;
+  --selected-item: #ffdc9f;
 
-  --inuse__color: #ffdc9f;
+  --word-active: #000000;
 
-  --letter__fontWeight300: 300;
-  --letter__fontWeight400: 400;
-  --letter__fontWeight500: 500;
+  --text-color: #959595;
+  --text-font-size: 1.25rem;
+  --text-font-weight: 400;
+  --text-font-family: "Roboto Mono", sans-serif;
 
-  --letter__fontFamilyRobotoMono: "Roboto Mono", sans-serif;
+  --caret-color: black;
+  --caret-color-hidden: white;
 
-  --caret__color: #000000;
-  --letter__borderLeftColor: white;
+  --caret-blink-delay: 2s;
+  --caret-blink-duration: 1.15s;
 
-  --caret__blinkdelay: 2s;
-  --caret__blinkduration: 1.15s;
-  --caret__underlinecaretwidth: 1px;
+  --box-caret-width: 1px;
+  --line-caret-width: 1px;
+  --underline-caret-width: 2px;
 
-  --textinput__color: var(--letter__borderLeftColor);
-  --textinput__backgroundColor: var(--letter__borderLeftColor);
-
-  --settings-caret__color: #000000;
-  --settings-caret__bg: #f5f5f5;
-  --settings-caret__bg-active: var(--inuse__color);
+  --settings-caret-color: #000000;
 }
 
 *,
@@ -52,7 +47,7 @@ body {
 }
 
 .active {
-  color: var(--word__color);
+  color: var(--word-active);
 }
 .error {
   color: red;
@@ -71,8 +66,6 @@ body {
   border: none;
   outline: none;
   caret-color: transparent;
-  color: var(--textinput__color);
-  background-color: var(--textinput__backgroundColor);
 }
 
 .engine #sentence {
@@ -83,12 +76,12 @@ body {
   align-content: flex-start;
   justify-content: flex-start;
 
-  background-color: var(--letter__borderLeftColor);
+  background-color: var(--caret-color-hidden);
 }
 
 word {
-  color: var(--letter__color);
-  background-color: var(--letter__borderLeftColor);
+  color: var(--text-color);
+  background-color: var(--caret-color-hidden);
 
   /* these fixes the extra spaces between the letters of the words */
   display: flex;
@@ -100,16 +93,16 @@ letter {
   justify-content: center;
   align-items: center;
 
-  font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight400);
-  font-family: var(--letter__fontFamilyRobotoMono);
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
+  font-family: var(--text-font-family);
 }
 
 .speed {
   color: lightgray;
-  font-size: var(--letter__fontSize);
-  font-weight: var(--letter__fontWeight300);
-  font-family: var(--letter__fontFamilyRobotoMono);
+  font-weight: 300;
+  font-size: var(--text-font-size);
+  font-family: var(--text-font-family);
 }
 .restart {
   width: 30px;
@@ -134,18 +127,16 @@ letter {
   padding: 0px 5px;
   font-weight: bolder;
   color: #a4a4a4;
-  font-size: var(--letter__fontSize);
-  font-family: var(--letter__fontFamilyRobotoMono);
+  font-size: var(--text-font-size);
+  font-family: var(--text-font-family);
 }
 
 .ws {
   width: 140px;
-
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
-  font-family: var(--letter__fontFamilyRobotoMono);
+  font-family: var(--text-font-family);
 }
 
 .ws .ws_dot,
@@ -165,7 +156,34 @@ letter {
   background-color: #f5f5f5;
 }
 #ws_active {
+  background-color: var(--selected-item);
+}
+
+p {
+  color: lightgray;
+  font-weight: 200;
+  margin-bottom: 25px;
+  font-family: var(--text-font-family);
+}
+.contactme {
+  background-color: #f5f5f5;
+  border-radius: 7px;
+  width: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contactme i {
+  font-size: 1.3rem;
   color: black;
-  font-weight: 500;
-  background-color: var(--inuse__color);
+}
+.contactme a {
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.contactme a:hover i {
+  color: #868686;
 }

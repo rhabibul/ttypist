@@ -48,7 +48,7 @@ function updatecaret(evt) {
 
   for (let caret of Elements.allcarettype) {
     if (clickedcaret !== caret) {
-      caret.style.backgroundColor = "var(--settings-caret__bg)";
+      caret.style.backgroundColor = "#f5f5f5";
       if (caret === Elements.offtype) {
         Elements.icon_offtype.style.color = "#6b6b6b";
       }
@@ -60,7 +60,7 @@ function updatecaret(evt) {
     Elements.icon_offtype.style.color = "#ff0000";
     Elements.offtype.style.backgroundColor = "#ffeaea";
   } else {
-    clickedcaret.style.backgroundColor = "var(--settings-caret__bg-active)";
+    clickedcaret.style.backgroundColor = "var(--selected-item)";
   }
 
   let lastcaret = Config.caret; // previous caret type

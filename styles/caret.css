@@ -1,4 +1,4 @@
-/* CARET TURRNED OFF */
+/*----------------- turnoff caret -----------------*/
 .offtype {
   border-top: none;
   border-left: none;
@@ -6,68 +6,63 @@
   border-right: none;
 }
 
-/* LINE CARET */
+/*----------------- line -----------------*/
 #line {
-  border-left-color: var(--caret__color);
+  border-left-color: var(--caret-color);
   animation-name: linecaret;
 }
 .linetype {
   border-top: none;
   border-right: none;
-  border-left-style: solid;
-  border-left-color: var(--letter__borderLeftColor);
-  border-left-width: 1px;
+  border-left: var(--line-caret-width) solid var(--caret-color-hidden);
 
   /* so that transition between line, underline, block carets are smooth */
-  border-bottom-width: var(--caret__underlinecaretwidth);
+  border-bottom-width: var(--underline-caret-width);
   
-  animation-delay: var(--caret__blinkdelay);
-  animation-duration: var(--caret__blinkduration);
+  animation-delay: var(--caret-blink-delay);
+  animation-duration: var(--caret-blink-duration);
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
 @keyframes linecaret {
   0%,
   50% {
-    border-left-color: var(--caret__color);
+    border-left-color: var(--caret-color);
   }
   51%,
   100% {
-    border-left-color: var(--letter__borderLeftColor);
+    border-left-color: var(--caret-color-hidden);
   }
 }
 
-/* UNDERLINE CARET */
+/*----------------- underline -----------------*/
 #underline {
-  border-bottom-color: var(--caret__color);
+  border-bottom-color: var(--caret-color);
   animation-name: underlinecaret;
 }
 .underlinetype {
-  border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom-style: solid;
-  border-bottom-width: var(--caret__underlinecaretwidth);
+  border-top: none;
+  border-bottom: var(--underline-caret-width) solid var(--caret-color-hidden);
 
-  border-bottom-color: var(--letter__borderLeftColor);
-
-  animation-delay: var(--caret__blinkdelay);
-  animation-duration: var(--caret__blinkduration);
+  animation-delay: var(--caret-blink-delay);
+  animation-duration: var(--caret-blink-duration);
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
 @keyframes underlinecaret {
   0%,
   50% {
-    border-bottom-color: var(--caret__color);
+    border-bottom-color: var(--caret-color);
   }
   51%,
   100% {
-    border-bottom-color: var(--letter__borderLeftColor);
+    border-bottom-color: var(--caret-color-hidden);
   }
 }
 
-/* BLOCK CARET */
+/*----------------- block -----------------*/
 #block {
   color: #ffffff;
   background-color: #000000;
@@ -79,10 +74,10 @@
   border-top: none;
 
   /* so that transition between line, underline, block carets are smooth */
-  border-bottom-width: var(--caret__underlinecaretwidth); 
+  border-bottom-width: var(--underline-caret-width); 
 
-  animation-delay: var(--caret__blinkdelay);
-  animation-duration: var(--caret__blinkduration);
+  animation-delay: var(--caret-blink-delay);
+  animation-duration: var(--caret-blink-duration);
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
@@ -95,37 +90,36 @@
   51%,
   100% {
     color: #000000;
-    background-color: var(--letter__borderLeftColor);
+    background-color: var(--caret-color-hidden);
   }
 }
 
-/* BOX CARET */
+/*----------------- box -----------------*/
 #box {
-  border-color: var(--caret__color);
+  border-color: var(--caret-color);
   animation-name: boxcaret;
 }
 .boxtype {
-  border: 1px solid var(--letter__borderLeftColor);
+  border: var(--box-caret-width) solid var(--caret-color-hidden);
 
-  animation-delay: var(--caret__blinkdelay);
-  animation-duration: var(--caret__blinkduration);
+  animation-delay: var(--caret-blink-delay);
+  animation-duration: var(--caret-blink-duration);
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
 @keyframes boxcaret {
   0%,
   50% {
-    border-color: var(--caret__color);
+    border-color: var(--caret-color);
   }
   51%,
   100% {
-    border-color: var(--letter__borderLeftColor);
+    border-color: var(--caret-color-hidden);
   }
 }
 
 
-/* --------------- CARET SETTINGS SECTION ---------------  */
-
+/*--------------- select caret ---------------*/
 .carettypes {
   width: 180px;
   
@@ -145,11 +139,11 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--settings-caret__bg);
+  background-color: #f5f5f5;;
 }
 
 .caret.linetype {
-  background-color: var(--settings-caret__bg-active);
+  background-color: var(--selected-item);
 }
 
 .caret #off-icon,
@@ -161,20 +155,20 @@
 }
 .caret #line-icon {
   width: 1px;
-  background-color: var(--settings-caret__color);
+  background-color: var(--settings-caret-color);
 }
 .caret #block-icon {
   width: 10px;
-  background-color: var(--settings-caret__color);
+  background-color: var(--settings-caret-color);
 }
 .caret #underline-icon {
   width: 12px;
   display: block;
-  border-bottom: 1px solid var(--settings-caret__color);
+  border-bottom: 1px solid var(--settings-caret-color);
 }
 .caret #box-icon {
   width: 10px;
-  border: 1px solid var(--settings-caret__color);
+  border: 1px solid var(--settings-caret-color);
 }
 
 .caret icon#off-icon {
