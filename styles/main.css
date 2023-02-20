@@ -59,6 +59,7 @@ body {
 
 .engine {
   max-width: 800px;
+  margin-left: 10px; /* remove later */
 }
 
 .engine #inputbox {
@@ -163,16 +164,10 @@ letter {
   background-color: var(--selected-item);
 }
 
-p {
-  color: lightgray;
-  font-weight: 200;
-  margin-bottom: 25px;
-  font-family: var(--text-font-family);
-}
 .contactme {
   background-color: #f5f5f5;
   border-radius: 7px;
-  width: 300px;
+  width: 320px;
 
   display: flex;
   align-items: center;
@@ -192,10 +187,36 @@ p {
   color: #868686;
 }
 img#codeforces {
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
 }
 img#atcoder {
   width: 27px;
   height: 27px;
+}
+
+header {
+  border-bottom: 1px dashed lightgray;
+
+  padding: 15px 0px;
+
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #4b4b4b;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: var(--text-font-family);
+
+  margin-bottom: 10px;
+}
+header i.fa-keyboard {
+  margin-right: 5px;
+  color: black;
+  font-size: 1.6rem;
+}
+header:hover i.fa-keyboard {
+  color: purple;
 }
