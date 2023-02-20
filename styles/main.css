@@ -1,4 +1,8 @@
 :root {
+  --font-roboto-mono: "Roboto Mono", sans-serif;
+}
+
+:root {
   --line-gap: 4px;
 
   --selected-item: #ffdc9f;
@@ -8,7 +12,7 @@
   --text-color: #959595;
   --text-font-size: 1.25rem;
   --text-font-weight: 400;
-  --text-font-family: "Roboto Mono", sans-serif;
+  --text-font-family: var(--font-roboto-mono);
 
   --caret-color: black;
   --caret-color-hidden: white;
@@ -168,7 +172,7 @@ p {
 .contactme {
   background-color: #f5f5f5;
   border-radius: 7px;
-  width: 250px;
+  width: 300px;
 
   display: flex;
   align-items: center;
@@ -186,4 +190,12 @@ p {
 }
 .contactme a:hover i {
   color: #868686;
+}
+img#codeforces {
+  width: 20px;
+  height: 20px;
+}
+img#atcoder {
+  width: 27px;
+  height: 27px;
 }
