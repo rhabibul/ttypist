@@ -1,5 +1,5 @@
 <h1 align="center"><samp>touchtypist</samp></h1>
-<h3 align="center"><code>learn/practice touch typing</code></h3>
+<code align="center">learn/practice touch typing</code>
 
 # Features
 - caret selection (none, line, underline, block, box)
