@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta name="author" content="Habibul Rahman" />
+
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +20,13 @@
 
     <!-- IBM Plex Sans -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Work Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Work+Sans:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
 
     <!-- fontawesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
@@ -39,6 +48,26 @@
       <p class="text">ttypist.com</p>
     </header>
     
+    <!-- stats: speed -->
+    <div class="speed">0wpm</div>
+
+    <!-- container: texts to type -->
+    <div class="engine">
+      <input id="inputbox" autocorrect="off" autocomplete="off" spellcheck="false" />
+      <div id="sentence"></div>
+    </div>
+
+    <!-- setting: restart test -->
+    <button class="restart">
+      <i class="fa-sharp fa-solid fa-rotate-left"></i>
+    </button>
+
+    <!-- setting: whitespace -->
+    <div class="ws">
+      <span class="ws_space" id="ws_active">space</span>
+      <span class="ws_dot">dot</span>
+    </div>
+    
     <!-- setting: carettype -->
     <div class="carettypes">
       <span class="caret offtype" title="off">
@@ -58,27 +87,6 @@
       </span>
     </div>
     
-    <!-- setting: whitespace -->
-    <div class="ws">
-      <span class="ws_space" id="ws_active">space</span>
-      <span class="ws_dot">dot</span>
-    </div>
-    
-    
-    <!-- stats: speed -->
-    <div class="speed">0wpm</div>
-
-    <!-- container: texts to type -->
-    <div class="engine">
-      <input id="inputbox" autocorrect="off" autocomplete="off" spellcheck="false" />
-      <div id="sentence"></div>
-    </div>
-
-    <!-- setting: restart test -->
-    <button class="restart">
-      <i class="fa-sharp fa-solid fa-rotate-left"></i>
-    </button>
-
     <keyboard>
       <!-- will be implemented using svg in future versions of ttypist app -->
     </keyboard>
@@ -92,6 +100,8 @@
       <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./assets/codeforces.svg" id="codeforces"> </a>
       <a target="_blank" href="https://atcoder.jp/users/ttypist"> <img src="./assets/atcoder.svg" id="atcoder"> </a>
     </div>
+
+    <p class="developer">Habibul Rahman</p>
 
     <!-- Scripts -->
     <script type="module" src="./scripts/main.js"></script>

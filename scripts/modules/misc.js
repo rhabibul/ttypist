@@ -15,7 +15,6 @@ function showspeed(sentence, time) {
   const wpm = (((sentence.letterCount - 1) / 5) / (time.duration)) * 60;
 
   Elements.speedtag.style.color = "deeppink";
-  Elements.speedtag.style.fontWeight = "400";
   Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
   
   setTimeout(() => {

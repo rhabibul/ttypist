@@ -48,7 +48,7 @@ function updatecaret(evt) {
 
   for (let caret of Elements.allcarettype) {
     if (clickedcaret !== caret) {
-      caret.style.backgroundColor = "#f5f5f5";
+      caret.style.backgroundColor = "var(--bgcolor-settingboxes)";
       if (caret === Elements.offtype) {
         Elements.icon_offtype.style.color = "#6b6b6b";
       }
@@ -56,11 +56,10 @@ function updatecaret(evt) {
   }
 
   if (clickedcaret === Elements.offtype) {
-
     Elements.icon_offtype.style.color = "#ff0000";
-    Elements.offtype.style.backgroundColor = "#ffeaea";
+    Elements.offtype.style.backgroundColor = "#ffd2d2";
   } else {
-    clickedcaret.style.backgroundColor = "var(--selected-item)";
+    clickedcaret.style.backgroundColor = "var(--bgcolor-active)";
   }
 
   let lastcaret = Config.caret; // previous caret type
@@ -107,6 +106,17 @@ Elements.btn_restart.addEventListener('focusout', (evt) => {
 
 Elements.ws_dot.addEventListener('click',   updatewhitespace);
 Elements.ws_space.addEventListener('click', updatewhitespace);
+
+Elements.developer.addEventListener('mouseover', (evt) => {
+  evt.preventDefault();
+  // Elements.contactme.style.backgroundColor = "#ddf4ff";
+  Elements.contactme.style.backgroundColor = "lightyellow";
+});
+Elements.developer.addEventListener('mouseout', (evt) => {
+  evt.preventDefault();
+  Elements.contactme.style.backgroundColor = "#f5f5f5";
+});
+
 
 // underline styling
 // 

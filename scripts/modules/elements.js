@@ -16,6 +16,9 @@ const allcarettype  = document.querySelectorAll(".carettypes > .caret");
 const ws_dot = document.querySelector(".ws > .ws_dot");
 const ws_space = document.querySelector(".ws > .ws_space");
 
+const contactme = document.querySelector(".contactme");
+const developer = document.querySelector(".developer");
+
 export { 
 	root,
 	btn_restart,
@@ -31,5 +34,7 @@ export {
 	underlinetype,
 	allcarettype,
 	ws_dot,
-	ws_space
+	ws_space,
+	contactme,
+	developer
 };
