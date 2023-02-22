@@ -1,5 +1,9 @@
 <h6 align="center">learn/practice touch typing</h6>
 
+<br/>
+<img src="./assets/images/v0.3.0.png">
+<br/>
+
 # touchtypist
 - caret selection (none, line, underline, block, box)
 - whitespace selection (space, dot)
