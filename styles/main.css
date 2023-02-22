@@ -9,6 +9,7 @@
 
   --bgcolor-active: #ffffd4;
   --bgcolor-settingboxes: #f5f5f5;
+  --settings-caret-color: #000000;
 
   --word-active: #000000;
 
@@ -26,8 +27,6 @@
   --box-caret-width: 1px;
   --line-caret-width: 1px;
   --underline-caret-width: 2px;
-
-  --settings-caret-color: #000000;
 }
 
 *,
