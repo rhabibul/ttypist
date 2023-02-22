@@ -1,7 +1,6 @@
-<h1 align="center"><samp>touchtypist</samp></h1>
-<code align="center">learn/practice touch typing</code>
+<h6 align="center">learn/practice touch typing</h6>
 
-# Features
+# touchtypist
 - caret selection (none, line, underline, block, box)
 - whitespace selection (space, dot)
 - generate new words button i.e, reset test with new words
