@@ -173,7 +173,7 @@ letter {
 }
 
 .contactme {
-  transition: 0.5s all ease-out;
+  transition: 0.35s all ease-out;
   background-color: var(--bgcolor-settingboxes);
   border-radius: 7px;
   width: 320px;
@@ -240,7 +240,7 @@ header .text {
   font-size: 0.9rem;
   font-weight: 500;
   font-family: var(--font-opensans);
-  transition: 0.5s all ease-out;
+  transition: 0.2s all ease-out;
 }
 .developer:hover {
   color: darkgoldenrod;
