@@ -1,14 +1,9 @@
-<h1 align="center"><samp>Touchtypist</samp></h1>
+<h1 align="center"><samp>touchtypist</samp></h1>
+<h1 align="center"><code>learn/practice touch typing</code></h1>
 
-![website demo run](./assets/demo.gif)
-
-> ## Basic features of [touchtypist](https://touchtypist.netlify.app/)
-  - **_by default_** this version will forgive your errors i.e, after typing incorrect
-    letter(s) if you type the correct letter then caret will move forward.
-  - If you type a wrong character then whole word will be highlighted with red color.
-  - You can hit <code>**backspace**</code> to go back one letter at a time.
-  - You can hit <code>**alt + backspace**</code> or <code>**ctrl + backspace**</code> to
-    go back one word at time.
-  - You can hit <code>**cmd + backspace**</code> to reset all typed words (timer won't be reset).
-  - At the end of the test it will display your typing speed (in words per minute). 
-    It is assumed that a words contains 5 letters while calculating speed.
+# Features
+- caret selection (none, line, underline, block, box)
+- whitespace selection (space, dot)
+- generate new words button i.e, reset test with new words
+- stats: speed
+- deletion keys: backspace, ctrl/opt + bs, meta + bs
