@@ -25,7 +25,6 @@ class Test {
   }
 }
 
-
 let time = new Time();
 let history = new History();
 let sentence = new Sentence();
