@@ -1,6 +1,5 @@
 import Config from "./config.js";
-import words1k from "./words1k.js";
-import words3k from "./words3k.js";
+import w3k from "./w3k.js";
 import * as Elements from "./elements.js"
 import * as Constants from "./constants.js";
 
@@ -32,10 +31,8 @@ function getRandomWords() {
   let randomindex = 0;
 
   for (let i = 0; i < totalwords; ++i) {
-    randomindex = Math.floor(Math.random() * words1k.length);
-    words[i] = words1k[randomindex];
-    // randomindex = Math.floor(Math.random() * words3k.length);
-    // words[i] = words3k[randomindex];
+    randomindex = Math.floor(Math.random() * w3k.length);
+    words[i] = w3k[randomindex];
   }
 
   return convertToWordElements(words);

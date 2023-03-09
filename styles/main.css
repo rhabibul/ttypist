@@ -7,7 +7,7 @@
 :root {
   --line-gap: 4px;
 
-  --bgcolor-active: #ffffd4;
+  --bgcolor-active: #ffffb8;
   --bgcolor-settingboxes: #f5f5f5;
   --settings-caret-color: #000000;
 
@@ -107,7 +107,7 @@ letter {
 
 .speed {
   color: lightgray;
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--text-font-size);
   font-family: var(--text-font-family);
 
@@ -159,7 +159,7 @@ letter {
   
   color: #313131;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
 
   padding: 3px 6px;
   border-radius: 3px;
