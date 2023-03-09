@@ -33,6 +33,11 @@ let sentence = new Sentence();
 function handlekeydown(evt) {
   evt.preventDefault();
 
+  if ( !evt.isTrusted ) {
+    console.error("you're not human");
+    return;
+  }
+
   if ( !time.started ) time.start();
 
   let typedkey = evt.key;
@@ -57,7 +62,6 @@ function handlekeydown(evt) {
     
     if ( sentence.typed ) {
       time.stop();
-
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       

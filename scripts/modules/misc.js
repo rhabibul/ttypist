@@ -73,4 +73,35 @@ function convertToWordElements(wordsInStringForm) {
   return wordelements;
 }
 
-export { getRandomWords, convertToWordElements, charcode, showspeed };
+function getsentence() {
+	let s = "";
+  let words = document.getElementsByTagName('word');
+	for ( let word of words ) {
+		let letters = word.children;
+		for ( let letter of letters ) {
+			if ( letter.textContent.charCodeAt(0) === 160 ) {
+				s += " ";
+			} else {
+				s += letter.textContent;
+			}
+		}
+	}
+  return s;
+}
+
+function automatetyping(keystroke_time) {
+	
+	let id, i = 0;
+	let s = getsentence();
+
+	id = setInterval(() => {
+		Elements.inputbox.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
+		Elements.inputbox.value += s[i];
+		++i;
+		if ( i == s.length - 1 ) {
+			clearInterval(id);
+		}
+	}, keystroke_time);	
+}
+
+export { getRandomWords, convertToWordElements, charcode, showspeed, getsentence, automatetyping };

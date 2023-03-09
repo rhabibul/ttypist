@@ -1,9 +1,9 @@
 import * as Constants from "./constants.js";
 
 const Config = {
-  typing: false,
+  istyping: false,
 
-  keyboard: true, // live keyboard
+  livekeyboard: true, // live keyboard
   livestats: false, // live stats
 
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
@@ -18,7 +18,7 @@ const Config = {
   theme: "molokai",
 
   sentence: {
-    wordcount: 25,
+    wordcount: 15,
     wordseparator: Constants.whitespace.space, // space/dot
     numbers: false, // include digits along with words
     punctuations: false, // include punctuation marks along with words
