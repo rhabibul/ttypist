@@ -46,7 +46,7 @@ function handlekeydown(evt) {
     Elements.btn_restart.focus();
   }
 
-  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.wordseparator)) && (typedkey === " ") ) {
+  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === " ") ) {
     
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);

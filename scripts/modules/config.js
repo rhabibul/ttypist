@@ -3,47 +3,71 @@ import * as Constants from "./constants.js";
 const Config = {
   istyping: false,
 
-  livekeyboard: true, // live keyboard
-  livestats: false, // live stats
+  live: {
+    stats: false,
+    keyboard: true,
+  },
 
-  deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
-  inserterror: true, 
-  forgiveerror: false,
   instantdeath: false, // fails the test if user presses a single incorrect key
 
-  caret: "line", // off, line, underline, box, block
-  highlight: "word", // letter, word
-  flipcolor: false, // flip letter/word highlight mode colors
 
+  deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
+
+  error: {
+    insert: true,
+    forgive: true,
+  },
+
+  caret: {
+    type: "line", // off, line, underline, box, block
+    width: "thin",
+    color: "black",
+    blink: true,
+  },
+  
   theme: "molokai",
 
+  flipcolor: false, // flip letter/word highlight mode colors
+
+
   sentence: {
-    wordcount: 15,
-    wordseparator: Constants.whitespace.space, // space/dot
-    numbers: false, // include digits along with words
-    punctuations: false, // include punctuation marks along with words
+    highlight: "word", // letter, word
 
-    fontsize: "1.4", // font size
-    fontweight: "400", // font weight
-    fontfamily: "Roboto Mono", // font family
+    word: {
+      length: "mix", // small(<=5), medium(5>=, <=10), long(>=10), mix
+      count: 15,
+    },
+
+    whitespace: Constants.whitespace.space, // space/dot
+    
+    include: {
+      digits: false, // include digits along with words
+      punctuations: false, // include punctuation marks along with words
+    },
+
+    font: {
+      size: "1.4rem",
+      weight: "400",
+      family: "Roboto Mono",
+    },
   },
 
-  practice: {
-    customtext: false, // custom text provided by user
-    guidedlessions: false, // guided lessions for noobs
-  },
+  learntyping: false, // guided lessions for noobs
 
   custom: {
+    // text
+    owntext: false, // custom text provided by user
+    alphanumeric: false, // ascii characters only
+
+    // numbers
     numpad: false, // practice numpad digits and symbols
     numrow: false, // practice numrow digits and symbols
+    
+    // special symbols
     brackets: false, // {[()]}
-    alphanumeric: false, // ascii
+    arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-
-    // ArrowUp, ArrowLeft, ArrowRight, ArrowDown,
-    // KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    arrowkeys: false,
   },
 };
 

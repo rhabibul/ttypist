@@ -132,8 +132,8 @@ letter {
   transform: translateY(1px);
 }
 
-.wordseparator_dot {
-  padding: 0px 5px;
+.whitespace-dot {
+  padding: 0px 4px;
   font-weight: bolder;
   color: #a4a4a4;
   font-size: var(--text-font-size);
@@ -141,12 +141,12 @@ letter {
 }
 
 .ws {
-  margin-top: 50px; /* --remove-- */
+  margin-top: 20px; /* --remove-- */
 
   width: 140px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
 
   font-family: var(--text-font-family);
 }
@@ -169,6 +169,7 @@ letter {
   background-color: var(--bgcolor-settingboxes);
 }
 #ws_active {
+  color: darkgoldenrod;
   background-color: var(--bgcolor-active);
 }
 

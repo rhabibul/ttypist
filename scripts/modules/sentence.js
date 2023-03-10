@@ -151,7 +151,7 @@ class Sentence {
   }
 
   addCaretToActiveLetter() {
-    this.activeLetter.id = Config.caret;
+    this.activeLetter.id = Config.caret.type;
   }
   removeCaretFromActiveLetter() {
     this.activeLetter.id = "";
