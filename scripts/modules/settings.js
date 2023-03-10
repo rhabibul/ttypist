@@ -86,13 +86,7 @@ Elements.linetype.addEventListener     ("click", updatecaret);
 Elements.blocktype.addEventListener    ("click", updatecaret);
 Elements.underlinetype.addEventListener("click", updatecaret);
 
-Elements.inputbox.addEventListener("focus",     (evt) => { evt.preventDefault(); Config.typing = true;  });
-Elements.inputbox.addEventListener("focusout",  (evt) => { evt.preventDefault(); Config.typing = false; });
-
-Elements.btn_restart.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  test.start();
-});
+Elements.btn_restart.addEventListener('click', (evt) => { test.start(); });
 
 Elements.btn_restart.addEventListener('focus', (evt) => { 
   Elements.btn_restart.style.border = "1px solid lightgray"
@@ -106,16 +100,6 @@ Elements.btn_restart.addEventListener('focusout', (evt) => {
 
 Elements.ws_dot.addEventListener('click',   updatewhitespace);
 Elements.ws_space.addEventListener('click', updatewhitespace);
-
-Elements.developer.addEventListener('mouseover', (evt) => {
-  evt.preventDefault();
-  // Elements.contactme.style.backgroundColor = "#ddf4ff";
-  Elements.contactme.style.backgroundColor = "lightyellow";
-});
-Elements.developer.addEventListener('mouseout', (evt) => {
-  evt.preventDefault();
-  Elements.contactme.style.backgroundColor = "#f5f5f5";
-});
 
 
 // underline styling

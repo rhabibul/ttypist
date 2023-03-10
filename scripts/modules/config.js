@@ -9,12 +9,10 @@ const Config = {
   },
 
   instantdeath: false, // fails the test if user presses a single incorrect key
-
-
+  
   deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
-
   error: {
-    insert: true,
+    insert: false,
     forgive: true,
   },
 
@@ -28,7 +26,6 @@ const Config = {
   theme: "molokai",
 
   flipcolor: false, // flip letter/word highlight mode colors
-
 
   sentence: {
     highlight: "word", // letter, word
@@ -48,7 +45,7 @@ const Config = {
     font: {
       size: "1.4rem",
       weight: "400",
-      family: "Roboto Mono",
+      family: "Roboto Mono, monospace",
     },
   },
 
