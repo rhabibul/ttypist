@@ -1,16 +1,20 @@
 import * as Constants from "./constants.js";
 
-const Config = {
-  istyping: false,
+const config = {
+  
+  startedtyping: false,
+  capslock: false,
+  outoffocus: false,
+  instantdeath: false, // fails the test if user presses a single incorrect key
+  fliptestcolor: false, // brightness of typed text and future text
+  highlight: "word", // off, letter, word
+  deletion: true, // backspace | opt/alt/ctrl + backspace | meta + backspace
 
-  live: {
-    stats: false,
-    keyboard: true,
+  sound: {
+    play: "off", // off, nk creams, typewriter, hitmarker
+    onerror: false,
   },
 
-  instantdeath: false, // fails the test if user presses a single incorrect key
-  
-  deletion: true, // enables backspace | alt/ctrl + bs | meta + bs
   error: {
     insert: false,
     forgive: true,
@@ -18,49 +22,47 @@ const Config = {
 
   caret: {
     type: "line", // off, line, underline, box, block
-    width: "thin",
-    color: "black",
     blink: true,
+    smooth: false,
   },
   
-  theme: "molokai",
-
-  flipcolor: false, // flip letter/word highlight mode colors
-
   sentence: {
-    highlight: "word", // letter, word
-
+    whitespace: Constants.whitespace.space, // space/dot
     word: {
-      length: "mix", // small(<=5), medium(5>=, <=10), long(>=10), mix
+      length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix
       count: 15,
     },
-
-    whitespace: Constants.whitespace.space, // space/dot
-    
     include: {
       digits: false, // include digits along with words
       punctuations: false, // include punctuation marks along with words
     },
-
     font: {
       size: "1.4rem",
       weight: "400",
       family: "Roboto Mono, monospace",
     },
   },
+  
+  keyboard: {
+    layout: "qwerty", // keyboard layout
+    emulate: false, // emulate means mapping evt.code value with the corresponding key value in the respective keyboard layout
+    language: "english",
+  },
+  
+  live: {
+    stats: false, // show wpm/cpm and accuracy on every keystroke
+    timer: true, // live timer for timed tests
+    keyboard: true, // static, react, next
+  },
 
-  learntyping: false, // guided lessions for noobs
-
-  custom: {
-    // text
-    owntext: false, // custom text provided by user
+  practice: {
+    customtext: false, // custom text provided by user
+    guidedlessions: false,
     alphanumeric: false, // ascii characters only
 
-    // numbers
-    numpad: false, // practice numpad digits and symbols
-    numrow: false, // practice numrow digits and symbols
+    numrow: false, // number row digits and symbols
+    numpad: false, // number pad digits and arithmetic operations with expression
     
-    // special symbols
     brackets: false, // {[()]}
     arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
@@ -68,4 +70,4 @@ const Config = {
   },
 };
 
-export default Config;
+export default config;

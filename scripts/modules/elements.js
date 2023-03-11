@@ -36,5 +36,6 @@ export {
 	ws_dot,
 	ws_space,
 	contactme,
-	developer
+	developer,
+	audio
 };

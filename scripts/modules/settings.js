@@ -1,4 +1,4 @@
-import Config from "./config.js";
+import config from "./config.js";
 import { test } from "../main.js";
 import * as Elements from "./elements.js";
 import * as Constants from "./constants.js"
@@ -12,13 +12,13 @@ function updatewhitespace(evt) {
   if ( this.id == "ws_active" ) return;
 
   if ( this.classList.contains("ws_space") ) {
-    Config.sentence.whitespace = Constants.whitespace.space;
+    config.sentence.whitespace = Constants.whitespace.space;
     Elements.ws_space.id = "ws_active";
     Elements.ws_dot.id = "";
   } else {
     Elements.ws_dot.id = "ws_active";
     Elements.ws_space.id = "";
-    Config.sentence.whitespace = Constants.whitespace.dot;
+    config.sentence.whitespace = Constants.whitespace.dot;
   }
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
@@ -27,10 +27,10 @@ function updatewhitespace(evt) {
 
     if ( letter.classList.contains("whitespace") ) {
 
-      if ( Config.sentence.whitespace == Constants.whitespace.space ) {  
-        letter.innerHTML = `${Config.sentence.whitespace}`;
+      if ( config.sentence.whitespace == Constants.whitespace.space ) {  
+        letter.innerHTML = `${config.sentence.whitespace}`;
       } else {
-        letter.innerHTML = `<span class="whitespace-dot">${Config.sentence.whitespace}</span>`;
+        letter.innerHTML = `<span id="whitespace-dot">${config.sentence.whitespace}</span>`;
       }
     }
 
@@ -44,7 +44,7 @@ function updatecaret(evt) {
   let clickedcaret = this;
 
   // if user clicks on same caret icon then don't do anything
-  if (clickedcaret.title === Config.caret.type) return;
+  if (clickedcaret.title === config.caret.type) return;
 
   for (let caret of Elements.allcarettype) {
     if (clickedcaret !== caret) {
@@ -62,15 +62,15 @@ function updatecaret(evt) {
     clickedcaret.style.backgroundColor = "var(--bgcolor-active)";
   }
 
-  let lastcaret = Config.caret.type; // previous caret type
+  let lastcaret = config.caret.type; // previous caret type
 
-  Config.caret.type = clickedcaret.title; // current caret type
+  config.caret.type = clickedcaret.title; // current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     letter.classList.remove(Constants.carettypes[lastcaret]);
     sentence.removeCaretFromActiveLetter();
 
-    letter.classList.add(Constants.carettypes[Config.caret.type]);
+    letter.classList.add(Constants.carettypes[config.caret.type]);
     sentence.addCaretToActiveLetter();
 
     Elements.inputbox.focus();

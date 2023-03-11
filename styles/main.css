@@ -1,10 +1,12 @@
 :root {
-  --font-robotomono: "Roboto Mono", sans-serif;
-  --font-opensans: "Open Sans", sans-serif;
-  --font-worksans: "Open Sans", sans-serif;
+  --font-nunito: 'Nunito', sans-serif;;
+  --font-robotomono: "Roboto Mono", monospace;
 }
 
 :root {
+  /* adjust this line gap according to caret type (or better find some better
+    solution for fixed width line gap even if user switches between differnet 
+    caret types */
   --line-gap: 4px;
 
   --bgcolor-active: #ffffb8;
@@ -13,12 +15,12 @@
 
   --word-active: black;
 
-  --text-color: rgb(104, 104, 104);
-  --text-font-size: 1.3rem;
+  --text-color: rgba(0, 0, 0, 0.65);
+  --text-font-size: 1.25rem;
   --text-font-weight: 400;
   --text-font-family: var(--font-robotomono);
 
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white;
   
   --caret-blink-delay: 2s;
@@ -73,6 +75,7 @@ body {
   border: none;
   outline: none;
   caret-color: transparent;
+  background-color: var(--caret-color-hidden);
 }
 
 .engine #sentence {
@@ -130,14 +133,6 @@ letter {
 .restart i {
   color: #6b6b6b;
   transform: translateY(1px);
-}
-
-.whitespace-dot {
-  padding: 0px 4px;
-  font-weight: 600;
-  color: #aeaeae;
-  font-size: var(--text-font-size);
-  font-family: var(--text-font-family);
 }
 
 .ws {
@@ -215,16 +210,16 @@ header {
   align-items: center;
 }
 header i.fa-keyboard {
-  color: rgb(147, 147, 147);
+  color: rgb(130, 130, 130);
   font-size: 2rem;
 }
 header .text {
-  color: rgb(45, 44, 44);
+  color: rgb(70, 70, 70);
   margin-left: 5px;
   font-size: 1.2rem;
   font-weight: 500;
   font-family: var(--text-font-family);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 .developer {
   color: #0969da;
@@ -240,6 +235,15 @@ header .text {
   height: 25px;
   font-size: 0.9rem;
   font-weight: 500;
-  font-family: var(--font-opensans);
+  font-family: var(--font-nunito);
   transition: 0.2s all ease-out;
+}
+
+#whitespace-dot {
+  padding: 0px 4px;
+  
+  color: #979797;
+  font-weight: 900;
+  font-size: var(--text-font-size);
+  font-family: var(--text-font-family);
 }

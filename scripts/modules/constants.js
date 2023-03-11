@@ -34,4 +34,11 @@ const whitespace = {
   space: "&nbsp;", // 160
 };
 
+
+const special = [
+
+  "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}",
+  "[", "]", "'", '"', "/", "\\", "|", "?", ";", ":", ">", "<",
+]
+
 export { whitespace, carettypes, invisibles, ascii_equivalent };

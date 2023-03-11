@@ -1,4 +1,4 @@
-import Config from "./config.js";
+import config from "./config.js";
 import w3k from "./w3k.js";
 import * as Elements from "./elements.js"
 import * as Constants from "./constants.js";
@@ -25,12 +25,12 @@ function showspeed(sentence, time) {
 
 function getRandomWords() {
 
-  if (Config.sentence.include.digits) {  };
-  if (Config.sentence.include.punctuations) {  };
+  if (config.sentence.include.digits) {  };
+  if (config.sentence.include.punctuations) {  };
 
-  let words = new Array(Config.sentence.word.count);
+  let words = new Array(config.sentence.word.count);
 
-  for (let i = 0; i < Config.sentence.word.count; ++i) {
+  for (let i = 0; i < config.sentence.word.count; ++i) {
     words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   
@@ -50,7 +50,7 @@ function convertToWordElements(wordsInStringForm) {
 
       letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
-      letter.classList.add(Constants.carettypes[Config.caret.type]);
+      letter.classList.add(Constants.carettypes[config.caret.type]);
       
       word.appendChild(letter);
     }
@@ -62,12 +62,12 @@ function convertToWordElements(wordsInStringForm) {
 
     letter = document.createElement("letter"); // for letter with space/dot
     letter.classList.add("whitespace");
-    if ( Config.sentence.whitespace == Constants.whitespace.space ) {
-      letter.innerHTML = `${Config.sentence.whitespace}`;
+    if ( config.sentence.whitespace == Constants.whitespace.space ) {
+      letter.innerHTML = `${config.sentence.whitespace}`;
     } else {
-      letter.innerHTML = `<span class="whitespace-dot">${Config.sentence.whitespace}</span>`;
+      letter.innerHTML = `<span id="whitespace-dot" style="width: 100%; height: 100%">${config.sentence.whitespace}</span>`;
     }
-    letter.classList.add(Constants.carettypes[Config.caret.type]);
+    letter.classList.add(Constants.carettypes[config.caret.type]);
     word.appendChild(letter);
 
     wordelements[i] = word;
