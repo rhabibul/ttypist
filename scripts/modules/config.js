@@ -3,24 +3,41 @@ import * as Constants from "./constants.js";
 const config = {
   
   startedtyping: false,
-  capslock: false,
-  outoffocus: false,
+  
   timer: true, // live timer for timed tests
 
-  quickdeath: false, // fails the test if user types a letter incorrect
-
-  highlight: "word", // off, letter, word
-  deletion: true, // backspace | opt/alt/ctrl + backspace | meta + backspace
-  error: {
-    stop: false, // stop on error (there will be different behaviour for letter & word mode)
-    insert: false,
-    forgive: true,
+  warning: {
+    capslock: false,
+    outoffocus: false,
   },
-  fliptestcolor: false, // brightness of typed text and future text
+
+  endwith_space: false,
+
+  // use opposite shift keys for shifting, using an incorrect one will count as
+  // an error, ignore B, Y, ^
+  oppositeshift: false,
+
+  highlight: "word", // off | letter | word
+  fliptextcolor: false, // brightness of typed texts and upcoming future texts
+
+  // difficulty:
+  //    - easy is the classic type test experience
+  //    - medium fails the test if user submits an incorrect word
+  //    - hard fails the test if user hit a single incorrect key
+  difficulty: "easy", // easy | medium | hard
+
+  // if enabled, allow user to delete any word, even if it was typed correctly
+  backspace: true, // backspace | opt/alt/ctrl + backspace | meta + backspace
+
+  error: {
+    forgive: true,
+    insert: false,
+    stop: false, // stop on error (there will be different behaviour for letter & word mode)
+  },
 
   caret: {
     type: "line", // off, line, underline, box, block
-    blink: true,
+    blink: true, 
     smooth: false,
   },
   
