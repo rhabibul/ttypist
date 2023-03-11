@@ -29,9 +29,16 @@ const carettypes = {
   block: "blocktype",
 };
 
+
+// whitespace unicode characters
+// 				" "  	(U+0020 Space)
+// 				" "  	(U+00a0 No-Break Space)
+// 				" "  	(U+2009 Thin Space)
+// 				"　"	(U+3000 Ideographic Space)
 const whitespace = {
-  dot: "⸱", // 11825
-  space: "&nbsp;", // 160
+  dot: '⸱', // 11825
+  bar: '␣', // U+2423 (open box unicode character)
+  space: '&nbsp;', // 160
 };
 
 

@@ -5,20 +5,18 @@ const config = {
   startedtyping: false,
   capslock: false,
   outoffocus: false,
-  instantdeath: false, // fails the test if user presses a single incorrect key
-  fliptestcolor: false, // brightness of typed text and future text
+  timer: true, // live timer for timed tests
+
+  quickdeath: false, // fails the test if user types a letter incorrect
+
   highlight: "word", // off, letter, word
   deletion: true, // backspace | opt/alt/ctrl + backspace | meta + backspace
-
-  sound: {
-    play: "off", // off, nk creams, typewriter, hitmarker
-    onerror: false,
-  },
-
   error: {
+    stop: false, // stop on error (there will be different behaviour for letter & word mode)
     insert: false,
     forgive: true,
   },
+  fliptestcolor: false, // brightness of typed text and future text
 
   caret: {
     type: "line", // off, line, underline, box, block
@@ -42,19 +40,24 @@ const config = {
       family: "Roboto Mono, monospace",
     },
   },
-  
-  keyboard: {
-    layout: "qwerty", // keyboard layout
-    emulate: false, // emulate means mapping evt.code value with the corresponding key value in the respective keyboard layout
-    language: "english",
-  },
-  
   live: {
     stats: false, // show wpm/cpm and accuracy on every keystroke
-    timer: true, // live timer for timed tests
     keyboard: true, // static, react, next
   },
+  keyboard: {
+    layout: "qwerty", // keyboard layout
+    language: "english",
 
+    // evt.code tells us which physcial key is pressed
+    // keyboard layouts like qwerty, dvorak has different layouts for keys on the physical keyboard
+    // if emulate is enabled then you need to map evt.code with evt.key for layout choosen
+    // i don't know how to explain it right now but i have understood it subconsciously
+    emulate: false, 
+  },
+  sound: {
+    play: "off", // off, nk creams, typewriter, hitmarker
+    onerror: false, // play sound on error
+  },
   practice: {
     customtext: false, // custom text provided by user
     guidedlessions: false,

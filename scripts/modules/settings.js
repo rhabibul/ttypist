@@ -41,13 +41,11 @@ function updatewhitespace(evt) {
 function updatecaret(evt) {
   evt.preventDefault();
 
-  let clickedcaret = this;
-
   // if user clicks on same caret icon then don't do anything
-  if (clickedcaret.title === config.caret.type) return;
+  if (this.title === config.caret.type) return;
 
   for (let caret of Elements.allcarettype) {
-    if (clickedcaret !== caret) {
+    if (this !== caret) {
       caret.style.backgroundColor = "var(--bgcolor-settingboxes)";
       if (caret === Elements.offtype) {
         Elements.icon_offtype.style.color = "#6b6b6b";
@@ -55,16 +53,16 @@ function updatecaret(evt) {
     }
   }
 
-  if (clickedcaret === Elements.offtype) {
+  if (this === Elements.offtype) {
     Elements.icon_offtype.style.color = "#ff0000";
     Elements.offtype.style.backgroundColor = "#ffd2d2";
   } else {
-    clickedcaret.style.backgroundColor = "var(--bgcolor-active)";
+    this.style.backgroundColor = "var(--bgcolor-active)";
   }
 
   let lastcaret = config.caret.type; // previous caret type
 
-  config.caret.type = clickedcaret.title; // current caret type
+  config.caret.type = this.title; // current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     letter.classList.remove(Constants.carettypes[lastcaret]);
