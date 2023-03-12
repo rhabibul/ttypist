@@ -1,6 +1,6 @@
 import Config from "./config.js";
 import { test } from "../main.js";
-import * as Elements from "./element.js";
+import * as Element from "./element.js";
 import * as CONST from "./const.js"
 import { time, history, sentence } from "./test.js";
 
@@ -13,17 +13,17 @@ function updatewhitespace(evt) {
 
   if ( this.classList.contains("ws_space") ) {
     Config.sentence.whitespace = CONST.whitespace.space;
-    Elements.ws_space.id = "ws_active";
-    Elements.ws_dot.id = "";
+    Element.ws_space.id = "ws_active";
+    Element.ws_dot.id = "";
   } else {
-    Elements.ws_dot.id = "ws_active";
-    Elements.ws_space.id = "";
+    Element.ws_dot.id = "ws_active";
+    Element.ws_space.id = "";
     Config.sentence.whitespace = CONST.whitespace.dot;
   }
 
-  Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
+  Array.from(document.getElementByTagName("letter")).forEach(function (letter) {
 
-    Elements.input.blur();
+    Element.input.blur();
 
     if ( letter.classList.contains("whitespace") ) {
 
@@ -34,72 +34,72 @@ function updatewhitespace(evt) {
       }
     }
 
-    Elements.input.focus();
+    Element.input.focus();
   });
 }
 
 function updatecaret(evt) {
+
   evt.preventDefault();
 
+  const caret = this; // caret which has been choosen
+  const prevcaret = Config.caret.type; // save previous caret type
+  
   // if user clicks on same caret icon then don't do anything
-  if (this.title === Config.caret.type) return;
+  if (caret.dataset.type === Config.caret.type) return;
 
-  for (let caret of Elements.allcarettype) {
-    if (this !== caret) {
-      caret.style.backgroundColor = "var(--bgcolor-settingboxes)";
-      if (caret === Elements.offtype) {
-        Elements.icon_offtype.style.color = "#6b6b6b";
+  for (const other of Element.allcarettype) {
+    if (caret !== other) {
+      other.style.backgroundColor = "var(--bgcolor-settingboxes)";
+      if (other === Element.offtype) {
+        Element.icon_offtype.style.color = "#6b6b6b";
       }
     }
   }
 
-  if (this === Elements.offtype) {
-    Elements.icon_offtype.style.color = "#ff0000";
-    Elements.offtype.style.backgroundColor = "#ffd2d2";
+  if (caret === Element.offtype) {
+    Element.icon_offtype.style.color = "#ff0000";
+    Element.offtype.style.backgroundColor = "#ffd2d2";
   } else {
-    this.style.backgroundColor = "var(--bgcolor-active)";
+    caret.style.backgroundColor = "var(--bgcolor-active)";
   }
 
-  let lastcaret = Config.caret.type; // previous caret type
-
-  Config.caret.type = this.title; // current caret type
+  Config.caret.type = caret.dataset.type; // update current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    // remove previous caret's styling from all letters
-    letter.classList.remove(CONST.carettype[lastcaret]);
+    letter.classList.remove(CONST.carettype[prevcaret]); // remove previous caret's styling from all letters
     sentence.removeCaretFromActiveLetter();
     
-    // add new caret's styling to all letters
-    letter.classList.add(CONST.carettype[Config.caret.type]);
+    letter.classList.add(CONST.carettype[Config.caret.type]); // add new caret's styling to all letters
     sentence.addCaretToActiveLetter();
 
-    Elements.input.focus();
+    Element.input.focus();
   });
 
   // can add new random words and startover the test
   // test.start(); 
 }
 
-Elements.offtype.addEventListener      ("click", updatecaret);
-Elements.boxtype.addEventListener      ("click", updatecaret);
-Elements.linetype.addEventListener     ("click", updatecaret);
-Elements.blocktype.addEventListener    ("click", updatecaret);
-Elements.underlinetype.addEventListener("click", updatecaret);
+Element.offtype.addEventListener      ("click", updatecaret);
+Element.boxtype.addEventListener      ("click", updatecaret);
+Element.linetype.addEventListener     ("click", updatecaret);
+Element.blocktype.addEventListener    ("click", updatecaret);
+Element.underlinetype.addEventListener("click", updatecaret);
 
-Elements.btn_restart.addEventListener('click', (evt) => { test.start(); });
+Element.restart.addEventListener('click', (evt) => { test.start(); });
 
-Elements.btn_restart.addEventListener('focus', (evt) => { 
-  Elements.btn_restart.style.border = "1px solid lightgray"
-  Elements.icon_restart.style.color = "black"
+Element.restart.addEventListener('focus', (evt) => { 
+  Element.restart.style.border = "1px solid lightgray"
+  Element.icon_restart.style.color = "black"
 });
 
-Elements.btn_restart.addEventListener('focusout', (evt) => { 
-  Elements.btn_restart.style.border = ""
-  Elements.icon_restart.style.color = "#6b6b6b"
+Element.restart.addEventListener('focusout', (evt) => { 
+  Element.restart.style.border = ""
+  Element.icon_restart.style.color = "#6b6b6b"
 });
 
-Elements.ws_dot.addEventListener('click',   updatewhitespace);
-Elements.ws_space.addEventListener('click', updatewhitespace);
+Element.ws_dot.addEventListener('click',   updatewhitespace);
+Element.ws_space.addEventListener('click', updatewhitespace);
 
 // underline styling
 // 

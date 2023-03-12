@@ -169,6 +169,7 @@
   justify-content: center;
 }
 .caret #off-icon i {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   transform: translateY(1px);
+  transform: translateX(0.5px);
 }

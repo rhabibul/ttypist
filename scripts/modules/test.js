@@ -18,10 +18,10 @@ class Test {
 
     Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
-
+    
     Element.input.addEventListener('keydown', handlekeydown, false);
     Element.input.focus();
-    Element.btn_restart.blur();
+    Element.restart.blur();
   }
 }
 
@@ -46,7 +46,7 @@ function handlekeydown(evt) {
   
   if ( typedkey === 'Tab' ) {
     Element.input.blur();
-    Element.btn_restart.focus();
+    Element.restart.focus();
   }
 
   if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === " ") ) {

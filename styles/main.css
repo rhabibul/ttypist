@@ -60,12 +60,12 @@ body {
   color: var(--word-active);
 }
 .error {
-  color: red;
+  color: rgb(255, 27, 27);
 }
 
 ttypist {
   max-width: 750px;
-  margin-left: 10px; /* remove later */
+  margin: 0px 20px;
 }
 sentence {
   display: flex; /* these keeps all the words in a single line */
@@ -111,8 +111,6 @@ ttypist > input {
   font-weight: 400;
   font-size: var(--text-font-size);
   font-family: var(--text-font-family);
-
-  margin-top: 20px; /* --remove-- */
 }
 .restart {
   width: 30px;
@@ -152,7 +150,7 @@ ttypist > input {
   
   color: #313131;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 500;
 
   padding: 3px 6px;
   border-radius: 3px;
@@ -196,28 +194,6 @@ img#codeforces {
 img#atcoder {
   width: 30px;
   height: 30px;
-}
-
-header {  
-  border-bottom: 1px dashed #dadada;
-  padding-bottom: 10px;
-
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-header i.fa-keyboard {
-  color: #ff7d7d;
-  font-size: 2rem;
-}
-header .text {
-  color: #ff1313;
-  margin-left: 5px;
-  font-size: 1.25rem;
-  font-weight: 500;
-  font-family: var(--text-font-family);
-  transform: translateY(-1px);
 }
 .developer-name {
   color: #ff0000;

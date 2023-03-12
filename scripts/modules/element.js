@@ -1,10 +1,13 @@
 const root 					= document.querySelector(":root");
+
 const ttypist				= document.getElementsByTagName("ttypist")[0];
 const input 				= document.querySelector("ttypist > input");
 const sentence 			= document.querySelector("ttypist > sentence");
 
+const keyboard 			= document.getElementsByTagName("keyboard")[0];
+
 const speedtag 			= document.querySelector(".speed");
-const btn_restart 	= document.querySelector("button.restart");
+const restart 			= document.querySelector("button.restart");
 const icon_restart 	= document.querySelector("button.restart > .fa-sharp");
 const icon_offtype  = document.querySelector("#off-icon > .fa-ban");
 const offtype       = document.querySelector(".carettypes > .offtype");
@@ -22,11 +25,14 @@ const developer = document.querySelector(".developer");
 
 export { 
 	root,
+
 	ttypist,
 	input,
 	sentence,
 	
-	btn_restart,
+	keyboard,
+	
+	restart,
 	icon_restart,
 	speedtag,
 	icon_offtype,

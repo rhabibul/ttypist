@@ -37,11 +37,6 @@
 
     <!-- format: (shft + opt + F) -->
     
-    <header>
-      <i class="fas fa-fw fa-keyboard"></i>
-      <p class="text">ttypist</p>
-    </header>
-    
     <div class="speed">0wpm</div>
 
     
@@ -83,21 +78,23 @@
     </div>
     
     <div class="carettypes">
-      <span class="caret offtype" title="off">
-        <icon id="off-icon"> <i style="color: #6b6b6b;" class="fa-sharp fa-solid fa-ban"></i> </icon>
-      </span>
-      <span class="caret underlinetype" title="underline">
-        <icon id="underline-icon"></icon>
-      </span>
-      <span class="caret linetype" title="line">
-        <icon id="line-icon"></icon>
-      </span>
-      <span class="caret blocktype" title="block">
-        <icon id="block-icon"></icon>
-      </span>
-      <span class="caret boxtype" title="box">
-        <icon id="box-icon"></icon>
-      </span>
+      <caret data-type="off" class="caret offtype">
+        <shape id="off-icon">
+          <i style="color: #6b6b6b;" class="fa-sharp fa-solid fa-ban"></i>
+        </shape>
+      </caret>
+      <caret data-type="underline" class="caret underlinetype">
+        <shape id="underline-icon"></shape>
+      </caret>
+      <caret data-type="line" class="caret linetype">
+        <shape id="line-icon"></shape>
+      </caret>
+      <caret data-type="block" class="caret blocktype">
+        <shape id="block-icon"></shape>
+      </caret>
+      <caret data-type="box" class="caret boxtype">
+        <shape id="box-icon"></shape>
+      </caret>
     </div>
     
 
