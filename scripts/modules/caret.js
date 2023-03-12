@@ -1,7 +1,7 @@
-import config from "./config.js";
+import Config from "./config.js";
 
 function addCaretTo(letter) {
-	letter.setAttribute("id", config.caret.type);
+	letter.setAttribute("id", Config.caret.type);
 }
 
 function removeCaretFrom(letter) {

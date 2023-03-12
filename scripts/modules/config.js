@@ -1,51 +1,55 @@
 import * as Constants from "./constants.js";
 
-const config = {
-  
-  startedtyping: false,
-  
-  timer: true, // live timer for timed tests
-
-  warning: {
-    capslock: false,
-    outoffocus: false,
+const Config = {
+  teststate: {
+    istyping: false,
+    completed: false,
+    notcompleted: true,
   },
-
-  endwith_space: false,
-
-  // use opposite shift keys for shifting, using an incorrect one will count as
-  // an error, ignore B, Y, ^
-  oppositeshift: false,
-
-  highlight: "word", // off | letter | word
-  fliptextcolor: false, // brightness of typed texts and upcoming future texts
+  warning: {
+    capslock: false, // warn the user their capslock is on
+    outoffocus: false, // warn the user the test area is out of focus
+  },
+  testendwithspace: false, // user will have to hit space after typing last word to end test
+  oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
 
   // difficulty:
-  //    - easy is the classic type test experience
-  //    - medium fails the test if user submits an incorrect word
-  //    - hard fails the test if user hit a single incorrect key
-  difficulty: "easy", // easy | medium | hard
-
+  //    - classic is normal typing test experience
+  //    - expert fails the test if user submits an incorrect word
+  //    - master fails the test if user types a single incorrect letter
+  difficulty: "classic", // classic | expert | master
+  
+  // confidence:
+  //    - pro mode will not allow user to go back to previous words to fix errors
+  //    - max mode will not allow backspace at all to fix errors
+  confidence: "off", // off | pro | max
+  
   // if enabled, allow user to delete any word, even if it was typed correctly
-  backspace: true, // backspace | opt/alt/ctrl + backspace | meta + backspace
-
-  error: {
-    forgive: true,
-    insert: false,
-    stop: false, // stop on error (there will be different behaviour for letter & word mode)
+  backspace: {
+    allowed: true, // backspace (classic backspacing)
+    modifier: {
+       alt: true, //    alt + backspace
+      ctrl: true, //  ctrl + backspace
+      meta: false, // mata + backspace
+    },
   },
-
+  error: {
+    stop: "off", // off | letter | word
+    insert: true, // insert errored letter
+    // forgive: true, // ignore errors
+  },
   caret: {
     type: "line", // off, line, underline, box, block
     blink: true, 
     smooth: false,
   },
-  
   sentence: {
     whitespace: Constants.whitespace.space, // space/dot
+    highlight: "word", // off | letter | word
+    fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
-      length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix
       count: 15,
+      length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
     },
     include: {
       digits: false, // include digits along with words
@@ -62,14 +66,9 @@ const config = {
     keyboard: true, // static, react, next
   },
   keyboard: {
+    emulate: false, // emulate other keyboard layouts
     layout: "qwerty", // keyboard layout
     language: "english",
-
-    // evt.code tells us which physcial key is pressed
-    // keyboard layouts like qwerty, dvorak has different layouts for keys on the physical keyboard
-    // if emulate is enabled then you need to map evt.code with evt.key for layout choosen
-    // i don't know how to explain it right now but i have understood it subconsciously
-    emulate: false, 
   },
   sound: {
     play: "off", // off, nk creams, typewriter, hitmarker
@@ -90,4 +89,4 @@ const config = {
   },
 };
 
-export default config;
+export default Config;

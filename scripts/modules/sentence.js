@@ -1,4 +1,4 @@
-import config from "./config.js";
+import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Elements from "./elements.js";
 import * as Constants from "./constants.js"
@@ -151,7 +151,7 @@ class Sentence {
   }
 
   addCaretToActiveLetter() {
-    this.activeLetter.id = config.caret.type;
+    this.activeLetter.id = Config.caret.type;
   }
   removeCaretFromActiveLetter() {
     this.activeLetter.id = "";

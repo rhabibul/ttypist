@@ -1,4 +1,4 @@
-import config from "./config.js";
+import Config from "./config.js";
 import { test } from "../main.js";
 import * as Elements from "./elements.js";
 import * as Constants from "./constants.js"
@@ -12,13 +12,13 @@ function updatewhitespace(evt) {
   if ( this.id == "ws_active" ) return;
 
   if ( this.classList.contains("ws_space") ) {
-    config.sentence.whitespace = Constants.whitespace.space;
+    Config.sentence.whitespace = Constants.whitespace.space;
     Elements.ws_space.id = "ws_active";
     Elements.ws_dot.id = "";
   } else {
     Elements.ws_dot.id = "ws_active";
     Elements.ws_space.id = "";
-    config.sentence.whitespace = Constants.whitespace.dot;
+    Config.sentence.whitespace = Constants.whitespace.dot;
   }
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
@@ -27,10 +27,10 @@ function updatewhitespace(evt) {
 
     if ( letter.classList.contains("whitespace") ) {
 
-      if ( config.sentence.whitespace == Constants.whitespace.space ) {  
-        letter.innerHTML = `${config.sentence.whitespace}`;
+      if ( Config.sentence.whitespace == Constants.whitespace.space ) {  
+        letter.innerHTML = `${Config.sentence.whitespace}`;
       } else {
-        letter.innerHTML = `<span id="whitespace-dot">${config.sentence.whitespace}</span>`;
+        letter.innerHTML = `<span id="whitespace-dot">${Config.sentence.whitespace}</span>`;
       }
     }
 
@@ -42,7 +42,7 @@ function updatecaret(evt) {
   evt.preventDefault();
 
   // if user clicks on same caret icon then don't do anything
-  if (this.title === config.caret.type) return;
+  if (this.title === Config.caret.type) return;
 
   for (let caret of Elements.allcarettype) {
     if (this !== caret) {
@@ -60,15 +60,15 @@ function updatecaret(evt) {
     this.style.backgroundColor = "var(--bgcolor-active)";
   }
 
-  let lastcaret = config.caret.type; // previous caret type
+  let lastcaret = Config.caret.type; // previous caret type
 
-  config.caret.type = this.title; // current caret type
+  Config.caret.type = this.title; // current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     letter.classList.remove(Constants.carettypes[lastcaret]);
     sentence.removeCaretFromActiveLetter();
 
-    letter.classList.add(Constants.carettypes[config.caret.type]);
+    letter.classList.add(Constants.carettypes[Config.caret.type]);
     sentence.addCaretToActiveLetter();
 
     Elements.inputbox.focus();
@@ -98,7 +98,6 @@ Elements.btn_restart.addEventListener('focusout', (evt) => {
 
 Elements.ws_dot.addEventListener('click',   updatewhitespace);
 Elements.ws_space.addEventListener('click', updatewhitespace);
-
 
 // underline styling
 // 
