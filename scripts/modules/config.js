@@ -43,7 +43,7 @@ const Config = {
     smooth: false,
   },
   sentence: {
-    whitespace: CONST.whitespace.dot, // space/dot
+    whitespace: CONST.whitespace.space, // space/dot
     highlight: "word", // off | letter | word
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {

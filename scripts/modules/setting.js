@@ -23,7 +23,7 @@ function updatewhitespace(evt) {
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
 
-    Elements.inputbox.blur();
+    Elements.input.blur();
 
     if ( letter.classList.contains("whitespace") ) {
 
@@ -34,7 +34,7 @@ function updatewhitespace(evt) {
       }
     }
 
-    Elements.inputbox.focus();
+    Elements.input.focus();
   });
 }
 
@@ -73,7 +73,7 @@ function updatecaret(evt) {
     letter.classList.add(CONST.carettype[Config.caret.type]);
     sentence.addCaretToActiveLetter();
 
-    Elements.inputbox.focus();
+    Elements.input.focus();
   });
 
   // can add new random words and startover the test

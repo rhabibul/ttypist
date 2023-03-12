@@ -1,6 +1,6 @@
+import * as CONST from "./const.js";
 import * as Misc from "./misc.js"
 import * as Caret from "./caret.js";
-import * as CONST from "./const.js";
 import * as Element from "./element.js";
 
 import Config from "./config.js";
@@ -19,9 +19,9 @@ class Test {
     Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
 
-    Element.inputbox.addEventListener('keydown', handlekeydown, false);
+    Element.input.addEventListener('keydown', handlekeydown, false);
+    Element.input.focus();
     Element.btn_restart.blur();
-    Element.inputbox.focus();
   }
 }
 
@@ -34,10 +34,10 @@ function handlekeydown(evt) {
   evt.preventDefault();
 
   if ( !evt.isTrusted ) {
-    console.log("You're not human.");
-    Element.inputbox.removeEventListener("keydown", handlekeydown); // doesn't stop the autotyper from typing
-    Element.inputbox.remove(); // doesn't stop the autotyper from typing
-    return; // does not allow caret to move
+    console.log("You're not human. 🤦🏻‍♂️");
+    Element.input.removeEventListener("keydown", handlekeydown); // this doesn't stop the autotyper from typing though
+    Element.input.remove(); // this doesn't stop the autotyper from typing though
+    return; // no further processing if test is automated
   }
 
   if ( !time.started ) time.start();
@@ -45,7 +45,7 @@ function handlekeydown(evt) {
   let typedkey = evt.key;
   
   if ( typedkey === 'Tab' ) {
-    Element.inputbox.blur();
+    Element.input.blur();
     Element.btn_restart.focus();
   }
 
@@ -67,7 +67,7 @@ function handlekeydown(evt) {
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       
-      Element.inputbox.removeEventListener('keydown', handlekeydown, false);
+      Element.input.removeEventListener('keydown', handlekeydown, false);
 
       Misc.showspeed(sentence, time);
       test.start();      

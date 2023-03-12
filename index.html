@@ -42,27 +42,46 @@
       <p class="text">ttypist</p>
     </header>
     
-    <!-- stats: speed -->
     <div class="speed">0wpm</div>
 
-    <!-- container: texts to type -->
-    <div class="engine">
-      <div id="sentence"></div>
-      <input id="inputbox" autocorrect="off" autocomplete="off" spellcheck="false" />
-    </div>
+    
+    <ttypist>
+      <sentence>
+        <word>
+          <letter>H</letter>
+          <letter>a</letter>
+          <letter>b</letter>
+          <letter>i</letter>
+          <letter>b</letter>
+          <letter>u</letter>
+          <letter>l</letter>
+          <letter>&nbsp;</letter>
+        </word>
+        <word>
+          <letter>R</letter>
+          <letter>a</letter>
+          <letter>h</letter>
+          <letter>m</letter>
+          <letter>a</letter>
+          <letter>n</letter>
+          <letter>&nbsp;</letter>
+        </word>
+      </sentence>
+      <input tabindex="0" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" list="autocompleteOff" />
+    </ttypist>
 
-    <!-- setting: restart test -->
+    <keyboard></keyboard>
+
+
     <button class="restart">
       <i class="fa-sharp fa-solid fa-rotate-left"></i>
     </button>
 
-    <!-- setting: whitespace -->
     <div class="ws">
       <span class="ws_space" id="ws_active">space</span>
       <span class="ws_dot">dot</span>
     </div>
     
-    <!-- setting: carettype -->
     <div class="carettypes">
       <span class="caret offtype" title="off">
         <icon id="off-icon"> <i style="color: #6b6b6b;" class="fa-sharp fa-solid fa-ban"></i> </icon>
@@ -81,21 +100,16 @@
       </span>
     </div>
     
-    <keyboard>
-      <!-- will be implemented using svg in future versions of ttypist app -->
-    </keyboard>
 
     <div class="contactme">
-      <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-solid fa-code"></i> </a>
-      <a target="_blank" href="https://www.facebook.com/ttypist/"> <i class="fa-brands fa-facebook-square"></i> </a>
-      <a target="_blank" href="https://www.linkedin.com/in/ttypist/"> <i class="fa-brands fa-linkedin"></i> </a>
-      <a target="_blank" href="https://twitter.com/lgoncf/"> <i class="fa-brands fa-twitter"></i> </a>
-      <a target="_blank" href="https://instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
-      <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./assets/image/codeforces.svg" id="codeforces"> </a>
       <a target="_blank" href="https://atcoder.jp/users/ttypist"> <img src="./assets/image/atcoder.svg" id="atcoder"> </a>
+      <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./assets/image/codeforces.svg" id="codeforces"> </a>
+      <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
+      <a target="_blank" href="https://www.linkedin.com/in/ttypist/"> <i class="fa-brands fa-linkedin"></i> </a>
+      <a target="_blank" href="https://www.facebook.com/ttypist/"> <i class="fa-brands fa-facebook-square"></i> </a>
     </div>
 
-    <p class="developer">Habibul Rahman</p>
+    <p class="developer-name">@habibul</p>
 
     <!-- Scripts -->
     <script type="module" src="./scripts/main.js"></script>

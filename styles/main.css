@@ -9,9 +9,11 @@
     caret types */
   --line-gap: 4px;
 
-  --bgcolor-active: #ffffb8;
+  --bgcolor-active: #cef0ff;
   --bgcolor-settingboxes: #f5f5f5;
-  --settings-caret-color: #000000;
+  --settings-caret-color: #0650a6;
+
+  /* color: #0969da; */
 
   --word-active: black;
 
@@ -20,7 +22,7 @@
   --text-font-weight: 400;
   --text-font-family: var(--font-robotomono);
 
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white;
   
   --caret-blink-delay: 2s;
@@ -61,51 +63,47 @@ body {
   color: red;
 }
 
-.engine {
-  max-width: 800px;
+ttypist {
+  max-width: 750px;
   margin-left: 10px; /* remove later */
 }
+sentence {
+  display: flex; /* these keeps all the words in a single line */
+  align-items: flex-start; /* determines how the items as a whole are aligned within the container */
+  align-content: flex-start; /* determines the spacing between lines */
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
-.engine #inputbox {
-  display: block;
+  row-gap: var(--line-gap);
+  background-color: var(--caret-color-hidden);
+}
+word {
+  color: var(--text-color);
+  background-color: var(--caret-color-hidden);
+
+  display: flex; /* these fixes the extra spaces between the letters of the words */
+  justify-content: flex-start;
+}
+letter {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
+  font-family: var(--text-font-family);
+}
+ttypist > input {
   margin: 0px;
   padding: 0px;
+  display: block;
   width: 1px;
   height: 1px;
   border: none;
   outline: none;
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
-}
-
-.engine #sentence {
-  /* these keep the words in a single line */
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--line-gap);
-  align-content: flex-start;
-  justify-content: flex-start;
-
-  background-color: var(--caret-color-hidden);
-}
-
-word {
-  color: var(--text-color);
-  background-color: var(--caret-color-hidden);
-
-  /* these fixes the extra spaces between the letters of the words */
-  display: flex;
-  justify-content: flex-start;
-}
-
-letter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: var(--text-font-size);
-  font-weight: var(--text-font-weight);
-  font-family: var(--text-font-family);
 }
 
 .speed {
@@ -164,22 +162,22 @@ letter {
   background-color: var(--bgcolor-settingboxes);
 }
 #ws_active {
-  color: darkgoldenrod;
-  background-color: var(--bgcolor-active);
+  color: #0969da;
+  background-color: #cef0ff;
 }
 
 .contactme {
-  transition: 0.35s all ease-out;
-  background-color: var(--bgcolor-settingboxes);
+  width: 280px;
+  
   border-radius: 7px;
-  width: 320px;
+  background-color: var(--bgcolor-settingboxes);
 
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 .contactme i {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   color: black;
 }
 .contactme a {
@@ -189,19 +187,19 @@ letter {
   text-decoration: none;
 }
 .contactme a:hover i {
-  color: #4e4e4e;
+  color: red;
 }
 img#codeforces {
-  width: 23px;
-  height: 23px;
-}
-img#atcoder {
   width: 27px;
   height: 27px;
 }
+img#atcoder {
+  width: 30px;
+  height: 30px;
+}
 
 header {  
-  border-bottom: 1px dashed #444444;
+  border-bottom: 1px dashed #dadada;
   padding-bottom: 10px;
 
   width: 100%;
@@ -210,39 +208,39 @@ header {
   align-items: center;
 }
 header i.fa-keyboard {
-  color: rgb(130, 130, 130);
+  color: #ff7d7d;
   font-size: 2rem;
 }
 header .text {
-  color: rgb(70, 70, 70);
+  color: #ff1313;
   margin-left: 5px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 500;
   font-family: var(--text-font-family);
   transform: translateY(-1px);
 }
-.developer {
-  color: #0969da;
-  background-color: #ddf4ff;
+.developer-name {
+  color: #ff0000;
+  background-color: #ffe4e4;
 
-  border-radius: 30px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   
-  width: 135px;
-  height: 25px;
-  font-size: 0.9rem;
+  border-radius: 30px;
+  width: 88px;
+  height: 30px;
+  font-size: 1rem;
   font-weight: 500;
   font-family: var(--font-nunito);
-  transition: 0.2s all ease-out;
 }
 
 #whitespace-dot {
   padding: 0px 4px;
   
-  color: #979797;
+  color: #878787;
+
   font-weight: 900;
   font-size: var(--text-font-size);
   font-family: var(--text-font-family);

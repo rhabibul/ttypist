@@ -21,11 +21,11 @@ export default class Sentence {
     this.resetActiveLetterIndex();
     this.#words = Misc.getRandomWords();
 
-    Element.inputbox.value = "";
-    Element.wordcontainer.innerHTML = "";
+    Element.input.value = "";
+    Element.sentence.innerHTML = "";
   
     for (let word of this.#words) {
-      Element.wordcontainer.insertAdjacentElement("beforeend", word);
+      Element.sentence.insertAdjacentElement("beforeend", word);
     }
   }
   
