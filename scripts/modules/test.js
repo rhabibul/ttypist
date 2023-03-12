@@ -1,12 +1,12 @@
 import * as Misc from "./misc.js"
 import * as Caret from "./caret.js";
-import * as Elements from "./elements.js";
-import * as Constants from "./constants.js";
+import * as CONST from "./const.js";
+import * as Element from "./element.js";
 
 import Config from "./config.js";
 import Sentence from "./sentence.js";
 import { test } from "../main.js";
-import { Time, History } from "./stats.js";
+import { Time, History } from "./stat.js";
 
 class Test {
 
@@ -19,9 +19,9 @@ class Test {
     Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
 
-    Elements.inputbox.addEventListener('keydown', handlekeydown, false);
-    Elements.btn_restart.blur();
-    Elements.inputbox.focus();
+    Element.inputbox.addEventListener('keydown', handlekeydown, false);
+    Element.btn_restart.blur();
+    Element.inputbox.focus();
   }
 }
 
@@ -30,11 +30,14 @@ let history = new History();
 let sentence = new Sentence();
 
 function handlekeydown(evt) {
+
   evt.preventDefault();
 
   if ( !evt.isTrusted ) {
-    console.error("you're not human");
-    return;
+    console.log("You're not human.");
+    Element.inputbox.removeEventListener("keydown", handlekeydown); // doesn't stop the autotyper from typing
+    Element.inputbox.remove(); // doesn't stop the autotyper from typing
+    return; // does not allow caret to move
   }
 
   if ( !time.started ) time.start();
@@ -42,8 +45,8 @@ function handlekeydown(evt) {
   let typedkey = evt.key;
   
   if ( typedkey === 'Tab' ) {
-    Elements.inputbox.blur();
-    Elements.btn_restart.focus();
+    Element.inputbox.blur();
+    Element.btn_restart.focus();
   }
 
   if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === " ") ) {
@@ -64,7 +67,7 @@ function handlekeydown(evt) {
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       
-      Elements.inputbox.removeEventListener('keydown', handlekeydown, false);
+      Element.inputbox.removeEventListener('keydown', handlekeydown, false);
 
       Misc.showspeed(sentence, time);
       test.start();      
@@ -123,7 +126,7 @@ function handlekeydown(evt) {
     }
     
   } else {
-    if (!Constants.invisibles.includes(typedkey)) {
+    if (!CONST.invisible.includes(typedkey)) {
       sentence.activeWord.classList.add("error");
     }
   }

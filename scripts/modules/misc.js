@@ -1,12 +1,12 @@
-import Config from "./config.js";
+import * as CONST from "./const.js";
+import * as Element from "./element.js"
 import w3k from "./w3k.js";
-import * as Elements from "./elements.js"
-import * as Constants from "./constants.js";
+import Config from "./config.js";
 
 function charcode(char) {
   
-  if ( char === Constants.whitespace.space ) return 160;
-  if ( char === Constants.whitespace.dot) return 11825;
+  if ( char === CONST.whitespace.space ) return 160;
+  if ( char === CONST.whitespace.dot) return 11825;
 
   return char.charCodeAt(0);
 }
@@ -15,11 +15,11 @@ function showspeed(sentence, time) {
 
   const wpm = (((sentence.letterCount - 1) / 5) / (time.duration)) * 60;
 
-  Elements.speedtag.style.color = "deeppink";
-  Elements.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
+  Element.speedtag.style.color = "deeppink";
+  Element.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
   
   setTimeout(() => {
-    Elements.speedtag.style.color = "lightgray";
+    Element.speedtag.style.color = "lightgray";
   }, 2500);
 }
 
@@ -50,19 +50,23 @@ function convertToWordElements(wordsInStringForm) {
 
       letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
-      letter.classList.add(Constants.carettypes[Config.caret.type]);
+      letter.classList.add(CONST.carettype[Config.caret.type]);
+      letter.setAttribute("unselectable", "on");
       
       word.appendChild(letter);
     }
 
-    letter = document.createElement("letter"); // for letter with space/dot
-    letter.classList.add("whitespace"); // used when changing whitespace (space/dot)
-    if ( Config.sentence.whitespace == Constants.whitespace.space ) {
+    // letter with whitespace
+    letter = document.createElement("letter");
+    letter.classList.add(CONST.carettype[Config.caret.type]);
+    letter.classList.add("whitespace");
+    letter.setAttribute("unselectable", "on");
+
+    if ( Config.sentence.whitespace == CONST.whitespace.space ) {
       letter.innerHTML = `${Config.sentence.whitespace}`;
     } else {
       letter.innerHTML = `<span id="whitespace-dot" style="width: 100%; height: 100%">${Config.sentence.whitespace}</span>`;
     }
-    letter.classList.add(Constants.carettypes[Config.caret.type]);
     word.appendChild(letter);
 
     wordelements[i] = word;
@@ -77,7 +81,7 @@ function getsentence() {
 	for ( let word of words ) {
 		let letters = word.children;
 		for ( let letter of letters ) {
-			if ( letter.textContent.charCodeAt(0) === 160 ) {
+			if ( letter.textContent.charCodeAt(0) === 160 || letter.textContent.charCodeAt(0) === 11825 ) {
 				s += " ";
 			} else {
 				s += letter.textContent;
@@ -93,8 +97,8 @@ function automatetyping(keystroke_time) {
 	let s = getsentence();
 
 	id = setInterval(() => {
-		Elements.inputbox.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
-		Elements.inputbox.value += s[i];
+		Element.inputbox.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
+		Element.inputbox.value += s[i];
 		++i;
 		if ( i == s.length - 1 ) {
 			clearInterval(id);

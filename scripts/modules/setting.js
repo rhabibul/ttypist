@@ -1,7 +1,7 @@
 import Config from "./config.js";
 import { test } from "../main.js";
-import * as Elements from "./elements.js";
-import * as Constants from "./constants.js"
+import * as Elements from "./element.js";
+import * as CONST from "./const.js"
 import { time, history, sentence } from "./test.js";
 
 
@@ -12,13 +12,13 @@ function updatewhitespace(evt) {
   if ( this.id == "ws_active" ) return;
 
   if ( this.classList.contains("ws_space") ) {
-    Config.sentence.whitespace = Constants.whitespace.space;
+    Config.sentence.whitespace = CONST.whitespace.space;
     Elements.ws_space.id = "ws_active";
     Elements.ws_dot.id = "";
   } else {
     Elements.ws_dot.id = "ws_active";
     Elements.ws_space.id = "";
-    Config.sentence.whitespace = Constants.whitespace.dot;
+    Config.sentence.whitespace = CONST.whitespace.dot;
   }
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
@@ -27,7 +27,7 @@ function updatewhitespace(evt) {
 
     if ( letter.classList.contains("whitespace") ) {
 
-      if ( Config.sentence.whitespace == Constants.whitespace.space ) {  
+      if ( Config.sentence.whitespace == CONST.whitespace.space ) {  
         letter.innerHTML = `${Config.sentence.whitespace}`;
       } else {
         letter.innerHTML = `<span id="whitespace-dot">${Config.sentence.whitespace}</span>`;
@@ -65,10 +65,12 @@ function updatecaret(evt) {
   Config.caret.type = this.title; // current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    letter.classList.remove(Constants.carettypes[lastcaret]);
+    // remove previous caret's styling from all letters
+    letter.classList.remove(CONST.carettype[lastcaret]);
     sentence.removeCaretFromActiveLetter();
-
-    letter.classList.add(Constants.carettypes[Config.caret.type]);
+    
+    // add new caret's styling to all letters
+    letter.classList.add(CONST.carettype[Config.caret.type]);
     sentence.addCaretToActiveLetter();
 
     Elements.inputbox.focus();

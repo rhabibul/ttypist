@@ -1,12 +1,11 @@
 import Config from "./config.js";
 import * as Misc from "./misc.js";
-import * as Elements from "./elements.js";
-import * as Constants from "./constants.js"
+import * as Element from "./element.js";
 
 // Task of sentence object:
 // storing all the word & letter elements and also keeps track of indexes of
 // active word and active letter.
-class Sentence {
+export default class Sentence {
   #words; // array of word elements
   #currentWordIndex; // stores index for current word which the user is typing
   #currentLetterIndex; // stores the index for current letter of current word
@@ -22,11 +21,11 @@ class Sentence {
     this.resetActiveLetterIndex();
     this.#words = Misc.getRandomWords();
 
-    Elements.inputbox.value = "";
-    Elements.wordcontainer.innerHTML = "";
+    Element.inputbox.value = "";
+    Element.wordcontainer.innerHTML = "";
   
     for (let word of this.#words) {
-      Elements.wordcontainer.insertAdjacentElement("beforeend", word);
+      Element.wordcontainer.insertAdjacentElement("beforeend", word);
     }
   }
   
@@ -157,5 +156,3 @@ class Sentence {
     this.activeLetter.id = "";
   }
 }
-
-export default Sentence;

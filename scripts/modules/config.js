@@ -1,17 +1,16 @@
-import * as Constants from "./constants.js";
+import * as CONST from "./const.js";
 
 const Config = {
-  teststate: {
+  ttypist: {
     istyping: false,
-    completed: false,
-    notcompleted: true,
+    finishedtyping: false,
   },
   warning: {
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
-  testendwithspace: false, // user will have to hit space after typing last word to end test
   oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
+  testendswithspace: false, // user will have to hit space after typing last word to end test
 
   // difficulty:
   //    - classic is normal typing test experience
@@ -26,25 +25,25 @@ const Config = {
   
   // if enabled, allow user to delete any word, even if it was typed correctly
   backspace: {
-    allowed: true, // backspace (classic backspacing)
+    allowed: true, // backspace (single letter deletion)
     modifier: {
-       alt: true, //    alt + backspace
-      ctrl: true, //  ctrl + backspace
+       alt: true,  //  alt + backspace
+      ctrl: true,  // ctrl + backspace
       meta: false, // mata + backspace
     },
   },
   error: {
     stop: "off", // off | letter | word
-    insert: true, // insert errored letter
-    // forgive: true, // ignore errors
+    insert: true, // insert incorrect letter
+    forgive: true, // delete incorrect letters when user types the correct letter
   },
   caret: {
     type: "line", // off, line, underline, box, block
-    blink: true, 
+    blink: true,
     smooth: false,
   },
   sentence: {
-    whitespace: Constants.whitespace.space, // space/dot
+    whitespace: CONST.whitespace.dot, // space/dot
     highlight: "word", // off | letter | word
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {

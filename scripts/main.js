@@ -1,12 +1,8 @@
 import * as Misc from "./modules/misc.js";
-import * as Elements from "./modules/elements.js"
-import * as Constants from "./modules/constants.js";
-
-import Test, { sentence } from "./modules/test.js";
-import Config from "./modules/config.js";
+import Test from "./modules/test.js";
 
 let test = new Test();
 test.start();
-// Misc.automatetyping(120);
+// Misc.automatetyping(61); // 200wpm
 
 export { test };

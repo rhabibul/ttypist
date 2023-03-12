@@ -1,4 +1,3 @@
-
 /**
  * grosswords (typed words):
  * This is the total number of words typed by the candidate; it includes 

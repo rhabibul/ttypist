@@ -15,12 +15,12 @@
 
   --word-active: black;
 
-  --text-color: rgba(0, 0, 0, 0.65);
-  --text-font-size: 1.25rem;
+  --text-color: rgba(0, 0, 0, 0.5);
+  --text-font-size: 1.15rem;
   --text-font-weight: 400;
   --text-font-family: var(--font-robotomono);
 
-  --caret-color: red;
+  --caret-color: black;
   --caret-color-hidden: white;
   
   --caret-blink-delay: 2s;
