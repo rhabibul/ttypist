@@ -6,18 +6,19 @@ import { time, history, sentence } from "./test.js";
 
 
 function updatewhitespace(evt) {
+
   evt.preventDefault();
 
   // if user clicks on same whitespace button then don't do anything
-  if ( this.id == "ws_active" ) return;
+  if ( this.id == "chosen" ) return;
 
-  if ( this.classList.contains("ws_space") ) {
+  if ( this.dataset.whitespace === "space" ) {
+    Element.setting.whitespace.space.id = "chosen";
+    Element.setting.whitespace.dot.id = "";
     Config.sentence.whitespace = CONST.whitespace.space;
-    Element.ws_space.id = "activebox";
-    Element.ws_dot.id = "";
   } else {
-    Element.ws_dot.id = "activebox";
-    Element.ws_space.id = "";
+    Element.setting.whitespace.dot.id = "chosen";
+    Element.setting.whitespace.space.id = "";
     Config.sentence.whitespace = CONST.whitespace.dot;
   }
 
@@ -34,62 +35,114 @@ function updatewhitespace(evt) {
   });
 }
 
+
+
 function updatecaret(evt) {
 
   evt.preventDefault();
+  if (this.dataset.type === Config.caret.type) return;
 
-  const caret = this; // caret which has been choosen
   const prevcaret = Config.caret.type; // save previous caret type
-  
-  // if user clicks on same caret icon then don't do anything
-  if (caret.dataset.type === Config.caret.type) return;
+  const thiscaret = this; // caret which has been choosen
 
-  // update caret type on ui
-  for ( const other of Element.carettype ) {
-    // todo
-    //   - complete this updatecaret function (ui part)
-    //   - refactored css variable names
-    //   - modify CONST.carettype object & addition of id/class on all letters
-    //   - when user changes caret
-    //   - rename element objects in element.js
+  const computedvalues = getComputedStyle(Element.root);
+
+  const active_color = computedvalues.getPropertyValue("--setting-active-color");
+  const inactive_color = computedvalues.getPropertyValue("--setting-inactive-color");
+  
+  const active_bgcolor = computedvalues.getPropertyValue("--setting-active-bgcolor");
+  const inactive_bgcolor = computedvalues.getPropertyValue("--setting-inactive-bgcolor");
+
+  
+  function colorshape(caret, active) {
+
+    const shape = document.querySelector(`caret.${caret.dataset.type} shape`);
+
+    if ( caret.dataset.type === "line" || caret.dataset.type === "block" ) {
+      if ( active ) {
+        shape.style.backgroundColor = active_color;
+      } else {
+        shape.style.backgroundColor = inactive_color;
+      }
+    } else if ( caret.dataset.type === "underline" ) {
+      if ( active ) {
+        shape.style.backgroundColor = active_bgcolor;
+        shape.style.borderBottomColor = active_color;
+      } else {
+        shape.style.backgroundColor = inactive_bgcolor;
+        shape.style.borderBottomColor = inactive_color;
+      }
+    } else if ( caret.dataset.type === "box" ) {
+      if ( active ) {
+        shape.style.borderColor = active_color;
+        shape.style.backgroundColor = active_bgcolor;
+      } else {
+        shape.style.borderColor = inactive_color;
+        shape.style.backgroundColor = inactive_bgcolor;
+      }
+    } else {
+      const i = document.querySelector(`caret.off shape > i.fa-ban`);
+      if ( active ) {
+        i.style.color = "#ff0000";
+        caret.style.backgroundColor = "#ffe4e4";
+      } else {
+        i.style.color = "darkgray";
+        caret.style.backgroundColor = inactive_bgcolor;
+      }
+    }
   }
-  
-  Config.caret.type = caret.dataset.type; // update current caret type
 
+  thiscaret.style.backgroundColor = active_bgcolor;
+  colorshape(thiscaret, true);
+  
+  // update caret type on ui
+  for ( const [_, othercaret] of Object.entries(Element.setting.caret) ) {
+    if ( thiscaret !== othercaret ) {
+      othercaret.style.backgroundColor = inactive_bgcolor;
+      colorshape(othercaret, false);
+    }
+  }
+
+  // update current caret type in config
+  Config.caret.type = thiscaret.dataset.type;
+
+  // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    letter.classList.remove(CONST.carettype[prevcaret]); // remove previous caret's styling from all letters
+    letter.classList.remove(CONST.caret[prevcaret]); // remove previous caret's styling from all letters
     sentence.removeCaretFromActiveLetter();
     
-    letter.classList.add(CONST.carettype[Config.caret.type]); // add new caret's styling to all letters
+    letter.classList.add(CONST.caret[Config.caret.type]); // add new caret's styling to all letters
     sentence.addCaretToActiveLetter();
 
     Element.input.focus();
   });
-
-  // can add new random words and startover the test
-  // test.start(); 
 }
 
-Element.offtype.addEventListener      ("click", updatecaret);
-Element.boxtype.addEventListener      ("click", updatecaret);
-Element.linetype.addEventListener     ("click", updatecaret);
-Element.blocktype.addEventListener    ("click", updatecaret);
-Element.underlinetype.addEventListener("click", updatecaret);
+Element.setting.caret.off.addEventListener      ("click", updatecaret);
+Element.setting.caret.box.addEventListener      ("click", updatecaret);
+Element.setting.caret.line.addEventListener     ("click", updatecaret);
+Element.setting.caret.block.addEventListener    ("click", updatecaret);
+Element.setting.caret.underline.addEventListener("click", updatecaret);
 
-Element.restart.addEventListener('click', (evt) => { test.start(); });
+// select line caret as the default caret
+Element.setting.caret.line.dispatchEvent(new Event('click'));
 
-Element.restart.addEventListener('focus', (evt) => { 
-  Element.restart.style.border = "1px solid lightgray"
-  Element.icon_restart.style.color = "black"
+Element.setting.restart.button.addEventListener('click', (evt) => { test.start(); });
+
+Element.setting.restart.button.addEventListener('focus', (evt) => { 
+  evt.preventDefault();
+  Element.setting.restart.button.style.border = "1px solid lightgray"
+  Element.setting.restart.button_icon.style.color = "black"
 });
 
-Element.restart.addEventListener('focusout', (evt) => { 
-  Element.restart.style.border = ""
-  Element.icon_restart.style.color = "#6b6b6b"
+Element.setting.restart.button.addEventListener('focusout', (evt) => { 
+  evt.preventDefault();
+  Element.setting.restart.button.style.border = ""
+  Element.setting.restart.button_icon.style.color = "#6b6b6b"
 });
 
-Element.ws_dot.addEventListener('click',   updatewhitespace);
-Element.ws_space.addEventListener('click', updatewhitespace);
+Element.setting.whitespace.dot.addEventListener('click',   updatewhitespace);
+Element.setting.whitespace.space.addEventListener('click', updatewhitespace);
 
 // underline styling
 // 

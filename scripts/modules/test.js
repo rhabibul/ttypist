@@ -21,7 +21,7 @@ class Test {
     
     Element.input.addEventListener('keydown', handlekeydown, false);
     Element.input.focus();
-    Element.restart.blur();
+    Element.setting.restart.button.blur();
   }
 }
 
@@ -46,7 +46,7 @@ function handlekeydown(evt) {
   
   if ( typedkey === 'Tab' ) {
     Element.input.blur();
-    Element.restart.focus();
+    Element.setting.restart.button.focus();
   }
 
   if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === " ") ) {

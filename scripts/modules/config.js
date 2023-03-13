@@ -38,7 +38,7 @@ const Config = {
     forgive: true, // delete incorrect letters when user types the correct letter
   },
   caret: {
-    type: "line", // off, line, underline, box, block
+    type: "off", // off, line, underline, box, block
     blink: true,
     smooth: false,
   },
@@ -47,7 +47,7 @@ const Config = {
     highlight: "word", // off | letter | word
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
-      count: 20,
+      count: 15,
       length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
     },
     include: {

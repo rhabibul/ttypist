@@ -1,3 +1,15 @@
+:root {
+  --caret-color: black;
+  --caret-color-hidden: white;
+  
+  --caret-blink-delay: 2s;
+  --caret-blink-duration: 1.15s;
+
+  --box-caret-width: 0.5px;
+  --line-caret-width: 1px;
+  --underline-caret-width: 2px;
+}
+
 .offtype {
   border: none; /* turnoff caret */
 }
@@ -108,7 +120,7 @@
 }
 
 
-/*--------------- select caret settings ---------------*/
+/*--------------- select caret setting ---------------*/
 carettype {  
   width: 180px; 
   display: flex;
@@ -125,12 +137,8 @@ caret {
   align-items: center;
   justify-content: center;
   
-  border-radius: var(--setting-box-radius);
-  background-color: var(--bgcolor-settingboxes);
-}
-
-caret.line {
-  background-color: var(--bgcolor-active);
+  border-radius: var(--setting-box-roundness);
+  background-color: var(--setting-inactive-bgcolor);
 }
 
 caret.off shape,
@@ -142,20 +150,23 @@ caret.underline shape {
 }
 caret.line shape {
   width: 1px;
-  background-color: var(--settings-caret-color);
+  background-color: var(--setting-caret-color);
 }
 caret.block shape {
   width: 10px;
-  background-color: var(--settings-caret-color);
+  background-color: var(--setting-caret-color);
 }
 caret.underline shape {
   width: 12px;
   display: block;
-  border-bottom: 1px solid var(--settings-caret-color);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--setting-caret-color);
 }
 caret.box shape {
   width: 10px;
-  border: 1px solid var(--settings-caret-color);
+  border: 1px solid var(--setting-caret-color);
 }
 
 caret.off shape {

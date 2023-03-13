@@ -5,12 +5,12 @@ const invisible = [
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
-const carettype = {
-  off:        "offtype",
-  line:       "linetype",
-  underline:  "underlinetype",
-  box:        "boxtype",
-  block:      "blocktype",
+const caret = {
+  off:       "offtype",
+  line:      "linetype",
+  underline: "underlinetype",
+  box:       "boxtype",
+  block:     "blocktype",
 };
 
 // whitespace unicode characters
@@ -29,4 +29,4 @@ const specialsymbols = [
   "[", "]", "'", '"', "/", "\\", "|", "?", ";", ":", ">", "<",
 ]
 
-export { whitespace, carettype, invisible, specialsymbols };
+export { whitespace, caret, invisible, specialsymbols };

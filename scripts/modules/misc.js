@@ -50,14 +50,14 @@ function convertToWordElements(wordsInStringForm) {
 
       letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
-      letter.classList.add(CONST.carettype[Config.caret.type]);
+      letter.classList.add(CONST.caret[Config.caret.type]);
       
       word.appendChild(letter);
     }
 
     // letter with whitespace
     letter = document.createElement("letter");
-    letter.classList.add(CONST.carettype[Config.caret.type]);
+    letter.classList.add(CONST.caret[Config.caret.type]);
     letter.classList.add("whitespace");
 
     if ( Config.sentence.whitespace == CONST.whitespace.space ) {
@@ -95,8 +95,8 @@ function automatetyping(keystroke_time) {
 	let s = getsentence();
 
 	id = setInterval(() => {
-		Element.inputbox.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
-		Element.inputbox.value += s[i];
+		Element.input.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
+		Element.input.value += s[i];
 		++i;
 		if ( i == s.length - 1 ) {
 			clearInterval(id);
