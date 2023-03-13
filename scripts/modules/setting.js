@@ -86,7 +86,7 @@ function updatecaret(evt) {
         i.style.color = "#ff0000";
         caret.style.backgroundColor = "#ffe4e4";
       } else {
-        i.style.color = "darkgray";
+        i.style.color = "#3b3b3b";
         caret.style.backgroundColor = inactive_bgcolor;
       }
     }

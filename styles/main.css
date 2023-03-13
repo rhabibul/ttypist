@@ -1,35 +1,3 @@
-:root {
-  --fontfamily-nunito: 'Nunito', sans-serif;;
-  --fontfamily-robotomono: "Roboto Mono", monospace;
-  --fontfamily-monasans: "";  /* coming soon */
-  --fontfamily-hubotsans: ""; /* coming soon */
-}
-
-:root {
-  /* adjust this line gap according to caret type (or better find some better
-    solution for fixed width line gap even if user switches between differnet 
-    caret types */
-  --line-gap: 4px;
-
-  --word-active: black;
-
-  --textcolor: #00000080;
-  --textfont-size: 1.15rem;
-  --textfont-weight: 400;
-  --textfont-family: var(--fontfamily-robotomono);
-}
-
-:root {
-  --setting-caret-color: black;
-  --setting-box-roundness: 2px;
-
-  --setting-active-color: #e17c01;
-  --setting-active-bgcolor: #ffffc9;
-
-  --setting-inactive-color: #000000;
-  --setting-inactive-bgcolor: #f5f5f5;
-}
-
 *,
 *::after,
 *::before {
@@ -44,6 +12,22 @@ body {
   height: 100%;
 }
 
+:root {
+  --fontfamily-nunito: 'Nunito', sans-serif;;
+  --fontfamily-monasans: "";
+  --fontfamily-hubotsans: "";
+  --fontfamily-robotomono: "Roboto Mono", monospace;
+  
+  --line-gap: 4px; /* adjust this line gap according to caret type using javascript */
+
+  --word-active: black;
+
+  --textcolor: #00000080;
+  --textfont-size: 1.15rem;
+  --textfont-weight: 400;
+  --textfont-family: var(--fontfamily-robotomono);
+}
+
 body {
   margin-top: 15px;
 
@@ -52,19 +36,6 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
-.active {
-  color: var(--word-active);
-}
-#chosen {
-  color: var(--setting-active-color);
-  background-color: var(--setting-active-bgcolor);
-}
-
-.error {
-  color: rgb(255, 27, 27);
-}
-
 
 ttypist {
   max-width: 750px;
@@ -111,109 +82,16 @@ ttypist > input {
   background-color: var(--caret-color-hidden);
 }
 
-.speed {
-  margin-top: 20px;
-  color: gray;
-  font-weight: 400;
-  font-size: var(--textfont-size);
-  font-family: var(--textfont-family);
+.active {
+  color: var(--word-active);
 }
-.restart {
-  width: 30px;
-  height: 30px;
-
-  border: none;
-  outline: none;
-
-  font-size: 1.15rem;
-  border-radius: 3px;
-  background-color: white;
-
-  display: grid;
-  place-items: center;
+.error {
+  color: #ff2525;
 }
-.restart i {
-  color: #6b6b6b;
-  transform: translateY(1px);
+#chosen {
+  color: var(--setting-active-color);
+  background-color: var(--setting-active-bgcolor);
 }
-
-whitespace {
-  margin-top: 20px; /* --remove-- */
-
-  width: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  font-family: var(--textfont-family);
-}
-
-whitespace dot,
-whitespace space {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  color: #313131;
-  font-size: 0.9rem;
-  font-weight: 500;
-
-  padding: 3px 6px;
-  border-radius: var(--setting-box-roundness);
-}
-whitespace dot,
-whitespace space {
-  background-color: var(--setting-inactive-bgcolor);
-}
-
-.contactme {
-  width: 280px;
-  
-  border-radius: var(--setting-box-roundness);
-  background-color: var(--setting-inactive-bgcolor);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.contactme i {
-  font-size: 1.7rem;
-  color: black;
-}
-.contactme a {
-  margin-top: 5px;
-  padding: 8px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.contactme a:hover i {
-  color: red;
-}
-img#codeforces {
-  width: 27px;
-  height: 27px;
-}
-img#atcoder {
-  width: 30px;
-  height: 30px;
-}
-.developer-name {
-  color: #ff0000;
-  background-color: #ffe4e4;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  border-radius: 30px;
-  width: 88px;
-  height: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: var(--fontfamily-nunito);
-}
-
 #wdot {
   padding: 0px 4px;
   

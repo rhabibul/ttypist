@@ -1,0 +1,179 @@
+:root {
+  --setting-caret-color: black;
+  --setting-box-roundness: 2px;
+
+  --setting-active-color: #e17c01;
+  --setting-active-bgcolor: #ffffc9;
+
+  --setting-inactive-color: #000000;
+  --setting-inactive-bgcolor: #f5f5f5;
+}
+
+/**********  whitespace selection  **********/
+whitespace {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  font-family: var(--textfont-family);
+}
+
+whitespace dot,
+whitespace space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  color: #313131;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  padding: 3px 6px;
+  border-radius: var(--setting-box-roundness);
+}
+whitespace dot,
+whitespace space {
+  background-color: var(--setting-inactive-bgcolor);
+}
+
+/**********  caret type selection  **********/
+carettype {  
+  width: 180px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+caret {
+  width: 25px;
+  height: 35px;
+
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: var(--setting-box-roundness);
+  background-color: var(--setting-inactive-bgcolor);
+}
+
+caret.off shape,
+caret.box shape,
+caret.line shape,
+caret.block shape,
+caret.underline shape {
+  height: 20px;
+}
+caret.line shape {
+  width: 1px;
+  background-color: var(--setting-caret-color);
+}
+caret.block shape {
+  width: 10px;
+  background-color: var(--setting-caret-color);
+}
+caret.underline shape {
+  width: 12px;
+  display: block;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--setting-caret-color);
+}
+caret.box shape {
+  width: 10px;
+  border: 1px solid var(--setting-caret-color);
+}
+
+caret.off shape {
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+caret.off shape i {
+  color: #3b3b3b;
+  font-size: 1.22rem;
+  transform: translateY(1px);
+  transform: translateX(0.5px);
+}
+
+
+/********** restart button **********/
+button.restart {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  outline: none;
+
+  font-size: 1.15rem;
+  border-radius: 3px;
+  background-color: white;
+
+  display: grid;
+  place-items: center;
+}
+button.restart i {
+  color: #6b6b6b;
+  transform: translateY(1px);
+}
+
+/**********  temporary stylings (maybe removed later)  **********/
+.speed {
+  margin-top: 20px;
+  color: gray;
+  font-weight: 400;
+  font-size: var(--textfont-size);
+  font-family: var(--textfont-family);
+}
+.contactme {
+  width: 280px;
+  
+  border-radius: var(--setting-box-roundness);
+  background-color: var(--setting-inactive-bgcolor);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contactme i {
+  font-size: 1.7rem;
+  color: black;
+}
+.contactme a {
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.contactme a:hover i {
+  color: red;
+}
+img#codeforces {
+  width: 27px;
+  height: 27px;
+}
+img#atcoder {
+  width: 30px;
+  height: 30px;
+}
+.developer {
+  color: #ff0000;
+  background-color: #ffe4e4;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 30px;
+  width: 88px;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--fontfamily-nunito);
+}
