@@ -63,10 +63,9 @@ function convertToWordElements(wordsInStringForm) {
     if ( Config.sentence.whitespace == CONST.whitespace.space ) {
       letter.innerHTML = `${Config.sentence.whitespace}`;
     } else {
-      letter.innerHTML = `<span id="whitespace-dot" style="width: 100%; height: 100%">${Config.sentence.whitespace}</span>`;
+      letter.innerHTML = `<span id="wdot">${Config.sentence.whitespace}</span>`;
     }
     word.appendChild(letter);
-    word.style.userSelect = "none";
 
     wordelements[i] = word;
   }

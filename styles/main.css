@@ -12,8 +12,7 @@
   --bgcolor-active: #cef0ff;
   --bgcolor-settingboxes: #f5f5f5;
   --settings-caret-color: #0650a6;
-
-  /* color: #0969da; */
+  --setting-box-radius: 2px;
 
   --word-active: black;
 
@@ -62,12 +61,18 @@ body {
 .error {
   color: rgb(255, 27, 27);
 }
+#activebox {
+  color: #ee8402;
+  background-color: #ffffc9;
+}
 
 ttypist {
   max-width: 750px;
   margin: 0px 20px;
 }
 sentence {
+  user-select: none;
+
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
   align-content: flex-start; /* determines the spacing between lines */
@@ -107,7 +112,8 @@ ttypist > input {
 }
 
 .speed {
-  color: lightgray;
+  margin-top: 20px;
+  color: gray;
   font-weight: 400;
   font-size: var(--text-font-size);
   font-family: var(--text-font-family);
@@ -153,21 +159,17 @@ ttypist > input {
   font-weight: 500;
 
   padding: 3px 6px;
-  border-radius: 3px;
+  border-radius: var(--setting-box-radius);
 }
 .ws .ws_dot,
 .ws .ws_space {
   background-color: var(--bgcolor-settingboxes);
 }
-#ws_active {
-  color: #0969da;
-  background-color: #cef0ff;
-}
 
 .contactme {
   width: 280px;
   
-  border-radius: 7px;
+  border-radius: var(--setting-box-radius);
   background-color: var(--bgcolor-settingboxes);
 
   display: flex;
@@ -212,7 +214,7 @@ img#atcoder {
   font-family: var(--font-nunito);
 }
 
-#whitespace-dot {
+#wdot {
   padding: 0px 4px;
   
   color: #878787;

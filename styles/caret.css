@@ -5,7 +5,7 @@
 /*----------------- line -----------------*/
 #line {
   border-left-color: var(--caret-color);
-  animation-name: linecaret;
+  animation-name: animate-line;
 }
 .linetype {
   border-top: none;
@@ -18,7 +18,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-@keyframes linecaret {
+@keyframes animate-line {
   0%,
   50% {
     border-left-color: var(--caret-color);
@@ -32,7 +32,7 @@
 /*----------------- underline -----------------*/
 #underline {
   border-bottom-color: var(--caret-color);
-  animation-name: underlinecaret;
+  animation-name: animate-unerline;
 }
 .underlinetype {
   border-left: none;
@@ -45,7 +45,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-@keyframes underlinecaret {
+@keyframes animate-unerline {
   0%,
   50% {
     border-bottom-color: var(--caret-color);
@@ -60,7 +60,7 @@
 #block {
   color: #ffffff;
   background-color: #000000;
-  animation-name: blockcaret;
+  animation-name: animate-block;
 }
 .blocktype {
   border: none;
@@ -70,7 +70,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-@keyframes blockcaret {
+@keyframes animate-block {
   0%,
   50% {
     color: #ffffff;
@@ -86,7 +86,7 @@
 /*----------------- box -----------------*/
 #box {
   border-color: var(--caret-color);
-  animation-name: boxcaret;
+  animation-name: animate-box;
 }
 .boxtype {
   border: var(--box-caret-width) solid var(--caret-color-hidden);
@@ -96,7 +96,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-@keyframes boxcaret {
+@keyframes animate-box {
   0%,
   50% {
     border-color: var(--caret-color);
@@ -109,58 +109,56 @@
 
 
 /*--------------- select caret settings ---------------*/
-.carettypes {  
-  width: 180px;
-  
+carettype {  
+  width: 180px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.caret {
+caret {
   width: 25px;
   height: 35px;
 
   border: none;
-  border-radius: 3px;
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
+  border-radius: var(--setting-box-radius);
   background-color: var(--bgcolor-settingboxes);
 }
 
-.caret.linetype {
+caret.line {
   background-color: var(--bgcolor-active);
 }
 
-.caret #off-icon,
-.caret #box-icon,
-.caret #line-icon,
-.caret #block-icon,
-.caret #underline-icon {
+caret.off shape,
+caret.box shape,
+caret.line shape,
+caret.block shape,
+caret.underline shape {
   height: 20px;
 }
-.caret #line-icon {
+caret.line shape {
   width: 1px;
   background-color: var(--settings-caret-color);
 }
-.caret #block-icon {
+caret.block shape {
   width: 10px;
   background-color: var(--settings-caret-color);
 }
-.caret #underline-icon {
+caret.underline shape {
   width: 12px;
   display: block;
   border-bottom: 1px solid var(--settings-caret-color);
 }
-.caret #box-icon {
+caret.box shape {
   width: 10px;
   border: 1px solid var(--settings-caret-color);
 }
 
-.caret icon#off-icon {
+caret.off shape {
   width: 100%;
   height: 100%;
   
@@ -168,7 +166,8 @@
   align-items: center;
   justify-content: center;
 }
-.caret #off-icon i {
+caret.off shape i {
+  color: #6b6b6b;
   font-size: 1.22rem;
   transform: translateY(1px);
   transform: translateX(0.5px);

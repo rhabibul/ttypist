@@ -9,13 +9,14 @@ const keyboard 			= document.getElementsByTagName("keyboard")[0];
 const speedtag 			= document.querySelector(".speed");
 const restart 			= document.querySelector("button.restart");
 const icon_restart 	= document.querySelector("button.restart > .fa-sharp");
-const icon_offtype  = document.querySelector("#off-icon > .fa-ban");
-const offtype       = document.querySelector(".carettypes > .offtype");
-const boxtype       = document.querySelector(".carettypes > .boxtype");
-const linetype      = document.querySelector(".carettypes > .linetype");
-const blocktype     = document.querySelector(".carettypes > .blocktype");
-const underlinetype = document.querySelector(".carettypes > .underlinetype");
-const allcarettype  = document.querySelectorAll(".carettypes > .caret");
+const icon_offtype  = document.querySelector("#off > .fa-ban");
+
+const offtype       = document.querySelector("caret.off");
+const boxtype       = document.querySelector("caret.box");
+const linetype      = document.querySelector("caret.line");
+const blocktype     = document.querySelector("caret.block");
+const underlinetype = document.querySelector("caret.underline");
+const carettype  = document.querySelectorAll("carettype caret");
 
 const ws_dot = document.querySelector(".ws > .ws_dot");
 const ws_space = document.querySelector(".ws > .ws_space");
@@ -31,8 +32,10 @@ export {
 	sentence,
 	
 	keyboard,
-	
+
 	restart,
+	carettype,
+	
 	icon_restart,
 	speedtag,
 	icon_offtype,
@@ -41,7 +44,6 @@ export {
 	linetype,
 	blocktype,
 	underlinetype,
-	allcarettype,
 	ws_dot,
 	ws_space,
 	contactme,

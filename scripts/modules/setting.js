@@ -13,27 +13,23 @@ function updatewhitespace(evt) {
 
   if ( this.classList.contains("ws_space") ) {
     Config.sentence.whitespace = CONST.whitespace.space;
-    Element.ws_space.id = "ws_active";
+    Element.ws_space.id = "activebox";
     Element.ws_dot.id = "";
   } else {
-    Element.ws_dot.id = "ws_active";
+    Element.ws_dot.id = "activebox";
     Element.ws_space.id = "";
     Config.sentence.whitespace = CONST.whitespace.dot;
   }
 
-  Array.from(document.getElementByTagName("letter")).forEach(function (letter) {
-
+  Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     Element.input.blur();
-
     if ( letter.classList.contains("whitespace") ) {
-
       if ( Config.sentence.whitespace == CONST.whitespace.space ) {  
         letter.innerHTML = `${Config.sentence.whitespace}`;
       } else {
-        letter.innerHTML = `<span id="whitespace-dot">${Config.sentence.whitespace}</span>`;
+        letter.innerHTML = `<span id="wdot">${Config.sentence.whitespace}</span>`;
       }
     }
-
     Element.input.focus();
   });
 }
@@ -48,22 +44,16 @@ function updatecaret(evt) {
   // if user clicks on same caret icon then don't do anything
   if (caret.dataset.type === Config.caret.type) return;
 
-  for (const other of Element.allcarettype) {
-    if (caret !== other) {
-      other.style.backgroundColor = "var(--bgcolor-settingboxes)";
-      if (other === Element.offtype) {
-        Element.icon_offtype.style.color = "#6b6b6b";
-      }
-    }
+  // update caret type on ui
+  for ( const other of Element.carettype ) {
+    // todo
+    //   - complete this updatecaret function (ui part)
+    //   - refactored css variable names
+    //   - modify CONST.carettype object & addition of id/class on all letters
+    //   - when user changes caret
+    //   - rename element objects in element.js
   }
-
-  if (caret === Element.offtype) {
-    Element.icon_offtype.style.color = "#ff0000";
-    Element.offtype.style.backgroundColor = "#ffd2d2";
-  } else {
-    caret.style.backgroundColor = "var(--bgcolor-active)";
-  }
-
+  
   Config.caret.type = caret.dataset.type; // update current caret type
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
