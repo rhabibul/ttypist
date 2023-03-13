@@ -4,7 +4,6 @@ import * as Element from "./element.js";
 import * as CONST from "./const.js"
 import { time, history, sentence } from "./test.js";
 
-
 function updatewhitespace(evt) {
 
   evt.preventDefault();
@@ -34,8 +33,6 @@ function updatewhitespace(evt) {
     Element.input.focus();
   });
 }
-
-
 
 function updatecaret(evt) {
 
