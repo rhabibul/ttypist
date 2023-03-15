@@ -1,6 +1,7 @@
 import * as CONST from "./const.js";
 
 export default {
+  operatingsystem: "",
   ttypist: {
     istyping: false,
     finishedtyping: false,

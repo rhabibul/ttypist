@@ -16,7 +16,7 @@ export default class Sentence {
   reset() {
     this.resetActiveWordIndex();
     this.resetActiveLetterIndex();
-    this.#words = Misc.getRandomWords();
+    this.#words = Misc.randomwords();
 
     Element.input.value = "";
     Element.sentence.innerHTML = "";

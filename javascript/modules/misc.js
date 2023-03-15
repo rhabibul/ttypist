@@ -23,7 +23,7 @@ function showspeed(sentence, time) {
   }, 2500);
 }
 
-function getRandomWords() {
+function randomwords() {
 
   if (Config.sentence.include.digits) {  };
   if (Config.sentence.include.punctuations) {  };
@@ -34,10 +34,10 @@ function getRandomWords() {
     words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   
-  return convertToWordElements(words);
+  return wordelements(words);
 }
 
-function convertToWordElements(wordsInStringForm) {  
+function wordelements(wordsInStringForm) {  
 
   let wordelements = new Array(wordsInStringForm.length);
   let word, letter;
@@ -109,8 +109,8 @@ function os() {
 }
 
 export { 
-  getRandomWords,
-  convertToWordElements,
+  randomwords,
+  wordelements,
   charcode,
   showspeed,
   getsentence,
