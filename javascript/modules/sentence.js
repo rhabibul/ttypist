@@ -2,9 +2,6 @@ import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
 
-// Task of sentence object:
-// storing all the word & letter elements and also keeps track of indexes of
-// active word and active letter.
 export default class Sentence {
   #words; // array of word elements
   #currentWordIndex; // stores index for current word which the user is typing

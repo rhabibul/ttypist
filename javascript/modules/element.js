@@ -3,13 +3,7 @@ const root = document.querySelector(":root");
 const ttypist = document.getElementsByTagName("ttypist")[0];
 const input = document.querySelector("ttypist > input");
 const sentence = document.querySelector("ttypist > sentence");
-
 const keyboard = document.getElementsByTagName("keyboard")[0];
-
-const speedtag = document.querySelector(".speed");
-
-const contactme = document.querySelector(".contactme");
-const developer = document.querySelector(".developer");
 
 const setting = {
 	restart: {
@@ -28,6 +22,10 @@ const setting = {
 		space: document.querySelector("whitespace space"),
 	},
 };
+
+const speedtag = document.querySelector(".speed");
+const contactme = document.querySelector(".contactme");
+const developer = document.querySelector(".developer");
 
 export {
   root,
