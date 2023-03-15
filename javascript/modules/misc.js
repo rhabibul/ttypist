@@ -104,6 +104,10 @@ function automatetyping(keystroke_time) {
 	}, keystroke_time);	
 }
 
+function os() {
+  let s = navigator.userAgent;
+}
+
 export { 
   getRandomWords,
   convertToWordElements,
