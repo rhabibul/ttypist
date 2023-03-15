@@ -90,9 +90,9 @@ ttypist > input {
 #wdot {
   padding: 0px 4px;
   
-  color: #b9b9b9;
+  color: #acacac;
 
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--textfont-size);
   font-family: var(--textfont-family);
 }
