@@ -5,4 +5,6 @@ let test = new Test();
 test.start();
 // Misc.automatetyping(61); // 200wpm
 
+// start implementing wordbyword...
+
 export { test };

@@ -39,7 +39,7 @@ whitespace space {
 }
 whitespace dot,
 whitespace space {
-  background-color: var(--setting-inactive-bgcolor);
+  background-color: var(--setting-bgcolor-inactive);
 }
 
 /**********  caret type selection  **********/
