@@ -1,12 +1,17 @@
 :root {
   --setting-caret-color: black;
-  --setting-box-roundness: 2px;
+  --setting-boxradius: 2px;
 
-  --setting-active-color: #e17c01;
-  --setting-active-bgcolor: #ffffc9;
+  --setting-color-active: #e17c01;
+  --setting-bgcolor-active: #ffffc9;
 
-  --setting-inactive-color: #000000;
-  --setting-inactive-bgcolor: #f5f5f5;
+  --setting-color-inactive: #000000;
+  --setting-bgcolor-inactive: #f5f5f5;
+}
+
+#chosen {
+  color: var(--setting-color-active);
+  background-color: var(--setting-bgcolor-active);
 }
 
 /**********  whitespace selection  **********/
@@ -30,7 +35,7 @@ whitespace space {
   font-weight: 500;
 
   padding: 3px 6px;
-  border-radius: var(--setting-box-roundness);
+  border-radius: var(--setting-boxradius);
 }
 whitespace dot,
 whitespace space {
@@ -54,7 +59,7 @@ caret {
   align-items: center;
   justify-content: center;
   
-  border-radius: var(--setting-box-roundness);
+  border-radius: var(--setting-boxradius);
   background-color: var(--setting-inactive-bgcolor);
 }
 
@@ -133,7 +138,7 @@ button.restart i {
 .contactme {
   width: 280px;
   
-  border-radius: var(--setting-box-roundness);
+  border-radius: var(--setting-boxradius);
   background-color: var(--setting-inactive-bgcolor);
 
   display: flex;

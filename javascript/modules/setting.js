@@ -44,11 +44,11 @@ function updatecaret(evt) {
 
   const computedvalues = getComputedStyle(Element.root);
 
-  const active_color = computedvalues.getPropertyValue("--setting-active-color");
-  const inactive_color = computedvalues.getPropertyValue("--setting-inactive-color");
+  const active_color = computedvalues.getPropertyValue("--setting-color-active");
+  const inactive_color = computedvalues.getPropertyValue("--setting-color-inactive");
   
-  const active_bgcolor = computedvalues.getPropertyValue("--setting-active-bgcolor");
-  const inactive_bgcolor = computedvalues.getPropertyValue("--setting-inactive-bgcolor");
+  const active_bgcolor = computedvalues.getPropertyValue("--setting-bgcolor-active");
+  const inactive_bgcolor = computedvalues.getPropertyValue("--setting-bgcolor-inactive");
 
   
   function colorshape(caret, active) {

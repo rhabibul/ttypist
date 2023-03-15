@@ -13,9 +13,8 @@ body {
 }
 
 :root {
-  --fontfamily-nunito: 'Nunito', sans-serif;;
+  --fontfamily-nunito: 'Nunito', sans-serif;
   --fontfamily-monasans: "";
-  --fontfamily-hubotsans: "";
   --fontfamily-robotomono: "Roboto Mono", monospace;
   
   --line-gap: 4px; /* adjust this line gap according to caret type using javascript */
@@ -87,10 +86,6 @@ ttypist > input {
 }
 .error {
   color: #ff2525;
-}
-#chosen {
-  color: var(--setting-active-color);
-  background-color: var(--setting-active-bgcolor);
 }
 #wdot {
   padding: 0px 4px;
