@@ -1,6 +1,6 @@
 import * as CONST from "./const.js";
 
-const Config = {
+export default {
   ttypist: {
     istyping: false,
     finishedtyping: false,
@@ -87,5 +87,3 @@ const Config = {
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   },
 };
-
-export default Config;

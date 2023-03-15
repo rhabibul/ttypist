@@ -16,38 +16,6 @@
  * incorrect? -> Typed character which is not equal to active letter. (count)
 **/
 
-class Time {
-  
-  #timerend;
-  #timerstart;
-  #timerstarted;
-
-  constructor() {
-    this.#timerend = 0;
-    this.#timerstart = 0;
-    this.#timerstarted = false;
-  }
-
-  start() {
-    this.#timerstart = performance.now();
-    this.#timerstarted = true;
-  }
-  stop() {
-    this.#timerend = performance.now();
-  }
-  get started() {
-    return this.#timerstarted;
-  }
-  get duration() {
-    return (this.#timerend - this.#timerstart) / 1000;
-  }
-  reset() {
-    this.#timerend = 0;
-    this.#timerstart = 0;
-    this.#timerstarted = false;
-  }
-}
-
 let accuracy = 0;   // acc
 let netspeed = 0;   // wpm: ((correct / 5) / 60)
 let grossspeed = 0; // raw: (((correct + incorrect + extra) / 5) / 60)
@@ -83,4 +51,34 @@ class History {
   }
 }
 
-export { Time, History };
+export default class Time {
+  
+  #timerend;
+  #timerstart;
+  #timerstarted;
+
+  constructor() {
+    this.#timerend = 0;
+    this.#timerstart = 0;
+    this.#timerstarted = false;
+  }
+
+  start() {
+    this.#timerstart = performance.now();
+    this.#timerstarted = true;
+  }
+  stop() {
+    this.#timerend = performance.now();
+  }
+  get started() {
+    return this.#timerstarted;
+  }
+  get duration() {
+    return (this.#timerend - this.#timerstart) / 1000;
+  }
+  reset() {
+    this.#timerend = 0;
+    this.#timerstart = 0;
+    this.#timerstarted = false;
+  }
+}

@@ -2,7 +2,7 @@ import Config from "./config.js";
 import { test } from "../main.js";
 import * as Element from "./element.js";
 import * as CONST from "./const.js"
-import { time, history, sentence } from "./test.js";
+import { sentence } from "./test.js";
 
 function updatewhitespace(evt) {
 

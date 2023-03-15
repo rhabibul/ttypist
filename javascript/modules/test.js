@@ -4,9 +4,9 @@ import * as Caret from "./caret.js";
 import * as Element from "./element.js";
 
 import Config from "./config.js";
+import Time from "./stat.js";
 import Sentence from "./sentence.js";
 import { test } from "../main.js";
-import { Time, History } from "./stat.js";
 
 class Test {
 
@@ -24,10 +24,6 @@ class Test {
     Element.setting.restart.button.blur();
   }
 }
-
-let time = new Time();
-let history = new History();
-let sentence = new Sentence();
 
 function registerkeyup(evt) {
   evt.preventDefault();
@@ -135,5 +131,8 @@ function registerkeydown(evt) {
   }
 }
 
+let time = new Time();
+let sentence = new Sentence();
+
 export default Test;
-export { time, history, sentence };
+export { time, sentence };
