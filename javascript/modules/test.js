@@ -19,7 +19,7 @@ class Test {
     Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
     
-    Element.input.addEventListener('keydown', handlekeydown, false);
+    Element.input.addEventListener('keydown', registerkeydown, false);
     Element.input.focus();
     Element.setting.restart.button.blur();
   }
@@ -29,13 +29,16 @@ let time = new Time();
 let history = new History();
 let sentence = new Sentence();
 
-function handlekeydown(evt) {
+function registerkeyup(evt) {
+  evt.preventDefault();
+}
 
+function registerkeydown(evt) {
   evt.preventDefault();
 
   if ( !evt.isTrusted ) {
     console.log("You're not human. 🤦🏻‍♂️");
-    Element.input.removeEventListener("keydown", handlekeydown); // this doesn't stop the autotyper from typing though
+    Element.input.removeEventListener("keydown", registerkeydown); // this doesn't stop the autotyper from typing though
     Element.input.remove(); // this doesn't stop the autotyper from typing though
     return; // no further processing if test is automated
   }
@@ -67,7 +70,7 @@ function handlekeydown(evt) {
       Caret.removeCaretFrom(sentence.activeLetter);
       Caret.removeHighlightFrom(sentence.activeWord);
       
-      Element.input.removeEventListener('keydown', handlekeydown, false);
+      Element.input.removeEventListener('keydown', registerkeydown, false);
 
       Misc.showspeed(sentence, time);
       test.start();      

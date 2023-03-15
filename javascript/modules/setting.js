@@ -124,7 +124,10 @@ Element.setting.caret.underline.addEventListener("click", updatecaret);
 // select line caret as the default caret
 Element.setting.caret.line.dispatchEvent(new Event('click'));
 
-Element.setting.restart.button.addEventListener('click', (evt) => { test.start(); });
+Element.setting.restart.button.addEventListener('click', (evt) => {
+  evt.preventDefault();
+   test.start(); 
+  });
 
 Element.setting.restart.button.addEventListener('focus', (evt) => { 
   evt.preventDefault();
