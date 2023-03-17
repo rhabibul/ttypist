@@ -1,6 +1,7 @@
 import * as CONST from "./const.js";
 import * as Element from "./element.js"
-import w3k from "./w3k.js";
+// import w3k from "./w3k.js";
+import w1k from "./w1k.js";
 import Config from "./config.js";
 
 function charcode(char) {
@@ -31,7 +32,7 @@ function randomwords() {
   let words = new Array(Config.sentence.word.count);
 
   for (let i = 0; i < Config.sentence.word.count; ++i) {
-    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
   }
   
   return wordelements(words);
@@ -104,8 +105,16 @@ function automatetyping(keystroke_time) {
 	}, keystroke_time);	
 }
 
-function os() {
+function operatingsystem() {
   let s = navigator.userAgent;
+}
+
+function tolower(letter) {
+  return String.fromCharCode(letter.charCodeAt(0) | (1 << 5));
+}
+
+function toupper(letter) {
+  return String.fromCharCode(letter.charCodeAt(0) & (~(1 << 5)));
 }
 
 export { 
