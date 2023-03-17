@@ -72,7 +72,7 @@ class Word {
 		this.#letterindex = 0;
 		this.#word = wordelement;
 	}
-	
+
 	get size() {
 		return this.#word.length;
 	}
@@ -107,7 +107,7 @@ class Test {
 		this.#word = new Word(this.#sentence.activeword);
 	};
 	over() {
-		const itwaslastword = this.#sentence.activewordindex === this.#sentence.size;
+		const itwaslastword = (this.#sentence.activewordindex === (this.#sentence.size - 1));
 		const itwaslastletter = this.#word.activeletterindex === this.#word.size;
 		return itwaslastword && itwaslastletter;
 	}
