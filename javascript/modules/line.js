@@ -2,18 +2,15 @@ import Config from "./config.js";
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
 
-// reset functionality won't be there with sentence object
-// test object will have reset function
-
 class Sentence {
 	#words;
 	#activewordindex;
 	constructor() {
-		this.#activewordindex = 0;
 		this.#words = new Array(0);
+		this.#activewordindex = 0;
 	}
 
-	size() {
+	wordcount() {
 		return this.#words.length;
 	}
 	clear() {
@@ -22,24 +19,20 @@ class Sentence {
 	}
 
 	loadwords() {}
-	sentencetext() {}
-	
+
 	prevword() {}
 	activeword() {}
 	nextword() {}
 };
-let sentence = new Sentence();
-
 
 class Word {
 	#word;
 	#activeletterindex;
 	constructor() {
-		this.#word = new Array(0);;
+		this.#word = new Array(0);
 		this.#activeletterindex = 0;
 	}
-	
-	size() {
+	lettercount() {
 		return this.#word.length;
 	}
 	clear() {
@@ -55,7 +48,6 @@ class Word {
 	nextletter() {}
 }
 
-
 class Test {
 	#sentence;
 	#word;
@@ -63,6 +55,10 @@ class Test {
 		this.#sentence = new Sentence();
 		this.#word = new Word();
 	}
-}
 
-let word = new Word();
+	registerkeydown() {};
+	registerkeyup() {};
+
+	firsttest() {};
+	restart() {};
+}

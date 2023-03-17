@@ -19,9 +19,10 @@ body {
   
   --line-gap: 4px; /* adjust this line gap according to caret type using javascript */
 
-  --word-active: black;
+  --faded-letter: lightgray;
+  --word-active: rgb(125, 125, 125);
 
-  --textcolor: #00000080;
+  --textcolor: rgb(34, 34, 34);
   --textfont-size: 1.15rem;
   --textfont-weight: 400;
   --textfont-family: var(--fontfamily-robotomono);
@@ -86,6 +87,9 @@ ttypist > input {
 }
 .error {
   color: #ff2525;
+}
+.fade {
+  color: var(--faded-letter);
 }
 #wdot {
   padding: 0px 4px;

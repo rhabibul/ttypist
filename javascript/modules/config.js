@@ -2,14 +2,17 @@ import * as CONST from "./const.js";
 
 export default {
   operatingsystem: "",
+
   ttypist: {
     istyping: false,
     finishedtyping: false,
   },
+
   warning: {
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
+
   oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
   testendswithspace: false, // user will have to hit space after typing last word to end test
 
@@ -33,19 +36,22 @@ export default {
       meta: false, // mata + backspace
     },
   },
+
   error: {
     stop: "off", // off | letter | word
     insert: true, // insert incorrect letter
     forgive: true, // delete incorrect letters when user types the correct letter
   },
+  
   caret: {
     type: "off", // off, line, underline, box, block
     blink: true,
     smooth: false,
   },
+  
   sentence: {
     whitespace: CONST.whitespace.space, // space/dot/bar
-    highlight: "word", // off | letter | word
+    highlight: "letter", // off | letter | word
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
       count: 15,
@@ -61,19 +67,23 @@ export default {
       family: "Roboto Mono, monospace",
     },
   },
+
   live: {
     stats: false, // show wpm/cpm and accuracy on every keystroke
     keyboard: true, // static, react, next
   },
+  
   keyboard: {
     emulate: false, // emulate other keyboard layouts
     layout: "qwerty", // keyboard layout
     language: "english",
   },
+
   sound: {
     play: "off", // off, nk creams, typewriter, hitmarker
     onerror: false, // play sound on error
   },
+
   practice: {
     customtext: false, // custom text provided by user
     guidedlessions: false,

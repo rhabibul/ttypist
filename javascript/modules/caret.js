@@ -16,8 +16,16 @@ function removeHighlightFrom(word) {
 	word.classList.remove("active");
 }
 
+function fade(letter) {
+	letter.classList.add("fade");
+}
+function unfade(letter) {
+	letter.classList.remove("fade");
+}
+
 function goToNextLetter(sentence) {
 	removeCaretFrom(sentence.activeLetter);
+	if ( Config.sentence.highlight === "letter" ) fade(sentence.activeLetter);
 	sentence.incrementLetterIndex();
 	addCaretTo(sentence.activeLetter);
 }
@@ -25,19 +33,20 @@ function goToNextLetter(sentence) {
 function goToPreviousLetter(sentence) {
 	removeCaretFrom(sentence.activeLetter);
 	sentence.decrementLetterIndex();
+	if ( Config.sentence.highlight === "letter" ) unfade(sentence.activeLetter);
 	addCaretTo(sentence.activeLetter);
 }
 
 function goToNextWord(sentence) {
-	removeHighlightFrom(sentence.activeWord);
+	if ( Config.sentence.highlight === "word" ) removeHighlightFrom(sentence.activeWord);
 	sentence.incrementWordIndex();
-	addHighlightTo(sentence.activeWord);
+	if ( Config.sentence.highlight === "word" ) addHighlightTo(sentence.activeWord);
 }
 
 function goToPreviousWord(sentence) {
-	removeHighlightFrom(sentence.activeWord);
+	if ( Config.sentence.highlight === "word" ) removeHighlightFrom(sentence.activeWord);
 	sentence.decrementWordIndex();
-	addHighlightTo(sentence.activeWord);
+	if ( Config.sentence.highlight === "word" ) addHighlightTo(sentence.activeWord);
 }
 
 export { 

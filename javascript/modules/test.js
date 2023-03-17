@@ -7,6 +7,7 @@ import Config from "./config.js";
 import Time from "./stat.js";
 import Sentence from "./sentence.js";
 import { test } from "../main.js";
+import config from "./config.js";
 
 class Test {
 
@@ -16,7 +17,7 @@ class Test {
     time.reset();
     sentence.reset();
 
-    Caret.addHighlightTo(sentence.activeWord);
+    if ( Config.sentence.highlight === "word" ) Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
     
     Element.input.addEventListener('keydown', registerkeydown, false);
