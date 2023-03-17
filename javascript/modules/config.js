@@ -44,7 +44,7 @@ export default {
     smooth: false,
   },
   sentence: {
-    whitespace: CONST.whitespace.space, // space/dot
+    whitespace: CONST.whitespace.space, // space/dot/bar
     highlight: "word", // off | letter | word
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {

@@ -20,8 +20,8 @@ const caret = {
 // 				"　"	(U+3000 Ideographic Space)
 const whitespace = {
   dot: '⸱', // 11825
-  bar: '␣', // U+2423 (open box unicode character)
   space: '&nbsp;', // 160
+  bar: '␣', // 9251 (open box unicode character)
 };
 
 const specialsymbols = [

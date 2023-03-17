@@ -66,14 +66,10 @@ export default class Sentence {
   // get word element
   get activeWord() {
     try {
-      if (
-        this.#currentWordIndex < 0 ||
-        this.#currentWordIndex >= this.#words.length
-      ) {
+      if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
         throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
       return this.#words[this.#currentWordIndex];
-      
     } catch (outofbounderror) {
       console.error(outofbounderror);
     }
@@ -82,10 +78,7 @@ export default class Sentence {
   // get letter element
   get activeLetter() {
     try {
-      if (
-        this.#currentWordIndex < 0 ||
-        this.#currentWordIndex >= this.#words.length
-      ) {
+      if ( this.#currentWordIndex < 0 || this.#currentWordIndex >= this.#words.length ) {
         throw `'currentWordIndex' is out of bound (${this.#currentWordIndex})`;
       }
 
