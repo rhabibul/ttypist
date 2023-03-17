@@ -34,11 +34,10 @@ function randomwords() {
   for (let i = 0; i < Config.sentence.word.count; ++i) {
     words[i] = w1k[Math.floor(Math.random() * w1k.length)];
   }
-  
-  return wordelements(words);
+  return words;
 }
 
-function wordelements(wordsInStringForm) {  
+function wordelementsfrom(wordsInStringForm) {  
 
   let wordelements = new Array(wordsInStringForm.length);
   let word, letter;
@@ -119,7 +118,7 @@ function toupper(letter) {
 
 export { 
   randomwords,
-  wordelements,
+  wordelementsfrom,
   charcode,
   showspeed,
   getsentence,
