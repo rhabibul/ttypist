@@ -1,8 +1,8 @@
 import Config from "./config.js";
-import { test } from "../main.js";
 import * as Element from "./element.js";
 import * as CONST from "./const.js"
 import { sentence } from "./test.js";
+import { test } from "../main.js";
 
 function updatewhitespace(evt) {
 
