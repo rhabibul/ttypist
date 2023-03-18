@@ -16,7 +16,7 @@ class Test {
     time.reset();
     sentence.reset();
 
-    if ( Config.sentence.highlight === "word" ) Caret.addHighlightTo(sentence.activeWord);
+    if ( Config.sentence.highlight.word ) Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
     
     Element.input.addEventListener('keydown', registerkeydown, false);
@@ -75,12 +75,12 @@ function registerkeydown(evt) {
   } else if (evt.metaKey && typedkey === "Backspace") {
 
     Caret.removeCaretFrom(sentence.activeLetter);
-    if ( Config.sentence.highlight === "word" ) Caret.removeHighlightFrom(sentence.activeWord);
+    if ( Config.sentence.highlight.word ) Caret.removeHighlightFrom(sentence.activeWord);
 
     let i = sentence.wordCount - 1;
     while ( i >= 0 ) {
       sentence.activeWord.classList.remove("error");
-      if ( Config.sentence.highlight === "letter" ) {
+      if ( Config.sentence.highlight.letter ) {
         for ( const letter of sentence.activeWord.children ) {
           letter.classList.remove("fade");
           letter.classList.remove("error");
@@ -94,14 +94,14 @@ function registerkeydown(evt) {
     sentence.resetActiveWordIndex();
     sentence.resetActiveLetterIndex();
     
-    if ( Config.sentence.highlight === "word" ) Caret.addHighlightTo(sentence.activeWord);
+    if ( Config.sentence.highlight.word ) Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
 
   } else if ( evt.altKey  && typedkey === "Backspace" || evt.ctrlKey && typedkey === "Backspace" ) {
 
     Caret.removeCaretFrom(sentence.activeLetter);
     
-    if ( Config.sentence.highlight === "word" ) {
+    if ( Config.sentence.highlight.word ) {
       sentence.activeWord.classList.remove("error");
     } else {
       const letters = sentence.activeWord.children;
@@ -113,7 +113,7 @@ function registerkeydown(evt) {
 
     if ( sentence.activeWordIndex > 0 && sentence.activeLetterIndex === 0 ) {
       Caret.goToPreviousWord(sentence);
-      if ( Config.sentence.highlight === "letter" ) {
+      if ( Config.sentence.highlight.letter ) {
         const letters = sentence.activeWord.children;
         for ( let i = letters.length - 1; i >= 0; --i ) {
           letters[i].classList.remove("fade");
@@ -122,7 +122,7 @@ function registerkeydown(evt) {
       }
     }
 
-    if ( Config.sentence.highlight === "word" ) {
+    if ( Config.sentence.highlight.word ) {
       sentence.activeWord.classList.remove("error");
     }
     sentence.resetActiveLetterIndex();
@@ -130,7 +130,7 @@ function registerkeydown(evt) {
 
   } else if ( typedkey === "Backspace" ) {
 
-    if ( Config.sentence.highlight === "word" ) sentence.activeWord.classList.remove("error");
+    if ( Config.sentence.highlight.word ) sentence.activeWord.classList.remove("error");
 
     if ( sentence.activeLetterIndex > 0 ) {
       Caret.goToPreviousLetter(sentence);
@@ -147,8 +147,8 @@ function registerkeydown(evt) {
     
   } else {
     if (!CONST.invisible.includes(typedkey)) {
-      if ( Config.sentence.highlight === "word" ) sentence.activeWord.classList.add("error");
-      if ( Config.sentence.highlight === "letter" ) sentence.activeLetter.classList.add("error");
+      if ( Config.sentence.highlight.word ) sentence.activeWord.classList.add("error");
+      if ( Config.sentence.highlight.letter ) sentence.activeLetter.classList.add("error");
     }
   }
 }

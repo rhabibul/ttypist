@@ -101,9 +101,7 @@ caret.off shape {
 }
 caret.off shape i {
   color: #3b3b3b;
-  font-size: 1.22rem;
-  transform: translateY(1px);
-  transform: translateX(0.5px);
+  font-size: 1.25rem;
 }
 
 

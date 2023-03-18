@@ -25,7 +25,7 @@ function unfade(letter) {
 
 function goToNextLetter(sentence) {
 	removeCaretFrom(sentence.activeLetter);
-	if ( Config.sentence.highlight === "letter" ) fade(sentence.activeLetter);
+	if ( Config.sentence.highlight.letter ) fade(sentence.activeLetter);
 	sentence.incrementLetterIndex();
 	addCaretTo(sentence.activeLetter);
 }
@@ -33,20 +33,20 @@ function goToNextLetter(sentence) {
 function goToPreviousLetter(sentence) {
 	removeCaretFrom(sentence.activeLetter);
 	sentence.decrementLetterIndex();
-	if ( Config.sentence.highlight === "letter" ) unfade(sentence.activeLetter);
+	if ( Config.sentence.highlight.letter ) unfade(sentence.activeLetter);
 	addCaretTo(sentence.activeLetter);
 }
 
 function goToNextWord(sentence) {
-	if ( Config.sentence.highlight === "word" ) removeHighlightFrom(sentence.activeWord);
+	if ( Config.sentence.highlight.word ) removeHighlightFrom(sentence.activeWord);
 	sentence.incrementWordIndex();
-	if ( Config.sentence.highlight === "word" ) addHighlightTo(sentence.activeWord);
+	if ( Config.sentence.highlight.word ) addHighlightTo(sentence.activeWord);
 }
 
 function goToPreviousWord(sentence) {
-	if ( Config.sentence.highlight === "word" ) removeHighlightFrom(sentence.activeWord);
+	if ( Config.sentence.highlight.word ) removeHighlightFrom(sentence.activeWord);
 	sentence.decrementWordIndex();
-	if ( Config.sentence.highlight === "word" ) addHighlightTo(sentence.activeWord);
+	if ( Config.sentence.highlight.word ) addHighlightTo(sentence.activeWord);
 }
 
 export { 

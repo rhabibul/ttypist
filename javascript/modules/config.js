@@ -29,16 +29,19 @@ export default {
   
   // if enabled, allow user to delete any word, even if it was typed correctly
   backspace: {
-    allowed: true, // backspace (single letter deletion)
+    on: true, // backspace (single letter deletion)
     modifier: {
-       alt: true,  //  alt + backspace
-      ctrl: true,  // ctrl + backspace
-      meta: false, // mata + backspace
+       alt: true,
+      ctrl: true,
+      meta: false,
     },
   },
 
   error: {
-    stop: "off", // off | letter | word
+    stop: {
+      onword: false,
+      onletter: false,
+    },
     insert: true, // insert incorrect letter
     forgive: true, // delete incorrect letters when user types the correct letter
   },
@@ -51,7 +54,10 @@ export default {
   
   sentence: {
     whitespace: CONST.whitespace.space, // space/dot/bar
-    highlight: "letter", // off | letter | word
+    highlight: {
+      word: false,
+      letter: true,
+    },
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
       count: 15,
@@ -67,6 +73,12 @@ export default {
       family: "Roboto Mono, monospace",
     },
   },
+
+
+
+
+
+
 
   live: {
     stats: false, // show wpm/cpm and accuracy on every keystroke
