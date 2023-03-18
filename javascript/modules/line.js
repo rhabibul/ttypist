@@ -1,14 +1,15 @@
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
+import { whitespace } from "./const.js";
 
 class Sentence {
 
-	#words; // array of <word></word> elements
-	#wordindex; // index of the word which is being typed (active word)
+	#words; // array of <word></word> tag, each of these <word></word> tag contains one or more <letter></letter> tags
+	#wordindex; // keeps track of the index of <word></word> tag which is active (being typed)
 	
-	constructor() {
+	constructor(wordelements) {
 		this.#wordindex = 0;
-		this.#words = Misc.wordelementsfrom(Misc.randomwords());
+		this.#words = wordelements;
 		for ( const word of this.#words ) {
 			Element.sentence.insertAdjacentElement("beforeend", word); // load words to the dom
 		}
@@ -48,6 +49,9 @@ class Sentence {
 			console.error(outofbound);
 		}
 	}
+	get activewordindex() {
+		return this.#wordindex;	
+	}
 	get activeword() {
 		try {
 			if ( this.#wordindex < 0 || this.#wordindex >= this.#words.length ) {
@@ -58,28 +62,106 @@ class Sentence {
 			console.error(outofbound);
 		}
 	}
-	get activewordindex() {
-		return this.#wordindex;	
+	get activewordtext() {
+		try {
+			if ( this.#wordindex < 0 || this.#wordindex >= this.#words.length ) {
+				throw `#wordindex is out of bounds (${this.#wordindex})`;
+			}
+			let ws_code = 0;
+			let text = new String();
+			for ( const letter of this.#words[this.#wordindex].children ) {
+				ws_code = letter.textContent.charCodeAt(0);
+				if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
+					text += " ";
+				} else {
+					text += letter.textContent;	
+				}
+			}
+			return text;
+		} catch (outofbound) {
+			console.error(outofbound);
+		}
 	}
 };
 
 class Word {
 
-	#word;
-	#letterindex;
+	#word; // container for single <word></word> tag element, which contains one or more <letter></letter> tags
+	#letterindex; // keeps track of the index of <letter></letter> tag which is active (being typed)
 	
 	constructor(wordelement) {
 		this.#letterindex = 0;
 		this.#word = wordelement;
 	}
 
-	get size() {
-		return this.#word.length;
+	setwith_prevword(word) {
+		this.#word = word;
+		this.#letterindex = this.#word.length - 1; // caret should be on last letter (i.e, on space)
 	}
-	loadprevword() {}
-	loadnextword() {}
-	get activeletter() {}
-	get activeletterindex() {}
+	setwith_nextword(word) {
+		this.#word = word;
+		this.#letterindex = 0;
+	}
+	
+	resetletterindex() {
+		this.#letterindex = 0;
+	}
+	decrementletterindex() {
+		this.#letterindex = this.#letterindex - 1;
+	}
+	incrementletterindex() {
+		this.#letterindex = this.#letterindex + 1;
+	}
+	get size() {
+		return this.#word?.children.length;
+	}
+	get prevletter() {
+		try {
+			this.decrementletterindex();
+			if ( this.#letterindex < 0 ) {
+				throw `#letterindex is out of bounds (${this.#letterindex})`;
+			}
+			return this.#word?.children[this.#letterindex];
+		} catch (outofbound) {
+			console.error(outofbound);
+		}	
+	}
+	
+	get nextletter() {
+		try {
+			this.incrementletterindex();
+			if ( this.#letterindex >= this.#word.length ) {
+				throw `#letterindex is out of bounds (${this.#letterindex})`;
+			}
+			return this.#word?.children[this.#letterindex];
+		} catch (outofbound) {
+			console.error(outofbound);
+		}
+	}
+	get activeletterindex() {
+		return this.#letterindex;
+	}
+	get activeletter() {
+		try {
+			if ( this.#letterindex < 0 || this.#letterindex >= this.#word.children.length ) {
+				throw `#letterindex is out of bounds (${this.#letterindex})`;
+			}
+			return this.#word?.children[this.#letterindex];
+		} catch (outofbound) {
+			console.error(outofbound);
+		}
+	}
+	get activelettertext() {
+		try {
+			if ( this.#letterindex < 0 || this.#letterindex >= this.#word?.children.length ) {
+				throw `#letterindex is out of bounds (${this.#letterindex})`;
+			}
+			return this.#word?.children[this.#letterindex].textContent;
+		} catch (outofbound) {
+			console.error(outofbound);
+		}
+	}
+	
 	inserterror() {}
 	deleteerror() {}
 }
@@ -90,7 +172,7 @@ class Test {
 	#word;
 
 	constructor() {
-		this.#sentence = new Sentence();
+		this.#sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
 		this.#word = new Word(this.#sentence.activeword);
 	}
 
@@ -100,18 +182,19 @@ class Test {
 	};
 	restart() {
 		// ui change
-		Element.input.value = ""; // clear input field
-		Element.sentence.innerHTML = ""; // delete all words from words container
+		Element.input.value = "";
+		Element.sentence.innerHTML = "";
 
-		this.#sentence = new Sentence(); // will load new words to the dom implicitly
+		this.#sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
 		this.#word = new Word(this.#sentence.activeword);
 	};
 	over() {
-		const itwaslastword = (this.#sentence.activewordindex === (this.#sentence.size - 1));
-		const itwaslastletter = this.#word.activeletterindex === this.#word.size;
-		return itwaslastword && itwaslastletter;
+		const islastword = (this.#sentence.activewordindex === (this.#sentence.size - 1));
+		const islastletter = (this.#word.activeletterindex === (this.#word.size - 1));
+		return islastword && islastletter;
 	}
 
+	// registerkeydown will manage caret
 	registerkeydown() {};
 	registerkeyup() {};
 }
