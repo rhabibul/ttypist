@@ -12,9 +12,9 @@ class Sentence {
   constructor(words) {
     this.#wordindex = 0;
     this.#words = words;
-    // for ( const word of this.#words ) {
-    // 	Element.sentence.insertAdjacentElement("beforeend", word);
-    // }
+    for ( const word of this.#words ) {
+    	Element.sentence.insertAdjacentElement("beforeend", word);
+    }
   }
 
   get size() {
@@ -160,7 +160,6 @@ class Test {
 
     this.#sentence = new Sentence(words);
     this.#word = new Word(this.#sentence.activeword);
-    this.testing();
   }
   finishedtypingwords() {
     const islastletter = this.#word.activeletterindex === this.#word.size - 1;
@@ -168,9 +167,6 @@ class Test {
     return islastword && islastletter;
   }
 
-  testing() {
-    // testing...
-  }
   init() {
     // just add eventlisteners and you are good to go, user just needs to start
     // typing since sentence and word objects are already initialized
@@ -185,13 +181,19 @@ class Test {
     this.#sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
     this.#word = new Word(this.#sentence.activeword);
   }
-  registerkeydown(evt) {
-    evt.preventDefault(); // characters are not displayed in input field
-    evt.stopPropagation();
-  }
-  registerkeyup(evt) {
-    evt.stopPropagation();
-  }
+}
+
+function registerkeydown(evt) {
+  evt.preventDefault(); // characters are not displayed in input field
+  evt.stopPropagation();
+
+}
+function registerkeyup(evt) {
+  evt.stopPropagation();
+
 }
 
 const test = new Test();
+
+test.init();
+test.restart();
