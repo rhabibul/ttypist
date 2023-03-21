@@ -1,6 +1,10 @@
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
 
+
+const s = "the quick brown fox jumped over the lazy dog";
+const samplewords = s.split(' ');
+
 class Sentence {
   #words; // array of <word></word> tag which contains <letter></letter> tags
   #wordindex; // keeps track of the index of <word></word> tag which is to be typed
@@ -8,9 +12,13 @@ class Sentence {
   constructor(words) {
     this.#wordindex = 0;
     this.#words = words;
-    for ( const word of this.#words ) {
-    	Element.sentence.insertAdjacentElement("beforeend", word);
-    }
+    // for ( const word of this.#words ) {
+    // 	Element.sentence.insertAdjacentElement("beforeend", word);
+    // }
+  }
+
+  get size() {
+    return this.#words.length;
   }
 
   resetwordindex() {
@@ -23,8 +31,21 @@ class Sentence {
     this.#wordindex = this.#wordindex + 1;
   }
 
-  get size() {
-    return this.#words.length;
+  set activewordindex(index) {
+    this.#wordindex = index;
+  }
+  get activewordindex() {
+    return this.#wordindex;
+  }
+  get activeword() {
+    try {
+      if (this.#wordindex < 0 || this.#wordindex >= this.#words.length) {
+        throw `wordindex(${this.#wordindex}) is out of bounds 'activeword'`;
+      }
+      return this.#words[this.#wordindex];
+    } catch (outofbound) {
+      console.error(outofbound);
+    }
   }
   get prevword() {
     try {
@@ -48,19 +69,6 @@ class Sentence {
       console.error(outofbound);
     }
   }
-  get activeword() {
-    try {
-      if (this.#wordindex < 0 || this.#wordindex >= this.#words.length) {
-        throw `wordindex(${this.#wordindex}) is out of bounds 'activeword'`;
-      }
-      return this.#words[this.#wordindex];
-    } catch (outofbound) {
-      console.error(outofbound);
-    }
-  }
-  get activewordindex() {
-    return this.#wordindex;
-  }
 }
 
 // goal is to first implement insertion and deletion of extra letter like texteditor
@@ -73,17 +81,8 @@ class Word {
     this.#word = Array.from(word?.children);
   }
 
-  me() {
-    return this.#word[0].parentElement;
-  }
-
-  loadprevword(word) {
-    this.#word = Array.from(word?.children);
-    this.#letterindex = this.#word.length - 1;
-  }
-  loadnextword(word) {
-    this.#word = Array.from(word?.children);
-    this.#letterindex = 0;
+  get size() {
+    return this.#word.length;
   }
 
   resetletterindex() {
@@ -95,9 +94,12 @@ class Word {
   incrementletterindex() {
     this.#letterindex = this.#letterindex + 1;
   }
-
-  get size() {
-    return this.#word.length;
+  
+  set activeletterindex(index) {
+    this.#letterindex = index;
+  }
+  get activeletterindex() {
+    return this.#letterindex;
   }
   get prevletter() {
     try {
@@ -131,11 +133,22 @@ class Word {
       console.error(outofbound);
     }
   }
-  get activeletterindex() {
-    return this.#letterindex;
+
+  loadprevword(word) {
+    this.#word = Array.from(word?.children);
+    this.#letterindex = this.#word.length - 1;
   }
+  loadnextword(word) {
+    this.#word = Array.from(word?.children);
+    this.#letterindex = 0;
+  }
+  me() { 
+    return this.#word[0].parentElement;
+  }
+
+  // error letter handling method
   insert(letter) {}
-  delete() {}
+  delete(word = false) {}
 }
 
 class Test {
@@ -143,21 +156,26 @@ class Test {
   #word;
 
   constructor() {
-    const s = "the quick brown fox jumped over the lazy dog";
-    const words = Misc.wordelementsfrom(s.split(" "));
+    const words = Misc.wordelementsfrom(samplewords);
 
     this.#sentence = new Sentence(words);
     this.#word = new Word(this.#sentence.activeword);
     this.testing();
   }
-
-  testing() {
-    console.log("testing...");
+  finishedtypingwords() {
+    const islastletter = this.#word.activeletterindex === this.#word.size - 1;
+    const islastword = this.#sentence.activewordindex === this.#sentence.size - 1;
+    return islastword && islastletter;
   }
 
+  testing() {
+    // testing...
+  }
   init() {
     // just add eventlisteners and you are good to go, user just needs to start
     // typing since sentence and word objects are already initialized
+    Element.input.addEventListener("keydown", registerkeydown);
+    Element.input.addEventListener("keydown", registerkeyup);
   }
   restart() {
     // ui change
@@ -167,13 +185,13 @@ class Test {
     this.#sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
     this.#word = new Word(this.#sentence.activeword);
   }
-  over() {
-    const islastword = this.#sentence.activewordindex === this.#sentence.size - 1;
-    const islastletter = this.#word.activeletterindex === this.#word.size - 1;
-    return islastword && islastletter;
+  registerkeydown(evt) {
+    evt.preventDefault(); // characters are not displayed in input field
+    evt.stopPropagation();
   }
-  registerkeydown() {} // registerkeydown will use caret related functionality
-  registerkeyup() {}
+  registerkeyup(evt) {
+    evt.stopPropagation();
+  }
 }
 
 const test = new Test();

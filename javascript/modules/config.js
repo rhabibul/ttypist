@@ -60,7 +60,7 @@ export default {
     },
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
-      count: 15,
+      count: 5,
       length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
     },
     include: {
