@@ -89,37 +89,80 @@ function getsentence() {
   return s;
 }
 
+function lettertagtext(letter) {
+  const ws_code = letter.textContent.charCodeAt(0);
+  if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) return " ";
+  return letter.textContent;
+}
+function wordtagtext(word) {
+  let ws_code = 0, text = new String();
+  for ( const letter of word.children ) {
+    ws_code = letter.textContent.charCodeAt(0);
+    if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
+      text += " ";
+    } else {
+      text += letter.textContent;
+    }
+  }
+  return text;
+}
+function validsentence(sentence) {
+  // sentence type must be object i.e, array and it should not be empty,
+  // every string should be in <word></word> tag and every character should
+  // be in <letter></letter> tag and no letter tag must contain more than
+  // one character
+  const validtype = typeof(sentence) === "object";
+  const notempty = sentence.length > 0;
+  const validwordtags = sentence.every((word) => word.tagName === "WORD");
+  const validlettertags = sentence.every(function (word) {
+    return Array.from(word?.children).every(function (letter) {
+      return letter.tagName === "LETTER" && letter.textContent.length === 1;
+    });
+  });
+  if (validtype && notempty && validwordtags && validlettertags) return true;
+  return false;
+}
+
 function automatetyping(keystroke_time) {
 	
 	let id, i = 0;
 	let s = getsentence();
 
 	id = setInterval(() => {
-		Element.input.dispatchEvent(new KeyboardEvent("keydown", {key: `${s[i]}`}));
+		Element.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
 		Element.input.value += s[i];
 		++i;
-		if ( i == s.length - 1 ) {
-			clearInterval(id);
-		}
+		if ( i == s.length - 1 ) clearInterval(id);
 	}, keystroke_time);	
 }
 
-function operatingsystem() {
+function which_os() {
   let s = navigator.userAgent;
 }
 
-function tolower(letter) {
+function tolower(letter) { // Lowercase: 0'11'?????
   return String.fromCharCode(letter.charCodeAt(0) | (1 << 5));
 }
-
-function toupper(letter) {
+function toupper(letter) { // Uppercase: 0'10'?????
   return String.fromCharCode(letter.charCodeAt(0) & (~(1 << 5)));
 }
 
 export { 
+  charcode,
+
   randomwords,
   wordelementsfrom,
-  charcode,
+  
+  lettertagtext,
+  wordtagtext,
+  
+  tolower,
+  toupper,
+
+  validsentence,
+  
+  which_os,
+
   showspeed,
   getsentence,
   automatetyping

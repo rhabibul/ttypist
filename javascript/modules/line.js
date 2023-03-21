@@ -8,9 +8,9 @@ class Sentence {
   constructor(words) {
     this.#wordindex = 0;
     this.#words = words;
-    // for ( const word of this.#words ) {
-    // 	Element.sentence.insertAdjacentElement("beforeend", word);
-    // }
+    for ( const word of this.#words ) {
+    	Element.sentence.insertAdjacentElement("beforeend", word);
+    }
   }
 
   resetwordindex() {
@@ -30,7 +30,7 @@ class Sentence {
     try {
       this.decrementwordindex();
       if (this.#wordindex < 0) {
-        throw `#wordindex is out of bounds (${this.#wordindex})`;
+        throw `wordindex(${this.#wordindex}) is out of bounds 'prevword'`;
       }
       return this.#words[this.#wordindex];
     } catch (outofbound) {
@@ -41,7 +41,7 @@ class Sentence {
     try {
       this.incrementwordindex();
       if (this.#wordindex >= this.#words.length) {
-        throw `#wordindex is out of bounds (${this.#wordindex})`;
+        throw `wordindex(${this.#wordindex}) is out of bounds 'nextword'`;
       }
       return this.#words[this.#wordindex];
     } catch (outofbound) {
@@ -51,7 +51,7 @@ class Sentence {
   get activeword() {
     try {
       if (this.#wordindex < 0 || this.#wordindex >= this.#words.length) {
-        throw `#wordindex is out of bounds (${this.#wordindex})`;
+        throw `wordindex(${this.#wordindex}) is out of bounds 'activeword'`;
       }
       return this.#words[this.#wordindex];
     } catch (outofbound) {
@@ -65,7 +65,7 @@ class Sentence {
 
 // goal is to first implement insertion and deletion of extra letter like texteditor
 class Word {
-  #word; // contains all <letter></letter> tags for the <word></word> tag
+  #word; // contains all <letter></letter> tags for a single <word></word> tag
   #letterindex; // keeps track of the index of <letter></letter> tag which is to be typed
 
   constructor(word) {
@@ -103,7 +103,7 @@ class Word {
     try {
       this.decrementletterindex();
       if (this.#letterindex < 0) {
-        throw `#letterindex is out of bounds (${this.#letterindex})`;
+        throw `letterindex(${this.#letterindex}) is out of bounds 'prevletter'`;
       }
       return this.#word[this.#letterindex];
     } catch (outofbound) {
@@ -114,7 +114,7 @@ class Word {
     try {
       this.incrementletterindex();
       if (this.#letterindex >= this.#word.length) {
-        throw `#letterindex is out of bounds (${this.#letterindex})`;
+        throw `letterindex(${this.#letterindex}) is out of bounds 'nextletter'`;
       }
       return this.#word[this.#letterindex];
     } catch (outofbound) {
@@ -124,7 +124,7 @@ class Word {
   get activeletter() {
     try {
       if (this.#letterindex < 0 || this.#letterindex >= this.#word.length) {
-        throw `#letterindex is out of bounds (${this.#letterindex})`;
+        throw `letterindex(${this.#letterindex}) is out of bounds 'activeletter'`;
       }
       return this.#word[this.#letterindex];
     } catch (outofbound) {
@@ -135,7 +135,7 @@ class Word {
     return this.#letterindex;
   }
   insert(letter) {}
-  delete(letter) {}
+  delete() {}
 }
 
 class Test {
@@ -159,45 +159,6 @@ class Test {
     // just add eventlisteners and you are good to go, user just needs to start
     // typing since sentence and word objects are already initialized
   }
-  wordtext(word) {
-    let ws_code = 0, text = new String();
-    for ( const letter of word.children ) {
-      ws_code = letter.textContent.charCodeAt(0);
-      if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
-        text += " ";
-      } else {
-        text += letter.textContent;
-      }
-    }
-    return text;
-  }
-  lettertext(letter) {
-		const ws_code = letter.textContent.charCodeAt(0);
-		if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
-			return " ";
-		} else {
-			return letter.textContent;
-		}
-	}
-  valid(sentence) {
-    // sentence type must be object i.e, array and it should not be empty,
-    // every string should be in <word></word> tag and every character should
-    // be in <letter></letter> tag and no letter tag must contain more than
-    // one character
-    const validtype = typeof sentence === "object";
-    const notempty = sentence.length > 0;
-    const validwordtags = sentence.every((word) => word.tagName === "WORD");
-    const validlettertags = sentence.every(function (word) {
-      return Array.from(word?.children).every(function (letter) {
-        return letter.tagName === "LETTER" && letter.textContent.length === 1;
-      });
-    });
-    if (validtype && notempty && validwordtags && validlettertags) {
-      return true;
-    } else {
-      return false;
-    }
-  }
   restart() {
     // ui change
     Element.input.value = "";
@@ -207,8 +168,7 @@ class Test {
     this.#word = new Word(this.#sentence.activeword);
   }
   over() {
-    const islastword =
-      this.#sentence.activewordindex === this.#sentence.size - 1;
+    const islastword = this.#sentence.activewordindex === this.#sentence.size - 1;
     const islastletter = this.#word.activeletterindex === this.#word.size - 1;
     return islastword && islastletter;
   }
