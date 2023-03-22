@@ -8,7 +8,7 @@ const keyboard = document.getElementsByTagName("keyboard")[0];
 const setting = {
 	restart: {
 		button: document.querySelector("button.restart"),
-		button_icon: document.querySelector("button i.fa-rotate-right"),
+		button_icon: document.querySelector("button i.fa-arrows-rotate"),
 	},
   caret: {
     off: document.querySelector("caret.off"),

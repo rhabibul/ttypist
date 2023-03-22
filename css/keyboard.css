@@ -3,8 +3,9 @@
 	--key-width: var(--size);
 	--key-height: var(--size);
 
-	--keyboard-bgcolor: rgb(26, 26, 26);
 	--span2nd-fontsize: 0.6rem;
+	--arrowkey-color: #383838;
+	--underscore-marker-color: #828282;
 }
 
 keyboard {
@@ -13,7 +14,7 @@ keyboard {
 	justify-content: space-evenly;
 
 	width: 1200px;
-	height: 306px;
+	height: 320px;
 	padding: 0px 6px;
 	font-family: "Roboto Mono", monospace;
 
@@ -52,6 +53,10 @@ keyboard row key span:nth-child(2) {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
+}
+
+#K {
+	margin-bottom: 10px;
 }
 
 #E .key16,
@@ -174,7 +179,7 @@ row#C .key8 span:nth-child(1) {
 }
 row#C .key5 span:nth-child(2),
 row#C .key8 span:nth-child(2) {
-	color: lightgray;
+	color: var(--underscore-marker-color);
 }
 
 row#C .key1 {
@@ -184,7 +189,7 @@ row#C .key13_14_15 {
 	width:  111px;
 }
 row#C .key22 span:nth-child(2) {
-	color: lightgray;
+	color: var(--underscore-marker-color);
 }
 
 /* --------------------------------- B --------------------------------- */
@@ -195,7 +200,7 @@ row#B .key12_13_14_15 {
 	width: 139px;
 }
 row#B .key18 {
-	color: #232323;
+	color: var(--arrowkey-color);
 	font-size: 1.8rem;
 }
 row#B .key21 span:nth-child(2),
@@ -204,10 +209,25 @@ row#B .key23 span:nth-child(2) {
 }
 
 /* --------------------------------- A --------------------------------- */
+row#A .key1,
+row#A .key2,
+row#A .key3 {
+	width: 58px; /* 1.25x */
+}
+row#A .key4_5_6_7_8_9_10_11 {
+	width: 302px; /* 6.25x */
+}
+row#A .key12,
+row#A .key13,
+row#A .key14,
+row#A .key15 {
+	width: 58px; /* 1.25x */
+}
+
 row#A .key17,
 row#A .key18,
 row#A .key19 {
-	color: #232323;
+	color: var(--arrowkey-color);
 	font-size: 1.8rem;
 }
 row#A .key21_22 {
@@ -222,7 +242,10 @@ row#A .key23 span:nth-child(1) {
 row#A .key23 span:nth-child(2) {
 	font-size: var(--span2nd-fontsize);
 }
-
+row#A .key24 span {
+	transform: translateY(-28px);
+	font-size: 0.8rem;
+}
 
 /* 
 	<row id="A">
