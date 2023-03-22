@@ -4,6 +4,7 @@
 	--key-height: var(--size);
 
 	--keyboard-bgcolor: rgb(26, 26, 26);
+	--span2nd-fontsize: 0.6rem;
 }
 
 keyboard {
@@ -16,6 +17,7 @@ keyboard {
 	padding: 0px 6px;
 	font-family: "Roboto Mono", monospace;
 
+	border-radius: 3px;
 	border: 1px solid darkgray;
 }
 keyboard row {
@@ -31,6 +33,7 @@ keyboard row key {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	border-radius: 3px;
 
 	font-size: 0.9rem;
 
@@ -123,7 +126,7 @@ keyboard row key span:nth-child(2) {
 #K .key14,
 #K .key15,
 #K .key16 {
-	font-size: 0.65rem;
+	font-size: 0.6rem;
 }
 /* --------------------------------- E --------------------------------- */
 row#E .key12 span:nth-child(1) {
@@ -144,7 +147,7 @@ row#E .key17,
 row#E .key18,
 row#E .key19,
 row#E .key21 {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 
 /* --------------------------------- D --------------------------------- */
@@ -157,11 +160,11 @@ row#D .key14_15 {
 row#D .key17,
 row#D .key18,
 row#D .key19 {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 row#D .key21 span:nth-child(2),
 row#D .key23 span:nth-child(2) {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 
 /* --------------------------------- C --------------------------------- */
@@ -170,23 +173,33 @@ row#C .key22 span:nth-child(2) {
 }
 
 /* --------------------------------- B --------------------------------- */
+row#B .key18 {
+	color: #232323;
+	font-size: 1.8rem;
+}
 row#B .key21 span:nth-child(2),
 row#B .key23 span:nth-child(2) {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 
 /* --------------------------------- A --------------------------------- */
+row#A .key17,
+row#A .key18,
+row#A .key19 {
+	color: #232323;
+	font-size: 1.8rem;
+}
 row#A .key21_22 {
 	width: 95px;
 }
 row#A .key21_22 span:nth-child(2) {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 row#A .key23 span:nth-child(1) {
 	font-size: 1rem;
 }
 row#A .key23 span:nth-child(2) {
-	font-size: 0.65rem;
+	font-size: var(--span2nd-fontsize);
 }
 
 
