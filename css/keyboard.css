@@ -1,5 +1,5 @@
 :root {
-	--size: 45px;
+	--size: 45px; /* 1x */
 	--key-width: var(--size);
 	--key-height: var(--size);
 
@@ -31,6 +31,8 @@ keyboard row key {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+
+	font-size: 0.9rem;
 
 	border: 1px solid lightgray;
 }
@@ -73,6 +75,13 @@ keyboard row key span:nth-child(2) {
 #B .key17,
 #B .key19 {
 	border: none;
+}
+
+#B .key24 {
+	border-bottom: none;
+}
+#A .key24 {
+	border-top: none;
 }
 
 /* --------------------------------- K --------------------------------- */
@@ -128,8 +137,8 @@ row#E .key12 span:nth-child(2) {
 	align-items: flex-start;
 }
 row#E .key14_15 {
-	width: calc(var(--size) * 2 + 5px);
-	font-size: 0.8rem;
+	width: calc(var(--size) * 2 + 5px); /* 2x */
+	/* font-size: 0.8rem; */
 }
 row#E .key17,
 row#E .key18,
@@ -138,33 +147,50 @@ row#E .key21 {
 	font-size: 0.65rem;
 }
 
+/* --------------------------------- D --------------------------------- */
+row#D .key1 {
+	width: 67.5px; /* 1.5x */
+}
+row#D .key14_15 {
+	width: 74px; /* 1.5x */
+}
+row#D .key17,
+row#D .key18,
+row#D .key19 {
+	font-size: 0.65rem;
+}
+row#D .key21 span:nth-child(2),
+row#D .key23 span:nth-child(2) {
+	font-size: 0.65rem;
+}
+
+/* --------------------------------- C --------------------------------- */
+row#C .key22 span:nth-child(2) {
+	color: lightgray;
+}
+
+/* --------------------------------- B --------------------------------- */
+row#B .key21 span:nth-child(2),
+row#B .key23 span:nth-child(2) {
+	font-size: 0.65rem;
+}
+
+/* --------------------------------- A --------------------------------- */
+row#A .key21_22 {
+	width: 95px;
+}
+row#A .key21_22 span:nth-child(2) {
+	font-size: 0.65rem;
+}
+row#A .key23 span:nth-child(1) {
+	font-size: 1rem;
+}
+row#A .key23 span:nth-child(2) {
+	font-size: 0.65rem;
+}
+
+
 /* 
-		<key>insert</key>
-		<key>home</key>
-		<key>pageup</key>
-		<key>numlock</key>
-		<key>/</key>
-		<key>*</key>
-		<key>-</key>
-	</row>
-	<row id="D">
-		<key>Tab</key>
-		<key>Q</key>
-		<key>W</key>
-		<key>E</key>
-		<key>R</key>
-		<key>T</key>
-		<key>Y</key>
-		<key>U</key>
-		<key>I</key>
-		<key>O</key>
-		<key>P</key>
-		<key>{[</key>
-		<key>}]</key>
-		<key>|\</key>
-		<key>delete</key>
-		<key>end</key>
-		<key>page down</key>
 		<key>7</key>
 		<key>8</key>
 		<key>9</key>
