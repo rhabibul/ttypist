@@ -1,5 +1,6 @@
 :root {
 	--size: 45px; /* 1x */
+	--key-boxradius: 4px;
 	--key-width: var(--size);
 	--key-height: var(--size);
 
@@ -18,7 +19,7 @@ keyboard {
 	padding: 0px 6px;
 	font-family: "Roboto Mono", monospace;
 
-	border-radius: 3px;
+	border-radius: var(--key-boxradius);
 	border: 1px solid darkgray;
 }
 keyboard row {
@@ -34,7 +35,7 @@ keyboard row key {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	border-radius: 3px;
+	border-radius: var(--key-boxradius);
 
 	font-size: 0.9rem;
 
@@ -83,13 +84,6 @@ keyboard row key span:nth-child(2) {
 #B .key17,
 #B .key19 {
 	border: none;
-}
-
-#B .key24 {
-	border-bottom: none;
-}
-#A .key24 {
-	border-top: none;
 }
 
 /* --------------------------------- K --------------------------------- */
@@ -146,7 +140,6 @@ row#E .key12 span:nth-child(2) {
 }
 row#E .key14_15 {
 	width: calc(var(--size) * 2 + 5px); /* 2x */
-	/* font-size: 0.8rem; */
 }
 row#E .key17,
 row#E .key18,
@@ -247,22 +240,10 @@ row#A .key24 span {
 	font-size: 0.8rem;
 }
 
-/* 
-	<row id="A">
-		<key>ctrl</key>
-		<key>win</key>
-		<key>alt</key>
-		<key>space</key>
-		<key>alt</key>
-		<key>winlock</key>
-		<key>fn</key>
-		<key>ctrl</key>
-		<key>&leftarrow;</key>
-		<key>&downarrow;</key>
-		<key>&rightarrow;</key>
-		<key><span>0</span><span>ins</span></key>
-		<key><span>.</span><span>del</span></key>
-		<key>enter</key>
-	</row>
-</keyboard>
- */
+/* -------------------------------------------------------------------------- */
+#B .key24 {
+	border-bottom: none;
+}
+#A .key24 {
+	border-top: none;
+}

@@ -194,5 +194,3 @@ function registerkeyup(evt) {
 }
 
 // const test = new Test();
-// test.init();
-// test.restart();
