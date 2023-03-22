@@ -168,6 +168,21 @@ row#D .key23 span:nth-child(2) {
 }
 
 /* --------------------------------- C --------------------------------- */
+row#C .key5 span:nth-child(1),
+row#C .key8 span:nth-child(1) {
+	transform: translateY(10px);
+}
+row#C .key5 span:nth-child(2),
+row#C .key8 span:nth-child(2) {
+	color: lightgray;
+}
+
+row#C .key1 {
+	width:  78.75px;
+}
+row#C .key13_14 {
+	width:  111px;
+}
 row#C .key22 span:nth-child(2) {
 	color: lightgray;
 }
@@ -204,13 +219,6 @@ row#A .key23 span:nth-child(2) {
 
 
 /* 
-		<key>7</key>
-		<key>8</key>
-		<key>9</key>
-		<key>+</key>
-	</row>
-	<row id="C">
-		<key>CAPSLOCK</key>
 		<key>A</key>
 		<key>S</key>
 		<key>D</key>
@@ -220,16 +228,6 @@ row#A .key23 span:nth-child(2) {
 		<key>J</key>
 		<key>K</key>
 		<key>L</key>
-		<key>:;</key>
-		<key>"'</key>
-		<key>ENTER</key>
-		<key></key>
-		<key></key>
-		<key></key>
-		<key>4</key>
-		<key>5</key>
-		<key>6</key>
-		<key>+</key>
 	</row>
 	<row id="B">
 		<key>shift</key>
