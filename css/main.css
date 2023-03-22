@@ -86,7 +86,10 @@ ttypist > input {
   color: var(--word);
 }
 .error {
-  color: #ff2525;
+  color: #ff0000;
+}
+.extra {
+  color: #cf0000ac;
 }
 .fade {
   color: var(--fade);

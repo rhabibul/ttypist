@@ -17,7 +17,7 @@
 /*----------------- line -----------------*/
 #line {
   border-left-color: var(--caret-color);
-  animation-name: animate-line;
+  /* animation-name: animate-line; */
 }
 .linetype {
   border-top: none;
@@ -44,7 +44,7 @@
 /*----------------- underline -----------------*/
 #underline {
   border-bottom-color: var(--caret-color);
-  animation-name: animate-unerline;
+  /* animation-name: animate-unerline; */
 }
 .underlinetype {
   border-left: none;
@@ -72,7 +72,7 @@
 #block {
   color: #ffffff;
   background-color: #000000;
-  animation-name: animate-block;
+  /* animation-name: animate-block; */
 }
 .blocktype {
   border: none;
@@ -98,7 +98,7 @@
 /*----------------- box -----------------*/
 #box {
   border-color: var(--caret-color);
-  animation-name: animate-box;
+  /* animation-name: animate-box; */
 }
 .boxtype {
   border: var(--box-caret-width) solid var(--caret-color-hidden);

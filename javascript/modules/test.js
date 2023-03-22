@@ -8,11 +8,19 @@ import Time from "./stat.js";
 import Sentence from "./sentence.js";
 import { test } from "../main.js";
 
+let firsterror = true;
+let preverror = new Object();
+let extra = new Object();
+
 class Test {
 
   constructor () { }
 
   start() {
+    firsterror = true;
+    preverror = new Object();
+    extra = new Object();
+    
     time.reset();
     sentence.reset();
 
@@ -52,6 +60,7 @@ function registerkeydown(evt) {
     
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);
+    firsterror = true;
 
     sentence.resetActiveLetterIndex();
     Caret.addCaretTo(sentence.activeLetter);
@@ -133,10 +142,15 @@ function registerkeydown(evt) {
     if ( Config.sentence.highlight.word ) sentence.activeWord.classList.remove("error");
 
     if ( sentence.activeLetterIndex > 0 ) {
-      Caret.goToPreviousLetter(sentence);
+      if ( sentence.prevletter.classList.contains('extra') ) {
+        sentence.prevletter.remove();
+        sentence.decrementLetterIndex();
+      } else {
+        Caret.goToPreviousLetter(sentence);
+      }
     } else {
       if ( sentence.activeLetterIndex === 0 && sentence.activeWordIndex > 0 ) {
-        
+        firsterror = true;
         Caret.removeCaretFrom(sentence.activeLetter);
         Caret.goToPreviousWord(sentence);
 
@@ -149,6 +163,24 @@ function registerkeydown(evt) {
     if (!CONST.invisible.includes(typedkey)) {
       if ( Config.sentence.highlight.word ) sentence.activeWord.classList.add("error");
       if ( Config.sentence.highlight.letter ) sentence.activeLetter.classList.add("error");
+
+      // error insertion
+      extra = document.createElement("letter");
+      extra.textContent = typedkey;
+      extra.classList.add("extra");
+
+      if ( firsterror ) {
+        firsterror = false;
+        sentence.activeLetter.insertAdjacentElement('beforebegin', extra);
+        preverror = extra;
+        sentence.incrementLetterIndex();
+      } else {
+        preverror.insertAdjacentElement('afterend', extra);
+        preverror = extra;
+        sentence.incrementLetterIndex();
+      }
+
+      // console.log(sentence.activeWord?.children);
     }
   }
 }

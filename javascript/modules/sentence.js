@@ -94,6 +94,11 @@ export default class Sentence {
       console.error(outofbounderror);
     }
   }
+  get prevletter() {
+    if ( this.#currentWordIndex >= 0 && this.#currentLetterIndex <= 0 ) return;
+    const i = this.#currentLetterIndex - 1;
+    return this.#words[this.#currentWordIndex].children[i];
+  }
 
   get typed() {
     return (this.activeLetterIndex === this.activeWordLength - 1) && (this.activeWordIndex   === this.wordCount - 1);

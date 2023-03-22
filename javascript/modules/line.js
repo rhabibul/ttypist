@@ -162,16 +162,16 @@ class Test {
     this.#word = new Word(this.#sentence.activeword);
   }
   finishedtypingwords() {
-    const islastletter = this.#word.activeletterindex === this.#word.size - 1;
-    const islastword = this.#sentence.activewordindex === this.#sentence.size - 1;
-    return islastword && islastletter;
+    const waslastletter = this.#word.activeletterindex === this.#word.size - 1;
+    const waslastword = this.#sentence.activewordindex === this.#sentence.size - 1;
+    return waslastword && waslastletter;
   }
 
   init() {
     // just add eventlisteners and you are good to go, user just needs to start
     // typing since sentence and word objects are already initialized
     Element.input.addEventListener("keydown", registerkeydown);
-    Element.input.addEventListener("keydown", registerkeyup);
+    Element.input.addEventListener("keyup", registerkeyup);
   }
   restart() {
     // ui change
@@ -193,7 +193,6 @@ function registerkeyup(evt) {
 
 }
 
-const test = new Test();
-
-test.init();
-test.restart();
+// const test = new Test();
+// test.init();
+// test.restart();
