@@ -105,10 +105,10 @@ function updatecaret(evt) {
 
   // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    letter.classList.remove(CONST.caret[prevcaret]); // remove previous caret's styling from all letters
+    letter.classList.remove(prevcaret.toUpperCase()); // remove previous caret's styling from all letters
     sentence.removeCaretFromActiveLetter();
     
-    letter.classList.add(CONST.caret[Config.caret.type]); // add new caret's styling to all letters
+    letter.classList.add(Config.caret.type.toUpperCase()); // add new caret's styling to all letters
     sentence.addCaretToActiveLetter();
 
     Element.input.focus();

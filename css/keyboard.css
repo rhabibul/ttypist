@@ -1,0 +1,233 @@
+:root {
+	--size: 45px;
+	--key-width: var(--size);
+	--key-height: var(--size);
+
+	--keyboard-bgcolor: rgb(26, 26, 26);
+}
+
+keyboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+
+	width: 1200px;
+	height: 306px;
+	padding: 0px 6px;
+	font-family: "Roboto Mono", monospace;
+
+	border: 1px solid darkgray;
+}
+keyboard row {
+	height: var(--key-height);
+	display: flex;
+	justify-content: space-between;
+}
+keyboard row key {
+	width: var(--key-width);
+	height: var(--key-height);
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	border: 1px solid lightgray;
+}
+keyboard row key span {
+	flex-basis: 50%;
+	width: 100%;
+}
+keyboard row key span:nth-child(1) {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+keyboard row key span:nth-child(2) {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+#E .key16,
+#D .key16,
+#C .key16,
+#B .key16,
+#A .key16 {
+	border: none;
+}
+
+#E .key20,
+#D .key20,
+#C .key20,
+#B .key20,
+#A .key20 {
+	border: none;
+}
+
+#C .key17,
+#C .key18,
+#C .key19 {
+	border: none;
+}
+#B .key17,
+#B .key19 {
+	border: none;
+}
+
+/* --------------------------------- K --------------------------------- */
+#K {
+	display: flex;
+	justify-content: flex-start;
+}
+#K .key1 {
+	margin-right: 54px;
+}
+#K .key2,
+#K .key3,
+#K .key4 {
+	margin-right: 4.5px;
+}
+#K .key5 {
+	margin-right: 30px;
+}
+#K .key6,
+#K .key7,
+#K .key8 {
+	margin-right: 4.5px;
+}
+#K .key9 {
+	margin-right: 30px;
+}
+#K .key10,
+#K .key11,
+#K .key12 {
+	margin-right: 4.5px;
+}
+#K .key13 {
+	margin-right: 54px;
+}
+#K .key14,
+#K .key15 {
+	margin-right: 4.5px;
+}
+#K .key14,
+#K .key15,
+#K .key16 {
+	font-size: 0.65rem;
+}
+/* --------------------------------- E --------------------------------- */
+row#E .key12 span:nth-child(1) {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+row#E .key12 span:nth-child(2) {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+row#E .key14_15 {
+	width: calc(var(--size) * 2 + 5px);
+	font-size: 0.8rem;
+}
+row#E .key17,
+row#E .key18,
+row#E .key19,
+row#E .key21 {
+	font-size: 0.65rem;
+}
+
+/* 
+		<key>insert</key>
+		<key>home</key>
+		<key>pageup</key>
+		<key>numlock</key>
+		<key>/</key>
+		<key>*</key>
+		<key>-</key>
+	</row>
+	<row id="D">
+		<key>Tab</key>
+		<key>Q</key>
+		<key>W</key>
+		<key>E</key>
+		<key>R</key>
+		<key>T</key>
+		<key>Y</key>
+		<key>U</key>
+		<key>I</key>
+		<key>O</key>
+		<key>P</key>
+		<key>{[</key>
+		<key>}]</key>
+		<key>|\</key>
+		<key>delete</key>
+		<key>end</key>
+		<key>page down</key>
+		<key>7</key>
+		<key>8</key>
+		<key>9</key>
+		<key>+</key>
+	</row>
+	<row id="C">
+		<key>CAPSLOCK</key>
+		<key>A</key>
+		<key>S</key>
+		<key>D</key>
+		<key>F</key>
+		<key>G</key>
+		<key>H</key>
+		<key>J</key>
+		<key>K</key>
+		<key>L</key>
+		<key>:;</key>
+		<key>"'</key>
+		<key>ENTER</key>
+		<key></key>
+		<key></key>
+		<key></key>
+		<key>4</key>
+		<key>5</key>
+		<key>6</key>
+		<key>+</key>
+	</row>
+	<row id="B">
+		<key>shift</key>
+		<key>Z</key>
+		<key>X</key>
+		<key>C</key>
+		<key>V</key>
+		<key>B</key>
+		<key>N</key>
+		<key>M</key>
+		<key><,</key>
+		<key>>.</key>
+		<key>?/</key>
+		<key>shift</key>
+		<key></key>
+		<key>&UpArrow;</key>
+		<key></key>
+		<key>1</key>
+		<key>2</key>
+		<key>3</key>
+		<key>enter</key>
+	</row>
+	<row id="A">
+		<key>ctrl</key>
+		<key>win</key>
+		<key>alt</key>
+		<key>space</key>
+		<key>alt</key>
+		<key>winlock</key>
+		<key>fn</key>
+		<key>ctrl</key>
+		<key>&leftarrow;</key>
+		<key>&downarrow;</key>
+		<key>&rightarrow;</key>
+		<key><span>0</span><span>ins</span></key>
+		<key><span>.</span><span>del</span></key>
+		<key>enter</key>
+	</row>
+</keyboard>
+ */

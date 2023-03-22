@@ -56,7 +56,7 @@ function registerkeydown(evt) {
     Element.setting.restart.button.focus();
   }
 
-  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === " ") ) {
+  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === CONST.char.space) ) {
     
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);
@@ -160,7 +160,7 @@ function registerkeydown(evt) {
     }
     
   } else {
-    if (!CONST.invisible.includes(typedkey)) {
+    if (!CONST.notprintable.includes(typedkey)) {
       if ( Config.sentence.highlight.word ) sentence.activeWord.classList.add("error");
       if ( Config.sentence.highlight.letter ) sentence.activeLetter.classList.add("error");
 

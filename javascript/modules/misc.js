@@ -50,14 +50,14 @@ function wordelementsfrom(wordsInStringForm) {
 
       letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
-      letter.classList.add(CONST.caret[Config.caret.type]);
+      letter.classList.add(Config.caret.type.toUpperCase());
       
       word.appendChild(letter);
     }
 
     // letter with whitespace
     letter = document.createElement("letter");
-    letter.classList.add(CONST.caret[Config.caret.type]);
+    letter.classList.add(Config.caret.type.toUpperCase());
     letter.classList.add("whitespace");
 
     if ( Config.sentence.whitespace == CONST.whitespace.space ) {
@@ -160,7 +160,7 @@ export {
   toupper,
 
   validsentence,
-  
+
   which_os,
 
   showspeed,
