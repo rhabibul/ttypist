@@ -180,7 +180,7 @@ row#C .key8 span:nth-child(2) {
 row#C .key1 {
 	width:  78.75px;
 }
-row#C .key13_14 {
+row#C .key13_14_15 {
 	width:  111px;
 }
 row#C .key22 span:nth-child(2) {
@@ -188,6 +188,12 @@ row#C .key22 span:nth-child(2) {
 }
 
 /* --------------------------------- B --------------------------------- */
+row#B .key1 {
+	width: 101.25px;
+}
+row#B .key12_13_14_15 {
+	width: 139px;
+}
 row#B .key18 {
 	color: #232323;
 	font-size: 1.8rem;
@@ -219,37 +225,6 @@ row#A .key23 span:nth-child(2) {
 
 
 /* 
-		<key>A</key>
-		<key>S</key>
-		<key>D</key>
-		<key>F</key>
-		<key>G</key>
-		<key>H</key>
-		<key>J</key>
-		<key>K</key>
-		<key>L</key>
-	</row>
-	<row id="B">
-		<key>shift</key>
-		<key>Z</key>
-		<key>X</key>
-		<key>C</key>
-		<key>V</key>
-		<key>B</key>
-		<key>N</key>
-		<key>M</key>
-		<key><,</key>
-		<key>>.</key>
-		<key>?/</key>
-		<key>shift</key>
-		<key></key>
-		<key>&UpArrow;</key>
-		<key></key>
-		<key>1</key>
-		<key>2</key>
-		<key>3</key>
-		<key>enter</key>
-	</row>
 	<row id="A">
 		<key>ctrl</key>
 		<key>win</key>
