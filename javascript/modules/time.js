@@ -1,3 +1,4 @@
+// timerformat: [N, N-1, N-2, .... ,0]/N   where N is the total available time
 class StopWatch {
 	#element;  // stores dom element on which to show time
 	#id;			 // stores interval id which would be used to stop stopwatch timer
@@ -36,6 +37,7 @@ class StopWatch {
 	}
 }
 
+// timerformat: [n, n-1, n-2, ... ,0]   where N is the total available time
 class Timer {
 	constructor() {}
 }
