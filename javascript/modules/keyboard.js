@@ -6,6 +6,11 @@
  *   	  EventTarget.dispatchEvent()
 **/ 
 
+function render() {
+  // the purpose of this function is to tell you that use a function name rander
+  // to display keyboard (alphanemeric, function row, numpad, arrows section)
+}
+
 // https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system
 const keyboardevent = new Map([
   // Alphanumeric

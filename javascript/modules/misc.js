@@ -139,12 +139,14 @@ function automatetyping(keystroke_time) {
 function which_os() {
   let s = navigator.userAgent;
 }
-
 function tolower(letter) { // Lowercase: 0'11'?????
   return String.fromCharCode(letter.charCodeAt(0) | (1 << 5));
 }
 function toupper(letter) { // Uppercase: 0'10'?????
   return String.fromCharCode(letter.charCodeAt(0) & (~(1 << 5)));
+}
+function bin(value) {
+  return Number(value).toString(2);
 }
 
 export { 

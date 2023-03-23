@@ -1,6 +1,6 @@
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
-
+import { StopWatch, Time } from "./time.js";
 
 const s = "the quick brown fox jumped over the lazy dog";
 const samplewords = s.split(' ');
@@ -183,14 +183,66 @@ class Test {
   }
 }
 
+const keep = {
+  key: new Map([
+    ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
+    ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
+    ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
+    ["v", []], ["w", []], ["x", []], ["y", []], ["z", []],
+    ["A", []], ["B", []], ["C", []], ["D", []], ["E", []], ["F", []], ["G", []],
+    ["H", []], ["I", []], ["J", []], ["K", []], ["L", []], ["M", []], ["N", []],
+    ["O", []], ["P", []], ["Q", []], ["R", []], ["S", []], ["T", []], ["U", []],
+    ["V", []], ["W", []], ["X", []], ["Y", []], ["Z", []],
+    ["0", []], ["1", []], ["2", []], ["3", []], ["4", []], ["5", []], ["6", []],
+    ["7", []], ["8", []], ["9", []], ["`", []], ["~", []], ["!", []], ["@", []],
+    ["#", []], ["$", []], ["%", []], ["^", []], ["&", []], ["*", []], ["(", []],
+    [")", []], ["-", []], ["_", []], ["=", []], ["+", []], ["[", []], ["]", []],
+    ["{", []], ["}", []], [";", []], [":", []], ["'", []], ["|", []],
+    ["\"",[]], ["\\",[]],
+    [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
+  ]),
+  duration(symbol, time) {
+    this.key.get(symbol)?.push(time);
+  }
+}
+
+const key = {
+  down: 0,
+  up: 0,
+  pressduration: 0,
+  wasrepeating: false,
+
+  reset() {
+    this.down = 0;
+    this.up = 0;
+    this.pressduration = 0;
+    this.wasrepeating = false;
+  }
+};
+
 function registerkeydown(evt) {
   evt.preventDefault(); // characters are not displayed in input field
   evt.stopPropagation();
 
+  if ( !evt.isTrusted ) return;
+  
+  if ( evt.repeat ) {
+    key.wasrepeating = true;
+  } else {
+    key.down = performance.now();
+  }
 }
+
 function registerkeyup(evt) {
   evt.stopPropagation();
 
+  if ( key.wasrepeating ) {
+    key.wasrepeating = false;
+  } else {
+    key.up = performance.now();
+    key.pressduration = key.up - key.down;
+    keep.duration(evt.key, key.pressduration);
+  }
 }
 
 // const test = new Test();

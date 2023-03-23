@@ -20,7 +20,7 @@ keyboard {
 	font-family: "Roboto Mono", monospace;
 
 	border-radius: var(--key-boxradius);
-	border: 1px solid darkgray;
+	border: 1px solid lightgray;
 }
 keyboard row {
 	height: var(--key-height);
