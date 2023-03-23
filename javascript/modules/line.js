@@ -183,8 +183,9 @@ class Test {
   }
 }
 
-const keep = {
-  key: new Map([
+const keypressduration = {
+
+  symbol: new Map([
     ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
     ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
     ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
@@ -201,25 +202,41 @@ const keep = {
     ["\"",[]], ["\\",[]],
     [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
   ]),
-  duration(symbol, time) {
-    this.key.get(symbol)?.push(time);
+  
+  store(key, time) {
+    this.symbol.get(key)?.push(time);
+  },
+  
+  show() {
+    for ( const [key, value] of this.symbol.entries() ) {
+      console.log(key, value);
+    }
+  },
+
+  reset() {
+    for ( const [key, _] of this.symbol.entries() ) {
+      this.symbol.set(key, new Array());
+    }
   }
 }
 
 const key = {
   down: 0,
   up: 0,
-  pressduration: 0,
   wasrepeating: false,
+  pressduration: 0,
 
   reset() {
     this.down = 0;
     this.up = 0;
-    this.pressduration = 0;
     this.wasrepeating = false;
+    this.pressduration = 0;
   }
 };
 
+// note:
+//   implement only caret movement with deletion (bs, alt/ctrl+bs, cmd+bs)
+//   without error handling ui and without word/letter highlight
 function registerkeydown(evt) {
   evt.preventDefault(); // characters are not displayed in input field
   evt.stopPropagation();
@@ -241,7 +258,7 @@ function registerkeyup(evt) {
   } else {
     key.up = performance.now();
     key.pressduration = key.up - key.down;
-    keep.duration(evt.key, key.pressduration);
+    keypressduration.store(evt.key, key.pressduration);
   }
 }
 

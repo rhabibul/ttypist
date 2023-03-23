@@ -33,10 +33,6 @@ class Test {
   }
 }
 
-function registerkeyup(evt) {
-  evt.preventDefault();
-}
-
 function registerkeydown(evt) {
   evt.preventDefault();
 
@@ -149,7 +145,7 @@ function registerkeydown(evt) {
         Caret.goToPreviousLetter(sentence);
       }
     } else {
-      
+
       if ( sentence.activeLetterIndex === 0 && sentence.activeWordIndex > 0 ) {
         firsterror = true;
         Caret.removeCaretFrom(sentence.activeLetter);
