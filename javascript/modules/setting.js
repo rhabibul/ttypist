@@ -100,14 +100,20 @@ function updatecaret(evt) {
     }
   }
 
-  // update current caret type in config
+  // update current caret type and on/off status in config object
   Config.caret.type = thiscaret.dataset.type;
+  if ( thiscaret.dataset.type === "off" ) {
+    Config.caret.on = false;
+    // next task is to hide the input box
+  } else {
+    Config.caret.on = true;
+    // next task is to display the input box
+  }
 
   // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     letter.classList.remove(prevcaret.toUpperCase()); // remove previous caret's styling from all letters
     sentence.removeCaretFromActiveLetter();
-    
     letter.classList.add(Config.caret.type.toUpperCase()); // add new caret's styling to all letters
     sentence.addCaretToActiveLetter();
 
@@ -120,9 +126,6 @@ Element.setting.caret.box.addEventListener      ("click", updatecaret);
 Element.setting.caret.line.addEventListener     ("click", updatecaret);
 Element.setting.caret.block.addEventListener    ("click", updatecaret);
 Element.setting.caret.underline.addEventListener("click", updatecaret);
-
-// select line caret as the default caret
-Element.setting.caret.line.dispatchEvent(new Event('click'));
 
 Element.setting.restart.button.addEventListener('click', (evt) => {
   evt.preventDefault();

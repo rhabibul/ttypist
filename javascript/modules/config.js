@@ -1,4 +1,4 @@
-import * as CONST from "./const.js";
+import * as Const from "./const.js";
 
 export default {
   operatingsystem: "",
@@ -48,18 +48,25 @@ export default {
   },
   
   caret: {
-    type: "off", // off, line, underline, box, block
-    blink: true,
-    smooth: false,
+    on: true,
+    type: "line", // line, underline, box, block
   },
-  
-  sentence: {
-    whitespace: CONST.whitespace.space, // space/dot/bar
-    highlight: {
+
+  whitespace: {
+    code: Const.ws.space.code,
+    character: Const.ws.space.character,
+  },
+
+  highlight: {
+    on: true,
+    mode: {
       word: false,
       letter: true,
     },
-    fliptextcolor: false, // brightness of typed texts and upcoming future texts
+  },
+  fliptextcolor: false, // brightness of typed texts and future texts
+  
+  sentence: {
     word: {
       count: 5,
       length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)

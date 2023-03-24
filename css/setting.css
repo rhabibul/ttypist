@@ -60,7 +60,7 @@ caret {
   justify-content: center;
   
   border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
+  background-color: var(--setting-bgcolor-inactive);
 }
 
 caret.off shape,
@@ -137,7 +137,7 @@ button.restart i {
   width: 280px;
   
   border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
+  background-color: var(--setting-bgcolor-inactive);
 
   display: flex;
   align-items: center;

@@ -155,6 +155,12 @@ class Word {
       console.error(outofbound);
     }
   }
+  get activelettervalue() {
+    return this.activeletter.textContent;
+  }
+  get activelettercode() {
+    return this.activeletter.textContent.charCodeAt(0);
+  }
   resetletterindex() {
     this.#letterindex = 0;
   }
@@ -207,27 +213,29 @@ class Test {
   removecaretfrom(word.activeletter);
     addcaretto(word.nextletter);	
   }
+
+  restart() {
+
+  }
 }
 
 const test = new Test();
-
-Element.input.addEventListener("keydown", registerkeydown);
-Element.input.addEventListener("keyup", registerkeyup);
-
 
 const typedchar = {
   value: "",
   keydown: 0,
   keyup: 0,
   repeated: false,
-
   reset() {
-    this.value = "";
     this.keydown = 0;
     this.keyup = 0;
     this.repeated = false;
   }
 };
+
+
+// Element.input.addEventListener("keydown", registerkeydown);
+// Element.input.addEventListener("keyup", registerkeyup);
 
 function registerkeydown(evt) {
   evt.preventDefault(); // typedchars are not displayed in input field
@@ -246,11 +254,4 @@ function registerkeydown(evt) {
 
 function registerkeyup(evt) {
   evt.stopPropagation();
-  
-  if ( !typedchar.repeated ) {
-    typedchar.keyup = performance.now();
-    keypressduration.store(evt.key, typedchar.keyup - typedchar.keydown);
-    typedchar.repeated = false;
-    typedchar.reset();
-  }
 }

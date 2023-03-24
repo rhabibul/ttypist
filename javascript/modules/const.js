@@ -10,22 +10,37 @@ const notalphabet = [
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
-const char = {
-  space: ' ',
-}
-
 // store the code values instead of unicode characters here and config object
 const whitespace = {
   dot: '⸱', // 11825
   bar: '␣', // 9251 (open box)
-  space: '&nbsp;', // 160 (non-break space) | (ascii space 32)
-  thinspace: ' ', // 8201 (thin space)
-  ideographicspace: '　', // 12288 (ideographic space)
+  space: '&nbsp;', // 160 (non-break space)
 };
+
+const wstest = {
+  "⸱": 11825,
+  "␣": 9251,
+  "&nbsp;": 160,
+};
+
+const ws = {
+  dot: {
+    code: 11825,
+    character: '⸱',
+  },
+  bar: {
+    code: 9251,
+    character: '␣',
+  },
+  space: {
+    code: 160,
+    character: '&nbsp;',
+  },
+}
 
 export {
   whitespace,
   notprintable,
   notalphabet,
-  char,
+  ws,
 };

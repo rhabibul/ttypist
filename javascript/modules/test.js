@@ -24,7 +24,7 @@ class Test {
     time.reset();
     sentence.reset();
 
-    if ( Config.sentence.highlight.word ) Caret.addHighlightTo(sentence.activeWord);
+    if ( Config.highlight.mode.word ) Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
     
     Element.input.addEventListener('keydown', registerkeydown, false);
@@ -34,15 +34,7 @@ class Test {
 }
 
 function registerkeydown(evt) {
-  evt.preventDefault();
-
-  if ( !evt.isTrusted ) {
-    console.log("You're not human. 🤦🏻‍♂️");
-    Element.input.removeEventListener("keydown", registerkeydown); // this doesn't stop the autotyper from typing though
-    Element.input.remove(); // this doesn't stop the autotyper from typing though
-    return; // no further processing if test is automated
-  }
-
+  if ( !evt.isTrusted ) return;
   if ( !time.started ) time.start();
 
   let typedkey = evt.key;
@@ -52,7 +44,7 @@ function registerkeydown(evt) {
     Element.setting.restart.button.focus();
   }
 
-  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === CONST.char.space) ) {
+  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === ' ') ) {
     
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);
@@ -80,7 +72,7 @@ function registerkeydown(evt) {
   } else if (evt.metaKey && typedkey === "Backspace") {
 
     Caret.removeCaretFrom(sentence.activeLetter);
-    if ( Config.sentence.highlight.word ) Caret.removeHighlightFrom(sentence.activeWord);
+    if ( Config.highlight.mode.word ) Caret.removeHighlightFrom(sentence.activeWord);
 
     let i = sentence.wordCount - 1;
     while ( i >= 0 ) {
@@ -99,14 +91,14 @@ function registerkeydown(evt) {
     sentence.resetActiveWordIndex();
     sentence.resetActiveLetterIndex();
     
-    if ( Config.sentence.highlight.word ) Caret.addHighlightTo(sentence.activeWord);
+    if ( Config.highlight.mode.word ) Caret.addHighlightTo(sentence.activeWord);
     Caret.addCaretTo(sentence.activeLetter);
 
   } else if ( evt.altKey  && typedkey === "Backspace" || evt.ctrlKey && typedkey === "Backspace" ) {
 
     Caret.removeCaretFrom(sentence.activeLetter);
     
-    if ( Config.sentence.highlight.word ) {
+    if ( Config.highlight.mode.word ) {
       sentence.activeWord.classList.remove("error");
     } else {
       const letters = sentence.activeWord.children;
@@ -127,7 +119,7 @@ function registerkeydown(evt) {
       }
     }
 
-    if ( Config.sentence.highlight.word ) {
+    if ( Config.highlight.mode.word ) {
       sentence.activeWord.classList.remove("error");
     }
     sentence.resetActiveLetterIndex();
@@ -135,7 +127,7 @@ function registerkeydown(evt) {
 
   } else if ( typedkey === "Backspace" ) {
 
-    if ( Config.sentence.highlight.word ) sentence.activeWord.classList.remove("error");
+    if ( Config.highlight.mode.word ) sentence.activeWord.classList.remove("error");
 
     if ( sentence.activeLetterIndex > 0 ) {
       if ( sentence.prevletter.classList.contains('extra') ) {
@@ -158,7 +150,7 @@ function registerkeydown(evt) {
     
   } else {
     if (!CONST.notprintable.includes(typedkey)) {
-      if ( Config.sentence.highlight.word ) sentence.activeWord.classList.add("error");
+      if ( Config.highlight.mode.word ) sentence.activeWord.classList.add("error");
       if ( Config.sentence.highlight.letter ) sentence.activeLetter.classList.add("error");
 
       // error insertion

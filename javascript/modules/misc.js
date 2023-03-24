@@ -4,10 +4,18 @@ import * as Element from "./element.js"
 import w1k from "./w1k.js";
 import Config from "./config.js";
 
+
+// start here...
+function isspace(letter) {
+  return letter.textContent
+}
+
 function charcode(char) {
   
+  // string comparison is going on here
   if ( char === CONST.whitespace.space ) return 160;
   if ( char === CONST.whitespace.dot) return 11825;
+  if ( char === CONST.whitespace.bar) return 9251;
 
   return char.charCodeAt(0);
 }
@@ -51,7 +59,7 @@ function wordelementsfrom(wordsInStringForm) {
       letter = document.createElement("letter");
       letter.textContent = wordsInStringForm[i][j];
       letter.classList.add(Config.caret.type.toUpperCase());
-      
+
       word.appendChild(letter);
     }
 
@@ -59,7 +67,6 @@ function wordelementsfrom(wordsInStringForm) {
     letter = document.createElement("letter");
     letter.classList.add(Config.caret.type.toUpperCase());
     letter.classList.add("whitespace");
-
     if ( Config.sentence.whitespace == CONST.whitespace.space ) {
       letter.innerHTML = `${Config.sentence.whitespace}`;
     } else {
