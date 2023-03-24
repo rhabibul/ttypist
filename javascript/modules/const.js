@@ -14,6 +14,7 @@ const char = {
   space: ' ',
 }
 
+// store the code values instead of unicode characters here and config object
 const whitespace = {
   dot: '⸱', // 11825
   bar: '␣', // 9251 (open box)

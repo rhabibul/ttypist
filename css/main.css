@@ -17,7 +17,7 @@ body {
   --fontfamily-monasans: "";
   --fontfamily-robotomono: "Roboto Mono", monospace;
   
-  --line-gap: 4px; /* adjust this line gap according to caret type using javascript */
+  --line-gap: 0px; /* adjust this line gap according to caret type using javascript */
 
   --word: rgb(156, 156, 156);
   --fade: #c5c5c5;

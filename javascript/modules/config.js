@@ -15,6 +15,7 @@ export default {
 
   oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
   testendswithspace: false, // user will have to hit space after typing last word to end test
+  inputbox: false,
 
   // difficulty:
   //    - classic is normal typing test experience
@@ -60,7 +61,7 @@ export default {
     },
     fliptextcolor: false, // brightness of typed texts and upcoming future texts
     word: {
-      count: 25,
+      count: 5,
       length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
     },
     include: {
@@ -73,12 +74,6 @@ export default {
       family: "Roboto Mono, monospace",
     },
   },
-
-
-
-
-
-
 
   live: {
     stats: false, // show wpm/cpm and accuracy on every keystroke

@@ -2,8 +2,41 @@ import * as Misc from "./misc.js";
 import * as Element from "./element.js";
 import { StopWatch, Time } from "./time.js";
 
-const s = "the quick brown fox jumped over the lazy dog";
-const samplewords = s.split(' ');
+const keypressduration = {
+  symbol: new Map([
+    ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
+    ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
+    ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
+    ["v", []], ["w", []], ["x", []], ["y", []], ["z", []],
+    ["A", []], ["B", []], ["C", []], ["D", []], ["E", []], ["F", []], ["G", []],
+    ["H", []], ["I", []], ["J", []], ["K", []], ["L", []], ["M", []], ["N", []],
+    ["O", []], ["P", []], ["Q", []], ["R", []], ["S", []], ["T", []], ["U", []],
+    ["V", []], ["W", []], ["X", []], ["Y", []], ["Z", []],
+    ["0", []], ["1", []], ["2", []], ["3", []], ["4", []], ["5", []], ["6", []],
+    ["7", []], ["8", []], ["9", []], ["`", []], ["~", []], ["!", []], ["@", []],
+    ["#", []], ["$", []], ["%", []], ["^", []], ["&", []], ["*", []], ["(", []],
+    [")", []], ["-", []], ["_", []], ["=", []], ["+", []], ["[", []], ["]", []],
+    ["{", []], ["}", []], [";", []], [":", []], ["'", []], ["|", []],
+    ["\"",[]], ["\\",[]],
+    [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
+  ]),
+  
+  store(key, time) {
+    this.symbol.get(key)?.push(time);
+  },
+  
+  show() {
+    for ( const [key, value] of this.symbol.entries() ) {
+      console.log(key, value);
+    }
+  },
+
+  reset() {
+    for ( const [key, _] of this.symbol.entries() ) {
+      this.symbol.set(key, new Array());
+    }
+  }
+}
 
 class Sentence {
   #words; // array of <word></word> tag which contains <letter></letter> tags
@@ -19,16 +52,6 @@ class Sentence {
 
   get size() {
     return this.#words.length;
-  }
-
-  resetwordindex() {
-    this.#wordindex = 0;
-  }
-  decrementwordindex() {
-    this.#wordindex = this.#wordindex - 1;
-  }
-  incrementwordindex() {
-    this.#wordindex = this.#wordindex + 1;
   }
 
   set activewordindex(index) {
@@ -69,6 +92,15 @@ class Sentence {
       console.error(outofbound);
     }
   }
+  resetwordindex() {
+    this.#wordindex = 0;
+  }
+  decrementwordindex() {
+    this.#wordindex = this.#wordindex - 1;
+  }
+  incrementwordindex() {
+    this.#wordindex = this.#wordindex + 1;
+  }
 }
 
 // goal is to first implement insertion and deletion of extra letter like texteditor
@@ -83,16 +115,6 @@ class Word {
 
   get size() {
     return this.#word.length;
-  }
-
-  resetletterindex() {
-    this.#letterindex = 0;
-  }
-  decrementletterindex() {
-    this.#letterindex = this.#letterindex - 1;
-  }
-  incrementletterindex() {
-    this.#letterindex = this.#letterindex + 1;
   }
   
   set activeletterindex(index) {
@@ -133,7 +155,15 @@ class Word {
       console.error(outofbound);
     }
   }
-
+  resetletterindex() {
+    this.#letterindex = 0;
+  }
+  decrementletterindex() {
+    this.#letterindex = this.#letterindex - 1;
+  }
+  incrementletterindex() {
+    this.#letterindex = this.#letterindex + 1;
+  }
   loadprevword(word) {
     this.#word = Array.from(word?.children);
     this.#letterindex = this.#word.length - 1;
@@ -151,115 +181,76 @@ class Word {
   delete(word = false) {}
 }
 
+let sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
+let word = new Word(sentence.activeword);
+
 class Test {
-  #sentence;
-  #word;
-
-  constructor() {
-    const words = Misc.wordelementsfrom(samplewords);
-
-    this.#sentence = new Sentence(words);
-    this.#word = new Word(this.#sentence.activeword);
-  }
-  finishedtypingwords() {
-    const waslastletter = this.#word.activeletterindex === this.#word.size - 1;
-    const waslastword = this.#sentence.activewordindex === this.#sentence.size - 1;
-    return waslastword && waslastletter;
+  constructor() {}
+  finishedtyping() {
+    const islastword = word.activeletterindex === word.size - 1;
+    const islastletter = sentence.activewordindex === sentence.size - 1;
+    return islastword && islastletter;
   }
 
-  init() {
-    // just add eventlisteners and you are good to go, user just needs to start
-    // typing since sentence and word objects are already initialized
-    Element.input.addEventListener("keydown", registerkeydown);
-    Element.input.addEventListener("keyup", registerkeyup);
+  addcaretto(letterelement) {
+    letterelement.setAttribute("id", Config.caret.type);
   }
-  restart() {
-    // ui change
-    Element.input.value = "";
-    Element.sentence.innerHTML = "";
-
-    this.#sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
-    this.#word = new Word(this.#sentence.activeword);
+  removecaretfrom(letterelement) {
+    letterelement.setAttribute("id", "");
+  }
+  
+  putcaret_onprevletter() {
+    removecaretfrom(word.activeletter);
+    addcaretto(word.prevletter);
+  }
+  putcaret_onnextletter() {
+  removecaretfrom(word.activeletter);
+    addcaretto(word.nextletter);	
   }
 }
 
-const keypressduration = {
+const test = new Test();
 
-  symbol: new Map([
-    ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
-    ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
-    ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
-    ["v", []], ["w", []], ["x", []], ["y", []], ["z", []],
-    ["A", []], ["B", []], ["C", []], ["D", []], ["E", []], ["F", []], ["G", []],
-    ["H", []], ["I", []], ["J", []], ["K", []], ["L", []], ["M", []], ["N", []],
-    ["O", []], ["P", []], ["Q", []], ["R", []], ["S", []], ["T", []], ["U", []],
-    ["V", []], ["W", []], ["X", []], ["Y", []], ["Z", []],
-    ["0", []], ["1", []], ["2", []], ["3", []], ["4", []], ["5", []], ["6", []],
-    ["7", []], ["8", []], ["9", []], ["`", []], ["~", []], ["!", []], ["@", []],
-    ["#", []], ["$", []], ["%", []], ["^", []], ["&", []], ["*", []], ["(", []],
-    [")", []], ["-", []], ["_", []], ["=", []], ["+", []], ["[", []], ["]", []],
-    ["{", []], ["}", []], [";", []], [":", []], ["'", []], ["|", []],
-    ["\"",[]], ["\\",[]],
-    [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
-  ]),
-  
-  store(key, time) {
-    this.symbol.get(key)?.push(time);
-  },
-  
-  show() {
-    for ( const [key, value] of this.symbol.entries() ) {
-      console.log(key, value);
-    }
-  },
+Element.input.addEventListener("keydown", registerkeydown);
+Element.input.addEventListener("keyup", registerkeyup);
+
+
+const typedchar = {
+  value: "",
+  keydown: 0,
+  keyup: 0,
+  repeated: false,
 
   reset() {
-    for ( const [key, _] of this.symbol.entries() ) {
-      this.symbol.set(key, new Array());
-    }
-  }
-}
-
-const key = {
-  down: 0,
-  up: 0,
-  wasrepeating: false,
-  pressduration: 0,
-
-  reset() {
-    this.down = 0;
-    this.up = 0;
-    this.wasrepeating = false;
-    this.pressduration = 0;
+    this.value = "";
+    this.keydown = 0;
+    this.keyup = 0;
+    this.repeated = false;
   }
 };
 
-// note:
-//   implement only caret movement with deletion (bs, alt/ctrl+bs, cmd+bs)
-//   without error handling ui and without word/letter highlight
 function registerkeydown(evt) {
-  evt.preventDefault(); // characters are not displayed in input field
+  evt.preventDefault(); // typedchars are not displayed in input field
   evt.stopPropagation();
 
+  typedchar.value = evt.key;
+  
   if ( !evt.isTrusted ) return;
   
   if ( evt.repeat ) {
-    key.wasrepeating = true;
+    typedchar.repeated = true;
   } else {
-    key.down = performance.now();
+    typedchar.keydown = performance.now();
   }
 }
 
 function registerkeyup(evt) {
   evt.stopPropagation();
-
-  if ( key.wasrepeating ) {
-    key.wasrepeating = false;
-  } else {
-    key.up = performance.now();
-    key.pressduration = key.up - key.down;
-    keypressduration.store(evt.key, key.pressduration);
+  
+  if ( !typedchar.repeated ) {
+    typedchar.keyup = performance.now();
+    keypressduration.store(evt.key, typedchar.keyup - typedchar.keydown);
+    typedchar.repeated = false;
+    typedchar.reset();
   }
 }
-
-// const test = new Test();
