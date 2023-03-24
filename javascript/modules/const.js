@@ -10,20 +10,7 @@ const notalphabet = [
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
-// store the code values instead of unicode characters here and config object
 const whitespace = {
-  dot: '⸱', // 11825
-  bar: '␣', // 9251 (open box)
-  space: '&nbsp;', // 160 (non-break space)
-};
-
-const wstest = {
-  "⸱": 11825,
-  "␣": 9251,
-  "&nbsp;": 160,
-};
-
-const ws = {
   dot: {
     code: 11825,
     character: '⸱',
@@ -42,5 +29,4 @@ export {
   whitespace,
   notprintable,
   notalphabet,
-  ws,
 };

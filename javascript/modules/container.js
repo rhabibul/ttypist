@@ -45,6 +45,9 @@ class Sentence {
   constructor(words) {
     this.#wordindex = 0;
     this.#words = words;
+    
+    Element.input.value = "";
+    Element.sentence.innerHTML = "";
     for ( const word of this.#words ) {
     	Element.sentence.insertAdjacentElement("beforeend", word);
     }
@@ -187,7 +190,9 @@ class Word {
   delete(word = false) {}
 }
 
-let sentence = new Sentence(Misc.wordelementsfrom(Misc.randomwords()));
+
+const s = ['azlan', 'nusrat', 'habibul', 'najma', 'rahmat'];
+let sentence = new Sentence(Misc.wordelementsfrom(s));
 let word = new Word(sentence.activeword);
 
 class Test {

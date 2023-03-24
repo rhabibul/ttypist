@@ -1,23 +1,11 @@
-import * as CONST from "./const.js";
+import * as Const from "./const.js";
 import * as Element from "./element.js"
 // import w3k from "./w3k.js";
 import w1k from "./w1k.js";
 import Config from "./config.js";
 
-
-// start here...
-function isspace(letter) {
-  return letter.textContent
-}
-
-function charcode(char) {
-  
-  // string comparison is going on here
-  if ( char === CONST.whitespace.space ) return 160;
-  if ( char === CONST.whitespace.dot) return 11825;
-  if ( char === CONST.whitespace.bar) return 9251;
-
-  return char.charCodeAt(0);
+function isspace(code) {
+  return code === Config.whitespace.code;
 }
 
 function showspeed(sentence, time) {
@@ -45,39 +33,41 @@ function randomwords() {
   return words;
 }
 
-function wordelementsfrom(wordsInStringForm) {  
+function wordelementsfrom(s) {  
 
-  let wordelements = new Array(wordsInStringForm.length);
+  let wordarray = new Array();
   let word, letter;
 
-  for (let i = 0; i < wordsInStringForm.length; ++i) {
+  for (let i = 0; i < s.length; ++i) {
 
+    // create a word which has no letter which contains
     word = document.createElement("word");
-
-    for (let j = 0; j < wordsInStringForm[i].length; ++j) {
-
+    for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
-      letter.textContent = wordsInStringForm[i][j];
+      letter.textContent = s[i][j];
       letter.classList.add(Config.caret.type.toUpperCase());
-
       word.appendChild(letter);
     }
+    wordarray.push(word);
 
-    // letter with whitespace
+    if ( !Config.endtestwithspace && (i === s.length - 1) ) return wordarray;
+
+    // create a word which will only contain a letter with whitespace in it
+    word = document.createElement("word");
     letter = document.createElement("letter");
     letter.classList.add(Config.caret.type.toUpperCase());
-    letter.classList.add("whitespace");
-    if ( Config.sentence.whitespace == CONST.whitespace.space ) {
-      letter.innerHTML = `${Config.sentence.whitespace}`;
+    if ( Config.whitespace.character === Const.whitespace.space.character ) {
+      letter.innerHTML = `${Config.whitespace.character}`;
+    } else if ( Config.whitespace.character === Const.whitespace.dot.character ) {
+      letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
     } else {
-      letter.innerHTML = `<span id="wdot">${Config.sentence.whitespace}</span>`;
+      // bar whitespace, but first add proper styling to bar character
     }
     word.appendChild(letter);
-
-    wordelements[i] = word;
+    wordarray.push(word);
   }
 
-  return wordelements;
+  return wordarray;
 }
 
 function getsentence() {
@@ -157,7 +147,7 @@ function bin(value) {
 }
 
 export { 
-  charcode,
+  isspace,
 
   randomwords,
   wordelementsfrom,

@@ -14,8 +14,8 @@ export default {
   },
 
   oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
-  testendswithspace: false, // user will have to hit space after typing last word to end test
-  inputbox: false,
+  textinputvisible: false,
+  endtestwithspace: false, // user will have to hit space after typing last word to end test
 
   // difficulty:
   //    - classic is normal typing test experience
@@ -53,8 +53,8 @@ export default {
   },
 
   whitespace: {
-    code: Const.ws.space.code,
-    character: Const.ws.space.character,
+    code: Const.whitespace.space.code,
+    character: Const.whitespace.space.character,
   },
 
   highlight: {
@@ -86,18 +86,15 @@ export default {
     stats: false, // show wpm/cpm and accuracy on every keystroke
     keyboard: true, // static, react, next
   },
-  
   keyboard: {
     emulate: false, // emulate other keyboard layouts
     layout: "qwerty", // keyboard layout
     language: "english",
   },
-
   sound: {
     play: "off", // off, nk creams, typewriter, hitmarker
     onerror: false, // play sound on error
   },
-
   practice: {
     customtext: false, // custom text provided by user
     guidedlessions: false,

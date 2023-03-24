@@ -2,7 +2,7 @@ import Config from "./config.js";
 import * as Element from "./element.js";
 import * as CONST from "./const.js"
 import { sentence } from "./test.js";
-import { test } from "../main.js";
+// import { test } from "../main.js";
 
 function updatewhitespace(evt) {
 
@@ -129,7 +129,7 @@ Element.setting.caret.underline.addEventListener("click", updatecaret);
 
 Element.setting.restart.button.addEventListener('click', (evt) => {
   evt.preventDefault();
-   test.start(); 
+  //  test.start(); 
   });
 
 Element.setting.restart.button.addEventListener('focus', (evt) => { 

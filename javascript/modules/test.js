@@ -1,4 +1,4 @@
-import * as CONST from "./const.js";
+import * as Const from "./const.js";
 import * as Misc from "./misc.js"
 import * as Caret from "./caret.js";
 import * as Element from "./element.js";
@@ -6,7 +6,6 @@ import * as Element from "./element.js";
 import Config from "./config.js";
 import Time from "./stat.js";
 import Sentence from "./sentence.js";
-import { test } from "../main.js";
 
 let firsterror = true;
 let preverror = new Object();
@@ -33,6 +32,7 @@ class Test {
   }
 }
 
+// start implementing registerkeywown with new sentence and word objects
 function registerkeydown(evt) {
   if ( !evt.isTrusted ) return;
   if ( !time.started ) time.start();
@@ -44,7 +44,7 @@ function registerkeydown(evt) {
     Element.setting.restart.button.focus();
   }
 
-  if ( (Misc.charcode(sentence.activeLetterValue) === Misc.charcode(Config.sentence.whitespace)) && (typedkey === ' ') ) {
+  if ( (typedkey === ' ') && (Misc.isspace(sentence.activeLetterValue)) ) {
     
     Caret.removeCaretFrom(sentence.activeLetter);
     Caret.goToNextWord(sentence);
@@ -149,7 +149,7 @@ function registerkeydown(evt) {
     }
     
   } else {
-    if (!CONST.notprintable.includes(typedkey)) {
+    if (!Const.notprintable.includes(typedkey)) {
       if ( Config.highlight.mode.word ) sentence.activeWord.classList.add("error");
       if ( Config.sentence.highlight.letter ) sentence.activeLetter.classList.add("error");
 
