@@ -7,7 +7,7 @@ import { sentence } from "./test.js";
 function updatewhitespace(evt) {
 
   evt.preventDefault();
-
+  
   // if user clicks on same whitespace button then don't do anything
   if ( this.id == "chosen" ) return;
 
@@ -15,14 +15,16 @@ function updatewhitespace(evt) {
     Element.setting.whitespace.space.id = "chosen";
     Element.setting.whitespace.dot.id = "";
     Config.whitespace.character = Const.whitespace.space.character;
-  } else {
+  } else if ( this.dataset.whitespace === "dot" ) {
     Element.setting.whitespace.dot.id = "chosen";
     Element.setting.whitespace.space.id = "";
     Config.whitespace.character = Const.whitespace.dot.character;
   }
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    Element.input.blur();
+
+    Element.input.blur(); // remove focus from input field so that you keystrokes are not registered
+
     if ( letter.classList.contains("whitespace") ) {
       if ( Config.whitespace.character == Const.whitespace.space.character ) {  
         letter.innerHTML = `${Config.whitespace.character}`;

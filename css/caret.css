@@ -99,11 +99,16 @@
 
 /*----------------- box -----------------*/
 #box {
-  border-color: var(--caret-color);
+  /* border-color: var(--caret-color); */
+  outline-color: var(--caret-color);
   animation-name: animate-box;
 }
 .box {
-  border: var(--box-caret-width) solid var(--caret-color-hidden);
+  /* border-left: var(--box-caret-width) solid var(--caret-color-hidden); */
+  outline-style: solid;
+  outline-color: var(--caret-color-hidden);
+  outline-width: var(--box-caret-width);
+  outline-offset: -1px;
 
   animation-delay: var(--caret-blink-delay);
   animation-duration: var(--caret-blink-duration);
@@ -113,10 +118,12 @@
 @keyframes animate-box {
   0%,
   50% {
-    border-color: var(--caret-color);
+    /* border-color: var(--caret-color); */
+    outline-color: var(--caret-color);
   }
   51%,
   100% {
-    border-color: var(--caret-color-hidden);
+    /* border-color: var(--caret-color-hidden); */
+    outline-color: var(--caret-color-hidden);
   }
 }

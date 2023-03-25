@@ -56,6 +56,7 @@ function wordelementsfrom(s) {
     word = document.createElement("word");
     letter = document.createElement("letter");
     letter.classList.add(Config.caret.type);
+    letter.classList.add("whitespace");
     if ( Config.whitespace.character === Const.whitespace.space.character ) {
       letter.innerHTML = `${Config.whitespace.character}`;
     } else if ( Config.whitespace.character === Const.whitespace.dot.character ) {
