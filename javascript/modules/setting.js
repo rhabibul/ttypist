@@ -1,6 +1,6 @@
 import Config from "./config.js";
 import * as Element from "./element.js";
-import * as CONST from "./const.js"
+import * as Const from "./const.js"
 import { sentence } from "./test.js";
 // import { test } from "../main.js";
 
@@ -14,20 +14,20 @@ function updatewhitespace(evt) {
   if ( this.dataset.whitespace === "space" ) {
     Element.setting.whitespace.space.id = "chosen";
     Element.setting.whitespace.dot.id = "";
-    Config.sentence.whitespace = CONST.whitespace.space;
+    Config.whitespace.character = Const.whitespace.space.character;
   } else {
     Element.setting.whitespace.dot.id = "chosen";
     Element.setting.whitespace.space.id = "";
-    Config.sentence.whitespace = CONST.whitespace.dot;
+    Config.whitespace.character = Const.whitespace.dot.character;
   }
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     Element.input.blur();
     if ( letter.classList.contains("whitespace") ) {
-      if ( Config.sentence.whitespace == CONST.whitespace.space ) {  
-        letter.innerHTML = `${Config.sentence.whitespace}`;
+      if ( Config.whitespace.character == Const.whitespace.space.character ) {  
+        letter.innerHTML = `${Config.whitespace.character}`;
       } else {
-        letter.innerHTML = `<span id="wdot">${Config.sentence.whitespace}</span>`;
+        letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
       }
     }
     Element.input.focus();
@@ -104,19 +104,18 @@ function updatecaret(evt) {
   Config.caret.type = thiscaret.dataset.type;
   if ( thiscaret.dataset.type === "off" ) {
     Config.caret.on = false;
-    // next task is to hide the input box
+    // unhide the input box
   } else {
     Config.caret.on = true;
-    // next task is to display the input box
+    // hide the input box
   }
 
   // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    letter.classList.remove(prevcaret.toUpperCase()); // remove previous caret's styling from all letters
-    sentence.removeCaretFromActiveLetter();
-    letter.classList.add(Config.caret.type.toUpperCase()); // add new caret's styling to all letters
-    sentence.addCaretToActiveLetter();
-
+    letter.classList.remove(prevcaret); // remove previous caret's styling from this letter
+    // in this line remove old active caret
+    letter.classList.add(Config.caret.type); // add new caret's styling to this letter
+    // in this line add new active caret
     Element.input.focus();
   });
 }

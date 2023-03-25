@@ -45,7 +45,7 @@ function wordelementsfrom(s) {
     for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
       letter.textContent = s[i][j];
-      letter.classList.add(Config.caret.type.toUpperCase());
+      letter.classList.add(Config.caret.type);
       word.appendChild(letter);
     }
     wordarray.push(word);
@@ -55,7 +55,7 @@ function wordelementsfrom(s) {
     // create a word which will only contain a letter with whitespace in it
     word = document.createElement("word");
     letter = document.createElement("letter");
-    letter.classList.add(Config.caret.type.toUpperCase());
+    letter.classList.add(Config.caret.type);
     if ( Config.whitespace.character === Const.whitespace.space.character ) {
       letter.innerHTML = `${Config.whitespace.character}`;
     } else if ( Config.whitespace.character === Const.whitespace.dot.character ) {

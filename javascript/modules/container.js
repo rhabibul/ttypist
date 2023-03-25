@@ -250,11 +250,7 @@ function registerkeydown(evt) {
   
   if ( !evt.isTrusted ) return;
   
-  if ( evt.repeat ) {
-    typedchar.repeated = true;
-  } else {
-    typedchar.keydown = performance.now();
-  }
+  // start here...
 }
 
 function registerkeyup(evt) {

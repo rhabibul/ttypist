@@ -12,7 +12,7 @@
   --underline-caret-width: 2px;
 }
 
-.OFF {
+.off {
   border: none; /* turnoff caret */
 }
 
@@ -21,7 +21,7 @@
   border-left-color: var(--caret-color);
   animation-name: animate-line;
 }
-.LINE {
+.line {
   border-top: none;
   border-bottom: none;
   border-right: none;
@@ -48,7 +48,7 @@
   border-bottom-color: var(--caret-color);
   animation-name: animate-unerline;
 }
-.UNDERLINE {
+.underline {
   border-left: none;
   border-right: none;
   border-top: none;
@@ -76,7 +76,7 @@
   background-color: #000000;
   animation-name: animate-block;
 }
-.BLOCK {
+.block {
   border: none;
 
   animation-delay: var(--caret-blink-delay);
@@ -102,7 +102,7 @@
   border-color: var(--caret-color);
   animation-name: animate-box;
 }
-.BOX {
+.box {
   border: var(--box-caret-width) solid var(--caret-color-hidden);
 
   animation-delay: var(--caret-blink-delay);
