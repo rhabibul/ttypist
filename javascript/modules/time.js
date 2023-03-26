@@ -6,7 +6,7 @@ class StopWatch {
 	#previous; // stores time which was calculated on last call to stop() [gets updated whenever stop() method is called]
 	#begin;		 // stores the timestamp when start() was called first time [its value doesn't change]
 	#end;			 // gets updated with current timestamp [continously gets updated as time progresses]
-	#digitstoshow; // total number of digits to show ('.' and 's' is also counted)
+	#digitstoshow; // total number of digits to show ('.' and 's' is considered in count)
 	#digitsafterdecimal; // total number of digits to show after decimal point
 	
 	constructor ( element, precision = 2, numberofdigits = 6 ) {

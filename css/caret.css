@@ -1,5 +1,5 @@
 :root {
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white;
   
   --caret-blink-delay: 2s;
@@ -104,7 +104,7 @@
   animation-name: animate-box;
 }
 .box {
-  /* border-left: var(--box-caret-width) solid var(--caret-color-hidden); */
+  /* border-right: 0.5px solid var(--caret-color-hidden); */
   outline-style: solid;
   outline-color: var(--caret-color-hidden);
   outline-width: var(--box-caret-width);

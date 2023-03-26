@@ -4,10 +4,6 @@ import * as Element from "./element.js"
 import w1k from "./w1k.js";
 import Config from "./config.js";
 
-function isspace(code) {
-  return code === Config.whitespace.code;
-}
-
 function showspeed(sentence, time) {
 
   const wpm = (((sentence.letterCount - 1) / 5) / (time.duration)) * 60;
@@ -33,7 +29,7 @@ function randomwords() {
   return words;
 }
 
-function wordelementsfrom(s) {  
+function wordelements(s) {  
 
   let wordarray = new Array();
   let word, letter;
@@ -55,8 +51,8 @@ function wordelementsfrom(s) {
     // create a word which will only contain a letter with whitespace in it
     word = document.createElement("word");
     letter = document.createElement("letter");
-    letter.classList.add(Config.caret.type);
     letter.classList.add("whitespace");
+    letter.classList.add(Config.caret.type);
     if ( Config.whitespace.character === Const.whitespace.space.character ) {
       letter.innerHTML = `${Config.whitespace.character}`;
     } else if ( Config.whitespace.character === Const.whitespace.dot.character ) {
@@ -112,8 +108,8 @@ function validsentence(sentence) {
   const validtype = typeof(sentence) === "object";
   const notempty = sentence.length > 0;
   const validwordtags = sentence.every((word) => word.tagName === "WORD");
-  const validlettertags = sentence.every(function (word) {
-    return Array.from(word?.children).every(function (letter) {
+  const validlettertags = sentence.every((word) => {
+    return Array.from(word?.children).every((letter) => {
       return letter.tagName === "LETTER" && letter.textContent.length === 1;
     });
   });
@@ -148,10 +144,8 @@ function bin(value) {
 }
 
 export { 
-  isspace,
-
   randomwords,
-  wordelementsfrom,
+  wordelements,
   
   lettertagtext,
   wordtagtext,

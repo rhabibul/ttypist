@@ -23,7 +23,7 @@ body {
   --fade: #c5c5c5;
   --textcolor: #2a2a2a;
 
-  --textfont-size: 1.2rem;
+  --textfont-size: 1.35rem;
   --textfont-weight: 400;
   --textfont-family: var(--fontfamily-robotomono);
 }

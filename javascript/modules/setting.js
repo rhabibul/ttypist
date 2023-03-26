@@ -120,6 +120,17 @@ function updatecaret(evt) {
     // in this line add new active caret
     Element.input.focus();
   });
+
+  // let x = Array.from(document.getElementsByTagName("letter"))
+  // let i = 0, id = 0;
+  // let prevletter = x[0];
+  // id = setInterval(() => {
+  //   prevletter.id = ""
+  //   x[i].id = "box"
+  //   prevletter = x[i];
+  //   ++i;
+  //   if ( i === x.length ) clearInterval(id);
+  // }, 1500);
 }
 
 Element.setting.caret.off.addEventListener      ("click", updatecaret);
