@@ -21,8 +21,8 @@ body {
 
   --word-active: black;
 
-  --textcolor: #00000080;
-  --textfont-size: 1.15rem;
+  --textcolor: #9c9c9c;
+  --textfont-size: 1.2rem;
   --textfont-weight: 400;
   --textfont-family: var(--fontfamily-robotomono);
 }
