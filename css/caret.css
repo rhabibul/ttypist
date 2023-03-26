@@ -99,16 +99,15 @@
 
 /*----------------- box -----------------*/
 #box {
-  /* border-color: var(--caret-color); */
+  outline-style: solid;
   outline-color: var(--caret-color);
+  outline-width: var(--box-caret-width);
+  outline-offset: -1px;
   animation-name: animate-box;
 }
 .box {
-  /* border-right: 0.5px solid var(--caret-color-hidden); */
-  outline-style: solid;
-  outline-color: var(--caret-color-hidden);
-  outline-width: var(--box-caret-width);
-  outline-offset: -1px;
+  border: none;
+  
 
   animation-delay: var(--caret-blink-delay);
   animation-duration: var(--caret-blink-duration);
