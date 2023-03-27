@@ -4,13 +4,10 @@ import * as Element from "./element.js"
 import w1k from "./w1k.js";
 import Config from "./config.js";
 
-function showspeed(sentence, time) {
-
-  const wpm = (((sentence.letterCount - 1) / 5) / (time.duration)) * 60;
-
+function showspeed(cnt, time) {
+  const wpm = ((cnt / 5) / (time)) * 60;
   Element.speedtag.style.color = "deeppink";
   Element.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
-  
   setTimeout(() => {
     Element.speedtag.style.color = "lightgray";
   }, 2500);
@@ -68,12 +65,13 @@ function wordelements(s) {
 }
 
 function getsentence() {
-	let s = "";
+	let s = "", ws_code = 0;
   let words = document.getElementsByTagName('word');
 	for ( let word of words ) {
 		let letters = word.children;
 		for ( let letter of letters ) {
-			if ( letter.textContent.charCodeAt(0) === 160 || letter.textContent.charCodeAt(0) === 11825 ) {
+      ws_code = letter.textContent.charCodeAt(0);
+			if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
 				s += " ";
 			} else {
 				s += letter.textContent;
@@ -82,7 +80,6 @@ function getsentence() {
 	}
   return s;
 }
-
 function lettertagtext(letter) {
   const ws_code = letter.textContent.charCodeAt(0);
   if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) return " ";
@@ -130,7 +127,7 @@ function automatetyping(keystroke_time) {
 	}, keystroke_time);	
 }
 
-function which_os() {
+function os() {
   let s = navigator.userAgent;
 }
 function tolower(letter) { // Lowercase: 0'11'?????
@@ -139,7 +136,7 @@ function tolower(letter) { // Lowercase: 0'11'?????
 function toupper(letter) { // Uppercase: 0'10'?????
   return String.fromCharCode(letter.charCodeAt(0) & (~(1 << 5)));
 }
-function bin(value) {
+function binaryof(value) {
   return Number(value).toString(2);
 }
 
@@ -152,10 +149,11 @@ export {
   
   tolower,
   toupper,
+  binaryof,
 
   validsentence,
 
-  which_os,
+  os,
 
   showspeed,
   getsentence,

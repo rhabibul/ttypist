@@ -4,7 +4,7 @@
   
   --caret-blink-delay: 2s;
   --caret-blink-duration: 1.15s;
-  --caret-blink-count: 15;
+  --caret-blink-count: 30;
   --caret-blink-timing: ease-out;
 
   --box-caret-width: 0.5px;
@@ -117,12 +117,10 @@
 @keyframes animate-box {
   0%,
   50% {
-    /* border-color: var(--caret-color); */
     outline-color: var(--caret-color);
   }
   51%,
   100% {
-    /* border-color: var(--caret-color-hidden); */
     outline-color: var(--caret-color-hidden);
   }
 }

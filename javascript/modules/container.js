@@ -70,7 +70,7 @@ class Sentence {
   }
 }
 
-// goal is to first implement insertion and deletion of extra letter like texteditor
+
 class Word {
   #word; // contains all <letter></letter> tags for a single <word></word> tag
   #letterindex; // keeps track of the index of <letter></letter> tag which is to be typed
@@ -122,12 +122,6 @@ class Word {
       console.error(outofbound);
     }
   }
-  get activelettervalue() {
-    return this.activeletter.textContent;
-  }
-  get activelettercode() {
-    return this.activeletter.textContent.charCodeAt(0);
-  }
   resetletterindex() {
     this.#letterindex = 0;
   }
@@ -149,7 +143,7 @@ class Word {
     return this.#word[0].parentElement;
   }
 
-  // error letter handling method
+  // error letter handling methods
   insert(letter) {}
   delete(word = false) {}
 }

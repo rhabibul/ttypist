@@ -32,18 +32,8 @@ class Test {
   }
 }
 
-// start implementing registerkeywown with new sentence and word objects
 function registerkeydown(evt) {
-  if ( !evt.isTrusted ) return;
-  if ( !time.started ) time.start();
-
-  let typedkey = evt.key;
   
-  if ( typedkey === 'Tab' ) {
-    Element.input.blur();
-    Element.setting.restart.button.focus();
-  }
-
   if ( (typedkey === ' ') && (Misc.isspace(sentence.activeLetterValue)) ) {
     
     Caret.removeCaretFrom(sentence.activeLetter);

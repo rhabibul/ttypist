@@ -5,7 +5,6 @@ export default {
 
   ttypist: {
     istyping: false,
-    finishedtyping: false,
   },
 
   warning: {
