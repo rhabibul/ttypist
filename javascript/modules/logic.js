@@ -153,8 +153,17 @@ function registerkeydown(evt) {
 		// 		- remove keydown & keyup eventlisteners from input field
 		//		- show stats like speed, accuracy etc
 		// 		- make ttypist ready for new test (load new words, add keydown & keyup listeners back)
-	} else if ( evt.metaKey && typedchar === "Backspace" ) { // deletion (meta + backspace)
-		
+	} else if ( typedchar === "Backspace" ) { // deletion
+
+		if ( evt.metaKey ) { // cmd + bs
+
+		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + bs
+
+		} else { // bs
+
+		}
+	} else {
+		// error handling, insert of error, stop on error etc..
 	}
 }
 
