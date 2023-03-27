@@ -13,6 +13,9 @@ class Utility {
   constructor() {
 		Element.input.addEventListener("keydown", registerkeydown);
 		Element.input.addEventListener("keyup", registerkeyup);
+
+		// mobile devices: input.value && evt.data
+		Element.input.addEventListener("input", registerinput); // .addEventListener("input", (evt) => {})
 	}
 	
   finishedtyping() {
@@ -21,23 +24,27 @@ class Utility {
     return islastword && islastletter;
   }
 
-  addcaretto(letterelement) {
-    letterelement.setAttribute("id", Config.caret.type);
+  addcaretto(letter) {
+    letter.setAttribute("id", Config.caret.type);
   }
-
-  removecaretfrom(letterelement) {
-    letterelement.setAttribute("id", "");
+  removecaretfrom(letter) {
+    letter.setAttribute("id", "");
   }
   
   putcaret_onprevletter() {
     removecaretfrom(word.activeletter);
     addcaretto(word.prevletter);
   }
-
   putcaret_onnextletter() {
   	removecaretfrom(word.activeletter);
     addcaretto(word.nextletter);	
   }
+
+	addwordhighlight(word) { }
+	removewordhighlight(word) {}
+	fadeletter(letter) {}
+	unfadeletter(word) {}
+	
 	isspace(letter) {
 		return letter?.textContent.charCodeAt(0) === Config.whitespace.code;
 	}
@@ -47,7 +54,7 @@ const util = new Utility();
 
 const charstat = {
 	typedchar: "",
-	totypechar: "",
+	chartotype: "",
 
   keydown: 0,
   keyup: 0,
@@ -55,7 +62,7 @@ const charstat = {
 
   reset() {
 		this.typedchar = "";
-		this.totypechar = "";
+		this.chartotype = "";
     this.keydown = 0;
     this.keyup = 0;
     this.repeated = false;
@@ -98,7 +105,7 @@ const keystroketime = {
   }
 }
 
-let typedchar = "", totypechar = "";
+let typedchar = "", chartotype = "";
 let keydown = 0, keyup = 0, repeated = false;
 
 const stat = {
@@ -113,7 +120,6 @@ const stat = {
 	}
 }
 
-// goal is to first implement insertion and deletion of extra letter like texteditor
 function registerkeydown(evt) {
   evt.preventDefault(); // typedchars are not displayed in input field
   evt.stopPropagation();
@@ -126,7 +132,7 @@ function registerkeydown(evt) {
 	}
 	
   typedchar = evt.key;
-	totypechar = word.activeletter.textContent;
+	chartotype = word.activeletter.textContent;
 
 	if ( typedchar === 'Tab' ) {
     Element.input.blur();
@@ -138,7 +144,7 @@ function registerkeydown(evt) {
 		// remove caret from active
 		// increment word index in sentence object (add and remove letter/word highlight)
 		// word index should be reset
-	} else if ( typedchar === totypechar ) { // correct char is typed
+	} else if ( typedchar === chartotype ) { // correct char is typed
 		// remove any error (ui - error highlights)
 		// go to next letter
 		// 		- remove caret from active letter
@@ -152,13 +158,19 @@ function registerkeydown(evt) {
 		//		- remove letter/word highlight from active letter/word (ui change)
 		// 		- remove keydown & keyup eventlisteners from input field
 		//		- show stats like speed, accuracy etc
-		// 		- make ttypist ready for new test (load new words, add keydown & keyup listeners back)
+		// 		- load new words, add keydown and keyup listeners back
 	} else if ( typedchar === "Backspace" ) { // deletion
 
 		if ( evt.metaKey ) { // cmd + bs
-
+			// remove caret from active letter
+			// ui change
+			// 	 - remove any error highlight on letter/word
+			//	 - remove highlight classes depending on letter/word highlight
+			// 	 - traverse from last letter of last word to first letter of first word
+			// 	   while making these ui changes
+			// reset letter and word index (in case of word object, load first word)
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + bs
-
+			// start here...
 		} else { // bs
 
 		}

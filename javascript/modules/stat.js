@@ -12,8 +12,8 @@
  *   accuracy: ((correctchars) / (correctchars + incorrectchars)) * 100)
  * 
  * 
- *   correct? -> Typed character which is     equal to active letter. (count)
- * incorrect? -> Typed character which is not equal to active letter. (count)
+ *   correct? -> typed character which is     equal to active letter. (count)
+ * incorrect? -> typed character which is not equal to active letter. (count)
 **/
 
 let accuracy = 0;   // acc
@@ -48,37 +48,5 @@ class History {
       completed: 0, // should be equal to sentences.length and stats.length
       notcompleted: 0, // can be greater/less/equal to sentence.length and stats.length
     })
-  }
-}
-
-export default class Time {
-  
-  #timerend;
-  #timerstart;
-  #timerstarted;
-
-  constructor() {
-    this.#timerend = 0;
-    this.#timerstart = 0;
-    this.#timerstarted = false;
-  }
-
-  start() {
-    this.#timerstart = performance.now();
-    this.#timerstarted = true;
-  }
-  stop() {
-    this.#timerend = performance.now();
-  }
-  get started() {
-    return this.#timerstarted;
-  }
-  get duration() {
-    return (this.#timerend - this.#timerstart) / 1000;
-  }
-  reset() {
-    this.#timerend = 0;
-    this.#timerstart = 0;
-    this.#timerstarted = false;
   }
 }
