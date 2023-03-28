@@ -162,7 +162,7 @@ function registerinput(evt) {
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
-		} else if ( (evt.data === null) || ((mInput.prev_slen - mInput.slen) === 1) ) {
+		} else if ( (mInput.slen < mInput.prev_slen) || (evt.data === null) ) {
 			mInput.delete = true;
 		}
 
