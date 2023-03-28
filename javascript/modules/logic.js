@@ -150,9 +150,11 @@ const output = document.getElementsByTagName("output")[0];
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
-		teststat.reset();
-		teststat.starttime = performance.now();
-		Config.ttypist.istyping = true;
+
+		if ( !Config.ttypist.istyping ) {
+			teststat.starttime = performance.now();
+			Config.ttypist.istyping = true;
+		}
 
 		mInput.prev_slen = mInput.slen;
 		mInput.slen = Element.input.value.length;
@@ -160,7 +162,7 @@ function registerinput(evt) {
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
-		} else if ( (evt.data === null) || ((mInput.prev_slen - mInput.slen) === 1) ) {
+		} else if ( (evt.data === null) || ((mInput.slen - mInput.prev_slen) === 1) ) {
 			mInput.delete = true;
 		}
 
@@ -233,7 +235,11 @@ function registerkeydown(evt) {
 	}
 
 	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
-	if ( mInput.keydown_unidentified ) return;
+	if ( mInput.keydown_unidentified ) {
+		teststat.reset();
+		Config.ttypist.istyping = false;
+		return;
+	}
 
 	charstat.reset();
   charstat.typedchar = evt.key;
