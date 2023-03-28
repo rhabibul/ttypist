@@ -1,8 +1,7 @@
 import Config from "./config.js";
 import * as Element from "./element.js";
 import * as Const from "./const.js"
-import { sentence } from "./test.js";
-// import { test } from "../main.js";
+import { word, sentence, util } from "./logic.js";
 
 function updatewhitespace(evt) {
 
@@ -12,12 +11,22 @@ function updatewhitespace(evt) {
   if ( this.id == "chosen" ) return;
 
   if ( this.dataset.whitespace === "space" ) {
+    // update ui
     Element.setting.whitespace.space.id = "chosen";
     Element.setting.whitespace.dot.id = "";
+
+    // update config
+    Config.whitespace.code = Const.whitespace.space.code;
     Config.whitespace.character = Const.whitespace.space.character;
+    
   } else if ( this.dataset.whitespace === "dot" ) {
+
+    // update ui
     Element.setting.whitespace.dot.id = "chosen";
     Element.setting.whitespace.space.id = "";
+
+    // update config
+    Config.whitespace.code = Const.whitespace.dot.code;
     Config.whitespace.character = Const.whitespace.dot.character;
   }
 
@@ -104,9 +113,10 @@ function updatecaret(evt) {
 
   // update current caret type and on/off status in config object
   Config.caret.type = thiscaret.dataset.type;
+
   if ( thiscaret.dataset.type === "off" ) {
     Config.caret.on = false;
-    // unhide the input box
+    // reveal the input box
   } else {
     Config.caret.on = true;
     // hide the input box
@@ -115,9 +125,9 @@ function updatecaret(evt) {
   // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
     letter.classList.remove(prevcaret); // remove previous caret's styling from this letter
-    // in this line remove old active caret
+    util.removecaretfrom(word.activeletter);
     letter.classList.add(Config.caret.type); // add new caret's styling to this letter
-    // in this line add new active caret
+    util.addcaretto(word.activeletter);
     Element.input.focus();
   });
 }
@@ -131,7 +141,7 @@ Element.setting.caret.underline.addEventListener("click", updatecaret);
 Element.setting.restart.button.addEventListener('click', (evt) => {
   evt.preventDefault();
   //  test.start(); 
-  });
+});
 
 Element.setting.restart.button.addEventListener('focus', (evt) => { 
   evt.preventDefault();

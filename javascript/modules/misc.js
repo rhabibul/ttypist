@@ -4,8 +4,16 @@ import * as Element from "./element.js"
 import w1k from "./w1k.js";
 import Config from "./config.js";
 
-function showspeed(cnt, time) {
-  const wpm = ((cnt / 5) / (time)) * 60;
+function totalchar() {
+  let cnt = 0;
+  Array.from(document.getElementsByTagName("word")).forEach((word) => {
+    cnt += word?.children.length;
+  });
+  return cnt;
+}
+
+function showspeed(lettercount, time) {
+  const wpm = ((lettercount / 5) / (time)) * 60;
   Element.speedtag.style.color = "deeppink";
   Element.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
   setTimeout(() => {
@@ -147,13 +155,15 @@ export {
   lettertagtext,
   wordtagtext,
   
+  os,
   tolower,
   toupper,
   binaryof,
+  
+  totalchar,
 
   validsentence,
 
-  os,
 
   showspeed,
   getsentence,

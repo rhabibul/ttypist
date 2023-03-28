@@ -1,6 +1,5 @@
 import * as Misc from "./misc.js";
 import * as Element from "./element.js";
-import { StopWatch, Time } from "./time.js";
 
 class Sentence {
   #words; // array of <word></word> tag which contains <letter></letter> tags
@@ -19,6 +18,9 @@ class Sentence {
 
   get size() {
     return this.#words.length;
+  }
+  get lastwordindex() {
+    return this.size  - 1;
   }
 
   set activewordindex(index) {
@@ -83,6 +85,9 @@ class Word {
   get size() {
     return this.#word.length;
   }
+  get lastletterindex() {
+    return this.size - 1;
+  }
   
   set activeletterindex(index) {
     this.#letterindex = index;
@@ -131,13 +136,18 @@ class Word {
   incrementletterindex() {
     this.#letterindex = this.#letterindex + 1;
   }
-  loadprevword(word) {
+  
+  loadword(word, option) {
+
     this.#word = Array.from(word?.children);
-    this.#letterindex = this.#word.length - 1;
-  }
-  loadnextword(word) {
-    this.#word = Array.from(word?.children);
-    this.#letterindex = 0;
+    
+    if ( option?.nextword || option?.activeword ) {
+      this.#letterindex = 0;
+    } else if ( option?.prevword ) {
+      this.#letterindex = this.#word.length - 1;
+    } else {
+      console.error("wrong option provided");
+    }
   }
   me() { 
     return this.#word[0].parentElement;
