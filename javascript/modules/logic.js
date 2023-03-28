@@ -154,8 +154,8 @@ function registerinput(evt) {
 		teststat.starttime = performance.now();
 		Config.ttypist.istyping = true;
 
-		mInput.prev_slen = s.length;
-		mInput.slen = Element.input.value().length;
+		mInput.prev_slen = mInput.slen;
+		mInput.slen = Element.input.value.length;
 
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
@@ -165,10 +165,7 @@ function registerinput(evt) {
 		}
 
 		output.textContent = `prev: ${mInput.prev_slen}, curr: ${mInput.slen}`;
-	}
-	
-	
-	if ( mInput.keydown_unidentified ) {
+
 
 		mInput.chartotype = word.activeletter.textContent;
 
