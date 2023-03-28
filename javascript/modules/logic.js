@@ -162,12 +162,11 @@ function registerinput(evt) {
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
-		} else if ( (evt.data === null) || ((mInput.slen - mInput.prev_slen) === 1) ) {
+		} else if ( (evt.data === null) || ((mInput.prev_slen - mInput.slen) === 1) ) {
 			mInput.delete = true;
 		}
 
 		output.textContent = `prev: ${mInput.prev_slen}, curr: ${mInput.slen}`;
-
 
 		mInput.chartotype = word.activeletter.textContent;
 
@@ -178,6 +177,7 @@ function registerinput(evt) {
 			util.addcaretto(word.activeletter);
 			
 		} else if ( mInput.data === mInput.chartotype ) { // correct char is typed
+			
 			util.removecaretfrom(word.activeletter);
 	
 			if ( word.activeletterindex < word.lastletterindex ) {
