@@ -146,10 +146,9 @@ const mInput = {
 	}
 }
 
-const output = document.getElementsByTagName("output")[0];
 function registerinput(evt) {
 
-	if ( mInput.keydown_unidentified ) {
+	if ( Config.ttypist.usingmobile || mInput.keydown_unidentified ) {
 
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
@@ -162,11 +161,11 @@ function registerinput(evt) {
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
-		} else if ( (mInput.slen < mInput.prev_slen) || (evt.data === null) ) {
-			mInput.delete = true;
+		} else {
+			if ( (mInput.slen < mInput.prev_slen) || (evt.data === null) ) {
+				mInput.delete = true;
+			}
 		}
-
-		output.textContent = `prev: ${mInput.prev_slen}, curr: ${mInput.slen}`;
 
 		mInput.chartotype = word.activeletter.textContent;
 
@@ -229,16 +228,17 @@ function registerkeydown(evt) {
 		return;
 	}
 
+	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
+
+	if ( mInput.keydown_unidentified || Config.ttypist.usingmobile ) {
+		if ( evt.key === "Backspace" ) mInput.delete = true;
+		Config.ttypist.usingmobile = true;
+		return;
+	}
+
 	if ( !Config.ttypist.istyping ) {
 		teststat.starttime = performance.now();
 		Config.ttypist.istyping = true;
-	}
-
-	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
-	if ( mInput.keydown_unidentified ) {
-		teststat.reset();
-		Config.ttypist.istyping = false;
-		return;
 	}
 
 	charstat.reset();

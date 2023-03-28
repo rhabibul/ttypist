@@ -5,6 +5,7 @@ export default {
 
   ttypist: {
     istyping: false,
+    usingmobile: false,
   },
 
   warning: {
