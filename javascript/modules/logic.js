@@ -90,7 +90,7 @@ class Utility {
 
 		this.addcaretto(word.activeletter);
 
-		Element.input.addEventListener("input", inputcontroller); // input.value, InputEvent.data
+		Element.input.addEventListener("input", registerinput); // input.value, InputEvent.data
 		Element.input.addEventListener("keydown", registerkeydown);
 		Element.input.addEventListener("keyup", registerkeyup);
 		
@@ -128,41 +128,99 @@ class Utility {
 
 const util = new Utility();
 
-
-const inputevent = {
+const mInput = {
 	data: "",
+	chartotype: "",
 	delete: false,
+	keydown_unidentified: false,
 	reset() {
 		this.data = "";
+		this.chartotype = "";
 		this.delete = false;
+		this.keydown_unidentified = false;
 	}
 }
-function inputcontroller(evt) {
-	// if ( evt.data !== null ) {
-	// 	inputevent.data = evt.data[evt.data.length - 1];
-	// 	inputevent.delete = false;
-	// } else {
-	// 	inputevent.data = "";
-	// 	inputevent.delete = true;
-	// }
-	console.log("input");
+
+function registerinput(evt) {
+
+	if ( mInput.keydown_unidentified ) {
+		teststat.starttime = performance.now();
+		Config.ttypist.istyping = true;
+	}
+	
+	if ( evt.data !== null ) { // a character is typed (on mobile device)
+		mInput.data = evt.data[evt.data.length - 1];
+		mInput.delete = false;
+	} else if ( evt.data === null ) { // backspace is pressed (on mobile device)
+		mInput.delete = true;
+		mInput.data = "";
+	}
+	
+	if ( mInput.keydown_unidentified ) {
+		
+		mInput.chartotype = word.activeletter.textContent;
+
+		if ( mInput.data === mInput.chartotype ) { // correct char is typed
+			util.removecaretfrom(word.activeletter);
+	
+			if ( word.activeletterindex < word.lastletterindex ) {
+				util.addcaretto(word.nextletter);
+			} else {
+	
+				if ( word.activeletterindex === word.lastletterindex ) {
+					// load next word
+					if ( sentence.activewordindex < sentence.lastwordindex ) {
+						word.loadword(sentence.nextword, { nextword: true });
+						util.addcaretto(word.activeletter);
+					}	
+	
+					// user typed has typed all words
+					if ( sentence.activewordindex === sentence.lastwordindex ) {
+						teststat.endtime = window.performance.now();
+						util.removecaretfrom(word.activeletter);
+		
+						Element.input.removeEventListener('input', registerinput);
+						Element.input.removeEventListener('keydown', registerkeydown);
+						Element.input.removeEventListener('keyup', registerkeyup);
+		
+						Misc.showspeed(Misc.totalchar(), (teststat.testduration() / 1000));
+						util.testreset();
+					}
+				}	
+			}
+		} else if (mInput.data === "" && mInput.delete ) {
+			if ( word.activeletterindex > 0 ) {
+				util.removecaretfrom(word.activeletter);
+				util.addcaretto(word.prevletter);
+			} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
+				util.removecaretfrom(word.activeletter);
+				word.loadword(sentence.prevword, { prevword: true });
+				util.addcaretto(word.activeletter);
+			}
+		} else {
+			// error handling
+		}
+	}
 }
 
 function registerkeydown(evt) {
 
-	console.log("keydown");
-	
-  if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) {
+		return;
+	}
 
 	if ( !Config.ttypist.istyping ) {
 		teststat.starttime = performance.now();
 		Config.ttypist.istyping = true;
 	}
 
+	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
+	
+	if ( mInput.keydown_unidentified ) return;
+
 	charstat.reset();
   charstat.typedchar = evt.key;
 	charstat.chartotype = word.activeletter.textContent;
-
 
 	if ( charstat.typedchar === 'Tab' ) {
 		Element.input.value = "";
@@ -177,7 +235,6 @@ function registerkeydown(evt) {
 		util.addcaretto(word.activeletter);
 		
 	} else if ( charstat.typedchar === charstat.chartotype ) { // correct char is typed
-		
 		util.removecaretfrom(word.activeletter);
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -196,7 +253,7 @@ function registerkeydown(evt) {
 					teststat.endtime = window.performance.now();
 					util.removecaretfrom(word.activeletter);
 	
-					Element.input.removeEventListener('input', inputcontroller);
+					Element.input.removeEventListener('input', registerinput);
 					Element.input.removeEventListener('keydown', registerkeydown);
 					Element.input.removeEventListener('keyup', registerkeyup);
 	
@@ -232,7 +289,7 @@ function registerkeydown(evt) {
 			word.resetletterindex();
 			util.addcaretto(word.activeletter);
 
-		} else { // just backspace
+		} else { // backspace
 
 			if ( word.activeletterindex > 0 ) {
 				util.removecaretfrom(word.activeletter);
@@ -249,7 +306,7 @@ function registerkeydown(evt) {
 }
 
 function registerkeyup(evt) {
-	console.log("keyup");
+
 }
 
 export { sentence, word, util };
