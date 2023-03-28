@@ -146,23 +146,18 @@ const mInput = {
 
 function registerinput(evt) {
 
-	if ( Config.ttypist.usingmobile || mInput.keydown_unidentified ) {
+	if ( mInput.keydown_unidentified ) {
 
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
 			Config.ttypist.istyping = true;
 		}
 
-		mInput.prev_slen = mInput.slen;
-		mInput.slen = Element.input.value.length;
-
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
 		} else {
-			if ( (mInput.slen < mInput.prev_slen) || (evt.data === null) ) {
-				mInput.delete = true;
-			}
+			if ( typeof evt.data === "object" ) mInput.delete = true;
 		}
 
 		mInput.chartotype = word.activeletter.textContent;
@@ -228,11 +223,7 @@ function registerkeydown(evt) {
 
 	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
 
-	if ( mInput.keydown_unidentified || Config.ttypist.usingmobile ) {
-		if ( evt.key === "Backspace" ) mInput.delete = true;
-		Config.ttypist.usingmobile = true;
-		return;
-	}
+	if ( mInput.keydown_unidentified ) { return; }
 
 	if ( !Config.ttypist.istyping ) {
 		teststat.starttime = performance.now();
