@@ -133,28 +133,40 @@ const mInput = {
 	chartotype: "",
 	delete: false,
 	keydown_unidentified: false,
+	prev_slen: 0,
+	slen: 0,
+
 	reset() {
 		this.data = "";
 		this.chartotype = "";
 		this.delete = false;
 		this.keydown_unidentified = false;
+		this.prev_slen = 0,
+		this.slen = 0;
 	}
 }
 
+const output = document.getElementsByTagName("output")[0];
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
+		teststat.reset();
 		teststat.starttime = performance.now();
 		Config.ttypist.istyping = true;
+
+		mInput.prev_slen = s.length;
+		mInput.slen = Element.input.value().length;
+
+		if ( evt.data !== null ) {
+			mInput.data = evt.data[evt.data.length - 1];
+			mInput.delete = false;
+		} else if ( (evt.data === null) || ((mInput.prev_slen - mInput.slen) === 1) ) {
+			mInput.delete = true;
+		}
+
+		output.textContent = `prev: ${mInput.prev_slen}, curr: ${mInput.slen}`;
 	}
 	
-	if ( evt.data !== null ) { // a character is typed (on mobile device)
-		mInput.data = evt.data[evt.data.length - 1];
-		mInput.delete = false;
-	} else if ( evt.data === null ) { // backspace is pressed (on mobile device)
-		mInput.delete = true;
-		mInput.data = "";
-	}
 	
 	if ( mInput.keydown_unidentified ) {
 
@@ -194,7 +206,10 @@ function registerinput(evt) {
 					}
 				}	
 			}
-		} else if (mInput.data === "" && mInput.delete ) {
+		} else if ( mInput.delete ) {
+			
+			if ( word.activeletterindex === 0 && sentence.activewordindex === 0 ) return;
+			
 			if ( word.activeletterindex > 0 ) {
 				util.removecaretfrom(word.activeletter);
 				util.addcaretto(word.prevletter);
@@ -221,7 +236,6 @@ function registerkeydown(evt) {
 	}
 
 	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
-	
 	if ( mInput.keydown_unidentified ) return;
 
 	charstat.reset();
@@ -269,6 +283,8 @@ function registerkeydown(evt) {
 			}	
 		}
 	} else if ( charstat.typedchar === "Backspace" ) { // deletion
+
+		if ( word.activeletterindex === 0 && sentence.activewordindex === 0 ) return;
 
 		if ( evt.metaKey ) { // cmd + backspace
 
