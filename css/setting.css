@@ -113,7 +113,8 @@ button.restart {
   border: none;
   outline: none;
 
-  font-size: 1.15rem;
+  font-weight: 300;
+  font-size: 1rem;
   border-radius: 3px;
   background-color: white;
 

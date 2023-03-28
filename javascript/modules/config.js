@@ -67,7 +67,7 @@ export default {
   
   sentence: {
     word: {
-      count: 5,
+      count: 10,
       length: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
     },
     include: {

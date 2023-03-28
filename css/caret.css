@@ -107,8 +107,6 @@
 }
 .box {
   border: none;
-  
-
   animation-delay: var(--caret-blink-delay);
   animation-duration: var(--caret-blink-duration);
   animation-iteration-count: var(--caret-blink-count);

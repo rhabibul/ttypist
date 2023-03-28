@@ -61,6 +61,18 @@ class Sentence {
       console.error(outofbound);
     }
   }
+
+  word_at(index) {
+    try {
+      if ( index < 0 || index >= this.#words.length - 1 ) {
+        throw `index(${index}) is out of bound 'word_at'`;
+      }
+      return this.#words[index];
+    } catch (outofbound) {
+      console.error(outofbound);
+    } 
+  }
+  
   resetwordindex() {
     this.#wordindex = 0;
   }
@@ -127,6 +139,18 @@ class Word {
       console.error(outofbound);
     }
   }
+
+  letter_at(index) {
+    try {
+      if (index < 0 || index >= this.#word.length) {
+        throw `index(${index}) is out of bounds 'letter_at'`;
+      }
+      return this.#word[index];
+    } catch (outofbound) {
+      console.error(outofbound);
+    }
+  }  
+  
   resetletterindex() {
     this.#letterindex = 0;
   }

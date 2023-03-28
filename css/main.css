@@ -70,7 +70,7 @@ letter {
   font-weight: var(--textfont-weight);
   font-family: var(--textfont-family);
 }
-ttypist > input {
+/* ttypist > input {
   margin: 0px;
   padding: 0px;
   display: block;
@@ -80,7 +80,7 @@ ttypist > input {
   outline: none;
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
-}
+} */
 
 .active {
   color: var(--word);

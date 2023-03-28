@@ -159,7 +159,7 @@ export {
   tolower,
   toupper,
   binaryof,
-  
+
   totalchar,
 
   validsentence,

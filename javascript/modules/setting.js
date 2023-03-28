@@ -140,7 +140,7 @@ Element.setting.caret.underline.addEventListener("click", updatecaret);
 
 Element.setting.restart.button.addEventListener('click', (evt) => {
   evt.preventDefault();
-  //  test.start(); 
+   util.testreset(); 
 });
 
 Element.setting.restart.button.addEventListener('focus', (evt) => { 

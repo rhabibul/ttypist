@@ -4,8 +4,8 @@ import * as Const from "./const.js";
 import * as Element from "./element.js";
 import * as Misc from "./misc.js"
 
-let sentence = new Sentence(Misc.wordelements(['abcde', 'fghij', 'klmno', 'pqrst', 'uvwxyz']));
-let word = new Word(sentence.activeword);
+let sentence = new Object();
+let word = new Object();
 
 let typedchar = "", chartotype = "";
 let keydown = 0, keyup = 0, repeated = false;
@@ -64,6 +64,7 @@ const charstat = {
   }
 };
 
+
 const teststat = {
 	starttime: 0,
 	endtime: 0,
@@ -80,10 +81,21 @@ const teststat = {
 class Utility {
 
   constructor() {
+		this.init();
+	}
+
+	init() {
+		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
+		word = new Word(sentence.activeword, { activeword: true });
+
 		this.addcaretto(word.activeletter);
+
+		Element.input.addEventListener("input", inputcontroller); // input.value, InputEvent.data
 		Element.input.addEventListener("keydown", registerkeydown);
 		Element.input.addEventListener("keyup", registerkeyup);
-		Element.input.addEventListener("input", registerinput); // mobile devices (input.value, InputEvent.data)
+		
+		Config.ttypist.istyping = false;
+		Element.input.value = "";
 		Element.input.focus();
 	}
 	
@@ -91,6 +103,10 @@ class Utility {
 		charstat.reset();
 		keystroketime.reset();
 		teststat.reset();
+
+		// sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
+		// word.loadword(sentence.activeword, { activeword: true });
+		this.init();
 	}
 
   addcaretto(letter) {
@@ -112,11 +128,30 @@ class Utility {
 
 const util = new Utility();
 
-// error insertion and deletion + letter/word highlight
-function registerkeydown(evt) {
-  // evt.preventDefault(); // typedchars are not displayed in input field
-  // evt.stopPropagation();
 
+const inputevent = {
+	data: "",
+	delete: false,
+	reset() {
+		this.data = "";
+		this.delete = false;
+	}
+}
+function inputcontroller(evt) {
+	// if ( evt.data !== null ) {
+	// 	inputevent.data = evt.data[evt.data.length - 1];
+	// 	inputevent.delete = false;
+	// } else {
+	// 	inputevent.data = "";
+	// 	inputevent.delete = true;
+	// }
+	console.log("input");
+}
+
+function registerkeydown(evt) {
+
+	console.log("keydown");
+	
   if ( !evt.isTrusted ) return;
 
 	if ( !Config.ttypist.istyping ) {
@@ -124,31 +159,31 @@ function registerkeydown(evt) {
 		Config.ttypist.istyping = true;
 	}
 
-	// charstat.reset();
-	
-  typedchar = evt.key;
-	chartotype = word.activeletter.textContent;
+	charstat.reset();
+  charstat.typedchar = evt.key;
+	charstat.chartotype = word.activeletter.textContent;
 
-	// if ( typedchar === 'Tab' ) {
-  //   Element.input.blur();
-  //   Element.setting.restart.button.focus();
-	// 	util.testreset();
-  // }	
 
-	if ( typedchar === " " && util.isspace(word.activeletter) ) { // space is typed
+	if ( charstat.typedchar === 'Tab' ) {
+		Element.input.value = "";
+    Element.input.blur();
+    Element.setting.restart.button.focus();
+  }	
+
+	if ( charstat.typedchar === " " && util.isspace(word.activeletter) ) { // space is typed
 
 		util.removecaretfrom(word.activeletter)
 		word.loadword(sentence.nextword, { nextword: true });
 		util.addcaretto(word.activeletter);
 		
-	} else if ( typedchar === chartotype ) { // correct char is typed
+	} else if ( charstat.typedchar === charstat.chartotype ) { // correct char is typed
 		
 		util.removecaretfrom(word.activeletter);
 
 		if ( word.activeletterindex < word.lastletterindex ) {
 			util.addcaretto(word.nextletter);
 		} else {
-			
+
 			if ( word.activeletterindex === word.lastletterindex ) {
 				// load next word
 				if ( sentence.activewordindex < sentence.lastwordindex ) {
@@ -161,7 +196,7 @@ function registerkeydown(evt) {
 					teststat.endtime = window.performance.now();
 					util.removecaretfrom(word.activeletter);
 	
-					Element.input.removeEventListener('input', registerinput);
+					Element.input.removeEventListener('input', inputcontroller);
 					Element.input.removeEventListener('keydown', registerkeydown);
 					Element.input.removeEventListener('keyup', registerkeyup);
 	
@@ -170,7 +205,7 @@ function registerkeydown(evt) {
 				}
 			}	
 		}
-	} else if ( typedchar === "Backspace" ) { // deletion
+	} else if ( charstat.typedchar === "Backspace" ) { // deletion
 
 		if ( evt.metaKey ) { // cmd + backspace
 
@@ -181,14 +216,19 @@ function registerkeydown(evt) {
 
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + backspace
 
-			// delete previous word in caret on first letter of the word
-			util.removecaretfrom(word.activeletter);
-			if ( sentence.activewordindex > 0 && word.activeletterindex === 0 ) {
-				word.loadword(sentence.prevword, { prevword: true }); // sets index to (word.length - 1)th letter
+			if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
+
+				if ( util.isspace(sentence.word_at(sentence.activewordindex - 1)?.children[0])) {
+					sentence.decrementwordindex();
+				}
+
+				util.removecaretfrom(word.activeletter);
+				word.loadword(sentence.prevword, { prevword: true });
 				util.addcaretto(word.activeletter);
 			}
 
 			// delete all typed letters of the active word and put caret to first letter
+			util.removecaretfrom(word.activeletter);
 			word.resetletterindex();
 			util.addcaretto(word.activeletter);
 
@@ -200,7 +240,6 @@ function registerkeydown(evt) {
 			} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
 				util.removecaretfrom(word.activeletter);
 				word.loadword(sentence.prevword, { prevword: true });
-				word.resetletterindex();
 				util.addcaretto(word.activeletter);
 			}
 		}
@@ -210,11 +249,7 @@ function registerkeydown(evt) {
 }
 
 function registerkeyup(evt) {
-  evt.stopPropagation();
-}
-
-function registerinput(evt) {
-	
+	console.log("keyup");
 }
 
 export { sentence, word, util };
