@@ -6,6 +6,9 @@ import * as Misc from "./misc.js"
 import { Timer, StopWatch } from "./time.js";
 
 let sentence = new Sentence(Misc.wordelements(['abcde', 'fghij', 'klmno', 'pqrst', 'uvwxyz']));
+
+// put sentence object in word object itself, and have utility functions for query
+// related to sentence's active word index
 let word = new Word(sentence.activeword);
 
 class Utility {
@@ -161,7 +164,7 @@ function registerkeydown(evt) {
 		// 		- load new words, add keydown and keyup listeners back
 	} else if ( typedchar === "Backspace" ) { // deletion
 
-		if ( evt.metaKey ) { // cmd + bs
+		if ( evt.metaKey ) { // cmd + backspace
 			// remove caret from active letter
 			// ui change
 			// 	 - remove any error highlight on letter/word
@@ -169,10 +172,22 @@ function registerkeydown(evt) {
 			// 	 - traverse from last letter of last word to first letter of first word
 			// 	   while making these ui changes
 			// reset letter and word index (in case of word object, load first word)
-		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + bs
-			// start here...
-		} else { // bs
-
+		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + backspace
+			util.removecaretfrom(word.activeletter);
+			if ( sentence.activewordindex > 0 && word.activeletterindex === 0 ) {
+				word.loadprevword(sentence.prevword); // sets index to (word.length - 1)th letter
+				util.addcaretto(word.activeletter);
+			}
+		} else { // just backspace
+			if ( word.activeletterindex > 0 ) {
+				util.removecaretfrom(word.activeletter);
+			} else {
+				if ( sentence.activewordindex > 0 &&  word.activeletterindex === 0 ) {
+					util.removecaretfrom(word.activeletter);
+					word.loadprevword(sentence.prevword);
+					util.addcaretto(word.activeletter);
+				}
+			}
 		}
 	} else {
 		// error handling, insert of error, stop on error etc..
