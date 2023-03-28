@@ -104,8 +104,6 @@ class Utility {
 		keystroketime.reset();
 		teststat.reset();
 
-		// sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
-		// word.loadword(sentence.activeword, { activeword: true });
 		this.init();
 	}
 
