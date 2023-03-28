@@ -157,10 +157,16 @@ function registerinput(evt) {
 	}
 	
 	if ( mInput.keydown_unidentified ) {
-		
+
 		mInput.chartotype = word.activeletter.textContent;
 
-		if ( mInput.data === mInput.chartotype ) { // correct char is typed
+		if ( mInput.data === " " && util.isspace(word.activeletter) ) { // space is typed
+
+			util.removecaretfrom(word.activeletter)
+			word.loadword(sentence.nextword, { nextword: true });
+			util.addcaretto(word.activeletter);
+			
+		} else if ( mInput.data === mInput.chartotype ) { // correct char is typed
 			util.removecaretfrom(word.activeletter);
 	
 			if ( word.activeletterindex < word.lastletterindex ) {
