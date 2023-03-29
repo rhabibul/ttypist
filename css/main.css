@@ -23,7 +23,7 @@ body {
   --fade: #c5c5c5;
   --textcolor: #2a2a2a;
 
-  --textfont-size: 1.25rem;
+  --textfont-size: 1.3rem;
   --textfont-weight: 400;
   --textfont-family: var(--fontfamily-robotomono);
 }
@@ -70,7 +70,7 @@ letter {
   font-weight: var(--textfont-weight);
   font-family: var(--textfont-family);
 }
-/* ttypist > input {
+ttypist > input {
   margin: 0px;
   padding: 0px;
   display: block;
@@ -80,7 +80,7 @@ letter {
   outline: none;
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
-} */
+}
 
 .active {
   color: var(--word);
