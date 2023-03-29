@@ -29,17 +29,26 @@ body {
 }
 
 body {
-  margin-top: 15px;
-
   display: flex;
-  row-gap: 10px;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 ttypist {
   max-width: 750px;
   margin: 0px 20px;
+}
+input {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
 }
 sentence {
   user-select: none;
@@ -70,17 +79,6 @@ letter {
   font-weight: var(--textfont-weight);
   font-family: var(--textfont-family);
 }
-ttypist > input {
-  margin: 0px;
-  padding: 0px;
-  display: block;
-  width: 1px;
-  height: 1px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
 
 .active {
   color: var(--word);
@@ -94,12 +92,10 @@ ttypist > input {
 .fade {
   color: var(--fade);
 }
-#wdot {
-  padding: 0px 4px;
-  
-  color: #bfbfbf;
 
-  font-weight: 800;
+.speed {
+  color: gray;
+  font-weight: 400;
   font-size: var(--textfont-size);
   font-family: var(--textfont-family);
 }

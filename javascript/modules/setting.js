@@ -7,43 +7,54 @@ function updatewhitespace(evt) {
 
   evt.preventDefault();
   
-  // if user clicks on same whitespace button then don't do anything
   if ( this.id == "chosen" ) return;
 
-  if ( this.dataset.whitespace === "space" ) {
-    // update ui
-    Element.setting.whitespace.space.id = "chosen";
+  // ui change (move it to SettingUI later)
+  if ( this.dataset.type === "off" ) {
+    Element.setting.whitespace.off.id = "offchosen";
     Element.setting.whitespace.dot.id = "";
-
-    // update config
-    Config.whitespace.code = Const.whitespace.space.code;
-    Config.whitespace.character = Const.whitespace.space.character;
-    
-  } else if ( this.dataset.whitespace === "dot" ) {
-
-    // update ui
+    Element.setting.whitespace.space.id = "";
+  } else if ( this.dataset.type === "dot" ) {
+    Element.setting.whitespace.off.id = "";
     Element.setting.whitespace.dot.id = "chosen";
     Element.setting.whitespace.space.id = "";
-
-    // update config
-    Config.whitespace.code = Const.whitespace.dot.code;
-    Config.whitespace.character = Const.whitespace.dot.character;
+  } else if ( this.dataset.type === "space" ) {
+    Element.setting.whitespace.off.id = "";
+    Element.setting.whitespace.dot.id = "";
+    Element.setting.whitespace.space.id = "chosen";
   }
+
+  // update in config object
+  if ( this.dataset.type === "off" ) {
+    Config.whitespace.off = true;
+  } else {
+    Config.whitespace.off = false;
+  }
+  Config.whitespace.type = this.dataset.type;
+  Config.whitespace.code = Number(this.dataset.code);
+  Config.whitespace.character = this.dataset.character;
+
 
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
 
-    Element.input.blur(); // remove focus from input field so that you keystrokes are not registered
+    Element.input.blur();
 
     if ( letter.classList.contains("whitespace") ) {
-      if ( Config.whitespace.character == Const.whitespace.space.character ) {  
+      if ( Config.whitespace.type === Element.setting.whitespace.space.dataset.type ) {  
         letter.innerHTML = `${Config.whitespace.character}`;
-      } else {
+      } else if ( Config.whitespace.type === Element.setting.whitespace.dot.dataset.type ) {
         letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
+      } else {
+        letter.innerHTML = "";
       }
     }
+
     Element.input.focus();
   });
 }
+Element.setting.whitespace.off.addEventListener('click',   updatewhitespace);
+Element.setting.whitespace.dot.addEventListener('click',   updatewhitespace);
+Element.setting.whitespace.space.addEventListener('click', updatewhitespace);
 
 function updatecaret(evt) {
 
@@ -62,10 +73,9 @@ function updatecaret(evt) {
   const active_bgcolor = computedvalues.getPropertyValue("--setting-bgcolor-active");
   const inactive_bgcolor = computedvalues.getPropertyValue("--setting-bgcolor-inactive");
 
-  
   function colorshape(caret, active) {
 
-    const shape = document.querySelector(`caret.${caret.dataset.type} shape`);
+    const shape = document.querySelector(`caret ${caret.dataset.type} shape`);
 
     if ( caret.dataset.type === "line" || caret.dataset.type === "block" ) {
       if ( active ) {
@@ -90,7 +100,7 @@ function updatecaret(evt) {
         shape.style.backgroundColor = inactive_bgcolor;
       }
     } else {
-      const i = document.querySelector(`caret.off shape > i.fa-ban`);
+      const i = document.querySelector(`caret off i.fa-ban`);
       if ( active ) {
         i.style.color = "#ff0000";
         caret.style.backgroundColor = "#ffe4e4";
@@ -138,9 +148,6 @@ Element.setting.caret.box.addEventListener      ("click", updatecaret);
 Element.setting.caret.line.addEventListener     ("click", updatecaret);
 Element.setting.caret.block.addEventListener    ("click", updatecaret);
 Element.setting.caret.underline.addEventListener("click", updatecaret);
-
-Element.setting.whitespace.dot.addEventListener('click',   updatewhitespace);
-Element.setting.whitespace.space.addEventListener('click', updatewhitespace);
 
 Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
 

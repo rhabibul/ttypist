@@ -143,7 +143,7 @@ const mInput = {
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
-
+		console.log("mobile input");
 		Element.input.focus();
 
 		if ( !Config.ttypist.istyping ) {
@@ -203,9 +203,7 @@ function registerinput(evt) {
 
 function registerkeydown(evt) {
 
-	if ( !evt.isTrusted ) {
-		return;
-	}
+	if ( !evt.isTrusted ) return;
 
 	if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
 		mInput.keydown_unidentified = true;
@@ -221,8 +219,8 @@ function registerkeydown(evt) {
   charstat.typedchar = evt.key;
 	charstat.chartotype = word.activeletter.textContent;
 
-	if ( charstat.typedchar === " " && util.isspace(word.activeletter) ) { // space is typed
-
+	if ( util.isspace(word.activeletter) && charstat.typedchar === " " ) { // space is typed
+		
 		util.removecaretfrom(word.activeletter)
 		word.loadword(sentence.nextword, { nextword: true });
 		util.addcaretto(word.activeletter);
@@ -296,14 +294,7 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
-		if ( !Const.notprintable.includes(charstat.typedchar) ) {
-			let extra = document.createElement("letter");
-			extra.classList.add("extra");
-			extra.classList.add(Config.caret.type)
-			extra.style.color = "brown";
-			extra.textContent = charstat.typedchar;
-			word.activeletter.before(extra);
-		}
+		// error handling
 	}
 }
 

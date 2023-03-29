@@ -5,31 +5,14 @@ const notprintable = [
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
-// stop symbols (except '_')
-const notalphabet = [
-  '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+',
+const stopper = [ // _ and 0..9 are not considered as stopppers
+  '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+',
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
-const whitespace = {
-  dot: {
-    code: 11825,
-    character: '⸱',
-  },
-  bar: {
-    code: 9251,
-    character: '␣',
-  },
-  space: {
-    code: 160,
-    character: '&nbsp;',
-  },
-}
-
 export {
-  whitespace,
   notprintable,
-  notalphabet,
+  stopper,
 };
 
 /*

@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/caret.css" />
     <link rel="stylesheet" href="./css/setting.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/keyboard.css">
   </head>
   <body>
@@ -58,28 +59,36 @@
           <letter>a</letter>
         </word>
       </sentence>
-      <input tabindex="0" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" list="autocompleteOff" />
+
+      <input tabindex="0" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
     </ttypist>
 
-    <whitespace>
-      <dot data-whitespace="dot">dot</dot>
-      <space data-whitespace="space" id="chosen">space</space>
-    </whitespace>
+    <setting>
+      <reset>
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+      </reset>
+
+      <whitespace>
+        <off data-type="off" data-code="" data-character="">off</off>
+        <space data-type="space" data-code="160" data-character="&nbsp;" id="chosen">space</space>
+        <dot data-type="dot" data-code="11825" data-character="⸱">dot</dot>
+      </whitespace>
+      
+      <caret>
+        <off data-type="off"><i class="fa-sharp fa-solid fa-ban"></i></off>
+        <underline data-type="underline"><shape></shape></underline>
+        <line data-type="line" id="chosen"><shape></shape></line>
+        <box data-type="box"><shape></shape></box>
+        <block data-type="block"><shape></shape></block>
+      </caret>
+    </setting>
     
-    <carettype>
-      <caret data-type="off" class="off"> <shape><i class="fa-sharp fa-solid fa-ban"></i></shape> </caret>
-      <caret data-type="underline" class="underline"> <shape></shape> </caret>
-      <caret data-type="line" class="line" id="chosen"> <shape></shape> </caret>
-      <caret data-type="block" class="block"> <shape></shape> </caret>
-      <caret data-type="box" class="box"> <shape></shape> </caret>
-    </carettype>
 
     <div class="contactme">
-      <a target="_blank" href="https://atcoder.jp/users/ttypist"> <img src="./static/images/atcoder.svg" id="atcoder"> </a>
       <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./static/images/codeforces.svg" id="codeforces"> </a>
       <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
-      <a target="_blank" href="https://www.linkedin.com/in/ttypist/"> <i class="fa-brands fa-linkedin"></i> </a>
-      <a target="_blank" href="https://www.facebook.com/ttypist/"> <i class="fa-brands fa-facebook-square"></i> </a>
+      <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
+      <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
     </div>
 
     <p class="developer">@habibul</p>

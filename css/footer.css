@@ -1,0 +1,42 @@
+.contactme {
+  width: 200px;
+  
+  border-radius: var(--setting-boxradius);
+  background-color: var(--setting-bgcolor-inactive);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contactme i {
+  font-size: 1.7rem;
+  color: black;
+}
+.contactme a {
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.contactme a:hover i {
+  color: red;
+}
+img#codeforces {
+  width: 30px;
+  height: 30px;
+}
+.developer {
+  color: #ff0000;
+  background-color: #ffe4e4;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 30px;
+  width: 88px;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--fontfamily-nunito);
+}

@@ -6,14 +6,16 @@ const sentence = document.querySelector("ttypist > sentence");
 const keyboard = document.getElementsByTagName("keyboard")[0];
 
 const setting = {
+  reset: document.getElementsByTagName("reset")[0],
   caret: {
-    off: document.querySelector("caret.off"),
-    line: document.querySelector("caret.line"),
-    underline: document.querySelector("caret.underline"),
-    block: document.querySelector("caret.block"),
-    box: document.querySelector("caret.box"),
+    off: document.querySelector("caret off"),
+    underline: document.querySelector("caret underline"),
+    line: document.querySelector("caret line"),
+    box: document.querySelector("caret box"),
+    block: document.querySelector("caret block"),
   },
 	whitespace: {
+		off: document.querySelector("whitespace off"),
 		dot: document.querySelector("whitespace dot"),
 		space: document.querySelector("whitespace space"),
 	},

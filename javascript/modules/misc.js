@@ -56,13 +56,15 @@ function wordelements(s) {
     letter = document.createElement("letter");
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
-    if ( Config.whitespace.character === Const.whitespace.space.character ) {
+
+    if ( Config.whitespace.type === Element.setting.whitespace.space.dataset.type ) {  
       letter.innerHTML = `${Config.whitespace.character}`;
-    } else if ( Config.whitespace.character === Const.whitespace.dot.character ) {
+    } else if ( Config.whitespace.type === Element.setting.whitespace.dot.dataset.type ) {
       letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
     } else {
-      // bar whitespace, but first add proper styling to bar character
+      letter.innerHTML = "";
     }
+    
     word.appendChild(letter);
     wordarray.push(word);
   }

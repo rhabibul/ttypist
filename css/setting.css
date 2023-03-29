@@ -1,182 +1,120 @@
 :root {
   --setting-caret-color: black;
-  --setting-boxradius: 2px;
+  --setting-boxradius: 3px;
 
   --setting-color-active: #e17c01;
   --setting-bgcolor-active: #ffffc9;
 
   --setting-color-inactive: #000000;
   --setting-bgcolor-inactive: #f5f5f5;
+
+  --setting-textcolor-off: #ff0000;
+  --setting-backgroundcolor-off: #ffe4e4;
+
+  --shape-height: 20px;
 }
 
+#offchosen {
+  color: var(--setting-textcolor-off);
+  background-color: var(--setting-backgroundcolor-off);
+}
 #chosen {
   color: var(--setting-color-active);
   background-color: var(--setting-bgcolor-active);
 }
 
-/**********  whitespace selection  **********/
-whitespace {
-  width: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+setting {
+  width: 100%;
 
-  font-family: var(--textfont-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
 }
 
+/*---------------- whitespace ----------------*/
+whitespace {
+  width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: var(--fontfamily-nunito);
+  font-family: var(--fontfamily-robotomono);
+}
+
+whitespace off,
 whitespace dot,
-whitespace space {
+whitespace space,
+whitespace bar {
   display: flex;
   align-items: center;
   justify-content: center;
   
   color: #313131;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
 
-  padding: 3px 6px;
+  padding: 2px 5px;
   border-radius: var(--setting-boxradius);
-}
-whitespace dot,
-whitespace space {
   background-color: var(--setting-bgcolor-inactive);
 }
+#wdot {
+  padding: 0px 4px;
+  
+  color: #bfbfbf;
 
-/**********  caret type selection  **********/
-carettype {  
-  width: 180px;
+  transform: scale(1.5, 1.5);
+  font-size: var(--textfont-size);
+  font-family: var(--textfont-family);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------- caret ----------------*/
+caret {
+  width: 150px;
+  height: 40px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-caret {
+
+caret off,
+caret underline,
+caret line,
+caret box,
+caret block {
   width: 25px;
   height: 35px;
-
-  border: none;
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
   border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
+  background-color: var(--setting-bgcolor-inactive);
 }
-
-caret.off shape,
-caret.box shape,
-caret.line shape,
-caret.block shape,
-caret.underline shape {
-  height: 20px;
-}
-caret.line shape {
+line shape {
   width: 1px;
+  height: var(--shape-height);
   background-color: var(--setting-caret-color);
 }
-caret.block shape {
+block shape {
   width: 10px;
+  height: var(--shape-height);
   background-color: var(--setting-caret-color);
 }
-caret.underline shape {
-  width: 12px;
-  display: block;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 1px solid var(--setting-caret-color);
-}
-caret.box shape {
+box shape {
   width: 10px;
+  height: var(--shape-height);
   border: 1px solid var(--setting-caret-color);
 }
-
-caret.off shape {
-  width: 100%;
-  height: 100%;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-caret.off shape i {
-  color: #3b3b3b;
-  font-size: 1.25rem;
-}
-
-
-/********** restart button **********/
-button.restart {
-  width: 30px;
-  height: 30px;
-
-  border: none;
-  outline: none;
-
-  font-size: 1.15rem;
-  border-radius: 3px;
-  background-color: white;
-
-  display: grid;
-  place-items: center;
-}
-button.restart i {
-  color: #6b6b6b;
-  transform: translateY(1px);
-}
-
-/**********  temporary stylings (maybe removed later)  **********/
-.speed {
-  margin-top: 20px;
-  color: gray;
-  font-weight: 400;
-  font-size: var(--textfont-size);
-  font-family: var(--textfont-family);
-}
-.contactme {
-  width: 280px;
-  
-  border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.contactme i {
-  font-size: 1.7rem;
-  color: black;
-}
-.contactme a {
-  margin-top: 5px;
-  padding: 8px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.contactme a:hover i {
-  color: red;
-}
-img#codeforces {
-  width: 27px;
-  height: 27px;
-}
-img#atcoder {
-  width: 30px;
-  height: 30px;
-}
-.developer {
-  color: #ff0000;
-  background-color: #ffe4e4;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  border-radius: 30px;
-  width: 88px;
-  height: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: var(--fontfamily-nunito);
+underline shape {
+  display: inline-flex;
+  width: 11px;
+  height: var(--shape-height);
+  border-bottom: 1px solid var(--setting-caret-color);
 }

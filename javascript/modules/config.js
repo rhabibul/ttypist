@@ -61,8 +61,10 @@ const Config = {
   },
   
   whitespace: {
-    code: Const.whitespace.space.code,
-    character: Const.whitespace.space.character,
+    off: false,
+    type: "space",
+    character: "&nbsp;",
+    code: 160,
   },
 
   keyboard: {
