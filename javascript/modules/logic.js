@@ -144,6 +144,9 @@ const mInput = {
 	}
 }
 
+const output = document.getElementsByTagName("output")[0];
+let prev_s = 0, s = 0;
+
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
@@ -159,6 +162,14 @@ function registerinput(evt) {
 		} else {
 			if ( typeof evt.data === "object" ) mInput.delete = true;
 		}
+
+		prev_s = s;
+		s = Element.input.value.length;
+		output.innerHTML = `
+			<div>prev: ${prev_s}&nbsp;&nbsp;&nbsp;curr: ${s}</div>
+			<div>data: ${evt.data}</div>
+			<div>value: ${Element.input.value}</div>
+		`;
 
 		mInput.chartotype = word.activeletter.textContent;
 
