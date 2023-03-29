@@ -131,21 +131,14 @@ const mInput = {
 	chartotype: "",
 	delete: false,
 	keydown_unidentified: false,
-	prev_slen: 0,
-	slen: 0,
 
 	reset() {
 		this.data = "";
 		this.chartotype = "";
 		this.delete = false;
 		this.keydown_unidentified = false;
-		this.prev_slen = 0,
-		this.slen = 0;
 	}
 }
-
-const output = document.getElementsByTagName("output")[0];
-let prev_s = 0, s = 0;
 
 function registerinput(evt) {
 
@@ -157,27 +150,12 @@ function registerinput(evt) {
 			Element.input.focus();
 		}
 
-		prev_s = s;
-		s = Element.input.value.length;
-
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
 		} else {
-			if ( (prev_s - s === 1) || (evt.data === null) ) {
-				if ( Element.input.value === "" ) {
-					prev_s = 0;
-					s = 0;
-				}
-				mInput.delete = true;
-			}
+			mInput.delete = true;
 		}
-
-		output.innerHTML = `
-			<div>prev: ${prev_s}&nbsp;&nbsp;&nbsp;curr: ${s}</div>
-			<div>data: ${evt.data}</div>
-			<div>value: ${Element.input.value}</div>
-		`;
 
 		mInput.chartotype = word.activeletter.textContent;
 
@@ -216,20 +194,6 @@ function registerinput(evt) {
 					}
 				}	
 			}
-		} else if ( mInput.delete ) {
-			
-			if ( word.activeletterindex === 0 && sentence.activewordindex === 0 ) return;
-			
-			if ( word.activeletterindex > 0 ) {
-				util.removecaretfrom(word.activeletter);
-				util.addcaretto(word.prevletter);
-			} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
-				util.removecaretfrom(word.activeletter);
-				word.loadword(sentence.prevword, { prevword: true });
-				util.addcaretto(word.activeletter);
-			}
-		} else {
-			// error handling
 		}
 	}
 
@@ -336,6 +300,7 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
+		
 		// error handling, insert of error, stop on error etc..
 	}
 }
