@@ -42,6 +42,69 @@ whitespace space {
   background-color: var(--setting-bgcolor-inactive);
 }
 
+/**********  caret type selection  **********/
+carettype {  
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+caret {
+  width: 25px;
+  height: 35px;
+
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: var(--setting-boxradius);
+  background-color: var(--setting-inactive-bgcolor);
+}
+
+caret.off shape,
+caret.box shape,
+caret.line shape,
+caret.block shape,
+caret.underline shape {
+  height: 20px;
+}
+caret.line shape {
+  width: 1px;
+  background-color: var(--setting-caret-color);
+}
+caret.block shape {
+  width: 10px;
+  background-color: var(--setting-caret-color);
+}
+caret.underline shape {
+  width: 12px;
+  display: block;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--setting-caret-color);
+}
+caret.box shape {
+  width: 10px;
+  border: 1px solid var(--setting-caret-color);
+}
+
+caret.off shape {
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+caret.off shape i {
+  color: #3b3b3b;
+  font-size: 1.25rem;
+}
+
+
 /********** restart button **********/
 button.restart {
   width: 30px;
@@ -50,8 +113,7 @@ button.restart {
   border: none;
   outline: none;
 
-  font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.15rem;
   border-radius: 3px;
   background-color: white;
 
@@ -75,7 +137,7 @@ button.restart i {
   width: 280px;
   
   border-radius: var(--setting-boxradius);
-  background-color: var(--setting-bgcolor-inactive);
+  background-color: var(--setting-inactive-bgcolor);
 
   display: flex;
   align-items: center;
