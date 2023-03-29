@@ -144,10 +144,11 @@ function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
 
+		Element.input.focus();
+		
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
 			Config.ttypist.istyping = true;
-			Element.input.focus();
 		}
 
 		if ( evt.data !== null ) {
@@ -300,8 +301,13 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
-		
-		// error handling, insert of error, stop on error etc..
+		if ( !Const.notprintable.includes(charstat.typedchar) ) {
+			let extra = document.createElement("letter");
+			extra.classList.add("extra");
+			extra.style.color = "brown";
+			extra.textContent = charstat.typedchar;
+			word.activeletter.before(extra);
+		}
 	}
 }
 
