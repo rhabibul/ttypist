@@ -7,7 +7,7 @@
   --caret-blink-count: 30;
   --caret-blink-timing: ease-out;
 
-  --box-caret-width: 0.5px;
+  --box-caret-width: 1px;
   --line-caret-width: 1px;
   --underline-caret-width: 2px;
 }

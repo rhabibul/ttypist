@@ -1,4 +1,4 @@
-import Config from "./config.js";
+import { Config, TextConfig, MiscConfig } from "./config.js";
 import { Sentence, Word } from "./container.js";
 import * as Const from "./const.js";
 import * as Element from "./element.js";
