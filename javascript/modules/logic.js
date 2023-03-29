@@ -144,8 +144,6 @@ function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
 
-		Element.input.focus();
-		
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
 			Config.ttypist.istyping = true;
@@ -209,7 +207,10 @@ function registerkeydown(evt) {
 
 	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
 
-	if ( mInput.keydown_unidentified ) { return; }
+	if ( mInput.keydown_unidentified ) { 
+		Element.input.focus();
+		return;
+	}
 
 	if ( !Config.ttypist.istyping ) {
 		teststat.starttime = performance.now();
