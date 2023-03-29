@@ -154,6 +154,7 @@ function registerinput(evt) {
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
 			Config.ttypist.istyping = true;
+			Element.input.focus();
 		}
 
 		prev_s = s;
@@ -231,6 +232,8 @@ function registerinput(evt) {
 			// error handling
 		}
 	}
+
+	mInput.reset();
 }
 
 function registerkeydown(evt) {
