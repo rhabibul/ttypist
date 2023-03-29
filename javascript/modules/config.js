@@ -1,7 +1,8 @@
 import * as Const from "./const.js";
 
 export default {
-  operatingsystem: "",
+  os: "",
+  device: "",
 
   ttypist: {
     istyping: false,
@@ -9,12 +10,13 @@ export default {
   },
 
   warning: {
+    off: true,
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
 
   oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
-  textinputvisible: false,
+  inputvisible: false,
   endtestwithspace: false, // user will have to hit space after typing last word to end test
 
   // difficulty:
@@ -23,14 +25,22 @@ export default {
   //    - master fails the test if user types a single incorrect letter
   difficulty: "classic", // classic | expert | master
   
-  // confidence:
-  //    - pro mode will not allow user to go back to previous words to fix errors
-  //    - max mode will not allow backspace at all to fix errors
-  confidence: "off", // off | pro | max
+  confidence: {
+    off: true,
+    mode: {
+      pro: false, // don't allow user to go back to previous words to fix error
+      max: false, // don't allow backspace at all to fix any error
+    }
+  },
+
+  caret: {
+    off: false,
+    type: "line", // line, underline, box, block
+  },
   
   // if enabled, allow user to delete any word, even if it was typed correctly
   backspace: {
-    on: true, // backspace (single letter deletion)
+    off: false,
     modifier: {
        alt: true,
       ctrl: true,
@@ -39,33 +49,28 @@ export default {
   },
 
   error: {
-    stop: {
-      onword: false,
-      onletter: false,
+    stopCaretOn: {
+      word: false,
+      letter: false,
     },
     insert: true, // insert incorrect letter
     forgive: true, // delete incorrect letters when user types the correct letter
   },
-  
-  caret: {
-    on: true,
-    type: "line", // line, underline, box, block
-  },
 
-  whitespace: {
-    code: Const.whitespace.space.code,
-    character: Const.whitespace.space.character,
-  },
-
+  fliptextcolor: false, // brightness of typed text and future text
   highlight: {
-    on: true,
+    off: false,
     mode: {
       word: false,
       letter: true,
     },
   },
-  fliptextcolor: false, // brightness of typed texts and future texts
   
+  whitespace: {
+    code: Const.whitespace.space.code,
+    character: Const.whitespace.space.character,
+  },
+
   sentence: {
     word: {
       count: 10,

@@ -48,10 +48,11 @@ function updatewhitespace(evt) {
 function updatecaret(evt) {
 
   evt.preventDefault();
-  if (this.dataset.type === Config.caret.type) return;
-
-  const prevcaret = Config.caret.type; // save previous caret type
   const thiscaret = this; // caret which has been choosen
+
+  if (thiscaret.dataset.type === Config.caret.type) return;
+
+  const oldcaret = Config.caret.type; // save previous caret type
 
   const computedvalues = getComputedStyle(Element.root);
 
@@ -115,16 +116,16 @@ function updatecaret(evt) {
   Config.caret.type = thiscaret.dataset.type;
 
   if ( thiscaret.dataset.type === "off" ) {
-    Config.caret.on = false;
+    Config.caret.off = true;
     // reveal the input box
   } else {
-    Config.caret.on = true;
+    Config.caret.off = false;
     // hide the input box
   }
 
   // apply new caret styles to all the letters
   Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-    letter.classList.remove(prevcaret); // remove previous caret's styling from this letter
+    letter.classList.remove(oldcaret); // remove previous caret's styling from this letter
     util.removecaretfrom(word.activeletter);
     letter.classList.add(Config.caret.type); // add new caret's styling to this letter
     util.addcaretto(word.activeletter);

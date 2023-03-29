@@ -202,7 +202,7 @@ function registerinput(evt) {
 						util.addcaretto(word.activeletter);
 					}	
 	
-					// user typed has typed all words
+					// user has typed typed all words
 					if ( sentence.activewordindex === sentence.lastwordindex ) {
 						teststat.endtime = window.performance.now();
 						util.removecaretfrom(word.activeletter);
