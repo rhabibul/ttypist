@@ -139,25 +139,10 @@ Element.setting.caret.line.addEventListener     ("click", updatecaret);
 Element.setting.caret.block.addEventListener    ("click", updatecaret);
 Element.setting.caret.underline.addEventListener("click", updatecaret);
 
-Element.setting.restart.button.addEventListener('click', (evt) => {
-  evt.preventDefault();
-   util.testreset(); 
-});
-
-Element.setting.restart.button.addEventListener('focus', (evt) => { 
-  evt.preventDefault();
-  Element.setting.restart.button.style.border = "1px solid lightgray"
-  Element.setting.restart.button_icon.style.color = "black"
-});
-
-Element.setting.restart.button.addEventListener('focusout', (evt) => { 
-  evt.preventDefault();
-  Element.setting.restart.button.style.border = ""
-  Element.setting.restart.button_icon.style.color = "#6b6b6b"
-});
-
 Element.setting.whitespace.dot.addEventListener('click',   updatewhitespace);
 Element.setting.whitespace.space.addEventListener('click', updatewhitespace);
+
+Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
 
 // underline styling
 // 

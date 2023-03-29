@@ -101,7 +101,7 @@ class Utility {
 	
 	testreset() {
 		charstat.reset();
-		keystroketime.reset();
+		// keystroketime.reset();
 		teststat.reset();
 
 		this.init();
@@ -143,6 +143,8 @@ const mInput = {
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
+
+		Element.input.focus();
 
 		if ( !Config.ttypist.istyping ) {
 			teststat.starttime = performance.now();
@@ -205,10 +207,8 @@ function registerkeydown(evt) {
 		return;
 	}
 
-	mInput.keydown_unidentified = (evt.key === "Unidentified") || (evt.code === "");
-
-	if ( mInput.keydown_unidentified ) { 
-		Element.input.focus();
+	if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
+		mInput.keydown_unidentified = true;
 		return;
 	}
 
@@ -220,12 +220,6 @@ function registerkeydown(evt) {
 	charstat.reset();
   charstat.typedchar = evt.key;
 	charstat.chartotype = word.activeletter.textContent;
-
-	if ( charstat.typedchar === 'Tab' ) {
-		Element.input.value = "";
-    Element.input.blur();
-    Element.setting.restart.button.focus();
-  }	
 
 	if ( charstat.typedchar === " " && util.isspace(word.activeletter) ) { // space is typed
 
@@ -305,6 +299,7 @@ function registerkeydown(evt) {
 		if ( !Const.notprintable.includes(charstat.typedchar) ) {
 			let extra = document.createElement("letter");
 			extra.classList.add("extra");
+			extra.classList.add(Config.caret.type)
 			extra.style.color = "brown";
 			extra.textContent = charstat.typedchar;
 			word.activeletter.before(extra);
