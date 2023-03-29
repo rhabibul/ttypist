@@ -156,15 +156,22 @@ function registerinput(evt) {
 			Config.ttypist.istyping = true;
 		}
 
+		prev_s = s;
+		s = Element.input.value.length;
+
 		if ( evt.data !== null ) {
 			mInput.data = evt.data[evt.data.length - 1];
 			mInput.delete = false;
 		} else {
-			if ( typeof evt.data === "object" ) mInput.delete = true;
+			if ( (prev_s - s === 1) || (evt.data === null) ) {
+				if ( Element.input.value === "" ) {
+					prev_s = 0;
+					s = 0;
+				}
+				mInput.delete = true;
+			}
 		}
 
-		prev_s = s;
-		s = Element.input.value.length;
 		output.innerHTML = `
 			<div>prev: ${prev_s}&nbsp;&nbsp;&nbsp;curr: ${s}</div>
 			<div>data: ${evt.data}</div>
