@@ -1,14 +1,14 @@
 .speed {
   color: gray;
-  font-weight: var(--text-fontweight);
   font-size: var(--text-fontsize);
+  font-weight: var(--text-fontweight);
   font-family: var(--text-fontfamily);
 }
 .contactme {
   width: 200px;
   
-  border-radius: var(--setting-boxradius);
-  background-color: var(--setting-bgcolor-inactive);
+  border-radius: var(--round);
+  background-color: var(--inactive-backgroundcolor);
 
   display: flex;
   align-items: center;
