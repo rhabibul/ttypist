@@ -84,7 +84,6 @@ const TextConfig = {
 }
 
 const MiscConfig = {
-
   warning: {
     off: true,
     capslock: false, // warn the user their capslock is on

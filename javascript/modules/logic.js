@@ -135,7 +135,6 @@ const mInput = {
 	reset() {
 		this.data = "";
 		this.chartotype = "";
-		this.delete = false;
 		this.keydown_unidentified = false;
 	}
 }
@@ -143,7 +142,7 @@ const mInput = {
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
-		console.log("mobile input");
+		
 		Element.input.focus();
 
 		if ( !Config.ttypist.istyping ) {
@@ -151,12 +150,7 @@ function registerinput(evt) {
 			Config.ttypist.istyping = true;
 		}
 
-		if ( evt.data !== null ) {
-			mInput.data = evt.data[evt.data.length - 1];
-			mInput.delete = false;
-		} else {
-			mInput.delete = true;
-		}
+		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
 
 		mInput.chartotype = word.activeletter.textContent;
 
@@ -195,6 +189,15 @@ function registerinput(evt) {
 					}
 				}	
 			}
+		}  else if ( evt.inputType === "deleteContentBackward" ) {
+			if ( word.activeletterindex > 0 ) {
+				util.removecaretfrom(word.activeletter);
+				util.addcaretto(word.prevletter);
+			} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
+				util.removecaretfrom(word.activeletter);
+				word.loadword(sentence.prevword, { prevword: true });
+				util.addcaretto(word.activeletter);
+			}
 		}
 	}
 
@@ -220,7 +223,7 @@ function registerkeydown(evt) {
 	charstat.chartotype = word.activeletter.textContent;
 
 	if ( util.isspace(word.activeletter) && charstat.typedchar === " " ) { // space is typed
-		
+
 		util.removecaretfrom(word.activeletter)
 		word.loadword(sentence.nextword, { nextword: true });
 		util.addcaretto(word.activeletter);
