@@ -1,3 +1,18 @@
+:root {
+  --fontfamily-nunito: 'Nunito', sans-serif;
+  --fontfamily-monasans: "";
+  --fontfamily-robotomono: "Roboto Mono", monospace;
+  
+  --round: 3px;
+  --line-gap: 3px;
+
+  --text-color: #2a2a2a;
+
+  --text-fontsize: 1.3rem;
+  --text-fontweight: 400;
+  --text-fontfamily: var(--fontfamily-robotomono)
+}
+
 *,
 *::after,
 *::before {
@@ -10,22 +25,6 @@ html,
 body {
   width: 100%;
   height: 100%;
-}
-
-:root {
-  --fontfamily-nunito: 'Nunito', sans-serif;
-  --fontfamily-monasans: "";
-  --fontfamily-robotomono: "Roboto Mono", monospace;
-  
-  --line-gap: 0px; /* adjust this line gap according to caret type using javascript */
-
-  --word: rgb(156, 156, 156);
-  --fade: #c5c5c5;
-  --textcolor: #2a2a2a;
-
-  --textfont-size: 1.3rem;
-  --textfont-weight: 400;
-  --textfont-family: var(--fontfamily-robotomono);
 }
 
 body {
@@ -75,27 +74,49 @@ letter {
   align-items: center;
   justify-content: center;
 
-  font-size: var(--textfont-size);
-  font-weight: var(--textfont-weight);
-  font-family: var(--textfont-family);
+  font-size: var(--text-fontsize);
+  font-weight: var(--text-fontweight);
+  font-family: var(--text-fontfamily);
 }
+#wdot {
+  padding: 0px 4px;
+  
+  color: #c7c7c7;
+
+  transform: scale(1.33, 1.33);
+  font-weight: 800;
+
+  font-size: var(--text-fontsize);
+  font-family: var(--text-fontfamily);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .active {
-  color: var(--word);
-}
-.error {
-  color: #ff0000;
-}
-.extra {
-  color: #cf0000ac;
-}
-.fade {
-  color: var(--fade);
+  color: black; 
 }
 
-.speed {
-  color: gray;
-  font-weight: 400;
-  font-size: var(--textfont-size);
-  font-family: var(--textfont-family);
+/* when user will move to next word without correcting the errors then add
+and underline to the word */
+.error {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-style: solid;
+  text-decoration-color: #ae0000;
+  text-underline-offset: 2px;
+}
+.extra { 
+  color: #ae0000;
+}
+.fade {
+  color: rgb(155, 155, 155);
+}
+.incorrect {
+  color: red;
+}
+.correct {
+  color: green;
 }

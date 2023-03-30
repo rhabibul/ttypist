@@ -1,3 +1,9 @@
+.speed {
+  color: gray;
+  font-weight: var(--text-fontweight);
+  font-size: var(--text-fontsize);
+  font-family: var(--text-fontfamily);
+}
 .contactme {
   width: 200px;
   

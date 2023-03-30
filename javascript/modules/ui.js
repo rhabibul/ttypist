@@ -1,19 +1,21 @@
-class CaretUI {
-	constructor() {}
+const CaretUI = {
 	addcaretto(letter) {
     letter.setAttribute("id", Config.caret.type);
-  }
+  },
   removecaretfrom(letter) {
     letter.setAttribute("id", "");
-  }
+  },
 }
 
-class SettingUI {
-	constructor() {}
+const SettingUI = {
+
+	settextcolor(element, color) {},	
+	setbackgroundcolor(element, color) {},
+	setproperty(property, value) {},
 }
 
-class KeyboardUI {
-	constructor() {}
+const KeyboardUI = {
+
 }
 
 export { CaretUI, SettingUI, KeyboardUI };

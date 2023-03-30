@@ -14,11 +14,10 @@ const Config = {
   endtestwithspace: false, // user will have to hit space after typing last word to end test
 
   // difficulty:
-  //    - classic is normal typing test experience
+  //    - normal is classic typing test experience
   //    - expert fails the test if user submits an incorrect word
   //    - master fails the test if user types a single incorrect letter
-  difficulty: "classic", // classic | expert | master
-  
+  difficulty: "normal", // normal | expert | master
   confidence: {
     off: true,
     mode: {
@@ -60,6 +59,12 @@ const Config = {
     character: "&nbsp;",
     code: 160,
   },
+
+  live: {
+    stat: false, // show wpm/cpm and accuracy on every keystroke
+    keyboard: true, // static, react, next
+  },
+
   keyboard: {
     emulate: false, // emulate other keyboard layouts
     layout: "qwerty", // keyboard layout
@@ -89,6 +94,7 @@ const MiscConfig = {
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
+  
   practice: {
     off: true,
     guidedlessions: false, // guided lessons
@@ -103,14 +109,17 @@ const MiscConfig = {
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   },
-  live: {
-    stats: false, // show wpm/cpm and accuracy on every keystroke
-    keyboard: true, // static, react, next
-  },
+
   sound: {
     play: "off", // off, nk creams, typewriter, hitmarker
     on_error: false, // play sound on error
   },
 }
 
-export { Config, TextConfig, MiscConfig };
+const ConfigHandler = {
+  on(value) {},
+  off(value) {},
+  setdefaults() {},
+}
+
+export { Config, TextConfig, MiscConfig, ConfigHandler };

@@ -1,7 +1,8 @@
 import * as Const from "./const.js";
 import * as Element from "./element.js"
-// import w3k from "./w3k.js";
-import w1k from "./w1k.js";
+
+import w1k from "../../static/data/w1k.js"
+// import w3k from "../../static/data/w3k.js"
 
 import { Config, TextConfig, MiscConfig } from "./config.js";
 
@@ -148,22 +149,24 @@ function binaryof(value) {
   return Number(value).toString(2);
 }
 
+const computedstyles = getComputedStyle(Element.root);
+
+
 export { 
+  os,
+  tolower,
+  toupper,
+  binaryof,
+  computedstyles,
+  
   randomwords,
   wordelements,
   
   lettertagtext,
   wordtagtext,
-  
-  os,
-  tolower,
-  toupper,
-  binaryof,
 
   totalchar,
-
   validsentence,
-
 
   showspeed,
   getsentence,
