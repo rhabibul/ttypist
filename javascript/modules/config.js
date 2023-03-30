@@ -2,11 +2,9 @@ import * as Const from "./const.js";
 
 const Config = {
 
+  device: "", // operating system and type of device
+
   ttypist: {
-    device: {
-      os: "", // iOS | MacOS | Android | Windows
-      type: "", // smartphone | pc/laptop
-    },
     istyping: false,
   },
 
@@ -20,11 +18,17 @@ const Config = {
   // as an error, ignore B, Y, ^
   oppositeshift: false,
 
+  caret: {
+    off: false,
+    type: "line", // line, underline, box, block
+  },
+
   // difficulty:
   //    - normal is classic typing test experience
   //    - expert fails the test if user submits an incorrect word
   //    - master fails the test if user types a single incorrect letter
   difficulty: "normal", // normal | expert | master
+
   confidence: {
     off: true,
     mode: {
@@ -32,10 +36,7 @@ const Config = {
       max: false, // don't allow backspace at all to fix any error
     }
   },
-  caret: {
-    off: false,
-    type: "line", // line, underline, box, block
-  },
+
   backspace: {
     off: false,
     modifier: {
@@ -44,6 +45,7 @@ const Config = {
       meta: false,
     },
   },
+
   error: {
     thenStopOn: {
       word: false,
@@ -52,6 +54,7 @@ const Config = {
     insert: true, // insert incorrect letter
     forgive: true, // delete incorrect letters when user types the correct letter
   },
+
   highlight: {
     off: false,
     mode: {
@@ -60,6 +63,7 @@ const Config = {
     },
     flip_textcolor: false, // brightness of typed text and future text
   },
+  
   whitespace: {
     off: false,
     type: "space",
@@ -68,55 +72,44 @@ const Config = {
   },
 
   keyboard: {
-    off: false,
     layout: "qwerty", // keyboard layout
     emulate: false, // emulate other keyboard layouts
     language: "english",
   },
-};
 
-const TextConfig = {
-  word: {
-    count: 10,
-    averagelength: "mix", // small(<5) | medium(>5, <8) | long(>8) | mix(random)
-  },
-  include: {
-    digits: false, // include digits along with words
-    punctuations: false, // include punctuation marks along with words
-  },
-  font: {
-    size: "1.4rem",
-    weight: "400",
-    family: "Roboto Mono, monospace",
-  },
-}
-
-const MiscConfig = {
   warning: {
     off: true,
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
 
-  practice: {
-    off: true,
-    guidedlessions: false, // guided lessons
-    providecustomtext: false, // custom text provided by user
-  
-    numrow: false, // number row digits and symbols
-    numpad: false, // number pad digits and arithmetic operations with expression
-    alphanumeric: false, // ascii characters only
-    
-    brackets: false, // {[()]}
-    arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-    specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-  },
+  sentence: {
+    word: {
+      count: 10,
+      averagelength: "mixed", // small(<5) | medium(>=5, <=8) | long(>8) | mixed
+    },
+    include: {
+      digits: false, // include digits along with words
+      punctuations: false, // include punctuation marks along with words
+    },
+  }
+};
 
-  sound: {
-    play: "off", // off, nk creams, typewriter, hitmarker
-    on_error: false, // play sound on error
-  },
+const PracticeConfig = {
+  
+  off: true,
+  
+  guidedlessions: false, // guided lessons
+  providecustomtext: false, // custom text provided by user
+
+  numrow: false, // number row digits and symbols
+  numpad: false, // number pad digits and arithmetic operations with expression
+  alphanumeric: false, // ascii characters only
+  
+  brackets: false, // {[()]}
+  arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+  functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
 }
 
 const ConfigHandler = {
@@ -125,4 +118,4 @@ const ConfigHandler = {
   setdefaults() {},
 }
 
-export { Config, TextConfig, MiscConfig, ConfigHandler };
+export { Config, PracticeConfig, ConfigHandler };

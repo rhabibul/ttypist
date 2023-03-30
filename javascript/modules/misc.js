@@ -4,7 +4,7 @@ import * as Element from "./element.js"
 import w1k from "../../static/data/w1k.js"
 // import w3k from "../../static/data/w3k.js"
 
-import { Config, TextConfig, MiscConfig } from "./config.js";
+import { Config, ConfigHandler, PracticeConfig } from "./config.js";
 
 function totalchar() {
   let cnt = 0;
@@ -25,9 +25,9 @@ function showspeed(lettercount, time) {
 
 function randomwords() {
 
-  let words = new Array(TextConfig.word.count);
+  let words = new Array(Config.sentence.word.count);
 
-  for (let i = 0; i < TextConfig.word.count; ++i) {
+  for (let i = 0; i < Config.sentence.word.count; ++i) {
     words[i] = w1k[Math.floor(Math.random() * w1k.length)];
   }
   return words;

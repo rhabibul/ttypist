@@ -1,5 +1,11 @@
 import * as Element from "./element.js";
 
+const GeneralUI = {
+	settextcolor(element, color) {},	
+	setbackgroundcolor(element, color) {},
+	setproperty(property, value) {},
+}
+
 const CaretUI = {
 	addcaretto(letter) {
     letter.setAttribute("id", Config.caret.type);
@@ -10,10 +16,6 @@ const CaretUI = {
 }
 
 const SettingUI = {
-
-	settextcolor(element, color) {},	
-	setbackgroundcolor(element, color) {},
-	setproperty(property, value) {},
 
 	update(type = "") {
 		if ( type === "" ) return;
