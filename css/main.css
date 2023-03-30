@@ -98,14 +98,11 @@ letter {
 .active {
   color: black; 
 }
-
-/* when user will move to next word without correcting the errors then add
-and underline to the word */
 .error {
   text-decoration-line: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 2px;
   text-decoration-style: solid;
-  text-decoration-color: #ae0000;
+  text-decoration-color: red;
   text-underline-offset: 2px;
 }
 .extra { 
