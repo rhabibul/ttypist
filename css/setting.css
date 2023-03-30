@@ -65,10 +65,10 @@ whitespace bar {
   
   color: #bfbfbf;
 
-  transform: scale3d(1.2, 1.2, 1.2);
-  font-weight: 1000;
+  transform: scale3d(1.5, 1.5);
+  font-weight: 700;
   font-size: var(--textfont-size);
-  font-family: var(--fontfamily-nunito);
+  font-family: var(--textfont-family);
 
   display: flex;
   justify-content: center;
