@@ -192,10 +192,10 @@ function registerinput(evt) {
 				}	
 			}
 		}  else {
-			
+
 			output.textContent = evt.inputType;
 			
-			if ( evt.inputType === "deleteContentBackward" ) {
+			if ( evt.inputType === "deleteContentBackward" || evt.inputType === "insertCompositionText") {
 				if ( word.activeletterindex > 0 ) {
 					util.removecaretfrom(word.activeletter);
 					util.addcaretto(word.prevletter);
