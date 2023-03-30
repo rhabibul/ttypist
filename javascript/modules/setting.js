@@ -85,8 +85,8 @@ function updatecaret(evt) {
       }
     } else if ( caret.dataset.type === "underline" ) {
       if ( active ) {
-        shape.style.backgroundColor = active_bgcolor;
         shape.style.borderBottomColor = active_color;
+        shape.style.backgroundColor = active_bgcolor;
       } else {
         shape.style.backgroundColor = inactive_bgcolor;
         shape.style.borderBottomColor = inactive_color;
@@ -100,18 +100,24 @@ function updatecaret(evt) {
         shape.style.backgroundColor = inactive_bgcolor;
       }
     } else {
-      const i = document.querySelector(`caret off i.fa-ban`);
+      // const i = document.querySelector(`caret off i.fa-ban`);
       if ( active ) {
-        i.style.color = "#ff0000";
-        caret.style.backgroundColor = "#ffe4e4";
+        // i.style.color = "#ff0000";
+        // caret.style.backgroundColor = "#ffe4e4";
+        // caret.id = "offchosen";
+        Element.setting.caret.off.id = "offchosen";
       } else {
-        i.style.color = "#3b3b3b";
-        caret.style.backgroundColor = inactive_bgcolor;
+        Element.setting.caret.off.id = "";
+        // caret.id = "";
+        // i.style.color = "#3b3b3b";
+        // caret.style.backgroundColor = inactive_bgcolor;
       }
     }
   }
 
-  thiscaret.style.backgroundColor = active_bgcolor;
+  // code for change change is too complicated (ui part), simplify it using
+  // SettingUI's object
+  if ( thiscaret.dataset.type !== "off" ) thiscaret.style.backgroundColor = active_bgcolor;
   colorshape(thiscaret, true);
   
   // update caret type on ui

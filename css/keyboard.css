@@ -21,8 +21,6 @@ keyboard {
 
 	border-radius: var(--key-boxradius);
 	border: 1px solid lightgray;
-
-	display: none;
 }
 keyboard row {
 	height: var(--key-height);

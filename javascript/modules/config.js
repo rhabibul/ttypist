@@ -26,13 +26,10 @@ const Config = {
       max: false, // don't allow backspace at all to fix any error
     }
   },
-
   caret: {
     off: false,
     type: "line", // line, underline, box, block
   },
-  
-  // if enabled, allow user to delete any word, even if it was typed correctly
   backspace: {
     off: false,
     modifier: {
@@ -41,16 +38,14 @@ const Config = {
       meta: false,
     },
   },
-
   error: {
-    stopCaretOn: {
+    thenStopOn: {
       word: false,
       letter: false,
     },
     insert: true, // insert incorrect letter
     forgive: true, // delete incorrect letters when user types the correct letter
   },
-
   highlight: {
     off: false,
     mode: {
@@ -59,14 +54,12 @@ const Config = {
     },
     flip_textcolor: false, // brightness of typed text and future text
   },
-  
   whitespace: {
     off: false,
     type: "space",
     character: "&nbsp;",
     code: 160,
   },
-
   keyboard: {
     emulate: false, // emulate other keyboard layouts
     layout: "qwerty", // keyboard layout
@@ -91,18 +84,17 @@ const TextConfig = {
 }
 
 const MiscConfig = {
+
   warning: {
     off: true,
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
-
   practice: {
     off: true,
-
     guidedlessions: false, // guided lessons
     providecustomtext: false, // custom text provided by user
-    
+  
     numrow: false, // number row digits and symbols
     numpad: false, // number pad digits and arithmetic operations with expression
     alphanumeric: false, // ascii characters only
@@ -112,7 +104,6 @@ const MiscConfig = {
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   },
-
   live: {
     stats: false, // show wpm/cpm and accuracy on every keystroke
     keyboard: true, // static, react, next
