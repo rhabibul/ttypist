@@ -65,7 +65,7 @@ whitespace bar {
   
   color: #bfbfbf;
 
-  transform: scale(1.5, 1.5);
+  transform: scale3d(1.4, 1.4, 1.4);
   font-size: var(--textfont-size);
   font-family: var(--textfont-family);
 
