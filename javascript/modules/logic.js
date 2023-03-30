@@ -139,8 +139,6 @@ const mInput = {
 	}
 }
 
-const output = document.getElementsByTagName('output')[0];
-
 function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
@@ -190,20 +188,6 @@ function registerinput(evt) {
 						util.testreset();
 					}
 				}	
-			}
-		}  else {
-
-			output.textContent = evt.inputType;
-			
-			if ( evt.inputType === "deleteContentBackward" || evt.inputType === "insertCompositionText") {
-				if ( word.activeletterindex > 0 ) {
-					util.removecaretfrom(word.activeletter);
-					util.addcaretto(word.prevletter);
-				} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
-					util.removecaretfrom(word.activeletter);
-					word.loadword(sentence.prevword, { prevword: true });
-					util.addcaretto(word.activeletter);
-				}
 			}
 		}
 	}
