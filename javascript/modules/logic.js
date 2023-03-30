@@ -288,7 +288,9 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
-		// error handling
+		if ( !Const.nonPrintableCharacter.includes(word.activeletter) ) {
+			// error handling
+		}
 	}
 }
 

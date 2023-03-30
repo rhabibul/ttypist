@@ -1,17 +1,24 @@
 import * as Const from "./const.js";
 
 const Config = {
-  os: "",
-  device: "",
 
   ttypist: {
+    device: {
+      os: "", // iOS | MacOS | Android | Windows
+      type: "", // smartphone | pc/laptop
+    },
     istyping: false,
-    using_smartphone: false,
   },
 
-  oppositeshift: false, // use opposite shift keys for shifting, using an incorrect one will count as an error, ignore B, Y, ^
+  // make user box visible below the words
   inputvisible: false,
-  endtestwithspace: false, // user will have to hit space after typing last word to end test
+
+  // update speed, accuracy and other stats on every keystroke
+  livestats: false,
+
+  // use opposite shift keys for shifting, using an incorrect one will count 
+  // as an error, ignore B, Y, ^
+  oppositeshift: false,
 
   // difficulty:
   //    - normal is classic typing test experience
@@ -60,14 +67,10 @@ const Config = {
     code: 160,
   },
 
-  live: {
-    stat: false, // show wpm/cpm and accuracy on every keystroke
-    keyboard: true, // static, react, next
-  },
-
   keyboard: {
-    emulate: false, // emulate other keyboard layouts
+    off: false,
     layout: "qwerty", // keyboard layout
+    emulate: false, // emulate other keyboard layouts
     language: "english",
   },
 };
@@ -94,7 +97,7 @@ const MiscConfig = {
     capslock: false, // warn the user their capslock is on
     outoffocus: false, // warn the user the test area is out of focus
   },
-  
+
   practice: {
     off: true,
     guidedlessions: false, // guided lessons

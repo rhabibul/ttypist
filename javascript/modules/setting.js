@@ -176,17 +176,3 @@ Element.setting.caret.block.addEventListener    ("click", updatecaret);
 Element.setting.caret.underline.addEventListener("click", updatecaret);
 
 Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
-
-// underline styling
-// 
-//      Add
-//         .style["text-decoration-line"]          = "underline";
-//         .style["text-decoration-thickness"]     = "1px";
-//         .style["text-underline-offset"]         = "4px";
-//         .style["text-decoration-color"]         = "#c0c0c0";
-//      
-//      Remove
-//         .style["text-decoration-line"]          = "";
-//         .style["text-decoration-thickness"]     = "";
-//         .style["text-underline-offset"]         = "";
-//         .style["text-decoration-color"]         = "";
