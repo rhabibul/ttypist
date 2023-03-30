@@ -63,10 +63,10 @@ whitespace bar {
 #wdot {
   padding: 0px 4px;
   
-  color: #bfbfbf;
+  color: #a5a5a5;
 
-  transform: scale3d(1.5, 1.5);
-  font-weight: 700;
+  transform: scale(1.45, 1.45);
+  font-weight: 900;
   font-size: var(--textfont-size);
   font-family: var(--textfont-family);
 
