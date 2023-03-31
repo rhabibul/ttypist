@@ -2,7 +2,7 @@ import * as Const from "./constant.js";
 
 const Config = {
 
-  device: "", // operating system and type of device
+  device: "", // String(os + device)
 
   ttypist: {
     istyping: false,
