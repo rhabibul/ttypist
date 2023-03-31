@@ -88,7 +88,7 @@ const Config = {
 
   sentence: {
     word: {
-      count: 10,
+      count: 25,
       averagelength: "mixed", // small(<5) | medium(>=5, <=8) | long(>8) | mixed
     },
     include: {

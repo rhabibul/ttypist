@@ -1,7 +1,9 @@
 :root {
-  --caret-color: black;
+  /* caret color */
+  --caret-color: red;
   --caret-color-hidden: white;
   
+  /* caret animation (blink duration, count, rhythm, delay) */
   --caret-animation-delay: 2s;
   --caret-animation-duration: 1.15s;
   --caret-animation-iteration-count: 30;
@@ -9,12 +11,17 @@
 
   --zero: 0px;
   
+  /* box caret width */
   --caret-width-box: 1px;
   --caret-offset-box: -1px;
 
+  /* line caret width */
   --caret-width-line: 1px;
+
+  /* underline caret width */
   --caret-width-underline: 2px;
   
+  /* block caret background & color */
   --caret-block-color: #ffffff;
   --caret-block-backgroundcolor: var(--caret-color);
 }
@@ -28,7 +35,6 @@
 /*----------------- underline -----------------*/
 #underline {
   border-bottom-color: var(--caret-color);
-
   animation-name: animate-unerline;
 }
 .underline {
@@ -55,16 +61,12 @@
 
 /*----------------- line -----------------*/
 #line {
-  /* border-left-color: var(--caret-color); */
   box-shadow: -1px 0px 0px var(--caret-color);
-
+  /* border-left-color: var(--caret-color); */
   animation-name: animate-line;
 }
 .line {
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   /* border-left: var(--caret-width-line) solid var(--caret-color-hidden); */
   
   animation-delay: var(--caret-animation-delay);
@@ -75,13 +77,13 @@
 @keyframes animate-line {
   0%,
   50% {
-    /* border-left-color: var(--caret-color); */
     box-shadow: -1px 0px 0px var(--caret-color);
+    /* border-left-color: var(--caret-color); */
   }
   51%,
   100% {
-    /* border-left-color: var(--caret-color-hidden); */
     box-shadow: -1px 0px 0px var(--caret-color-hidden);
+    /* border-left-color: var(--caret-color-hidden); */
   }
 }
 
@@ -95,6 +97,8 @@
 }
 .box {
   border: none;
+  /* border: var(--caret-width-box) solid var(--caret-color-hidden); */
+
   animation-delay: var(--caret-animation-delay);
   animation-duration: var(--caret-animation-duration);
   animation-iteration-count: var(--caret-animation-iteration-count);
@@ -104,10 +108,12 @@
   0%,
   50% {
     outline-color: var(--caret-color);
+    /* border-color: var(--caret-color); */
   }
   51%,
   100% {
     outline-color: var(--caret-color-hidden);
+    /* border-color: var(--caret-color-hidden); */
   }
 }
 

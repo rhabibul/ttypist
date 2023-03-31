@@ -98,6 +98,8 @@ letter {
   color: black; 
 }
 .error {
+  
+  /* border bottom will be used instead of text decoration later */
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-decoration-style: solid;
