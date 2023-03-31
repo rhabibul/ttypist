@@ -1,6 +1,6 @@
 import { Config, ConfigHandler, PracticeConfig } from "./config.js";
 import { Sentence, Word } from "./container.js";
-import * as Const from "./const.js";
+import * as Const from "./constant.js";
 import * as Element from "./element.js";
 import * as Misc from "./misc.js"
 
@@ -86,7 +86,7 @@ class Utility {
 
 	init() {
 		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
-		word = new Word(sentence.activeword, { activeword: true });
+		word = new Word(sentence.activeword);
 
 		this.addcaretto(word.activeletter);
 

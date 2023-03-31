@@ -1,6 +1,6 @@
 import { Config, ConfigHandler, PracticeConfig } from "./config.js"
 import * as Element from "./element.js";
-import * as Const from "./const.js";
+import * as Const from "./constant.js";
 import * as Misc from "./misc.js";
 import { word, sentence, util } from "./logic.js";
 

@@ -1,4 +1,4 @@
-import * as Const from "./const.js";
+import * as Const from "./constant.js";
 
 const Config = {
 
@@ -7,6 +7,9 @@ const Config = {
   ttypist: {
     istyping: false,
   },
+
+  // is in use, (to not added space after last word)
+  endtestwithspace: false,
 
   // make user box visible below the words
   inputvisible: false,

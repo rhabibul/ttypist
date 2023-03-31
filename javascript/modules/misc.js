@@ -1,4 +1,4 @@
-import * as Const from "./const.js";
+import * as Const from "./constant.js";
 import * as Element from "./element.js"
 
 import w1k from "../../static/data/w1k.js"

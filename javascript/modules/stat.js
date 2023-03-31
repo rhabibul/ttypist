@@ -24,9 +24,9 @@ function compute() {} // Call it on every keystoke when live update speed & accu
 
 let wordstatus = {
   word: "",
-  typos_left: false,
-  typos_corrected: false,
-  typed_correctly: false,
+  typosLeft: false,
+  typosCorrected: false,
+  typedCorrectly: false,
   
   char: {
     extra: 0,
