@@ -34,11 +34,18 @@ body {
   justify-content: space-evenly;
 }
 
-ttypist {
-  max-width: 750px;
-  margin: 0px 20px;
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-input {
+main testarea {
+  max-width: 800px;
+  margin-left: 15px;
+}
+main testarea input {
   margin: 0px;
   padding: 0px;
   display: block;
@@ -49,7 +56,7 @@ input {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
-sentence {
+main testarea sentence {
   user-select: none;
 
   display: flex; /* these keeps all the words in a single line */
@@ -61,14 +68,14 @@ sentence {
   row-gap: var(--line-gap);
   background-color: var(--caret-color-hidden);
 }
-word {
+main testarea sentence word {
   color: var(--text-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
   justify-content: flex-start;
 }
-letter {
+main testarea sentence letter {
   height: 100%;
   display: flex;
   align-items: center;

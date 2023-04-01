@@ -1,21 +1,22 @@
 import Config from "./config.js"
-import ConfigHandler from "./confighandler.js";
 import { word, sentence, util } from "./logic.js";
 
-import * as Element from "./element.js";
 import * as Const from "./constant.js";
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
+import * as ConfigHandler from "./confighandler.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 // mainly used for open virtual keyboard on mobile devices
-Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
+TestAreaElement.sentence.addEventListener("click", (evt) => {
+  TestAreaElement.input.focus();
+});
 
-SettingElement.caret.off.addEventListener      ("click", updatecaret);
-SettingElement.caret.box.addEventListener      ("click", updatecaret);
-SettingElement.caret.line.addEventListener     ("click", updatecaret);
-SettingElement.caret.block.addEventListener    ("click", updatecaret);
+SettingElement.caret.off.addEventListener("click", updatecaret);
+SettingElement.caret.box.addEventListener("click", updatecaret);
+SettingElement.caret.line.addEventListener("click", updatecaret);
+SettingElement.caret.block.addEventListener("click", updatecaret);
 SettingElement.caret.underline.addEventListener("click", updatecaret);
 
 SettingElement.whitespace.off.addEventListener('click',   updatewhitespace);
@@ -160,6 +161,6 @@ function updatecaret(evt) {
     util.removecaretfrom(word.activeletter);
     letter.classList.add(Config.caret.type); // add new caret's styling to this letter
     util.addcaretto(word.activeletter);
-    Element.input.focus();
+    TestAreaElement.input.focus();
   });
 }

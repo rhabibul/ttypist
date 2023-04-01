@@ -1,7 +1,8 @@
-import { Config, ConfigHandler, PracticeConfig } from "./config.js";
+import Config from "./config.js";
+import * as ConfigHandler from "./confighandler.js";
 import { Sentence, Word } from "./container.js";
+import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "./constant.js";
-import * as Element from "./element.js";
 import * as Misc from "./misc.js"
 
 let sentence = new Object();
@@ -90,13 +91,13 @@ class Utility {
 
 		this.addcaretto(word.activeletter);
 
-		Element.input.addEventListener("input", registerinput); // input.value, InputEvent.data
-		Element.input.addEventListener("keydown", registerkeydown);
-		Element.input.addEventListener("keyup", registerkeyup);
+		TestAreaElement.input.addEventListener("input", registerinput); // input.value, InputEvent.data
+		TestAreaElement.input.addEventListener("keydown", registerkeydown);
+		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 		
-		Config.ttypist.istyping = false;
-		Element.input.value = "";
-		Element.input.focus();
+		Config.teststate.istyping = false;
+		TestAreaElement.input.value = "";
+		TestAreaElement.input.focus();
 	}
 	
 	testreset() {
@@ -143,11 +144,11 @@ function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
 		
-		Element.input.focus();
+		TestAreaElement.input.focus();
 
-		if ( !Config.ttypist.istyping ) {
+		if ( !Config.teststate.istyping ) {
 			teststat.starttime = performance.now();
-			Config.ttypist.istyping = true;
+			Config.teststate.istyping = true;
 		}
 
 		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
@@ -180,9 +181,9 @@ function registerinput(evt) {
 						teststat.endtime = window.performance.now();
 						util.removecaretfrom(word.activeletter);
 		
-						Element.input.removeEventListener('input', registerinput);
-						Element.input.removeEventListener('keydown', registerkeydown);
-						Element.input.removeEventListener('keyup', registerkeyup);
+						TestAreaElement.input.removeEventListener('input', registerinput);
+						TestAreaElement.input.removeEventListener('keydown', registerkeydown);
+						TestAreaElement.input.removeEventListener('keyup', registerkeyup);
 		
 						Misc.showspeed(Misc.totalchar(), (teststat.testduration() / 1000));
 						util.testreset();
@@ -204,9 +205,9 @@ function registerkeydown(evt) {
 		return;
 	}
 
-	if ( !Config.ttypist.istyping ) {
+	if ( !Config.teststate.istyping ) {
 		teststat.starttime = performance.now();
-		Config.ttypist.istyping = true;
+		Config.teststate.istyping = true;
 	}
 
 	charstat.reset();
@@ -238,9 +239,9 @@ function registerkeydown(evt) {
 					teststat.endtime = window.performance.now();
 					util.removecaretfrom(word.activeletter);
 	
-					Element.input.removeEventListener('input', registerinput);
-					Element.input.removeEventListener('keydown', registerkeydown);
-					Element.input.removeEventListener('keyup', registerkeyup);
+					TestAreaElement.input.removeEventListener('input', registerinput);
+					TestAreaElement.input.removeEventListener('keydown', registerkeydown);
+					TestAreaElement.input.removeEventListener('keyup', registerkeyup);
 	
 					Misc.showspeed(Misc.totalchar(), (teststat.testduration() / 1000));
 					util.testreset();

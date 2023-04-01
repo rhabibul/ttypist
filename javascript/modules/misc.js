@@ -1,10 +1,11 @@
 import * as Const from "./constant.js";
 import Config from "./config.js";
-import ConfigHandler from "./confighandler.js";
-import MiscElement from "../HTMLElement/MiscElement.js";
-import TestAreaElement from "../HTMLElement/TestAreaElement.js";
-// import w1k from "../../static/words/w1k.js";
-import w3k from "../../static/jsdata/w3k.js";
+import * as ConfigHandler from "./confighandler.js";
+import * as MiscElement from "../HTMLElement/MiscElement.js";
+import * as SettingElement from "../HTMLElement/SettingElement.js";
+import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import w1k from "../../static/words/w1k.js";
+// import w3k from "../../static/words/w3k.js";
 
 export function NodeList(cssQueryString) {
   return document.querySelectorAll(cssQueryString);
@@ -40,7 +41,8 @@ export function showspeed(lettercount, time) {
 export function randomwords() {
   let words = new Array(Config.sentence.word.count);
   for (let i = 0; i < Config.sentence.word.count; ++i) {
-    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }

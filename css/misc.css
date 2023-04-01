@@ -1,8 +1,9 @@
-.speed {
-  color: gray;
-  font-size: var(--text-fontsize);
-  font-weight: var(--text-fontweight);
-  font-family: var(--text-fontfamily);
+footer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 nav {
   width: 200px;
@@ -45,4 +46,13 @@ img#codeforces {
   font-size: 1rem;
   font-weight: 500;
   font-family: var(--fontfamily-nunito);
+}
+output {
+	margin-bottom: 10px;
+}
+speed {
+  color: gray;
+  font-size: var(--text-fontsize);
+  font-weight: var(--text-fontweight);
+  font-family: var(--text-fontfamily);
 }

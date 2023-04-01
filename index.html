@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
     <!-- Tabbar icon -->
-    <link rel="icon" href="./static/image/logo.png" />
+    <link rel="icon" href="./static/images/logo.png" />
 
     <!-- Title -->
     <title>ttypist</title>
@@ -44,7 +44,7 @@
         <accuracy></accuracy>
       </output>
       
-      <ttypist>
+      <testarea>
         <sentence>
           <word>
             <letter>r</letter>
@@ -64,13 +64,21 @@
             <letter>m</letter>
             <letter>a</letter>
           </word>
+          <word>
+            <letter>&nbsp;</letter>
+          </word>
+          <word>
+            <letter>h</letter>
+            <letter>a</letter>
+            <letter>b</letter>
+            <letter>i</letter>
+            <letter>b</letter>
+            <letter>u</letter>
+            <letter>l</letter>
+          </word>
         </sentence>
-
-        <input tabindex="0" autocomplete="off" autocapitalize="off" 
-               autocorrect="off" spellcheck="false" data-gramm="false"
-               data-gramm_editor="false" data-enable-grammarly="false"
-               list="autocompleteOff">
-      </ttypist>
+        <input tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+      </testarea>
     </main>
     
     <setting>
@@ -91,6 +99,14 @@
         <box data-type="box"><shape></shape></box>
         <block data-type="block"><shape></shape></block>
       </caret>
+
+      <div class="developer">@habibul</div>
+      <nav>
+        <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./static/images/codeforces.svg" id="codeforces"> </a>
+        <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
+        <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
+        <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
+      </nav>
     </setting>
 
     <keyboard>
@@ -229,15 +245,7 @@
       </row>
     </keyboard>
 
-    <footer>
-      <nav>
-        <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./static/image/codeforces.svg" id="codeforces"> </a>
-        <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
-        <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
-        <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
-      </nav>
-      <div class="developer">@habibul</div>
-    </footer>
+    <footer></footer>
     
     <!-- Scripts -->
     <script type="module" src="./javascript/modules/logic.js"></script>

@@ -81,7 +81,7 @@ export default {
 
   sentence: {
     word: {
-      count: 25,
+      count: 20,
       averagelength: "mixed", // small(<5) | medium(>=5, <=8) | long(>8) | mixed
     },
     include: {

@@ -1,5 +1,5 @@
 import * as Misc from "./misc.js";
-import * as Element from "./element.js";
+import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 class Sentence {
   #words; // array of <word></word> tag which contains <letter></letter> tags
@@ -9,10 +9,10 @@ class Sentence {
     this.#wordindex = 0;
     this.#words = words;
     
-    Element.input.value = "";
-    Element.sentence.innerHTML = "";
+    TestAreaElement.input.value = "";
+    TestAreaElement.sentence.innerHTML = "";
     for ( const word of this.#words ) {
-    	Element.sentence.insertAdjacentElement("beforeend", word);
+    	TestAreaElement.sentence.insertAdjacentElement("beforeend", word);
     }
   }
 

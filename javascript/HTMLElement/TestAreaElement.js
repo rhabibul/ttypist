@@ -1,3 +1,3 @@
-export const testarea = document.getElementsByTagName("ttypist")[0];
-export const input = document.querySelector("ttypist input");
-export const sentence = document.querySelector("ttypist sentence");
+export const testarea = document.getElementsByTagName("testarea")[0];
+export const input = document.querySelector("testarea input");
+export const sentence = document.querySelector("testarea sentence");
