@@ -1,8 +1,5 @@
-// this file will contain all ui related methods (create, delete modify) for
-// settings on the website
-// everything will be import as SettingUI from this file
 import * as SettingElement from "../HTMLElement/SettingElement.js";
-import * as Misc from "../modules/misc.js";
+import * as Misc from "../utils/misc.js"
 
 export function changeUIWhitespace(type = "") {
 

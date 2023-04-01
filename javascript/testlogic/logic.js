@@ -5,7 +5,8 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "../include/constant.js";
 import * as Misc from "../utils/misc.js"
 
-import { Sentence, Word } from "../include/container.js";
+import Sentence from "../include/sentence.js"
+import Word from "../include/word.js"
 
 let sentence = new Object();
 let word = new Object();

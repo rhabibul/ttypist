@@ -23,7 +23,7 @@
   
   /* block caret background & color */
   --caret-block-color: #ffffff;
-  --caret-block-backgroundcolor: var(--caret-color);
+  --caret-block-backgroundcolor: #000000;
 }
 
 /*----------------- off -----------------*/
