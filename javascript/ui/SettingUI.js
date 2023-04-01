@@ -3,7 +3,7 @@
 // everything will be import as SettingUI from this file
 import * as Element from "../modules/element.js";
 
-function changeWhitespaceTo(type = "") {
+export function changeWhitespaceTo(type = "") {
 
 	if ( type === "" ) return;
 

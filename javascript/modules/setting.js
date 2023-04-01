@@ -1,8 +1,23 @@
-import { Config, ConfigHandler, PracticeConfig } from "./config.js"
+import { Config, ConfigHandler } from "./config.js"
 import * as Element from "./element.js";
 import * as Const from "./constant.js";
 import * as Misc from "./misc.js";
 import { word, sentence, util } from "./logic.js";
+import * as SettingUI from "../ui/SettingUI.js";
+import * as SettingElement from "../HTMLElement/SettingElement.js"
+
+// mainly used for open virtual keyboard on mobile devices
+Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
+
+SettingElement.caret.off.addEventListener      ("click", updatecaret);
+SettingElement.caret.box.addEventListener      ("click", updatecaret);
+SettingElement.caret.line.addEventListener     ("click", updatecaret);
+SettingElement.caret.block.addEventListener    ("click", updatecaret);
+SettingElement.caret.underline.addEventListener("click", updatecaret);
+
+SettingElement.whitespace.off.addEventListener('click',   updatewhitespace);
+SettingElement.whitespace.dot.addEventListener('click',   updatewhitespace);
+SettingElement.whitespace.space.addEventListener('click', updatewhitespace);
 
 function updatewhitespace(evt) {
 
@@ -10,20 +25,8 @@ function updatewhitespace(evt) {
   
   if ( this.id == "chosen" ) return;
 
-  if ( this.dataset.type === "off" ) {
-    Element.setting.whitespace.off.id = "turnItOff";
-    Element.setting.whitespace.dot.id = "";
-    Element.setting.whitespace.space.id = "";
-  } else if ( this.dataset.type === "dot" ) {
-    Element.setting.whitespace.off.id = "";
-    Element.setting.whitespace.dot.id = "chosen";
-    Element.setting.whitespace.space.id = "";
-  } else if ( this.dataset.type === "space" ) {
-    Element.setting.whitespace.off.id = "";
-    Element.setting.whitespace.dot.id = "";
-    Element.setting.whitespace.space.id = "chosen";
-  }
-
+  SettingUI.changeWhitespaceTo(this.dataset.type);
+  
   // update in config object
   if ( this.dataset.type === "off" ) {
     Config.whitespace.off = true;
@@ -40,9 +43,9 @@ function updatewhitespace(evt) {
     Element.input.blur();
 
     if ( letter.classList.contains("whitespace") ) {
-      if ( Config.whitespace.type === Element.setting.whitespace.space.dataset.type ) {  
+      if ( Config.whitespace.type === SettingElement.whitespace.space.dataset.type ) {  
         letter.innerHTML = `${Config.whitespace.character}`;
-      } else if ( Config.whitespace.type === Element.setting.whitespace.dot.dataset.type ) {
+      } else if ( Config.whitespace.type === SettingElement.whitespace.dot.dataset.type ) {
         letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
       } else {
         letter.innerHTML = "";
@@ -52,9 +55,6 @@ function updatewhitespace(evt) {
     Element.input.focus();
   });
 }
-Element.setting.whitespace.off.addEventListener('click',   updatewhitespace);
-Element.setting.whitespace.dot.addEventListener('click',   updatewhitespace);
-Element.setting.whitespace.space.addEventListener('click', updatewhitespace);
 
 function updatecaret(evt) {
 
@@ -138,7 +138,7 @@ function updatecaret(evt) {
   colorshapeof(thiscaret, true); // set active color for the selected caret shape
   
   // set inactive backgroundcolor & inactive color for all carets except the selected one
-  for ( const caret of Object.values(Element.setting.caret) ) {
+  for ( const caret of Object.values(SettingElement.caret) ) {
     if ( thiscaret !== caret ) {
       // set inactive background color to all caret containers except the selected one
       caret.style.backgroundColor = inactive_bgcolor;
@@ -168,11 +168,3 @@ function updatecaret(evt) {
     Element.input.focus();
   });
 }
-
-Element.setting.caret.off.addEventListener      ("click", updatecaret);
-Element.setting.caret.box.addEventListener      ("click", updatecaret);
-Element.setting.caret.line.addEventListener     ("click", updatecaret);
-Element.setting.caret.block.addEventListener    ("click", updatecaret);
-Element.setting.caret.underline.addEventListener("click", updatecaret);
-
-Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });

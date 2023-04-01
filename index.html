@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
     <!-- Tabbar icon -->
-    <link rel="icon" href="./static/image/tab-icon.png" />
+    <link rel="icon" href="./static/image/logo.png" />
 
     <!-- Title -->
     <title>ttypist</title>
@@ -35,35 +35,41 @@
     <link rel="stylesheet" href="./css/keyboard.css">
   </head>
   <body>
-    
-    <div class="speed">0wpm</div>
-    
-    <ttypist>
-      <sentence>
-        <word>
-          <letter>r</letter>
-          <letter>a</letter>
-          <letter>h</letter>
-          <letter>m</letter>
-          <letter>a</letter>
-          <letter>t</letter>
-        </word>
-        <word>
-          <letter>&nbsp;</letter>
-        </word>
-        <word>
-          <letter>n</letter>
-          <letter>a</letter>
-          <letter>j</letter>
-          <letter>m</letter>
-          <letter>a</letter>
-        </word>
-      </sentence>
+  
+    <header></header>
 
-      <input tabindex="0" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
-    </ttypist>
-
-    <output></output>
+    <main>
+      <output>
+        <speed>0wpm</speed>
+        <accuracy></accuracy>
+      </output>
+      
+      <ttypist>
+        
+        <sentence>
+          <word>
+            <letter>r</letter>
+            <letter>a</letter>
+            <letter>h</letter>
+            <letter>m</letter>
+            <letter>a</letter>
+            <letter>t</letter>
+          </word>
+          <word>
+            <letter>&nbsp;</letter>
+          </word>
+          <word>
+            <letter>n</letter>
+            <letter>a</letter>
+            <letter>j</letter>
+            <letter>m</letter>
+            <letter>a</letter>
+          </word>
+        </sentence>
+  
+        <input tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+      </ttypist>
+    </main>
     
     <setting>
       <reset>
@@ -84,16 +90,6 @@
         <block data-type="block"><shape></shape></block>
       </caret>
     </setting>
-    
-
-    <div class="contactme">
-      <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./static/image/codeforces.svg" id="codeforces"> </a>
-      <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
-      <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
-      <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
-    </div>
-
-    <p class="developer">@habibul</p>
 
     <keyboard>
       <row id="K">
@@ -231,6 +227,16 @@
       </row>
     </keyboard>
 
+    <footer>
+      <nav>
+        <a target="_blank" href="https://codeforces.com/profile/ttypist"> <img src="./static/image/codeforces.svg" id="codeforces"> </a>
+        <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
+        <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
+        <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
+      </nav>
+      <p class="developer">@habibul</p>
+    </footer>
+    
     <!-- Scripts -->
     <script type="module" src="./javascript/modules/logic.js"></script>
     <script type="module" src="./javascript/modules/setting.js"></script>

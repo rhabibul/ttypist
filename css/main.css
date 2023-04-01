@@ -62,7 +62,7 @@ sentence {
   background-color: var(--caret-color-hidden);
 }
 word {
-  color: var(--textcolor);
+  color: var(--text-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */

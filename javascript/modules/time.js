@@ -1,5 +1,5 @@
 // timerformat: [0, 1, ..., n-1, n]/n where n is the total available time
-class StopWatch {
+export class StopWatch {
 	#element; // stores dom element on which to show time
 	#id; // stores interval id which would be used to stop stopwatch timer
 	#current; // stores current calculated time [continously gets updated as time progresses]
@@ -46,10 +46,6 @@ class StopWatch {
 }
 
 // timerformat: [n, n-1, n-2, ... ,0]   where n is the total available time
-class Timer {
+export class Timer {
 	constructor() {}
 }
-
-// if tab/window is inactive end test
-
-export { Timer, StopWatch };

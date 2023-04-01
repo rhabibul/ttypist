@@ -1,21 +1,16 @@
 import * as Const from "./constant.js";
 
-const Config = {
+export default {
 
   device: "", // String(os + device)
 
-  ttypist: {
+  teststate: {
     istyping: false,
   },
 
-  // is in use, (to not added space after last word)
+  livestats: false, // update speed, accuracy and other stats on every keystroke
+  inputvisible: false, // make user box visible below the words
   endtestwithspace: false,
-
-  // make user box visible below the words
-  inputvisible: false,
-
-  // update speed, accuracy and other stats on every keystroke
-  livestats: false,
 
   // use opposite shift keys for shifting, using an incorrect one will count 
   // as an error, ignore B, Y, ^
@@ -27,7 +22,7 @@ const Config = {
   },
 
   // difficulty:
-  //    - normal is classic typing test experience
+  //    - normal is classic typing experience
   //    - expert fails the test if user submits an incorrect word
   //    - master fails the test if user types a single incorrect letter
   difficulty: "normal", // normal | expert | master
@@ -95,30 +90,26 @@ const Config = {
       digits: false, // include digits along with words
       punctuations: false, // include punctuation marks along with words
     },
+  },
+
+  practice: {
+    off: true,
+    guidedlessions: false, // guided lessons
+    providecustomtext: false, // custom text provided by user
+
+    numrow: false, // number row digits and symbols
+    numpad: false, // number pad digits and arithmetic operations with expression
+    alphanumeric: false, // ascii characters only
+    
+    brackets: false, // {[()]}
+    arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   }
 };
 
-const PracticeConfig = {
-  
-  off: true,
-  
-  guidedlessions: false, // guided lessons
-  providecustomtext: false, // custom text provided by user
-
-  numrow: false, // number row digits and symbols
-  numpad: false, // number pad digits and arithmetic operations with expression
-  alphanumeric: false, // ascii characters only
-  
-  brackets: false, // {[()]}
-  arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-  functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-  specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-}
-
-const ConfigHandler = {
+export const ConfigHandler = {
   on(value) {},
   off(value) {},
   setdefaults() {},
 }
-
-export { Config, PracticeConfig, ConfigHandler };

@@ -4,7 +4,7 @@
   font-weight: var(--text-fontweight);
   font-family: var(--text-fontfamily);
 }
-.contactme {
+nav {
   width: 200px;
   
   border-radius: var(--round);
@@ -14,16 +14,16 @@
   align-items: center;
   justify-content: space-evenly;
 }
-.contactme i {
+nav i {
   font-size: 1.7rem;
   color: black;
 }
-.contactme a {
+nav a {
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;
 }
-.contactme a:hover i {
+nav a:hover i {
   color: red;
 }
 img#codeforces {

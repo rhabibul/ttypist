@@ -1,0 +1,15 @@
+export const reset = document.getElementsByTagName("reset")[0];
+
+export const whitespace = {
+	off: document.querySelector("whitespace off"),
+	dot: document.querySelector("whitespace dot"),
+	space: document.querySelector("whitespace space"),
+};
+
+export const caret = {
+	off: document.querySelector("caret off"),
+	underline: document.querySelector("caret underline"),
+	line: document.querySelector("caret line"),
+	box: document.querySelector("caret box"),
+	block: document.querySelector("caret block"),
+};

@@ -1,10 +1,10 @@
 import * as Const from "./constant.js";
 import * as Element from "./element.js"
 
-import w1k from "../../static/jsdata/w1k.js"
+import w1k from "../../static/words/w1k.js"
 // import w3k from "../../static/jsdata/w3k.js"
 
-import { Config, ConfigHandler, PracticeConfig } from "./config.js";
+import Config, { ConfigHandler } from "./config.js";
 
 function totalchar() {
   let cnt = 0;
