@@ -1,44 +1,35 @@
 :root {
-  --caret-color: black;
+  /* caret color */
+  --caret-color: red;
   --caret-color-hidden: white;
   
-  --caret-blink-delay: 2s;
-  --caret-blink-duration: 1.15s;
+  /* caret animation (blink duration, count, rhythm, delay) */
+  --caret-animation-delay: 2s;
+  --caret-animation-duration: 1.15s;
+  --caret-animation-iteration-count: 30;
+  --caret-animation-timing-function: ease-out;
 
-  --box-caret-width: 1px;
-  --line-caret-width: 1px;
-  --underline-caret-width: 2px;
-}
-
-.offtype {
-  border: none; /* turnoff caret */
-}
-
-/*----------------- line -----------------*/
-#line {
-  border-left-color: var(--caret-color);
-  animation-name: animate-line;
-}
-.linetype {
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-left: var(--line-caret-width) solid var(--caret-color-hidden);
+  --zero: 0px;
   
-  animation-delay: var(--caret-blink-delay);
-  animation-duration: var(--caret-blink-duration);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
+  /* box caret width */
+  --caret-width-box: 1px;
+  --caret-offset-box: -1px;
+
+  /* line caret width */
+  --caret-width-line: 1px;
+
+  /* underline caret width */
+  --caret-width-underline: 2px;
+  
+  /* block caret background & color */
+  --caret-block-color: #ffffff;
+  --caret-block-backgroundcolor: var(--caret-color);
 }
-@keyframes animate-line {
-  0%,
-  50% {
-    border-left-color: var(--caret-color);
-  }
-  51%,
-  100% {
-    border-left-color: var(--caret-color-hidden);
-  }
+
+/*----------------- off -----------------*/
+.off {
+  border: none;
+  outline: none;
 }
 
 /*----------------- underline -----------------*/
@@ -46,16 +37,16 @@
   border-bottom-color: var(--caret-color);
   animation-name: animate-unerline;
 }
-.underlinetype {
+.underline {
+  border-top: none;
   border-left: none;
   border-right: none;
-  border-top: none;
-  border-bottom: var(--underline-caret-width) solid var(--caret-color-hidden);
+  border-bottom: var(--caret-width-underline) solid var(--caret-color-hidden);
 
-  animation-delay: var(--caret-blink-delay);
-  animation-duration: var(--caret-blink-duration);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
+  animation-delay: var(--caret-animation-delay);
+  animation-duration: var(--caret-animation-duration);
+  animation-iteration-count: var(--caret-animation-iteration-count);
+  animation-timing-function: var(--caret-animation-timing-function);
 }
 @keyframes animate-unerline {
   0%,
@@ -68,56 +59,87 @@
   }
 }
 
-/*----------------- block -----------------*/
-#block {
-  color: #ffffff;
-  background-color: #000000;
-  animation-name: animate-block;
+/*----------------- line -----------------*/
+#line {
+  box-shadow: -1px 0px 0px var(--caret-color);
+  /* border-left-color: var(--caret-color); */
+  animation-name: animate-line;
 }
-.blocktype {
+.line {
   border: none;
-
-  animation-delay: var(--caret-blink-delay);
-  animation-duration: var(--caret-blink-duration);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
+  /* border-left: var(--caret-width-line) solid var(--caret-color-hidden); */
+  
+  animation-delay: var(--caret-animation-delay);
+  animation-duration: var(--caret-animation-duration);
+  animation-iteration-count: var(--caret-animation-iteration-count);
+  animation-timing-function: var(--caret-animation-timing-function);
 }
-@keyframes animate-block {
+@keyframes animate-line {
   0%,
   50% {
-    color: #ffffff;
-    background-color: #000000;
+    box-shadow: -1px 0px 0px var(--caret-color);
+    /* border-left-color: var(--caret-color); */
   }
   51%,
   100% {
-    color: #000000;
-    background-color: var(--caret-color-hidden);
+    box-shadow: -1px 0px 0px var(--caret-color-hidden);
+    /* border-left-color: var(--caret-color-hidden); */
   }
 }
 
 /*----------------- box -----------------*/
 #box {
   outline-style: solid;
-  outline-width: 0.5px;
-  outline-offset: -1px;
   outline-color: var(--caret-color);
-
+  outline-width: var(--caret-width-box);
+  outline-offset: var(--caret-offset-box);
   animation-name: animate-box;
 }
-.boxtype {
-  border: none;  
-  animation-delay: var(--caret-blink-delay);
-  animation-duration: var(--caret-blink-duration);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
+.box {
+  border: none;
+  /* border: var(--caret-width-box) solid var(--caret-color-hidden); */
+
+  animation-delay: var(--caret-animation-delay);
+  animation-duration: var(--caret-animation-duration);
+  animation-iteration-count: var(--caret-animation-iteration-count);
+  animation-timing-function: var(--caret-animation-timing-function);
 }
 @keyframes animate-box {
   0%,
   50% {
     outline-color: var(--caret-color);
+    /* border-color: var(--caret-color); */
   }
   51%,
   100% {
     outline-color: var(--caret-color-hidden);
+    /* border-color: var(--caret-color-hidden); */
+  }
+}
+
+/*----------------- block -----------------*/
+#block {
+  color: var(--caret-block-color);
+  background-color: var(--caret-block-backgroundcolor);
+  animation-name: animate-block;
+}
+.block {
+  border: none;
+
+  animation-delay: var(--caret-animation-delay);
+  animation-duration: var(--caret-animation-duration);
+  animation-iteration-count: var(--caret-animation-iteration-count);
+  animation-timing-function: var(--caret-animation-timing-function);
+}
+@keyframes animate-block {
+  0%,
+  50% {
+    color: var(--caret-block-color);
+    background-color: var(--caret-block-backgroundcolor);
+  }
+  51%,
+  100% {
+    color: var(--textcolor);
+    background-color: var(--caret-color-hidden);
   }
 }

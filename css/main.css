@@ -1,3 +1,18 @@
+:root {
+  --fontfamily-nunito: 'Nunito', sans-serif;
+  --fontfamily-monasans: "";
+  --fontfamily-robotomono: "Roboto Mono", monospace;
+  
+  --round: 3px;
+  --line-gap: 3px;
+
+  --text-color: #3f3f3f;
+
+  --text-fontsize: 1.3rem;
+  --text-fontweight: 400;
+  --text-fontfamily: var(--fontfamily-robotomono)
+}
+
 *,
 *::after,
 *::before {
@@ -12,35 +27,36 @@ body {
   height: 100%;
 }
 
-:root {
-  --fontfamily-nunito: 'Nunito', sans-serif;
-  --fontfamily-monasans: "";
-  --fontfamily-robotomono: "Roboto Mono", monospace;
-  
-  --line-gap: 4px; /* adjust this line gap according to caret type using javascript */
-
-  --word-active: black;
-
-  --textcolor: #9c9c9c;
-  --textfont-size: 1.2rem;
-  --textfont-weight: 400;
-  --textfont-family: var(--fontfamily-robotomono);
-}
-
 body {
-  margin-top: 15px;
-
   display: flex;
-  row-gap: 10px;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-ttypist {
-  max-width: 750px;
-  margin: 0px 20px;
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-sentence {
+main testarea {
+  max-width: 800px;
+  margin-left: 15px;
+}
+main testarea input {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+main testarea sentence {
   user-select: none;
 
   display: flex; /* these keeps all the words in a single line */
@@ -52,47 +68,60 @@ sentence {
   row-gap: var(--line-gap);
   background-color: var(--caret-color-hidden);
 }
-word {
-  color: var(--textcolor);
+main testarea sentence word {
+  color: var(--text-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
   justify-content: flex-start;
 }
-letter {
+main testarea sentence letter {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: var(--textfont-size);
-  font-weight: var(--textfont-weight);
-  font-family: var(--textfont-family);
-}
-ttypist > input {
-  margin: 0px;
-  padding: 0px;
-  display: block;
-  width: 1px;
-  height: 1px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
-
-.active {
-  color: var(--word-active);
-}
-.error {
-  color: #ff2525;
+  font-size: var(--text-fontsize);
+  font-weight: var(--text-fontweight);
+  font-family: var(--text-fontfamily);
 }
 #wdot {
   padding: 0px 4px;
   
-  color: #bfbfbf;
+  color: #c7c7c7;
 
+  transform: scale(1.33, 1.33);
   font-weight: 800;
-  font-size: var(--textfont-size);
-  font-family: var(--textfont-family);
+
+  font-size: var(--text-fontsize);
+  font-family: var(--text-fontfamily);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  color: black; 
+}
+.error {
+  
+  /* border bottom will be used instead of text decoration later */
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+  text-decoration-color: red;
+  text-underline-offset: 2px;
+}
+.extra { 
+  color: #ae0000;
+}
+.fade {
+  color: rgb(155, 155, 155);
+}
+.incorrect {
+  color: red;
+}
+.correct {
+  color: green;
 }

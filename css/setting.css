@@ -1,184 +1,118 @@
 :root {
   --setting-caret-color: black;
-  --setting-boxradius: 2px;
+  --setting-caret-shape-width: 10px;
+  --setting-caret-shape-height: 20px;
+  --setting-caret-shape-container-width: 25px;
+  --setting-caret-shape-container-height: 35px;
 
-  --setting-color-active: #e17c01;
-  --setting-bgcolor-active: #ffffc9;
+  --setting-container-width-caret: 180px;
+  --setting-container-width-whitespace: 160px;
 
-  --setting-color-inactive: #000000;
-  --setting-bgcolor-inactive: #f5f5f5;
+  --setting-text-color: #323232;
+  --setting-text-fontsize: 1rem;
+  --setting-text-fontfamily: var(--fontfamily-robotomono);
+  --setting-text-fontweight: 400;
+
+  --active-color: #e17c01;
+  --active-backgroundcolor: #ffffc9;
+  --inactive-color: #000000;
+  --inactive-backgroundcolor: #f5f5f5;
+
+  --off-color: #ff0000;
+  --off-backgroundcolor: #ffe4e4;
+  --off-color-faded: #484848;
 }
 
 #chosen {
-  color: var(--setting-color-active);
-  background-color: var(--setting-bgcolor-active);
+  color: var(--active-color);
+  background-color: var(--active-backgroundcolor);
+}
+#turnItOff {
+  color: var(--off-color);
+  background-color: var(--off-backgroundcolor);
 }
 
-/**********  whitespace selection  **********/
+setting {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+/*---------------- whitespace ----------------*/
 whitespace {
-  width: 140px;
+  width: var(--setting-container-width-whitespace);
+
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
-  font-family: var(--textfont-family);
+  font-family: var(--setting-text-fontfamily);
+  color: var(--setting-text-color);
+  font-size: var(--setting-text-fontsize);
+  font-weight: var(--setting-text-fontweight);
 }
 
+whitespace off,
 whitespace dot,
 whitespace space {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  color: #313131;
-  font-size: 0.9rem;
-  font-weight: 500;
 
-  padding: 3px 6px;
-  border-radius: var(--setting-boxradius);
-}
-whitespace dot,
-whitespace space {
-  background-color: var(--setting-bgcolor-inactive);
+  padding: 2px 5px;
+  border-radius: var(--round);
+  background-color: var(--inactive-backgroundcolor);
 }
 
-/**********  caret type selection  **********/
-carettype {  
-  width: 180px; 
+/*---------------- caret ----------------*/
+caret {
+  width: var(--setting-container-width-caret);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-caret {
-  width: 25px;
-  height: 35px;
 
-  border: none;
-  
+caret off,
+caret underline,
+caret line,
+caret box,
+caret block {  
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
-}
 
-caret.off shape,
-caret.box shape,
-caret.line shape,
-caret.block shape,
-caret.underline shape {
-  height: 20px;
+  width: var(--setting-caret-shape-container-width);
+  height: var(--setting-caret-shape-container-height);
+
+  border-radius: var(--round);
+  background-color: var(--inactive-backgroundcolor);
 }
-caret.line shape {
-  width: 1px;
+caret off i.fa-ban {
+  color: #484848;
+  font-size: 1.15rem;
+}
+line shape {
+  width: calc((var(--setting-caret-shape-width) / 10)); /* width: 1px */
+  height: var(--setting-caret-shape-height);
   background-color: var(--setting-caret-color);
 }
-caret.block shape {
-  width: 10px;
+block shape {
+  width: var(--setting-caret-shape-width);
+  height: var(--setting-caret-shape-height);
   background-color: var(--setting-caret-color);
 }
-caret.underline shape {
-  width: 12px;
-  display: block;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 1px solid var(--setting-caret-color);
-}
-caret.box shape {
-  width: 10px;
+box shape {
+  width: var(--setting-caret-shape-width);
+  height: var(--setting-caret-shape-height);
   border: 1px solid var(--setting-caret-color);
 }
-
-caret.off shape {
-  width: 100%;
-  height: 100%;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-caret.off shape i {
-  color: #3b3b3b;
-  font-size: 1.22rem;
-  transform: translateY(1px);
-  transform: translateX(0.5px);
-}
-
-
-/********** restart button **********/
-button.restart {
-  width: 30px;
-  height: 30px;
-
-  border: none;
-  outline: none;
-
-  font-size: 1.15rem;
-  border-radius: 3px;
-  background-color: white;
-
-  display: grid;
-  place-items: center;
-}
-button.restart i {
-  color: #6b6b6b;
-  transform: translateY(1px);
-}
-
-/**********  temporary stylings (maybe removed later)  **********/
-.speed {
-  margin-top: 20px;
-  color: gray;
-  font-weight: 400;
-  font-size: var(--textfont-size);
-  font-family: var(--textfont-family);
-}
-.contactme {
-  width: 280px;
-  
-  border-radius: var(--setting-boxradius);
-  background-color: var(--setting-inactive-bgcolor);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.contactme i {
-  font-size: 1.7rem;
-  color: black;
-}
-.contactme a {
-  margin-top: 5px;
-  padding: 8px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.contactme a:hover i {
-  color: red;
-}
-img#codeforces {
-  width: 27px;
-  height: 27px;
-}
-img#atcoder {
-  width: 30px;
-  height: 30px;
-}
-.developer {
-  color: #ff0000;
-  background-color: #ffe4e4;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  border-radius: 30px;
-  width: 88px;
-  height: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: var(--fontfamily-nunito);
+underline shape {
+  display: inline-flex;
+  width: calc(var(--setting-caret-shape-width) + 1.5px); /* width: 11.5px */
+  height: var(--setting-caret-shape-height);
+  border-bottom: 1px solid var(--setting-caret-color);
 }
