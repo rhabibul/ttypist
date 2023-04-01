@@ -28,21 +28,27 @@ function updatewhitespace(evt) {
   
   if ( this.id == "chosen" ) return;
 
-  SettingUI.changeUIWhitespace(this.dataset.type);
-  ConfigHandler.changeConfigWhitespace(this.dataset.type, Number(this.dataset.code), this.dataset.character);
+  TestAreaElement.input.blur(); // disable input field
 
-  // whitespace character replacement
-  Misc.NodeList("letter.whitespace").forEach(function (letter) {
-    TestAreaElement.input.blur();
+  const type = this.dataset.type;
+  const code = Number(this.dataset.code);
+  const character = this.dataset.character;
+
+  SettingUI.changeUIWhitespace(type);
+  ConfigHandler.changeConfigWhitespace(type, code, character);
+
+  // replace whitespace character on dom
+  Misc.NodeList("letter.whitespace").forEach((whitespaceletter) => {
     if ( type === "space" ) {
-      letter.innerHTML = `${this.whitespace.character}`;
+      whitespaceletter.innerHTML = `${character}`;
     } else if ( type === "dot" ) {
-      letter.innerHTML = `<span id="wdot">${this.whitespace.character}</span>`;
+      whitespaceletter.innerHTML = `<span id="wdot">${character}</span>`;
     } else {
-      letter.innerHTML = "";
+      whitespaceletter.innerHTML = "";
     }
-    TestAreaElement.input.focus();
   });
+
+  TestAreaElement.input.focus(); // enable input field
 }
 
 function updatecaret(evt) {

@@ -213,7 +213,7 @@ function registerkeydown(evt) {
   charstat.typedchar = evt.key;
 	charstat.chartotype = word.activeletter.textContent;
 
-	if ( util.isspace(word.activeletter) && (charstat.typedchar === " ") ) { // space is typed
+	if ( (word.activeletter == "" || util.isspace(word.activeletter)) && (charstat.typedchar === " ") ) { // space is typed
 
 		util.removecaretfrom(word.activeletter)
 		word.loadword(sentence.nextword, { nextword: true });
