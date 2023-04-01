@@ -1,5 +1,5 @@
 # ttypist
 
 <br/>
-<img src="./assets/images/ss.png">
+<img src="./static/images/ttypist.png">
 <br/>
