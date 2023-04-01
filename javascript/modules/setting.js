@@ -1,10 +1,13 @@
-import { Config, ConfigHandler } from "./config.js"
+import Config from "./config.js"
+import ConfigHandler from "./confighandler.js";
+import { word, sentence, util } from "./logic.js";
+
 import * as Element from "./element.js";
 import * as Const from "./constant.js";
 import * as Misc from "./misc.js";
-import { word, sentence, util } from "./logic.js";
 import * as SettingUI from "../ui/SettingUI.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
+import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 // mainly used for open virtual keyboard on mobile devices
 Element.sentence.addEventListener("click", (evt) => { Element.input.focus(); });
@@ -25,34 +28,20 @@ function updatewhitespace(evt) {
   
   if ( this.id == "chosen" ) return;
 
-  SettingUI.changeWhitespaceTo(this.dataset.type);
-  
-  // update in config object
-  if ( this.dataset.type === "off" ) {
-    Config.whitespace.off = true;
-  } else {
-    Config.whitespace.off = false;
-  }
-  Config.whitespace.type = this.dataset.type;
-  Config.whitespace.code = Number(this.dataset.code);
-  Config.whitespace.character = this.dataset.character;
+  SettingUI.changeUIWhitespace(this.dataset.type);
+  ConfigHandler.changeConfigWhitespace(this.dataset.type, Number(this.dataset.code), this.dataset.character);
 
-
-  Array.from(document.getElementsByTagName("letter")).forEach(function (letter) {
-
-    Element.input.blur();
-
-    if ( letter.classList.contains("whitespace") ) {
-      if ( Config.whitespace.type === SettingElement.whitespace.space.dataset.type ) {  
-        letter.innerHTML = `${Config.whitespace.character}`;
-      } else if ( Config.whitespace.type === SettingElement.whitespace.dot.dataset.type ) {
-        letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
-      } else {
-        letter.innerHTML = "";
-      }
+  // whitespace character replacement
+  Misc.NodeList("letter.whitespace").forEach(function (letter) {
+    TestAreaElement.input.blur();
+    if ( type === "space" ) {
+      letter.innerHTML = `${this.whitespace.character}`;
+    } else if ( type === "dot" ) {
+      letter.innerHTML = `<span id="wdot">${this.whitespace.character}</span>`;
+    } else {
+      letter.innerHTML = "";
     }
-
-    Element.input.focus();
+    TestAreaElement.input.focus();
   });
 }
 

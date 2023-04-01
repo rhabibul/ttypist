@@ -1,39 +1,51 @@
 import * as Const from "./constant.js";
-import * as Element from "./element.js"
+import Config from "./config.js";
+import ConfigHandler from "./confighandler.js";
+import MiscElement from "../HTMLElement/MiscElement.js";
+import TestAreaElement from "../HTMLElement/TestAreaElement.js";
+// import w1k from "../../static/words/w1k.js";
+import w3k from "../../static/jsdata/w3k.js";
 
-import w1k from "../../static/words/w1k.js"
-// import w3k from "../../static/jsdata/w3k.js"
+export function NodeList(cssQueryString) {
+  return document.querySelectorAll(cssQueryString);
+}
 
-import Config, { ConfigHandler } from "./config.js";
+export function HTMLCollection(name, option) {
+  if ( option?.tagname ) {
+    return document.getElementsByTagName(name);
+  } else if ( option?.classname ) {
+    return document.getElementsByClassName(name);
+  } else {
+    console.error("wrong option provided to get HTMLCollection (only classname/tagname is valid)");
+  }
+}
 
-function totalchar() {
+export function totalchar() {
   let cnt = 0;
-  Array.from(document.getElementsByTagName("word")).forEach((word) => {
+  Array.from(HTMLCollection("word", { tagname: true })).forEach((word) => {
     cnt += word?.children.length;
   });
   return cnt;
 }
 
-function showspeed(lettercount, time) {
+export function showspeed(lettercount, time) {
   const wpm = ((lettercount / 5) / (time)) * 60;
-  Element.speedtag.style.color = "deeppink";
-  Element.speedtag.textContent = `${Math.ceil(wpm)}wpm`;
+  MiscElement.speed.style.color = "deeppink";
+  MiscElement.speed.textContent = `${Math.ceil(wpm)}wpm`;
   setTimeout(() => {
-    Element.speedtag.style.color = "lightgray";
+    MiscElement.speed.style.color = "lightgray";
   }, 2500);
 }
 
-function randomwords() {
-
+export function randomwords() {
   let words = new Array(Config.sentence.word.count);
-
   for (let i = 0; i < Config.sentence.word.count; ++i) {
-    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }
 
-function wordelements(s) {  
+export function wordelements(s) {  
 
   let wordarray = new Array();
   let word, letter;
@@ -58,9 +70,9 @@ function wordelements(s) {
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
 
-    if ( Config.whitespace.type === Element.setting.whitespace.space.dataset.type ) {  
+    if ( Config.whitespace.type === SettingElement.whitespace.space.dataset.type ) {  
       letter.innerHTML = `${Config.whitespace.character}`;
-    } else if ( Config.whitespace.type === Element.setting.whitespace.dot.dataset.type ) {
+    } else if ( Config.whitespace.type === SettingElement.whitespace.dot.dataset.type ) {
       letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
     } else {
       letter.innerHTML = "";
@@ -73,9 +85,9 @@ function wordelements(s) {
   return wordarray;
 }
 
-function getsentence() {
+export function getsentence() {
 	let s = "", ws_code = 0;
-  let words = document.getElementsByTagName('word');
+  let words = HTMLCollection("word", { tagname: true });
 	for ( let word of words ) {
 		let letters = word.children;
 		for ( let letter of letters ) {
@@ -89,12 +101,14 @@ function getsentence() {
 	}
   return s;
 }
-function lettertagtext(letter) {
+
+export function lettertagtext(letter) {
   const ws_code = letter.textContent.charCodeAt(0);
   if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) return " ";
   return letter.textContent;
 }
-function wordtagtext(word) {
+
+export function wordtagtext(word) {
   let ws_code = 0, text = new String();
   for ( const letter of word.children ) {
     ws_code = letter.textContent.charCodeAt(0);
@@ -106,7 +120,8 @@ function wordtagtext(word) {
   }
   return text;
 }
-function validsentence(sentence) {
+
+export function validsentence(sentence) {
   // sentence type must be object i.e, array and it should not be empty,
   // every string should be in <word></word> tag and every character should
   // be in <letter></letter> tag and no letter tag must contain more than
@@ -123,52 +138,34 @@ function validsentence(sentence) {
   return false;
 }
 
-function automatetyping(keystroke_time) {
+export function automatetyping(keystroke_time) {
 	
 	let id, i = 0;
 	let s = getsentence();
 
 	id = setInterval(() => {
-		Element.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
-		Element.input.value += s[i];
+		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
+		TestAreaElement.input.value += s[i];
 		++i;
 		if ( i == s.length - 1 ) clearInterval(id);
 	}, keystroke_time);	
 }
 
-function os() {
+export function deviceinformation() {
   let s = navigator.userAgent;
+  return { os: "", devicetype: "" };
 }
-function tolower(letter) { // Lowercase: 0'11'?????
+
+export function tolower(letter) { // Lowercase: 0'11'?????
   return String.fromCharCode(letter.charCodeAt(0) | (1 << 5));
 }
-function toupper(letter) { // Uppercase: 0'10'?????
+
+export function toupper(letter) { // Uppercase: 0'10'?????
   return String.fromCharCode(letter.charCodeAt(0) & (~(1 << 5)));
 }
-function binaryof(value) {
+
+export function binaryof(value) {
   return Number(value).toString(2);
 }
 
-const computedstyles = getComputedStyle(Element.root);
-
-
-export { 
-  os,
-  tolower,
-  toupper,
-  binaryof,
-  computedstyles,
-  
-  randomwords,
-  wordelements,
-  
-  lettertagtext,
-  wordtagtext,
-
-  totalchar,
-  validsentence,
-
-  showspeed,
-  getsentence,
-  automatetyping
-};
+export const computedstyles = getComputedStyle(MiscElement.root);

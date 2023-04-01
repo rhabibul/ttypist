@@ -140,6 +140,7 @@ class Word {
     }
   }
 
+  // previousElementSibling or nextElementSibling will be used in future, (this will be deleted)
   letter_at(index) {
     try {
       if (index < 0 || index >= this.#word.length) {

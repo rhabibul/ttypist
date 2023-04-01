@@ -2,8 +2,8 @@ export const reset = document.getElementsByTagName("reset")[0];
 
 export const whitespace = {
 	off: document.querySelector("whitespace off"),
-	dot: document.querySelector("whitespace dot"),
 	space: document.querySelector("whitespace space"),
+	dot: document.querySelector("whitespace dot"),
 };
 
 export const caret = {

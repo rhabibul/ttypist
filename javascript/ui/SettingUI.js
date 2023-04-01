@@ -1,23 +1,23 @@
 // this file will contain all ui related methods (create, delete modify) for
 // settings on the website
 // everything will be import as SettingUI from this file
-import * as Element from "../modules/element.js";
+import * as SettingElement from "../HTMLElement/StatsElement.js";
 
-export function changeWhitespaceTo(type = "") {
+export function changeUIWhitespace(type = "") {
 
 	if ( type === "" ) return;
 
 	if ( type === "off" ) {
-		Element.setting.whitespace.off.id = "turnItOff";
-		Element.setting.whitespace.dot.id = "";
-		Element.setting.whitespace.space.id = "";
+		SettingElement.whitespace.off.id = "turnItOff";
+		SettingElement.whitespace.dot.id = "";
+		SettingElement.whitespace.space.id = "";
 	} else if ( type === "dot" ) {
-		Element.setting.whitespace.off.id = "";
-		Element.setting.whitespace.dot.id = "chosen";
-		Element.setting.whitespace.space.id = "";
+		SettingElement.whitespace.off.id = "";
+		SettingElement.whitespace.dot.id = "chosen";
+		SettingElement.whitespace.space.id = "";
 	} else if ( type === "space" ) {
-		Element.setting.whitespace.off.id = "";
-		Element.setting.whitespace.dot.id = "";
-		Element.setting.whitespace.space.id = "chosen";
+		SettingElement.whitespace.off.id = "";
+		SettingElement.whitespace.dot.id = "";
+		SettingElement.whitespace.space.id = "chosen";
 	}
 }

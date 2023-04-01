@@ -2,8 +2,6 @@ import * as Const from "./constant.js";
 
 export default {
 
-  device: "", // String(os + device)
-
   teststate: {
     istyping: false,
   },
@@ -107,9 +105,3 @@ export default {
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   }
 };
-
-export const ConfigHandler = {
-  on(value) {},
-  off(value) {},
-  setdefaults() {},
-}
