@@ -1,10 +1,10 @@
-import Config from "./config.js"
-import { word, sentence, util } from "./logic.js";
+import Config from "../include/config.js"
+import { word, sentence, util } from "../testlogic/logic.js";
 
-import * as Const from "./constant.js";
+import * as Const from "../include/constant.js";
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
-import * as ConfigHandler from "./confighandler.js";
+import * as ConfigHandler from "../handler/confighandler.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 

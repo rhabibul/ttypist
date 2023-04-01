@@ -1,5 +1,5 @@
-import Config from "./config.js";
-import * as Misc from "./misc.js";
+import Config from "../include/config.js";
+import * as Misc from "../utils/misc.js";
 
 export function on(value) {};
 export function off(value) {};

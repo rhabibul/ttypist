@@ -1,9 +1,11 @@
-import Config from "./config.js";
-import * as ConfigHandler from "./confighandler.js";
-import { Sentence, Word } from "./container.js";
+import Config from "../include/config.js";
+import * as ConfigHandler from "../handler/confighandler.js";
+import * as CaretHandler from "../handler/carethandler.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-import * as Const from "./constant.js";
-import * as Misc from "./misc.js"
+import * as Const from "../include/constant.js";
+import * as Misc from "../utils/misc.js"
+
+import { Sentence, Word } from "../include/container.js";
 
 let sentence = new Object();
 let word = new Object();

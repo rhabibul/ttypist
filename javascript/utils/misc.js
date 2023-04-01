@@ -1,6 +1,6 @@
-import * as Const from "./constant.js";
-import Config from "./config.js";
-import * as ConfigHandler from "./confighandler.js";
+import * as Const from "../include/constant.js";
+import Config from "../include/config.js";
+import * as ConfigHandler from "../handler/confighandler.js";
 import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
