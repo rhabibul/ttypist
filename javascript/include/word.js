@@ -1,6 +1,6 @@
 export default class Word {
   #word; // contains all <letter></letter> tags for a single <word></word> tag
-  #letterindex; // keeps track of the index of <letter></letter> tag which is to be typed
+  #letterindex; // keeps track of the index of <letter></letter> tag
 
   constructor(word) {
     this.#letterindex = 0;

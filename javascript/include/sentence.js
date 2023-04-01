@@ -2,7 +2,7 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 export default class Sentence {
   #words; // array of <word></word> tag which contains <letter></letter> tags
-  #wordindex; // keeps track of the index of <word></word> tag which is to be typed
+  #wordindex; // keeps track of the index of <word></word> tag
 
   constructor(words) {
     this.#wordindex = 0;
