@@ -1,52 +1,90 @@
-/**
- * grosswords (typed words):
- * This is the total number of words typed by the candidate; it includes 
- * both correct and incorrect words. Gross words per minnute is total 
- * number of words typed in one minute. ((gross words)/(time taken in minutes))
- * 
- * networds: The number of correct words typed ((net words)/(time taken in minutes))
- * accuracy: The number of correct words typed, calculated as ((nwpm * 100)/(gwpm))
- * 
- *     netwpm: ((correctchars / 5) / 60)
- *   grosswpm: ((correctchars + incorrectchars) / 5) / 60)
- *   accuracy: ((correctchars) / (correctchars + incorrectchars)) * 100)
- * 
- * 
- *   correct? -> typed character which is     equal to active letter. (count)
- * incorrect? -> typed character which is not equal to active letter. (count)
-**/
+// grosswords (typed words):
+// This is the total number of words typed by the candidate; it includes 
+// both correct and incorrect words. Gross words per minnute is total 
+// number of words typed in one minute. ((gross words)/(time taken in minutes))
+// 
+// networds: The number of correct words typed ((net words)/(time taken in minutes))
+// accuracy: The number of correct words typed, calculated as ((nwpm * 100)/(gwpm))
+// 
+//   netwpm: ((correct / 5) / 60)
+// grosswpm: ((correct + incorrect) / 5) / 60)
+// accuracy: ((correct) / (correct + incorrect)) * 100)
 
-let accuracy = 0;   // acc
-let netspeed = 0;   // wpm: ((correct / 5) / 60)
-let grossspeed = 0; // raw: (((correct + incorrect + extra) / 5) / 60)
+// total test count
+//    - test completed count
+//    - test incomplete count
+// 
+// previous sentence typed
+// words on which mistake happend (so that user can practice those words after test)
 
-function compute() {} // Call it on every keystoke when live update speed & accuracy is turned on.
 
-let wordstatus = {
-  word: "",
-  typosLeft: false,
-  typosCorrected: false,
-  typedCorrectly: false,
-  
-  char: {
-    extra: 0,
-    correct: 0,
-    incorrect: 0,
+// call it on every keystoke to update livestats
+export function compute() {}
+
+export class History {
+  constructor() {}
+}
+
+export const time = {
+  begin: 0,
+  end: 0,
+  duration() {
+    return this.end - this.begin;
+  },  
+  reset() {
+    this.begin = 0;
+    this.end = 0;
   }
 }
 
-class History {
-  #testcount;
-  #stats;
-  #sentences;
-  
-  constructor() {
-    this.#stats = new Array(), // stores stats for corresponding for sentences
-    this.#sentences = new Array(), // stores all sentences typed by user
+export const typedchar = {
+	value: "",
+  keydown: 0,
+  keyup: 0,
+  repeated: false,
+  reset() {
+		this.typedchar = "";
+    this.keydown = 0;
+    this.keyup = 0;
+    this.repeated = false;
+  }
+};
 
-    this.#testcount = new Object({
-      completed: 0, // should be equal to sentences.length and stats.length
-      notcompleted: 0, // can be greater/less/equal to sentence.length and stats.length
-    })
+export const keypress_timings = {
+  symbol: new Map([
+    ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
+    ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
+    ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
+    ["v", []], ["w", []], ["x", []], ["y", []], ["z", []],
+    ["A", []], ["B", []], ["C", []], ["D", []], ["E", []], ["F", []], ["G", []],
+    ["H", []], ["I", []], ["J", []], ["K", []], ["L", []], ["M", []], ["N", []],
+    ["O", []], ["P", []], ["Q", []], ["R", []], ["S", []], ["T", []], ["U", []],
+    ["V", []], ["W", []], ["X", []], ["Y", []], ["Z", []],
+    ["0", []], ["1", []], ["2", []], ["3", []], ["4", []], ["5", []], ["6", []],
+    ["7", []], ["8", []], ["9", []], ["`", []], ["~", []], ["!", []], ["@", []],
+    ["#", []], ["$", []], ["%", []], ["^", []], ["&", []], ["*", []], ["(", []],
+    [")", []], ["-", []], ["_", []], ["=", []], ["+", []], ["[", []], ["]", []],
+    ["{", []], ["}", []], [";", []], [":", []], ["'", []], ["|", []],
+    ["\"",[]], ["\\",[]],
+    [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
+  ]),
+  
+  log(sym, time) {
+    this.symbol.get(sym)?.push(time);
+  },
+  
+  show(limit = Infinity) {
+    let count = 0;
+    for ( const [sym, value] of this.symbol.entries() ) {
+      console.log(sym, value);
+      ++cnt;
+      if (count === limit ) return;
+    }
+  },
+
+  reset() {
+    for ( const [sym, _] of this.symbol.entries() ) {
+      this.symbol.set(sym, new Array());
+    }
   }
 }

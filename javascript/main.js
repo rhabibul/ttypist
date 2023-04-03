@@ -12,36 +12,34 @@ import Word from "./include/word.js";
 
 const text = ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog' ];
 
-let sentence = new Sentence(Misc.wordelements(text));
-let word = new Word(sentence.activeword);
+// let sentence = new Sentence(Misc.wordelements(text));
+// let word = new Word(sentence.activeword);
 
+// const test = {
 
-class Test {
-	constructor() {};
-	
-	start() {
-		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
-		word = new Word(sentence.activeword);
+// 	init() {
+// 		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
+// 		word = new Word(sentence.activeword);
 
-		CaretHandler.addcaretto(word.activeletter);
+// 		CaretHandler.addcaretto(word.activeletter);
 
-		// InputElement.value | InputEvent.data
-		TestAreaElement.input.addEventListener("input", TestLogic.registerinput);
-		TestAreaElement.input.addEventListener("keydown", TestLogic.registerinput);
-		TestAreaElement.input.addEventListener("keyup", TestLogic.registerkeyup);
+// 		// InputElement.value | InputEvent.data
+// 		TestAreaElement.input.addEventListener("input", TestLogic.registerinput);
+// 		TestAreaElement.input.addEventListener("keydown", TestLogic.registerinput);
+// 		TestAreaElement.input.addEventListener("keyup", TestLogic.registerkeyup);
 
-		Config.teststate.istyping = false;
-		TestAreaElement.input.value = "";
-		TestAreaElement.input.focus();
-	}
+// 		Config.teststate.istyping = false;
+// 		TestAreaElement.input.value = "";
+// 		TestAreaElement.input.focus();
+// 	},
 
-	removeListeners() {
-		TestAreaElement.input.removeEventListener("input", TestLogic.registerinput);
-		TestAreaElement.input.removeEventListener("keydown", TestLogic.registerinput);
-		TestAreaElement.input.removeEventListener("keyup", TestLogic.registerkeyup);
-	}
-}
+// 	removeListeners() {
+// 		TestAreaElement.input.removeEventListener("input", TestLogic.registerinput);
+// 		TestAreaElement.input.removeEventListener("keydown", TestLogic.registerinput);
+// 		TestAreaElement.input.removeEventListener("keyup", TestLogic.registerkeyup);
+// 	},
+// }
 
-function main() {
+// function main() {
 
-}
+// }

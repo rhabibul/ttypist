@@ -8,75 +8,11 @@ import * as Misc from "../utils/misc.js"
 import Sentence from "../include/sentence.js"
 import Word from "../include/word.js"
 
+import { time, typedchar } from "./statskeeper.js";
+import { Sentence, word } from "../main.js"
+
 let sentence = new Object();
 let word = new Object();
-
-const keystroketime = {
-  symbol: new Map([
-    ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
-    ["h", []], ["i", []], ["j", []], ["k", []], ["l", []], ["m", []], ["n", []],
-    ["o", []], ["p", []], ["q", []], ["r", []], ["s", []], ["t", []], ["u", []],
-    ["v", []], ["w", []], ["x", []], ["y", []], ["z", []],
-    ["A", []], ["B", []], ["C", []], ["D", []], ["E", []], ["F", []], ["G", []],
-    ["H", []], ["I", []], ["J", []], ["K", []], ["L", []], ["M", []], ["N", []],
-    ["O", []], ["P", []], ["Q", []], ["R", []], ["S", []], ["T", []], ["U", []],
-    ["V", []], ["W", []], ["X", []], ["Y", []], ["Z", []],
-    ["0", []], ["1", []], ["2", []], ["3", []], ["4", []], ["5", []], ["6", []],
-    ["7", []], ["8", []], ["9", []], ["`", []], ["~", []], ["!", []], ["@", []],
-    ["#", []], ["$", []], ["%", []], ["^", []], ["&", []], ["*", []], ["(", []],
-    [")", []], ["-", []], ["_", []], ["=", []], ["+", []], ["[", []], ["]", []],
-    ["{", []], ["}", []], [";", []], [":", []], ["'", []], ["|", []],
-    ["\"",[]], ["\\",[]],
-    [",", []], ["<", []], [".", []], [">", []], ["/", []], ["?", []],
-  ]),
-  
-  log(sym, time) {
-    this.symbol.get(sym)?.push(time);
-  },
-  
-  show() {
-    for ( const [sym, value] of this.symbol.entries() ) {
-      console.log(sym, value);
-    }
-  },
-
-  reset() {
-    for ( const [sym, _] of this.symbol.entries() ) {
-      this.symbol.set(sym, new Array());
-    }
-  }
-}
-
-const charstat = {
-	typedchar: "",
-	chartotype: "",
-
-  keydown: 0,
-  keyup: 0,
-  repeated: false,
-
-  reset() {
-		this.typedchar = "";
-		this.chartotype = "";
-
-    this.keydown = 0;
-    this.keyup = 0;
-    this.repeated = false;
-  }
-};
-
-const teststat = {
-	starttime: 0,
-	endtime: 0,
-
-	testduration() {
-		return this.endtime - this.starttime;
-	},
-	reset() {
-		this.starttime = 0;
-		this.entime = 0;
-	}
-}
 
 class Utility {
 
@@ -188,21 +124,20 @@ export function registerkeydown(evt) {
 	}
 
 	if ( !Config.teststate.istyping ) {
-		teststat.starttime = performance.now();
+		time.begin = performance.now();
 		Config.teststate.istyping = true;
 	}
 
-	charstat.reset();
-  charstat.typedchar = evt.key;
-	charstat.chartotype = word.activeletter.textContent;
+	typedchar.reset();
+  typedchar.value = evt.key;
 
-	if ( (Misc.isspace(word.activeletter)) && (charstat.typedchar === " ") ) { // space is typed
+	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
 		CaretHandler.removecaretfrom(word.activeletter);
 		word.loadword(sentence.nextword, { nextword: true });
 		CaretHandler.addcaretto(word.activeletter);
 		
-	} else if ( charstat.typedchar === charstat.chartotype ) { // correct char is typed
+	} else if ( typedchar.value === evt.key ) { // correct char is typed
 
 		CaretHandler.removecaretfrom(word.activeletter);
 
