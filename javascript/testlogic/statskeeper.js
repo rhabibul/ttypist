@@ -1,34 +1,7 @@
-// grosswords (typed words):
-// This is the total number of words typed by the candidate; it includes 
-// both correct and incorrect words. Gross words per minnute is total 
-// number of words typed in one minute. ((gross words)/(time taken in minutes))
-// 
-// networds: The number of correct words typed ((net words)/(time taken in minutes))
-// accuracy: The number of correct words typed, calculated as ((nwpm * 100)/(gwpm))
-// 
-//   netwpm: ((correct / 5) / 60)
-// grosswpm: ((correct + incorrect) / 5) / 60)
-// accuracy: ((correct) / (correct + incorrect)) * 100)
-
-// total test count
-//    - test completed count
-//    - test incomplete count
-// 
-// previous sentence typed
-// words on which mistake happend (so that user can practice those words after test)
-
-
-// call it on every keystoke to update livestats
-export function compute() {}
-
-export class History {
-  constructor() {}
-}
-
 export const time = {
   begin: 0,
   end: 0,
-  duration() {
+  get duration() {
     return this.end - this.begin;
   },  
   reset() {
@@ -49,6 +22,18 @@ export const typedchar = {
     this.repeated = false;
   }
 };
+
+export const mInput = {
+	data: "",
+	delete: false,
+	keydownUnidentified: false,
+  
+	reset() {
+    this.data = "";
+    this.delete = false,
+		this.keydownUnidentified = false;
+	}
+}
 
 export const keypress_timings = {
   symbol: new Map([
@@ -87,4 +72,31 @@ export const keypress_timings = {
       this.symbol.set(sym, new Array());
     }
   }
+}
+
+// grosswords (typed words):
+// This is the total number of words typed by the candidate; it includes 
+// both correct and incorrect words. Gross words per minnute is total 
+// number of words typed in one minute. ((gross words)/(time taken in minutes))
+// 
+// networds: The number of correct words typed ((net words)/(time taken in minutes))
+// accuracy: The number of correct words typed, calculated as ((nwpm * 100)/(gwpm))
+// 
+//   netwpm: ((correct / 5) / 60)
+// grosswpm: ((correct + incorrect) / 5) / 60)
+// accuracy: ((correct) / (correct + incorrect)) * 100)
+
+// total test count
+//    - test completed count
+//    - test incomplete count
+// 
+// previous sentence typed
+// words on which mistake happend (so that user can practice those words after test)
+
+
+// call it on every keystoke to update livestats
+export function compute() {}
+
+export class History {
+  constructor() {}
 }

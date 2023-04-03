@@ -5,8 +5,19 @@ export default class Sentence {
   #wordindex; // keeps track of the index of <word></word> tag
 
   constructor(words) {
-    this.#wordindex = 0;
     this.#words = words;
+    this.#wordindex = 0;
+    
+    TestAreaElement.input.value = "";
+    TestAreaElement.sentence.innerHTML = "";
+    for ( const word of this.#words ) {
+    	TestAreaElement.sentence.insertAdjacentElement("beforeend", word);
+    }
+  }
+
+  loadwords(words) {
+    this.#words = words;
+    this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
     TestAreaElement.sentence.innerHTML = "";

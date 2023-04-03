@@ -1,11 +1,12 @@
-import * as Const from "./constant.js";
-
 export default {
 
-  teststate: {
+  ttypist: {
+    deviceinformation: "",
     istyping: false,
   },
 
+  capslock: false, // warn the user their capslock is on
+  outoffocus: false, // warn the user the test area is out of focus
   livestats: false, // update speed, accuracy and other stats on every keystroke
   inputvisible: false, // make user box visible below the words
   endtestwithspace: false,
@@ -17,6 +18,7 @@ export default {
   caret: {
     off: false,
     type: "line", // line, underline, box, block
+    blink: true,
   },
 
   // difficulty:
@@ -73,20 +75,14 @@ export default {
     language: "english",
   },
 
-  warning: {
-    off: true,
-    capslock: false, // warn the user their capslock is on
-    outoffocus: false, // warn the user the test area is out of focus
-  },
-
   sentence: {
     word: {
       count: 20,
-      averagelength: "mixed", // small(<5) | medium(>=5, <=8) | long(>8) | mixed
+      averagelength: "mixed", // mixed | small(<5) | medium(>=5, <=8) | long(>8)
     },
     include: {
-      digits: false, // include digits along with words
-      punctuations: false, // include punctuation marks along with words
+      digit: false, // include numbers along with words
+      punctuation: false, // include punctuation characters along with words
     },
   },
 

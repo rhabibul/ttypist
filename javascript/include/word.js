@@ -7,13 +7,25 @@ export default class Word {
     this.#word = Array.from(word?.children);
   }
 
+  loadword(word, option) {
+
+    this.#word = Array.from(word?.children);
+    
+    if ( option?.nextword || option?.activeword ) {
+      this.#letterindex = 0;
+    } else if ( option?.prevword ) {
+      this.#letterindex = this.#word.length - 1;
+    } else {
+      console.error("wrong option provided");
+    }
+  }
+
   get size() {
     return this.#word.length;
   }
   get lastletterindex() {
     return this.size - 1;
   }
-  
   set activeletterindex(index) {
     this.#letterindex = index;
   }
@@ -52,9 +64,8 @@ export default class Word {
       console.error(outofbound);
     }
   }
-
-  // previousElementSibling or nextElementSibling will be used in future, (this will be deleted)
   letter_at(index) {
+    // previousElementSibling or nextElementSibling will be used in future, (this will be deleted)
     try {
       if (index < 0 || index >= this.#word.length) {
         throw `index(${index}) is out of bounds 'letter_at'`;
@@ -73,19 +84,6 @@ export default class Word {
   }
   incrementletterindex() {
     this.#letterindex = this.#letterindex + 1;
-  }
-  
-  loadword(word, option) {
-
-    this.#word = Array.from(word?.children);
-    
-    if ( option?.nextword || option?.activeword ) {
-      this.#letterindex = 0;
-    } else if ( option?.prevword ) {
-      this.#letterindex = this.#word.length - 1;
-    } else {
-      console.error("wrong option provided");
-    }
   }
   me() { 
     return this.#word[0].parentElement;
