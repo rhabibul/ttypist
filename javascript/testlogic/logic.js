@@ -11,9 +11,6 @@ import Word from "../include/word.js"
 let sentence = new Object();
 let word = new Object();
 
-let typedchar = "", chartotype = "";
-let keydown = 0, keyup = 0, repeated = false;
-
 const keystroketime = {
   symbol: new Map([
     ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],
@@ -68,7 +65,6 @@ const charstat = {
   }
 };
 
-
 const teststat = {
 	starttime: 0,
 	endtime: 0,
@@ -92,9 +88,9 @@ class Utility {
 		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
 		word = new Word(sentence.activeword);
 
-		this.addcaretto(word.activeletter);
+		CaretHandler.addcaretto(word.activeletter);
 
-		TestAreaElement.input.addEventListener("input", registerinput); // input.value, InputEvent.data
+		TestAreaElement.input.addEventListener("input", registerinput);
 		TestAreaElement.input.addEventListener("keydown", registerkeydown);
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 		
@@ -109,22 +105,6 @@ class Utility {
 		teststat.reset();
 
 		this.init();
-	}
-
-  addcaretto(letter) {
-    letter.setAttribute("id", Config.caret.type);
-  }
-  removecaretfrom(letter) {
-    letter.setAttribute("id", "");
-  }
-
-	addwordhighlight(word) { }
-	removewordhighlight(word) {}
-	fadeletter(letter) {}
-	unfadeletter(word) {}
-	
-	isspace(letter) {
-		return letter?.textContent.charCodeAt(0) === Config.whitespace.code;
 	}
 }
 
@@ -143,7 +123,7 @@ const mInput = {
 	}
 }
 
-function registerinput(evt) {
+export function registerinput(evt) {
 
 	if ( mInput.keydown_unidentified ) {
 		
@@ -158,31 +138,30 @@ function registerinput(evt) {
 
 		mInput.chartotype = word.activeletter.textContent;
 
-		if ( mInput.data === " " && util.isspace(word.activeletter) ) { // space is typed
+		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
 
-			util.removecaretfrom(word.activeletter)
+			CaretHandler.removecaretfrom(word.activeletter);
 			word.loadword(sentence.nextword, { nextword: true });
-			util.addcaretto(word.activeletter);
+			CaretHandler.addcaretto(word.activeletter);
 			
 		} else if ( mInput.data === mInput.chartotype ) { // correct char is typed
 			
-			util.removecaretfrom(word.activeletter);
+			CaretHandler.removecaretfrom(word.activeletter);
 	
 			if ( word.activeletterindex < word.lastletterindex ) {
-				util.addcaretto(word.nextletter);
+				CaretHandler.addcaretto(word.nextletter);
 			} else {
 	
 				if ( word.activeletterindex === word.lastletterindex ) {
-					// load next word
-					if ( sentence.activewordindex < sentence.lastwordindex ) {
+					if ( sentence.activewordindex < sentence.lastwordindex ) { // load next word
 						word.loadword(sentence.nextword, { nextword: true });
-						util.addcaretto(word.activeletter);
+						CaretHandler.addcaretto(word.activeletter);
 					}	
 	
-					// user has typed typed all words
-					if ( sentence.activewordindex === sentence.lastwordindex ) {
+					if ( sentence.activewordindex === sentence.lastwordindex ) { // test complete
+						
 						teststat.endtime = window.performance.now();
-						util.removecaretfrom(word.activeletter);
+						CaretHandler.removecaretfrom(word.activeletter);
 		
 						TestAreaElement.input.removeEventListener('input', registerinput);
 						TestAreaElement.input.removeEventListener('keydown', registerkeydown);
@@ -199,7 +178,7 @@ function registerinput(evt) {
 	mInput.reset();
 }
 
-function registerkeydown(evt) {
+export function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -217,30 +196,29 @@ function registerkeydown(evt) {
   charstat.typedchar = evt.key;
 	charstat.chartotype = word.activeletter.textContent;
 
-	if ( (word.activeletter == "" || util.isspace(word.activeletter)) && (charstat.typedchar === " ") ) { // space is typed
+	if ( (Misc.isspace(word.activeletter)) && (charstat.typedchar === " ") ) { // space is typed
 
-		util.removecaretfrom(word.activeletter)
+		CaretHandler.removecaretfrom(word.activeletter);
 		word.loadword(sentence.nextword, { nextword: true });
-		util.addcaretto(word.activeletter);
+		CaretHandler.addcaretto(word.activeletter);
 		
 	} else if ( charstat.typedchar === charstat.chartotype ) { // correct char is typed
-		util.removecaretfrom(word.activeletter);
+
+		CaretHandler.removecaretfrom(word.activeletter);
 
 		if ( word.activeletterindex < word.lastletterindex ) {
-			util.addcaretto(word.nextletter);
+			CaretHandler.addcaretto(word.nextletter);
 		} else {
 
-			if ( word.activeletterindex === word.lastletterindex ) {
-				// load next word
+			if ( word.activeletterindex === word.lastletterindex ) { // load next word
 				if ( sentence.activewordindex < sentence.lastwordindex ) {
 					word.loadword(sentence.nextword, { nextword: true });
-					util.addcaretto(word.activeletter);
+					CaretHandler.addcaretto(word.activeletter);
 				}	
 
-				// user typed has typed all words
-				if ( sentence.activewordindex === sentence.lastwordindex ) {
+				if ( sentence.activewordindex === sentence.lastwordindex ) { // test complete
 					teststat.endtime = window.performance.now();
-					util.removecaretfrom(word.activeletter);
+					CaretHandler.removecaretfrom(word.activeletter);
 	
 					TestAreaElement.input.removeEventListener('input', registerinput);
 					TestAreaElement.input.removeEventListener('keydown', registerkeydown);
@@ -257,10 +235,10 @@ function registerkeydown(evt) {
 
 		if ( evt.metaKey ) { // cmd + backspace
 
-			util.removecaretfrom(word.activeletter);
+			CaretHandler.removecaretfrom(word.activeletter);
 			sentence.resetwordindex();
 			word.loadword(sentence.activeword, { activeword: true });
-			util.addcaretto(word.activeletter);
+			CaretHandler.addcaretto(word.activeletter);
 
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + backspace
 
@@ -270,25 +248,25 @@ function registerkeydown(evt) {
 					sentence.decrementwordindex();
 				}
 
-				util.removecaretfrom(word.activeletter);
+				CaretHandler.removecaretfrom(word.activeletter);
 				word.loadword(sentence.prevword, { prevword: true });
-				util.addcaretto(word.activeletter);
+				CaretHandler.addcaretto(word.activeletter);
 			}
 
 			// delete all typed letters of the active word and put caret to first letter
-			util.removecaretfrom(word.activeletter);
+			CaretHandler.removecaretfrom(word.activeletter);
 			word.resetletterindex();
-			util.addcaretto(word.activeletter);
+			CaretHandler.addcaretto(word.activeletter);
 
 		} else { // backspace
 
 			if ( word.activeletterindex > 0 ) {
-				util.removecaretfrom(word.activeletter);
-				util.addcaretto(word.prevletter);
+				CaretHandler.removecaretfrom(word.activeletter);
+				CaretHandler.addcaretto(word.prevletter);
 			} else if ( word.activeletterindex === 0 && sentence.activewordindex > 0 ) {
-				util.removecaretfrom(word.activeletter);
+				CaretHandler.removecaretfrom(word.activeletter);
 				word.loadword(sentence.prevword, { prevword: true });
-				util.addcaretto(word.activeletter);
+				CaretHandler.addcaretto(word.activeletter);
 			}
 		}
 	} else {
@@ -298,7 +276,7 @@ function registerkeydown(evt) {
 	}
 }
 
-function registerkeyup(evt) {
+export function registerkeyup(evt) {
 
 }
 

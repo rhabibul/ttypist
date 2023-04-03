@@ -1,24 +1,24 @@
 import Config from "../include/config.js"
-import { word, sentence, util } from "../testlogic/logic.js";
+import { word } from "../testlogic/logic.js";
 
-import * as Const from "../include/constant.js";
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
+import * as CaretHandler from "../handler/carethandler.js";
 import * as ConfigHandler from "../handler/confighandler.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
-// mainly used for open virtual keyboard on mobile devices
-TestAreaElement.sentence.addEventListener("click", (evt) => {
-  TestAreaElement.input.focus();
-});
+// input field
+TestAreaElement.sentence.addEventListener("click", () => { TestAreaElement.input.focus(); });
 
+// caret
 SettingElement.caret.off.addEventListener("click", updatecaret);
 SettingElement.caret.box.addEventListener("click", updatecaret);
 SettingElement.caret.line.addEventListener("click", updatecaret);
 SettingElement.caret.block.addEventListener("click", updatecaret);
 SettingElement.caret.underline.addEventListener("click", updatecaret);
 
+// whitespace
 SettingElement.whitespace.off.addEventListener('click',   updatewhitespace);
 SettingElement.whitespace.dot.addEventListener('click',   updatewhitespace);
 SettingElement.whitespace.space.addEventListener('click', updatewhitespace);
@@ -27,7 +27,7 @@ function updatewhitespace(evt) {
 
   evt.preventDefault();
   
-  if ( this.id == "chosen" ) return;
+  if ( this.dataset.type === Config.whitespace.type ) return;
 
   TestAreaElement.input.blur(); // disable input field
 
@@ -40,6 +40,7 @@ function updatewhitespace(evt) {
 
   // replace whitespace character on dom
   Misc.NodeList("letter.whitespace").forEach((whitespaceletter) => {
+    console.log("whitespace change");
     if ( type === "space" ) {
       whitespaceletter.innerHTML = `${character}`;
     } else if ( type === "dot" ) {
@@ -66,9 +67,9 @@ function updatecaret(evt) {
   // apply new caret styles to all the letters
   Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
     letter.classList.remove(previouscaret); // remove previous caret's styling from this letter
-    util.removecaretfrom(word.activeletter);
+    CaretHandler.removecaretfrom(word.activeletter);
     letter.classList.add(Config.caret.type); // add new caret's styling to this letter
-    util.addcaretto(word.activeletter);
+    CaretHandler.addcaretto(word.activeletter);
     TestAreaElement.input.focus();
   });
 }

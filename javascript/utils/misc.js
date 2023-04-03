@@ -1,11 +1,16 @@
-import * as Const from "../include/constant.js";
 import Config from "../include/config.js";
+import w1k from "../../static/words/w1k.js";
+import w3k from "../../static/words/w3k.js";
+
+import * as Const from "../include/constant.js";
 import * as ConfigHandler from "../handler/confighandler.js";
 import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-import w1k from "../../static/words/w1k.js";
-// import w3k from "../../static/words/w3k.js";
+
+export function isspace(letter) {
+  return letter?.textContent.charCodeAt(0) === Config.whitespace.code;
+}
 
 export function NodeList(cssQueryString) {
   return document.querySelectorAll(cssQueryString);

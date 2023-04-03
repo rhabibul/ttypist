@@ -1,9 +1,9 @@
-// this file will contain all methods related to caret handling
+import Config from "../include/config.js";
 
-function addcaretto(letter) {
+export function addcaretto(letter) {
 	letter.setAttribute("id", Config.caret.type);
 }
 
-function removecaretfrom(letter) {
+export function removecaretfrom(letter) {
 	letter.setAttribute("id", "");
 }

@@ -1,28 +1,47 @@
-import config from "./include/config.js";
-
+import Config from "./include/config.js";
 import * as ConfigHandler from "./handler/confighandler.js";
-import * as CaretHandler from "./handler/carethandler.js";
-import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
+
+import * as Misc from "./utils/misc.js";
 import * as Const from "./include/constant.js";
-import * as Misc from "./utils/misc.js"
 
-import Sentence from "./include/sentence.js"
-import Word from "./include/word.js"
+import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
+import * as TestLogic from "./testlogic/logic.js";
+import * as CaretHandler from "./handler/carethandler.js";
+import Sentence from "./include/sentence.js";
+import Word from "./include/word.js";
+
+const text = ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog' ];
+
+let sentence = new Sentence(Misc.wordelements(text));
+let word = new Word(sentence.activeword);
 
 
-// only keydown, keyup, input callback functions will be present in logic.js
-// rest code should be put here...
+class Test {
+	constructor() {};
+	
+	start() {
+		sentence = new Sentence(Misc.wordelements(Misc.randomwords()));
+		word = new Word(sentence.activeword);
 
-// tolearn
-// 		css grids
-// 		asynchronous javascript
-// 		dom manipulation
-// 		svg
-// 		sass, scss
-// 		json
-// 		sessionStorage & localStorage
-// 		cookies
-// 		setup offline font
-// 		     - roboto mono
-// 		     - mona sans
-// 		     - nunito
+		CaretHandler.addcaretto(word.activeletter);
+
+		// InputElement.value | InputEvent.data
+		TestAreaElement.input.addEventListener("input", TestLogic.registerinput);
+		TestAreaElement.input.addEventListener("keydown", TestLogic.registerinput);
+		TestAreaElement.input.addEventListener("keyup", TestLogic.registerkeyup);
+
+		Config.teststate.istyping = false;
+		TestAreaElement.input.value = "";
+		TestAreaElement.input.focus();
+	}
+
+	removeListeners() {
+		TestAreaElement.input.removeEventListener("input", TestLogic.registerinput);
+		TestAreaElement.input.removeEventListener("keydown", TestLogic.registerinput);
+		TestAreaElement.input.removeEventListener("keyup", TestLogic.registerkeyup);
+	}
+}
+
+function main() {
+
+}
