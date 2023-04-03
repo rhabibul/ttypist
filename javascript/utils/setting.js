@@ -40,7 +40,6 @@ function updatewhitespace(evt) {
 
   // replace whitespace character on dom
   Misc.NodeList("letter.whitespace").forEach((whitespaceletter) => {
-    console.log("whitespace change");
     if ( type === "space" ) {
       whitespaceletter.innerHTML = `${character}`;
     } else if ( type === "dot" ) {
