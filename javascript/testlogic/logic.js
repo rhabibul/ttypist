@@ -5,10 +5,39 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "../include/constant.js";
 import * as Misc from "../utils/misc.js"
 
-import { Test } from "../main.js";
-import { sentence, word, time, typedchar, mInput } from "../main.js";
+import { time, typedchar, mInput } from "./statskeeper.js";
+import Sentence from "../include/sentence.js";
+import Word from "../include/word.js";
 
-export function registerinput(evt) {
+const sentence = new Sentence(Misc.wordelements(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog' ]));
+const word = new Word(sentence.activeword);
+
+const Test = {
+	init() {
+		Config.ttypist.istyping = false;
+		TestAreaElement.input.value = "";
+
+		CaretHandler.addcaretto(word.activeletter);
+
+		// InputElement.value | InputEvent.data
+		TestAreaElement.input.addEventListener("input", registerinput);
+		TestAreaElement.input.addEventListener("keydown", registerkeydown);
+		TestAreaElement.input.addEventListener("keyup", registerkeyup);		
+		TestAreaElement.input.focus();
+	},
+	restart() {
+		typedchar.reset();
+		time.reset();
+		mInput.reset();
+		sentence.loadwords(Misc.wordelements(Misc.randomwords()));
+		word.loadword(sentence.activeword, { activeword: true });
+		this.init();
+	}
+}
+Test.init();
+
+
+function registerinput(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -47,11 +76,6 @@ export function registerinput(evt) {
 						
 						time.end = window.performance.now();
 						CaretHandler.removecaretfrom(word.activeletter);
-		
-						TestAreaElement.input.removeEventListener('input', registerinput);
-						TestAreaElement.input.removeEventListener('keydown', registerkeydown);
-						TestAreaElement.input.removeEventListener('keyup', registerkeyup);
-		
 						Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 						Test.restart();
 					}
@@ -63,7 +87,7 @@ export function registerinput(evt) {
 	mInput.reset();
 }
 
-export function registerkeydown(evt) {
+function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -161,7 +185,7 @@ export function registerkeydown(evt) {
 	}
 }
 
-export function registerkeyup(evt) {
+function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
