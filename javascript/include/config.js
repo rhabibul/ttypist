@@ -19,6 +19,7 @@ export default {
     off: false,
     type: "line", // line, underline, box, block
     blink: true,
+    smooth: false,
   },
 
   // difficulty:
@@ -69,12 +70,6 @@ export default {
     code: 160,
   },
 
-  keyboard: {
-    layout: "qwerty", // keyboard layout
-    emulate: false, // emulate other keyboard layouts
-    language: "english",
-  },
-
   sentence: {
     word: {
       count: 20,
@@ -99,5 +94,11 @@ export default {
     arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-  }
+  },
+
+  keyboard: {
+    layout: "qwerty", // keyboard layout
+    emulate: false, // emulate other keyboard layouts
+    language: "english",
+  },
 };
