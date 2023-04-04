@@ -108,6 +108,9 @@ main testarea sentence letter {
 .error {
   
   /* border bottom will be used instead of text decoration later */
+  /* border bottom on all letters of a word will give the word continous 
+     underline unlike text-decoration, but the way now line and box caret is
+     implemented makes this hack also obselete.. */
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-decoration-style: solid;
