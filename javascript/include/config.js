@@ -1,12 +1,13 @@
 export default {
 
   ttypist: {
-    deviceinformation: "",
     istyping: false,
+    deviceinformation: "",
   },
 
   capslock: false, // warn the user their capslock is on
   outoffocus: false, // warn the user the test area is out of focus
+
   livestats: false, // update speed, accuracy and other stats on every keystroke
   inputvisible: false, // make user box visible below the words
   endtestwithspace: false,
@@ -18,21 +19,28 @@ export default {
   caret: {
     off: false,
     type: "line", // line, underline, box, block
-    blink: true,
-    smooth: false,
   },
 
-  // difficulty:
-  //    - normal is classic typing experience
-  //    - expert fails the test if user submits an incorrect word
-  //    - master fails the test if user types a single incorrect letter
-  difficulty: "normal", // normal | expert | master
+  fliptextcolor: false, // brightness of typed text and future text
+  highlight: {
+    off: false,
+    mode: {
+      word: false,
+      letter: true,
+    },
+  },
 
+  // difficulty
+  //    normal: classic typing experience
+  //    expert: fails the test if user submits an incorrect word
+  //    master: fails the test if user types a single incorrect letter
+  difficulty: "classic", // classic | expert | master
+  
   confidence: {
     off: true,
     mode: {
-      pro: false, // don't allow user to go back to previous words to fix error
-      max: false, // don't allow backspace at all to fix any error
+      pro: false, // can fix current word errors, but not previous words
+      max: false, // if true then don't allow backspace at all to fix errors
     }
   },
 
@@ -46,21 +54,16 @@ export default {
   },
 
   error: {
-    stop: {
-      word: false,
-      letter: false,
-    },
     insert: true, // insert incorrect letter
-    forgive: true, // delete incorrect letters when user types the correct letter
-  },
+    forgive: true, // delete incorrect letter(s) when user types the correct letter
 
-  highlight: {
-    off: false,
-    mode: {
-      word: false,
-      letter: true,
+    stopOnError: {
+      off: false,
+      at: {
+        word: false,
+        letter: false,
+      },
     },
-    flip_textcolor: false, // brightness of typed text and future text
   },
   
   whitespace: {
@@ -80,6 +83,9 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
+};
+
+const later = {
 
   practice: {
     off: true,
@@ -101,4 +107,4 @@ export default {
     emulate: false, // emulate other keyboard layouts
     language: "english",
   },
-};
+}

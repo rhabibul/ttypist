@@ -28,3 +28,15 @@ export function changeConfigCaret(type) {
     // next hide the input box
   }
 }
+
+export function loadstoredconfig(storedconfig) {
+	if ( typeof storedconfig !== 'object' ) return;
+	
+	Config.whitespace.off = storedconfig.whitespace.off
+	Config.whitespace.type = storedconfig.whitespace.type
+	Config.whitespace.code = storedconfig.whitespace.code
+	Config.whitespace.character = storedconfig.whitespace.character
+	
+	Config.caret.off = storedconfig.caret.off;
+	Config.caret.type = storedconfig.caret.type;
+}

@@ -4,6 +4,7 @@ import * as CaretHandler from "../handler/carethandler.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "../include/constant.js";
 import * as Misc from "../utils/misc.js"
+import * as SettingUI from "../ui/SettingUI.js"
 
 import { time, typedchar, mInput } from "./statskeeper.js";
 import Sentence from "../include/sentence.js";
@@ -12,7 +13,7 @@ import Word from "../include/word.js";
 const sentence = new Sentence(Misc.wordelements(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog' ]));
 const word = new Word(sentence.activeword);
 
-const Test = {
+export const Test = {
 	init() {
 		Config.ttypist.istyping = false;
 		TestAreaElement.input.value = "";
@@ -34,8 +35,6 @@ const Test = {
 		this.init();
 	}
 }
-Test.init();
-
 
 function registerinput(evt) {
 

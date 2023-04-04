@@ -7,6 +7,7 @@ import * as ConfigHandler from "../handler/confighandler.js";
 import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import config from "../include/config.js";
 
 export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === Config.whitespace.code;
@@ -146,7 +147,6 @@ export function validsentence(sentence) {
 }
 
 export function automatetyping(keystroke_time) {
-	
 	let id, i = 0;
 	let s = getsentence();
 
@@ -176,3 +176,43 @@ export function binaryof(value) {
 }
 
 export const computedstyles = getComputedStyle(MiscElement.root);
+
+export function storeConfigInLocalStorage() {
+  window.localStorage.setItem('Config', JSON.stringify(Config));
+}
+
+export function loadconfig(c) {
+  if ( typeof(c) !== 'object' ) return;
+
+  Config.ttypist.istyping = c.ttypist.istyping;
+  Config.ttypist.deviceinformation = c.ttypist.deviceinformation;
+  
+  Config.capslock = c.capslock;
+  Config.outoffocus = c.outoffocus;
+  Config.livestats = c.livestats;
+  Config.inputvisible = c.inputvisible;
+  Config.endtestwithspace = c.endtestwithspace;
+  Config.oppositeshift = c.oppositeshift;
+
+  Config.caret.off = c.caret.off;
+  Config.caret.type = c.caret.type;
+
+  Config.fliptextcolor = c.fliptextcolor;
+  Config.highlight.off = c.highlight.off;
+  Config.highlight.mode.word = c.highlight.mode.word;
+  Config.highlight.mode.letter = c.highlight.mode.letter;
+
+  Config.backspace.off = c.backspace.off;
+  Config.backspace.modifier.alt = c.backspace.modifier.alt;
+  Config.backspace.modifier.ctrl = c.backspace.modifier.ctrl;
+  Config.backspace.modifier.meta = c.backspace.modifier.meta;
+
+  Config.confidence.off = c.confidence.off;
+  Config.confidence.mode.pro = c.confidence.mode.pro;
+  Config.confidence.mode.max = c.confidence.mode.max;
+
+  Config.whitespace.off = c.whitespace.off;
+  Config.whitespace.type = c.whitespace.type;
+  Config.whitespace.code = c.whitespace.code;
+  Config.whitespace.character = c.whitespace.character;
+}

@@ -1,12 +1,12 @@
 :root {
   /* caret color */
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white;
   
   /* caret animation (blink duration, count, rhythm, delay) */
   --caret-animation-delay: 2s;
   --caret-animation-duration: 1.15s;
-  --caret-animation-iteration-count: 30;
+  --caret-animation-iteration-count: 10;
   --caret-animation-timing-function: ease-out;
 
   --zero: 0px;
@@ -23,7 +23,7 @@
   
   /* block caret background & color */
   --caret-block-color: white;
-  --caret-block-backgroundcolor: var(--caret-color);
+  --caret-block-backgroundcolor: black;
 }
 
 /*----------------- off -----------------*/
