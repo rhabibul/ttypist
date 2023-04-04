@@ -93,6 +93,8 @@
   outline-color: var(--caret-color);
   outline-width: var(--caret-width-box);
   outline-offset: var(--caret-offset-box);
+
+  /* border: var(--caret-width-box) solid var(--caret-color); */
   animation-name: animate-box;
 }
 .box {

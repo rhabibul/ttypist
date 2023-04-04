@@ -1,7 +1,8 @@
 :root {
+  --fontfamily-monospace: monospace;
   --fontfamily-nunito: 'Nunito', sans-serif;
-  --fontfamily-monasans: "";
   --fontfamily-robotomono: "Roboto Mono", monospace;
+  --fontfamily-monasans: "";
   
   --round: 3px;
   --line-gap: 3px;

@@ -46,7 +46,7 @@ export default {
   },
 
   error: {
-    thenStopOn: {
+    stop: {
       word: false,
       letter: false,
     },
