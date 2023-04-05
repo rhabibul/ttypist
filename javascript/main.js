@@ -4,7 +4,9 @@ import * as Misc from "./utils/misc.js";
 import * as SettingUI from "./ui/SettingUI.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 
-function main() { }
+function main() {
+	// this guy will be given some important tasks in future.. lol!
+}
 
 window.addEventListener('load', (evt) => {
 	if ( localStorage.getItem('Config') === null ) {
