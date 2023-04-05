@@ -1,15 +1,15 @@
 :root {
-  --fontfamily-monospace: monospace;
   --fontfamily-nunito: 'Nunito', sans-serif;
+  --fontfamily-monasans: "";;
   --fontfamily-robotomono: "Roboto Mono", monospace;
-  --fontfamily-monasans: "";
+  --fontfamily-monospace: monospace;
   
   --round: 3px;
   --line-gap: 3px;
 
   --text-color: #3f3f3f;
 
-  --text-fontsize: 1.3rem;
+  --text-fontsize: 1.2rem;
   --text-fontweight: 400;
   --text-fontfamily: var(--fontfamily-robotomono)
 }

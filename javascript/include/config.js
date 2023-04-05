@@ -9,8 +9,9 @@ export default {
   outoffocus: false, // warn the user the test area is out of focus
 
   livestats: false, // update speed, accuracy and other stats on every keystroke
-  inputvisible: false, // make user box visible below the words
   endtestwithspace: false,
+  inputvisible: false, // make user box visible below the words
+  wordunderlined: false, // underline active word
 
   // use opposite shift keys for shifting, using an incorrect one will count 
   // as an error, ignore B, Y, ^
@@ -54,8 +55,8 @@ export default {
   },
 
   error: {
-    insert: true, // insert incorrect letter
-    forgive: true, // delete incorrect letter(s) when user types the correct letter
+    insert: true, // insert extra letter typed
+    forgive: true, // delete all inserted extra letters as soon user types in active letter correctly
 
     stopOnError: {
       off: false,
