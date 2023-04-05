@@ -178,14 +178,21 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
-		// if ( !Const.nonPrintableCharacter.includes(word.activeletter) ) {
-		// 	error handling
-		// }
+		if ( !Const.nonPrintableCharacter.includes(word.activeletter) ) {
+			word.activeletter.before(getExtraElement(typedchar.value));
+		}
 	}
 }
 
 function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
+}
+
+function getExtraElement(content) {
+	const letter = document.createElement("letter");
+	letter.classList.add("incorrect");
+	letter.textContent = content;
+	return letter;
 }
 
 export { sentence, word };

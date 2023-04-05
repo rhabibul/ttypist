@@ -74,7 +74,7 @@ export default {
     code: 160,
   },
 
-  sentence: {
+  phrase: {
     word: {
       count: 20,
       averagelength: "mixed", // mixed | small(<5) | medium(>=5, <=8) | long(>8)

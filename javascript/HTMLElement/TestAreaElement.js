@@ -1,3 +1,3 @@
-export const testarea = document.getElementsByTagName("testarea")[0];
-export const input = document.querySelector("testarea input");
-export const sentence = document.querySelector("testarea sentence");
+export const content = document.getElementsByTagName("content")[0];
+export const input = document.querySelector("content input");
+export const phrase = document.querySelector("content phrase");
