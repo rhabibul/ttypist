@@ -1,6 +1,6 @@
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
-export default class Sentence {
+export default class Phrase {
   #words; // array of <word></word> tag which contains <letter></letter> tags
   #wordindex; // keeps track of the index of <word></word> tag
 
@@ -9,9 +9,15 @@ export default class Sentence {
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
-    TestAreaElement.sentence.innerHTML = "";
+    TestAreaElement.phrase.innerHTML = "";
+    this.loadWordsOnDOM();
+  }
+
+  text() {} // phrase.text();
+
+  loadWordsOnDOM() {
     for ( const word of this.#words ) {
-    	TestAreaElement.sentence.insertAdjacentElement("beforeend", word);
+    	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
     }
   }
 
@@ -20,9 +26,9 @@ export default class Sentence {
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
-    TestAreaElement.sentence.innerHTML = "";
+    TestAreaElement.phrase.innerHTML = "";
     for ( const word of this.#words ) {
-    	TestAreaElement.sentence.insertAdjacentElement("beforeend", word);
+    	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
     }
   }
 

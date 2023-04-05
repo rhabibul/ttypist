@@ -45,8 +45,8 @@ export function showspeed(lettercount, time) {
 }
 
 export function randomwords() {
-  let words = new Array(Config.sentence.word.count);
-  for (let i = 0; i < Config.sentence.word.count; ++i) {
+  let words = new Array(Config.phrase.word.count);
+  for (let i = 0; i < Config.phrase.word.count; ++i) {
     words[i] = w1k[Math.floor(Math.random() * w1k.length)];
     // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
@@ -93,7 +93,7 @@ export function wordelements(s) {
   return wordarray;
 }
 
-export function getsentence() {
+export function getphrase() {
 	let s = "", ws_code = 0;
   let words = HTMLCollection("word", { tagname: true });
 	for ( let word of words ) {
@@ -129,15 +129,15 @@ export function wordtagtext(word) {
   return text;
 }
 
-export function validsentence(sentence) {
-  // sentence type must be object i.e, array and it should not be empty,
+export function validphrase(phrase) {
+  // phrase type must be object i.e, array and it should not be empty,
   // every string should be in <word></word> tag and every character should
   // be in <letter></letter> tag and no letter tag must contain more than
   // one character
-  const validtype = typeof(sentence) === "object";
-  const notempty = sentence.length > 0;
-  const validwordtags = sentence.every((word) => word.tagName === "WORD");
-  const validlettertags = sentence.every((word) => {
+  const validtype = typeof(phrase) === "object";
+  const notempty = phrase.length > 0;
+  const validwordtags = phrase.every((word) => word.tagName === "WORD");
+  const validlettertags = phrase.every((word) => {
     return Array.from(word?.children).every((letter) => {
       return letter.tagName === "LETTER" && letter.textContent.length === 1;
     });
@@ -148,7 +148,7 @@ export function validsentence(sentence) {
 
 export function automatetyping(keystroke_time) {
 	let id, i = 0;
-	let s = getsentence();
+	let s = getphrase();
 
 	id = setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
@@ -181,38 +181,38 @@ export function storeConfigInLocalStorage() {
   window.localStorage.setItem('Config', JSON.stringify(Config));
 }
 
-export function loadconfig(c) {
-  if ( typeof(c) !== 'object' ) return;
+export function loadconfig(localconfig) {
+  if ( typeof(localconfig) !== 'object' ) return;
 
-  Config.ttypist.istyping = c.ttypist.istyping;
-  Config.ttypist.deviceinformation = c.ttypist.deviceinformation;
+  Config.ttypist.istyping = localconfig.ttypist.istyping;
+  Config.ttypist.deviceinformation = localconfig.ttypist.deviceinformation;
   
-  Config.capslock = c.capslock;
-  Config.outoffocus = c.outoffocus;
-  Config.livestats = c.livestats;
-  Config.inputvisible = c.inputvisible;
-  Config.endtestwithspace = c.endtestwithspace;
-  Config.oppositeshift = c.oppositeshift;
+  Config.capslock = localconfig.capslock;
+  Config.outoffocus = localconfig.outoffocus;
+  Config.livestats = localconfig.livestats;
+  Config.inputvisible = localconfig.inputvisible;
+  Config.endtestwithspace = localconfig.endtestwithspace;
+  Config.oppositeshift = localconfig.oppositeshift;
 
-  Config.caret.off = c.caret.off;
-  Config.caret.type = c.caret.type;
+  Config.caret.off = localconfig.caret.off;
+  Config.caret.type = localconfig.caret.type;
 
-  Config.fliptextcolor = c.fliptextcolor;
-  Config.highlight.off = c.highlight.off;
-  Config.highlight.mode.word = c.highlight.mode.word;
-  Config.highlight.mode.letter = c.highlight.mode.letter;
+  Config.fliptextcolor = localconfig.fliptextcolor;
+  Config.highlight.off = localconfig.highlight.off;
+  Config.highlight.mode.word = localconfig.highlight.mode.word;
+  Config.highlight.mode.letter = localconfig.highlight.mode.letter;
 
-  Config.backspace.off = c.backspace.off;
-  Config.backspace.modifier.alt = c.backspace.modifier.alt;
-  Config.backspace.modifier.ctrl = c.backspace.modifier.ctrl;
-  Config.backspace.modifier.meta = c.backspace.modifier.meta;
+  Config.backspace.off = localconfig.backspace.off;
+  Config.backspace.modifier.alt = localconfig.backspace.modifier.alt;
+  Config.backspace.modifier.ctrl = localconfig.backspace.modifier.ctrl;
+  Config.backspace.modifier.meta = localconfig.backspace.modifier.meta;
 
-  Config.confidence.off = c.confidence.off;
-  Config.confidence.mode.pro = c.confidence.mode.pro;
-  Config.confidence.mode.max = c.confidence.mode.max;
+  Config.confidence.off = localconfig.confidence.off;
+  Config.confidence.mode.pro = localconfig.confidence.mode.pro;
+  Config.confidence.mode.max = localconfig.confidence.mode.max;
 
-  Config.whitespace.off = c.whitespace.off;
-  Config.whitespace.type = c.whitespace.type;
-  Config.whitespace.code = c.whitespace.code;
-  Config.whitespace.character = c.whitespace.character;
+  Config.whitespace.off = localconfig.whitespace.off;
+  Config.whitespace.type = localconfig.whitespace.type;
+  Config.whitespace.code = localconfig.whitespace.code;
+  Config.whitespace.character = localconfig.whitespace.character;
 }

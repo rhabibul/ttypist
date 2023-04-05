@@ -9,7 +9,7 @@ import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 // input field
-TestAreaElement.sentence.addEventListener("click", () => { TestAreaElement.input.focus(); });
+TestAreaElement.phrase.addEventListener("click", () => { TestAreaElement.input.focus(); });
 
 // caret
 SettingElement.caret.off.addEventListener("click", updatecaret);

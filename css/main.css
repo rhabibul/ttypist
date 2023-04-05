@@ -2,7 +2,6 @@
   --fontfamily-nunito: 'Nunito', sans-serif;
   --fontfamily-monasans: "";;
   --fontfamily-robotomono: "Roboto Mono", monospace;
-  --fontfamily-monospace: monospace;
   
   --round: 3px;
   --line-gap: 3px;
@@ -42,11 +41,11 @@ main {
   align-items: center;
   justify-content: space-between;
 }
-main testarea {
+main ttypist {
   max-width: 800px;
   margin-left: 15px;
 }
-main testarea input {
+main ttypist input {
   margin: 0px;
   padding: 0px;
   display: block;
@@ -57,7 +56,7 @@ main testarea input {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
-main testarea sentence {
+main ttypist phrase {
   user-select: none;
 
   display: flex; /* these keeps all the words in a single line */
@@ -69,14 +68,14 @@ main testarea sentence {
   row-gap: var(--line-gap);
   background-color: var(--caret-color-hidden);
 }
-main testarea sentence word {
+main ttypist phrase word {
   color: var(--text-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
   justify-content: flex-start;
 }
-main testarea sentence letter {
+main ttypist phrase letter {
   height: 100%;
   display: flex;
   align-items: center;

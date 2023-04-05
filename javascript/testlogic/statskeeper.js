@@ -100,3 +100,7 @@ export function compute() {}
 export class History {
   constructor() {}
 }
+
+const WordStats = {
+  missedwords: [],
+}
