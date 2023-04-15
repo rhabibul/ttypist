@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Roboto Mono";
-  src: local("Roboto Mono"), url("../static/webfont/robotomono.ttf") format("truetype");
+  src: local("Roboto Mono"), url("../static/webfonts/robotomono.ttf") format("truetype");
   font-style: normal;
   font-weight: 200 700;
   font-stretch: 75% 125%;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito"), url("../static/webfont/nunito.ttf") format("truetype");
+  src: local("Nunito"), url("../static/webfonts/nunito.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: local("Mona Sans"), url("../static/webfont/monasans.woff2") format("woff2-variations");
+  src: local("Mona Sans"), url("../static/webfonts/monasans.woff2") format("woff2-variations");
   font-style: normal;
   font-weight: 100 900;
   font-stretch: 75% 125%;
@@ -119,7 +119,7 @@ main ttypist phrase letter {
   color: #c7c7c7;
 
   transform: scale(1.33, 1.33);
-  font-weight: 800;
+  font-weight: 700;
 
   font-size: var(--basetext-size);
   font-family: var(--basetext-family);
