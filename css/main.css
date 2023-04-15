@@ -3,6 +3,7 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   --roboto-mono: "Roboto Mono", monospace;
+  --ibm-plex-mono: "IBM Plex Mono", monospace;
   --source-code-pro: "Source Code Pro", monospace;
   
   --round: 3px;
@@ -12,7 +13,7 @@
 
   --basetext-size: 1.25rem;
   --basetext-weight: 400;
-  --basetext-family: var(--roboto-mono);
+  --basetext-family: var(--ibm-plex-mono);
 }
 
 *,
