@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"), url("../static/webfont/robotomono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 700;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"), url("../static/webfont/nunito.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: local("Mona Sans"), url("../static/webfont/monasans.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
 :root {
   --monospace: monospace;
   --nunito: "Nunito", monospace;
@@ -12,8 +36,8 @@
   --basetext-color: black;
 
   --basetext-size: 1.25rem;
-  --basetext-weight: 400;
-  --basetext-family: var(--ibm-plex-mono);
+  --basetext-weight: 420;
+  --basetext-family: var(--roboto-mono);
 }
 
 *,
