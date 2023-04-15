@@ -1,25 +1,6 @@
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as Misc from "../utils/misc.js"
 
-export function changeUIWhitespace(type = "") {
-
-	if ( type === "" ) return;
-
-	if ( type === "off" ) {
-		SettingElement.whitespace.off.id = "turnItOff";
-		SettingElement.whitespace.dot.id = "";
-		SettingElement.whitespace.space.id = "";
-	} else if ( type === "dot" ) {
-		SettingElement.whitespace.off.id = "";
-		SettingElement.whitespace.dot.id = "chosen";
-		SettingElement.whitespace.space.id = "";
-	} else if ( type === "space" ) {
-		SettingElement.whitespace.off.id = "";
-		SettingElement.whitespace.dot.id = "";
-		SettingElement.whitespace.space.id = "chosen";
-	}
-}
-
 const active_color = Misc.computedstyles.getPropertyValue("--active-color");
 const active_bgcolor = Misc.computedstyles.getPropertyValue("--active-backgroundcolor");
 

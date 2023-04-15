@@ -22,6 +22,5 @@ window.addEventListener('load', (evt) => {
 });
 
 function loadeverything_accordingtoconfig() {
-	SettingUI.changeUIWhitespace(Config.whitespace.type);
 	SettingUI.changeUICaret(SettingElement.caret[Config.caret.type]);
 }

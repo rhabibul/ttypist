@@ -66,13 +66,6 @@ export default {
       },
     },
   },
-  
-  whitespace: {
-    off: false,
-    type: "space",
-    character: "&nbsp;",
-    code: 160,
-  },
 
   phrase: {
     word: {

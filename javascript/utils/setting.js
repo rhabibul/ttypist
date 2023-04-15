@@ -18,11 +18,6 @@ SettingElement.caret.line.addEventListener("click", updatecaret);
 SettingElement.caret.block.addEventListener("click", updatecaret);
 SettingElement.caret.underline.addEventListener("click", updatecaret);
 
-// whitespace
-SettingElement.whitespace.off.addEventListener('click',   updatewhitespace);
-SettingElement.whitespace.dot.addEventListener('click',   updatewhitespace);
-SettingElement.whitespace.space.addEventListener('click', updatewhitespace);
-
 // apply new caret styles to all the letters
 function addcaretstyle_toletters(previouscaret, currentcaret) {
   Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
@@ -32,38 +27,6 @@ function addcaretstyle_toletters(previouscaret, currentcaret) {
     CaretHandler.addcaretto(word.activeletter);
     TestAreaElement.input.focus();
   });
-}
-
-// replace whitespace character
-function addwhitespace_toletters(type, character) {
-  Misc.NodeList("letter.whitespace").forEach((whitespaceletter) => {
-    if ( type === "space" ) {
-      whitespaceletter.innerHTML = `${character}`;
-    } else if ( type === "dot" ) {
-      whitespaceletter.innerHTML = `<span id="wdot">${character}</span>`;
-    } else {
-      whitespaceletter.innerHTML = "";
-    }
-  });
-}
-
-function updatewhitespace(evt) {
-  evt.preventDefault();
-  if ( this.dataset.type === Config.whitespace.type ) return;
-  TestAreaElement.input.blur(); // disable input field
-
-  const type = this.dataset.type;
-  const code = Number(this.dataset.code);
-  const character = this.dataset.character;
-
-  SettingUI.changeUIWhitespace(type);
-  ConfigHandler.changeConfigWhitespace(type, code, character);
-
-  addwhitespace_toletters(type, character);
-
-  TestAreaElement.input.focus(); // enable input field
-
-  Misc.storeConfigInLocalStorage(); // store config in local storage
 }
 
 function updatecaret(evt) {

@@ -113,27 +113,11 @@ main ttypist phrase letter {
   -webkit-font-smoothing: subpixel-antialiased; /* antialiased */
   -moz-osx-font-smoothing: grayscale;
 }
-#wdot {
-  padding: 0px 4px;
-  
-  color: #c7c7c7;
-
-  transform: scale(1.33, 1.33);
-  font-weight: 700;
-
-  font-size: var(--basetext-size);
-  font-family: var(--basetext-family);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .active {
   color: black; 
 }
 .error {
-  
   /* border bottom will be used instead of text decoration later */
   /* border bottom on all letters of a word will give the word continous 
      underline unlike text-decoration, but the way now line and box caret is

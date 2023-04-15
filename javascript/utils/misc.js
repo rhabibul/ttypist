@@ -10,7 +10,7 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import config from "../include/config.js";
 
 export function isspace(letter) {
-  return letter?.textContent.charCodeAt(0) === Config.whitespace.code;
+  return letter?.textContent.charCodeAt(0) === 160;
 }
 
 export function NodeList(cssQueryString) {
@@ -77,14 +77,7 @@ export function wordelements(s) {
     letter = document.createElement("letter");
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
-
-    if ( Config.whitespace.type === SettingElement.whitespace.space.dataset.type ) {  
-      letter.innerHTML = `${Config.whitespace.character}`;
-    } else if ( Config.whitespace.type === SettingElement.whitespace.dot.dataset.type ) {
-      letter.innerHTML = `<span id="wdot">${Config.whitespace.character}</span>`;
-    } else {
-      letter.innerHTML = "";
-    }
+    letter.innerHTML = `&nbsp;`;
     
     word.appendChild(letter);
     wordarray.push(word);
@@ -183,36 +176,6 @@ export function storeConfigInLocalStorage() {
 
 export function loadconfig(localconfig) {
   if ( typeof(localconfig) !== 'object' ) return;
-
-  Config.ttypist.istyping = localconfig.ttypist.istyping;
-  Config.ttypist.deviceinformation = localconfig.ttypist.deviceinformation;
-  
-  Config.capslock = localconfig.capslock;
-  Config.outoffocus = localconfig.outoffocus;
-  Config.livestats = localconfig.livestats;
-  Config.inputvisible = localconfig.inputvisible;
-  Config.endtestwithspace = localconfig.endtestwithspace;
-  Config.oppositeshift = localconfig.oppositeshift;
-
   Config.caret.off = localconfig.caret.off;
   Config.caret.type = localconfig.caret.type;
-
-  Config.fliptextcolor = localconfig.fliptextcolor;
-  Config.highlight.off = localconfig.highlight.off;
-  Config.highlight.mode.word = localconfig.highlight.mode.word;
-  Config.highlight.mode.letter = localconfig.highlight.mode.letter;
-
-  Config.backspace.off = localconfig.backspace.off;
-  Config.backspace.modifier.alt = localconfig.backspace.modifier.alt;
-  Config.backspace.modifier.ctrl = localconfig.backspace.modifier.ctrl;
-  Config.backspace.modifier.meta = localconfig.backspace.modifier.meta;
-
-  Config.confidence.off = localconfig.confidence.off;
-  Config.confidence.mode.pro = localconfig.confidence.mode.pro;
-  Config.confidence.mode.max = localconfig.confidence.mode.max;
-
-  Config.whitespace.off = localconfig.whitespace.off;
-  Config.whitespace.type = localconfig.whitespace.type;
-  Config.whitespace.code = localconfig.whitespace.code;
-  Config.whitespace.character = localconfig.whitespace.character;
 }
