@@ -1,7 +1,7 @@
 :root {
-  --nunito: 'Nunito', monospace;
-  --mona-sans: "Mona Sans", monospace;;
-  --roboto-mono: "Roboto Mono", monospace;
+  --nunito: 'Nunito';
+  --mona-sans: "Mona Sans";
+  --roboto-mono: "Roboto Mono";
   
   --round: 3px;
   --line-gap: 3px;
@@ -29,7 +29,7 @@ font-stretch
   font-family: 'Roboto Mono';
   src: local('Roboto Mono'), url("../static/webfont/Roboto-Mono.ttf") format('truetype');
   font-style: normal;
-  font-weight: 430;
+  font-weight: 400;
   font-stretch: 75% 125%;
 }
 
@@ -121,7 +121,7 @@ main ttypist phrase letter {
 
   font-size: var(--basetext-size);
   font-weight: var(--basetext-weight);
-  font-family: var(--basetext-family);
+  font-family: var(--basetext-family), monospace;
 
   -webkit-font-smoothing: subpixel-antialiased; /* antialiased */
   -moz-osx-font-smoothing: grayscale;
