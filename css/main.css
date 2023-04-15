@@ -110,8 +110,16 @@ main ttypist phrase letter {
   font-weight: var(--basetext-weight);
   font-family: var(--basetext-family);
 
-  -webkit-font-smoothing: subpixel-antialiased; /* antialiased */
-  -moz-osx-font-smoothing: grayscale;
+  /* 
+    antialiased
+      - Smooth the font on the level of the pixel, as opposed to the subpixel.
+        Switching from subpixel rendering to anti-aliasing for light text on 
+        dark backgrounds makes it look lighter.
+    subpixel-antialiased
+      - On most non-retina displays, this will give the sharpest text.
+   */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale; /* for firefox */
 }
 
 .active {
