@@ -5,6 +5,7 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "../include/constant.js";
 import * as Misc from "../utils/misc.js"
 import * as SettingUI from "../ui/SettingUI.js"
+import * as MiscElement from "../HTMLElement/MiscElement.js"
 
 import { time, typedchar, mInput } from "./statskeeper.js";
 import Phrase from "../include/phrase.js";
@@ -178,9 +179,9 @@ function registerkeydown(evt) {
 			}
 		}
 	} else {
-		if ( !Const.nonPrintableCharacter.includes(word.activeletter) ) {
-			word.activeletter.before(getExtraElement(typedchar.value));
-		}
+		// if ( !Const.NOT_PRINTABLE.includes(typedchar.value) ) {
+		// 	word.activeletter.before(getExtraElement(typedchar.value));
+		// }
 	}
 }
 

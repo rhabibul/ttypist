@@ -45,14 +45,14 @@ img#codeforces {
   height: 30px;
   font-size: 1rem;
   font-weight: 500;
-  font-family: var(--fontfamily-nunito);
+  font-family: var(--nunito);
 }
 output {
 	margin-bottom: 10px;
 }
 speed {
   color: gray;
-  font-size: var(--text-fontsize);
-  font-weight: var(--text-fontweight);
-  font-family: var(--text-fontfamily);
+  font-size: var(--basetext-size);
+  font-weight: var(--basetext-weight);
+  font-family: var(--basetext-family);
 }

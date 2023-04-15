@@ -1,16 +1,64 @@
 :root {
-  --fontfamily-nunito: 'Nunito', sans-serif;
-  --fontfamily-monasans: "";;
-  --fontfamily-robotomono: "Roboto Mono", monospace;
+  --nunito: 'Nunito', monospace;
+  --mona-sans: "Mona Sans", monospace;;
+  --roboto-mono: "Roboto Mono", monospace;
   
   --round: 3px;
   --line-gap: 3px;
 
-  --text-color: #3f3f3f;
+  --basetext-color: #3f3f3f;
 
-  --text-fontsize: 1.2rem;
-  --text-fontweight: 400;
-  --text-fontfamily: var(--fontfamily-robotomono)
+  --basetext-size: 1.2rem;
+  --basetext-weight: 450;
+  --basetext-family: var(--roboto-mono);
+}
+
+/* 
+font-stretch
+    ultra-condensed	  50%
+    extra-condensed	  62.5%
+    condensed	        75%
+    semi-condensed	  87.5%
+    normal	          100%
+    semi-expanded	    112.5%
+    expanded	        125%
+    extra-expanded	  150%
+    ultra-expanded	  200%
+*/
+@font-face {
+  font-family: 'Roboto Mono';
+  src: local('Roboto Mono'), local('Roboto Mono'), url("../static/webfont/Roboto-Mono.ttf") format('truetype');
+  font-style: normal;
+  font-weight: 200 700;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"), local("Nunito"), url("../static/webfont/Nunito.ttf") format('truetype');
+  font-style: normal;
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: local("Mona Sans") url("../static/webfont/Mona-Sans.woff2") format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
+.roboto {
+  font-family: var(--roboto-mono);
+}
+.nunito {
+  font-size: 1.5rem;
+  font-family: var(--nunito);
+}
+.mona {
+  font-size: 1.5rem;
+  font-family: var(--mona-sans);
 }
 
 *,
@@ -26,6 +74,8 @@ body {
   width: 100%;
   height: 100%;
 }
+
+
 
 body {
   display: flex;
@@ -69,7 +119,7 @@ main ttypist phrase {
   background-color: var(--caret-color-hidden);
 }
 main ttypist phrase word {
-  color: var(--text-color);
+  color: var(--basetext-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
@@ -81,9 +131,12 @@ main ttypist phrase letter {
   align-items: center;
   justify-content: center;
 
-  font-size: var(--text-fontsize);
-  font-weight: var(--text-fontweight);
-  font-family: var(--text-fontfamily);
+  font-size: var(--basetext-size);
+  font-weight: var(--basetext-weight);
+  font-family: var(--basetext-family);
+
+  -webkit-font-smoothing: subpixel-antialiased; /* antialiased */
+  -moz-osx-font-smoothing: grayscale;
 }
 #wdot {
   padding: 0px 4px;
@@ -93,8 +146,8 @@ main ttypist phrase letter {
   transform: scale(1.33, 1.33);
   font-weight: 800;
 
-  font-size: var(--text-fontsize);
-  font-family: var(--text-fontfamily);
+  font-size: var(--basetext-size);
+  font-family: var(--basetext-family);
 
   display: flex;
   justify-content: center;

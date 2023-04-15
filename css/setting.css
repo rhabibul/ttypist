@@ -10,7 +10,7 @@
 
   --setting-text-color: #323232;
   --setting-text-fontsize: 1rem;
-  --setting-text-fontfamily: var(--fontfamily-robotomono);
+  --setting-text-fontfamily: var(--roboto-mono);
   --setting-text-fontweight: 400;
 
   --active-color: #e17c01;

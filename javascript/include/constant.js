@@ -1,16 +1,29 @@
-const nonPrintableCharacter = [
+export const NOT_PRINTABLE = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
   'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
   'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp', 'PageDown',
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
-const stopper = [ // _ and 0..9 are not considered as stopppers, they're part of text
+export const STOPPER = [ // _ and 0..9 are not considered as stopppers, they're part of text
   '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+',
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
-export {
-  nonPrintableCharacter,
-  stopper,
-};
+const MODIFIER_KEYS = {
+  "ctrlKey": false,
+  "shiftKey": false,
+  "altKey": false,
+  "metaKey": false,
+  "modifierAltGraph": false,
+  "modifierCapsLock": false,
+  "modifierFn": false,
+  "modifierFnLock": false,
+  "modifierHyper": false,
+  "modifierNumLock": false,
+  "modifierScrollLock": false,
+  "modifierSuper": false,
+  "modifierSymbol": false,
+  "modifierSymbolLock": false,
+  // KeyboardEvent.getModifierState(keyArg: string) -> boolean
+}
