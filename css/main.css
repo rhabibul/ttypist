@@ -24,11 +24,9 @@
 
 :root {
   --monospace: monospace;
+  --roboto-mono: "Roboto Mono", monospace;
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
-  --roboto-mono: "Roboto Mono", monospace;
-  --ibm-plex-mono: "IBM Plex Mono", monospace;
-  --source-code-pro: "Source Code Pro", monospace;
   
   --round: 3px;
   --line-gap: 3px;
@@ -36,7 +34,7 @@
   --basetext-color: black;
 
   --basetext-size: 1.25rem;
-  --basetext-weight: 420;
+  --basetext-weight: 435;
   --basetext-family: var(--roboto-mono);
 }
 
