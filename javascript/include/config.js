@@ -11,7 +11,7 @@ export default {
   livestats: false, // update speed, accuracy and other stats on every keystroke
   endtestwithspace: false,
   inputvisible: false, // make user box visible below the words
-  wordunderlined: false, // underline active word
+  underline: false, // underline active word
 
   // use opposite shift keys for shifting, using an incorrect one will count 
   // as an error, ignore B, Y, ^
