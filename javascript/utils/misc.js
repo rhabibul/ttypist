@@ -9,7 +9,6 @@ import * as ConfigHandler from "../handler/confighandler.js";
 import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-import config from "../include/config.js";
 
 export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === 160;
@@ -49,8 +48,9 @@ export function showspeed(lettercount, time) {
 export function randomwords() {
   let words = new Array(Config.phrase.word.count);
   for (let i = 0; i < Config.phrase.word.count; ++i) {
-    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    // words[i] = w1k[Math.floor(Math.random() * w1k.length)];
     // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+    words[i] = rootword[Math.floor(Math.random() * rootword.length)];
   }
   return words;
 }

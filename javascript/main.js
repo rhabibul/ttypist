@@ -5,7 +5,7 @@ import * as SettingUI from "./ui/SettingUI.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 
 function main() {
-	// will be delegated some important tasks in future..
+	// will be delegated tasks later..
 }
 
 window.addEventListener('load', (evt) => {
