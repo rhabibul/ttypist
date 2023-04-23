@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Roboto Mono";
-  src: local("Roboto Mono"), url("../static/webfonts/robotomono.ttf") format("truetype");
+  src: local("Roboto Mono"), url("../assets/webfonts/robotomono.ttf") format("truetype");
   font-style: normal;
   font-weight: 200 700;
   font-stretch: 75% 125%;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito"), url("../static/webfonts/nunito.ttf") format("truetype");
+  src: local("Nunito"), url("../assets/webfonts/nunito.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: local("Mona Sans"), url("../static/webfonts/monasans.woff2") format("woff2-variations");
+  src: local("Mona Sans"), url("../assets/webfonts/monasans.woff2") format("woff2-variations");
   font-style: normal;
   font-weight: 100 900;
   font-stretch: 75% 125%;
@@ -118,8 +118,8 @@ main ttypist phrase letter {
     subpixel-antialiased
       - On most non-retina displays, this will give the sharpest text.
    */
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale; /* for firefox */
+  /* -webkit-font-smoothing: subpixel-antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
 }
 
 .active {

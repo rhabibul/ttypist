@@ -1,6 +1,8 @@
 import Config from "../include/config.js";
-import w1k from "../../static/words/w1k.js";
-import w3k from "../../static/words/w3k.js";
+
+import w1k from "../static/w1k.js";
+import w3k from "../static/w3k.js";
+import rootword from "../static/rootword.js";
 
 import * as Const from "../include/constant.js";
 import * as ConfigHandler from "../handler/confighandler.js";
