@@ -98,8 +98,8 @@ main div.inputarea {
 
 main div.inputarea input {
   width: 96%;
-  height: 70%;
-  /* height: 35px; */
+  /* height: 70%; */
+  height: 35px;
 
   outline: none;
   border: 1px solid rgb(232, 232, 232);
