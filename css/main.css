@@ -176,7 +176,3 @@ phrase word letter {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
-
-fullscreen {
-  font-size: 1.3rem;
-}

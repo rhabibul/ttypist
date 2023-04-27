@@ -1,5 +1,5 @@
 import Config from "../include/config.js"
-import { word } from "../testlogic/logic.js";
+import { Test, word } from "../testlogic/logic.js";
 
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
@@ -10,6 +10,9 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 // input field
 TestAreaElement.phrase.addEventListener("click", () => { TestAreaElement.input.focus(); });
+
+// reset button
+SettingElement.reset.addEventListener("click", (evt) => { Test.restart(); });
 
 // caret
 SettingElement.caret.off.addEventListener("click", updatecaret);
@@ -45,3 +48,16 @@ function updatecaret(evt) {
 
   Misc.storeConfigInLocalStorage(); // store config in local storage
 }
+
+SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
+
+	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
+		SettingElement.enterFullscreen.classList.add("hidden");
+		SettingElement.exitFullscreen.classList.remove("hidden");
+		document.documentElement.requestFullscreen();
+	} else {
+		SettingElement.exitFullscreen.classList.add("hidden");
+		SettingElement.enterFullscreen.classList.remove("hidden");
+		document.exitFullscreen();
+	}
+});

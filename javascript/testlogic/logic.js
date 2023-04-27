@@ -1,11 +1,9 @@
 import Config from "../include/config.js";
-import * as ConfigHandler from "../handler/confighandler.js";
 import * as CaretHandler from "../handler/carethandler.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import * as Const from "../include/constant.js";
-import * as Misc from "../utils/misc.js"
-import * as SettingUI from "../ui/SettingUI.js"
-import * as MiscElement from "../HTMLElement/MiscElement.js"
+import * as Misc from "../utils/misc.js";
+import * as SettingElement from "../HTMLElement/SettingElement.js";
 
 import { time, typedchar, mInput } from "./statskeeper.js";
 import Phrase from "../include/phrase.js";
@@ -119,7 +117,6 @@ function registerkeydown(evt) {
 
 	typedchar.reset();
   typedchar.value = evt.key;
-
 
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 

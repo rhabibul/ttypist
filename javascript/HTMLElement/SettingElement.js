@@ -1,4 +1,4 @@
-export const reset = document.getElementsByTagName("reset")[0];
+export const reset = document.querySelector(`button[type="reset"]`);
 
 export const caret = {
 	off: document.querySelector("caret off"),
@@ -8,6 +8,6 @@ export const caret = {
 	block: document.querySelector("caret block"),
 };
 
-export const fullscreenIconContainer = document.getElementsByTagName("fullscreen")[0];
-export const enter_fullscreen = document.querySelector("fullscreen i.fa-expand");
-export const exit_fullscreen = document.querySelector("fullscreen i.fa-compress");
+export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
+export const enterFullscreen = document.querySelector("button i.fa-expand");
+export const exitFullscreen = document.querySelector("button i.fa-compress");

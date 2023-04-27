@@ -57,3 +57,36 @@ speed {
   font-weight: var(--basetext-weight);
   font-family: monospace;
 }
+
+div.tmp {
+  width: 120px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+button {
+  border-radius: var(--round);
+  font-size: 1.25rem;
+  outline-offset: 0px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  border: 1px solid rgb(230, 230, 230);
+
+  padding: 4px 5px;
+  color: gray;
+  background-color: white;
+}
+button:focus {
+  border: none;  
+  outline: none;
+  font-size: 1.25rem;
+  outline-offset: 0px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: var(--active-backgroundcolor);
+  border: 1px solid #ffb65d;
+  color: var(--active-color);
+  background-color: white;
+}
