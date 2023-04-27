@@ -25,7 +25,7 @@ export default class Phrase {
     	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
     }
     
-    this.#words[this.#wordindex].classList.add("underline-word");
+    this.#words[this.#wordindex].classList.add("underlined");
   }
 
   get size() {
