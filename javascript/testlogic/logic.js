@@ -53,7 +53,7 @@ function registerinput(evt) {
 		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
 
 		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
-			
+
 			CaretHandler.removecaretfrom(word.activeletter);
 			if ( phrase.activewordindex > 0 ) {
 				phrase.prevword.classList.remove("underlined");
@@ -175,7 +175,9 @@ function registerkeydown(evt) {
 				}
 
 				CaretHandler.removecaretfrom(word.activeletter);
+				removeunderline(word.me());
 				word.loadword(phrase.prevword, { prevword: true });
+				addunderline(word.me());
 				CaretHandler.addcaretto(word.activeletter);
 			}
 
@@ -191,7 +193,9 @@ function registerkeydown(evt) {
 				CaretHandler.addcaretto(word.prevletter);
 			} else if ( word.activeletterindex === 0 && phrase.activewordindex > 0 ) {
 				CaretHandler.removecaretfrom(word.activeletter);
+				removeunderline(word.me());
 				word.loadword(phrase.prevword, { prevword: true });
+				if ( ! Misc.isspace(word.me()) ) addunderline(word.me());
 				CaretHandler.addcaretto(word.activeletter);
 			}
 		}
