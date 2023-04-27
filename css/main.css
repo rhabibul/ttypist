@@ -23,18 +23,18 @@
 }
 
 :root {
-  --monospace: monospace;
+  --monospace: monospace; 
   --roboto-mono: "Roboto Mono", monospace;
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   
-  --round: 3px;
-  --line-gap: 3px;
+  --round: 0px;
+  --line-gap: 0px;
 
-  --basetext-color: black;
+  --basetext-color: rgb(61, 61, 61);
 
-  --basetext-size: 1.25rem;
-  --basetext-weight: 435;
+  --basetext-size: 1.2rem;
+  --basetext-weight: 450;
   --basetext-family: var(--roboto-mono);
 }
 
@@ -56,7 +56,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  row-gap: 10px ;
 }
 
 main {
@@ -118,25 +119,21 @@ main ttypist phrase letter {
     subpixel-antialiased
       - On most non-retina displays, this will give the sharpest text.
    */
-  /* -webkit-font-smoothing: subpixel-antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .active {
-  color: black; 
+  color: black;
 }
-.error {
-  /* border bottom will be used instead of text decoration later */
-  /* border bottom on all letters of a word will give the word continous 
-     underline unlike text-decoration, but the way now line and box caret is
-     implemented makes this hack also obselete.. */
+.underlined {
   text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-style: solid;
-  text-decoration-color: red;
   text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-style: solid;
+  text-decoration-color: rgb(94, 94, 94);
 }
-.extra { 
+.extra {
   color: #ae0000;
 }
 .fade {

@@ -48,9 +48,9 @@ export function showspeed(lettercount, time) {
 export function randomwords() {
   let words = new Array(Config.phrase.word.count);
   for (let i = 0; i < Config.phrase.word.count; ++i) {
-    // words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
     // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
-    words[i] = rootword[Math.floor(Math.random() * rootword.length)];
+    // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
   }
   return words;
 }

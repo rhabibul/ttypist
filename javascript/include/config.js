@@ -69,7 +69,7 @@ export default {
 
   phrase: {
     word: {
-      count: 20,
+      count: 15,
       averagelength: "mixed", // mixed | small(<5) | medium(>=5, <=8) | long(>8)
     },
     include: {

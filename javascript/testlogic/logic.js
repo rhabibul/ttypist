@@ -11,8 +11,8 @@ import { time, typedchar, mInput } from "./statskeeper.js";
 import Phrase from "../include/phrase.js";
 import Word from "../include/word.js";
 
-const phrase = new Phrase(Misc.wordelements(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog' ]));
-const word = new Word(phrase.activeword);
+const phrase = new Phrase();
+const word = new Word();
 
 export const Test = {
 	init() {
@@ -87,6 +87,13 @@ function registerinput(evt) {
 	mInput.reset();
 }
 
+function removeunderline(word) {
+	word.classList.remove("underlined");
+}
+function addunderline(word) {
+	word.classList.add("underlined");
+}
+
 function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
@@ -108,11 +115,20 @@ function registerkeydown(evt) {
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
 		CaretHandler.removecaretfrom(word.activeletter);
+		
+		if ( phrase.activewordindex > 0 ) {
+			phrase.prevword.classList.remove("underlined");
+			phrase.incrementwordindex();
+		}
+		
 		word.loadword(phrase.nextword, { nextword: true });
+
+		addunderline(phrase.activeword);
+
 		CaretHandler.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
-
+		
 		CaretHandler.removecaretfrom(word.activeletter);
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -180,20 +196,13 @@ function registerkeydown(evt) {
 		}
 	} else {
 		// if ( !Const.NOT_PRINTABLE.includes(typedchar.value) ) {
-		// 	word.activeletter.before(getExtraElement(typedchar.value));
+		// 	word.activeletter.classList.add("underlined");
 		// }
 	}
 }
 
 function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
-}
-
-function getExtraElement(content) {
-	const letter = document.createElement("letter");
-	letter.classList.add("incorrect");
-	letter.textContent = content;
-	return letter;
 }
 
 export { phrase, word };

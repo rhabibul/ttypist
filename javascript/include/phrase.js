@@ -4,22 +4,15 @@ export default class Phrase {
   #words; // array of <word></word> tag which contains <letter></letter> tags
   #wordindex; // keeps track of the index of <word></word> tag
 
-  constructor(words) {
-    this.#words = words;
+  constructor() {
+    this.#words = new Array();
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
     TestAreaElement.phrase.innerHTML = "";
-    this.loadWordsOnDOM();
   }
 
   text() {} // phrase.text();
-
-  loadWordsOnDOM() {
-    for ( const word of this.#words ) {
-    	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
-    }
-  }
 
   loadwords(words) {
     this.#words = words;
@@ -27,9 +20,12 @@ export default class Phrase {
     
     TestAreaElement.input.value = "";
     TestAreaElement.phrase.innerHTML = "";
+
     for ( const word of this.#words ) {
     	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
     }
+    
+    this.#words[this.#wordindex].classList.add("underline-word");
   }
 
   get size() {

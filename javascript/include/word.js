@@ -2,9 +2,9 @@ export default class Word {
   #word; // contains all <letter></letter> tags for a single <word></word> tag
   #letterindex; // keeps track of the index of <letter></letter> tag
 
-  constructor(word) {
+  constructor() {
     this.#letterindex = 0;
-    this.#word = Array.from(word?.children);
+    this.#word = new Array();
   }
 
   text() {} // word.text()
