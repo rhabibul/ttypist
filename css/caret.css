@@ -1,6 +1,6 @@
 :root {
   /* caret color */
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white;
   
   /* caret animation (blink duration, count, rhythm, delay) */
@@ -35,6 +35,7 @@
 /*----------------- underline -----------------*/
 #underline {
   border-bottom-color: var(--caret-color);
+  /* text-decoration-color: var(--caret-color); */
   animation-name: animate-unerline;
 }
 .underline {
@@ -42,6 +43,13 @@
   border-left: none;
   border-right: none;
   border-bottom: var(--caret-width-underline) solid var(--caret-color-hidden);
+
+  /* text-underline-offset: 4px; */
+  /* text-decoration-thickness: 2px; */
+  /* text-decoration-style: solid; */
+  /* text-decoration-line: underline; */
+  /* text-decoration-color: var(--caret-color-hidden); */
+
 
   animation-delay: var(--caret-animation-delay);
   animation-duration: var(--caret-animation-duration);
@@ -52,10 +60,12 @@
   0%,
   50% {
     border-bottom-color: var(--caret-color);
+    /* text-decoration-color: var(--caret-color); */
   }
   51%,
   100% {
     border-bottom-color: var(--caret-color-hidden);
+    /* text-decoration-color: var(--caret-color-hidden); */
   }
 }
 

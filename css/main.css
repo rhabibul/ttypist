@@ -31,7 +31,7 @@
   --round: 0px;
   --line-gap: 0px;
 
-  --basetext-color: rgb(52, 52, 52);
+  --basetext-color: rgb(77, 77, 77);
 
   --basetext-size: 1.2rem;
   --basetext-weight: 450;
@@ -86,23 +86,22 @@ main phrase {
 }
 
 main div.inputarea {
-  width: 60%;
+  width: 100%;
   height: 50px;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: rgb(244, 244, 244);
 }
 
 main div.inputarea input {
-  width: 96%;
-  /* height: 70%; */
-  height: 35px;
+  width: 50%;
 
-  outline: none;
-  border: 1px solid rgb(232, 232, 232);
+  outline-offset: 0px;
+  outline-width: 8px;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  border: 1px solid rgb(230, 230, 230);
 
   padding: 4px;
   font-size: 1.2rem;
@@ -166,7 +165,7 @@ phrase word letter {
 .hidden {
   display: none;
 }
-.hide-input {
+.invisibleinput {
   display: block;
   margin: 0px;
   padding: 0px;

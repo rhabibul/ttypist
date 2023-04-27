@@ -127,7 +127,7 @@ function registerkeydown(evt) {
 		
 		CaretHandler.removecaretfrom(word.activeletter);
 		if ( phrase.activewordindex > 0 ) {
-			phrase.prevword.classList.remove("underlined");
+			removeunderline(phrase.prevword);
 			phrase.incrementwordindex();
 		}
 		word.loadword(phrase.nextword, { nextword: true });
@@ -191,13 +191,19 @@ function registerkeydown(evt) {
 		} else { // backspace
 
 			if ( word.activeletterindex > 0 ) {
+
 				CaretHandler.removecaretfrom(word.activeletter);
 				CaretHandler.addcaretto(word.prevletter);
+				
 			} else if ( word.activeletterindex === 0 && phrase.activewordindex > 0 ) {
+
 				CaretHandler.removecaretfrom(word.activeletter);
+
 				removeunderline(word.me());
+				
 				word.loadword(phrase.prevword, { prevword: true });
-				if ( Misc.isspace(word.me()) ) {
+
+				if ( Misc.isspace(word.me()) ) {	
 					if ( phrase.activewordindex > 0 ) {
 						phrase.decrementwordindex();
 						addunderline(phrase.activeword);
