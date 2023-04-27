@@ -14,17 +14,19 @@ import Word from "../include/word.js";
 const phrase = new Phrase();
 const word = new Word();
 
+let wasSpace = false;
+
 export const Test = {
 	init() {
 		Config.ttypist.istyping = false;
-		TestAreaElement.input.value = "";
-
+		Config.ttypist.hastypedeveryword = false;
 		CaretHandler.addcaretto(word.activeletter);
 
 		// InputElement.value | InputEvent.data
 		TestAreaElement.input.addEventListener("input", registerinput);
 		TestAreaElement.input.addEventListener("keydown", registerkeydown);
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);		
+		TestAreaElement.input.value = "";
 		TestAreaElement.input.focus();
 	},
 	restart() {
@@ -119,17 +121,19 @@ function registerkeydown(evt) {
 
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
+		wasSpace = true;
+		
 		CaretHandler.removecaretfrom(word.activeletter);
 		if ( phrase.activewordindex > 0 ) {
 			phrase.prevword.classList.remove("underlined");
 			phrase.incrementwordindex();
-		}		
+		}
 		word.loadword(phrase.nextword, { nextword: true });
 		addunderline(phrase.activeword);
 		CaretHandler.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
-		
+
 		CaretHandler.removecaretfrom(word.activeletter);
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -137,6 +141,7 @@ function registerkeydown(evt) {
 		} else {
 
 			if ( word.activeletterindex === word.lastletterindex ) { // load next word
+
 				if ( phrase.activewordindex < phrase.lastwordindex ) {
 					word.loadword(phrase.nextword, { nextword: true });
 					CaretHandler.addcaretto(word.activeletter);
@@ -144,19 +149,14 @@ function registerkeydown(evt) {
 
 				if ( phrase.activewordindex === phrase.lastwordindex ) { // test complete
 					time.end = window.performance.now();
-					CaretHandler.removecaretfrom(word.activeletter);
-	
-					TestAreaElement.input.removeEventListener('input', registerinput);
-					TestAreaElement.input.removeEventListener('keydown', registerkeydown);
-					TestAreaElement.input.removeEventListener('keyup', registerkeyup);
-	
-					Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
-					Test.restart();
+					Config.ttypist.hastypedeveryword = true;
+					return;
 				}
 			}	
 		}
 	} else if ( typedchar.value === "Backspace" ) { // deletion
 
+		// caret is on first letter of first word, so no deletion
 		if ( word.activeletterindex === 0 && phrase.activewordindex === 0 ) return;
 
 		if ( evt.metaKey ) { // cmd + backspace
@@ -195,7 +195,15 @@ function registerkeydown(evt) {
 				CaretHandler.removecaretfrom(word.activeletter);
 				removeunderline(word.me());
 				word.loadword(phrase.prevword, { prevword: true });
-				if ( ! Misc.isspace(word.me()) ) addunderline(word.me());
+				if ( Misc.isspace(word.me()) ) {
+					if ( phrase.activewordindex > 0 ) {
+						phrase.decrementwordindex();
+						addunderline(phrase.activeword);
+						phrase.incrementwordindex();
+					}
+				} else {
+					addunderline(word.me());
+				}
 				CaretHandler.addcaretto(word.activeletter);
 			}
 		}
@@ -208,6 +216,20 @@ function registerkeydown(evt) {
 
 function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
+
+	if ( wasSpace ) {
+		TestAreaElement.input.value = "";
+		wasSpace = false;
+	}
+
+	if ( Config.ttypist.hastypedeveryword ) {
+		CaretHandler.removecaretfrom(word.activeletter);
+		TestAreaElement.input.removeEventListener('input', registerinput);
+		TestAreaElement.input.removeEventListener('keydown', registerkeydown);
+		TestAreaElement.input.removeEventListener('keyup', registerkeyup);
+		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
+		Test.restart();
+	}
 }
 
 export { phrase, word };

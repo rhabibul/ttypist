@@ -31,7 +31,7 @@
   --round: 0px;
   --line-gap: 0px;
 
-  --basetext-color: rgb(61, 61, 61);
+  --basetext-color: rgb(52, 52, 52);
 
   --basetext-size: 1.2rem;
   --basetext-weight: 450;
@@ -61,47 +61,64 @@ body {
 }
 
 main {
-  width: 100%;
+  height: 200px;
+  max-width: 800px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-}
-main ttypist {
-  max-width: 800px;
-  margin-left: 15px;
-}
-main ttypist input {
-  margin: 0px;
-  padding: 0px;
-  display: block;
-  width: 1px;
-  height: 1px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
-main ttypist phrase {
-  user-select: none;
+  row-gap: 20px;
 
+  padding: 0px 10px;
+}
+
+main phrase {
+  width: 100%;
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
   align-content: flex-start; /* determines the spacing between lines */
   justify-content: flex-start;
   flex-wrap: wrap;
 
+  user-select: none;
   row-gap: var(--line-gap);
   background-color: var(--caret-color-hidden);
 }
-main ttypist phrase word {
+
+main div.inputarea {
+  width: 60%;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(244, 244, 244);
+}
+
+main div.inputarea input {
+  width: 96%;
+  height: 70%;
+  /* height: 35px; */
+
+  outline: none;
+  border: 1px solid rgb(232, 232, 232);
+
+  padding: 0px 4px;
+  font-size: 1.2rem;
+  color: rgb(156, 156, 156);
+  font-family: "Roboto Mono", monospace;
+}
+
+
+phrase word {
   color: var(--basetext-color);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
   justify-content: flex-start;
 }
-main ttypist phrase letter {
+phrase word letter {
   height: 100%;
   display: flex;
   align-items: center;
@@ -110,8 +127,12 @@ main ttypist phrase letter {
   font-size: var(--basetext-size);
   font-weight: var(--basetext-weight);
   font-family: var(--basetext-family);
+  
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  /* 
+/* 
     antialiased
       - Smooth the font on the level of the pixel, as opposed to the subpixel.
         Switching from subpixel rendering to anti-aliasing for light text on 
@@ -119,9 +140,6 @@ main ttypist phrase letter {
     subpixel-antialiased
       - On most non-retina displays, this will give the sharpest text.
    */
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 .active {
   color: black;
@@ -131,7 +149,7 @@ main ttypist phrase letter {
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
   text-decoration-style: solid;
-  text-decoration-color: rgb(94, 94, 94);
+  text-decoration-color: black;
 }
 .extra {
   color: #ae0000;
@@ -144,4 +162,22 @@ main ttypist phrase letter {
 }
 .correct {
   color: green;
+}
+.hidden {
+  display: none;
+}
+.hide-input {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+
+fullscreen {
+  font-size: 1.3rem;
 }

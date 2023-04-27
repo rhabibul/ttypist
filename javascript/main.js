@@ -22,3 +22,31 @@ window.addEventListener('load', (evt) => {
 		Test.restart();
 	}
 });
+
+window.addEventListener("offline", (evt) => {
+	console.log("You're offline.");
+});
+
+window.addEventListener("online", (evt) => {
+	console.log("You're online.");
+})
+
+SettingElement.fullscreenIconContainer.addEventListener("click", (evt) => {
+
+	if (!document.fullscreenElement && !SettingElement.enter_fullscreen.classList.contains("hidden")) {
+		SettingElement.enter_fullscreen.classList.add("hidden");
+		SettingElement.exit_fullscreen.classList.remove("hidden");
+		document.documentElement.requestFullscreen();
+	} else {
+		SettingElement.exit_fullscreen.classList.add("hidden");
+		SettingElement.enter_fullscreen.classList.remove("hidden");
+		document.exitFullscreen();
+	}
+});
+
+
+// english
+// hindi
+// bengali
+// urdu
+// arabic

@@ -2,6 +2,7 @@ export default {
 
   ttypist: {
     istyping: false,
+    hastypedeveryword: false,
     deviceinformation: "",
   },
 
@@ -69,7 +70,7 @@ export default {
 
   phrase: {
     word: {
-      count: 15,
+      count: 25,
       averagelength: "mixed", // mixed | small(<5) | medium(>=5, <=8) | long(>8)
     },
     include: {
