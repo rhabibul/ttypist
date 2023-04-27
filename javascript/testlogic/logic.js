@@ -53,9 +53,14 @@ function registerinput(evt) {
 		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
 
 		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
-
+			
 			CaretHandler.removecaretfrom(word.activeletter);
+			if ( phrase.activewordindex > 0 ) {
+				phrase.prevword.classList.remove("underlined");
+				phrase.incrementwordindex();
+			}		
 			word.loadword(phrase.nextword, { nextword: true });
+			addunderline(phrase.activeword);
 			CaretHandler.addcaretto(word.activeletter);
 			
 		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
@@ -115,16 +120,12 @@ function registerkeydown(evt) {
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
 		CaretHandler.removecaretfrom(word.activeletter);
-		
 		if ( phrase.activewordindex > 0 ) {
 			phrase.prevword.classList.remove("underlined");
 			phrase.incrementwordindex();
-		}
-		
+		}		
 		word.loadword(phrase.nextword, { nextword: true });
-
 		addunderline(phrase.activeword);
-
 		CaretHandler.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
