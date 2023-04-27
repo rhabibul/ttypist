@@ -56,6 +56,8 @@ function registerinput(evt) {
 
 		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
 
+			TestAreaElement.input.value = "";
+			
 			CaretHandler.removecaretfrom(word.activeletter);
 			if ( phrase.activewordindex > 0 ) {
 				phrase.prevword.classList.remove("underlined");

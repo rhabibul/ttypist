@@ -104,7 +104,7 @@ main div.inputarea input {
   outline: none;
   border: 1px solid rgb(232, 232, 232);
 
-  padding: 0px 4px;
+  padding: 4px;
   font-size: 1.2rem;
   color: rgb(156, 156, 156);
   font-family: "Roboto Mono", monospace;
