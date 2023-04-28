@@ -95,7 +95,7 @@ main div.inputarea {
 }
 
 main div.inputarea input {
-  width: 60%;
+  /* width: 60%;
 
   outline-offset: 0px;
   outline-width: 8px;
@@ -106,7 +106,17 @@ main div.inputarea input {
   padding: 4px;
   font-size: 1.2rem;
   color: rgb(156, 156, 156);
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", monospace; */
+
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
 }
 
 
@@ -164,15 +174,4 @@ phrase word letter {
 }
 .hidden {
   display: none;
-}
-.invisibleinput {
-  display: block;
-  margin: 0px;
-  padding: 0px;
-  width: 1px;
-  height: 1px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
 }

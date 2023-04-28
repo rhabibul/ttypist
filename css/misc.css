@@ -65,28 +65,20 @@ div.tmp {
   align-items: center;
   justify-content: space-evenly;
 }
+button i {
+  transform: translateY(1px);
+}
 button {
-  border-radius: var(--round);
   font-size: 1.25rem;
-  outline-offset: 0px;
-  outline-width: 4px;
-  outline-style: solid;
-  outline-color: whitesmoke;
+  border-radius: 3px;
   border: 1px solid rgb(230, 230, 230);
-
-  padding: 4px 5px;
+  padding: 4px 6px;
   color: gray;
   background-color: white;
 }
 button:focus {
-  border: none;  
   outline: none;
-  font-size: 1.25rem;
-  outline-offset: 0px;
-  outline-width: 4px;
-  outline-style: solid;
-  outline-color: var(--active-backgroundcolor);
-  border: 1px solid #ffb65d;
-  color: var(--active-color);
+  color: black;
   background-color: white;
+  border: 1px solid black;
 }
