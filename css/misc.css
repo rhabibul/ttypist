@@ -70,15 +70,14 @@ button i {
 }
 button {
   font-size: 1.25rem;
-  border-radius: 3px;
-  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
   padding: 4px 6px;
-  color: gray;
+  color: darkgray;
   background-color: white;
+  border: 1px solid rgb(238, 238, 238);
 }
 button:focus {
   outline: none;
   color: black;
   background-color: white;
-  border: 1px solid black;
 }

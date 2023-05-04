@@ -94,11 +94,16 @@ function registerinput(evt) {
 	mInput.reset();
 }
 
-function removeunderline(word) {
-	word.classList.remove("underlined");
+export function removeunderline(word) {
+	for ( const letter of word.children ) {
+		letter.classList.remove("underlined");
+	}
 }
-function addunderline(word) {
-	word.classList.add("underlined");
+
+export function addunderline(word) {
+	for (const letter of word.children ) {	
+		letter.classList.add("underlined");
+	}
 }
 
 function registerkeydown(evt) {
@@ -134,6 +139,9 @@ function registerkeydown(evt) {
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
 
 		CaretHandler.removecaretfrom(word.activeletter);
+
+		word.activeletter.classList.add("correct");
+		word.activeletter.style["text-decoration-color"] = "#99cc00"
 
 		if ( word.activeletterindex < word.lastletterindex ) {
 			CaretHandler.addcaretto(word.nextletter);
@@ -189,8 +197,12 @@ function registerkeydown(evt) {
 
 			if ( word.activeletterindex > 0 ) {
 
+				console.log(word.activeletter.textContent);
+				word.activeletter.style.color = "var(--basetext-color)";
+				word.activeletter.style["text-decoration-color"] = "#3e3e3e"
 				CaretHandler.removecaretfrom(word.activeletter);
 				CaretHandler.addcaretto(word.prevletter);
+
 				
 			} else if ( word.activeletterindex === 0 && phrase.activewordindex > 0 ) {
 

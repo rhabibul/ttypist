@@ -1,4 +1,5 @@
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import { addunderline, removeunderline } from "../testlogic/logic.js";
 
 export default class Phrase {
   #words; // array of <word></word> tag which contains <letter></letter> tags
@@ -25,7 +26,7 @@ export default class Phrase {
     	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
     }
     
-    this.#words[this.#wordindex].classList.add("underlined");
+    addunderline(this.#words[this.#wordindex]);
   }
 
   get size() {

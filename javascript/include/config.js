@@ -1,29 +1,22 @@
 export default {
-
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
-    deviceinformation: "",
+    deviceinformation: "comma,separated,value",
   },
-
-  capslock: false, // warn the user their capslock is on
-  outoffocus: false, // warn the user the test area is out of focus
-
-  livestats: false, // update speed, accuracy and other stats on every keystroke
-  endtestwithspace: false,
-  inputvisible: false, // make user box visible below the words
-  underline: false, // underline active word
-
-  // use opposite shift keys for shifting, using an incorrect one will count 
-  // as an error, ignore B, Y, ^
-  oppositeshift: false,
-
+  warning: {
+    off: true,
+    capslock: false,
+    outoffocus: false,
+  },
   caret: {
     off: false,
     type: "line", // line, underline, box, block
   },
-
-  fliptextcolor: false, // brightness of typed text and future text
+  oppositeshift: false, // ignore B, Y, ^
+  endtestwithspace: false,
+  underline: false, // underline active word
+  fliptextcolor: false, // brightness of typed & future texts
   highlight: {
     off: false,
     mode: {
@@ -31,21 +24,13 @@ export default {
       letter: true,
     },
   },
-
-  // difficulty
-  //    normal: classic typing experience
-  //    expert: fails the test if user submits an incorrect word
-  //    master: fails the test if user types a single incorrect letter
-  difficulty: "classic", // classic | expert | master
-  
   confidence: {
     off: true,
     mode: {
-      pro: false, // can fix current word errors, but not previous words
-      max: false, // if true then don't allow backspace at all to fix errors
+      pro: false, // can fix current word errors, but cannot previous words
+      max: false, // if true then don't allow backspace at all to fix errors (backspace.off = true)
     }
   },
-
   backspace: {
     off: false,
     modifier: {
@@ -54,11 +39,12 @@ export default {
       meta: false,
     },
   },
-
+  // easy is classical typing experience, expert ends test if incorrect word is submitted,
+  // master ends test if single incorrect letter is submitted
+  difficulty: "easy", // easy | expert | master
   error: {
-    insert: true, // insert extra letter typed
-    forgive: true, // delete all inserted extra letters as soon user types in active letter correctly
-
+    insert: true, // insert extra incorrect letter
+    forgive: true, // delete all inserted extra letters as soon user types correct letter
     stopOnError: {
       off: false,
       at: {
@@ -67,11 +53,11 @@ export default {
       },
     },
   },
-
   phrase: {
     word: {
+      type: "dictionary", // dictionary | rootwords | lorem epsum
+      length: "average", // small(<5) | average(>=5, <8), | long(>= 8)
       count: 25,
-      averagelength: "mixed", // mixed | small(<5) | medium(>=5, <=8) | long(>8)
     },
     include: {
       digit: false, // include numbers along with words
@@ -81,7 +67,6 @@ export default {
 };
 
 const later = {
-
   practice: {
     off: true,
     guidedlessions: false, // guided lessons
@@ -96,7 +81,6 @@ const later = {
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
     specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
   },
-
   keyboard: {
     layout: "qwerty", // keyboard layout
     emulate: false, // emulate other keyboard layouts

@@ -31,9 +31,9 @@
   --round: 0px;
   --line-gap: 0px;
 
-  --basetext-color: rgb(77, 77, 77);
+  --basetext-color: #3e3e3e;
 
-  --basetext-size: 1.2rem;
+  --basetext-size: 1.1rem;
   --basetext-weight: 450;
   --basetext-family: var(--roboto-mono);
 }
@@ -62,7 +62,7 @@ body {
 
 main {
   height: 200px;
-  max-width: 800px;
+  max-width: 750px;
 
   display: flex;
   flex-direction: column;
@@ -94,31 +94,6 @@ main div.inputarea {
   align-items: center;
 }
 
-main div.inputarea input {
-  /* width: 60%;
-
-  outline-offset: 0px;
-  outline-width: 8px;
-  outline-style: solid;
-  outline-color: whitesmoke;
-  border: 1px solid rgb(230, 230, 230);
-
-  padding: 4px;
-  font-size: 1.2rem;
-  color: rgb(156, 156, 156);
-  font-family: "Roboto Mono", monospace; */
-
-  display: block;
-  margin: 0px;
-  padding: 0px;
-  width: 1px;
-  height: 1px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
-
 
 phrase word {
   color: var(--basetext-color);
@@ -142,36 +117,69 @@ phrase word letter {
 }
 
 /* 
-    antialiased
-      - Smooth the font on the level of the pixel, as opposed to the subpixel.
-        Switching from subpixel rendering to anti-aliasing for light text on 
-        dark backgrounds makes it look lighter.
-    subpixel-antialiased
-      - On most non-retina displays, this will give the sharpest text.
-   */
+antialiased
+  - Smooth the font on the level of the pixel, as opposed to the subpixel.
+    Switching from subpixel rendering to anti-aliasing for light text on 
+    dark backgrounds makes it look lighter.
+subpixel-antialiased
+  - On most non-retina displays, this will give the sharpest text.
+*/
 
+  main div.inputarea input {
+  /* width: 60%;
+
+  outline-offset: 0px;
+  outline-width: 8px;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  border: 1px solid rgb(230, 230, 230);
+
+  padding: 4px;
+  font-size: 1.2rem;
+  color: rgb(156, 156, 156);
+  font-family: "Roboto Mono", monospace; */
+
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+  
 .active {
   color: black;
 }
 .underlined {
   text-decoration-line: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 1px;
   text-decoration-thickness: 1px;
   text-decoration-style: solid;
-  text-decoration-color: black;
+  text-decoration-color: var(--basetext-color);
+}
+.correct {
+  color: #99cc00;
 }
 .extra {
   color: #ae0000;
 }
 .fade {
-  color: rgb(155, 155, 155);
+  color: #9b9b9b;
 }
 .incorrect {
   color: red;
 }
-.correct {
-  color: green;
-}
 .hidden {
   display: none;
+}
+.error {
+  color: #d50000;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+  text-decoration-color: #ff0000;
 }
