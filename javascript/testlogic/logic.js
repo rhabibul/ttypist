@@ -58,7 +58,7 @@ function registerinput(evt) {
 			
 			CaretHandler.removecaretfrom(word.activeletter);
 			if ( phrase.activewordindex > 0 ) {
-				phrase.prevword.classList.remove("underlined");
+				phrase.prevword.classList.remove("wordunderline");
 				phrase.incrementwordindex();
 			}		
 			word.loadword(phrase.nextword, { nextword: true });
@@ -94,15 +94,20 @@ function registerinput(evt) {
 	mInput.reset();
 }
 
+export function removeUnderlineForLetter(letter) {
+	letter.style["text-decoration-color"] = "#3e3e3e"
+	letter.classList.remove("correct");
+}
+
 export function removeunderline(word) {
 	for ( const letter of word.children ) {
-		letter.classList.remove("underlined");
+		letter.classList.remove("wordunderline");
 	}
 }
 
 export function addunderline(word) {
 	for (const letter of word.children ) {	
-		letter.classList.add("underlined");
+		letter.classList.add("wordunderline");
 	}
 }
 
@@ -182,9 +187,7 @@ function registerkeydown(evt) {
 				}
 
 				CaretHandler.removecaretfrom(word.activeletter);
-				removeunderline(word.me());
 				word.loadword(phrase.prevword, { prevword: true });
-				addunderline(word.me());
 				CaretHandler.addcaretto(word.activeletter);
 			}
 
@@ -197,36 +200,32 @@ function registerkeydown(evt) {
 
 			if ( word.activeletterindex > 0 ) {
 
-				console.log(word.activeletter.textContent);
-				word.activeletter.style.color = "var(--basetext-color)";
-				word.activeletter.style["text-decoration-color"] = "#3e3e3e"
+				
+				removeUnderlineForLetter(word.activeletter);
 				CaretHandler.removecaretfrom(word.activeletter);
 				CaretHandler.addcaretto(word.prevletter);
-
+				removeUnderlineForLetter(word.activeletter);
 				
 			} else if ( word.activeletterindex === 0 && phrase.activewordindex > 0 ) {
 
 				CaretHandler.removecaretfrom(word.activeletter);
-
 				removeunderline(word.me());
-				
 				word.loadword(phrase.prevword, { prevword: true });
-
-				if ( Misc.isspace(word.me()) ) {	
+				
+				if ( Misc.isspace(word.activeletter) ) {
 					if ( phrase.activewordindex > 0 ) {
 						phrase.decrementwordindex();
 						addunderline(phrase.activeword);
 						phrase.incrementwordindex();
 					}
-				} else {
-					addunderline(word.me());
 				}
+				removeUnderlineForLetter(word.activeletter)
 				CaretHandler.addcaretto(word.activeletter);
 			}
 		}
 	} else {
 		// if ( !Const.NOT_PRINTABLE.includes(typedchar.value) ) {
-		// 	word.activeletter.classList.add("underlined");
+		// 	word.activeletter.classList.add("wordunderline");
 		// }
 	}
 }

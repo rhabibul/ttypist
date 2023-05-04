@@ -55,7 +55,7 @@ speed {
   color: gray;
   font-size: var(--basetext-size);
   font-weight: var(--basetext-weight);
-  font-family: monospace;
+  font-family: var(--basetext-family);
 }
 
 div.tmp {
