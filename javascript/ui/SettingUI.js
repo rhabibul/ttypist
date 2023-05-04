@@ -7,10 +7,6 @@ const active_bgcolor = Misc.computedstyles.getPropertyValue("--active-background
 const inactive_color = Misc.computedstyles.getPropertyValue("--inactive-color");
 const inactive_bgcolor = Misc.computedstyles.getPropertyValue("--inactive-backgroundcolor");
 
-const off_color = Misc.computedstyles.getPropertyValue("--off-color");
-const off_color_faded = Misc.computedstyles.getPropertyValue("--off-color-faded");
-const off_bgcolor = Misc.computedstyles.getPropertyValue("--off-backgroundcolor");
-
 function colorshapeof(caret, caretIsActive) {
 
 	const shape = document.querySelector(`caret ${caret.dataset.type} shape`);
@@ -51,13 +47,10 @@ function colorshapeof(caret, caretIsActive) {
 			shape.style.backgroundColor = inactive_bgcolor;
 		}
 	} else {
-		const i = document.querySelector(`caret off i.fa-ban`);
 		if ( caretIsActive ) {
-			i.style.color = off_color;
-			caret.style.backgroundColor = off_bgcolor;
+			SettingElement.caret.off.style.color = active_color;
 		} else {
-			i.style.color = off_color_faded;
-			caret.style.backgroundColor = inactive_bgcolor;
+			SettingElement.caret.off.style.color = inactive_color;
 		}
 	}
 }
@@ -65,11 +58,8 @@ function colorshapeof(caret, caretIsActive) {
 export function changeUICaret(caret) {
 
   // activate the clicked caret first
-  if ( caret.dataset.type !== "off" ) {
-    // set active background color for the selected caret container
-    caret.style.backgroundColor = active_bgcolor;
-  }
   colorshapeof(caret, true); // set active color for the selected caret shape
+	caret.style.backgroundColor = active_bgcolor;
   
   // set inactive backgroundcolor & inactive color for all carets except the selected one
   for ( const othercaret of Object.values(SettingElement.caret) ) {

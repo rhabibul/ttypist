@@ -1,8 +1,8 @@
 :root {
   --setting-caret-color: black;
-  --setting-caret-shape-width: 10px;
+  --setting-caret-shape-width: 11px;
   --setting-caret-shape-height: 20px;
-  --setting-caret-shape-container-width: 25px;
+  --setting-caret-shape-container-width: 28px;
   --setting-caret-shape-container-height: 35px;
 
   --setting-container-width-caret: 180px;
@@ -17,10 +17,6 @@
   --active-backgroundcolor: #ffffc9;
   --inactive-color: #000000;
   --inactive-backgroundcolor: #f5f5f5;
-
-  --off-color: #ff0000;
-  --off-backgroundcolor: #ffe4e4;
-  --off-color-faded: #484848;
 }
 
 #chosen {
@@ -37,25 +33,23 @@ setting {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 1px;
 }
 
 div.config {
-  width: 350px;
+  width: 400px;
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 5px 0px 5px;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid whitesmoke;
 }
 div.config.caret {
-  border-top: 1px solid #e3e3e3;
+  border-top: 1px solid whitesmoke;
 }
 
 div.config label {
   height: 100%;
-  flex-basis: 47%;
+  flex-basis: 35%;
   font-weight: 550;
   color: var(--setting-text-color);
   font-size: 1rem;
@@ -67,7 +61,7 @@ div.config label {
 
 div.config .values {
   height: 90%;
-  flex-basis: 50%;
+  flex-basis: 60%;
   font-weight: 450;
   color: var(--setting-text-color);
   font-size: 0.9rem;
@@ -89,6 +83,20 @@ div.config .twostates * {
   background-color: var(--inactive-backgroundcolor);
 }
 
+div.config .threestates * {
+  height: 80%;
+  flex-basis: 35%;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  border-radius: 3px;
+  background-color: var(--inactive-backgroundcolor);
+}
+div.config .threestates off {
+  flex-basis: 23%;
+}
+
+
 caret off,
 caret underline,
 caret line,
@@ -102,6 +110,9 @@ caret block {
   height: var(--setting-caret-shape-container-height);
   border-radius: 3px;
   background-color: var(--inactive-backgroundcolor);
+}
+caret off {
+  flex-basis: 28%;
 }
 caret off i.fa-ban {
   color: #484848;

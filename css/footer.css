@@ -4,14 +4,16 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	row-gap: 10px;
+	row-gap: 5px;
 }
 nav {
-  width: 200px;
+  width: 150px;
+	height: 40px;
   
   border-radius: var(--round);
   background-color: var(--inactive-backgroundcolor);
 
+	border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -30,18 +32,13 @@ nav a:hover i {
 }
 
 .developer {
-  color: #ff0000;
-  background-color: #ffe4e4;
-
-  display: flex;
+	display: flex;
   align-items: center;
   justify-content: center;
-  
-  border-radius: 30px;
   width: 88px;
   height: 30px;
   font-size: 1rem;
   font-weight: 500;
   font-family: var(--mona-sans);
-
+  color: lightgray;
 }

@@ -13,7 +13,7 @@ export default {
     off: false,
     type: "line", // line, underline, box, block
   },
-  inputfield: false,
+  inputboxvisible: false,
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
   underline: false, // underline active word

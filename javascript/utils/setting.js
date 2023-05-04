@@ -33,19 +33,17 @@ function addcaretstyle_toletters(previouscaret, currentcaret) {
 }
 
 function updatecaret(evt) {
-  evt.preventDefault();
-  if ( this.dataset.type === Config.caret.type ) return;
-  TestAreaElement.input.blur(); // disable input field
 
-  const previouscaret = Config.caret.type;
+  evt.preventDefault();
   
+  if ( this.dataset.type === Config.caret.type ) return;
+  
+  TestAreaElement.input.blur(); // disable input field
+  const previouscaret = Config.caret.type;
   SettingUI.changeUICaret(this);
   ConfigHandler.changeConfigCaret(this.dataset.type);
-
   addcaretstyle_toletters(previouscaret, Config.caret.type);
-
   TestAreaElement.input.focus(); // enable input field
-
   Misc.storeConfigInLocalStorage(); // store config in local storage
 }
 

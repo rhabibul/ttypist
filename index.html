@@ -72,18 +72,67 @@
     
     <setting>
       <div class="config caret">
-        <label>Caret</label>
+        <label>caret</label>
         <caret class="values">
-          <off data-type="off"><i class="fa-sharp fa-solid fa-ban"></i></off>
+          <off data-type="off">off</off>
           <underline data-type="underline"><shape></shape></underline>
           <line data-type="line" id="chosen"><shape></shape></line>
           <box data-type="box"><shape></shape></box>
           <block data-type="block"><shape></shape></block>
         </care>
       </div>
+      
+      <div class="config fliptextcolor">
+        <label>fliptextcolor</label>
+        <fliptextcolor class="values twostates">
+          <off data-off="off" id="chosen">off</off>
+          <on data-on="on">on</on>
+        </fliptextcolor>
+      </div>
+
+      <div class="config highlight">
+        <label>highlight</label>
+        <highlight class="values threestates">
+          <off data-off="off">off</off>
+          <letter data-mode="letter" id="chosen">letter</letter>
+          <word data-mode="word">word</word>
+        </highlight>
+      </div>
+      
+      <div class="config underline">
+        <label>underline</label>
+        <underline class="values twostates">
+          <off data-off="off">off</off>
+          <on data-on="on" id="chosen">on</on>
+        </underline>
+      </div>
+
+      <div class="config endtestwithspace">
+        <label>endtestwithspace</label>
+        <endtestwithspace class="values twostates">
+          <off data-off="off" id="chosen">off</off>
+          <on data-on="on">on</on>
+        </endtestwithspace>
+      </div>
+
+      <div class="config oppositeshift">
+        <label>oppositeshift</label>
+        <oppositeshift class="values twostates">
+          <off data-off="off" id="chosen">off</off>
+          <on data-on="on">on</on>
+        </oppositeshift>
+      </div>
+
+      <div class="config inputboxvisible">
+        <label>inputboxvisible</label>
+        <inputboxvisible class="values twostates">
+          <off data-off="off" id="chosen">off</off>
+          <on data-on="on">on</on>
+        </inputboxvisible>
+      </div>
 
       <div class="config numlock">
-        <label>NumLock</label>
+        <label>numlock</label>
         <numlock class="values twostates">
           <off data-off="off" id="chosen">off</off>
           <on data-on="on">on</on>
@@ -91,7 +140,7 @@
       </div>
 
       <div class="config capslock">
-        <label>CapsLock</label>
+        <label>capslock</label>
         <capslock class="values twostates">
           <off data-off="off" id="chosen">off</off>
           <on data-on="on">on</on>
@@ -99,19 +148,11 @@
       </div>
       
       <div class="config outoffocus">
-        <label>Out of Focus</label>
+        <label>outoffocus</label>
         <outoffocus class="values twostates">
           <off data-off="off" id="chosen">off</off>
           <on data-on="on">on</on>
         </outoffocus>
-      </div>
-      
-      <div class="config underline">
-        <label>Underline</label>
-        <underline class="values twostates">
-          <off data-off="off">off</off>
-          <on data-on="on" id="chosen">on</on>
-        </underline>
       </div>
     </setting>
 
