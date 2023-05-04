@@ -20,8 +20,9 @@ export const Test = {
 		Config.ttypist.hastypedeveryword = false;
 		CaretHandler.addcaretto(word.activeletter);
 
-		// InputElement.value | InputEvent.data
+		// InputElement.value | InputEvent.data | InputEvent.inputType
 		TestAreaElement.input.addEventListener("input", registerinput);
+		
 		TestAreaElement.input.addEventListener("keydown", registerkeydown);
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);		
 		TestAreaElement.input.value = "";
