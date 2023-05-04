@@ -34,46 +34,59 @@
 
 setting {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 1px;
 }
 
-/*---------------- whitespace ----------------*/
-whitespace {
-  width: var(--setting-container-width-whitespace);
-
+div.config {
+  width: 350px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 5px 0px 5px;
+  border-bottom: 1px solid #e3e3e3;
+}
+div.config.caret {
+  border-top: 1px solid #e3e3e3;
+}
 
-  font-family: var(--setting-text-fontfamily);
+div.config label {
+  height: 100%;
+  flex-basis: 47%;
+  font-weight: 550;
   color: var(--setting-text-color);
-  font-size: var(--setting-text-fontsize);
-  font-weight: var(--setting-text-fontweight);
-}
-
-whitespace off,
-whitespace dot,
-whitespace space {
+  font-size: 1rem;
+  font-family: "Mona Sans", monospace;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  padding: 2px 5px;
-  border-radius: var(--round);
-  background-color: var(--inactive-backgroundcolor);
+  justify-content: flex-end;
 }
 
-/*---------------- caret ----------------*/
-caret {
-  width: var(--setting-container-width-caret);
-
+div.config .values {
+  height: 90%;
+  flex-basis: 50%;
+  font-weight: 450;
+  color: var(--setting-text-color);
+  font-size: 0.9rem;
+  font-family: "Roboto Mono", monospace;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+div.config .twostates {
+  display: flex;
+}
+div.config .twostates * {
+  height: 80%;
+  flex-basis: 49%;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  border-radius: 3px;
+  background-color: var(--inactive-backgroundcolor);
 }
 
 caret off,
@@ -87,8 +100,7 @@ caret block {
 
   width: var(--setting-caret-shape-container-width);
   height: var(--setting-caret-shape-container-height);
-
-  border-radius: var(--round);
+  border-radius: 3px;
   background-color: var(--inactive-backgroundcolor);
 }
 caret off i.fa-ban {

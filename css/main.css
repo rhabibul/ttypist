@@ -33,7 +33,7 @@
 
   --basetext-color: #3e3e3e;
 
-  --basetext-size: 1.1rem;
+  --basetext-size: 1.15rem;
   --basetext-weight: 450;
   --basetext-family: var(--roboto-mono);
 }
@@ -57,7 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  row-gap: 10px ;
+  row-gap: 10px;
   padding: 10px; /* remove */
 }
 

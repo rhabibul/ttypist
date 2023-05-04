@@ -1,6 +1,6 @@
 :root {
   /* caret color */
-  --caret-color: red;
+  --caret-color: black;
   --caret-color-hidden: white;
   
   /* caret animation (blink duration, count, rhythm, delay) */
