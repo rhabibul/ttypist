@@ -40,9 +40,6 @@ setting div.column {
   background-color: white;
   padding: 5px;
 }
-setting div.column2 {
-  border-left: 1px solid lightgray;
-}
 
 div.config {
   width: 400px;
@@ -50,13 +47,14 @@ div.config {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
 }
 
 div.config label {
   height: 100%;
   flex-basis: 35%;
   font-weight: 550;
-  color: var(--setting-text-color);
+  color: blueviolet;
   font-size: 0.9rem;
   font-family: "Mona Sans", monospace;
   display: flex;

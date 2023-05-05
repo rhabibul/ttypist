@@ -75,18 +75,10 @@
           <label>caret</label>
           <caret class="values">
             <off data-type="off">off</off>
-            <underline data-type="underline">
-              <shape></shape>
-            </underline>
-            <line data-type="line" id="chosen">
-              <shape></shape>
-            </line>
-            <box data-type="box">
-              <shape></shape>
-            </box>
-            <block data-type="block">
-              <shape></shape>
-            </block>
+            <underline data-type="underline"> <shape></shape> </underline>
+            <line data-type="line" id="chosen"> <shape></shape> </line>
+            <box data-type="box"> <shape></shape> </box>
+            <block data-type="block"> <shape></shape> </block>
           </caret>
         </div>
         <div class="config underline">
@@ -99,34 +91,25 @@
         <div class="config highlight">
           <label>highlight</label>
           <highlight class="values threestates">
-            <off data-off="off">off</off>
-            <letter data-mode="letter" id="chosen">letter</letter>
-            <word data-mode="word">word</word>
+            <off data-value="off">off</off>
+            <letter data-value="letter" id="chosen">letter</letter>
+            <word data-value="word">word</word>
           </highlight>
         </div>
         <div class="config fliptextcolor">
           <label>fliptextcolor</label>
           <fliptextcolor class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </fliptextcolor>
         </div>
         <div class="config confidence">
           <label>confidence</label>
           <confidence class="values threestates">
-            <off data-off="off">off</off>
-            <pro data-mode="pro" id="chosen">pro</pro>
-            <max data-mode="max">max</max>
-          </confidence>
-        </div>
-        <div class="config backspace">
-          <label>backspace</label>
-          <backspace class="values fourstates">
             <off data-value="off">off</off>
-            <pro data-value="alt" id="chosen">alt</pro>
-            <max data-value="ctrl" id="chosen">ctrl</max>
-            <max data-value="meta">meta</max>
-          </backspace>
+            <pro data-value="pro" id="chosen">pro</pro>
+            <max data-value="max">max</max>
+          </confidence>
         </div>
         <div class="config difficulty">
           <label>difficulty</label>
@@ -135,6 +118,15 @@
             <expert data-value="expert">expert</expert>
             <master data-value="master">master</master>
           </difficulty>
+        </div>
+        <div class="config backspace">
+          <label>backspacing</label>
+          <backspace class="values fourstates">
+            <off data-value="off">off</off>
+            <pro data-value="alt" id="chosen">alt</pro>
+            <max data-value="ctrl" id="chosen">ctrl</max>
+            <max data-value="meta">meta</max>
+          </backspace>
         </div>
         <div class="config errors">
           <label>errors</label>
@@ -158,36 +150,36 @@
         <div class="config endtestwithspace">
           <label>endtestwithspace</label>
           <endtestwithspace class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </endtestwithspace>
         </div>
         <div class="config oppositeshift">
           <label>oppositeshift</label>
           <oppositeshift class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </oppositeshift>
         </div>
         <div class="config inputboxvisible">
           <label>inputboxvisible</label>
           <inputboxvisible class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </inputboxvisible>
         </div>
         <div class="config numlock">
           <label>numlock</label>
           <numlock class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </numlock>
         </div>
         <div class="config capslock">
           <label>capslock</label>
           <capslock class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </capslock>
         </div>
         <div class="config outoffocus">
@@ -199,6 +191,7 @@
         </div>
       </div>
     </setting>
+    
     <keyboard>
       <row id="K">
         <key class="key1">Esc</key>
@@ -334,6 +327,7 @@
         <key class="key24"><span>Enter</span></key>
       </row>
     </keyboard>
+
     <footer>
       <nav>
         <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
