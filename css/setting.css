@@ -29,7 +29,7 @@
 }
 
 setting {
-  width: 840px;
+  width: 900px;
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
@@ -42,7 +42,7 @@ setting div.column {
 }
 
 div.config {
-  width: 400px;
+  width: 450px;
   height: 45px;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ div.config {
 
 div.config label {
   height: 100%;
-  flex-basis: 35%;
+  flex-basis: 30%;
   font-weight: 550;
   color: blueviolet;
   font-size: 0.9rem;
@@ -64,7 +64,7 @@ div.config label {
 }
 div.config .values {
   height: 90%;
-  flex-basis: 60%;
+  flex-basis: 65%;
   font-weight: 450;
   color: var(--setting-text-color);
   font-size: 0.9rem;
@@ -96,6 +96,12 @@ div.config errors.threestates *,
 div.config stoponerror.threestates *,
 div.config highlight.threestates * {
   flex-basis: 35%;
+}
+div.config warning.threestates * {
+  flex-basis: 29%;
+}
+div.config warning.threestates outoffocus {
+  flex-basis: 38%;
 }
 div.config confidence.threestates off,
 div.config stoponerror.threestates off,

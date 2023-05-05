@@ -119,14 +119,14 @@
             <master data-value="master">master</master>
           </difficulty>
         </div>
-        <div class="config backspace">
-          <label>backspacing</label>
-          <backspace class="values fourstates">
+        <div class="config modifier">
+          <label>modifier keys</label>
+          <modifier class="values fourstates">
             <off data-value="off">off</off>
             <pro data-value="alt" id="chosen">alt</pro>
             <max data-value="ctrl" id="chosen">ctrl</max>
             <max data-value="meta">meta</max>
-          </backspace>
+          </modifier>
         </div>
         <div class="config errors">
           <label>errors</label>
@@ -137,7 +137,7 @@
           </errors>
         </div>
         <div class="config stoponerror">
-          <label>stoponerror</label>
+          <label>stop on error</label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -161,33 +161,27 @@
             <on data-value="on">on</on>
           </oppositeshift>
         </div>
-        <div class="config inputboxvisible">
-          <label>inputboxvisible</label>
-          <inputboxvisible class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </inputboxvisible>
+        <div class="config inputbox">
+          <label>words input field</label>
+          <inputbox class="values twostates">
+            <hide data-value="hide" id="chosen">hide</hide>
+            <visible data-value="visible">visible</visible>
+          </inputbox>
         </div>
-        <div class="config numlock">
-          <label>numlock</label>
-          <numlock class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </numlock>
+        <div class="config warning">
+          <label>warning</label>
+          <warning class="values threestates">
+            <numlock data-value="numlock" id="chosen">numlock</numlock>
+            <capslock data-value="capslock" id="chosen">capslock</capslock>
+            <outoffocus data-value="outoffocus" id="chosen">outoffocus</outoffocus>
+          </warning>
         </div>
-        <div class="config capslock">
-          <label>capslock</label>
-          <capslock class="values twostates">
+        <div class="config tapemode">
+          <label>tape mode</label>
+          <tapemode class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
-          </capslock>
-        </div>
-        <div class="config outoffocus">
-          <label>outoffocus</label>
-          <outoffocus class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </outoffocus>
+          </tapemode>
         </div>
       </div>
     </setting>
