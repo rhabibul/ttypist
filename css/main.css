@@ -69,8 +69,7 @@ main {
   align-items: center;
   row-gap: 20px;
 
-  padding: 13px 0px 10px 15px; /* remove */
-  border-top: 1px solid #eeeeee; /* remove */
+  padding: 0px 0px 10px 15px; /* remove */
   border-bottom: 1px solid #eeeeee; /* remove */
 }
 

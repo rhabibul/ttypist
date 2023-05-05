@@ -59,6 +59,12 @@
         <i class="fa-solid fa-arrow-rotate-right"></i>
       </button>
       <button type="fullscreen">
+        <!-- <svg>
+          <g> <path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path> </g>
+          <g> <path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path> </g>
+          <g> <path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path> </g>
+          <g> <path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path> </g>
+        </svg> -->
         <i class="fa-sharp fa-solid fa-expand"></i>
         <i class="fa-sharp fa-solid fa-compress hidden"></i>
       </button>
@@ -69,18 +75,26 @@
           <label>caret</label>
           <caret class="values">
             <off data-type="off">off</off>
-            <underline data-type="underline"> <shape></shape> </underline>
-            <line data-type="line" id="chosen"> <shape></shape> </line>
-            <box data-type="box"> <shape></shape> </box>
-            <block data-type="block"> <shape></shape> </block>
+            <underline data-type="underline">
+              <shape></shape>
+            </underline>
+            <line data-type="line" id="chosen">
+              <shape></shape>
+            </line>
+            <box data-type="box">
+              <shape></shape>
+            </box>
+            <block data-type="block">
+              <shape></shape>
+            </block>
           </caret>
         </div>
-        <div class="config fliptextcolor">
-          <label>fliptextcolor</label>
-          <fliptextcolor class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
-          </fliptextcolor>
+        <div class="config underline">
+          <label>underline</label>
+          <underline class="values twostates">
+            <off data-value="off">off</off>
+            <on data-value="on" id="chosen">on</on>
+          </underline>
         </div>
         <div class="config highlight">
           <label>highlight</label>
@@ -90,6 +104,13 @@
             <word data-mode="word">word</word>
           </highlight>
         </div>
+        <div class="config fliptextcolor">
+          <label>fliptextcolor</label>
+          <fliptextcolor class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </fliptextcolor>
+        </div>
         <div class="config confidence">
           <label>confidence</label>
           <confidence class="values threestates">
@@ -98,13 +119,42 @@
             <max data-mode="max">max</max>
           </confidence>
         </div>
-        <div class="config underline">
-          <label>underline</label>
-          <underline class="values twostates">
-            <off data-off="off">off</off>
-            <on data-on="on" id="chosen">on</on>
-          </underline>
+        <div class="config backspace">
+          <label>backspace</label>
+          <backspace class="values fourstates">
+            <off data-value="off">off</off>
+            <pro data-value="alt" id="chosen">alt</pro>
+            <max data-value="ctrl" id="chosen">ctrl</max>
+            <max data-value="meta">meta</max>
+          </backspace>
         </div>
+        <div class="config difficulty">
+          <label>difficulty</label>
+          <difficulty class="values threestates">
+            <easy data-value="noob" id="chosen">noob</easy>
+            <expert data-value="expert">expert</expert>
+            <master data-value="master">master</master>
+          </difficulty>
+        </div>
+        <div class="config errors">
+          <label>errors</label>
+          <errors class="values threestates">
+            <off data-value="off">off</off>
+            <insert data-value="insert" id="chosen">insert</insert>
+            <forgive data-value="forgive">forgive</forgive>
+          </errors>
+        </div>
+        <div class="config stoponerror">
+          <label>stoponerror</label>
+          <stoponerror class="values threestates">
+            <off data-value="off" id="chosen">off</off>
+            <letter data-value="letter">letter</letter>
+            <word data-value="word">word</word>
+          </stoponerror>
+        </div>
+      </div>
+
+      <div class="column column2">
         <div class="config endtestwithspace">
           <label>endtestwithspace</label>
           <endtestwithspace class="values twostates">
@@ -143,24 +193,12 @@
         <div class="config outoffocus">
           <label>outoffocus</label>
           <outoffocus class="values twostates">
-            <off data-off="off" id="chosen">off</off>
-            <on data-on="on">on</on>
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
           </outoffocus>
         </div>
       </div>
-      <div class="column column2">
-        <div class="config backspace">
-          <label>backspace</label>
-          <backspace class="values fourstates">
-            <off data-off="off">off</off>
-            <pro data-mode="alt" id="chosen">alt</pro>
-            <max data-mode="ctrl" id="chosen">ctrl</max>
-            <max data-mode="meta">meta</max>
-          </backspace>
-        </div>
-      </div>
     </setting>
-
     <keyboard>
       <row id="K">
         <key class="key1">Esc</key>

@@ -91,32 +91,25 @@ div.config .fourstates * {
   background-color: var(--inactive-backgroundcolor);
 }
 div.config .twostates * {
-  /* height: 80%; */
   flex-basis: 49%;
-  /* display: flex;
-  justify-content: center;  
-  align-items: center;
-  border-radius: 3px;
-  background-color: var(--inactive-backgroundcolor); */
 }
-div.config .threestates * {
-  /* height: 80%; */
+div.config confidence.threestates *,
+div.config errors.threestates *,
+div.config stoponerror.threestates *,
+div.config highlight.threestates * {
   flex-basis: 35%;
-  /* display: flex;
-  justify-content: center;  
-  align-items: center;
-  border-radius: 3px;
-  background-color: var(--inactive-backgroundcolor); */
 }
-div.config .threestates off {
-  flex-basis: 23%;
+div.config confidence.threestates off,
+div.config stoponerror.threestates off,
+div.config highlight.threestates off,
+div.config errors.threestates off {
+  flex-basis: 26%;
+}
+div.config difficulty.threestates * {
+  flex-basis: 32%;
 }
 div.config .fourstates * {
-  /* height: 80%; */
   flex-basis: 25%;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 div.config .fourstates off {
   flex-basis: 18%;

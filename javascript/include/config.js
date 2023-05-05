@@ -42,16 +42,14 @@ export default {
   },
   // easy is classical typing experience, expert ends test if incorrect word is submitted,
   // master ends test if single incorrect letter is submitted
-  difficulty: "easy", // easy | expert | master
+  difficulty: "noob", // noob | expert | master
   error: {
+    off: false,
     insert: true, // insert extra incorrect letter
     forgive: true, // delete all inserted extra letters as soon user types correct letter
-    stopOnError: {
-      off: false,
-      at: {
-        word: false,
-        letter: false,
-      },
+    stop: {
+      word: false,
+      letter: false,
     },
   },
   phrase: {
