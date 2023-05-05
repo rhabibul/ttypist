@@ -31,16 +31,17 @@
 setting {
   width: 840px;
   display: flex;
-  align-items: center;
+  /* flex-direction: column; */
   justify-content: space-between;
-  background-color: lightcyan;
 }
 setting div.column {
-  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
   padding: 5px;
+}
+setting div.column2 {
+  border-left: 1px solid lightgray;
 }
 
 div.config {
@@ -49,10 +50,6 @@ div.config {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid whitesmoke;
-}
-div.config.outoffocus {
-  border-bottom: none;
 }
 
 div.config label {
@@ -65,10 +62,8 @@ div.config label {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border: 1px solid gray;
 
 }
-
 div.config .values {
   height: 90%;
   flex-basis: 60%;
@@ -79,35 +74,53 @@ div.config .values {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid gray;
 }
-div.config .twostates {
+div.config .twostates,
+div.config .threestates
+div.config .fourstates {
   display: flex;
+}
+div.config .twostates *,
+div.config .threestates *,
+div.config .fourstates * {
+  height: 80%;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  border-radius: 3px;
+  background-color: var(--inactive-backgroundcolor);
 }
 div.config .twostates * {
-  height: 80%;
+  /* height: 80%; */
   flex-basis: 49%;
-  display: flex;
+  /* display: flex;
   justify-content: center;  
   align-items: center;
   border-radius: 3px;
-  background-color: var(--inactive-backgroundcolor);
+  background-color: var(--inactive-backgroundcolor); */
 }
 div.config .threestates * {
-  height: 80%;
+  /* height: 80%; */
   flex-basis: 35%;
-  display: flex;
+  /* display: flex;
   justify-content: center;  
   align-items: center;
   border-radius: 3px;
-  background-color: var(--inactive-backgroundcolor);
+  background-color: var(--inactive-backgroundcolor); */
 }
 div.config .threestates off {
   flex-basis: 23%;
 }
-/* div.config .fourstates { */
-  /* flex-basis: 25%; */
-/* } */
+div.config .fourstates * {
+  /* height: 80%; */
+  flex-basis: 25%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+div.config .fourstates off {
+  flex-basis: 18%;
+}
 
 caret off,
 caret underline,

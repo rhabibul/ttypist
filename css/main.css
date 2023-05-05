@@ -46,7 +46,7 @@
   box-sizing: border-box;
 }
 
-html,
+
 body {
   width: 100%;
   height: 100%;
@@ -165,7 +165,7 @@ main div input {
   text-decoration-style: solid;
   text-decoration-color: #ff0000;
 }
-.wordunderline {
+._____ {
   text-decoration-line: underline;
   text-underline-offset: 1px;
   text-decoration-thickness: 1px;
