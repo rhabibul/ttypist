@@ -1,8 +1,8 @@
 :root {
   --setting-caret-color: black;
-  --setting-caret-shape-width: 11px;
+  --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
-  --setting-caret-shape-container-width: 28px;
+  --setting-caret-shape-container-width: 26px;
   --setting-caret-shape-container-height: 35px;
 
   --setting-container-width-caret: 180px;
@@ -29,10 +29,18 @@
 }
 
 setting {
-  width: 100%;
+  width: 840px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightcyan;
+}
+setting div.column {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: white;
+  padding: 5px;
 }
 
 div.config {
@@ -43,8 +51,8 @@ div.config {
   justify-content: space-between;
   border-bottom: 1px solid whitesmoke;
 }
-div.config.caret {
-  border-top: 1px solid whitesmoke;
+div.config.outoffocus {
+  border-bottom: none;
 }
 
 div.config label {
@@ -52,11 +60,13 @@ div.config label {
   flex-basis: 35%;
   font-weight: 550;
   color: var(--setting-text-color);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Mona Sans", monospace;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  border: 1px solid gray;
+
 }
 
 div.config .values {
@@ -69,6 +79,7 @@ div.config .values {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid gray;
 }
 div.config .twostates {
   display: flex;
@@ -82,7 +93,6 @@ div.config .twostates * {
   border-radius: 3px;
   background-color: var(--inactive-backgroundcolor);
 }
-
 div.config .threestates * {
   height: 80%;
   flex-basis: 35%;
@@ -95,7 +105,9 @@ div.config .threestates * {
 div.config .threestates off {
   flex-basis: 23%;
 }
-
+/* div.config .fourstates { */
+  /* flex-basis: 25%; */
+/* } */
 
 caret off,
 caret underline,
@@ -112,7 +124,8 @@ caret block {
   background-color: var(--inactive-backgroundcolor);
 }
 caret off {
-  flex-basis: 28%;
+  height: 80%;
+  flex-basis: 30%;
 }
 caret off i.fa-ban {
   color: #484848;

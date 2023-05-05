@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="author" content="Designer & Developer: Habibul Rahman" />
-
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-
     <!-- Tab Bar Icon -->
     <link rel="icon" href="./assets/pictures/logo.png" />
-
     <!-- Title -->
     <title>ttypist</title>
-
     <!-- Styles sheets -->
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/caret.css" />
@@ -25,12 +20,11 @@
     <link rel="stylesheet" href="./css/keyboard.css">
     <link rel="stylesheet" href="./css/footer.css">
   </head>
+
   <body>
-  
     <header>
       <speed>0wpm</speed>
     </header>
-
     <main>
       <phrase>
         <word>
@@ -56,10 +50,10 @@
         </word>
       </phrase>
       <div>
-        <input autofocus="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+        <input autofocus="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+          data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
       </div>
     </main>
-    
     <div class="tmp">
       <button type="reset">
         <i class="fa-solid fa-arrow-rotate-right"></i>
@@ -69,102 +63,103 @@
         <i class="fa-sharp fa-solid fa-compress hidden"></i>
       </button>
     </div>
-    
     <setting>
-      <div class="config caret">
-        <label>caret</label>
-        <caret class="values">
-          <off data-type="off">off</off>
-          <underline data-type="underline"><shape></shape></underline>
-          <line data-type="line" id="chosen"><shape></shape></line>
-          <box data-type="box"><shape></shape></box>
-          <block data-type="block"><shape></shape></block>
-        </care>
+      <div class="column column1">
+        <div class="config caret">
+          <label>caret</label>
+          <caret class="values">
+            <off data-type="off">off</off>
+            <underline data-type="underline"> <shape></shape> </underline>
+            <line data-type="line" id="chosen"> <shape></shape> </line>
+            <box data-type="box"> <shape></shape> </box>
+            <block data-type="block"> <shape></shape> </block>
+          </caret>
+        </div>
+        <div class="config fliptextcolor">
+          <label>fliptextcolor</label>
+          <fliptextcolor class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </fliptextcolor>
+        </div>
+        <div class="config highlight">
+          <label>highlight</label>
+          <highlight class="values threestates">
+            <off data-off="off">off</off>
+            <letter data-mode="letter" id="chosen">letter</letter>
+            <word data-mode="word">word</word>
+          </highlight>
+        </div>
+        <div class="config confidence">
+          <label>confidence</label>
+          <confidence class="values threestates">
+            <off data-off="off">off</off>
+            <pro data-mode="pro" id="chosen">pro</pro>
+            <max data-mode="max">max</max>
+          </confidence>
+        </div>
+        <div class="config underline">
+          <label>underline</label>
+          <underline class="values twostates">
+            <off data-off="off">off</off>
+            <on data-on="on" id="chosen">on</on>
+          </underline>
+        </div>
+        <div class="config endtestwithspace">
+          <label>endtestwithspace</label>
+          <endtestwithspace class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </endtestwithspace>
+        </div>
+        <div class="config oppositeshift">
+          <label>oppositeshift</label>
+          <oppositeshift class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </oppositeshift>
+        </div>
+        <div class="config inputboxvisible">
+          <label>inputboxvisible</label>
+          <inputboxvisible class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </inputboxvisible>
+        </div>
+        <div class="config numlock">
+          <label>numlock</label>
+          <numlock class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </numlock>
+        </div>
+        <div class="config capslock">
+          <label>capslock</label>
+          <capslock class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </capslock>
+        </div>
+        <div class="config outoffocus">
+          <label>outoffocus</label>
+          <outoffocus class="values twostates">
+            <off data-off="off" id="chosen">off</off>
+            <on data-on="on">on</on>
+          </outoffocus>
+        </div>
       </div>
-      
-      <div class="config fliptextcolor">
-        <label>fliptextcolor</label>
-        <fliptextcolor class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </fliptextcolor>
-      </div>
-
-      <div class="config highlight">
-        <label>highlight</label>
-        <highlight class="values threestates">
-          <off data-off="off">off</off>
-          <letter data-mode="letter" id="chosen">letter</letter>
-          <word data-mode="word">word</word>
-        </highlight>
-      </div>
-
-      <div class="config confidence">
-        <label>confidence</label>
-        <confidence class="values threestates">
-          <off data-off="off">off</off>
-          <pro data-mode="pro" id="chosen">pro</pro>
-          <max data-mode="max">max</max>
-        </confidence>
-      </div>
-      
-      <div class="config underline">
-        <label>underline</label>
-        <underline class="values twostates">
-          <off data-off="off">off</off>
-          <on data-on="on" id="chosen">on</on>
-        </underline>
-      </div>
-
-      <div class="config endtestwithspace">
-        <label>endtestwithspace</label>
-        <endtestwithspace class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </endtestwithspace>
-      </div>
-
-      <div class="config oppositeshift">
-        <label>oppositeshift</label>
-        <oppositeshift class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </oppositeshift>
-      </div>
-
-      <div class="config inputboxvisible">
-        <label>inputboxvisible</label>
-        <inputboxvisible class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </inputboxvisible>
-      </div>
-
-      <div class="config numlock">
-        <label>numlock</label>
-        <numlock class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </numlock>
-      </div>
-
-      <div class="config capslock">
-        <label>capslock</label>
-        <capslock class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </capslock>
-      </div>
-      
-      <div class="config outoffocus">
-        <label>outoffocus</label>
-        <outoffocus class="values twostates">
-          <off data-off="off" id="chosen">off</off>
-          <on data-on="on">on</on>
-        </outoffocus>
+      <div class="column column2">
+        <div class="config backspace">
+          <label>backspace</label>
+          <backspace class="values fourstates">
+            <off data-off="off">off</off>
+            <pro data-mode="alt" id="chosen">alt</pro>
+            <max data-mode="ctrl" id="chosen">ctrl</max>
+            <max data-mode="meta">meta</max>
+          </backspace>
+        </div>
       </div>
     </setting>
-
     <keyboard>
       <row id="K">
         <key class="key1">Esc</key>
@@ -267,7 +262,8 @@
         <key class="key6">B</key>
         <key class="key7">N</key>
         <key class="key8">M</key>
-        <key class="key9"><span><</span><span>,</span></key>
+        <key class="key9"><span>
+            << /span><span>,</span></key>
         <key class="key10"><span>></span><span>.</span></key>
         <key class="key11"><span>?</span><span>/</span></key>
         <key class="key12_13_14_15">Shift</key>
@@ -300,7 +296,6 @@
         <key class="key24"><span>Enter</span></key>
       </row>
     </keyboard>
-
     <footer>
       <nav>
         <a target="_blank" href="https://github.com/ttypist/"> <i class="fa-brands fa-github"></i> </a>
@@ -309,8 +304,8 @@
       </nav>
       <div class="developer">@habibul</div>
     </footer>
-    
     <script type="module" src="./javascript/main.js"></script>
     <script type="module" src="./javascript/utils/setting.js"></script>
   </body>
+
 </html>

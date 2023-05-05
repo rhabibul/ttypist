@@ -53,9 +53,11 @@ SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 		SettingElement.enterFullscreen.classList.add("hidden");
 		SettingElement.exitFullscreen.classList.remove("hidden");
 		document.documentElement.requestFullscreen();
+    TestAreaElement.input.focus();
 	} else {
-		SettingElement.exitFullscreen.classList.add("hidden");
+    SettingElement.exitFullscreen.classList.add("hidden");
 		SettingElement.enterFullscreen.classList.remove("hidden");
 		document.exitFullscreen();
+    TestAreaElement.input.focus();
 	}
 });
