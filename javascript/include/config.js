@@ -55,7 +55,7 @@ export default {
   phrase: {
     word: {
       type: "dictionary", // dictionary | rootwords | lorem epsum
-      length: "average", // small(<5) | average(>=5, <8), | long(>= 8)
+      length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)
       count: 25,
     },
     include: {
