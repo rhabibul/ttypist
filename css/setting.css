@@ -123,7 +123,12 @@ caret off,
 caret underline,
 caret line,
 caret box,
-caret block {  
+caret block,
+pacecaret off,
+pacecaret underline,
+pacecaret line,
+pacecaret box,
+pacecaret block {  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,13 +138,10 @@ caret block {
   border-radius: 3px;
   background-color: var(--inactive-backgroundcolor);
 }
-caret off {
+caret off,
+pacecaret off {
   height: 80%;
-  flex-basis: 30%;
-}
-caret off i.fa-ban {
-  color: #484848;
-  font-size: 1.15rem;
+  flex-basis: 49%;
 }
 line shape {
   width: calc((var(--setting-caret-shape-width) / 10)); /* width: 1px */

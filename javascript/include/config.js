@@ -11,9 +11,13 @@ export default {
   },
   caret: {
     off: false,
-    type: "line", // line, underline, box, block
+    type: "line", // line | underline | box | block
   },
-  inputboxvisible: false,
+  pacecaret: {
+    off: true,
+    type: "line", // line | underline | box | block
+  },
+  inputbox: false,
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
   underline: false, // underline active word
@@ -63,26 +67,25 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
+  theme: "molokai",
+  language: "english", // english | hindi | bengali | arabic | russian
+  keyboard: {
+    emulate: false,
+    layout: "qwerty", // qwerty | dvorak | workman | colemak
+  },
 };
 
-const later = {
-  practice: {
-    off: true,
-    guidedlessions: false, // guided lessons
-    providecustomtext: false, // custom text provided by user
+const learn = {
+  off: true,
+  guidedlessions: false, // guided lessons
+  providecustomtext: false, // custom text provided by user
 
-    numrow: false, // number row digits and symbols
-    numpad: false, // number pad digits and arithmetic operations with expression
-    alphanumeric: false, // ascii characters only
-    
-    brackets: false, // {[()]}
-    arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-    specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-  },
-  keyboard: {
-    layout: "qwerty", // keyboard layout
-    emulate: false, // emulate other keyboard layouts
-    language: "english",
-  },
+  numrow: false, // number row digits and symbols
+  numpad: false, // number pad digits and arithmetic operations with expression
+  alphanumeric: false, // ascii characters only
+  
+  brackets: false, // {[(<>)]}
+  arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+  functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
 }

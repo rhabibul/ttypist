@@ -8,8 +8,14 @@ const inactive_color = Misc.computedstyles.getPropertyValue("--inactive-color");
 const inactive_bgcolor = Misc.computedstyles.getPropertyValue("--inactive-backgroundcolor");
 
 function colorshapeof(caret, caretIsActive) {
-
-	const shape = document.querySelector(`caret ${caret.dataset.type} shape`);
+	
+	let ispacecaret = caret.classList.contains("pacecaret_shape");
+	let shape;
+	if ( ispacecaret ) {
+		shape = document.querySelector(`pacecaret ${caret.dataset.type} shape`);
+	} else {
+		shape = document.querySelector(`caret ${caret.dataset.type} shape`);
+	}
 
 	if ( caret.dataset.type === "line" || caret.dataset.type === "block" ) {
 		// 1. inside caret shape container both caret type (line, block), the shape 
@@ -48,9 +54,17 @@ function colorshapeof(caret, caretIsActive) {
 		}
 	} else {
 		if ( caretIsActive ) {
-			SettingElement.caret.off.style.color = active_color;
+			if ( ispacecaret ) {
+				SettingElement.pacecaret.off.style.color = active_color;
+			} else {
+				SettingElement.caret.off.style.color = active_color;
+			}
 		} else {
-			SettingElement.caret.off.style.color = inactive_color;
+			if ( ispacecaret ) {
+				SettingElement.pacecaret.off.style.color = inactive_color;
+			} else {
+				SettingElement.caret.off.style.color = inactive_color;
+			}
 		}
 	}
 }
@@ -60,15 +74,23 @@ export function changeUICaret(caret) {
   // activate the clicked caret first
   colorshapeof(caret, true); // set active color for the selected caret shape
 	caret.style.backgroundColor = active_bgcolor;
-  
-  // set inactive backgroundcolor & inactive color for all carets except the selected one
-  for ( const othercaret of Object.values(SettingElement.caret) ) {
-    if ( caret !== othercaret ) {
-      // set inactive background color to all caret containers except the selected one
-      othercaret.style.backgroundColor = inactive_bgcolor;
 
-      // set inactive color to caret shapes except the selected one
-      colorshapeof(othercaret, false);
-    }
-  }
+	if ( caret.classList.contains("caret_shape") ) {
+		// set inactive backgroundcolor & inactive color for all carets except the selected one
+		for ( const othercaret of Object.values(SettingElement.caret) ) {
+			if ( caret !== othercaret ) {
+				// set inactive background color to all caret containers except the selected one
+				othercaret.style.backgroundColor = inactive_bgcolor;
+				// set inactive color to caret shapes except the selected one
+				colorshapeof(othercaret, false);
+			}
+		}
+	} else {
+		for ( const othercaret of Object.values(SettingElement.pacecaret) ) {
+			if ( caret !== othercaret ) {
+				othercaret.style.backgroundColor = inactive_bgcolor;
+				colorshapeof(othercaret, false);
+			}
+		}
+	}
 }

@@ -21,6 +21,13 @@ SettingElement.caret.line.addEventListener("click", updatecaret);
 SettingElement.caret.block.addEventListener("click", updatecaret);
 SettingElement.caret.underline.addEventListener("click", updatecaret);
 
+// pace caret
+SettingElement.pacecaret.off.addEventListener("click", updatepacecaret);
+SettingElement.pacecaret.box.addEventListener("click", updatepacecaret);
+SettingElement.pacecaret.line.addEventListener("click", updatepacecaret);
+SettingElement.pacecaret.block.addEventListener("click", updatepacecaret);
+SettingElement.pacecaret.underline.addEventListener("click", updatepacecaret);
+
 // apply new caret styles to all the letters
 function addcaretstyle_toletters(previouscaret, currentcaret) {
   Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
@@ -33,22 +40,27 @@ function addcaretstyle_toletters(previouscaret, currentcaret) {
 }
 
 function updatecaret(evt) {
-
   evt.preventDefault();
-  
+
   if ( this.dataset.type === Config.caret.type ) return;
-  
+
   TestAreaElement.input.blur(); // disable input field
   const previouscaret = Config.caret.type;
   SettingUI.changeUICaret(this);
-  ConfigHandler.changeConfigCaret(this.dataset.type);
+  ConfigHandler.updateconfig_caret(this.dataset.type);
   addcaretstyle_toletters(previouscaret, Config.caret.type);
   TestAreaElement.input.focus(); // enable input field
   Misc.storeConfigInLocalStorage(); // store config in local storage
 }
 
-SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
+function updatepacecaret(evt) {
+  evt.preventDefault();
+  if ( this.dataset.type === Config.pacecaret.type ) return;
+  SettingUI.changeUICaret(this);
+  ConfigHandler.updateconfig_pacecaret(this.dataset.type);
+}
 
+SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
 		SettingElement.enterFullscreen.classList.add("hidden");
 		SettingElement.exitFullscreen.classList.remove("hidden");

@@ -74,11 +74,11 @@
         <div class="config caret">
           <label>caret</label>
           <caret class="values">
-            <off data-type="off">off</off>
-            <underline data-type="underline"> <shape></shape> </underline>
-            <line data-type="line" id="chosen"> <shape></shape> </line>
-            <box data-type="box"> <shape></shape> </box>
-            <block data-type="block"> <shape></shape> </block>
+            <off data-type="off" class="caret_shape">off</off>
+            <underline data-type="underline" class="caret_shape"> <shape></shape> </underline>
+            <line data-type="line" id="chosen" class="caret_shape"> <shape></shape> </line>
+            <box data-type="box" class="caret_shape"> <shape></shape> </box>
+            <block data-type="block" class="caret_shape"> <shape></shape> </block>
           </caret>
         </div>
         <div class="config underline">
@@ -147,6 +147,16 @@
       </div>
 
       <div class="column column2">
+        <div class="config pacecaret">
+          <label>pace caret</label>
+          <pacecaret class="values">
+            <off data-type="off" id="chosen" class="pacecaret_shape">off</off>
+            <underline data-type="underline" class="pacecaret_shape"> <shape></shape> </underline>
+            <line data-type="line" class="pacecaret_shape"> <shape></shape> </line>
+            <box data-type="box" class="pacecaret_shape"> <shape></shape> </box>
+            <block data-type="block" class="pacecaret_shape"> <shape></shape> </block>
+          </pacecaret>
+        </div>
         <div class="config endtestwithspace">
           <label>endtestwithspace</label>
           <endtestwithspace class="values twostates">
@@ -155,7 +165,7 @@
           </endtestwithspace>
         </div>
         <div class="config oppositeshift">
-          <label>oppositeshift</label>
+          <label>oppositeshift mode</label>
           <oppositeshift class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
@@ -169,7 +179,7 @@
           </inputbox>
         </div>
         <div class="config warning">
-          <label>warning</label>
+          <label>warnings</label>
           <warning class="values threestates">
             <numlock data-value="numlock" id="chosen">numlock</numlock>
             <capslock data-value="capslock" id="chosen">capslock</capslock>
