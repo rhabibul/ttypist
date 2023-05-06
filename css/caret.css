@@ -32,52 +32,15 @@
   outline: none;
 }
 
-/*----------------- underline -----------------*/
-#underline {
-  border-bottom-color: var(--caret-color);
-  /* text-decoration-color: var(--caret-color); */
-  animation-name: animate-unerline;
-}
-.underline {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: var(--caret-width-underline) solid var(--caret-color-hidden);
-
-  /* text-underline-offset: 4px; */
-  /* text-decoration-thickness: 2px; */
-  /* text-decoration-style: solid; */
-  /* text-decoration-line: underline; */
-  /* text-decoration-color: var(--caret-color-hidden); */
-
-
-  animation-delay: var(--caret-animation-delay);
-  animation-duration: var(--caret-animation-duration);
-  animation-iteration-count: var(--caret-animation-iteration-count);
-  animation-timing-function: var(--caret-animation-timing-function);
-}
-@keyframes animate-unerline {
-  0%,
-  50% {
-    border-bottom-color: var(--caret-color);
-    /* text-decoration-color: var(--caret-color); */
-  }
-  51%,
-  100% {
-    border-bottom-color: var(--caret-color-hidden);
-    /* text-decoration-color: var(--caret-color-hidden); */
-  }
-}
-
 /*----------------- line -----------------*/
 #line {
-  box-shadow: -1px 0px 0px var(--caret-color);
   /* border-left-color: var(--caret-color); */
+  box-shadow: calc(-1 * var(--caret-width-line)) 0px 0px var(--caret-color);
   animation-name: animate-line;
 }
 .line {
-  border: none;
   /* border-left: var(--caret-width-line) solid var(--caret-color-hidden); */
+  border: none;
   
   animation-delay: var(--caret-animation-delay);
   animation-duration: var(--caret-animation-duration);
@@ -87,29 +50,66 @@
 @keyframes animate-line {
   0%,
   50% {
-    box-shadow: -1px 0px 0px var(--caret-color);
     /* border-left-color: var(--caret-color); */
+    box-shadow: -1px 0px 0px var(--caret-color);
   }
   51%,
   100% {
-    box-shadow: -1px 0px 0px var(--caret-color-hidden);
     /* border-left-color: var(--caret-color-hidden); */
+    box-shadow: -1px 0px 0px var(--caret-color-hidden);
+  }
+}
+
+/*----------------- underline -----------------*/
+#underline {
+  /* text-decoration-color: var(--caret-color); */
+  border-bottom-color: var(--caret-color);
+  animation-name: animate-unerline;
+}
+.underline {
+  /* text-underline-offset: 4px; */
+  /* text-decoration-thickness: 2px; */
+  /* text-decoration-style: solid; */
+  /* text-decoration-line: underline; */
+  /* text-decoration-color: var(--caret-color-hidden); */
+  
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: var(--caret-width-underline) solid var(--caret-color-hidden);
+
+  animation-delay: var(--caret-animation-delay);
+  animation-duration: var(--caret-animation-duration);
+  animation-iteration-count: var(--caret-animation-iteration-count);
+  animation-timing-function: var(--caret-animation-timing-function);
+}
+@keyframes animate-unerline {
+  0%,
+  50% {
+    /* text-decoration-color: var(--caret-color); */
+    border-bottom-color: var(--caret-color);
+  }
+  51%,
+  100% {
+    /* text-decoration-color: var(--caret-color-hidden); */
+    border-bottom-color: var(--caret-color-hidden);
   }
 }
 
 /*----------------- box -----------------*/
 #box {
+  /* border: var(--caret-width-box) solid var(--caret-color); */
+
   outline-style: solid;
   outline-color: var(--caret-color);
   outline-width: var(--caret-width-box);
   outline-offset: var(--caret-offset-box);
 
-  /* border: var(--caret-width-box) solid var(--caret-color); */
   animation-name: animate-box;
 }
 .box {
-  border: none;
   /* border: var(--caret-width-box) solid var(--caret-color-hidden); */
+  border: none;
 
   animation-delay: var(--caret-animation-delay);
   animation-duration: var(--caret-animation-duration);
@@ -119,13 +119,13 @@
 @keyframes animate-box {
   0%,
   50% {
-    outline-color: var(--caret-color);
     /* border-color: var(--caret-color); */
+    outline-color: var(--caret-color);
   }
   51%,
   100% {
-    outline-color: var(--caret-color-hidden);
     /* border-color: var(--caret-color-hidden); */
+    outline-color: var(--caret-color-hidden);
   }
 }
 
