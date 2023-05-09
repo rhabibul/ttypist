@@ -85,14 +85,30 @@ export default {
     off: true,
     guided_lessions: false,
     providetext: false,
-
     numpad: false, // number pad digits and arithmetic operations with expression
     numrow: false, // number row digits
     alphanumeric: false, // ascii characters only
-    
     brackets: false, // {[(<>)]}
     arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  },
+  misc: {
+    cpm: false, // use cpm instead of wpm
+    usefloats: false,
   }
 };
+
+const user = {
+  firstname: "",
+  lastname: "",
+  username: "",
+  email: "",
+  password: "",
+  social: {
+    facebook: "",
+    instagram: "",
+    twitter: "",
+  },
+  rank: "", // ranked among typists (%)
+}

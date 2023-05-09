@@ -106,25 +106,6 @@ export function wordtags_tostring() {
   return s;
 }
 
-export function lettertagtext(letter) {
-  const ws_code = letter.textContent.charCodeAt(0);
-  if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) return " ";
-  return letter.textContent;
-}
-
-export function wordtagtext(word) {
-  let ws_code = 0, text = new String();
-  for ( const letter of word.children ) {
-    ws_code = letter.textContent.charCodeAt(0);
-    if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
-      text += " ";
-    } else {
-      text += letter.textContent;
-    }
-  }
-  return text;
-}
-
 export function validphrase(phrase) {
   // phrase type must be object i.e, array and it should not be empty,
   // every string should be in <word></word> tag and every character should
@@ -142,16 +123,27 @@ export function validphrase(phrase) {
   return false;
 }
 
-export function automatetyping(keystroke_time) {
-	let id, i = 0;
-	let s = wordtags_tostring();
+export function startautotyper(wpm) {
 
-	id = setInterval(() => {
+  const keystroke_interval = 60000/ (wpm * 5);
+	const letters = document.getElementsByTagName("letter");
+	let i = 0, id = 0, s = "";
+
+	for ( const l of letters ) {
+		if ( l.textContent.charCodeAt(0) === 160 ) {
+			s += " ";
+		} else {
+			s += l.textContent;
+		}
+	}
+
+	setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
 		TestAreaElement.input.value += s[i];
+		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
 		if ( i == s.length - 1 ) clearInterval(id);
-	}, keystroke_time);	
+	}, keystroke_interval);
 }
 
 export function deviceinformation() {

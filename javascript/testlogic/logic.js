@@ -38,9 +38,11 @@ export const Test = {
 	}
 }
 
+mInput.keydownUnidentified = true;
+
 function registerinput(evt) {
 
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
 	if ( mInput.keydownUnidentified ) {
 		
@@ -114,12 +116,12 @@ export function addunderline(word) {
 
 function registerkeydown(evt) {
 
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
-	if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
-		mInput.keydownUnidentified = true;
-		return;
-	}
+	// if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
+	// 	mInput.keydownUnidentified = true;
+	// 	return;
+	// }
 
 	if ( !Config.ttypist.istyping ) {
 		time.begin = performance.now();
@@ -232,7 +234,7 @@ function registerkeydown(evt) {
 }
 
 function registerkeyup(evt) {
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
 		TestAreaElement.input.value = "";
