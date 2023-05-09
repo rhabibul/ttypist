@@ -191,21 +191,28 @@
             <on data-value="on">on</on>
           </tapemode>
         </div>
-        <div class="config keybaord">
+        <div class="config setting-keyboard">
           <label><span><i class="fa-solid fa-info"></i></span><span>keyboard</span></label>
-          <tapemode class="values fourstates">
+          <div class="values fourstates">
             <off data-value="off">off</off>
             <static data-value="static">static</static>
             <react data-value="react" id="chosen">react</react>
             <next data-value="next">next</next>
-          </tapemode>
+          </div>
         </div>
         <div class="config scroll">
           <label><span><i class="fa-solid fa-info"></i></span><span>scroll</span></label>
-          <tapemode class="values twostates">
+          <scroll class="values twostates">
             <abrupt data-value="abrupt">abrupt</abrupt>
             <smooth data-smooth="smooth" id="chosen">smooth</smooth>
-          </tapemode>
+          </scroll>
+        </div>
+        <div class="config sound">
+          <label><span><i class="fa-solid fa-info"></i></span><span>sound</span></label>
+          <sound class="values twostates">
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
+          </sound>
         </div>
       </div>
     </setting>
