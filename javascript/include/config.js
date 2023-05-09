@@ -25,7 +25,7 @@ export default {
     numlock: true,
     scrolllock: true,
   },
-  inputbox_visibility: "hide", // visible | hide
+  inputbox_visibility: "hidden", // hidden | visible
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
   underline: false, // underline active word
