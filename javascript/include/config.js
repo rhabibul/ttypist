@@ -101,14 +101,22 @@ export default {
 
 const user = {
   firstname: "",
+  middlename: "",
   lastname: "",
   username: "",
   email: "",
   password: "",
+  rank: "", // ranked among typists (%)
+  skill_level: "",
+  experience_level: "",
+  avg_speed: "",
+  avg_accuracy: "",
+  total_tests_started: "",
+  total_tests_completed: "",
+  hours_spend_typing: "",
   social: {
     facebook: "",
     instagram: "",
     twitter: "",
   },
-  rank: "", // ranked among typists (%)
 }
