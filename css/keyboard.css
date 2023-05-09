@@ -21,8 +21,11 @@ keyboard {
 
 	border-radius: var(--key-boxradius);
 	border: 1px solid lightgray;
-
-	/* display: none; */
+}
+@media only screen and (max-width: 1250px) {
+	keyboard {
+		display: none;
+	}
 }
 keyboard row {
 	height: var(--key-height);

@@ -3,7 +3,6 @@ import { Test } from "./testlogic/logic.js";
 import * as Misc from "./utils/misc.js";
 import * as SettingUI from "./ui/SettingUI.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
-import config from "./include/config.js";
 
 function main() {
 	// will be delegated tasks later..
@@ -21,8 +20,18 @@ window.addEventListener('load', (evt) => {
 		SettingUI.changeUICaret(SettingElement.caret[Config.caret.type]);
 
 		Test.restart();
+		
 	}
 });
+
+function pacecaret(ms = 200) {
+	let i = 0, id = 0;
+	const letters = document.getElementsByTagName("letter");
+	
+	setInterval(() => {
+		
+	}, ms);
+}
 
 window.addEventListener("offline", (evt) => { console.log("You're offline."); });
 

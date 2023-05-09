@@ -1,19 +1,8 @@
-output {
-	margin-bottom: 10px;
-}
 speed {
   color: gray;
   font-size: var(--basetext-size);
   font-weight: var(--basetext-weight);
   font-family: var(--basetext-family);
-}
-
-div.tmp {
-  width: 120px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 }
 button i {
   transform: translateY(1px);
@@ -30,4 +19,9 @@ button:focus {
   outline: none;
   color: black;
   background-color: white;
+}
+button.fullscreen {
+  top: 15px;
+  right: 15px;
+  position: absolute;
 }

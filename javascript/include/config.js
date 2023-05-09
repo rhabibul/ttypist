@@ -69,6 +69,7 @@ export default {
   theme: "molokai",
   language: "english", // english | hindi | bengali | arabic | russian
   keyboard: {
+    reaction: "off", // off | static | react | next
     layout: "qwerty", // qwerty | dvorak | workman | colemak
     emulate: false,
   },
