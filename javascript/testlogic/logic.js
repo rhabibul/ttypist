@@ -1,127 +1,23 @@
 import Config from "../include/config.js";
 import * as CaretHandler from "../handler/carethandler.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-import * as Const from "../include/constant.js";
 import * as Misc from "../utils/misc.js";
-import * as SettingElement from "../HTMLElement/SettingElement.js";
 
 import { time, typedchar, mInput } from "./statskeeper.js";
-import Phrase from "../include/phrase.js";
-import Word from "../include/word.js";
-
-const phrase = new Phrase();
-const word = new Word();
+import { Test, phrase, word } from "../main.js";
 
 let wasSpace = false;
-
-export const Test = {
-	init() {
-		Config.ttypist.istyping = false;
-		Config.ttypist.hastypedeveryword = false;
-		CaretHandler.addcaretto(word.activeletter);
-
-		// InputElement.value | InputEvent.data | InputEvent.inputType
-		TestAreaElement.input.addEventListener("input", registerinput);
-		
-		TestAreaElement.input.addEventListener("keydown", registerkeydown);
-		TestAreaElement.input.addEventListener("keyup", registerkeyup);		
-		TestAreaElement.input.value = "";
-		TestAreaElement.input.focus();
-	},
-	restart() {
-		typedchar.reset();
-		time.reset();
-		mInput.reset();
-		phrase.loadwords(Misc.wordelements(Misc.randomwords()));
-		word.loadword(phrase.activeword, { activeword: true });
-		this.init();
-	}
-}
-
 mInput.keydownUnidentified = true;
 
-function registerinput(evt) {
+// 1. keydown
+export function registerkeydown(evt) {
 
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 
-	if ( mInput.keydownUnidentified ) {
-		
-		TestAreaElement.input.focus();
-
-		if ( !Config.ttypist.istyping ) {
-			time.begin = performance.now();
-			Config.ttypist.istyping = true;
-		}
-
-		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
-
-		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
-
-			TestAreaElement.input.value = "";
-			
-			CaretHandler.removecaretfrom(word.activeletter);
-			if ( phrase.activewordindex > 0 ) {
-				phrase.prevword.classList.remove("_____");
-				phrase.incrementwordindex();
-			}		
-			word.loadword(phrase.nextword, { nextword: true });
-			addunderline(phrase.activeword);
-			CaretHandler.addcaretto(word.activeletter);
-			
-		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
-			
-			CaretHandler.removecaretfrom(word.activeletter);
-	
-			if ( word.activeletterindex < word.lastletterindex ) {
-				CaretHandler.addcaretto(word.nextletter);
-			} else {
-	
-				if ( word.activeletterindex === word.lastletterindex ) {
-					if ( phrase.activewordindex < phrase.lastwordindex ) { // load next word
-						word.loadword(phrase.nextword, { nextword: true });
-						CaretHandler.addcaretto(word.activeletter);
-					}	
-	
-					if ( phrase.activewordindex === phrase.lastwordindex ) { // test complete
-						
-						time.end = window.performance.now();
-						CaretHandler.removecaretfrom(word.activeletter);
-						Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
-						Test.restart();
-					}
-				}	
-			}
-		}
+	if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
+		mInput.keydownUnidentified = true;
+		return;
 	}
-
-	mInput.reset();
-}
-
-export function removeUnderlineForLetter(letter) {
-	letter.style["text-decoration-color"] = "#3e3e3e"
-	letter.classList.remove("correct");
-}
-
-export function removeunderline(word) {
-	for ( const letter of word.children ) {
-		letter.classList.remove("_____");
-	}
-}
-
-export function addunderline(word) {
-	for (const letter of word.children ) {	
-		letter.classList.add("_____");
-	}
-}
-
-function registerkeydown(evt) {
-
-	// if ( !evt.isTrusted ) return;
-
-	// if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
-	// 	mInput.keydownUnidentified = true;
-	// 	return;
-	// }
 
 	if ( !Config.ttypist.istyping ) {
 		time.begin = performance.now();
@@ -233,8 +129,77 @@ function registerkeydown(evt) {
 	}
 }
 
-function registerkeyup(evt) {
-	// if ( !evt.isTrusted ) return;
+// 2. keypress
+export function registerkeypress(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// 3. beforeinput
+export function registerbeforeinput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// 4. input
+export function registerinput(evt) {
+
+	if ( !evt.isTrusted ) return;
+
+	if ( mInput.keydownUnidentified ) {
+		
+		TestAreaElement.input.focus();
+
+		if ( !Config.ttypist.istyping ) {
+			time.begin = performance.now();
+			Config.ttypist.istyping = true;
+		}
+
+		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
+
+		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
+
+			TestAreaElement.input.value = "";
+			
+			CaretHandler.removecaretfrom(word.activeletter);
+			if ( phrase.activewordindex > 0 ) {
+				phrase.prevword.classList.remove("_____");
+				phrase.incrementwordindex();
+			}		
+			word.loadword(phrase.nextword, { nextword: true });
+			addunderline(phrase.activeword);
+			CaretHandler.addcaretto(word.activeletter);
+			
+		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
+			
+			CaretHandler.removecaretfrom(word.activeletter);
+	
+			if ( word.activeletterindex < word.lastletterindex ) {
+				CaretHandler.addcaretto(word.nextletter);
+			} else {
+	
+				if ( word.activeletterindex === word.lastletterindex ) {
+					if ( phrase.activewordindex < phrase.lastwordindex ) { // load next word
+						word.loadword(phrase.nextword, { nextword: true });
+						CaretHandler.addcaretto(word.activeletter);
+					}	
+	
+					if ( phrase.activewordindex === phrase.lastwordindex ) { // test complete
+						
+						time.end = window.performance.now();
+						CaretHandler.removecaretfrom(word.activeletter);
+						Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
+						Test.restart();
+					}
+				}	
+			}
+		}
+	}
+	mInput.reset();
+}
+
+// 5. keyup
+export function registerkeyup(evt) {
+
+	if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
 		TestAreaElement.input.value = "";
@@ -248,6 +213,23 @@ function registerkeyup(evt) {
 		TestAreaElement.input.removeEventListener('keyup', registerkeyup);
 		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 		Test.restart();
+	}
+}
+
+export function removeUnderlineForLetter(letter) {
+	letter.style["text-decoration-color"] = "#3e3e3e"
+	letter.classList.remove("correct");
+}
+
+export function removeunderline(word) {
+	for ( const letter of word.children ) {
+		letter.classList.remove("_____");
+	}
+}
+
+export function addunderline(word) {
+	for (const letter of word.children ) {	
+		letter.classList.add("_____");
 	}
 }
 

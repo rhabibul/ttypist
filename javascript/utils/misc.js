@@ -139,7 +139,7 @@ export function startautotyper(wpm) {
 
 	setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
-		TestAreaElement.input.value += s[i];
+    // keep some delay between keydown & keyup to avoid getting caught
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
 		if ( i == s.length - 1 ) clearInterval(id);
