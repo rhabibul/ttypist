@@ -4,11 +4,6 @@ export default {
     hastypedeveryword: false,
     deviceinformation: "",
   },
-  warning: {
-    off: true,
-    capslock: false,
-    outoffocus: false,
-  },
   caret: {
     off: false,
     type: "line", // line | underline | box | block
@@ -16,6 +11,19 @@ export default {
   pacecaret: {
     off: true,
     type: "line", // line | underline | box | block
+  },
+  live: {
+    speed: false,
+    accuracy: false,
+    burst: false, // wpm of last word typed (speed burst)
+    timer: false,
+  },
+  warning: {
+    off: false,
+    capslock: true,
+    outoffocus: true,
+    numlock: true,
+    scrolllock: true,
   },
   inputbox_visibility: "hide", // visible | hide
   oppositeshift: false, // ignore B, Y, ^
@@ -29,6 +37,7 @@ export default {
       letter: true,
     },
   },
+  difficulty: "easy", // easy | intermediate | advanced
   confidence: {
     off: true,
     mode: {
@@ -44,7 +53,6 @@ export default {
       meta: false,
     },
   },
-  difficulty: "easy", // easy | intermediate | advanced
   error: {
     off: false,
     insert: true,
@@ -59,7 +67,7 @@ export default {
     word: {
       type: "dictionary", // dictionary | rootwords | lorem epsum
       length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)
-      count: 25,
+      count: 25, // 25 | 50 | infinite | custom
     },
     include: {
       digit: false, // include numbers along with words
@@ -73,19 +81,18 @@ export default {
     layout: "qwerty", // qwerty | dvorak | workman | colemak
     emulate: false,
   },
+  practice: {
+    off: true,
+    guided_lessions: false,
+    providetext: false,
+
+    numpad: false, // number pad digits and arithmetic operations with expression
+    numrow: false, // number row digits
+    alphanumeric: false, // ascii characters only
+    
+    brackets: false, // {[(<>)]}
+    arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+    functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  }
 };
-
-const learn = {
-  off: true,
-  guidedlessions: false, // guided lessons
-  providecustomtext: false, // custom text provided by user
-
-  numrow: false, // number row digits and symbols
-  numpad: false, // number pad digits and arithmetic operations with expression
-  alphanumeric: false, // ascii characters only
-  
-  brackets: false, // {[(<>)]}
-  arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-  functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-  specialsymbols: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-}
