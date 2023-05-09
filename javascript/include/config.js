@@ -50,6 +50,7 @@ export default {
   error: {
     off: false,
     insert: true, // insert extra incorrect letter
+    replace: false,
     forgive: true, // delete all inserted extra letters as soon user types correct letter
     stop: {
       word: false,

@@ -61,15 +61,16 @@ export function wordelements(s) {
   let word, letter;
 
   for (let i = 0; i < s.length; ++i) {
-
-    // create a word which has no letter which contains
+    
     word = document.createElement("word");
+    
     for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
       letter.textContent = s[i][j];
       letter.classList.add(Config.caret.type);
       word.appendChild(letter);
     }
+
     wordarray.push(word);
 
     if ( !Config.endtestwithspace && (i === s.length - 1) ) return wordarray;
@@ -88,7 +89,7 @@ export function wordelements(s) {
   return wordarray;
 }
 
-export function getphrase() {
+export function wordtags_tostring() {
 	let s = "", ws_code = 0;
   let words = HTMLCollection("word", { tagname: true });
 	for ( let word of words ) {
@@ -143,7 +144,7 @@ export function validphrase(phrase) {
 
 export function automatetyping(keystroke_time) {
 	let id, i = 0;
-	let s = getphrase();
+	let s = wordtags_tostring();
 
 	id = setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));

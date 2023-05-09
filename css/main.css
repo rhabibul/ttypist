@@ -95,7 +95,6 @@ main div.inputarea {
   align-items: center;
 }
 
-
 phrase word {
   color: var(--basetext-color);
   background-color: var(--caret-color-hidden);
@@ -105,6 +104,7 @@ phrase word {
 }
 phrase word letter {
   height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
