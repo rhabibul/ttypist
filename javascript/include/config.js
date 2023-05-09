@@ -106,7 +106,7 @@ const user = {
   username: "",
   email: "",
   password: "",
-  rank: "", // ranked among typists (%)
+  rank: "", // wpm percentile
   skill_level: "",
   experience_level: "",
   avg_speed: "",
@@ -114,6 +114,9 @@ const user = {
   total_tests_started: "",
   total_tests_completed: "",
   hours_spend_typing: "",
+  practice_calender: "",
+  key_frequency_heatmap: "",
+  country: "",
   best: "", // typing speed (wpm)
   social: {
     facebook: "",
