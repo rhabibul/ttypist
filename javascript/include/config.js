@@ -114,6 +114,7 @@ const user = {
   total_tests_started: "",
   total_tests_completed: "",
   hours_spend_typing: "",
+  best: "", // typing speed (wpm)
   social: {
     facebook: "",
     instagram: "",
