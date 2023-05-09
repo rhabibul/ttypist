@@ -2,7 +2,7 @@ export default {
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
-    deviceinformation: "comma,separated,value",
+    deviceinformation: "",
   },
   warning: {
     off: true,
@@ -17,7 +17,7 @@ export default {
     off: true,
     type: "line", // line | underline | box | block
   },
-  inputbox: false,
+  inputbox_visibility: "hide", // visible | hide
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
   underline: false, // underline active word
@@ -44,14 +44,12 @@ export default {
       meta: false,
     },
   },
-  // easy is classical typing experience, expert ends test if incorrect word is submitted,
-  // master ends test if single incorrect letter is submitted
-  difficulty: "noob", // noob | expert | master
+  difficulty: "easy", // easy | intermediate | advanced
   error: {
     off: false,
-    insert: true, // insert extra incorrect letter
+    insert: true,
     replace: false,
-    forgive: true, // delete all inserted extra letters as soon user types correct letter
+    forgive: true,
     stop: {
       word: false,
       letter: false,
