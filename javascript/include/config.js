@@ -99,6 +99,7 @@ export default {
   }
 };
 
+// user data
 const user = {
   firstname: "",
   middlename: "",
@@ -122,5 +123,10 @@ const user = {
     facebook: "",
     instagram: "",
     twitter: "",
+    linkedin: "",
+    reddit: "",
+    discord: "",
+    twitch: "",
+    youtube: "",
   },
 }

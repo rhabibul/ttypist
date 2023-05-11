@@ -121,6 +121,9 @@ div.config .fourstates * {
 div.config .twostates * {
   flex-basis: 49%;
 }
+div.config modifier.threestates * {
+  flex-basis: 32%;
+}
 div.config confidence.threestates *,
 div.config errors.threestates *,
 div.config stoponerror.threestates *,
@@ -133,6 +136,7 @@ div.config warning.threestates * {
 div.config warning.threestates outoffocus {
   flex-basis: 38%;
 }
+
 div.config confidence.threestates off,
 div.config stoponerror.threestates off,
 div.config highlight.threestates off,

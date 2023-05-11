@@ -126,10 +126,16 @@
             <master data-value="master">master</master>
           </difficulty>
         </div>
+        <div class="config backspace">
+          <label><span><i class="fa-solid fa-info"></i></span><span>backspace key</span></label>
+          <backspace class="values twostates">
+            <off data-value="off">off</off>
+            <on data-value="on" id="chosen">on</on>
+          </backspace>
+        </div>
         <div class="config modifier">
           <label><span><i class="fa-solid fa-info"></i></span><span>modifier keys</span></label>
-          <modifier class="values fourstates">
-            <off data-value="off">off</off>
+          <modifier class="values threestates">
             <pro data-value="alt" id="chosen">alt</pro>
             <max data-value="ctrl" id="chosen">ctrl</max>
             <max data-value="meta">meta</max>
