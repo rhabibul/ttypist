@@ -110,6 +110,21 @@
             <on data-value="on">on</on>
           </fliptextcolor>
         </div>
+        <div class="config backspace">
+          <label><span><i class="fa-solid fa-info"></i></span><span>backspace</span></label>
+          <backspace class="values twostates">
+            <off data-value="off">off</off>
+            <on data-value="on" id="chosen">on</on>
+          </backspace>
+        </div>
+        <div class="config modifier">
+          <label><span><i class="fa-solid fa-info"></i></span><span>modifier</span></label>
+          <modifier class="values threestates">
+            <pro data-value="alt" id="chosen">alt</pro>
+            <max data-value="ctrl" id="chosen">ctrl</max>
+            <max data-value="meta">meta</max>
+          </modifier>
+        </div>
         <div class="config confidence">
           <label><span><i class="fa-solid fa-info"></i></span><span>confidence</span></label>
           <confidence class="values threestates">
@@ -125,21 +140,6 @@
             <expert data-value="expert">expert</expert>
             <master data-value="master">master</master>
           </difficulty>
-        </div>
-        <div class="config backspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>backspace key</span></label>
-          <backspace class="values twostates">
-            <off data-value="off">off</off>
-            <on data-value="on" id="chosen">on</on>
-          </backspace>
-        </div>
-        <div class="config modifier">
-          <label><span><i class="fa-solid fa-info"></i></span><span>modifier keys</span></label>
-          <modifier class="values threestates">
-            <pro data-value="alt" id="chosen">alt</pro>
-            <max data-value="ctrl" id="chosen">ctrl</max>
-            <max data-value="meta">meta</max>
-          </modifier>
         </div>
         <div class="config errors">
           <label><span><i class="fa-solid fa-info"></i></span><span>errors</span></label>

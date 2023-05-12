@@ -1,5 +1,4 @@
 import Config from "../include/config.js"
-// import { Test, word } from "../testlogic/logic.js";
 import { Test, word, phrase } from "../main.js";
 
 import * as Misc from "./misc.js";

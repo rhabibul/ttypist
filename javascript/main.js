@@ -25,10 +25,7 @@ export const Test = {
 		TestAreaElement.input.addEventListener("keypress", registerkeypress);
 		TestAreaElement.input.addEventListener("beforeinput", registerbeforeinput);
 		TestAreaElement.input.addEventListener("input", registerinput);
-		TestAreaElement.input.addEventListener("keyup", registerkeyup);		
-		
-		TestAreaElement.input.value = "";
-		TestAreaElement.input.focus();
+		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
 		typedchar.reset();
@@ -37,6 +34,8 @@ export const Test = {
 		phrase.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(phrase.activeword, { activeword: true });
 		CaretHandler.addcaretto(word.activeletter);
+		TestAreaElement.input.value = "";
+		TestAreaElement.input.focus();
 	}
 }
 
