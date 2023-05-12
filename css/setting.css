@@ -198,3 +198,8 @@ underline shape {
   height: var(--setting-caret-shape-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
+
+input#slider {
+  border: none;
+  outline: none;
+}

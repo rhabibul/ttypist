@@ -36,6 +36,10 @@
       <speed>0wpm</speed>
     </header>
     <main>
+      <div>
+        <input autofocus="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+          data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+      </div>
       <phrase>
         <word>
           <letter>w</letter>
@@ -59,15 +63,14 @@
           <letter>t</letter>
         </word>
       </phrase>
-      <div>
-        <input autofocus="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
-          data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
-      </div>
     </main>
+    
     <button type="reset">
       <i class="fa-solid fa-arrow-rotate-right"></i>
     </button>
+    
     <setting>
+      <!-- column 1 -->
       <div class="column column1">
         <div class="config caret">
           <label><span><i class="fa-solid fa-info"></i></span><span>caret</span></label>
@@ -153,6 +156,7 @@
         </div>
       </div>
 
+      <!-- column 2 -->
       <div class="column column2">
         <div class="config underline">
           <label><span><i class="fa-solid fa-info"></i></span><span>underline</span></label>
@@ -231,6 +235,12 @@
         </div>
       </div>
     </setting>
+
+    <div>
+      <input type="range" min="0.5" max="4" step="0.1" value="1" id="slider" />
+      <span class="fontsize-value">1.2</span>
+    </div>
+
     
     <keyboard>
       <row id="K">
