@@ -207,10 +207,8 @@ export function registerkeyup(evt) {
 	}
 
 	if ( Config.ttypist.hastypedeveryword ) {
+		TestAreaElement.input.blur();
 		CaretHandler.removecaretfrom(word.activeletter);
-		TestAreaElement.input.removeEventListener('input', registerinput);
-		TestAreaElement.input.removeEventListener('keydown', registerkeydown);
-		TestAreaElement.input.removeEventListener('keyup', registerkeyup);
 		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 		Test.restart();
 	}

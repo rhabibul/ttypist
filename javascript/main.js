@@ -16,19 +16,17 @@ export const phrase = new Phrase();
 export const word = new Word();
 
 export const Test = {
-	init() {
-		Config.ttypist.istyping = false;
-		Config.ttypist.hastypedeveryword = false;
-
-		// InputElement.value | InputEvent.data | InputEvent.inputType
-		
+	init() {		
 		TestAreaElement.input.addEventListener("keydown", registerkeydown);
 		TestAreaElement.input.addEventListener("keypress", registerkeypress);
 		TestAreaElement.input.addEventListener("beforeinput", registerbeforeinput);
-		TestAreaElement.input.addEventListener("input", registerinput);
+		TestAreaElement.input.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
+		Config.ttypist.istyping = false;
+		Config.ttypist.hastypedeveryword = false;
+
 		typedchar.reset();
 		time.reset();
 		mInput.reset();
@@ -49,13 +47,6 @@ export const Test = {
 // 	}
 // });
 
-window.addEventListener("offline", (evt) => { 
-	console.log("Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]");
-});
-window.addEventListener("online", (evt) => {
-	console.log("Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]");
-})
-
 // for config testing
 window.addEventListener("click", (evt) => {
 	// on click log config values
@@ -65,7 +56,6 @@ function main() {
 	Test.init();
 	Test.restart();
 }
-
 main();
 
 const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -100,3 +90,10 @@ navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {
 	console.log(d, d.length);
 	console.log(sym, sym.length);
 });
+
+window.addEventListener("offline", (evt) => { 
+	console.log("Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]");
+});
+window.addEventListener("online", (evt) => {
+	console.log("Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]");
+})
