@@ -5,6 +5,7 @@ import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
 import * as CaretHandler from "../handler/carethandler.js";
 import * as ConfigHandler from "../handler/confighandler.js";
+import { root } from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
@@ -72,4 +73,20 @@ SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 		document.exitFullscreen();
     TestAreaElement.input.focus();
 	}
+});
+
+
+// sliders
+const slider_fontsize = document.querySelector("input#slider.fsize");
+const slider_fontweight = document.querySelector("input#slider.fweight");
+const label_fontsize = document.querySelector(".fontsize-value");
+const label_fontweight = document.querySelector(".fontweight-value");
+
+slider_fontsize.addEventListener("input", () => {
+	root.style.setProperty("--basetext-size", `${slider_fontsize.value}rem`);
+	label_fontsize.textContent = `${slider_fontsize.value}rem`;
+});
+slider_fontweight.addEventListener("input", () => {
+	root.style.setProperty("--basetext-weight", `${slider_fontweight.value}`);
+	label_fontweight.textContent = `${slider_fontweight.value}`;
 });

@@ -12,16 +12,6 @@ import {root} from "./HTMLElement/MiscElement.js";
 import { time, typedchar, mInput } from "./testlogic/statskeeper.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./testlogic/logic.js"; 
 
-
-const slider = document.querySelector("#slider");
-const fontsize_container = document.querySelector(".fontsize-value");
-
-slider.addEventListener("input", () => {
-	root.style.setProperty("--basetext-size", `${slider.value}rem`);
-	fontsize_container.textContent = `${slider.value}rem`;
-});
-
-
 export const phrase = new Phrase();
 export const word = new Word();
 
