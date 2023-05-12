@@ -29,37 +29,40 @@ SettingElement.pacecaret.line.addEventListener("click", updatepacecaret);
 SettingElement.pacecaret.block.addEventListener("click", updatepacecaret);
 SettingElement.pacecaret.underline.addEventListener("click", updatepacecaret);
 
-// apply new caret styles to all the letters
-function addcaretstyle_toletters(previouscaret, currentcaret) {
-  Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
-    letter.classList.remove(previouscaret); // remove previous caret's styling from this letter
-    CaretHandler.removecaretfrom(word.activeletter);
-    letter.classList.add(currentcaret); // add new caret's styling to this letter
-    CaretHandler.addcaretto(word.activeletter);
-    TestAreaElement.input.focus();
-  });
+SettingElement.highlight.off.addEventListener("click", updatehighlight);
+SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
+SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
+
+function updatehighlight(evt) {
+  evt.preventDefault();
+  const highlight = this.dataset.value;
+  if (highlight === "letter" && Config.highlight.mode.letter) return;
+  if (highlight === "word" && Config.highlight.mode.word) return;
+  if (highlight === "off" && Config.highlight.off) return;
+  ConfigHandler.changeHighlightTo(highlight);
+  SettingUI.changeUIHighlightTo(highlight);
 }
 
 function updatecaret(evt) {
   evt.preventDefault();
-
   if ( this.dataset.type === Config.caret.type ) return;
-
-  TestAreaElement.input.blur(); // disable input field
   const previouscaret = Config.caret.type;
   SettingUI.changeUICaret(this);
-  ConfigHandler.updateconfig_caret(this.dataset.type);
-  addcaretstyle_toletters(previouscaret, Config.caret.type);
-  TestAreaElement.input.focus(); // enable input field
-  Misc.storeConfigInLocalStorage(); // store config in local storage
+  ConfigHandler.changeCaretTo(this.dataset.type);
+  
+  Misc.addcaretstyle_toletters(previouscaret, Config.caret.type); // to be removed
 }
 
 function updatepacecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.type === Config.pacecaret.type ) return;
   SettingUI.changeUICaret(this);
-  ConfigHandler.updateconfig_pacecaret(this.dataset.type);
+  ConfigHandler.changePaceCaretTo(this.dataset.type);
 }
+
+// 
+// ------------------------------ temporary stuffs -----------------------------
+// 
 
 SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
@@ -85,8 +88,10 @@ const label_fontweight = document.querySelector(".fontweight-value");
 slider_fontsize.addEventListener("input", () => {
 	root.style.setProperty("--basetext-size", `${slider_fontsize.value}rem`);
 	label_fontsize.textContent = `${slider_fontsize.value}rem`;
+  Config.phrase.fontsize = slider_fontsize.value;
 });
 slider_fontweight.addEventListener("input", () => {
 	root.style.setProperty("--basetext-weight", `${slider_fontweight.value}`);
 	label_fontweight.textContent = `${slider_fontweight.value}`;
+  Config.phrase.fontweight = slider_fontweight.value;
 });

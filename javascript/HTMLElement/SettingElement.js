@@ -16,6 +16,15 @@ export const pacecaret = {
 	block: document.querySelector("pacecaret block"),
 };
 
+export const highlight = {
+	off: document.querySelector("highlight off"),
+	mode: {
+		letter: document.querySelector("highlight letter"),
+		word: document.querySelector("highlight	word"),
+	}
+}
+
+
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");
 export const exitFullscreen = document.querySelector("button i.fa-compress");

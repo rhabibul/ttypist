@@ -49,8 +49,8 @@ export const Test = {
 
 // for config testing
 window.addEventListener("click", (evt) => {
-	// on click log config values
-})
+
+});
 
 function main() {	
 	Test.init();

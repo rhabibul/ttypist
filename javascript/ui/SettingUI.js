@@ -94,3 +94,19 @@ export function changeUICaret(caret) {
 		}
 	}
 }
+
+export function changeUIHighlightTo(highlight) {
+	if ( highlight === "word" ) {
+		SettingElement.highlight.off.id = "";
+		SettingElement.highlight.mode.letter.id = "";
+		SettingElement.highlight.mode.word.id = "chosen";
+	} else if ( highlight === "letter" ) {
+		SettingElement.highlight.off.id = "";
+		SettingElement.highlight.mode.letter.id = "chosen";
+		SettingElement.highlight.mode.word.id = "";
+	} else {
+		SettingElement.highlight.off.id = "chosen";
+		SettingElement.highlight.mode.letter.id = "";
+		SettingElement.highlight.mode.word.id = "";
+	}
+}

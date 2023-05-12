@@ -5,7 +5,7 @@ export function on(value) {};
 export function off(value) {};
 export function setdefaultsconfig() {};
 
-export function updateconfig_caret(type) {
+export function changeCaretTo(type) {
   Config.caret.type = type;
   if ( type === "off" ) {
     Config.caret.off = true;
@@ -16,7 +16,7 @@ export function updateconfig_caret(type) {
   }
 }
 
-export function updateconfig_pacecaret(type) {
+export function changePaceCaretTo(type) {
   Config.pacecaret.type = type;
   if ( type === "off" ) {
     Config.pacecaret.off = true;
@@ -25,8 +25,18 @@ export function updateconfig_pacecaret(type) {
   }
 }
 
-export function loadstoredconfig(storedconfig) {
-	if ( typeof storedconfig !== 'object' ) return;
-	Config.caret.off = storedconfig.caret.off;
-	Config.caret.type = storedconfig.caret.type;
+export function changeHighlightTo(type) {
+  if ( type === "word" ) {
+    Config.highlight.off = false;
+    Config.highlight.mode.letter = false;
+    Config.highlight.mode.word = true;
+  } else if ( type === "letter" ) {
+    Config.highlight.off = false;
+    Config.highlight.mode.letter = true;
+    Config.highlight.mode.word = false;
+  } else {
+    Config.highlight.off = true;
+    Config.highlight.mode.letter = false;
+    Config.highlight.mode.word = false;
+  }
 }

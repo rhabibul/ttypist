@@ -18,6 +18,8 @@ export default {
     burst: false, // wpm of last word typed (speed burst)
     timer: false,
   },
+  theme: "molokai",
+  inputbox_visibility: "hidden", // hidden | visible
   warning: {
     off: false,
     capslock: true,
@@ -25,7 +27,6 @@ export default {
     numlock: true,
     scrolllock: true,
   },
-  inputbox_visibility: "hidden", // hidden | visible
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
   underline: false, // underline active word
@@ -64,6 +65,8 @@ export default {
     },
   },
   phrase: {
+    fontsize: 1.2,
+    fontweight: 445,
     word: {
       type: "dictionary", // dictionary | rootwords | lorem epsum
       length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)
@@ -74,7 +77,6 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
-  theme: "molokai",
   language: "english", // english | hindi | bengali | arabic | russian
   keyboard: {
     reaction: "off", // off | static | react | next
@@ -96,6 +98,7 @@ export default {
   misc: {
     cpm: false, // use cpm instead of wpm
     usefloats: false,
+    dynamicSettingChanges: false,
   }
 };
 
