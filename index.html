@@ -79,21 +79,15 @@
             <block data-type="block" class="caret_shape"> <shape></shape> </block>
           </caret>
         </div>
-        <div class="config underline">
-          <label><span><i class="fa-solid fa-info"></i></span><span>underline</span></label>
-          <underline class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </underline>
-        </div>
-        <div class="config whitespace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
-          <whitespace class="values fourstates">
-            <off data-value="off">off</off>
-            <dot data-value="dot">dot</dot>
-            <space data-value="space" id="chosen">space</space>
-            <bar data-value="bar">bar</bar>
-          </whitespace>
+        <div class="config pacecaret">
+          <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
+          <pacecaret class="values">
+            <off data-type="off" id="chosen" class="pacecaret_shape">off</off>
+            <underline data-type="underline" class="pacecaret_shape"> <shape></shape> </underline>
+            <line data-type="line" class="pacecaret_shape"> <shape></shape> </line>
+            <box data-type="box" class="pacecaret_shape"> <shape></shape> </box>
+            <block data-type="block" class="pacecaret_shape"> <shape></shape> </block>
+          </pacecaret>
         </div>
         <div class="config highlight">
           <label><span><i class="fa-solid fa-info"></i></span><span>highlight</span></label>
@@ -150,7 +144,7 @@
           </errors>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stoponerror</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -160,15 +154,21 @@
       </div>
 
       <div class="column column2">
-        <div class="config pacecaret">
-          <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
-          <pacecaret class="values">
-            <off data-type="off" id="chosen" class="pacecaret_shape">off</off>
-            <underline data-type="underline" class="pacecaret_shape"> <shape></shape> </underline>
-            <line data-type="line" class="pacecaret_shape"> <shape></shape> </line>
-            <box data-type="box" class="pacecaret_shape"> <shape></shape> </box>
-            <block data-type="block" class="pacecaret_shape"> <shape></shape> </block>
-          </pacecaret>
+        <div class="config underline">
+          <label><span><i class="fa-solid fa-info"></i></span><span>underline</span></label>
+          <underline class="values twostates">
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
+          </underline>
+        </div>
+        <div class="config whitespace">
+          <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
+          <whitespace class="values fourstates">
+            <off data-value="off">off</off>
+            <dot data-value="dot">dot</dot>
+            <space data-value="space" id="chosen">space</space>
+            <bar data-value="bar">bar</bar>
+          </whitespace>
         </div>
         <div class="config endtestwithspace">
           <label><span><i class="fa-solid fa-info"></i></span><span>endtestwithspace</span></label>
