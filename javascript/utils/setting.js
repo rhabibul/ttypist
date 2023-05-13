@@ -1,16 +1,15 @@
 import Config from "../include/config.js"
-import { Test, word, phrase } from "../main.js";
+import { Test, word, text } from "../main.js";
 
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
 import * as CaretHandler from "../handler/carethandler.js";
-import * as ConfigHandler from "../handler/confighandler.js";
 import { root } from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 // input field
-TestAreaElement.phrase.addEventListener("click", () => { TestAreaElement.input.focus(); });
+TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
 
 // reset button
 SettingElement.reset.addEventListener("click", (evt) => { Test.restart(); });
@@ -33,31 +32,76 @@ SettingElement.highlight.off.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
 
+SettingElement.fliptextcolor.off.addEventListener("click", updatefliptextcolor);
+SettingElement.fliptextcolor.on.addEventListener("click", updatefliptextcolor);
+
+function updatefliptextcolor(evt) {
+  evt.preventDefault();
+  if ( this.dataset.value === "off" && !Config.fliptextcolor ) return;
+  if ( this.dataset.value === "on" && Config.fliptextcolor ) return;
+  
+  if ( this.dataset.value === "off" ) {
+    Config.fliptextcolor = false;
+  } else {
+    Config.fliptextcolor = true;
+  }
+  
+  // write code to flip text color here only..
+}
+
 function updatehighlight(evt) {
   evt.preventDefault();
   const highlight = this.dataset.value;
   if (highlight === "letter" && Config.highlight.mode.letter) return;
   if (highlight === "word" && Config.highlight.mode.word) return;
   if (highlight === "off" && Config.highlight.off) return;
-  ConfigHandler.changeHighlightTo(highlight);
-  SettingUI.changeUIHighlightTo(highlight);
+
+  if ( highlight === "word" ) {
+    Config.highlight.off = false;
+    Config.highlight.mode.letter = false;
+    Config.highlight.mode.word = true;
+  } else if ( highlight === "letter" ) {
+    Config.highlight.off = false;
+    Config.highlight.mode.letter = true;
+    Config.highlight.mode.word = false;
+  } else {
+    Config.highlight.off = true;
+    Config.highlight.mode.letter = false;
+    Config.highlight.mode.word = false;
+  }
+  SettingUI.changeUIHighlightButtonTo(highlight);  
 }
 
 function updatecaret(evt) {
   evt.preventDefault();
-  if ( this.dataset.type === Config.caret.type ) return;
-  const previouscaret = Config.caret.type;
-  SettingUI.changeUICaret(this);
-  ConfigHandler.changeCaretTo(this.dataset.type);
-  
-  Misc.addcaretstyle_toletters(previouscaret, Config.caret.type); // to be removed
+  if ( this.dataset.value === Config.caret.type ) return;
+  const prev = Config.caret.type;
+  SettingUI.changeUICaretButtonTo(this);
+
+  if ( this.dataset.value === "off" ) {
+    Config.caret.off = true;
+  } else {
+    Config.caret.off = false;
+  }
+  Config.caret.type = this.dataset.value;
+
+  if ( Config.dynamicsettingchange ) {
+    SettingUI.applyupdatedcaret(prev);
+  }
 }
 
 function updatepacecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.type === Config.pacecaret.type ) return;
-  SettingUI.changeUICaret(this);
-  ConfigHandler.changePaceCaretTo(this.dataset.type);
+
+  SettingUI.changeUICaretButtonTo(this);
+
+  if ( this.dataset.value === "off" ) {
+    Config.pacecaret.off = true;
+  } else {
+    Config.pacecaret.off = false;
+  }
+  Config.pacecaret.type = this.dataset.value;
 }
 
 // 
@@ -88,10 +132,10 @@ const label_fontweight = document.querySelector(".fontweight-value");
 slider_fontsize.addEventListener("input", () => {
 	root.style.setProperty("--basetext-size", `${slider_fontsize.value}rem`);
 	label_fontsize.textContent = `${slider_fontsize.value}rem`;
-  Config.phrase.fontsize = slider_fontsize.value;
+  Config.text.fontsize = slider_fontsize.value;
 });
 slider_fontweight.addEventListener("input", () => {
 	root.style.setProperty("--basetext-weight", `${slider_fontweight.value}`);
 	label_fontweight.textContent = `${slider_fontweight.value}`;
-  Config.phrase.fontweight = slider_fontweight.value;
+  Config.text.fontweight = slider_fontweight.value;
 });

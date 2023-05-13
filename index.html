@@ -23,55 +23,101 @@
 
   <body>
     <button class="fullscreen" type="fullscreen">
-      <!-- <svg>
-        <g> <path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path> </g>
-        <g> <path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path> </g>
-        <g> <path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path> </g>
-        <g> <path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path> </g>
-      </svg> -->
       <i class="fa-sharp fa-solid fa-expand"></i>
       <i class="fa-sharp fa-solid fa-compress hidden"></i>
     </button>
+
     <header>
       <speed>0wpm</speed>
     </header>
-    <main>
-      <div>
-        <input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
-          data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
-      </div>
-      <phrase>
-        <word>
-          <letter>w</letter>
-          <letter>e</letter>
-          <letter>l</letter>
-          <letter>c</letter>
-          <letter>o</letter>
-          <letter>m</letter>
-          <letter>e</letter>
-        </word>
-        <word>
-          <letter>&nbsp;</letter>
-        </word>
-        <word>
-          <letter>t</letter>
-          <letter>t</letter>
-          <letter>y</letter>
-          <letter>p</letter>
-          <letter>i</letter>
-          <letter>s</letter>
-          <letter>t</letter>
-        </word>
-      </phrase>
-    </main>
+
+    <text>
+      <word>
+        <letter>t</letter>
+        <letter>h</letter>
+        <letter>e</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>q</letter>
+        <letter>u</letter>
+        <letter>i</letter>
+        <letter>c</letter>
+        <letter>k</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>b</letter>
+        <letter>r</letter>
+        <letter>o</letter>
+        <letter>w</letter>
+        <letter>n</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>f</letter>
+        <letter>o</letter>
+        <letter>x</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>j</letter>
+        <letter>u</letter>
+        <letter>m</letter>
+        <letter>p</letter>
+        <letter>s</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>o</letter>
+        <letter>v</letter>
+        <letter>e</letter>
+        <letter>r</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>t</letter>
+        <letter>h</letter>
+        <letter>e</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>l</letter>
+        <letter>a</letter>
+        <letter>z</letter>
+        <letter>y</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>d</letter>
+        <letter>o</letter>
+        <letter>g</letter>
+      </word>
+    </text>
+    <input id="textinput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
     
     <button type="reset">
       <i class="fa-solid fa-arrow-rotate-right"></i>
     </button>
-    
 
     <div>
-      <input type="range" min="1" max="3" step="0.001" value="1.2" id="slider" class="fsize"/>
+      <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider" class="fsize"/>
       <span class="fontsize-value">1.2</span>
     </div>
     <div>
@@ -79,28 +125,27 @@
       <span class="fontweight-value">445</span>
     </div>
 
-    
     <setting>
       <!-- column 1 -->
       <div class="column column1">
         <div class="config caret">
           <label><span><i class="fa-solid fa-info"></i></span><span>caret</span></label>
           <caret class="values">
-            <off data-type="off" class="caret_shape">off</off>
-            <underline data-type="underline" class="caret_shape"> <shape></shape> </underline>
-            <line data-type="line" id="chosen" class="caret_shape"> <shape></shape> </line>
-            <box data-type="box" class="caret_shape"> <shape></shape> </box>
-            <block data-type="block" class="caret_shape"> <shape></shape> </block>
+            <off data-value="off" class="caret_shape">off</off>
+            <underline data-value="underline" class="caret_shape"> <shape></shape> </underline>
+            <line data-value="line" id="chosen" class="caret_shape"> <shape></shape> </line>
+            <box data-value="box" class="caret_shape"> <shape></shape> </box>
+            <block data-value="block" class="caret_shape"> <shape></shape> </block>
           </caret>
         </div>
         <div class="config pacecaret">
           <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
           <pacecaret class="values">
-            <off data-type="off" id="chosen" class="pacecaret_shape">off</off>
-            <underline data-type="underline" class="pacecaret_shape"> <shape></shape> </underline>
-            <line data-type="line" class="pacecaret_shape"> <shape></shape> </line>
-            <box data-type="box" class="pacecaret_shape"> <shape></shape> </box>
-            <block data-type="block" class="pacecaret_shape"> <shape></shape> </block>
+            <off data-value="off" id="chosen" class="pacecaret_shape">off</off>
+            <underline data-value="underline" class="pacecaret_shape"> <shape></shape> </underline>
+            <line data-value="line" class="pacecaret_shape"> <shape></shape> </line>
+            <box data-value="box" class="pacecaret_shape"> <shape></shape> </box>
+            <block data-value="block" class="pacecaret_shape"> <shape></shape> </block>
           </pacecaret>
         </div>
         <div class="config highlight">

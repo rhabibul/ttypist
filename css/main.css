@@ -31,11 +31,15 @@
   --round: 0px;
   --line-gap: 0px;
 
-  --basetext-color: #3e3e3e;
+  
+  --primary-textcolor: #3e3e3e;
+  --secondary-textcolor: #3e3e3e;
 
-  --basetext-size: 1.165rem;
-  --basetext-weight: 445;
-  --basetext-family: var(--roboto-mono);
+  --textcolor: #3e3e3e;
+  
+  --textsize: 1.165rem;
+  --textweight: 445;
+  --textfamily: var(--roboto-mono);
 }
 
 *,
@@ -54,74 +58,48 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   row-gap: 10px;
   padding: 10px; /* remove */
 }
 
-main {
-  max-width: 750px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 0px 10px 15px; /* remove */
-}
+text {  
+  width: 700px;
 
-main phrase {
-  width: 100%;
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
   align-content: flex-start; /* determines the spacing between lines */
   justify-content: flex-start;
   flex-wrap: wrap;
 
+  row-gap: 0px;
   user-select: none;
-  row-gap: var(--line-gap);
   background-color: var(--caret-color-hidden);
 }
 
-main div.inputarea {
-  width: 100%;
-  height: 50px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-phrase word {
-  color: var(--basetext-color);
+text word {
+  color: var(--textcolor);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
   justify-content: flex-start;
 }
-phrase word letter {
+text word letter {
   height: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: var(--basetext-size);
-  font-weight: var(--basetext-weight);
-  font-family: var(--basetext-family);
+  font-size: var(--textsize);
+  font-weight: var(--textweight);
+  font-family: var(--textfamily);
   
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 
-antialiased
-  - Smooth the font on the level of the pixel, as opposed to the subpixel.
-    Switching from subpixel rendering to anti-aliasing for light text on 
-    dark backgrounds makes it look lighter.
-subpixel-antialiased
-  - On most non-retina displays, this will give the sharpest text.
-*/
-
-main div input {
-  display: block; /* remove */
+input#textinput {
   margin: 0px;
   padding: 0px;
   width: 0px;
@@ -163,5 +141,5 @@ main div input {
   text-underline-offset: 1px;
   text-decoration-thickness: 1px;
   text-decoration-style: solid;
-  text-decoration-color: var(--basetext-color);
+  text-decoration-color: var(--textcolor);
 }

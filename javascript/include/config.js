@@ -4,6 +4,7 @@ export default {
     hastypedeveryword: false,
     deviceinformation: "",
   },
+  dynamicsettingchange: true,
   caret: {
     off: false,
     type: "line", // line | underline | box | block
@@ -11,21 +12,6 @@ export default {
   pacecaret: {
     off: true,
     type: "line", // line | underline | box | block
-  },
-  live: {
-    speed: false,
-    accuracy: false,
-    burst: false, // wpm of last word typed (speed burst)
-    timer: false,
-  },
-  theme: "molokai",
-  inputbox_visibility: "hidden", // hidden | visible
-  warning: {
-    off: false,
-    capslock: true,
-    outoffocus: true,
-    numlock: true,
-    scrolllock: true,
   },
   oppositeshift: false, // ignore B, Y, ^
   endtestwithspace: false,
@@ -64,7 +50,9 @@ export default {
       letter: false,
     },
   },
-  phrase: {
+  text: {
+    primary_textcolor: "",
+    secondary_textcolor: "",
     fontsize: 1.2,
     fontweight: 445,
     word: {
@@ -77,11 +65,23 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
+  theme: "molokai",
+  capslock: true,
+  outoffocus: true,
+  numlock: true,
+  scrolllock: true,
+  inputbox_visibility: "hidden", // hidden | visible
   language: "english", // english | hindi | bengali | arabic | russian
   keyboard: {
     reaction: "off", // off | static | react | next
     layout: "qwerty", // qwerty | dvorak | workman | colemak
     emulate: false,
+  },
+  showlive: {
+    speed: false,
+    accuracy: false,
+    burst: false, // wpm of last word typed (speed burst)
+    timer: false,
   },
   practice: {
     off: true,
@@ -98,7 +98,6 @@ export default {
   misc: {
     cpm: false, // use cpm instead of wpm
     usefloats: false,
-    dynamicSettingChanges: false,
   }
 };
 

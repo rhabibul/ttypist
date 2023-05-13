@@ -1,8 +1,8 @@
 speed {
   color: gray;
-  font-size: var(--basetext-size);
-  font-weight: var(--basetext-weight);
-  font-family: var(--basetext-family);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: "Roboto Mono", monospace;
 }
 button i {
   transform: translateY(1px);

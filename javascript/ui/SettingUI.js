@@ -1,11 +1,25 @@
 import * as SettingElement from "../HTMLElement/SettingElement.js";
-import * as Misc from "../utils/misc.js"
+import * as Misc from "../utils/misc.js";
+import Config from "../include/config.js";
+import { word } from "../main.js";
+import * as CaretHandler from "../handler/carethandler.js";
+import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+
 
 const active_color = Misc.computedstyles.getPropertyValue("--active-color");
 const active_bgcolor = Misc.computedstyles.getPropertyValue("--active-backgroundcolor");
-
 const inactive_color = Misc.computedstyles.getPropertyValue("--inactive-color");
 const inactive_bgcolor = Misc.computedstyles.getPropertyValue("--inactive-backgroundcolor");
+
+export function applyupdatedcaret(prev) {
+  CaretHandler.removecaretfrom(word.activeletter);
+  Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
+    letter.classList.remove(prev);
+    letter.classList.add(Config.caret.type);
+  });
+  CaretHandler.addcaretto(word.activeletter);
+  TestAreaElement.input.focus();
+}
 
 function colorshapeof(caret, caretIsActive) {
 	
@@ -69,7 +83,7 @@ function colorshapeof(caret, caretIsActive) {
 	}
 }
 
-export function changeUICaret(caret) {
+export function changeUICaretButtonTo(caret) {
 
   // activate the clicked caret first
   colorshapeof(caret, true); // set active color for the selected caret shape
@@ -95,7 +109,7 @@ export function changeUICaret(caret) {
 	}
 }
 
-export function changeUIHighlightTo(highlight) {
+export function changeUIHighlightButtonTo(highlight) {
 	if ( highlight === "word" ) {
 		SettingElement.highlight.off.id = "";
 		SettingElement.highlight.mode.letter.id = "";

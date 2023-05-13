@@ -24,6 +24,10 @@ export const highlight = {
 	}
 }
 
+export const fliptextcolor = {
+	off: document.querySelector("fliptextcolor off"),
+	on: document.querySelector("fliptextcolor on"),
+}
 
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");

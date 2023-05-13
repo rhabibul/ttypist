@@ -7,23 +7,10 @@ import rootword from "../static/rootword.js";
 import { word, phrase, Test } from "../main.js";
 
 import * as Const from "../include/constant.js";
-import * as ConfigHandler from "../handler/confighandler.js";
 import * as CaretHandler from "../handler/carethandler.js";
 import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-
-
-// apply new caret styles to all the letters
-export function addcaretstyle_toletters(previouscaret, currentcaret) {
-  CaretHandler.removecaretfrom(word.activeletter);
-  Array.from(HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
-    letter.classList.remove(previouscaret); // remove previous caret's styling from this letter
-    letter.classList.add(currentcaret); // add new caret's styling to this letter
-  });
-  CaretHandler.addcaretto(word.activeletter);
-  TestAreaElement.input.focus();
-}
 
 export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === 160;
