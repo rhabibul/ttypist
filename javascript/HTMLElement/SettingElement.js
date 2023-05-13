@@ -1,5 +1,3 @@
-export const reset = document.querySelector(`button[type="reset"]`);
-
 export const caret = {
 	off: document.querySelector("caret off"),
 	underline: document.querySelector("caret underline"),
@@ -40,11 +38,17 @@ export const backspace = {
 }
 
 export const difficulty = {
-	easy: document.querySelector("difficulty easy"),
-	intermediate: document.querySelector("difficulty intermediate"),
-	advanced: document.querySelector("difficulty advanced"),
+	beginner: document.querySelector("difficulty beginner"),
+	expert: document.querySelector("difficulty expert"),
+	master: document.querySelector("difficulty master"),
 }
 
+export const tape = {
+	off: document.querySelector("tape off"),
+	on: document.querySelector("tape on"),
+}
+
+export const reset = document.querySelector(`button[type="reset"]`);
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");
 export const exitFullscreen = document.querySelector("button i.fa-compress");

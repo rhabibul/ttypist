@@ -96,10 +96,7 @@ function updatefliphighlight(evt) {
   } else {
     Config.fliphighlightcolor = true;
   }
-
   SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
-  
-  // make necessary changes in ui here..
 }
 
 // highlight (off | letter | word)

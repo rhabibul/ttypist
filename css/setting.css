@@ -48,10 +48,10 @@ div.config {
 div.config label {
   height: 100%;
   flex-basis: 34%;
-  font-weight: 510;
+  font-weight: 680;
   color: blueviolet;
-  font-size: 1.1rem;
-  font-family: "Mona Sans", monospace;
+  font-size: 1.15rem;
+  font-family: "Nunito", monospace;
   display: flex;
   align-items: center;
   justify-content: space-between;

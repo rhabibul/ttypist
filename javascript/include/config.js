@@ -7,12 +7,13 @@ export default {
   theme: "light", // molokai(dark) | classic(light) light (3 levels of darkness & lightness)
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
-  cpm: false, // use cpm instead of wpm
-  usefloats: false,
+  tape: false,
   oppositeshift: false, // ignore B, Y, ^
   underline: false, // underline active word
   endwithspace: false, // test ends only after typing a space after last word
   inputvisibility: "hidden", // hidden | visible
+  cpm: false, // use cpm instead of wpm
+  usefloats: false, // display floating point number
   caret: {
     off: false,
     type: "line", // off | line | underline | box | block
@@ -45,7 +46,7 @@ export default {
     off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
     insert: true,
     replace: false,
-    forgive: true,
+    forgive: false,
     stop: {
       word: false,
       letter: false,
@@ -62,7 +63,7 @@ export default {
       value: "&nbsp;", // '⸱', '&nbsp', '␣'
     },
     word: {
-      type: "dictionary", // dictionary | rootwords | lorem epsum | quote | story
+      type: "dictionary", // dictionary | root word | lorem epsum | quote | story
       length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)
       count: 25, // 25 | 50 | 100 | infinite | custom
     },
