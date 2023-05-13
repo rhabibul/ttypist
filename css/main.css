@@ -28,18 +28,18 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   
-  --round: 0px;
-  --line-gap: 0px;
-
-  
+  --textcolor: #3e3e3e;
   --primary-textcolor: #3e3e3e;
   --secondary-textcolor: #3e3e3e;
-
-  --textcolor: #3e3e3e;
   
   --textsize: 1.165rem;
   --textweight: 445;
   --textfamily: var(--roboto-mono);
+
+  --active-color: #e17c01;
+  --active-backgroundcolor: #ffffc9;
+  --inactive-color: #000000;
+  --inactive-backgroundcolor: #f5f5f5;
 }
 
 *,
@@ -136,10 +136,15 @@ input#textinput {
   text-decoration-style: solid;
   text-decoration-color: #ff0000;
 }
-._____ {
+.____ {
   text-decoration-line: underline;
   text-underline-offset: 1px;
   text-decoration-thickness: 1px;
   text-decoration-style: solid;
   text-decoration-color: var(--textcolor);
+}
+
+#chosen {
+  color: var(--active-color);
+  background-color: var(--active-backgroundcolor);
 }

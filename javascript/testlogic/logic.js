@@ -124,7 +124,7 @@ export function registerkeydown(evt) {
 		}
 	} else {
 		// if ( !Const.NOT_PRINTABLE.includes(typedchar.value) ) {
-		// 	word.activeletter.classList.add("_____");
+		// 	word.activeletter.classList.add("____");
 		// }
 	}
 }
@@ -161,7 +161,7 @@ export function registerinput(evt) {
 			
 			CaretHandler.removecaretfrom(word.activeletter);
 			if ( text.activewordindex > 0 ) {
-				text.prevword.classList.remove("_____");
+				text.prevword.classList.remove("____");
 				text.incrementwordindex();
 			}		
 			word.loadword(text.nextword, { nextword: true });
@@ -221,13 +221,13 @@ export function removeUnderlineForLetter(letter) {
 
 export function removeunderline(word) {
 	for ( const letter of word.children ) {
-		letter.classList.remove("_____");
+		letter.classList.remove("____");
 	}
 }
 
 export function addunderline(word) {
 	for (const letter of word.children ) {	
-		letter.classList.add("_____");
+		letter.classList.add("____");
 	}
 }
 

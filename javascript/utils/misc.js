@@ -1,10 +1,10 @@
 import Config from "../include/config.js";
 
+// import story from "../static/story.js";
+// import quote from "../static/quote.js";
 import w1k from "../static/w1k.js";
-import w3k from "../static/w3k.js";
-import rootword from "../static/rootword.js";
-
-import { word, phrase, Test } from "../main.js";
+// import w3k from "../static/w3k.js";
+// import rootword from "../static/rootword.js";
 
 import * as Const from "../include/constant.js";
 import * as CaretHandler from "../handler/carethandler.js";
@@ -48,11 +48,11 @@ export function showspeed(lettercount, time) {
 }
 
 export function randomwords() {
-  let words = new Array(Config.phrase.word.count);
-  for (let i = 0; i < Config.phrase.word.count; ++i) {
-    // words[i] = w1k[Math.floor(Math.random() * w1k.length)];
-    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+  let words = new Array(Config.text.word.count);
+  for (let i = 0; i < Config.text.word.count; ++i) {
     // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
+    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }
@@ -108,15 +108,15 @@ export function wordtags_tostring() {
   return s;
 }
 
-export function validphrase(phrase) {
-  // phrase type must be object i.e, array and it should not be empty,
+export function validtext(text) {
+  // text type must be object i.e, array and it should not be empty,
   // every string should be in <word></word> tag and every character should
   // be in <letter></letter> tag and no letter tag must contain more than
   // one character
-  const validtype = typeof(phrase) === "object";
-  const notempty = phrase.length > 0;
-  const validwordtags = phrase.every((word) => word.tagName === "WORD");
-  const validlettertags = phrase.every((word) => {
+  const validtype = typeof(text) === "object";
+  const notempty = text.length > 0;
+  const validwordtags = text.every((word) => word.tagName === "WORD");
+  const validlettertags = text.every((word) => {
     return Array.from(word?.children).every((letter) => {
       return letter.tagName === "LETTER" && letter.textContent.length === 1;
     });
@@ -127,7 +127,7 @@ export function validphrase(phrase) {
 
 export function startautotyper(wpm) {
 
-  const keystroke_interval = 60000/ (wpm * 5);
+  const keystroke_interval = (60000 / (wpm * 5));
 	const letters = document.getElementsByTagName("letter");
 	let i = 0, id = 0, s = "";
 
@@ -165,14 +165,6 @@ export function binaryof(value) {
   return Number(value).toString(2);
 }
 
-export const computedstyles = getComputedStyle(MiscElement.root);
-
 export function storeConfigInLocalStorage() {
   window.localStorage.setItem('Config', JSON.stringify(Config));
-}
-
-export function loadconfig(localconfig) {
-  if ( typeof(localconfig) !== 'object' ) return;
-  Config.caret.off = localconfig.caret.off;
-  Config.caret.type = localconfig.caret.type;
 }

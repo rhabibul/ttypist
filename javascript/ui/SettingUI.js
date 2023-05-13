@@ -1,4 +1,5 @@
 import * as SettingElement from "../HTMLElement/SettingElement.js";
+import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as Misc from "../utils/misc.js";
 import Config from "../include/config.js";
 import { word } from "../main.js";
@@ -6,10 +7,10 @@ import * as CaretHandler from "../handler/carethandler.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 
-const active_color = Misc.computedstyles.getPropertyValue("--active-color");
-const active_bgcolor = Misc.computedstyles.getPropertyValue("--active-backgroundcolor");
-const inactive_color = Misc.computedstyles.getPropertyValue("--inactive-color");
-const inactive_bgcolor = Misc.computedstyles.getPropertyValue("--inactive-backgroundcolor");
+const active_color = getComputedStyle(MiscElement.root).getPropertyValue("--active-color");
+const active_bgcolor = getComputedStyle(MiscElement.root).getPropertyValue("--active-backgroundcolor");
+const inactive_color = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-color");
+const inactive_bgcolor = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-backgroundcolor");
 
 export function applyupdatedcaret(prev) {
   CaretHandler.removecaretfrom(word.activeletter);
@@ -23,15 +24,15 @@ export function applyupdatedcaret(prev) {
 
 function colorshapeof(caret, caretIsActive) {
 	
-	let ispacecaret = caret.classList.contains("pacecaret_shape");
+	let ispacecaret = caret.classList.contains("pacecaret-shape");
 	let shape;
 	if ( ispacecaret ) {
-		shape = document.querySelector(`pacecaret ${caret.dataset.type} shape`);
+		shape = document.querySelector(`pacecaret ${caret.dataset.value} shape`);
 	} else {
-		shape = document.querySelector(`caret ${caret.dataset.type} shape`);
+		shape = document.querySelector(`caret ${caret.dataset.value} shape`);
 	}
 
-	if ( caret.dataset.type === "line" || caret.dataset.type === "block" ) {
+	if ( caret.dataset.value === "line" || caret.dataset.value === "block" ) {
 		// 1. inside caret shape container both caret type (line, block), the shape 
 		//    is given only width and height property no border is used, so there's
 		//    no empty space inside the caret shape
@@ -42,7 +43,7 @@ function colorshapeof(caret, caretIsActive) {
 		} else {
 			shape.style.backgroundColor = inactive_color;
 		}
-	} else if ( caret.dataset.type === "underline" ) {
+	} else if ( caret.dataset.value === "underline" ) {
 		// 1. give color to border bottom of underline caret
 		// 2. fill the empty space inside underline caret with container's background color
 		//    (note that underline caret is also a box but only bottom border is enabled,
@@ -55,7 +56,7 @@ function colorshapeof(caret, caretIsActive) {
 			shape.style.backgroundColor = inactive_bgcolor;
 			shape.style.borderBottomColor = inactive_color;
 		}
-	} else if ( caret.dataset.type === "box" ) {
+	} else if ( caret.dataset.value === "box" ) {
 		// 1. give color to all four borders of box caret
 		// 2. fill the empty space inside of four borders of box caret with 
 		//    caret container's background color
@@ -89,7 +90,7 @@ export function changeUICaretButtonTo(caret) {
   colorshapeof(caret, true); // set active color for the selected caret shape
 	caret.style.backgroundColor = active_bgcolor;
 
-	if ( caret.classList.contains("caret_shape") ) {
+	if ( caret.classList.contains("caret-shape") ) {
 		// set inactive backgroundcolor & inactive color for all carets except the selected one
 		for ( const othercaret of Object.values(SettingElement.caret) ) {
 			if ( caret !== othercaret ) {
@@ -122,5 +123,15 @@ export function changeUIHighlightButtonTo(highlight) {
 		SettingElement.highlight.off.id = "chosen";
 		SettingElement.highlight.mode.letter.id = "";
 		SettingElement.highlight.mode.word.id = "";
+	}
+}
+
+export function changeUIFliptextcolorButtonTo(flip) {
+	if ( flip === "on" ) {
+		SettingElement.fliptextcolor.on.id = "chosen";
+		SettingElement.fliptextcolor.off.id = "";
+	} else {
+		SettingElement.fliptextcolor.on.id = "";
+		SettingElement.fliptextcolor.off.id = "chosen";
 	}
 }

@@ -12,20 +12,6 @@
   --setting-text-fontsize: 1rem;
   --setting-text-fontfamily: var(--roboto-mono);
   --setting-text-fontweight: 400;
-
-  --active-color: #e17c01;
-  --active-backgroundcolor: #ffffc9;
-  --inactive-color: #000000;
-  --inactive-backgroundcolor: #f5f5f5;
-}
-
-#chosen {
-  color: var(--active-color);
-  background-color: var(--active-backgroundcolor);
-}
-#turnItOff {
-  color: var(--off-color);
-  background-color: var(--off-backgroundcolor);
 }
 
 setting {
@@ -52,6 +38,7 @@ setting div.column {
 div.config {
   width: 500px;
   height: 45px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;

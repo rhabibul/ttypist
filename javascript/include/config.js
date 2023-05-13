@@ -1,4 +1,5 @@
 export default {
+  theme: "molokai",
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
@@ -51,21 +52,20 @@ export default {
     },
   },
   text: {
-    primary_textcolor: "",
-    secondary_textcolor: "",
-    fontsize: 1.2,
-    fontweight: 445,
+    primarytextcolor: "",
+    secondarytextcolor: "",
+    textsize: 1.2,
+    textweight: 445,
     word: {
-      type: "dictionary", // dictionary | rootwords | lorem epsum
+      type: "dictionary", // dictionary | rootwords | lorem epsum | quote | story
       length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)
-      count: 25, // 25 | 50 | infinite | custom
+      count: 25, // 25 | 50 | 100 | infinite | custom
     },
     include: {
       digit: false, // include numbers along with words
       punctuation: false, // include punctuation characters along with words
     },
   },
-  theme: "molokai",
   capslock: true,
   outoffocus: true,
   numlock: true,
@@ -98,7 +98,7 @@ export default {
   misc: {
     cpm: false, // use cpm instead of wpm
     usefloats: false,
-  }
+  },
 };
 
 // user data

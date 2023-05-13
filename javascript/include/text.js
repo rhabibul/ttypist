@@ -1,7 +1,7 @@
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import { addunderline, removeunderline } from "../testlogic/logic.js";
 
-export default class Phrase {
+export default class Text {
   #words; // array of <word></word> tag which contains <letter></letter> tags
   #wordindex; // keeps track of the index of <word></word> tag
 
@@ -10,7 +10,7 @@ export default class Phrase {
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
-    TestAreaElement.phrase.innerHTML = "";
+    TestAreaElement.text.innerHTML = "";
   }
 
   text() {} // phrase.text();
@@ -20,10 +20,10 @@ export default class Phrase {
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
-    TestAreaElement.phrase.innerHTML = "";
+    TestAreaElement.text.innerHTML = "";
 
     for ( const word of this.#words ) {
-    	TestAreaElement.phrase.insertAdjacentElement("beforeend", word);
+    	TestAreaElement.text.insertAdjacentElement("beforeend", word);
     }
     
     addunderline(this.#words[this.#wordindex]);
