@@ -1,3 +1,6 @@
+export const LOW = 1, HIGH = 2, MAX = 2;
+export const BEGINNER = 1, EXPERT = 2, MASTER = 3;
+
 export const NOT_PRINTABLE = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
   'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',

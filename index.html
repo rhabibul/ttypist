@@ -138,16 +138,6 @@
             <block data-value="block" class="caret-shape"> <shape></shape> </block>
           </caret>
         </div>
-        <div class="config pacecaret">
-          <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
-          <pacecaret class="values">
-            <off data-value="off" id="chosen" class="pacecaret-shape">off</off>
-            <underline data-value="underline" class="pacecaret-shape"> <shape></shape> </underline>
-            <line data-value="line" class="pacecaret-shape"> <shape></shape> </line>
-            <box data-value="box" class="pacecaret-shape"> <shape></shape> </box>
-            <block data-value="block" class="pacecaret-shape"> <shape></shape> </block>
-          </pacecaret>
-        </div>
         <div class="config highlight">
           <label><span><i class="fa-solid fa-info"></i></span><span>highlight</span></label>
           <highlight class="values threestates">
@@ -157,7 +147,7 @@
           </highlight>
         </div>
         <div class="config fliphighlightcolor">
-          <label><span><i class="fa-solid fa-info"></i></span><span>flip highlight color</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>fliphighlightcolor</span></label>
           <fliphighlightcolor class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
@@ -171,14 +161,14 @@
           </tapemode>
         </div>
         <div class="config backspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>backspace key</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>backspace</span></label>
           <backspace class="values twostates">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>
           </backspace>
         </div>
         <div class="config modifier">
-          <label><span><i class="fa-solid fa-info"></i></span><span>modifier keys</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>modifier key</span></label>
           <modifier class="values threestates">
             <alt data-value="alt" id="chosen">alt</alt>
             <ctrl data-value="ctrl" id="chosen">ctrl</ctrl>
@@ -188,9 +178,9 @@
         <div class="config difficulty">
           <label><span><i class="fa-solid fa-info"></i></span><span>difficulty</span></label>
           <difficulty class="values threestates">
-            <easy data-value="easy" id="chosen">easy</easy>
-            <intermediate data-value="intermediate">intermediate</intermediate>
-            <advanced data-value="advanced">advanced</advanced>
+            <beginner data-value="beginner" id="chosen">beginner</beginner>
+            <expert data-value="expert">expert</expert>
+            <master data-value="master">master</master>
           </difficulty>
         </div>
         <div class="config confidence">
@@ -211,7 +201,7 @@
           </error>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>stoponerror</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -222,6 +212,17 @@
 
       <!-- column 2 -->
       <div class="column column2">
+        <div class="config pacecaret">
+          <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
+          <input type="number" class="pacecaret-speed">
+          <pacecaret class="values">
+            <off data-value="off" id="chosen" class="pacecaret-shape">off</off>
+            <underline data-value="underline" class="pacecaret-shape"> <shape></shape> </underline>
+            <line data-value="line" class="pacecaret-shape"> <shape></shape> </line>
+            <box data-value="box" class="pacecaret-shape"> <shape></shape> </box>
+            <block data-value="block" class="pacecaret-shape"> <shape></shape> </block>
+          </pacecaret>
+        </div>
         <div class="config whitespace">
           <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
           <whitespace class="values fourstates">

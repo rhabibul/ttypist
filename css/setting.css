@@ -20,9 +20,9 @@ setting {
   justify-content: space-between;
   row-gap: 0px;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1105px) {
   setting {
-    width: 600px;
+    width: 550px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -33,7 +33,7 @@ setting div.column {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 5px;
+  padding: 0px 10px 0px 0px;
 }
 div.config {
   width: 550px;
@@ -47,7 +47,7 @@ div.config {
 }
 div.config label {
   height: 100%;
-  flex-basis: 32%;
+  flex-basis: 34%;
   font-weight: 510;
   color: blueviolet;
   font-size: 1.1rem;
@@ -58,7 +58,7 @@ div.config label {
 }
 div.config .values {
   height: 90%;
-  flex-basis: 65%;
+  flex-basis: 62%;
   font-weight: 450;
   color: var(--setting-text-color);
   font-size: 1rem;
@@ -106,9 +106,10 @@ div.config:hover label span {
   display: flex;
   justify-content: center;  
   align-items: center;
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: var(--inactive-backgroundcolor);
 }
+
 .twostates * {
   flex-basis: 49%;
 }
@@ -119,22 +120,14 @@ div.config:hover label span {
   flex-basis: 18%;
 }
 
-modifier.threestates * {
+/* ============= threestates ============= */
+modifier.threestates *,
+confidence.threestates *,
+stoponerror.threestates *,
+highlight.threestates *,
+difficulty.threestates * {
   flex-basis: 32%;
 }
-confidence.threestates *,
-errorcorrection.threestates *,
-stoponerror.threestates *,
-highlight.threestates * {
-  flex-basis: 35%;
-}
-confidence off,
-stoponerror off,
-highlight off,
-errorcorrection off {
-  flex-basis: 26%;
-}
-
 warning.threestates * {
   flex-basis: 29%;
 }
@@ -142,18 +135,10 @@ warning.threestates outoffocus {
   flex-basis: 38%;
 }
 
-/* ============ difficulty ============ */
-difficulty.threestates * {
-  flex-basis: 32%;
-}
-difficulty.threestates easy {
+confidence off,
+stoponerror off,
+highlight off {
   flex-basis: 26%;
-}
-difficulty.threestates intermediate {
-  flex-basis: 40%;
-}
-difficulty.threestates advanced {
-  flex-basis: 30%;
 }
 
 caret off,
@@ -201,6 +186,10 @@ underline shape {
   height: var(--setting-caret-shape-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
+.pacecaret-speed {
+  display: none; /* speed input field for pacecaret */
+}
+
 
 caret,
 pacecaret,

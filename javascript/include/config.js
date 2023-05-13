@@ -1,29 +1,28 @@
 export default {
-  theme: "light", // molokai(dark) | classic(light) light (3 levels of darkness & lightness)
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
     deviceinformation: "",
   },
-  
+  theme: "light", // molokai(dark) | classic(light) light (3 levels of darkness & lightness)
+  language: "english", // english | hindi | bengali | arabic | russian
+  dynamicsettingchange: true, // apply settings instantly without restart test
+  cpm: false, // use cpm instead of wpm
+  usefloats: false,
+  oppositeshift: false, // ignore B, Y, ^
+  underline: false, // underline active word
+  endwithspace: false, // test ends only after typing a space after last word
+  inputvisibility: "hidden", // hidden | visible
   caret: {
     off: false,
     type: "line", // off | line | underline | box | block
-    transparency: 1, // [0, 1] -> rgba()
+    transparency: 1, // [0, 1] -> alpha's value in rgba
   },
   pacecaret: {
     off: true,
     type: "line", // off | line | underline | box | block
-    transparency: 1, // [0, 1] -> rgba()
-
+    transparency: 1, // [0, 1] -> alpha's value in rgba
   },
-
-  dynamicsettingchange: true,
-  oppositeshift: false, // ignore B, Y, ^
-  underline: false, // underline active word
-  endwithspace: false,
-  inputvisibility: "hidden", // hidden | visible
-
   fliphighlightcolor: false, // by default, future text is brighter than the already typed text
   highlight: {
     off: false,
@@ -32,9 +31,6 @@ export default {
       letter: true,
     },
   },
-
-  difficulty: "easy", // easy | intermediate | advanced
-  
   backspace: {
     off: false,
     modifier: {
@@ -43,6 +39,8 @@ export default {
       meta: false,
     },
   },
+  confidence: 1, // low(1) | high(2) | max(3)
+  difficulty: 1, // beginner(1) | expert(2) | master(3)
   error: {
     off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
     insert: true,
@@ -53,12 +51,6 @@ export default {
       letter: false,
     },
   },
-  errorcorrection: {
-    off: false,
-    current: true, //  can fix current word errors, but cannot fix previous words errors
-    previous: true, // cannot backspace at all not even 
-  },
-
   text: {
     primarytextcolor: "",
     secondarytextcolor: "",
@@ -79,21 +71,22 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
-  capslock: true,
-  outoffocus: true,
-  numlock: true,
-  scrolllock: true,
-  language: "english", // english | hindi | bengali | arabic | russian
+  warnings: {
+    capslock: true,
+    outoffocus: true,
+    numlock: true,
+    scrolllock: true,
+  },
   keyboard: {
     reaction: "off", // off | static | react | next
     layout: "qwerty", // qwerty | dvorak | workman | colemak
     emulate: false,
   },
   showlive: {
+    timer: false,
     speed: false,
     accuracy: false,
-    burst: false, // wpm of last word typed (speed burst)
-    timer: false,
+    burst: false, // speed burst of last word typed (wpm/cpm)
   },
   practice: {
     off: true,
@@ -106,10 +99,6 @@ export default {
     arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkeys: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-  },
-  misc: {
-    cpm: false, // use cpm instead of wpm
-    usefloats: false,
   },
 };
 
@@ -144,3 +133,23 @@ const user = {
     youtube: "",
   },
 }
+
+/* ===================== DETAILS ===================== *
+
+difficulty
+	- beginner is the classic type test experience.
+	- expert fails the test if you submit (press space) an incorrect word.
+	- master fails if you press a single incorrect key (100% accuracy).
+
+stoponerror
+	- off, will not stop on errors
+	- letter, will stop input when pressing any incorrect letters.
+	- word, will not allow you to continue to the next word until you correct all mistakes.
+
+confidence
+	- low, default behaviour, can go back as much as user wants to correct mistakes
+	- high, will not be able to go back to previous words to fix mistakes, but 
+	  current word errors can be fixed by using backspace
+	- max, won't be able to backspace at all i.e, backspacing will be turned of (backspace.off = true)
+
+* ====================================================== */
