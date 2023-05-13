@@ -146,7 +146,7 @@ export function changeUIBackspaceButtonTo(state) {
 	}
 }
 
-export function toggleUIModifierButton(modifier) {
+export function toggleUIModifierButtonTo(modifier) {
 	if ( modifier === "alt" ) {
 		if ( SettingElement.backspace.modifier.alt.id === "chosen" ) {
 			SettingElement.backspace.modifier.alt.id = "";
@@ -165,5 +165,15 @@ export function toggleUIModifierButton(modifier) {
 		} else {
 			SettingElement.backspace.modifier.meta.id = "chosen";
 		}
+	}
+}
+
+export function changeUITapeButtonTo(state) {
+	if ( state === "on" ) {
+		SettingElement.tape.on.id = "chosen";
+		SettingElement.tape.off.id = "";
+	} else {
+		SettingElement.tape.on.id = "";
+		SettingElement.tape.off.id = "chosen";
 	}
 }

@@ -43,9 +43,31 @@ SettingElement.backspace.modifier.alt.addEventListener("click", updatemodifier);
 SettingElement.backspace.modifier.ctrl.addEventListener("click", updatemodifier);
 SettingElement.backspace.modifier.meta.addEventListener("click", updatemodifier);
 
+// tape
+SettingElement.tape.off.addEventListener("click", updatetape);
+SettingElement.tape.on.addEventListener("click", updatetape);
+
+// tape
+function updatetape(evt) {
+  evt.preventDefault();
+  
+  if ( this.dataset.value === "off" && !Config.tape ) return;
+  if ( this.dataset.value === "on" && Config.tape ) return;
+
+  SettingUI.changeUITapeButtonTo(this.dataset.value);
+  
+  if ( this.dataset.value === "on" ) {
+    Config.tape = true;
+  } else {
+    Config.tape = false;
+  }
+}
+
 // modifier keys (alt | modier | meta)
 function updatemodifier(evt) {
   evt.preventDefault();
+
+  SettingUI.toggleUIModifierButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "alt" ) {
     if ( this.id === "chosen" ) {
@@ -66,8 +88,6 @@ function updatemodifier(evt) {
       Config.backspace.modifier.meta = true;
     }
   }
-
-  SettingUI.toggleUIModifierButton(this.dataset.value);
 }
 
 // backspace key (off | on)
@@ -77,12 +97,13 @@ function updatebackspace(evt) {
   if ( this.dataset.value === "off" && Config.backspace.off ) return;
   if ( this.dataset.value === "on" && !Config.backspace.off ) return;
 
+  SettingUI.changeUIBackspaceButtonTo(this.dataset.value);
+  
   if ( this.dataset.value === "off" ) {
     Config.backspace.off = true;
   } else {
     Config.backspace.off = false;
   }
-  SettingUI.changeUIBackspaceButtonTo(this.dataset.value);
 }
 
 // fliphighlightcolor
@@ -91,12 +112,13 @@ function updatefliphighlight(evt) {
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
 
+  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
+  
   if ( this.dataset.value === "off" ) {
     Config.fliphighlightcolor = false;
   } else {
     Config.fliphighlightcolor = true;
   }
-  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
 }
 
 // highlight (off | letter | word)
@@ -106,6 +128,8 @@ function updatehighlight(evt) {
   if (highlight === "letter" && Config.highlight.mode.letter) return;
   if (highlight === "word" && Config.highlight.mode.word) return;
   if (highlight === "off" && Config.highlight.off) return;
+
+  SettingUI.changeUIHighlightButtonTo(highlight);
 
   if ( highlight === "word" ) {
     Config.highlight.off = false;
@@ -120,7 +144,6 @@ function updatehighlight(evt) {
     Config.highlight.mode.letter = false;
     Config.highlight.mode.word = false;
   }
-  SettingUI.changeUIHighlightButtonTo(highlight);  
 }
 
 // caret (off | line | underline | box | block)

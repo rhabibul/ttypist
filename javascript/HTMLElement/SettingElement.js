@@ -37,15 +37,15 @@ export const backspace = {
 	}
 }
 
+export const tape = {
+	off: document.querySelector("tape off"),
+	on: document.querySelector("tape on"),
+}
+
 export const difficulty = {
 	beginner: document.querySelector("difficulty beginner"),
 	expert: document.querySelector("difficulty expert"),
 	master: document.querySelector("difficulty master"),
-}
-
-export const tape = {
-	off: document.querySelector("tape off"),
-	on: document.querySelector("tape on"),
 }
 
 export const reset = document.querySelector(`button[type="reset"]`);

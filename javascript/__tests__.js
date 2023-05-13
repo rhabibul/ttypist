@@ -9,11 +9,9 @@ import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 import * as MiscElement from "./HTMLElement/MiscElement.js";
 
-console.log(SettingElement.difficulty);
-
 // config object testing
 window.addEventListener("click", (evt) => {
-	
+	console.log(Config.tape);
 });
 
 window.addEventListener('load', (evt) => {
