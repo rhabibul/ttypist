@@ -11,7 +11,7 @@ import * as MiscElement from "./HTMLElement/MiscElement.js";
 
 // config object testing
 window.addEventListener("click", (evt) => {
-	console.log(Config.confidence);
+
 });
 
 window.addEventListener('load', (evt) => {
@@ -39,31 +39,32 @@ SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 	}
 });
 
-// // sliders
-// const slider_fontsize = document.querySelector("input#slider.fsize");
-// const slider_fontweight = document.querySelector("input#slider.fweight");
-// const label_fontsize = document.querySelector(".fontsize-value");
-// const label_fontweight = document.querySelector(".fontweight-value");
+// sliders
+const slider_fontsize = document.querySelector("input#slider.fsize");
+const slider_fontweight = document.querySelector("input#slider.fweight");
+const label_fontsize = document.querySelector(".fontsize-value");
+const label_fontweight = document.querySelector(".fontweight-value");
 
-// slider_fontsize.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--textsize", `${slider_fontsize.value}rem`);
-// 	label_fontsize.textContent = `${slider_fontsize.value}rem`;
-//   Config.text.textsize = slider_fontsize.value;
-// });
-// slider_fontweight.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--textweight", `${slider_fontweight.value}`);
-// 	label_fontweight.textContent = `${slider_fontweight.value}`;
-//   Config.text.textweight = slider_fontweight.value;
-// });
+slider_fontsize.addEventListener("input", () => {
+	MiscElement.root.style.setProperty("--textsize", `${slider_fontsize.value}rem`);
+	label_fontsize.textContent = `${slider_fontsize.value}rem`;
+  Config.text.textsize = slider_fontsize.value;
+});
+slider_fontweight.addEventListener("input", () => {
+	MiscElement.root.style.setProperty("--textweight", `${slider_fontweight.value}`);
+	label_fontweight.textContent = `${slider_fontweight.value}`;
+  Config.text.textweight = slider_fontweight.value;
+});
 
 
-// window.addEventListener("offline", (evt) => { 
-// 	console.log("Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]");
-// });
-// window.addEventListener("online", (evt) => {
-// 	console.log("Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]");
-// })
-
+window.addEventListener("offline", (evt) => { 
+	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
+	console.log("You are currently offline.");
+});
+window.addEventListener("online", (evt) => {
+	// Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]
+	console.log("Your Internet connection was restored.");
+})
 
 // const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 // 	'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'

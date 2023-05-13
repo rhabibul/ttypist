@@ -49,7 +49,7 @@ SettingElement.tape.off.addEventListener("click", updatetape);
 SettingElement.tape.on.addEventListener("click", updatetape);
 
 // difficulty
-SettingElement.difficulty.beginner.addEventListener("click", updatedifficulty);
+SettingElement.difficulty.normal.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.expert.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.master.addEventListener("click", updatedifficulty);
 
@@ -81,7 +81,7 @@ function updateconfidence(evt) {
 function updatedifficulty(evt) {
   evt.preventDefault();
 
-  if ( this.dataset.value === "beginner" && Config.difficulty === Const.BEGINNER ) return;
+  if ( this.dataset.value === "normal" && Config.difficulty === Const.NORMAL ) return;
   if ( this.dataset.value === "expert" && Config.difficulty === Const.EXPERT ) return;
   if ( this.dataset.value === "master" && Config.difficulty === Const.MASTER ) return;
 
@@ -92,7 +92,7 @@ function updatedifficulty(evt) {
   } else if ( this.dataset.value === "master" ) {
     Config.difficulty = Const.MASTER;
   } else {
-    Config.difficulty = Const.BEGINNER;
+    Config.difficulty = Const.NORMAL;
   }
 }
 

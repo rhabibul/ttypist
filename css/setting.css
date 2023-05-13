@@ -28,7 +28,6 @@ setting {
     flex-direction: column;
   }
 }
-
 setting div.column {
   display: flex;
   flex-direction: column;
@@ -75,17 +74,17 @@ div.config label span:first-child {
   visibility: hidden;
 }
 div.config label span > i.fa-info {
-  padding: 4px;
-  width: 30px;
-  height: 30px;
+  padding: 4px 4px 5px 4px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: #b5b5b5;
-  background-color: #e8e8e8;
+  color: rgb(0, 154, 0);
+  background-color: rgb(199, 255, 199);
 }
 div.config:hover label span {
   visibility: visible;
@@ -198,7 +197,9 @@ backspace,
 modifier,
 confidence,
 difficulty,
-errors,
+error,
+tape,
+fliphighlightcolor,
 stoponerror,
 underline,
 whitespace,
@@ -206,10 +207,8 @@ endwithspace,
 oppositeshift,
 inputvisibility,
 warning,
-tapemode,
 kkeyboard,
 scroll,
-sound,
-fliptextcolor {
+sound {
   user-select: none;
 }

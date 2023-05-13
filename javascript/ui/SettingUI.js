@@ -187,15 +187,15 @@ export function changeUITapeButtonTo(state) {
 // difficulty
 export function changeUIDifficultyButtonTo(level) {
 if ( level === "expert" ) {
-		SettingElement.difficulty.beginner.id = "";
+		SettingElement.difficulty.normal.id = "";
 		SettingElement.difficulty.expert.id = "chosen";
 		SettingElement.difficulty.master.id = "";
 	} else if ( level === "master" ) {
-		SettingElement.difficulty.beginner.id = "";
+		SettingElement.difficulty.normal.id = "";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "chosen";
 	} else {
-		SettingElement.difficulty.beginner.id = "chosen";
+		SettingElement.difficulty.normal.id = "chosen";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "";
 	}
