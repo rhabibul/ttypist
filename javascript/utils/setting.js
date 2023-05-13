@@ -1,6 +1,7 @@
 import Config from "../include/config.js"
 import { Test, word, text } from "../main.js";
 
+import * as Const from "../include/constant.js";
 import * as Misc from "./misc.js";
 import * as SettingUI from "../ui/SettingUI.js";
 import * as CaretHandler from "../handler/carethandler.js";
@@ -46,6 +47,29 @@ SettingElement.backspace.modifier.meta.addEventListener("click", updatemodifier)
 // tape
 SettingElement.tape.off.addEventListener("click", updatetape);
 SettingElement.tape.on.addEventListener("click", updatetape);
+
+// difficulty
+SettingElement.difficulty.beginner.addEventListener("click", updatedifficulty);
+SettingElement.difficulty.expert.addEventListener("click", updatedifficulty);
+SettingElement.difficulty.master.addEventListener("click", updatedifficulty);
+
+function updatedifficulty(evt) {
+  evt.preventDefault();
+
+  if ( this.dataset.value === "beginner" && Config.difficulty === Const.BEGINNER ) return;
+  if ( this.dataset.value === "expert" && Config.difficulty === Const.EXPERT ) return;
+  if ( this.dataset.value === "master" && Config.difficulty === Const.MASTER ) return;
+
+  SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
+  
+  if ( this.dataset.value === "expert" ) {
+    Config.difficulty = Const.EXPERT;
+  } else if ( this.dataset.value === "master" ) {
+    Config.difficulty = Const.MASTER;
+  } else {
+    Config.difficulty = Const.BEGINNER;
+  }
+}
 
 // tape
 function updatetape(evt) {

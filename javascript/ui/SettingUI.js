@@ -146,6 +146,7 @@ export function changeUIBackspaceButtonTo(state) {
 	}
 }
 
+// modifier
 export function toggleUIModifierButtonTo(modifier) {
 	if ( modifier === "alt" ) {
 		if ( SettingElement.backspace.modifier.alt.id === "chosen" ) {
@@ -168,6 +169,7 @@ export function toggleUIModifierButtonTo(modifier) {
 	}
 }
 
+// tape
 export function changeUITapeButtonTo(state) {
 	if ( state === "on" ) {
 		SettingElement.tape.on.id = "chosen";
@@ -175,5 +177,22 @@ export function changeUITapeButtonTo(state) {
 	} else {
 		SettingElement.tape.on.id = "";
 		SettingElement.tape.off.id = "chosen";
+	}
+}
+
+// difficulty
+export function changeUIDifficultyButtonTo(level) {
+if ( level === "expert" ) {
+		SettingElement.difficulty.beginner.id = "";
+		SettingElement.difficulty.expert.id = "chosen";
+		SettingElement.difficulty.master.id = "";
+	} else if ( level === "master" ) {
+		SettingElement.difficulty.beginner.id = "";
+		SettingElement.difficulty.expert.id = "";
+		SettingElement.difficulty.master.id = "chosen";
+	} else {
+		SettingElement.difficulty.beginner.id = "chosen";
+		SettingElement.difficulty.expert.id = "";
+		SettingElement.difficulty.master.id = "";
 	}
 }
