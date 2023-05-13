@@ -1,11 +1,11 @@
 export default {
-  theme: "molokai",
+  theme: "light", // molokai(dark) | classic(light) light (3 levels of darkness & lightness)
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
     deviceinformation: "",
   },
-  dynamicsettingchange: true,
+  
   caret: {
     off: false,
     type: "line", // off | line | underline | box | block
@@ -17,11 +17,14 @@ export default {
     transparency: 1, // [0, 1] -> rgba()
 
   },
+
+  dynamicsettingchange: true,
   oppositeshift: false, // ignore B, Y, ^
   underline: false, // underline active word
   endwithspace: false,
   inputvisibility: "hidden", // hidden | visible
-  fliptextcolor: false, // brightness of typed & future texts
+
+  fliphighlightcolor: false, // by default, future text is brighter than the already typed text
   highlight: {
     off: false,
     mode: {
@@ -29,12 +32,9 @@ export default {
       letter: true,
     },
   },
+
   difficulty: "easy", // easy | intermediate | advanced
-  confidence: {
-    off: true,
-    on: false, // cannot fix previous words (can fix current word errors though)
-    max: false, // cannot backspace at all
-  },
+  
   backspace: {
     off: false,
     modifier: {
@@ -44,7 +44,7 @@ export default {
     },
   },
   error: {
-    off: false,
+    off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
     insert: true,
     replace: false,
     forgive: true,
@@ -55,14 +55,20 @@ export default {
   },
   errorcorrection: {
     off: false,
-    current: true, // correction of current word
-    previous: true, // correction of previous word
+    current: true, //  can fix current word errors, but cannot fix previous words errors
+    previous: true, // cannot backspace at all not even 
   },
+
   text: {
     primarytextcolor: "",
     secondarytextcolor: "",
     textsize: 1.2,
     textweight: 445,
+    whitespace: {
+      off: false,
+      type: "space", // off | bullet | bar | space
+      value: "&nbsp;", // '⸱', '&nbsp', '␣'
+    },
     word: {
       type: "dictionary", // dictionary | rootwords | lorem epsum | quote | story
       length: "medium", // small(<5) | medium(>=5, <8), | large(>=8, <13) | extra large(>=13)

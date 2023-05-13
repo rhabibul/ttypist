@@ -24,9 +24,9 @@ export const highlight = {
 	}
 }
 
-export const fliptextcolor = {
-	off: document.querySelector("fliptextcolor off"),
-	on: document.querySelector("fliptextcolor on"),
+export const fliphighlightcolor = {
+	off: document.querySelector("fliphighlightcolor off"),
+	on: document.querySelector("fliphighlightcolor on"),
 }
 
 export const backspace = {

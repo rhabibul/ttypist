@@ -156,12 +156,19 @@
             <word data-value="word">word</word>
           </highlight>
         </div>
-        <div class="config fliptextcolor">
-          <label><span><i class="fa-solid fa-info"></i></span><span>fliptextcolor</span></label>
-          <fliptextcolor class="values twostates">
+        <div class="config fliphighlightcolor">
+          <label><span><i class="fa-solid fa-info"></i></span><span>flip highlight color</span></label>
+          <fliphighlightcolor class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
-          </fliptextcolor>
+          </fliphighlightcolor>
+        </div>
+        <div class="config tapemode">
+          <label><span><i class="fa-solid fa-info"></i></span><span>tape mode</span></label>
+          <tapemode class="values twostates">
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
+          </tapemode>
         </div>
         <div class="config backspace">
           <label><span><i class="fa-solid fa-info"></i></span><span>backspace key</span></label>
@@ -186,8 +193,16 @@
             <advanced data-value="advanced">advanced</advanced>
           </difficulty>
         </div>
+        <div class="config confidence">
+          <label><span><i class="fa-solid fa-info"></i></span><span>confidence</span></label>
+          <confidence class="values threestates">
+            <low data-value="low" id="chosen">low</low>
+            <high data-value="high">high</high>
+            <max data-value="max">max</max>
+          </confidence>
+        </div>
         <div class="config errors">
-          <label><span><i class="fa-solid fa-info"></i></span><span>errors</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>error</span></label>
           <error class="values fourstates">
             <off data-value="off">off</off>
             <insert data-value="insert" id="chosen">insert</insert>
@@ -196,40 +211,32 @@
           </error>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stoponerror</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
             <word data-value="word">word</word>
           </stoponerror>
         </div>
-        <div class="config errorcorrection">
-          <label><span><i class="fa-solid fa-info"></i></span><span>error correction</span></label>
-          <errorcorrection class="values threestates">
-            <off data-value="off">off</off>
-            <previous data-value="prevoius">previous</previous>
-            <current data-value="current">current</current>
-          </errorcorrection>
-        </div>
       </div>
 
       <!-- column 2 -->
       <div class="column column2">
+        <div class="config whitespace">
+          <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
+          <whitespace class="values fourstates">
+            <off data-value="off">off</off>
+            <bullet data-value="bullet">bullet</bullet>
+            <space data-value="space" data-code="" id="chosen">space</space>
+            <bar data-value="bar">bar</bar>
+          </whitespace>
+        </div>
         <div class="config underline">
           <label><span><i class="fa-solid fa-info"></i></span><span>underline</span></label>
           <underline class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </underline>
-        </div>
-        <div class="config whitespace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
-          <whitespace class="values fourstates">
-            <off data-value="off">off</off>
-            <dot data-value="dot">dot</dot>
-            <space data-value="space" id="chosen">space</space>
-            <bar data-value="bar">bar</bar>
-          </whitespace>
         </div>
         <div class="config endwithspace">
           <label><span><i class="fa-solid fa-info"></i></span><span>endwithspace</span></label>
@@ -259,13 +266,6 @@
             <capslock data-value="capslock" id="chosen">capslock</capslock>
             <outoffocus data-value="outoffocus" id="chosen">outoffocus</outoffocus>
           </warning>
-        </div>
-        <div class="config tapemode">
-          <label><span><i class="fa-solid fa-info"></i></span><span>tape mode</span></label>
-          <tapemode class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </tapemode>
         </div>
         <div class="config setting-keyboard">
           <label><span><i class="fa-solid fa-info"></i></span><span>keyboard</span></label>

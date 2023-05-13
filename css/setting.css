@@ -90,14 +90,18 @@ div.config label span > i.fa-info {
 div.config:hover label span {
   visibility: visible;
 }
-div.config .twostates,
-div.config .threestates
-div.config .fourstates {
+
+/* -------------- parent of a particular config field -------------- */
+.twostates,
+.threestates
+.fourstates {
   display: flex;
 }
-div.config .twostates *,
-div.config .threestates *,
-div.config .fourstates * {
+
+/* -------------- childrens of a particular config field -------------- */
+.twostates *,
+.threestates *,
+.fourstates * {
   height: 80%;
   display: flex;
   justify-content: center;  
@@ -105,48 +109,50 @@ div.config .fourstates * {
   border-radius: 3px;
   background-color: var(--inactive-backgroundcolor);
 }
-div.config .twostates * {
+.twostates * {
   flex-basis: 49%;
 }
-div.config modifier.threestates * {
-  flex-basis: 32%;
-}
-div.config confidence.threestates *,
-div.config error.threestates *,
-div.config errorcorrection.threestates *,
-div.config stoponerror.threestates *,
-div.config highlight.threestates * {
-  flex-basis: 35%;
-}
-div.config warning.threestates * {
-  flex-basis: 29%;
-}
-div.config warning.threestates outoffocus {
-  flex-basis: 38%;
-}
-div.config confidence.threestates off,
-div.config stoponerror.threestates off,
-div.config highlight.threestates off,
-div.config errorcorrection.threestates off,
-div.config error.threestates off {
-  flex-basis: 26%;
-}
-div.config difficulty.threestates * {
-  flex-basis: 32%;
-}
-div.config .fourstates * {
+.fourstates * {
   flex-basis: 25%;
 }
-div.config .fourstates off {
+.fourstates off {
   flex-basis: 18%;
 }
-div.config difficulty.threestates easy {
+
+modifier.threestates * {
+  flex-basis: 32%;
+}
+confidence.threestates *,
+errorcorrection.threestates *,
+stoponerror.threestates *,
+highlight.threestates * {
+  flex-basis: 35%;
+}
+confidence off,
+stoponerror off,
+highlight off,
+errorcorrection off {
   flex-basis: 26%;
 }
-div.config difficulty.threestates intermediate {
+
+warning.threestates * {
+  flex-basis: 29%;
+}
+warning.threestates outoffocus {
+  flex-basis: 38%;
+}
+
+/* ============ difficulty ============ */
+difficulty.threestates * {
+  flex-basis: 32%;
+}
+difficulty.threestates easy {
+  flex-basis: 26%;
+}
+difficulty.threestates intermediate {
   flex-basis: 40%;
 }
-div.config difficulty.threestates advanced {
+difficulty.threestates advanced {
   flex-basis: 30%;
 }
 
