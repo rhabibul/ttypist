@@ -112,7 +112,7 @@ function updatetape(evt) {
   }
 }
 
-// modifier keys (alt | modier | meta)
+// modifier
 function updatemodifier(evt) {
   evt.preventDefault();
 
@@ -139,7 +139,7 @@ function updatemodifier(evt) {
   }
 }
 
-// backspace key (off | on)
+// backspace
 function updatebackspace(evt) {
   evt.preventDefault()
 
@@ -170,7 +170,7 @@ function updatefliphighlight(evt) {
   }
 }
 
-// highlight (off | letter | word)
+// highlight
 function updatehighlight(evt) {
   evt.preventDefault();
   const highlight = this.dataset.value;
@@ -195,7 +195,7 @@ function updatehighlight(evt) {
   }
 }
 
-// caret (off | line | underline | box | block)
+// caret
 function updatecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.value === Config.caret.type ) return;
@@ -214,7 +214,7 @@ function updatecaret(evt) {
   }
 }
 
-// pacecaret (off | line | underline | box | block)
+// pacecaret
 function updatepacecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.type === Config.pacecaret.type ) return;
