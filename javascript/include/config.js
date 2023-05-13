@@ -8,11 +8,14 @@ export default {
   dynamicsettingchange: true,
   caret: {
     off: false,
-    type: "line", // line | underline | box | block
+    type: "line", // off | line | underline | box | block
+    transparency: 1, // [0, 1] -> rgba()
   },
   pacecaret: {
     off: true,
-    type: "line", // line | underline | box | block
+    type: "line", // off | line | underline | box | block
+    transparency: 1, // [0, 1] -> rgba()
+
   },
   oppositeshift: false, // ignore B, Y, ^
   underline: false, // underline active word
@@ -29,10 +32,8 @@ export default {
   difficulty: "easy", // easy | intermediate | advanced
   confidence: {
     off: true,
-    mode: {
-      pro: false, // can fix current word errors, but cannot previous words
-      max: false, // if true then don't allow backspace at all to fix errors (backspace.off = true)
-    }
+    on: false, // cannot fix previous words (can fix current word errors though)
+    max: false, // cannot backspace at all
   },
   backspace: {
     off: false,
@@ -51,6 +52,11 @@ export default {
       word: false,
       letter: false,
     },
+  },
+  errorcorrection: {
+    off: false,
+    current: true, // correction of current word
+    previous: true, // correction of previous word
   },
   text: {
     primarytextcolor: "",

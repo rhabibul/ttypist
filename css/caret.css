@@ -1,6 +1,6 @@
 :root {
   /* caret color */
-  --caret-color: black;
+  --caret-color: rgb(0, 0, 0);
   --caret-color-hidden: white;
   
   /* caret animation (blink duration, count, rhythm, delay) */
@@ -99,12 +99,10 @@
 /*----------------- box -----------------*/
 #box {
   /* border: var(--caret-width-box) solid var(--caret-color); */
-
   outline-style: solid;
   outline-color: var(--caret-color);
   outline-width: var(--caret-width-box);
   outline-offset: var(--caret-offset-box);
-
   animation-name: animate-box;
 }
 .box {

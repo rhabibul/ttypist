@@ -27,13 +27,16 @@ SettingElement.pacecaret.line.addEventListener("click", updatepacecaret);
 SettingElement.pacecaret.block.addEventListener("click", updatepacecaret);
 SettingElement.pacecaret.underline.addEventListener("click", updatepacecaret);
 
+// highlight
 SettingElement.highlight.off.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
 
+// fliptextcolor
 SettingElement.fliptextcolor.off.addEventListener("click", updatefliptextcolor);
 SettingElement.fliptextcolor.on.addEventListener("click", updatefliptextcolor);
 
+// backspace
 SettingElement.backspace.off.addEventListener("click", updatebackspace);
 SettingElement.backspace.on.addEventListener("click", updatebackspace);
 SettingElement.backspace.modifier.alt.addEventListener("click", updatemodifier);
