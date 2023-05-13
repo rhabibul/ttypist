@@ -194,7 +194,25 @@ underline shape {
   border-bottom: 1px solid var(--setting-caret-color);
 }
 
-input#slider {
-  border: none;
-  outline: none;
+caret,
+pacecaret,
+highlight,
+backspace,
+modifier,
+confidence,
+difficulty,
+errors,
+stoponerror,
+underline,
+whitespace,
+endwithspace,
+oppositeshift,
+inputvisibility,
+warning,
+tapemode,
+kkeyboard,
+scroll,
+sound,
+fliptextcolor {
+  user-select: none;
 }

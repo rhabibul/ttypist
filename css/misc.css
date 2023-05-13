@@ -25,3 +25,7 @@ button.fullscreen {
   right: 15px;
   position: absolute;
 }
+input#slider {
+  border: none;
+  outline: none;
+}

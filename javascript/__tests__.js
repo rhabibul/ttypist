@@ -8,13 +8,10 @@ import * as CaretHandler from "./handler/carethandler.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 import * as MiscElement from "./HTMLElement/MiscElement.js";
-import config from "./include/config.js";
-
-console.log(SettingElement.backspace);
 
 // config object testing
 window.addEventListener("click", (evt) => {
-	console.log(Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
+
 });
 
 window.addEventListener('load', (evt) => {
