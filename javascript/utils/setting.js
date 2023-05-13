@@ -53,6 +53,31 @@ SettingElement.difficulty.beginner.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.expert.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.master.addEventListener("click", updatedifficulty);
 
+// confidence
+SettingElement.confidence.low.addEventListener("click", updateconfidence);
+SettingElement.confidence.high.addEventListener("click", updateconfidence);
+SettingElement.confidence.max.addEventListener("click", updateconfidence);
+
+// confidence
+function updateconfidence(evt) {
+  evt.preventDefault();
+  
+  if ( this.dataset.value === "low" && Config.confidence === Const.LOW ) return;
+  if ( this.dataset.value === "high" && Config.confidence === Const.HIGH ) return;
+  if ( this.dataset.value === "max" && Config.confidence === Const.MAX ) return;
+  
+  SettingUI.changeUIConfidenceButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "high" ) {
+    Config.confidence = Const.HIGH;
+  } else if ( this.dataset.value === "max" ) {
+    Config.confidence = Const.MAX;
+  } else {
+    Config.confidence = Const.LOW;
+  }
+}
+
+// difficulty
 function updatedifficulty(evt) {
   evt.preventDefault();
 
@@ -61,7 +86,7 @@ function updatedifficulty(evt) {
   if ( this.dataset.value === "master" && Config.difficulty === Const.MASTER ) return;
 
   SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
-  
+
   if ( this.dataset.value === "expert" ) {
     Config.difficulty = Const.EXPERT;
   } else if ( this.dataset.value === "master" ) {

@@ -84,6 +84,7 @@ function colorshapeof(caret, caretIsActive) {
 	}
 }
 
+// caret & pacecaret
 export function changeUICaretButtonTo(caret) {
 
   // activate the clicked caret first
@@ -110,6 +111,7 @@ export function changeUICaretButtonTo(caret) {
 	}
 }
 
+// highlight
 export function changeUIHighlightButtonTo(highlight) {
 	if ( highlight === "word" ) {
 		SettingElement.highlight.off.id = "";
@@ -126,6 +128,7 @@ export function changeUIHighlightButtonTo(highlight) {
 	}
 }
 
+// fliphighlightcolor
 export function changeUIFliphighlightcolorButtonTo(state) {
 	if ( state === "on" ) {
 		SettingElement.fliphighlightcolor.on.id = "chosen";
@@ -136,6 +139,7 @@ export function changeUIFliphighlightcolorButtonTo(state) {
 	}
 }
 
+// backspace
 export function changeUIBackspaceButtonTo(state) {
 	if ( state === "off" ) {
 		SettingElement.backspace.off.id = "chosen";
@@ -194,5 +198,22 @@ if ( level === "expert" ) {
 		SettingElement.difficulty.beginner.id = "chosen";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "";
+	}
+}
+
+// confidence
+export function changeUIConfidenceButtonTo(level) {
+	if ( level === "high" ) {
+		SettingElement.confidence.low.id = "";
+		SettingElement.confidence.high.id = "chosen";
+		SettingElement.confidence.max.id = "";
+	} else if ( level === "max" ) {
+		SettingElement.confidence.low.id = "";
+		SettingElement.confidence.high.id = "";
+		SettingElement.confidence.max.id = "chosen";
+	} else {
+		SettingElement.confidence.low.id = "chosen";
+		SettingElement.confidence.high.id = "";
+		SettingElement.confidence.max.id = "";
 	}
 }

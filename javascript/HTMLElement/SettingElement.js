@@ -48,6 +48,12 @@ export const difficulty = {
 	master: document.querySelector("difficulty master"),
 }
 
+export const confidence = {
+	low: document.querySelector("confidence low"),
+	high: document.querySelector("confidence high"),
+	max: document.querySelector("confidence max"),
+}
+
 export const reset = document.querySelector(`button[type="reset"]`);
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");
