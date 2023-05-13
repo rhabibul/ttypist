@@ -15,14 +15,14 @@
 }
 
 setting {
-  width: 1000px;
+  width: 1100px;
   display: flex;
   justify-content: space-between;
   row-gap: 0px;
 }
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1100px) {
   setting {
-    width: 550px;
+    width: 600px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -36,7 +36,7 @@ setting div.column {
   padding: 5px;
 }
 div.config {
-  width: 500px;
+  width: 550px;
   height: 45px;
   cursor: pointer;
   display: flex;
@@ -47,7 +47,7 @@ div.config {
 }
 div.config label {
   height: 100%;
-  flex-basis: 40%;
+  flex-basis: 32%;
   font-weight: 510;
   color: blueviolet;
   font-size: 1.1rem;
@@ -58,7 +58,7 @@ div.config label {
 }
 div.config .values {
   height: 90%;
-  flex-basis: 59%;
+  flex-basis: 65%;
   font-weight: 450;
   color: var(--setting-text-color);
   font-size: 1rem;
@@ -84,8 +84,8 @@ div.config label span > i.fa-info {
   justify-content: center;
   align-items: center;
 
-  color: salmon;
-  background-color:bisque;
+  color: #b5b5b5;
+  background-color: #e8e8e8;
 }
 div.config:hover label span {
   visibility: visible;
@@ -123,7 +123,6 @@ div.config warning.threestates * {
 div.config warning.threestates outoffocus {
   flex-basis: 38%;
 }
-
 div.config confidence.threestates off,
 div.config stoponerror.threestates off,
 div.config highlight.threestates off,
@@ -138,6 +137,15 @@ div.config .fourstates * {
 }
 div.config .fourstates off {
   flex-basis: 18%;
+}
+div.config difficulty.threestates easy {
+  flex-basis: 26%;
+}
+div.config difficulty.threestates intermediate {
+  flex-basis: 40%;
+}
+div.config difficulty.threestates advanced {
+  flex-basis: 30%;
 }
 
 caret off,

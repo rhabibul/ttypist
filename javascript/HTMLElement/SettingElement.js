@@ -29,6 +29,16 @@ export const fliptextcolor = {
 	on: document.querySelector("fliptextcolor on"),
 }
 
+export const backspace = {
+	off: document.querySelector("backspace off"),
+	on: document.querySelector("backspace on"),
+	modifier: {
+		alt: document.querySelector("modifier alt"),
+		ctrl: document.querySelector("modifier ctrl"),
+		meta: document.querySelector("modifier mmeta"),
+	}
+}
+
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");
 export const exitFullscreen = document.querySelector("button i.fa-compress");

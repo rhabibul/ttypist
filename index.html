@@ -133,7 +133,7 @@
           <caret class="values">
             <off data-value="off" class="caret-shape">off</off>
             <underline data-value="underline" class="caret-shape"> <shape></shape> </underline>
-            <line data-value="line" id="chosen" class="caret-shape"> <shape></shape> </line>
+            <line data-value="line" id="chosen" class="caret-shape"> <shape style="background-color: #e17c01"></shape> </line>
             <box data-value="box" class="caret-shape"> <shape></shape> </box>
             <block data-value="block" class="caret-shape"> <shape></shape> </block>
           </caret>
@@ -164,34 +164,34 @@
           </fliptextcolor>
         </div>
         <div class="config backspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>backspace</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>backspace key</span></label>
           <backspace class="values twostates">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>
           </backspace>
         </div>
         <div class="config modifier">
-          <label><span><i class="fa-solid fa-info"></i></span><span>modifier</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>modifier keys</span></label>
           <modifier class="values threestates">
-            <pro data-value="alt" id="chosen">alt</pro>
-            <max data-value="ctrl" id="chosen">ctrl</max>
-            <max data-value="meta">meta</max>
+            <alt data-value="alt" id="chosen">alt</alt>
+            <ctrl data-value="ctrl" id="chosen">ctrl</ctrl>
+            <mmeta data-value="meta">meta</mmeta>
           </modifier>
         </div>
         <div class="config confidence">
           <label><span><i class="fa-solid fa-info"></i></span><span>confidence</span></label>
           <confidence class="values threestates">
             <off data-value="off">off</off>
-            <pro data-value="pro" id="chosen">pro</pro>
+            <on data-value="on" id="chosen">on</on>
             <max data-value="max">max</max>
           </confidence>
         </div>
         <div class="config difficulty">
           <label><span><i class="fa-solid fa-info"></i></span><span>difficulty</span></label>
           <difficulty class="values threestates">
-            <easy data-value="noob" id="chosen">noob</easy>
-            <expert data-value="expert">expert</expert>
-            <master data-value="master">master</master>
+            <easy data-value="easy" id="chosen">easy</easy>
+            <intermediate data-value="intermediate">intermediate</intermediate>
+            <advanced data-value="advanced">advanced</advanced>
           </difficulty>
         </div>
         <div class="config errors">
@@ -203,7 +203,7 @@
           </errors>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>stoponerror</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -230,26 +230,26 @@
             <bar data-value="bar">bar</bar>
           </whitespace>
         </div>
-        <div class="config endtestwithspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>endtestwithspace</span></label>
-          <endtestwithspace class="values twostates">
+        <div class="config endwithspace">
+          <label><span><i class="fa-solid fa-info"></i></span><span>endwithspace</span></label>
+          <endwithspace class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
-          </endtestwithspace>
+          </endwithspace>
         </div>
         <div class="config oppositeshift">
-          <label><span><i class="fa-solid fa-info"></i></span><span>oppositeshift mode</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>oppositeshift</span></label>
           <oppositeshift class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </oppositeshift>
         </div>
-        <div class="config inputbox">
-          <label><span><i class="fa-solid fa-info"></i></span><span>input visibility</span></label>
-          <inputbox class="values twostates">
-            <hide data-value="hide" id="chosen">hidden</hide>
+        <div class="config inputvisibility">
+          <label><span><i class="fa-solid fa-info"></i></span><span>inputvisibility</span></label>
+          <inputvisibility class="values twostates">
+            <hidden data-value="hidden" id="chosen">hidden</hidden>
             <visible data-value="visible">visible</visible>
-          </inputbox>
+          </inputvisibility>
         </div>
         <div class="config warning">
           <label><span><i class="fa-solid fa-info"></i></span><span>warnings</span></label>

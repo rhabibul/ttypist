@@ -34,6 +34,56 @@ SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
 SettingElement.fliptextcolor.off.addEventListener("click", updatefliptextcolor);
 SettingElement.fliptextcolor.on.addEventListener("click", updatefliptextcolor);
 
+SettingElement.backspace.off.addEventListener("click", updatebackspace);
+SettingElement.backspace.on.addEventListener("click", updatebackspace);
+SettingElement.backspace.modifier.alt.addEventListener("click", updatemodifier);
+SettingElement.backspace.modifier.ctrl.addEventListener("click", updatemodifier);
+SettingElement.backspace.modifier.meta.addEventListener("click", updatemodifier);
+
+// modifier keys (alt | modier | meta)
+function updatemodifier(evt) {
+  evt.preventDefault();
+
+  if ( this.dataset.value === "alt" ) {
+    if ( this.id === "chosen" ) {
+      Config.backspace.modifier.alt = false;
+    } else {
+      Config.backspace.modifier.alt = true;
+    }
+  } else if ( this.dataset.value === "ctrl" ) {
+    if ( this.id === "chosen" ) {
+      Config.backspace.modifier.ctrl = false;
+    } else {
+      Config.backspace.modifier.ctrl = true;
+    }
+  } else {
+    if ( this.id === "chosen" ) {
+      Config.backspace.modifier.meta = false;
+    } else {
+      Config.backspace.modifier.meta = true;
+    }
+  }
+
+  SettingUI.toggleUIModifierButton(this.dataset.value);
+}
+
+// backspace key (off | on)
+function updatebackspace(evt) {
+  evt.preventDefault()
+
+  if ( this.dataset.value === "off" && Config.backspace.off ) return;
+  if ( this.dataset.value === "on" && !Config.backspace.off ) return;
+
+  if ( this.dataset.value === "off" ) {
+    Config.backspace.off = true;
+  } else {
+    Config.backspace.off = false;
+  }
+  SettingUI.changeUIBackspaceButtonTo(this.dataset.value);
+}
+
+
+// fliptextcolor
 function updatefliptextcolor(evt) {
   evt.preventDefault();
   if ( this.dataset.value === "off" && !Config.fliptextcolor ) return;
@@ -49,6 +99,7 @@ function updatefliptextcolor(evt) {
   // make necessary changes in ui here..
 }
 
+// highlight (off | letter | word)
 function updatehighlight(evt) {
   evt.preventDefault();
   const highlight = this.dataset.value;
@@ -72,6 +123,7 @@ function updatehighlight(evt) {
   SettingUI.changeUIHighlightButtonTo(highlight);  
 }
 
+// caret (off | line | underline | box | block)
 function updatecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.value === Config.caret.type ) return;
@@ -90,6 +142,7 @@ function updatecaret(evt) {
   }
 }
 
+// pacecaret (off | line | underline | box | block)
 function updatepacecaret(evt) {
   evt.preventDefault();
   if ( this.dataset.type === Config.pacecaret.type ) return;

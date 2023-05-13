@@ -126,12 +126,44 @@ export function changeUIHighlightButtonTo(highlight) {
 	}
 }
 
-export function changeUIFliptextcolorButtonTo(flip) {
-	if ( flip === "on" ) {
+export function changeUIFliptextcolorButtonTo(state) {
+	if ( state === "on" ) {
 		SettingElement.fliptextcolor.on.id = "chosen";
 		SettingElement.fliptextcolor.off.id = "";
 	} else {
 		SettingElement.fliptextcolor.on.id = "";
 		SettingElement.fliptextcolor.off.id = "chosen";
+	}
+}
+
+export function changeUIBackspaceButtonTo(state) {
+	if ( state === "off" ) {
+		SettingElement.backspace.off.id = "chosen";
+		SettingElement.backspace.on.id = "";
+	} else {
+		SettingElement.backspace.off.id = "";
+		SettingElement.backspace.on.id = "chosen";
+	}
+}
+
+export function toggleUIModifierButton(modifier) {
+	if ( modifier === "alt" ) {
+		if ( SettingElement.backspace.modifier.alt.id === "chosen" ) {
+			SettingElement.backspace.modifier.alt.id = "";
+		} else {
+			SettingElement.backspace.modifier.alt.id = "chosen";
+		}
+	} else if ( modifier === "ctrl" ) {
+		if ( SettingElement.backspace.modifier.ctrl.id === "chosen" ) {
+			SettingElement.backspace.modifier.ctrl.id = "";
+		} else {
+			SettingElement.backspace.modifier.ctrl.id = "chosen";
+		}
+	} else {
+		if ( SettingElement.backspace.modifier.meta.id === "chosen" ) {
+			SettingElement.backspace.modifier.meta.id = "";
+		} else {
+			SettingElement.backspace.modifier.meta.id = "chosen";
+		}
 	}
 }

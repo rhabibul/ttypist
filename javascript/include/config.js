@@ -15,8 +15,9 @@ export default {
     type: "line", // line | underline | box | block
   },
   oppositeshift: false, // ignore B, Y, ^
-  endtestwithspace: false,
   underline: false, // underline active word
+  endwithspace: false,
+  inputvisibility: "hidden", // hidden | visible
   fliptextcolor: false, // brightness of typed & future texts
   highlight: {
     off: false,
@@ -70,7 +71,6 @@ export default {
   outoffocus: true,
   numlock: true,
   scrolllock: true,
-  inputbox_visibility: "hidden", // hidden | visible
   language: "english", // english | hindi | bengali | arabic | russian
   keyboard: {
     reaction: "off", // off | static | react | next
