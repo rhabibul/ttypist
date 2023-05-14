@@ -44,7 +44,7 @@ export default {
   difficulty: 1, // beginner(1) | expert(2) | master(3)
   error: {
     off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
-    insert: true,
+    insert: true, // 
     replace: false,
     forgive: false,
     stop: {
@@ -162,4 +162,9 @@ confidence
 	  current word errors can be fixed by using backspace
 	- max, won't be able to backspace at all i.e, backspacing will be turned of (backspace.off = true)
 
+
+error
+  - insert
+    maximum of 10 character can be inserted between two words and maximum of 15
+    characters can be inserted between a word and a whitespace word
 * ====================================================== */
