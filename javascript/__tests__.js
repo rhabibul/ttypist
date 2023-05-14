@@ -1,13 +1,7 @@
 import Config from "./include/config.js";
-import Text from "./include/text.js";
-import Word from "./include/word.js";
-
-import * as Misc from "./utils/misc.js";
-import * as SettingUI from "./ui/SettingUI.js";
-import * as CaretHandler from "./handler/carethandler.js";
+import * as MiscElement from "./HTMLElement/MiscElement.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
-import * as MiscElement from "./HTMLElement/MiscElement.js";
 
 // config object testing
 window.addEventListener("click", (evt) => {
