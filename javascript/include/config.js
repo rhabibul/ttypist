@@ -74,9 +74,9 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
-  warnings: {
+  warning: {
+    focus: true,
     capslock: true,
-    outoffocus: true,
     numlock: true,
     scrolllock: true,
   },

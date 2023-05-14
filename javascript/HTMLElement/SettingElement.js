@@ -68,6 +68,12 @@ export const keyboard = {
 	},
 }
 
+export const warning = {
+	focus: document.querySelector("warning focus"),
+	capslock: document.querySelector("warning capslock"),
+	numlock: document.querySelector("warning numlock"),
+}
+
 
 // #############################################################################
 

@@ -124,11 +124,9 @@ modifier.threestates *,
 confidence.threestates *,
 stoponerror.threestates *,
 highlight.threestates *,
+warning.threestates *,
 difficulty.threestates * {
   flex-basis: 32%;
-}
-warning.threestates * {
-  flex-basis: 29%;
 }
 warning.threestates outoffocus {
   flex-basis: 38%;

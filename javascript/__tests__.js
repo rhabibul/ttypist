@@ -11,7 +11,7 @@ import * as MiscElement from "./HTMLElement/MiscElement.js";
 
 // config object testing
 window.addEventListener("click", (evt) => {
-
+	
 });
 
 window.addEventListener('load', (evt) => {

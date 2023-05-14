@@ -68,6 +68,38 @@ SettingElement.keyboard.reaction.static.addEventListener("click", updatekeyboard
 SettingElement.keyboard.reaction.react.addEventListener("click", updatekeyboard);
 SettingElement.keyboard.reaction.next.addEventListener("click", updatekeyboard);
 
+// warning
+SettingElement.warning.focus.addEventListener("click", updatewarning);
+SettingElement.warning.capslock.addEventListener("click", updatewarning);
+SettingElement.warning.numlock.addEventListener("click", updatewarning);
+
+// warning
+function updatewarning(evt) {
+  evt.preventDefault();
+
+  if ( this.dataset.value === "focus" ) {
+    if ( this.id === "chosen" ) {
+      Config.warning.focus = false;
+    } else {
+      Config.warning.focus = true;
+    }
+  } else if ( this.dataset.value === "capslock" ) {
+    if ( this.id === "chosen" ) {
+      Config.warning.capslock = false;
+    } else {
+      Config.warning.capslock = true;
+    }
+  } else {
+    if ( this.id === "chosen" ) {
+      Config.warning.numlock = false;
+    } else {
+      Config.warning.numlock = true;
+    }
+  }
+
+  SettingUI.toggleUIWarningButton(this);
+}
+
 // keyboard
 function updatekeyboard(evt) {
   evt.preventDefault();
@@ -168,8 +200,6 @@ function updatetape(evt) {
 function updatemodifier(evt) {
   evt.preventDefault();
 
-  SettingUI.toggleUIModifierButtonTo(this.dataset.value);
-
   if ( this.dataset.value === "alt" ) {
     if ( this.id === "chosen" ) {
       Config.backspace.modifier.alt = false;
@@ -189,6 +219,8 @@ function updatemodifier(evt) {
       Config.backspace.modifier.meta = true;
     }
   }
+
+  SettingUI.toggleUIModifierButton(this);
 }
 
 // backspace
