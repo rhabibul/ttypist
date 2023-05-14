@@ -138,6 +138,13 @@
             <block data-value="block" class="caret-shape"> <shape></shape> </block>
           </caret>
         </div>
+        <div class="config tape">
+          <label><span><i class="fa-solid fa-info"></i></span><span>tape mode</span></label>
+          <tape class="values twostates">
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
+          </tape>
+        </div>
         <div class="config highlight">
           <label><span><i class="fa-solid fa-info"></i></span><span>highlight</span></label>
           <highlight class="values threestates">
@@ -152,13 +159,6 @@
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </fliphighlightcolor>
-        </div>
-        <div class="config tape">
-          <label><span><i class="fa-solid fa-info"></i></span><span>tape mode</span></label>
-          <tape class="values twostates">
-            <off data-value="off" id="chosen">off</off>
-            <on data-value="on">on</on>
-          </tape>
         </div>
         <div class="config backspace">
           <label><span><i class="fa-solid fa-info"></i></span><span>backspace</span></label>
@@ -227,9 +227,9 @@
           <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
           <whitespace class="values fourstates">
             <off data-value="off">off</off>
-            <bullet data-value="bullet">bullet</bullet>
-            <space data-value="space" data-code="" id="chosen">space</space>
-            <bar data-value="bar">bar</bar>
+            <bullet data-value="bullet" data-code="11825" data-character="⸱">bullet</bullet>
+            <space data-value="space" data-code="160" data-character="&nbsp;" id="chosen">space</space>
+            <bar data-value="bar" data-code="9251" data-character="␣">bar</bar>
           </whitespace>
         </div>
         <div class="config underline">
