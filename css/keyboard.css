@@ -9,7 +9,7 @@
 	--underscore-marker-color: #828282;
 }
 
-keyboard {
+keyboard#emulator {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -23,16 +23,16 @@ keyboard {
 	border: 1px solid lightgray;
 }
 @media only screen and (max-width: 1250px) {
-	keyboard {
+	keyboard#emulator {
 		display: none;
 	}
 }
-keyboard row {
+keyboard#emulator row {
 	height: var(--key-height);
 	display: flex;
 	justify-content: space-between;
 }
-keyboard row key {
+keyboard#emulator row key {
 	width: var(--key-width);
 	height: var(--key-height);
 	
@@ -46,16 +46,16 @@ keyboard row key {
 
 	border: 1px solid lightgray;
 }
-keyboard row key span {
+keyboard#emulator row key span {
 	flex-basis: 50%;
 	width: 100%;
 }
-keyboard row key span:nth-child(1) {
+keyboard#emulator row key span:nth-child(1) {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 }
-keyboard row key span:nth-child(2) {
+keyboard#emulator row key span:nth-child(2) {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;

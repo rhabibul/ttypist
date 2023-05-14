@@ -217,3 +217,40 @@ export function changeUIConfidenceButtonTo(level) {
 		SettingElement.confidence.max.id = "";
 	}
 }
+
+// scroll
+export function changeUIScrollButtonTo(scroll) {
+	if ( scroll === "smooth" ) {
+		SettingElement.scroll.abrupt.id = "";
+		SettingElement.scroll.smooth.id = "chosen";
+	} else {
+		SettingElement.scroll.smooth.id = "";
+		SettingElement.scroll.abrupt.id = "chosen";
+	}
+}
+
+// keyboard
+export function changeUIKeyboardButtonTo(reaction) {
+	if ( reaction === "off" ) {
+		SettingElement.keyboard.off.id = "chosen";
+		SettingElement.keyboard.reaction.static.id = "";
+		SettingElement.keyboard.reaction.react.id = "";
+		SettingElement.keyboard.reaction.next.id = "";
+	} else if ( reaction === "static" ) {
+		SettingElement.keyboard.off.id = "";
+		SettingElement.keyboard.reaction.static.id = "chosen";
+		SettingElement.keyboard.reaction.react.id = "";
+		SettingElement.keyboard.reaction.next.id = "";
+	} else if ( reaction === "react" ) {
+		SettingElement.keyboard.off.id = "";
+		SettingElement.keyboard.reaction.static.id = "";
+		SettingElement.keyboard.reaction.react.id = "chosen";
+		SettingElement.keyboard.reaction.next.id = "";
+	} else {
+		SettingElement.keyboard.off.id = "";
+		SettingElement.keyboard.reaction.static.id = "";
+		SettingElement.keyboard.reaction.react.id = "";
+		SettingElement.keyboard.reaction.next.id = "chosen";
+
+	}
+}

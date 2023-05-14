@@ -12,6 +12,7 @@ export default {
   underline: false, // underline active word
   endwithspace: false, // test ends only after typing a space after last word
   inputvisibility: "hidden", // hidden | visible
+  scroll: "abrupt", // abrupt | smooth
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
   caret: {
@@ -81,7 +82,7 @@ export default {
   },
   keyboard: {
     off: false,
-    reaction: "react", // static | react | next
+    reaction: "react", // off | static | react | next
     layout: "qwerty", // qwerty | dvorak | colemak | workman
     emulate: false,
     visibile: {

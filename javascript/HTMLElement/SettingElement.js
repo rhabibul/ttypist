@@ -54,6 +54,24 @@ export const confidence = {
 	max: document.querySelector("confidence max"),
 }
 
+export const scroll = {
+	abrupt: document.querySelector("scroll abrupt"),
+	smooth: document.querySelector("scroll smooth"),
+}
+
+export const keyboard = {
+	off: document.querySelector("keyboard off"),
+	reaction: {
+		static: document.querySelector("keyboard static"),
+		react: document.querySelector("keyboard react"),
+		next: document.querySelector("keyboard next"),
+	},
+}
+
+
+// #############################################################################
+
+
 export const reset = document.querySelector(`button[type="reset"]`);
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);
 export const enterFullscreen = document.querySelector("button i.fa-expand");

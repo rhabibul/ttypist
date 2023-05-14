@@ -58,6 +58,58 @@ SettingElement.confidence.low.addEventListener("click", updateconfidence);
 SettingElement.confidence.high.addEventListener("click", updateconfidence);
 SettingElement.confidence.max.addEventListener("click", updateconfidence);
 
+// scroll
+SettingElement.scroll.abrupt.addEventListener("click", updatescroll);
+SettingElement.scroll.smooth.addEventListener("click", updatescroll);
+
+// keyboard
+SettingElement.keyboard.off.addEventListener("click", updatekeyboard);
+SettingElement.keyboard.reaction.static.addEventListener("click", updatekeyboard);
+SettingElement.keyboard.reaction.react.addEventListener("click", updatekeyboard);
+SettingElement.keyboard.reaction.next.addEventListener("click", updatekeyboard);
+
+// keyboard
+function updatekeyboard(evt) {
+  evt.preventDefault();
+
+  if ( this.dataset.value === "off" && Config.keyboard.off ) return;
+  if ( this.dataset.value === "static" && Config.keyboard.reaction === "static" ) return;
+  if ( this.dataset.value === "react" && Config.keyboard.reaction === "react" ) return;
+  if ( this.dataset.value === "next" && Config.keyboard.reaction === "next" ) return;
+
+  SettingUI.changeUIKeyboardButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "static" ) {
+    Config.keyboard.off = false;
+    Config.keyboard.reaction = "static";
+  } else if ( this.dataset.value === "react" ) {
+    Config.keyboard.off = false;
+    Config.keyboard.reaction = "react";
+  } else if ( this.dataset.value === "next" ) {
+    Config.keyboard.off = false;
+    Config.keyboard.reaction = "next";
+  } else {
+    Config.keyboard.off = true;
+    Config.keyboard.reaction = "off";
+  }
+}
+
+// scroll
+function updatescroll(evt) {
+  evt.preventDefault();
+  
+  if ( this.dataset.value === "abrupt" && Config.scroll === "abrupt" ) return;
+  if ( this.dataset.value === "smooth" && Config.scroll === "smooth" ) return;
+
+  SettingUI.changeUIScrollButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "smooth" ) {
+    Config.scroll = "smooth";
+  } else {
+    Config.scroll = "abrupt";
+  }
+}
+
 // confidence
 function updateconfidence(evt) {
   evt.preventDefault();
