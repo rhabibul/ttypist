@@ -56,7 +56,6 @@ slider_fontweight.addEventListener("input", () => {
   Config.text.textweight = slider_fontweight.value;
 });
 
-
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
 	console.log("You are currently offline.");

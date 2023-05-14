@@ -4,7 +4,7 @@ export default {
     hastypedeveryword: false,
     deviceinformation: "",
   },
-  theme: "light", // molokai(dark) | classic(light) light (3 levels of darkness & lightness)
+  theme: "light", // light/dark | soft/medium/hard
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
   tape: false,
@@ -111,60 +111,3 @@ export default {
     functionkey: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
-
-// user data
-const user = {
-  firstname: "",
-  middlename: "",
-  lastname: "",
-  username: "",
-  email: "",
-  password: "",
-  rank: "", // wpm percentile
-  skill_level: "",
-  experience_level: "",
-  avg_speed: "",
-  avg_accuracy: "",
-  total_tests_started: "",
-  total_tests_completed: "",
-  hours_spend_typing: "",
-  practice_calender: "",
-  key_frequency_heatmap: "",
-  country: "",
-  best: "", // typing speed (wpm)
-  social: {
-    facebook: "",
-    instagram: "",
-    twitter: "",
-    linkedin: "",
-    reddit: "",
-    discord: "",
-    twitch: "",
-    youtube: "",
-  },
-}
-
-/* ===================== DETAILS ===================== *
-
-difficulty
-	- beginner is the classic type test experience.
-	- expert fails the test if you submit (press space) an incorrect word.
-	- master fails if you press a single incorrect key (100% accuracy).
-
-stoponerror
-	- off, will not stop on errors
-	- letter, will stop input when pressing any incorrect letters.
-	- word, will not allow you to continue to the next word until you correct all mistakes.
-
-confidence
-	- low, default behaviour, can go back as much as user wants to correct mistakes
-	- high, will not be able to go back to previous words to fix mistakes, but 
-	  current word errors can be fixed by using backspace
-	- max, won't be able to backspace at all i.e, backspacing will be turned of (backspace.off = true)
-
-
-error
-  - insert
-    maximum of 10 character can be inserted between two words and maximum of 15
-    characters can be inserted between a word and a whitespace word
-* ====================================================== */
