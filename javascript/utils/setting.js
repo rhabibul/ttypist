@@ -73,6 +73,28 @@ SettingElement.warning.focus.addEventListener("click", updatewarning);
 SettingElement.warning.capslock.addEventListener("click", updatewarning);
 SettingElement.warning.numlock.addEventListener("click", updatewarning);
 
+// inputvisibility
+SettingElement.inputvisibility.hidden.addEventListener("click", updateinputvisibility);
+SettingElement.inputvisibility.visible.addEventListener("click", updateinputvisibility);
+
+
+
+// inputvisibility
+function updateinputvisibility(evt) {
+  evt.preventDefault();
+
+  if ( this.dataset.value === "hidden" && Config.inputvisibility === "hidden" ) return;
+  if ( this.dataset.value === "visible" && Config.inputvisibility === "visible" ) return;
+
+  SettingUI.changeUIInputvisibilityButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "visible" ) {
+    Config.inputvisibility = "visible";
+  } else {
+    Config.inputvisibility = "hidden";
+  }
+}
+
 // warning
 function updatewarning(evt) {
   evt.preventDefault();

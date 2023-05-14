@@ -120,6 +120,7 @@ div.config:hover label span {
 }
 
 /* ============= threestates ============= */
+error.threestates *,
 modifier.threestates *,
 confidence.threestates *,
 stoponerror.threestates *,

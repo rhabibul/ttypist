@@ -119,12 +119,12 @@ export function changeUIHighlightButtonTo(highlight) {
 		SettingElement.highlight.mode.word.id = "chosen";
 	} else if ( highlight === "letter" ) {
 		SettingElement.highlight.off.id = "";
-		SettingElement.highlight.mode.letter.id = "chosen";
 		SettingElement.highlight.mode.word.id = "";
+		SettingElement.highlight.mode.letter.id = "chosen";
 	} else {
-		SettingElement.highlight.off.id = "chosen";
 		SettingElement.highlight.mode.letter.id = "";
 		SettingElement.highlight.mode.word.id = "";
+		SettingElement.highlight.off.id = "chosen";
 	}
 }
 
@@ -142,11 +142,11 @@ export function changeUIFliphighlightcolorButtonTo(state) {
 // backspace
 export function changeUIBackspaceButtonTo(state) {
 	if ( state === "off" ) {
-		SettingElement.backspace.off.id = "chosen";
 		SettingElement.backspace.on.id = "";
+		SettingElement.backspace.off.id = "chosen";
 	} else {
-		SettingElement.backspace.off.id = "";
 		SettingElement.backspace.on.id = "chosen";
+		SettingElement.backspace.off.id = "";
 	}
 }
 
@@ -176,8 +176,8 @@ export function toggleUIModifierButton(button) {
 // tape
 export function changeUITapeButtonTo(state) {
 	if ( state === "on" ) {
-		SettingElement.tape.on.id = "chosen";
 		SettingElement.tape.off.id = "";
+		SettingElement.tape.on.id = "chosen";
 	} else {
 		SettingElement.tape.on.id = "";
 		SettingElement.tape.off.id = "chosen";
@@ -188,16 +188,16 @@ export function changeUITapeButtonTo(state) {
 export function changeUIDifficultyButtonTo(level) {
 if ( level === "expert" ) {
 		SettingElement.difficulty.normal.id = "";
-		SettingElement.difficulty.expert.id = "chosen";
 		SettingElement.difficulty.master.id = "";
+		SettingElement.difficulty.expert.id = "chosen";
 	} else if ( level === "master" ) {
 		SettingElement.difficulty.normal.id = "";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "chosen";
 	} else {
-		SettingElement.difficulty.normal.id = "chosen";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "";
+		SettingElement.difficulty.normal.id = "chosen";
 	}
 }
 
@@ -205,16 +205,16 @@ if ( level === "expert" ) {
 export function changeUIConfidenceButtonTo(level) {
 	if ( level === "high" ) {
 		SettingElement.confidence.low.id = "";
-		SettingElement.confidence.high.id = "chosen";
 		SettingElement.confidence.max.id = "";
+		SettingElement.confidence.high.id = "chosen";
 	} else if ( level === "max" ) {
 		SettingElement.confidence.low.id = "";
 		SettingElement.confidence.high.id = "";
 		SettingElement.confidence.max.id = "chosen";
 	} else {
-		SettingElement.confidence.low.id = "chosen";
 		SettingElement.confidence.high.id = "";
 		SettingElement.confidence.max.id = "";
+		SettingElement.confidence.low.id = "chosen";
 	}
 }
 
@@ -232,20 +232,20 @@ export function changeUIScrollButtonTo(scroll) {
 // keyboard
 export function changeUIKeyboardButtonTo(reaction) {
 	if ( reaction === "off" ) {
-		SettingElement.keyboard.off.id = "chosen";
 		SettingElement.keyboard.reaction.static.id = "";
 		SettingElement.keyboard.reaction.react.id = "";
 		SettingElement.keyboard.reaction.next.id = "";
+		SettingElement.keyboard.off.id = "chosen";
 	} else if ( reaction === "static" ) {
 		SettingElement.keyboard.off.id = "";
-		SettingElement.keyboard.reaction.static.id = "chosen";
 		SettingElement.keyboard.reaction.react.id = "";
 		SettingElement.keyboard.reaction.next.id = "";
+		SettingElement.keyboard.reaction.static.id = "chosen";
 	} else if ( reaction === "react" ) {
 		SettingElement.keyboard.off.id = "";
 		SettingElement.keyboard.reaction.static.id = "";
-		SettingElement.keyboard.reaction.react.id = "chosen";
 		SettingElement.keyboard.reaction.next.id = "";
+		SettingElement.keyboard.reaction.react.id = "chosen";
 	} else {
 		SettingElement.keyboard.off.id = "";
 		SettingElement.keyboard.reaction.static.id = "";
@@ -275,4 +275,15 @@ export function toggleUIWarningButton(button) {
 			SettingElement.warning.numlock.id = "chosen";
     }
   }
+}
+
+// inputvisibility
+export function changeUIInputvisibilityButtonTo(visibility) {
+	if ( visibility === "visible" ) {
+		SettingElement.inputvisibility.hidden.id = "";
+		SettingElement.inputvisibility.visible.id = "chosen";
+	} else {
+		SettingElement.inputvisibility.visible.id = "";
+		SettingElement.inputvisibility.hidden.id = "chosen";
+	}
 }

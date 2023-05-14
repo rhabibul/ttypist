@@ -74,6 +74,11 @@ export const warning = {
 	numlock: document.querySelector("warning numlock"),
 }
 
+export const inputvisibility = {
+	hidden: document.querySelector("inputvisibility hidden"),
+	visible: document.querySelector("inputvisibility visible"),
+}
+
 
 // #############################################################################
 

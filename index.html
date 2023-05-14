@@ -191,17 +191,23 @@
             <max data-value="max">max</max>
           </confidence>
         </div>
+        <div class="config forgive-errors">
+          <label><span><i class="fa-solid fa-info"></i></span><span>forgive error</span></label>
+          <forgive class="values twostates">
+            <off data-value="off" id="chosen">off</off>
+            <on data-value="on">on</on>
+          </forgive>
+        </div>
         <div class="config errors">
           <label><span><i class="fa-solid fa-info"></i></span><span>error</span></label>
-          <error class="values fourstates">
+          <error class="values threestates">
             <off data-value="off">off</off>
             <insert data-value="insert" id="chosen">insert</insert>
-            <forgive data-value="forgive">forgive</forgive>
             <replace data-value="replace">replace</replace>
           </error>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stoponerror</span></label>
+          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
