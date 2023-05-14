@@ -77,7 +77,7 @@ SettingElement.warning.numlock.addEventListener("click", updatewarning);
 SettingElement.inputvisibility.hidden.addEventListener("click", updateinputvisibility);
 SettingElement.inputvisibility.visible.addEventListener("click", updateinputvisibility);
 
-
+// start here..
 
 // inputvisibility
 function updateinputvisibility(evt) {
