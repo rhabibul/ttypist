@@ -97,6 +97,25 @@ SettingElement.whitespace.bullet.addEventListener("click", updatewhitespace);
 SettingElement.whitespace.space.addEventListener("click", updatewhitespace);
 SettingElement.whitespace.bar.addEventListener("click", updatewhitespace);
 
+// underline
+SettingElement.underline.off.addEventListener("click", updateunderline);
+SettingElement.underline.on.addEventListener("click", updateunderline);
+
+// underline
+function updateunderline(evt) {
+
+  if ( this.dataset.value === "off" && !Config.underline ) return;
+  if ( this.dataset.value === "on" && Config.underline ) return;
+
+  SettingUI.changeUIUnderlineButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "on" ) {
+    Config.underline = true;
+  } else {
+    Config.underline = false;
+  }
+}
+
 // whitespace
 function updatewhitespace(evt) {
 

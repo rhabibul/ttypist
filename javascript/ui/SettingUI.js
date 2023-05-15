@@ -312,3 +312,14 @@ export function changeUIWhitespaceButtonTo(whitespace) {
 		SettingElement.whitespace.space.id = "chosen";
 	}
 }
+
+// underline
+export function changeUIUnderlineButtonTo(underline) {
+	if ( underline === "on" ) {
+		SettingElement.underline.off.id = "";
+		SettingElement.underline.on.id = "chosen";
+	} else {
+		SettingElement.underline.on.id = "";
+		SettingElement.underline.off.id = "chosen";
+	}
+}

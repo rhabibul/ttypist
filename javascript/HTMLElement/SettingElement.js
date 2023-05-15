@@ -103,6 +103,11 @@ export const whitespace = {
 	bar: document.querySelector("whitespace bar"),
 }
 
+export const underline = {
+	off: document.querySelector("underline off"),
+	on: document.querySelector("underline on"),
+}
+
 // #############################################################################
 
 export const reset = document.querySelector(`button[type="reset"]`);
