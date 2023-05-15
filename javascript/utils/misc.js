@@ -40,10 +40,10 @@ export function totalchar() {
 
 export function showspeed(lettercount, time) {
   const wpm = ((lettercount / 5) / (time)) * 60;
-  MiscElement.speed.style.color = "deeppink";
+  MiscElement.speed.style.color = "var(--molokai-orange)";
   MiscElement.speed.textContent = `${Math.ceil(wpm)}wpm`;
   setTimeout(() => {
-    MiscElement.speed.style.color = "lightgray";
+    MiscElement.speed.style.color = "var(--molokai-bg1)";
   }, 2500);
 }
 

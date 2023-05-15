@@ -49,7 +49,7 @@
   --primary-textcolor: var(--molokai-bg1);
   --secondary-textcolor: var(--molokai-fg1);
 
-  --textcolor: var(--molokai-fg1);
+  --textcolor: var(--molokai-green);
   --textsize: 1.25rem;
   --textweight: 445;
   --textfamily: var(--roboto-mono);

@@ -1,5 +1,5 @@
 speed.wpm {
-  color: gray;
+  color: var(--molokai-bg2);
   font-size: 1.3rem;
   font-weight: 400;
   font-family: "Roboto Mono", monospace;

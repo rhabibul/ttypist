@@ -1,7 +1,11 @@
 :root {
   /* caret color */
-  --caret-color: #f92672;
+  --caret-color: var(--molokai-red);
   --caret-color-hidden: var(--molokai-bg0);
+
+  /* block caret color */
+  --caret-block-color: var(--molokai-bg0);
+  --caret-block-backgroundcolor: var(--molokai-fg0);
   
   /* caret animation (blink duration, count, rhythm, delay) */
   --caret-animation-delay: 2s;
@@ -20,10 +24,6 @@
 
   /* underline caret width */
   --caret-width-underline: 2px;
-  
-  /* block caret background & color */
-  --caret-block-color: var(--molokai-bg0);
-  --caret-block-backgroundcolor: var(--molokai-fg1);
 }
 
 /*----------------- off -----------------*/
