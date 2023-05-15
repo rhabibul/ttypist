@@ -18,7 +18,6 @@ window.addEventListener('load', (evt) => {
 	}
 });
 
-
 // SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
 // 	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
 // 		SettingElement.enterFullscreen.classList.add("hidden");
