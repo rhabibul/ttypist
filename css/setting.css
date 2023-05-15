@@ -1,5 +1,5 @@
 :root {
-  --setting-caret-color: var(--molokai-fg1);
+  --setting-caret-color: var(--gruvbox-fg0_s);
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
   --setting-caret-shape-container-width: 26px;
@@ -44,7 +44,7 @@ div.config label {
   flex-basis: 34%;
   font-weight: 530;
   font-size: 1.15rem;
-  color: var(--molokai-bg2);
+  color: var(--gruvbox-fg4);
   font-family: var(--mona-sans);
   display: flex;
   align-items: center;
