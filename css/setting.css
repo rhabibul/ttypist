@@ -118,6 +118,12 @@ div.config:hover label span {
 .fourstates off {
   flex-basis: 18%;
 }
+live.fourstates * {
+  flex-basis: 21%;
+}
+live.fourstates accuracy {
+  flex-basis: 30%;
+}
 
 /* ============= threestates ============= */
 error.threestates *,

@@ -108,6 +108,16 @@ export const underline = {
 	on: document.querySelector("underline on"),
 }
 
+export const endwithspace = {
+	off: document.querySelector("endwithspace off"),
+	on: document.querySelector("endwithspace on"),
+}
+
+export const oppositeshift = {
+	off: document.querySelector("oppositeshift off"),
+	on: document.querySelector("oppositeshift on"),
+}
+
 // #############################################################################
 
 export const reset = document.querySelector(`button[type="reset"]`);

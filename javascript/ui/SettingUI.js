@@ -323,3 +323,25 @@ export function changeUIUnderlineButtonTo(underline) {
 		SettingElement.underline.off.id = "chosen";
 	}
 }
+
+// endwithspace
+export function changeUIEndwithspaceButtonTo(endwithspace) {
+	if ( endwithspace === "on" ) {
+		SettingElement.endwithspace.off.id = "";
+		SettingElement.endwithspace.on.id = "chosen";
+	} else {
+		SettingElement.endwithspace.on.id = "";
+		SettingElement.endwithspace.off.id = "chosen";
+	}
+}
+
+// oppositeshift
+export function changeUIOppositeshiftButtonTo(oppositeshift) {
+	if ( oppositeshift === "on" ) {
+		SettingElement.oppositeshift.off.id = "";
+		SettingElement.oppositeshift.on.id = "chosen";
+	} else {
+		SettingElement.oppositeshift.on.id = "";
+		SettingElement.oppositeshift.off.id = "chosen";
+	}
+}

@@ -12,7 +12,7 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
 
 // reset button
-SettingElement.reset.addEventListener("click", (evt) => { Test.restart(); });
+SettingElement.reset.addEventListener("click", () => { Test.restart(); });
 
 // caret
 SettingElement.caret.off.addEventListener("click", updatecaret);
@@ -101,9 +101,50 @@ SettingElement.whitespace.bar.addEventListener("click", updatewhitespace);
 SettingElement.underline.off.addEventListener("click", updateunderline);
 SettingElement.underline.on.addEventListener("click", updateunderline);
 
+// endwithspace
+SettingElement.endwithspace.off.addEventListener("click", updateendwithspace);
+SettingElement.endwithspace.on.addEventListener("click", updateendwithspace);
+
+// oppositeshift
+SettingElement.oppositeshift.off.addEventListener("click", updateoppositeshift);
+SettingElement.oppositeshift.on.addEventListener("click", updateoppositeshift);
+
+// oppostieshift
+function updateoppositeshift(evt) {
+  
+  if ( !evt.isTrusted ) return;
+  if ( this.dataset.value === "off" && !Config.oppositeshift ) return;
+  if ( this.dataset.value === "on" && Config.oppositeshift ) return;
+
+  SettingUI.changeUIOppositeshiftButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "on" ) {
+    Config.oppositeshift = true;
+  } else {
+    Config.oppositeshift = false;
+  }
+}
+
+// endwithspace
+function updateendwithspace(evt) {
+  
+  if ( !evt.isTrusted ) return;
+  if ( this.dataset.value === "off" && !Config.endwithspace ) return;
+  if ( this.dataset.value === "on" && Config.endwithspace ) return;
+
+  SettingUI.changeUIEndwithspaceButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "on" ) {
+    Config.endwithspace = true;
+  } else {
+    Config.endwithspace = false;
+  }
+}
+
 // underline
 function updateunderline(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.underline ) return;
   if ( this.dataset.value === "on" && Config.underline ) return;
 
@@ -119,6 +160,7 @@ function updateunderline(evt) {
 // whitespace
 function updatewhitespace(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.text.whitespace.off ) return;
   if ( this.dataset.value === "bullet" && Config.text.whitespace.type === "bullet" ) return;
   if ( this.dataset.value === "space" && Config.text.whitespace.type === "space" ) return;
@@ -152,6 +194,7 @@ function updatewhitespace(evt) {
 // stoponerror 📌
 function updatestoponerror(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.error.stop.off ) return;
   if ( this.dataset.value === "letter" && Config.error.stop.letter ) return;
   if ( this.dataset.value === "word" && Config.error.stop.word ) return;
@@ -161,6 +204,7 @@ function updatestoponerror(evt) {
 // forgive 📌
 function updateforgive(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.error.forgive ) return;
   if ( this.dataset.value === "on" && Config.error.forgive ) return;
   
@@ -169,6 +213,7 @@ function updateforgive(evt) {
 // error 📌
 function updateerror(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.error.off ) return;
   if ( this.dataset.value === "insert" && Config.error.insert ) return;
   if ( this.dataset.value === "replace" && Config.error.replace ) return;
@@ -178,6 +223,7 @@ function updateerror(evt) {
 // inputvisibility
 function updateinputvisibility(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "hidden" && Config.inputvisibility === "hidden" ) return;
   if ( this.dataset.value === "visible" && Config.inputvisibility === "visible" ) return;
 
@@ -192,6 +238,8 @@ function updateinputvisibility(evt) {
 
 // warning
 function updatewarning(evt) {
+
+  if ( !evt.isTrusted ) return;
 
   if ( this.dataset.value === "focus" ) {
     if ( this.id === "chosen" ) {
@@ -219,6 +267,8 @@ function updatewarning(evt) {
 // keyboard
 function updatekeyboard(evt) {
 
+  if ( !evt.isTrusted ) return;
+
   if ( this.dataset.value === "off" && Config.keyboard.off ) return;
   if ( this.dataset.value === "static" && Config.keyboard.reaction === "static" ) return;
   if ( this.dataset.value === "react" && Config.keyboard.reaction === "react" ) return;
@@ -244,7 +294,8 @@ function updatekeyboard(evt) {
 // scroll
 function updatescroll(evt) {
   
-  if ( this.dataset.value === "abrupt" && Config.scroll === "abrupt" ) return;
+  if ( !evt.isTrusted ) return;
+  if ( this.dataset.value === "abrupt" && Config.abrupt === "abrupt" ) return;
   if ( this.dataset.value === "smooth" && Config.scroll === "smooth" ) return;
 
   SettingUI.changeUIScrollButtonTo(this.dataset.value);
@@ -259,6 +310,7 @@ function updatescroll(evt) {
 // confidence
 function updateconfidence(evt) {
   
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "low" && Config.confidence === Const.LOW ) return;
   if ( this.dataset.value === "high" && Config.confidence === Const.HIGH ) return;
   if ( this.dataset.value === "max" && Config.confidence === Const.MAX ) return;
@@ -277,6 +329,7 @@ function updateconfidence(evt) {
 // difficulty
 function updatedifficulty(evt) {
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "normal" && Config.difficulty === Const.NORMAL ) return;
   if ( this.dataset.value === "expert" && Config.difficulty === Const.EXPERT ) return;
   if ( this.dataset.value === "master" && Config.difficulty === Const.MASTER ) return;
@@ -295,6 +348,7 @@ function updatedifficulty(evt) {
 // tape
 function updatetape(evt) {
   
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.tape ) return;
   if ( this.dataset.value === "on" && Config.tape ) return;
 
@@ -310,6 +364,8 @@ function updatetape(evt) {
 // modifier
 function updatemodifier(evt) {
 
+  if ( !evt.isTrusted ) return;
+  
   if ( this.dataset.value === "alt" ) {
     if ( this.id === "chosen" ) {
       Config.backspace.modifier.alt = false;
@@ -335,8 +391,8 @@ function updatemodifier(evt) {
 
 // backspace
 function updatebackspace(evt) {
-  evt.preventDefault()
 
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.backspace.off ) return;
   if ( this.dataset.value === "on" && !Config.backspace.off ) return;
 
@@ -351,6 +407,8 @@ function updatebackspace(evt) {
 
 // fliphighlightcolor
 function updatefliphighlight(evt) {
+
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
 
@@ -365,18 +423,19 @@ function updatefliphighlight(evt) {
 
 // highlight
 function updatehighlight(evt) {
-  const highlight = this.dataset.value;
-  if (highlight === "letter" && Config.highlight.mode.letter) return;
-  if (highlight === "word" && Config.highlight.mode.word) return;
-  if (highlight === "off" && Config.highlight.off) return;
 
-  SettingUI.changeUIHighlightButtonTo(highlight);
+  if ( !evt.isTrusted ) return;
+  if (this.dataset.value === "letter" && Config.highlight.mode.letter) return;
+  if (this.dataset.value === "word" && Config.highlight.mode.word) return;
+  if (this.dataset.value === "off" && Config.highlight.off) return;
 
-  if ( highlight === "word" ) {
+  SettingUI.changeUIHighlightButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "word" ) {
     Config.highlight.off = false;
     Config.highlight.mode.letter = false;
     Config.highlight.mode.word = true;
-  } else if ( highlight === "letter" ) {
+  } else if ( this.dataset.value === "letter" ) {
     Config.highlight.off = false;
     Config.highlight.mode.letter = true;
     Config.highlight.mode.word = false;
@@ -389,8 +448,12 @@ function updatehighlight(evt) {
 
 // caret
 function updatecaret(evt) {
+
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.value === Config.caret.type ) return;
+
   const prev = Config.caret.type;
+
   SettingUI.changeUICaretButtonTo(this);
 
   if ( this.dataset.value === "off" ) {
@@ -407,6 +470,8 @@ function updatecaret(evt) {
 
 // pacecaret
 function updatepacecaret(evt) {
+
+  if ( !evt.isTrusted ) return;
   if ( this.dataset.type === Config.pacecaret.type ) return;
 
   SettingUI.changeUICaretButtonTo(this);
