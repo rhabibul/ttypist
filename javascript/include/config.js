@@ -104,8 +104,8 @@ export default {
     off: true,
     guidedlession: false,
     providedtext: false,
-    numpad: false, // numpad digits & symbols 
-    numrow: false, // numrow digits [0-9]
+    numpad: false, // only numpad digits and symbols
+    numrow: false, // only numrow digits [0-9]
     alphanumeric: false, // ascii alphabets [a-z, A-Z] and digits [0-9]
     bracket: false, // {[(<>)]}
     arrowkey: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
