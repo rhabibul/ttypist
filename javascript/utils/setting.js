@@ -117,7 +117,6 @@ SettingElement.live.timer.addEventListener("click", updatelive);
 
 // live
 function updatelive(evt) {
-  evt.preventDefault();
   
   if ( !evt.isTrusted ) return;
   
@@ -152,8 +151,7 @@ function updatelive(evt) {
 
 // oppostieshift
 function updateoppositeshift(evt) {
-  evt.preventDefault();  
-
+  
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.oppositeshift ) return;
   if ( this.dataset.value === "on" && Config.oppositeshift ) return;
@@ -169,7 +167,6 @@ function updateoppositeshift(evt) {
 
 // endwithspace
 function updateendwithspace(evt) {
-  evt.preventDefault();
   
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.endwithspace ) return;
@@ -186,7 +183,6 @@ function updateendwithspace(evt) {
 
 // underline
 function updateunderline(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.underline ) return;
@@ -203,7 +199,6 @@ function updateunderline(evt) {
 
 // whitespace
 function updatewhitespace(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.text.whitespace.off ) return;
@@ -238,7 +233,6 @@ function updatewhitespace(evt) {
 
 // stoponerror 📌
 function updatestoponerror(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.error.stop.off ) return;
@@ -249,7 +243,6 @@ function updatestoponerror(evt) {
 
 // forgive 📌
 function updateforgive(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.error.forgive ) return;
@@ -259,7 +252,6 @@ function updateforgive(evt) {
 
 // error 📌
 function updateerror(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.error.off ) return;
@@ -270,7 +262,6 @@ function updateerror(evt) {
 
 // inputvisibility
 function updateinputvisibility(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "hidden" && Config.inputvisibility === "hidden" ) return;
@@ -287,7 +278,6 @@ function updateinputvisibility(evt) {
 
 // warning
 function updatewarning(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
 
@@ -316,7 +306,6 @@ function updatewarning(evt) {
 
 // keyboard
 function updatekeyboard(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
 
@@ -344,7 +333,6 @@ function updatekeyboard(evt) {
 
 // scroll
 function updatescroll(evt) {
-  evt.preventDefault();
   
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "abrupt" && Config.abrupt === "abrupt" ) return;
@@ -361,7 +349,6 @@ function updatescroll(evt) {
 
 // confidence
 function updateconfidence(evt) {
-  evt.preventDefault();
   
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "low" && Config.confidence === Const.LOW ) return;
@@ -381,7 +368,6 @@ function updateconfidence(evt) {
 
 // difficulty
 function updatedifficulty(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "normal" && Config.difficulty === Const.NORMAL ) return;
@@ -401,7 +387,6 @@ function updatedifficulty(evt) {
 
 // tape
 function updatetape(evt) {
-  evt.preventDefault();
   
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.tape ) return;
@@ -418,7 +403,6 @@ function updatetape(evt) {
 
 // modifier
 function updatemodifier(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   
@@ -447,7 +431,6 @@ function updatemodifier(evt) {
 
 // backspace
 function updatebackspace(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.backspace.off ) return;
@@ -464,7 +447,6 @@ function updatebackspace(evt) {
 
 // fliphighlightcolor
 function updatefliphighlight(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
@@ -481,7 +463,6 @@ function updatefliphighlight(evt) {
 
 // highlight
 function updatehighlight(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if (this.dataset.value === "letter" && Config.highlight.mode.letter) return;
@@ -507,7 +488,6 @@ function updatehighlight(evt) {
 
 // caret
 function updatecaret(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === Config.caret.type ) return;
@@ -530,7 +510,6 @@ function updatecaret(evt) {
 
 // pacecaret
 function updatepacecaret(evt) {
-  evt.preventDefault();
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.type === Config.pacecaret.type ) return;
