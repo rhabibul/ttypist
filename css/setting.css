@@ -1,5 +1,5 @@
 :root {
-  --setting-caret-color: black;
+  --setting-caret-color: var(--molokai-fg1);
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
   --setting-caret-shape-container-width: 26px;
@@ -7,18 +7,20 @@
 
   --setting-container-width-caret: 180px;
   --setting-container-width-whitespace: 160px;
-
-  --setting-text-color: #323232;
-  --setting-text-fontsize: 1rem;
-  --setting-text-fontfamily: var(--roboto-mono);
-  --setting-text-fontweight: 400;
 }
 
 setting {
   width: 1100px;
   display: flex;
   justify-content: space-between;
+  background-color: var(--molokai-bg0);
   row-gap: 0px;
+}
+setting div.column {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--molokai-bg0);
+  padding: 0px 10px 0px 0px;
 }
 @media only screen and (max-width: 1105px) {
   setting {
@@ -28,12 +30,7 @@ setting {
     flex-direction: column;
   }
 }
-setting div.column {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 0px 10px 0px 0px;
-}
+
 div.config {
   width: 550px;
   height: 45px;
@@ -41,16 +38,14 @@ div.config {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
 }
 div.config label {
   height: 100%;
   flex-basis: 34%;
-  font-weight: 680;
-  color: blueviolet;
+  font-weight: 530;
   font-size: 1.15rem;
-  font-family: "Nunito", monospace;
+  color: var(--molokai-bg2);
+  font-family: var(--mona-sans);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,16 +54,12 @@ div.config .values {
   height: 90%;
   flex-basis: 62%;
   font-weight: 450;
-  color: var(--setting-text-color);
+  color: var(--inactive-color);
   font-size: 1rem;
-  font-family: "Roboto Mono", monospace;
+  font-family: var(--roboto-mono);
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-div.config:hover {
-  border-top: 1px solid #e9e9e9;
-  border-bottom: 1px solid #e9e9e9;
 }
 div.config label span:first-child {
   visibility: hidden;
@@ -83,8 +74,8 @@ div.config label span > i.fa-info {
   justify-content: center;
   align-items: center;
 
-  color: salmon;
-  background-color: lightgoldenrodyellow;
+  color: var(--molokai-fg1);
+  background-color: var(--molokai-bg1);
 }
 div.config:hover label span {
   visibility: visible;

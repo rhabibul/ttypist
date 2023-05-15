@@ -9,9 +9,8 @@ footer {
 nav {
   width: 150px;
 	height: 40px;
-  
-  border-radius: var(--round);
-  background-color: var(--inactive-backgroundcolor);
+
+  background-color: var(--molokai-fg1);
 
 	border-radius: 5px;
   display: flex;
@@ -40,5 +39,5 @@ nav a:hover i {
   font-size: 1rem;
   font-weight: 500;
   font-family: var(--mona-sans);
-  color: lightgray;
+  color: var(--molokai-bg1);
 }

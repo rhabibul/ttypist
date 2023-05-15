@@ -45,7 +45,7 @@ export function registerkeydown(evt) {
 		CaretHandler.removecaretfrom(word.activeletter);
 
 		word.activeletter.classList.add("correct");
-		word.activeletter.style["text-decoration-color"] = "#99cc00"
+		word.activeletter.style["text-decoration-color"] = "var(--molokai-bg2)";
 
 		if ( word.activeletterindex < word.lastletterindex ) {
 			CaretHandler.addcaretto(word.nextletter);
@@ -215,7 +215,7 @@ export function registerkeyup(evt) {
 }
 
 export function removeUnderlineForLetter(letter) {
-	letter.style["text-decoration-color"] = "#3e3e3e"
+	letter.style["text-decoration-color"] = "var(--textcolor)";
 	letter.classList.remove("correct");
 }
 

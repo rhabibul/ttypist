@@ -11,13 +11,13 @@ button {
   font-size: 1.25rem;
   border-radius: 5px;
   padding: 4px 6px;
-  color: darkgray;
-  background-color: white;
-  border: 1px solid rgb(238, 238, 238);
+  border: none;
+  color: var(--molokai-fg0);
+  background-color: var(--molokai-bg1);
 }
 button:focus {
   outline: none;
-  color: black;
+  color: var(--molokai-red);
   background-color: white;
 }
 button.fullscreen {
