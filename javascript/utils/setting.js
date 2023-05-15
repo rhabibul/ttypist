@@ -109,6 +109,46 @@ SettingElement.endwithspace.on.addEventListener("click", updateendwithspace);
 SettingElement.oppositeshift.off.addEventListener("click", updateoppositeshift);
 SettingElement.oppositeshift.on.addEventListener("click", updateoppositeshift);
 
+// live
+SettingElement.live.speed.addEventListener("click", updatelive);
+SettingElement.live.accuracy.addEventListener("click", updatelive);
+SettingElement.live.burst.addEventListener("click", updatelive);
+SettingElement.live.timer.addEventListener("click", updatelive);
+
+// live
+function updatelive(evt) {
+  
+  if ( !evt.isTrusted ) return;
+  
+  if ( this.dataset.value === "speed" ) {
+    if ( this.id === "chosen" ) {
+      Config.live.speed = false;
+    } else {
+      Config.live.speed = true;
+    }
+  } else if ( this.dataset.value === "accuracy" ) {
+    if ( this.id === "chosen" ) {
+      Config.live.accuracy = false;
+    } else {
+      Config.live.accuracy = true;
+    }
+  } else if ( this.dataset.value === "burst" ) {
+    if ( this.id === "chosen" ) {
+      Config.live.burst = false;
+    } else {
+      Config.live.burst = true;
+    }
+  } else {
+    if ( this.id === "chosen" ) {
+      Config.live.timer = false;
+    } else {
+      Config.live.timer = true;
+    }
+  }
+
+  SettingUI.toggleUILiveButton(this);
+}
+
 // oppostieshift
 function updateoppositeshift(evt) {
   

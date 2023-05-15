@@ -3,9 +3,9 @@ import * as MiscElement from "./HTMLElement/MiscElement.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 
-// config object testing
-window.addEventListener("click", (evt) => {
-
+// config debug
+window.addEventListener("click", () => {
+	
 });
 
 window.addEventListener('load', (evt) => {

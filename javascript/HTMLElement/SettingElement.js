@@ -118,6 +118,13 @@ export const oppositeshift = {
 	on: document.querySelector("oppositeshift on"),
 }
 
+export const live = {
+	speed: document.querySelector("live speed"),
+	accuracy: document.querySelector("live accuracy"),
+	burst: document.querySelector("live burst"),
+	timer: document.querySelector("live timer"),
+}
+
 // #############################################################################
 
 export const reset = document.querySelector(`button[type="reset"]`);

@@ -75,12 +75,6 @@ export default {
       punctuation: false, // include punctuation characters along with words
     },
   },
-  warning: {
-    focus: true,
-    capslock: true,
-    numlock: true,
-    scrolllock: true,
-  },
   keyboard: {
     off: false,
     reaction: "react", // off | static | react | next
@@ -94,11 +88,17 @@ export default {
       numpad: true,
     },
   },
+  warning: {
+    focus: true,
+    capslock: false,
+    numlock: false,
+    scrolllock: false,
+  },
   live: {
     speed: false,
     accuracy: false,
-    timer: false,
     burst: false, // speed burst of last word typed (wpm/cpm)
+    timer: true,
   },
   practice: {
     off: true,

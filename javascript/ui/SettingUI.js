@@ -152,24 +152,10 @@ export function changeUIBackspaceButtonTo(state) {
 
 // modifier
 export function toggleUIModifierButton(button) {
-	if ( button.dataset.value === "alt" ) {
-		if ( button.id === "chosen" ) {
-			SettingElement.backspace.modifier.alt.id = "";
-		} else {
-			SettingElement.backspace.modifier.alt.id = "chosen";
-		}
-	} else if ( button.dataset.value === "ctrl" ) {
-		if ( button.id === "chosen" ) {
-			SettingElement.backspace.modifier.ctrl.id = "";
-		} else {
-			SettingElement.backspace.modifier.ctrl.id = "chosen";
-		}
+	if ( button.id === "chosen" ) {
+		button.id = "";
 	} else {
-		if ( button.id === "chosen" ) {
-			SettingElement.backspace.modifier.meta.id = "";
-		} else {
-			SettingElement.backspace.modifier.meta.id = "chosen";
-		}
+		button.id = "chosen";
 	}
 }
 
@@ -256,25 +242,11 @@ export function changeUIKeyboardButtonTo(reaction) {
 
 // warning
 export function toggleUIWarningButton(button) {
-	if ( button.dataset.value === "focus" ) {
-    if ( button.id === "chosen" ) {
-      SettingElement.warning.focus.id = "";
-    } else {
-      SettingElement.warning.focus.id = "chosen";
-    }
-  } else if ( button.dataset.value === "capslock" ) {
-		if ( button.id === "chosen" ) {
-			SettingElement.warning.capslock.id = "";
-    } else {
-			SettingElement.warning.capslock.id = "chosen";
-    }
-  } else {
-		if ( button.id === "chosen" ) {
-			SettingElement.warning.numlock.id = "";
-    } else {
-			SettingElement.warning.numlock.id = "chosen";
-    }
-  }
+	if ( button.id === "chosen" ) {
+		button.id = "";
+	} else {
+		button.id = "chosen";
+	}
 }
 
 // inputvisibility
@@ -343,5 +315,14 @@ export function changeUIOppositeshiftButtonTo(oppositeshift) {
 	} else {
 		SettingElement.oppositeshift.on.id = "";
 		SettingElement.oppositeshift.off.id = "chosen";
+	}
+}
+
+// live
+export function toggleUILiveButton(button) {
+	if ( button.id === "chosen" ) {
+		button.id = "";
+	} else {
+		button.id = "chosen";
 	}
 }
