@@ -120,7 +120,7 @@ body {
 }
 
 text {  
-  width: 750px;
+  max-width: 750px;
 
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */

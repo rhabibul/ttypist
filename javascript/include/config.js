@@ -68,7 +68,7 @@ export default {
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
-      count: 25, // 25 | 50 | 100 | custom | infinite
+      count: 15, // 25 | 50 | 100 | custom | infinite
     },
     include: {
       digit: false, // include numbers along with words
