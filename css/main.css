@@ -23,6 +23,23 @@
 }
 
 :root {
+  --gruvbox-bg0_h: #1d2021;
+  --gruvbox-bg0: #282828;
+  --gruvbox-bg0_s: #32302f;
+  --gruvbox-bg1: #3c3836;
+  --gruvbox-bg2: #504945;
+  --gruvbox-bg3: #665c54;
+  --gruvbox-bg4: #7c6f64;
+
+  --gruvbox-fg4: #a89984;
+  --gruvbox-fg3: #bdae93;
+  --gruvbox-fg2: #d5c4a1;
+  --gruvbox-fg1: #ebdbb2;
+  --gruvbox-fg0: #fbf1c7;
+}
+
+
+:root {
   --molokai-bg0: #272822;
   --molokai-bg1: #3e3d32;
   --molokai-bg2: #75715e;

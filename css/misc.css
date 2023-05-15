@@ -9,9 +9,13 @@ button i {
 }
 button {
   font-size: 1.25rem;
-  border-radius: 5px;
-  padding: 4px 6px;
+  border-radius: 7px;
+  width: 35px;
+  height: 35px;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--molokai-fg0);
   background-color: var(--molokai-bg1);
 }
@@ -19,11 +23,6 @@ button:focus {
   outline: none;
   color: var(--molokai-red);
   background-color: white;
-}
-button.fullscreen {
-  top: 15px;
-  right: 15px;
-  position: absolute;
 }
 input#slider {
   border: none;
