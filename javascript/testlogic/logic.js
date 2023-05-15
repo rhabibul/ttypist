@@ -14,7 +14,7 @@ export function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 
-	if ( (evt.key === "Unidentified") || (evt.code === "") ) { 
+	if ( (evt.key === "Unidentified") || (evt.code === "") ) {
 		mInput.keydownUnidentified = true;
 		return;
 	}
