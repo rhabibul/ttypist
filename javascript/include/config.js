@@ -2,8 +2,8 @@ export default {
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
-    deviceinformation: "",
   },
+  deviceinformation: "comma,separated,value",
   theme: "light", // light/dark | soft/medium/hard
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test

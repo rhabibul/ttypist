@@ -12,9 +12,9 @@ window.addEventListener('load', (evt) => {
 	if ( localStorage.getItem('Config') === null ) {
 		window.localStorage.setItem('Config', JSON.stringify(Config));
 	} else {
-		// parse local config object from localStorage
-		// make config object equal to local config object i.e, assign local config objec's fields to config object
-		// make necessary ui changes according to local config object
+		// 1. parse local config object from localStorage
+		// 2. load the parsed local config object to main config object
+		// 3. make necessary ui changes according to local config object
 	}
 });
 
