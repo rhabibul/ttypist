@@ -5,7 +5,7 @@ import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 
 // config object testing
 window.addEventListener("click", (evt) => {
-
+	console.log(Config.text.whitespace.off, Config.text.whitespace.type, Config.text.whitespace.code, Config.text.whitespace.character);
 });
 
 window.addEventListener('load', (evt) => {

@@ -49,6 +49,7 @@ export default {
     replace: false,
     forgive: false,
     stop: {
+      off: true,
       word: false,
       letter: false,
     },

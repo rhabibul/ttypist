@@ -79,9 +79,31 @@ export const inputvisibility = {
 	visible: document.querySelector("inputvisibility visible"),
 }
 
+export const error = {
+	off: document.querySelector("error off"),
+	insert: document.querySelector("error insert"),
+	replace: document.querySelector("error replace"),
+}
+
+export const forgive = {
+	off: document.querySelector("forgive off"),
+	on: document.querySelector("forgive on"),
+}
+
+export const stoponerror = {
+	off: document.querySelector("stoponerror off"),
+	letter: document.querySelector("stoponerror letter"),
+	word: document.querySelector("stoponerror word"),
+}
+
+export const whitespace = {
+	off: document.querySelector("whitespace off"),
+	bullet: document.querySelector("whitespace bullet"),
+	space: document.querySelector("whitespace space"),
+	bar: document.querySelector("whitespace bar"),
+}
 
 // #############################################################################
-
 
 export const reset = document.querySelector(`button[type="reset"]`);
 export const fullscreenToggleButton = document.querySelector(`button[type="fullscreen"]`);

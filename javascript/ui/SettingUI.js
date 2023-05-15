@@ -287,3 +287,28 @@ export function changeUIInputvisibilityButtonTo(visibility) {
 		SettingElement.inputvisibility.hidden.id = "chosen";
 	}
 }
+
+// whitespace
+export function changeUIWhitespaceButtonTo(whitespace) {
+	if ( whitespace === "off" ) {
+		SettingElement.whitespace.bullet.id = "";
+		SettingElement.whitespace.space.id = "";
+		SettingElement.whitespace.bar.id = "";
+		SettingElement.whitespace.off.id = "chosen";
+	} else if ( whitespace === "bullet" ) {
+		SettingElement.whitespace.off.id = "";
+		SettingElement.whitespace.space.id = "";
+		SettingElement.whitespace.bar.id = "";
+		SettingElement.whitespace.bullet.id = "chosen";
+	} else if ( whitespace === "bar" ) {
+		SettingElement.whitespace.off.id = "";
+		SettingElement.whitespace.bullet.id = "";
+		SettingElement.whitespace.space.id = "";
+		SettingElement.whitespace.bar.id = "chosen";
+	} else {
+		SettingElement.whitespace.off.id = "";
+		SettingElement.whitespace.bullet.id = "";
+		SettingElement.whitespace.bar.id = "";
+		SettingElement.whitespace.space.id = "chosen";
+	}
+}

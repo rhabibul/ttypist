@@ -77,11 +77,87 @@ SettingElement.warning.numlock.addEventListener("click", updatewarning);
 SettingElement.inputvisibility.hidden.addEventListener("click", updateinputvisibility);
 SettingElement.inputvisibility.visible.addEventListener("click", updateinputvisibility);
 
-// start here..
+// error
+SettingElement.error.off.addEventListener("click", updateerror);
+SettingElement.error.insert.addEventListener("click", updateerror);
+SettingElement.error.replace.addEventListener("click", updateerror);
+
+// forgive
+SettingElement.forgive.off.addEventListener("click", updateforgive);
+SettingElement.forgive.on.addEventListener("click", updateforgive);
+
+// stoponerror
+SettingElement.stoponerror.off.addEventListener("click", updatestoponerror);
+SettingElement.stoponerror.letter.addEventListener("click", updatestoponerror);
+SettingElement.stoponerror.word.addEventListener("click", updatestoponerror);
+
+// whitespace
+SettingElement.whitespace.off.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.bullet.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.space.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.bar.addEventListener("click", updatewhitespace);
+
+// whitespace
+function updatewhitespace(evt) {
+
+  if ( this.dataset.value === "off" && Config.text.whitespace.off ) return;
+  if ( this.dataset.value === "bullet" && Config.text.whitespace.type === "bullet" ) return;
+  if ( this.dataset.value === "space" && Config.text.whitespace.type === "space" ) return;
+  if ( this.dataset.value === "bar" && Config.text.whitespace.type === "bar" ) return;
+  
+  SettingUI.changeUIWhitespaceButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "off" ) {
+    Config.text.whitespace.off = true;
+    Config.text.whitespace.type = "off";
+    Config.text.whitespace.code = -1;
+    Config.text.whitespace.character = "";
+  } else if ( this.dataset.value === "bullet" ) {
+    Config.text.whitespace.off = false;
+    Config.text.whitespace.type = "bullet";
+    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.character = this.dataset.character;
+  } else if ( this.dataset.value === "bar" ) {
+    Config.text.whitespace.off = false;
+    Config.text.whitespace.type = "bar";
+    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.character = this.dataset.character;
+  } else {
+    Config.text.whitespace.off = false;
+    Config.text.whitespace.type = "space";
+    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.character = this.dataset.character;
+  }
+}
+
+// stoponerror 📌
+function updatestoponerror(evt) {
+
+  if ( this.dataset.value === "off" && Config.error.stop.off ) return;
+  if ( this.dataset.value === "letter" && Config.error.stop.letter ) return;
+  if ( this.dataset.value === "word" && Config.error.stop.word ) return;
+
+}
+
+// forgive 📌
+function updateforgive(evt) {
+
+  if ( this.dataset.value === "off" && !Config.error.forgive ) return;
+  if ( this.dataset.value === "on" && Config.error.forgive ) return;
+  
+}
+
+// error 📌
+function updateerror(evt) {
+
+  if ( this.dataset.value === "off" && Config.error.off ) return;
+  if ( this.dataset.value === "insert" && Config.error.insert ) return;
+  if ( this.dataset.value === "replace" && Config.error.replace ) return;
+
+}
 
 // inputvisibility
 function updateinputvisibility(evt) {
-  evt.preventDefault();
 
   if ( this.dataset.value === "hidden" && Config.inputvisibility === "hidden" ) return;
   if ( this.dataset.value === "visible" && Config.inputvisibility === "visible" ) return;
@@ -97,7 +173,6 @@ function updateinputvisibility(evt) {
 
 // warning
 function updatewarning(evt) {
-  evt.preventDefault();
 
   if ( this.dataset.value === "focus" ) {
     if ( this.id === "chosen" ) {
@@ -124,7 +199,6 @@ function updatewarning(evt) {
 
 // keyboard
 function updatekeyboard(evt) {
-  evt.preventDefault();
 
   if ( this.dataset.value === "off" && Config.keyboard.off ) return;
   if ( this.dataset.value === "static" && Config.keyboard.reaction === "static" ) return;
@@ -150,7 +224,6 @@ function updatekeyboard(evt) {
 
 // scroll
 function updatescroll(evt) {
-  evt.preventDefault();
   
   if ( this.dataset.value === "abrupt" && Config.scroll === "abrupt" ) return;
   if ( this.dataset.value === "smooth" && Config.scroll === "smooth" ) return;
@@ -166,7 +239,6 @@ function updatescroll(evt) {
 
 // confidence
 function updateconfidence(evt) {
-  evt.preventDefault();
   
   if ( this.dataset.value === "low" && Config.confidence === Const.LOW ) return;
   if ( this.dataset.value === "high" && Config.confidence === Const.HIGH ) return;
@@ -185,7 +257,6 @@ function updateconfidence(evt) {
 
 // difficulty
 function updatedifficulty(evt) {
-  evt.preventDefault();
 
   if ( this.dataset.value === "normal" && Config.difficulty === Const.NORMAL ) return;
   if ( this.dataset.value === "expert" && Config.difficulty === Const.EXPERT ) return;
@@ -204,7 +275,6 @@ function updatedifficulty(evt) {
 
 // tape
 function updatetape(evt) {
-  evt.preventDefault();
   
   if ( this.dataset.value === "off" && !Config.tape ) return;
   if ( this.dataset.value === "on" && Config.tape ) return;
@@ -220,7 +290,6 @@ function updatetape(evt) {
 
 // modifier
 function updatemodifier(evt) {
-  evt.preventDefault();
 
   if ( this.dataset.value === "alt" ) {
     if ( this.id === "chosen" ) {
@@ -263,7 +332,6 @@ function updatebackspace(evt) {
 
 // fliphighlightcolor
 function updatefliphighlight(evt) {
-  evt.preventDefault();
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
 
@@ -278,7 +346,6 @@ function updatefliphighlight(evt) {
 
 // highlight
 function updatehighlight(evt) {
-  evt.preventDefault();
   const highlight = this.dataset.value;
   if (highlight === "letter" && Config.highlight.mode.letter) return;
   if (highlight === "word" && Config.highlight.mode.word) return;
@@ -303,7 +370,6 @@ function updatehighlight(evt) {
 
 // caret
 function updatecaret(evt) {
-  evt.preventDefault();
   if ( this.dataset.value === Config.caret.type ) return;
   const prev = Config.caret.type;
   SettingUI.changeUICaretButtonTo(this);
@@ -322,7 +388,6 @@ function updatecaret(evt) {
 
 // pacecaret
 function updatepacecaret(evt) {
-  evt.preventDefault();
   if ( this.dataset.type === Config.pacecaret.type ) return;
 
   SettingUI.changeUICaretButtonTo(this);
