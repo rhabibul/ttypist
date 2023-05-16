@@ -41,7 +41,6 @@
   --gruvbox-fg0_h: #f9f5d7;
 
   --gruvbox-gray: #928374;
-  
   --gruvbox-red: #fb4934;
   --gruvbox-red-dim: #cc241d;
   --gruvbox-green: #b8bb26;
@@ -56,6 +55,7 @@
   --gruvbox-aqua-dim: #689d6a;
   --gruvbox-orange: #fe8019;
   --gruvbox-orange-dim: #d65d0e;
+
 
   /* ------------- gruvbox color palette ------------- */
   --molokai-bg0: #272822;
@@ -76,29 +76,35 @@
 }
 
 :root {
+  /* ------------- font family ------------- */
   --monospace: monospace; 
   --roboto-mono: "Roboto Mono", monospace;
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
-  
+
+
+  /* ------------- text styles ------------- */
+  --textcolor: var(--molokai-green);
   --textcolor-primary: var(--molokai-bg1);
   --textcolor-secondary: var(--molokai-fg1);
-
-  --textcolor: var(--molokai-green);
   --textsize: 1.25rem;
   --textweight: 445;
   --textfamily: var(--roboto-mono);
+
+
+  /* ------------- error ------------- */
+  --error-primary: #ff0000;
+  --error-secondary: #a30d0d;
+
+
+  /* ------------- misc ------------- */
+  --word-underline-offset: 2px;
+  --word-underline-thickness: 2px;
 
   --active-foreground: var(--molokai-bg0);
   --active-background: var(--gruvbox-fg0_s);
   --inactive-foreground: var(--molokai-fg1);
   --inactive-background: var(--molokai-bg1);
-
-  --word-underline-offset: 2px;
-  --word-underline-thickness: 2px;
-
-  --error-primary: #ff0000;
-  --error-secondary: #a30d0d;
 }
 
 *,
