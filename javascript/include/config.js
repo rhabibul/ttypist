@@ -18,12 +18,12 @@ export default {
   caret: {
     off: false,
     type: "line", // off | line | underline | box | block
-    transparency: 1, // [0, 1] -> alpha's value in rgba
+    opacity: 1, // [0, 1] -> alpha's value in rgba
   },
   pacecaret: {
     off: true,
     type: "line", // off | line | underline | box | block
-    transparency: 1, // [0, 1] -> alpha's value in rgba
+    opacity: 1, // [0, 1] -> alpha's value in rgba
   },
   linehighlight: false,
   fliphighlightcolor: false, // by default, future text is brighter than the already typed text
