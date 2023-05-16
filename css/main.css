@@ -81,18 +81,24 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   
-  --primary-textcolor: var(--molokai-bg1);
-  --secondary-textcolor: var(--molokai-fg1);
+  --textcolor-primary: var(--molokai-bg1);
+  --textcolor-secondary: var(--molokai-fg1);
 
   --textcolor: var(--molokai-green);
   --textsize: 1.25rem;
   --textweight: 445;
   --textfamily: var(--roboto-mono);
 
-  --active-color: var(--molokai-bg0);
-  --active-backgroundcolor: var(--gruvbox-fg0_s);
-  --inactive-color: var(--molokai-fg1);
-  --inactive-backgroundcolor: var(--molokai-bg1);
+  --active-foreground: var(--molokai-bg0);
+  --active-background: var(--gruvbox-fg0_s);
+  --inactive-foreground: var(--molokai-fg1);
+  --inactive-background: var(--molokai-bg1);
+
+  --word-underline-offset: 2px;
+  --word-underline-thickness: 2px;
+
+  --error-primary: #ff0000;
+  --error-secondary: #a30d0d;
 }
 
 *,
@@ -170,7 +176,7 @@ input#textinput {
 }
  
 .extra {
-  color: #ae0000;
+  color: var(--error-secondary);
 }
 .fade {
   color: #9b9b9b;
@@ -188,25 +194,25 @@ input#textinput {
   color: var(--molokai-bg2);
 }
 .incorrect {
-  color: red;
+  color: var(--error-primary);
 }
 .error {
-  color: #d50000;
+  color: var(--error-primary);
   text-decoration-line: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 2px;
   text-decoration-style: solid;
-  text-decoration-color: #ff0000;
+  text-decoration-color: var(--error-secondary);
+  text-underline-offset: var(--word-underline-offset);
+  text-decoration-thickness: var(--word-underline-thickness);
 }
 .____ {
-  text-decoration-line: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 2px;
   text-decoration-style: solid;
+  text-decoration-line: underline;
   text-decoration-color: var(--textcolor);
+  text-underline-offset: var(--word-underline-offset);
+  text-decoration-thickness: var(--word-underline-thickness);
 }
 
 #chosen {
-  color: var(--active-color);
-  background-color: var(--active-backgroundcolor);
+  color: var(--active-foreground);
+  background-color: var(--active-background);
 }

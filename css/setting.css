@@ -54,7 +54,7 @@ div.config .values {
   height: 90%;
   flex-basis: 62%;
   font-weight: 450;
-  color: var(--inactive-color);
+  color: var(--inactive-foreground);
   font-size: 1rem;
   font-family: var(--roboto-mono);
   display: flex;
@@ -97,7 +97,7 @@ div.config:hover label span {
   justify-content: center;  
   align-items: center;
   border-radius: 4px;
-  background-color: var(--inactive-backgroundcolor);
+  background-color: var(--inactive-background);
 }
 
 .twostates * {
@@ -153,7 +153,7 @@ pacecaret block {
   width: var(--setting-caret-shape-container-width);
   height: var(--setting-caret-shape-container-height);
   border-radius: 3px;
-  background-color: var(--inactive-backgroundcolor);
+  background-color: var(--inactive-background);
 }
 caret off,
 pacecaret off {

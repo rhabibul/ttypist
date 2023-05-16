@@ -1,16 +1,16 @@
-import * as SettingElement from "../HTMLElement/SettingElement.js";
-import * as MiscElement from "../HTMLElement/MiscElement.js";
-import * as Misc from "../utils/misc.js";
 import Config from "../include/config.js";
 import { word } from "../main.js";
+import * as Misc from "../utils/misc.js";
 import * as CaretHandler from "../handler/carethandler.js";
+import * as MiscElement from "../HTMLElement/MiscElement.js";
+import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
 
-const active_color = getComputedStyle(MiscElement.root).getPropertyValue("--active-color");
-const active_bgcolor = getComputedStyle(MiscElement.root).getPropertyValue("--active-backgroundcolor");
-const inactive_color = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-color");
-const inactive_bgcolor = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-backgroundcolor");
+const active_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--active-foreground");
+const active_background = getComputedStyle(MiscElement.root).getPropertyValue("--active-background");
+const inactive_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-foreground");
+const inactive_background = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-background");
 
 export function applyupdatedcaret(prev) {
   CaretHandler.removecaretfrom(word.activeletter);
@@ -39,9 +39,9 @@ function colorshapeof(caret, caretIsActive) {
 		// 2. therefore only background color is enough for line caret which has
 		//    dimension 1x20 pixels and block caret  which has dimension 10x20 pixel
 		if ( caretIsActive ) {
-			shape.style.backgroundColor = active_color;
+			shape.style.backgroundColor = active_foreground;
 		} else {
-			shape.style.backgroundColor = inactive_color;
+			shape.style.backgroundColor = inactive_foreground;
 		}
 	} else if ( caret.dataset.value === "underline" ) {
 		// 1. give color to border bottom of underline caret
@@ -50,35 +50,35 @@ function colorshapeof(caret, caretIsActive) {
 		//    rest border is turned off, so here also we need take care of space inside
 		//    the box and give same background color as the caret's container has)
 		if ( caretIsActive ) {
-			shape.style.borderBottomColor = active_color;
-			shape.style.backgroundColor = active_bgcolor;
+			shape.style.borderBottomColor = active_foreground;
+			shape.style.backgroundColor = active_background;
 		} else {
-			shape.style.backgroundColor = inactive_bgcolor;
-			shape.style.borderBottomColor = inactive_color;
+			shape.style.backgroundColor = inactive_background;
+			shape.style.borderBottomColor = inactive_foreground;
 		}
 	} else if ( caret.dataset.value === "box" ) {
 		// 1. give color to all four borders of box caret
 		// 2. fill the empty space inside of four borders of box caret with 
 		//    caret container's background color
 		if ( caretIsActive ) {
-			shape.style.borderColor = active_color; 
-			shape.style.backgroundColor = active_bgcolor; 
+			shape.style.borderColor = active_foreground; 
+			shape.style.backgroundColor = active_background; 
 		} else {
-			shape.style.borderColor = inactive_color;
-			shape.style.backgroundColor = inactive_bgcolor;
+			shape.style.borderColor = inactive_foreground;
+			shape.style.backgroundColor = inactive_background;
 		}
 	} else {
 		if ( caretIsActive ) {
 			if ( ispacecaret ) {
-				SettingElement.pacecaret.off.style.color = active_color;
+				SettingElement.pacecaret.off.style.color = active_foreground;
 			} else {
-				SettingElement.caret.off.style.color = active_color;
+				SettingElement.caret.off.style.color = active_foreground;
 			}
 		} else {
 			if ( ispacecaret ) {
-				SettingElement.pacecaret.off.style.color = inactive_color;
+				SettingElement.pacecaret.off.style.color = inactive_foreground;
 			} else {
-				SettingElement.caret.off.style.color = inactive_color;
+				SettingElement.caret.off.style.color = inactive_foreground;
 			}
 		}
 	}
@@ -89,14 +89,14 @@ export function changeUICaretButtonTo(caret) {
 
   // activate the clicked caret first
   colorshapeof(caret, true); // set active color for the selected caret shape
-	caret.style.backgroundColor = active_bgcolor;
+	caret.style.backgroundColor = active_background;
 
 	if ( caret.classList.contains("caret-shape") ) {
 		// set inactive backgroundcolor & inactive color for all carets except the selected one
 		for ( const othercaret of Object.values(SettingElement.caret) ) {
 			if ( caret !== othercaret ) {
 				// set inactive background color to all caret containers except the selected one
-				othercaret.style.backgroundColor = inactive_bgcolor;
+				othercaret.style.backgroundColor = inactive_background;
 				// set inactive color to caret shapes except the selected one
 				colorshapeof(othercaret, false);
 			}
@@ -104,7 +104,7 @@ export function changeUICaretButtonTo(caret) {
 	} else {
 		for ( const othercaret of Object.values(SettingElement.pacecaret) ) {
 			if ( caret !== othercaret ) {
-				othercaret.style.backgroundColor = inactive_bgcolor;
+				othercaret.style.backgroundColor = inactive_background;
 				colorshapeof(othercaret, false);
 			}
 		}
