@@ -114,8 +114,8 @@
   --textcolor-primary: var(--gruvbox-fg2);
   --textcolor-secondary: var(--molokai-bg2);
 
-  --textsize: 1.2rem;
-  --textweight: 450;
+  --textsize: 1.22rem;
+  --textweight: 420;
   --textfamily: var(--roboto-mono);
 
   --error-primary: #ff0000;
@@ -159,7 +159,8 @@ body {
 }
 
 text {  
-  max-width: 750px;
+  min-width: 400px;
+  max-width: 800px;
 
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
