@@ -4,7 +4,7 @@ export default {
     hastypedeveryword: false,
   },
   deviceinformation: "comma,separated,value",
-  theme: "white", // white | black | molokai | gruvbox
+  theme: "white", // +white | molokai | gruvbox | cobalt | solarized
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
   tape: false,
@@ -25,6 +25,7 @@ export default {
     type: "line", // off | line | underline | box | block
     transparency: 1, // [0, 1] -> alpha's value in rgba
   },
+  linehighlight: false,
   fliphighlightcolor: false, // by default, future text is brighter than the already typed text
   highlight: {
     off: false,

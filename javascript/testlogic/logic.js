@@ -32,12 +32,15 @@ export function registerkeydown(evt) {
 		wasSpace = true;
 		
 		CaretHandler.removecaretfrom(word.activeletter);
-		if ( text.activewordindex > 0 ) {
+
+		if ( Config.underline && (text.activewordindex > 0) ) {
 			removeunderline(text.prevword);
 			text.incrementwordindex();
 		}
 		word.loadword(text.nextword, { nextword: true });
-		addunderline(text.activeword);
+		if ( Config.underline ) {
+			addunderline(text.activeword);
+		}
 		CaretHandler.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
@@ -45,7 +48,9 @@ export function registerkeydown(evt) {
 		CaretHandler.removecaretfrom(word.activeletter);
 
 		word.activeletter.classList.add("correct");
-		word.activeletter.style["text-decoration-color"] = "var(--molokai-bg2)";
+		if ( Config.underline ) {
+			word.activeletter.style["text-decoration-color"] = "var(--molokai-bg2)";
+		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
 			CaretHandler.addcaretto(word.nextletter);
@@ -99,26 +104,32 @@ export function registerkeydown(evt) {
 
 			if ( word.activeletterindex > 0 ) {
 
-				
-				removeUnderlineForLetter(word.activeletter);
+				word.activeletter.classList.remove("correct");
+				if ( Config.underline ) {
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+				}
 				CaretHandler.removecaretfrom(word.activeletter);
 				CaretHandler.addcaretto(word.prevletter);
-				removeUnderlineForLetter(word.activeletter);
+
+				word.activeletter.classList.remove("correct");
+				if ( Config.underline ) {
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+				}
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
 				CaretHandler.removecaretfrom(word.activeletter);
-				removeunderline(word.me());
 				word.loadword(text.prevword, { prevword: true });
 				
-				if ( Misc.isspace(word.activeletter) ) {
-					if ( text.activewordindex > 0 ) {
-						text.decrementwordindex();
-						addunderline(text.activeword);
-						text.incrementwordindex();
-					}
+				if ( Config.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
+					text.decrementwordindex();
+					addunderline(text.activeword);
+					text.incrementwordindex();
 				}
-				removeUnderlineForLetter(word.activeletter)
+				word.activeletter.classList.remove("correct");
+				if ( Config.underline ) {
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+				}
 				CaretHandler.addcaretto(word.activeletter);
 			}
 		}
@@ -160,12 +171,7 @@ export function registerinput(evt) {
 			TestAreaElement.input.value = "";
 			
 			CaretHandler.removecaretfrom(word.activeletter);
-			if ( text.activewordindex > 0 ) {
-				text.prevword.classList.remove("____");
-				text.incrementwordindex();
-			}		
 			word.loadword(text.nextword, { nextword: true });
-			addunderline(text.activeword);
 			CaretHandler.addcaretto(word.activeletter);
 			
 		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
@@ -185,7 +191,6 @@ export function registerinput(evt) {
 					if ( text.activewordindex === text.lastwordindex ) { // test complete
 						
 						time.end = window.performance.now();
-						CaretHandler.removecaretfrom(word.activeletter);
 						Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 						Test.restart();
 					}
@@ -212,11 +217,6 @@ export function registerkeyup(evt) {
 		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 		Test.restart();
 	}
-}
-
-export function removeUnderlineForLetter(letter) {
-	letter.style["text-decoration-color"] = "var(--textcolor)";
-	letter.classList.remove("correct");
 }
 
 export function removeunderline(word) {

@@ -15,7 +15,7 @@ setting {
   justify-content: space-between;
   background-color: var(--molokai-bg0);
 }
-setting div.column {
+setting .column {
   display: flex;
   flex-direction: column;
   background-color: var(--molokai-bg0);
@@ -30,7 +30,7 @@ setting div.column {
   }
 }
 
-div.config {
+.config {
   width: 500px;
   height: 45px;
   cursor: pointer;
@@ -38,10 +38,10 @@ div.config {
   align-items: center;
   justify-content: space-between;
 }
-div.config label {
+.config label {
   height: 100%;
   flex-basis: 33%;
-  font-weight: 450;
+  font-weight: 400;
   font-size: 1rem;
   color: var(--gruvbox-fg4);
   font-family: var(--mona-sans);
@@ -49,7 +49,7 @@ div.config label {
   align-items: center;
   justify-content: flex-end;
 }
-div.config .values {
+.config .values {
   height: 90%;
   flex-basis: 65%;
   font-weight: 450;

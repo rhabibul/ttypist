@@ -23,6 +23,9 @@
 }
 
 :root {
+  /* ------------- default color palette ------------- */
+  /* yet to be added.. */
+  
   /* ------------- gruvbox color palette ------------- */
   --gruvbox-bg0_h: #1d2021;
   --gruvbox-bg0: #282828;
@@ -73,6 +76,21 @@
   --molokai-blue: #66d9ef;
   --molokai-cyan: #a1efe4;
   --molokai-green: #a6e22e;
+
+
+  /* ------------- cobalt color palette ------------- */
+  /* add more, incomplete... */
+  --cobalt-blue: #193549;
+  --cobalt-blue-highlight: #1F4662;
+  --cobalt-blue-highlight2: #234E6D;
+  --cobalt-dark-blue: #122738;
+  --cobalt-yellow: #ffc600;
+  --cobalt-hot-pink: #ff0088;
+  --cobalt-blush-pink: #ff628c;
+  --cobalt-orange: #ff9d00;
+
+  /* ------------- solarized color palette ------------- */
+
 }
 
 :root {

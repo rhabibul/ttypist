@@ -1,3 +1,4 @@
+import Config from "./config.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import { addunderline, removeunderline } from "../testlogic/logic.js";
 
@@ -26,7 +27,9 @@ export default class Text {
     	TestAreaElement.text.insertAdjacentElement("beforeend", word);
     }
     
-    addunderline(this.#words[this.#wordindex]);
+    if ( Config.underline ) {
+      addunderline(this.#words[this.#wordindex]);
+    }
   }
 
   get size() {
