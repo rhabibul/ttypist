@@ -10,11 +10,10 @@
 }
 
 setting {
-  width: 1100px;
+  width: 1000px;
   display: flex;
   justify-content: space-between;
   background-color: var(--molokai-bg0);
-  row-gap: 0px;
 }
 setting div.column {
   display: flex;
@@ -22,9 +21,9 @@ setting div.column {
   background-color: var(--molokai-bg0);
   padding: 0px 10px 0px 0px;
 }
-@media only screen and (max-width: 1105px) {
+@media only screen and (max-width: 1005px) {
   setting {
-    width: 550px;
+    width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -32,7 +31,7 @@ setting div.column {
 }
 
 div.config {
-  width: 550px;
+  width: 500px;
   height: 45px;
   cursor: pointer;
   display: flex;
@@ -41,18 +40,18 @@ div.config {
 }
 div.config label {
   height: 100%;
-  flex-basis: 34%;
-  font-weight: 530;
-  font-size: 1.15rem;
+  flex-basis: 33%;
+  font-weight: 450;
+  font-size: 1rem;
   color: var(--gruvbox-fg4);
   font-family: var(--mona-sans);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 div.config .values {
   height: 90%;
-  flex-basis: 62%;
+  flex-basis: 65%;
   font-weight: 450;
   color: var(--inactive-foreground);
   font-size: 1rem;
@@ -60,25 +59,6 @@ div.config .values {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-div.config label span:first-child {
-  visibility: hidden;
-}
-div.config label span > i.fa-info {
-  padding: 4px 4px 5px 4px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 1.05rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--molokai-fg1);
-  background-color: var(--molokai-bg1);
-}
-div.config:hover label span {
-  visibility: visible;
 }
 
 /* -------------- parent of a particular config field -------------- */

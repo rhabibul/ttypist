@@ -48,17 +48,17 @@
         <letter>e</letter>
       </word>
     </text>
-    <input id="textinput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
-    
-    <button type="reset">
-      <i class="fa-solid fa-arrow-rotate-right"></i>
-    </button>
+
+    <div class="inputrow">
+      <input id="textinput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+      <button type="reset"> <i class="fa-solid fa-arrow-rotate-right"></i> </button>
+    </div>
 
     <setting>
       <!-- column 1 -->
       <div class="column column1">
         <div class="config caret">
-          <label><span><i class="fa-solid fa-info"></i></span><span>caret</span></label>
+          <label><span>caret</span></label>
           <caret class="values">
             <off data-value="off" class="caret-shape">off</off>
             <underline data-value="underline" class="caret-shape"> <shape></shape> </underline>
@@ -68,7 +68,7 @@
           </caret>
         </div>
         <div class="config highlight">
-          <label><span><i class="fa-solid fa-info"></i></span><span>highlight</span></label>
+          <label><span>highlight</span></label>
           <highlight class="values threestates">
             <off data-value="off">off</off>
             <letter data-value="letter" id="chosen">letter</letter>
@@ -76,28 +76,28 @@
           </highlight>
         </div>
         <div class="config fliphighlightcolor">
-          <label><span><i class="fa-solid fa-info"></i></span><span>fliphighlightcolor</span></label>
+          <label><span>flip highlight color</span></label>
           <fliphighlightcolor class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </fliphighlightcolor>
         </div>
         <div class="config underline">
-          <label><span><i class="fa-solid fa-info"></i></span><span>underline word</span></label>
+          <label><span>underline word</span></label>
           <underline class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </underline>
         </div>
         <div class="config backspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>backspace</span></label>
+          <label><span>backspace</span></label>
           <backspace class="values twostates">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>
           </backspace>
         </div>
         <div class="config modifier">
-          <label><span><i class="fa-solid fa-info"></i></span><span>modifier</span></label>
+          <label><span>modifier</span></label>
           <modifier class="values threestates">
             <alt data-value="alt" id="chosen">alt</alt>
             <ctrl data-value="ctrl" id="chosen">ctrl</ctrl>
@@ -105,7 +105,7 @@
           </modifier>
         </div>
         <div class="config difficulty">
-          <label><span><i class="fa-solid fa-info"></i></span><span>difficulty</span></label>
+          <label><span>difficulty</span></label>
           <difficulty class="values threestates">
             <normal data-value="normal" id="chosen">normal</normal>
             <expert data-value="expert">expert</expert>
@@ -113,7 +113,7 @@
           </difficulty>
         </div>
         <div class="config confidence">
-          <label><span><i class="fa-solid fa-info"></i></span><span>confidence</span></label>
+          <label><span>confidence</span></label>
           <confidence class="values threestates">
             <low data-value="low" id="chosen">low</low>
             <high data-value="high">high</high>
@@ -121,7 +121,7 @@
           </confidence>
         </div>
         <div class="config errors">
-          <label><span><i class="fa-solid fa-info"></i></span><span>error</span></label>
+          <label><span>error</span></label>
           <error class="values threestates">
             <off data-value="off">off</off>
             <insert data-value="insert" id="chosen">insert</insert>
@@ -129,14 +129,14 @@
           </error>
         </div>
         <div class="config forgive-errors">
-          <label><span><i class="fa-solid fa-info"></i></span><span>forgive error</span></label>
+          <label><span>forgive error</span></label>
           <forgive class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </forgive>
         </div>
         <div class="config stoponerror">
-          <label><span><i class="fa-solid fa-info"></i></span><span>stop on error</span></label>
+          <label><span>stop on error</span></label>
           <stoponerror class="values threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -148,14 +148,14 @@
       <!-- column 2 -->
       <div class="column column2">
         <div class="config tape">
-          <label><span><i class="fa-solid fa-info"></i></span><span>tape mode</span></label>
+          <label><span>tape mode</span></label>
           <tape class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </tape>
         </div>
         <div class="config pacecaret">
-          <label><span><i class="fa-solid fa-info"></i></span><span>pace caret</span></label>
+          <label><span>pace caret</span></label>
           <input type="number" class="pacecaret-speed">
           <pacecaret class="values">
             <off data-value="off" id="chosen" class="pacecaret-shape">off</off>
@@ -166,7 +166,7 @@
           </pacecaret>
         </div>
         <div class="config whitespace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>whitespace</span></label>
+          <label><span>whitespace</span></label>
           <whitespace class="values fourstates">
             <off data-value="off">off</off>
             <bullet data-value="bullet" data-code="11825" data-character="⸱">bullet</bullet>
@@ -175,28 +175,28 @@
           </whitespace>
         </div>
         <div class="config endwithspace">
-          <label><span><i class="fa-solid fa-info"></i></span><span>endwithspace</span></label>
+          <label><span>endwithspace</span></label>
           <endwithspace class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </endwithspace>
         </div>
         <div class="config oppositeshift">
-          <label><span><i class="fa-solid fa-info"></i></span><span>oppositeshift</span></label>
+          <label><span>oppositeshift</span></label>
           <oppositeshift class="values twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </oppositeshift>
         </div>
         <div class="config inputvisibility">
-          <label><span><i class="fa-solid fa-info"></i></span><span>inputvisibility</span></label>
+          <label><span>input visibility</span></label>
           <inputvisibility class="values twostates">
             <hidden data-value="hidden" id="chosen">hidden</hidden>
             <visible data-value="visible">visible</visible>
           </inputvisibility>
         </div>
         <div class="config setting-keyboard">
-          <label><span><i class="fa-solid fa-info"></i></span><span>keyboard</span></label>
+          <label><span>keyboard</span></label>
           <keyboard class="values fourstates">
             <off data-value="off">off</off>
             <static data-value="static">static</static>
@@ -205,14 +205,14 @@
           </keyboard>
         </div>
         <div class="config scroll">
-          <label><span><i class="fa-solid fa-info"></i></span><span>scroll</span></label>
+          <label><span>line scroll</span></label>
           <scroll class="values twostates">
             <abrupt data-value="abrupt" id="chosen">abrupt</abrupt>
             <smooth data-value="smooth">smooth</smooth>
           </scroll>
         </div>
         <div class="config live">
-          <label><span><i class="fa-solid fa-info"></i></span><span>live stats</span></label>
+          <label><span>live stats</span></label>
           <live class="values fourstates">
             <speed data-value="speed">speed</speed>
             <accuracy data-value="accuracy">accuracy</accuracy>
@@ -221,7 +221,7 @@
           </live>
         </div>
         <div class="config warning">
-          <label><span><i class="fa-solid fa-info"></i></span><span>warnings</span></label>
+          <label><span>warnings</span></label>
           <warning class="values threestates">
             <focus data-value="focus" id="chosen">focus</focus>
             <capslock data-value="capslock">capslock</capslock>
