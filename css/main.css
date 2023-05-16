@@ -200,8 +200,8 @@ input#textinput {
 }
 .____ {
   text-decoration-line: underline;
-  text-underline-offset: 1px;
-  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
   text-decoration-style: solid;
   text-decoration-color: var(--textcolor);
 }
