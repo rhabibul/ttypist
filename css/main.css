@@ -23,7 +23,7 @@
 }
 
 :root {
-  /* ------------- default color palette ------------- */
+  /* ------------- default white color palette ------------- */
   /* yet to be added.. */
   
   /* ------------- gruvbox color palette ------------- */
@@ -85,6 +85,7 @@
   --cobalt-blush-pink:      #ff628c;
   --cobalt-orange:          #ff9d00;
 
+
   /* ------------- solarized color palette ------------- */
   --solarized-base03:    #002b36;
   --solarized-base02:    #073642;
@@ -105,33 +106,27 @@
 }
 
 :root {
-  /* ------------- font family ------------- */
   --monospace: monospace; 
   --roboto-mono: "Roboto Mono", monospace;
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
 
+  --textcolor-primary: var(--gruvbox-fg2);
+  --textcolor-secondary: var(--molokai-bg2);
 
-  /* ------------- text styles ------------- */
-  --textcolor: var(--molokai-green);
-  --textcolor-primary: var(--molokai-bg1);
-  --textcolor-secondary: var(--molokai-fg1);
-  --textsize: 1.25rem;
-  --textweight: 445;
+  --textsize: 1.2rem;
+  --textweight: 420;
   --textfamily: var(--roboto-mono);
 
-
-  /* ------------- error ------------- */
   --error-primary: #ff0000;
   --error-secondary: #a30d0d;
 
-
-  /* ------------- misc ------------- */
   --word-underline-offset: 2px;
   --word-underline-thickness: 2px;
 
   --active-foreground: var(--molokai-bg0);
   --active-background: var(--gruvbox-fg0_s);
+
   --inactive-foreground: var(--molokai-fg1);
   --inactive-background: var(--molokai-bg1);
 }
@@ -157,7 +152,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-color: var(--molokai-bg0);
+  background-color: var(--gruvbox-bg0_h);
 
   row-gap: 10px;
   padding: 10px;
@@ -178,7 +173,6 @@ text {
 }
 
 text word {
-  color: var(--textcolor);
   background-color: var(--caret-color-hidden);
 
   display: flex; /* these fixes the extra spaces between the letters of the words */
@@ -190,6 +184,8 @@ text word letter {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: var(--textcolor-primary);
 
   font-size: var(--textsize);
   font-weight: var(--textweight);
@@ -226,7 +222,7 @@ input#textinput {
   color: black;
 }
 .correct {
-  color: var(--molokai-bg2);
+  color: var(--textcolor-secondary);
 }
 .incorrect {
   color: var(--error-primary);

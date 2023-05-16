@@ -1,8 +1,8 @@
 :root {
   /* caret color */
   --caret-color: var(--molokai-red);
-  --caret-color-hidden: var(--molokai-bg0);
-
+  --caret-color-hidden: var(--gruvbox-bg0_h);
+  
   /* block caret color */
   --caret-block-color: var(--molokai-bg0);
   --caret-block-backgroundcolor: var(--molokai-fg0);

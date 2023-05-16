@@ -239,6 +239,26 @@ function updatestoponerror(evt) {
   if ( this.dataset.value === "letter" && Config.error.stop.letter ) return;
   if ( this.dataset.value === "word" && Config.error.stop.word ) return;
 
+  if ( this.dataset.value === "letter" ) {
+    Config.error.stop.off = false;
+    Config.error.stop.letter = true;
+    Config.error.stop.word = false;
+
+    Config.error.insert = false;
+    Config.error.forgive = false;
+    Config.error.replace = false;
+  } else if ( this.dataset.value === "word" ) {
+    Config.error.stop.off = false;
+    Config.error.stop.letter = false;
+    Config.error.stop.word = true;
+
+    Config.backspace.off = false;
+    Config.error.forgive = false;
+  } else {
+    Config.error.stop.off = true; 
+    Config.error.stop.letter = false; 
+    Config.error.stop.word = false; 
+  }
 }
 
 // forgive 📌
@@ -247,7 +267,14 @@ function updateforgive(evt) {
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.error.forgive ) return;
   if ( this.dataset.value === "on" && Config.error.forgive ) return;
-  
+
+  if ( this.dataset.value === "on" ) {
+    Config.error.forgive = true;
+    Config.error.insert = true;
+    Config.error.replace = false;
+  } else {
+    Config.error.forgive = false;
+  }
 }
 
 // error 📌
@@ -258,6 +285,35 @@ function updateerror(evt) {
   if ( this.dataset.value === "insert" && Config.error.insert ) return;
   if ( this.dataset.value === "replace" && Config.error.replace ) return;
 
+  if ( this.dataset.value === "replace" ) {
+    Config.error.off = false;
+    Config.error.replace = true;
+    Config.error.forgive = false;
+    Config.error.insert = false;
+  } else if ( this.dataset.value === "insert" ) {
+
+    // replace is not possible while inserting errors, but forgive errors is possible
+    // so we will turn off replace, users can turn on forgive while inserting errors
+    Config.error.off = false;
+    Config.error.insert = true;
+    Config.error.replace = false;
+
+    // stop on letter is not possible while inserting errors but stop on word
+    // is possible, initially we will turn off the stop on errors buttons, if
+    // user wants then they can turn on stop on word while keeping error
+    // insertion turned
+    Config.error.stop.off = true;
+    Config.error.stop.letter = false;
+    Config.error.stop.word = false;
+  } else { // off button
+    Config.error.off = true;
+    Config.error.insert = false;
+    Config.error.replace = false;
+    Config.error.forgive = false;
+    Config.error.stop.off = true;
+    Config.error.stop.letter = false;
+    Config.error.stop.word = false;
+  }
 }
 
 // inputvisibility

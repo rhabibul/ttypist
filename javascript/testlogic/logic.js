@@ -49,7 +49,7 @@ export function registerkeydown(evt) {
 
 		word.activeletter.classList.add("correct");
 		if ( Config.underline ) {
-			word.activeletter.style["text-decoration-color"] = "var(--molokai-bg2)";
+			word.activeletter.style["text-decoration-color"] = "var(--textcolor-secondary)";
 		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -106,14 +106,14 @@ export function registerkeydown(evt) {
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
 				}
 				CaretHandler.removecaretfrom(word.activeletter);
 				CaretHandler.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
 				}
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -128,7 +128,7 @@ export function registerkeydown(evt) {
 				}
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor)";
+					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
 				}
 				CaretHandler.addcaretto(word.activeletter);
 			}

@@ -12,14 +12,15 @@
 setting {
   width: 1000px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--molokai-bg0);
 }
 setting .column {
   display: flex;
   flex-direction: column;
   background-color: var(--molokai-bg0);
-  padding: 0px 10px 0px 0px;
+  padding: 5px 10px 5px 0px;
+  border-radius: 8px;
 }
 @media only screen and (max-width: 1005px) {
   setting {
@@ -27,6 +28,10 @@ setting .column {
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  setting .column {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
