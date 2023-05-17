@@ -6,19 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Developer: Habibul Rahman" />
+
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
     <!-- Tab Bar Icon -->
     <link rel="icon" href="./assets/pictures/logo.png" />
+
     <!-- Title -->
     <title>ttypist</title>
+    
     <!-- Styles sheets -->
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/caret.css" />
     <link rel="stylesheet" href="./css/setting.css">
-    <link rel="stylesheet" href="./css/misc.css">
     <link rel="stylesheet" href="./css/keyboard.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/misc.css">
   </head>
 
   <body>
@@ -29,6 +34,17 @@
 
     <header>
       <speed class="wpm">0wpm</speed>
+      <user>
+        <icon> <i class="fas fa-fw fa-user"></i> </icon>
+        <username> user </username>
+      </user>
+
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <i class="fa-solid fa-circle-half-stroke"></i>
+      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+      <i class="fa-solid fa-gear"></i>
+      <i class="fa-solid fa-sliders"></i>
     </header>
 
 
@@ -92,7 +108,7 @@
           </underline>
         </div>
         <div class="config">
-          <label>backspace</label>
+          <label> <i class="fa-solid fa-delete-left"></i> backspace</label>
           <backspace class="values twostates">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>

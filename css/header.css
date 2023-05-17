@@ -1,0 +1,16 @@
+header {
+	width: 100%;
+	height: 60px;
+	color: white;
+	background-color: #232526;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border-bottom: 1px solid rgb(16, 16, 16);
+}
+
+speed.wpm {
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-family: "Roboto Mono", monospace;
+}
