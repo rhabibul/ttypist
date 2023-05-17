@@ -4,7 +4,7 @@ export default {
     hastypedeveryword: false,
   },
   deviceinformation: "comma,separated,value",
-  theme: "white", // light | medium | dark
+  theme: "light", // light | gruvbox | molokai | cobalt
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
   tape: false,

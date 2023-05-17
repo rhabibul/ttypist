@@ -15,6 +15,7 @@ setting {
   justify-content: center;
   background-color: var(--molokai-bg0);
 }
+
 setting .column {
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ setting .column {
   padding: 5px 10px 5px 0px;
   border-radius: 8px;
 }
+
 @media only screen and (max-width: 1100px) {
   setting {
     width: 550px;
@@ -43,6 +45,7 @@ setting .row {
   align-items: center;
   justify-content: space-between;
 }
+
 setting .row label {
   height: 100%;
   flex-basis: 29%;
@@ -54,6 +57,7 @@ setting .row label {
   align-items: center;
   justify-content: flex-end;
 }
+
 setting .row .config {
   height: 90%;
   flex-basis: 70%;
@@ -71,7 +75,6 @@ setting .row .config {
 .fourstates {
   display: flex;
 }
-
 .twostates *,
 .threestates *,
 .fourstates * {
@@ -82,7 +85,6 @@ setting .row .config {
   border-radius: 4px;
   background-color: var(--inactive-background);
 }
-
 .twostates * {
   flex-basis: 49%;
 }
@@ -92,10 +94,11 @@ setting .row .config {
 .fourstates off {
   flex-basis: 18%;
 }
-live.fourstates * {
+
+live * {
   flex-basis: 21%;
 }
-live.fourstates accuracy {
+live accuracy {
   flex-basis: 30%;
 }
 
@@ -111,9 +114,6 @@ warning scrolllock {
   flex-basis: 30%;
 }
 
-
-
-/* ============= threestates ============= */
 error.threestates *,
 modifier.threestates *,
 confidence.threestates *,
@@ -122,7 +122,6 @@ highlight.threestates *,
 difficulty.threestates * {
   flex-basis: 32%;
 }
-
 confidence off,
 stop off,
 highlight off {
