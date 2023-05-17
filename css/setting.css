@@ -95,10 +95,10 @@ setting .row .config {
   flex-basis: 18%;
 }
 
-live * {
-  flex-basis: 21%;
+live.fourstates * {
+  flex-basis: 22%;
 }
-live accuracy {
+live.fourstates accuracy {
   flex-basis: 30%;
 }
 

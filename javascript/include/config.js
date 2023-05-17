@@ -98,8 +98,8 @@ export default {
   live: {
     speed: false,
     accuracy: false,
-    burst: false, // speed burst of last word typed (wpm/cpm)
-    timer: true,
+    burst: false,
+    timer: false,
   },
   practice: {
     off: true,
