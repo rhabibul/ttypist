@@ -6,11 +6,11 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	border-bottom: 1px solid rgb(16, 16, 16);
+	border-bottom: 1px solid #0c0c0c;
+	font-size: 1rem;
+	font-family: var(--mona-sans);
 }
 
-speed.wpm {
-  font-size: 1.3rem;
-  font-weight: 400;
-  font-family: "Roboto Mono", monospace;
+header div.account {
+	display: flex;
 }
