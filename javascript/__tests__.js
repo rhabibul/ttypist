@@ -3,6 +3,27 @@ import * as MiscElement from "./HTMLElement/MiscElement.js";
 import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 
+if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+	console.log("DARK MODE");
+} else {
+	console.log("LIGHT MODE");
+}
+// const runColorMode = (fn) => {
+//   if (!window.matchMedia) {
+//     return;
+//   }
+//   const query = window.matchMedia('(prefers-color-scheme: dark)');
+//   fn(query.matches);
+//   query.addEventListener('change', (event) => fn(event.matches));
+// }
+// runColorMode((isDarkMode) => {
+//   if (isDarkMode) {
+//     document.body.classList.add('dark-mode');
+//   } else {
+//     document.body.classList.remove('dark-mode');
+//   }
+// })
+
 // config debug
 window.addEventListener("click", () => {
 	
