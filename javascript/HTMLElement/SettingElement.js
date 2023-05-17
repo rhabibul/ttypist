@@ -22,9 +22,9 @@ export const highlight = {
 	}
 }
 
-export const fliphighlightcolor = {
-	off: document.querySelector("fliphighlightcolor off"),
-	on: document.querySelector("fliphighlightcolor on"),
+export const flip = {
+	off: document.querySelector("flip off"),
+	on: document.querySelector("flip on"),
 }
 
 export const backspace = {
@@ -72,6 +72,7 @@ export const warning = {
 	focus: document.querySelector("warning focus"),
 	capslock: document.querySelector("warning capslock"),
 	numlock: document.querySelector("warning numlock"),
+	scrolllock: document.querySelector("warning scrolllock"),
 }
 
 export const inputvisibility = {
@@ -90,10 +91,10 @@ export const forgive = {
 	on: document.querySelector("forgive on"),
 }
 
-export const stoponerror = {
-	off: document.querySelector("stoponerror off"),
-	letter: document.querySelector("stoponerror letter"),
-	word: document.querySelector("stoponerror word"),
+export const stop = {
+	off: document.querySelector("stop off"),
+	letter: document.querySelector("stop letter"),
+	word: document.querySelector("stop word"),
 }
 
 export const whitespace = {

@@ -10,7 +10,7 @@
 }
 
 setting {
-  width: 1000px;
+  width: 1100px;
   display: flex;
   justify-content: center;
   background-color: var(--molokai-bg0);
@@ -22,9 +22,9 @@ setting .column {
   padding: 5px 10px 5px 0px;
   border-radius: 8px;
 }
-@media only screen and (max-width: 1005px) {
+@media only screen and (max-width: 1100px) {
   setting {
-    width: 500px;
+    width: 550px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -35,17 +35,17 @@ setting .column {
   }
 }
 
-.config {
-  width: 500px;
+setting .row {
+  width: 550px;
   height: 45px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.config label {
+setting .row label {
   height: 100%;
-  flex-basis: 33%;
+  flex-basis: 29%;
   font-weight: 400;
   font-size: 1rem;
   color: var(--gruvbox-fg4);
@@ -54,9 +54,9 @@ setting .column {
   align-items: center;
   justify-content: flex-end;
 }
-.config .values {
+setting .row .config {
   height: 90%;
-  flex-basis: 65%;
+  flex-basis: 70%;
   font-weight: 450;
   color: var(--inactive-foreground);
   font-size: 1rem;
@@ -66,14 +66,12 @@ setting .column {
   justify-content: space-between;
 }
 
-/* -------------- parent of a particular config field -------------- */
 .twostates,
 .threestates
 .fourstates {
   display: flex;
 }
 
-/* -------------- childrens of a particular config field -------------- */
 .twostates *,
 .threestates *,
 .fourstates * {
@@ -101,22 +99,32 @@ live.fourstates accuracy {
   flex-basis: 30%;
 }
 
+warning capslock,
+warning numlock,
+warning focus {
+  flex-basis: 24%;  
+}
+warning focus {
+  flex-basis: 18%;
+}
+warning scrolllock {
+  flex-basis: 30%;
+}
+
+
+
 /* ============= threestates ============= */
 error.threestates *,
 modifier.threestates *,
 confidence.threestates *,
-stoponerror.threestates *,
+stop.threestates *,
 highlight.threestates *,
-warning.threestates *,
 difficulty.threestates * {
   flex-basis: 32%;
 }
-warning.threestates outoffocus {
-  flex-basis: 38%;
-}
 
 confidence off,
-stoponerror off,
+stop off,
 highlight off {
   flex-basis: 26%;
 }
@@ -180,9 +188,9 @@ difficulty,
 error,
 live,
 tape,
-fliphighlightcolor,
+flip,
 forgive,
-stoponerror,
+stop,
 underline,
 whitespace,
 endwithspace,

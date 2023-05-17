@@ -1,10 +1,9 @@
 import Config from "../include/config.js"
-import { Test, word, text } from "../main.js";
+import { Test } from "../main.js";
 
-import * as Const from "../include/constant.js";
 import * as Misc from "./misc.js";
+import * as Const from "../include/constant.js";
 import * as SettingUI from "../ui/SettingUI.js";
-import * as CaretHandler from "../handler/carethandler.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
@@ -34,8 +33,8 @@ SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
 
 // fliphighlightcolor
-SettingElement.fliphighlightcolor.off.addEventListener("click", updatefliphighlight);
-SettingElement.fliphighlightcolor.on.addEventListener("click", updatefliphighlight);
+SettingElement.flip.off.addEventListener("click", updatefliphighlight);
+SettingElement.flip.on.addEventListener("click", updatefliphighlight);
 
 // backspace
 SettingElement.backspace.off.addEventListener("click", updatebackspace);
@@ -72,6 +71,7 @@ SettingElement.keyboard.reaction.next.addEventListener("click", updatekeyboard);
 SettingElement.warning.focus.addEventListener("click", updatewarning);
 SettingElement.warning.capslock.addEventListener("click", updatewarning);
 SettingElement.warning.numlock.addEventListener("click", updatewarning);
+SettingElement.warning.scrolllock.addEventListener("click", updatewarning);
 
 // inputvisibility
 SettingElement.inputvisibility.hidden.addEventListener("click", updateinputvisibility);
@@ -87,9 +87,9 @@ SettingElement.forgive.off.addEventListener("click", updateforgive);
 SettingElement.forgive.on.addEventListener("click", updateforgive);
 
 // stoponerror
-SettingElement.stoponerror.off.addEventListener("click", updatestoponerror);
-SettingElement.stoponerror.letter.addEventListener("click", updatestoponerror);
-SettingElement.stoponerror.word.addEventListener("click", updatestoponerror);
+SettingElement.stop.off.addEventListener("click", updatestoponerror);
+SettingElement.stop.letter.addEventListener("click", updatestoponerror);
+SettingElement.stop.word.addEventListener("click", updatestoponerror);
 
 // whitespace
 SettingElement.whitespace.off.addEventListener("click", updatewhitespace);
@@ -349,11 +349,17 @@ function updatewarning(evt) {
     } else {
       Config.warning.capslock = true;
     }
-  } else {
+  } else if ( this.dataset.value === "numlock" ) {
     if ( this.id === "chosen" ) {
       Config.warning.numlock = false;
     } else {
       Config.warning.numlock = true;
+    }
+  } else {
+    if ( this.id === "chosen" ) {
+      Config.warning.scrolllock = false;
+    } else {
+      Config.warning.scrolllock = true;
     }
   }
 
