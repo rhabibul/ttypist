@@ -10,7 +10,7 @@
 }
 
 setting {
-  width: 1100px;
+  width: 1000px;
   display: flex;
   justify-content: center;
   background-color: var(--molokai-bg0);
@@ -24,9 +24,9 @@ setting .column {
   border-radius: 8px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
   setting {
-    width: 550px;
+    width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -38,7 +38,7 @@ setting .column {
 }
 
 setting .row {
-  width: 550px;
+  width: 500px;
   height: 45px;
   cursor: pointer;
   display: flex;
@@ -48,7 +48,7 @@ setting .row {
 
 setting .row span {
   height: 100%;
-  flex-basis: 29%;
+  width: 115px;
   font-weight: 400;
   font-size: 1rem;
   color: var(--gruvbox-fg4);
@@ -60,7 +60,7 @@ setting .row span {
 
 setting .row .config {
   height: 90%;
-  flex-basis: 70%;
+  width: 380px;
   font-weight: 450;
   color: var(--inactive-foreground);
   font-size: 1rem;
