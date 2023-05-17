@@ -8,12 +8,10 @@
   --caret-block-backgroundcolor: var(--molokai-fg0);
   
   /* caret animation (blink duration, count, rhythm, delay) */
-  --caret-animation-delay: 2s;
+  --caret-animation-delay: 1.5s;
   --caret-animation-duration: 1.17s;
-  --caret-animation-iteration-count: 15;
+  --caret-animation-iteration-count: 20;
   --caret-animation-timing-function: ease-out;
-
-  --zero: 0px;
   
   /* box caret width */
   --caret-width-box: 1px;

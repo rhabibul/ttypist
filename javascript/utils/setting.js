@@ -514,7 +514,7 @@ function updatefliphighlight(evt) {
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
 
-  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
+  SettingUI.changeUIFlipButtonTo(this.dataset.value);
   
   if ( this.dataset.value === "off" ) {
     Config.fliphighlightcolor = false;

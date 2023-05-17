@@ -46,7 +46,7 @@ setting .row {
   justify-content: space-between;
 }
 
-setting .row label {
+setting .row span {
   height: 100%;
   flex-basis: 29%;
   font-weight: 400;
@@ -173,7 +173,7 @@ underline shape {
   height: var(--setting-caret-shape-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
-.pacecaret-speed {
+#pacecaret-speed {
   display: none; /* speed input field for pacecaret */
 }
 

@@ -76,7 +76,7 @@
       <!-- column 1 -->
       <div class="column column1">
         <div class="row">
-          <label>caret</label>
+          <span>caret</span>
           <caret class="config">
             <off data-value="off" class="caret-shape">off</off>
             <underline data-value="underline" class="caret-shape"> <shape></shape> </underline>
@@ -86,7 +86,7 @@
           </caret>
         </div>
         <div class="row">
-          <label>highlight</label>
+          <span>highlight</span>
           <highlight class="config threestates">
             <off data-value="off">off</off>
             <letter data-value="letter" id="chosen">letter</letter>
@@ -94,28 +94,28 @@
           </highlight>
         </div>
         <div class="row">
-          <label>flip highlight color</label>
+          <span>flip highlight color</span>
           <flip class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </flip>
         </div>
         <div class="row">
-          <label>underline word</label>
+          <span>underline word</span>
           <underline class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </underline>
         </div>
         <div class="row">
-          <label> <i class="fa-solid fa-delete-left"></i> backspace</label>
+          <span> <i class="fa-solid fa-delete-left"></i> backspace</span>
           <backspace class="config twostates">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>
           </backspace>
         </div>
         <div class="row">
-          <label>modifier</label>
+          <span>modifier</span>
           <modifier class="config threestates">
             <alt data-value="alt" id="chosen">alt</alt>
             <ctrl data-value="ctrl" id="chosen">ctrl</ctrl>
@@ -123,7 +123,7 @@
           </modifier>
         </div>
         <div class="row">
-          <label>difficulty</label>
+          <span>difficulty</span>
           <difficulty class="config threestates">
             <normal data-value="normal" id="chosen">normal</normal>
             <expert data-value="expert">expert</expert>
@@ -131,7 +131,7 @@
           </difficulty>
         </div>
         <div class="row">
-          <label>confidence</label>
+          <span>confidence</span>
           <confidence class="config threestates">
             <low data-value="low" id="chosen">low</low>
             <high data-value="high">high</high>
@@ -139,7 +139,7 @@
           </confidence>
         </div>
         <div class="row">
-          <label>error</label>
+          <span>error</span>
           <error class="config threestates">
             <off data-value="off">off</off>
             <insert data-value="insert" id="chosen">insert</insert>
@@ -147,14 +147,14 @@
           </error>
         </div>
         <div class="row">
-          <label>forgive error</label>
+          <span>forgive error</span>
           <forgive class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </forgive>
         </div>
         <div class="row">
-          <label>stop on error</label>
+          <span>stop on error</span>
           <stop class="config threestates">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
@@ -166,15 +166,15 @@
       <!-- column 2 -->
       <div class="column column2">
         <div class="row">
-          <label>tape mode</label>
+          <span>tape mode</span>
           <tape class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </tape>
         </div>
         <div class="row">
-          <label>pace caret</label>
-          <input type="number" placeholder="pace caret speed (wpm)" class="pacecaret-speed">
+          <span>pace caret</span>
+          <input id="pacecaret-speed" type="number" placeholder="pace caret speed (wpm)">
           <pacecaret class="config">
             <off data-value="off" id="chosen" class="pacecaret-shape">off</off>
             <underline data-value="underline" class="pacecaret-shape"> <shape></shape> </underline>
@@ -184,7 +184,7 @@
           </pacecaret>
         </div>
         <div class="row">
-          <label>whitespace</label>
+          <span>whitespace</span>
           <whitespace class="config fourstates">
             <off data-value="off">off</off>
             <bullet data-value="bullet" data-code="11825" data-character="⸱">bullet</bullet>
@@ -193,28 +193,28 @@
           </whitespace>
         </div>
         <div class="row endwithspace">
-          <label>endwithspace</label>
+          <span>endwithspace</span>
           <endwithspace class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </endwithspace>
         </div>
         <div class="row">
-          <label>oppositeshift</label>
+          <span>oppositeshift</span>
           <oppositeshift class="config twostates">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </oppositeshift>
         </div>
         <div class="row">
-          <label>input visibility</label>
+          <span>input visibility</span>
           <inputvisibility class="config twostates">
             <hidden data-value="hidden" id="chosen">hidden</hidden>
             <visible data-value="visible">visible</visible>
           </inputvisibility>
         </div>
         <div class="row">
-          <label>keyboard</label>
+          <span>keyboard</span>
           <keyboard class="config fourstates">
             <off data-value="off">off</off>
             <static data-value="static">static</static>
@@ -223,14 +223,14 @@
           </keyboard>
         </div>
         <div class="row">
-          <label>line scroll animation</label>
+          <span>line scroll animation</span>
           <scroll class="config twostates">
             <abrupt data-value="abrupt" id="chosen">abrupt</abrupt>
             <smooth data-value="smooth">smooth</smooth>
           </scroll>
         </div>
         <div class="row">
-          <label>live stats</label>
+          <span>live stats</span>
           <live class="config fourstates">
             <speed data-value="speed">speed</speed>
             <accuracy data-value="accuracy">accuracy</accuracy>
@@ -239,7 +239,7 @@
           </live>
         </div>
         <div class="row">
-          <label>warnings</label>
+          <span>warnings</span>
           <warning class="config threestates">
             <focus data-value="focus" id="chosen">focus</focus>
             <capslock data-value="capslock">capslock</capslock>

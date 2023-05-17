@@ -128,14 +128,14 @@ export function changeUIHighlightButtonTo(highlight) {
 	}
 }
 
-// fliphighlightcolor
-export function changeUIFliphighlightcolorButtonTo(state) {
+// flip
+export function changeUIFlipButtonTo(state) {
 	if ( state === "on" ) {
-		SettingElement.fliphighlightcolor.on.id = "chosen";
-		SettingElement.fliphighlightcolor.off.id = "";
+		SettingElement.flip.on.id = "chosen";
+		SettingElement.flip.off.id = "";
 	} else {
-		SettingElement.fliphighlightcolor.on.id = "";
-		SettingElement.fliphighlightcolor.off.id = "chosen";
+		SettingElement.flip.on.id = "";
+		SettingElement.flip.off.id = "chosen";
 	}
 }
 
