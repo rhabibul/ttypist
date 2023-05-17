@@ -18,7 +18,8 @@ button:focus {
   color: var(--molokai-red);
   background-color: white;
 }
-input#slider {
+input#fontsize-slider,
+input#fontweight-slider {
   border: none;
   outline: none;
 }

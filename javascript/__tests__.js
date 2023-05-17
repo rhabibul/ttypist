@@ -33,8 +33,8 @@ window.addEventListener('load', (evt) => {
 // });
 
 // sliders
-const slider_fontsize = document.querySelector("input#slider.fsize");
-const slider_fontweight = document.querySelector("input#slider.fweight");
+const slider_fontsize = document.querySelector("input#fontsize-slider.fsize");
+const slider_fontweight = document.querySelector("input#fontweight-slider.fweight");
 const label_fontsize = document.querySelector(".fontsize-value");
 const label_fontweight = document.querySelector(".fontweight-value");
 
