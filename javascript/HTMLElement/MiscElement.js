@@ -1,2 +1,4 @@
 export const root = document.querySelector(":root");
-export const speed = document.getElementsByTagName("speed")[0];
+export const speed = document.querySelector("speed.wpm");
+
+// rap god song

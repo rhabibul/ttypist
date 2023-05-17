@@ -27,30 +27,48 @@
   </head>
 
   <body>
-    <!-- <button class="fullscreen" type="fullscreen">
-      <i class="fa-sharp fa-solid fa-expand"></i>
-      <i class="fa-sharp fa-solid fa-compress hidden"></i>
-    </button> -->
-
     <header>
-      <div class="profile">
-        <div class="picture">
-          <i class="fas fa-fw fa-user"></i>
+      <div class="content">
+        <div class="logo">
+          <span class="logo-icon"> <img src="./assets/pictures/typewriter-white.png" alt="typewriter"></span>
+          <span class="logo-label">ttypist</span>
         </div>
-        <div class="user">
-          <div class="name">Habibul Rahman</div>
-          <div class="username">&commat;ttypist</div>
+  
+        <div class="about">
+          <span class="about-icon"> <i class="fa-solid fa-circle-exclamation"></i> </span>
+          <span class="about-label">About</span>
         </div>
-      </div>
+        
+        <div class="contact">
+          <span class="contact-icon"> <i class="fa-solid fa-envelope"></i> </span>
+          <span class="contact-label">Contact</span>
+        </div>
+  
+        <div class="setting">
+          <span class="setting-icon"> <i class="fa-solid fa-gear"></i> </span>
+          <span class="setting-label">Setting</span>
+        </div>
+  
+        <div class="profile">
+          <div class="picture">
+            <!-- <i class="fas fa-fw fa-user"></i> -->
+            <img src="./assets/pictures/developer.jpeg" alt="developer">
+          </div>
+          <div class="user">
+            <div class="name">Habibul Rahman</div>
+            <div class="username">&commat;iamhabibul</div>
+          </div>
+          <div class="more">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
 
-      <!-- <i class="fa-solid fa-circle-exclamation"></i>
-      <i class="fa-solid fa-circle-half-stroke"></i>
-      <i class="fa-solid fa-bars"></i>
-      <i class="fa-solid fa-ellipsis-vertical"></i>
-      <i class="fa-solid fa-gear"></i>
-      <i class="fa-solid fa-sliders"></i> -->
+      </div>
     </header>
 
+    <div>
+      <speed class="wpm">0wpm</speed>
+    </div>
 
     <div class="inputrow">
       <input id="textinput" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
@@ -75,6 +93,10 @@
     </text>
 
     <button type="reset"> <i class="fa-solid fa-arrow-rotate-right"></i> </button>
+    <!-- <button class="fullscreen" type="fullscreen">
+      <i class="fa-sharp fa-solid fa-expand"></i>
+      <i class="fa-sharp fa-solid fa-compress hidden"></i>
+    </button> -->
 
     <setting>
       <!-- column 1 -->
@@ -405,7 +427,6 @@
         <a target="_blank" href="https://www.instagram.com/habibul.slg/"> <i class="fa-brands fa-instagram"></i> </a>
         <a target="_blank" href="https://www.twitter.com/iamhabibul/"> <i class="fa-brands fa-twitter"></i> </a>
       </nav>
-      <div class="developer">@habibul</div>
     </footer>
     <script type="module" src="./javascript/main.js"></script>
     <script type="module" src="./javascript/utils/setting.js"></script>

@@ -1,16 +1,148 @@
 header {
 	width: 100%;
-	height: 60px;
-	color: white;
-	background-color: #232526;
+	height: 80px;
+
+	display: flex;
+	justify-content: center;
+	
+	color: var(--gruvbox-fg2);
+	background-color: #1b1c1d;
+
+	font-family: var(--mona-sans);
+	border-bottom: 1px solid #2a2a2a;
+}
+
+header .content {
+	height: 100%;
+	width: 1000px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header .content > * {
+	height: 65px;
+}
+
+header .content .logo {
+	width: 160px;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	border-bottom: 1px solid #0c0c0c;
-	font-size: 1rem;
-	font-family: var(--mona-sans);
+}
+header .content .logo > * {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header .content .logo .logo-icon {
+	width: 48px;
+}
+header .content .logo .logo-icon img {
+	width: 35px;
+	height: 35px;
+}
+header .content .logo .logo-label {
+	width: 112px;
+	font-size: 2.1rem;
+	color: #8f07f0;
+	font-weight: 650;
+	letter-spacing: 1px;
+	font-family: var(--nunito);
 }
 
-header div.account {
+header .content .about,
+header .content .contact,
+header .content .setting {
+	width: 100px;
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+header .content .about .about-icon,
+header .content .contact .contact-icon,
+header .content .setting .setting-icon {
+	height: 100%;
+	flex-basis: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header .content .about .about-icon i.fa-circle-exclamation,
+header .content .contact .contact-icon i.fa-envelope,
+header .content .setting .setting-icon i.fa-gear {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 1.4rem;
+	color: var(--gruvbox-fg4);
+}
+header .content .about .about-label,
+header .content .contact .contact-label,
+header .content .setting .setting-label {
+	height: 100%;
+	flex-basis: 68%;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	color: var(--gruvbox-fg0);
+}
+
+header .content .profile {
+	width: 310px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border-radius: 45px;
+}
+header .content .profile .picture {
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header .content .profile .picture img,
+header .content .profile .picture i.fa-user {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header .content .profile .picture i.fa-user {
+	font-size: 1.7rem;
+	border: 1px solid var(--gruvbox-bg1);
+}
+header .content .profile .user {
+	width: 210px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+header .content .profile .user .name {
+	font-size: 1rem;
+	color: var(--gruvbox-fg1);
+}
+header .content .profile .user .username {
+	font-size: 0.9rem;
+	color: var(--gruvbox-bg4);
+}
+header .content .profile .more {
+	width: 20px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+header .content .profile .more .fa-ellipsis-vertical {
+	font-size: 1.4rem;
+	visibility: hidden;
+	color: var(--gruvbox-bg4);
+}
+header .content .profile:hover {
+	background-color: black;	
+}
+header .content .profile:hover .more .fa-ellipsis-vertical {
+	visibility: visible;
 }
