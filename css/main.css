@@ -111,7 +111,7 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
 
-  --textcolor-primary: var(--gruvbox-fg2);
+  --textcolor-primary: #e0dddd;
   --textcolor-secondary: var(--molokai-bg2);
 
   --textsize: 1.22rem;

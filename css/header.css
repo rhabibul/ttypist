@@ -51,42 +51,14 @@ header .content .logo .logo-label {
 	font-family: var(--nunito);
 }
 
-header .content .about,
-header .content .contact,
-header .content .setting {
-	width: 115px;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-}
-header .content .about .about-icon,
-header .content .contact .contact-icon,
-header .content .setting .setting-icon {
-	height: 100%;
-	flex-basis: 30%;
+header .content .stats {
+	height: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-header .content .about .about-icon i.fa-circle-info,
-header .content .contact .contact-icon i.fa-envelope,
-header .content .setting .setting-icon i.fa-gear {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 1.4rem;
-	color: var(--gruvbox-fg2);
-}
-header .content .about .about-label,
-header .content .contact .contact-label,
-header .content .setting .setting-label {
-	height: 100%;
-	flex-basis: 68%;
 	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
-	color: var(--gruvbox-fg0);
+	font-weight: 450;
+	font-family: var(--mona-sans);
 }
 
 header .content .profile {
