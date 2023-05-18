@@ -129,7 +129,7 @@ export function changeUIHighlightButtonTo(highlight) {
 }
 
 // flip
-export function changeUIFlipButtonTo(state) {
+export function changeUIFliphighlightcolorButtonTo(state) {
 	if ( state === "on" ) {
 		SettingElement.flip.on.id = "chosen";
 		SettingElement.flip.off.id = "";
@@ -324,5 +324,16 @@ export function toggleUILiveButton(button) {
 		button.id = "";
 	} else {
 		button.id = "chosen";
+	}
+}
+
+// focus
+export function changeUIFocusButtonTo(focus) {
+	if ( focus === "off" ) {
+		SettingElement.focus.on.id = "";
+		SettingElement.focus.off.id = "chosen";
+	} else {
+		SettingElement.focus.off.id = "";
+		SettingElement.focus.on.id = "chosen";
 	}
 }

@@ -3,21 +3,21 @@
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
   --setting-caret-shape-container-width: 24px;
-  --setting-caret-shape-container-height: 30px;
+  --setting-caret-shape-container-height: 34px;
 }
 
 setting {
   width: 910px;
   display: flex;
-  justify-content: center;
-  background-color: var(--molokai-bg0);
-  border-radius: 4px;
+  justify-content: space-between;
+  background-color: var(--gruvbox-bg0_h);
 }
 
 setting .column {
   display: flex;
   flex-direction: column;
   background-color: var(--molokai-bg0);
+  border-radius: 4px;
 }
 
 @media only screen and (max-width: 910px) {
@@ -27,6 +27,9 @@ setting .column {
     align-items: center;
     flex-direction: column;
   }
+  setting .column {
+    border-radius: 0px;
+  }
 }
 
 setting row {
@@ -35,12 +38,12 @@ setting row {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 setting row span {
   height: 40px;
-  width: 140px;
+  width: 130px;
   font-weight: 400;
   font-size: 1rem;
   color: var(--gruvbox-fg4);
@@ -60,7 +63,6 @@ setting row .config {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 4px;
 }
 
 /* ---------->  all individual setting button containers  <---------- */

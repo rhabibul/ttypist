@@ -26,7 +26,7 @@ if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
 
 // config debug
 window.addEventListener("click", () => {
-
+	
 });
 
 window.addEventListener('load', (evt) => {

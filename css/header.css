@@ -45,7 +45,7 @@ header .content .logo .logo-icon img {
 header .content .logo .logo-label {
 	width: 112px;
 	font-size: 2.1rem;
-	color: #8f07f0;
+	color: lightgray;
 	font-weight: 650;
 	letter-spacing: 1px;
 	font-family: var(--nunito);
@@ -62,7 +62,7 @@ header .content .stats {
 }
 
 header .content .profile {
-	width: 310px;
+	width: 250px;
 	height: 62px;
 	border-radius: 45px;
 	background-color: rgb(0, 0, 0, 0.2);
@@ -90,7 +90,7 @@ header .content .profile .picture i.fa-user {
 	border: 1px solid var(--gruvbox-bg1);
 }
 header .content .profile .user {
-	width: 210px;
+	width: 180px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -102,18 +102,4 @@ header .content .profile .user .name {
 header .content .profile .user .username {
 	font-size: 0.9rem;
 	color: var(--gruvbox-bg4);
-}
-header .content .profile .more {
-	width: 20px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-}
-header .content .profile .more .fa-ellipsis-vertical {
-	font-size: 1.4rem;
-	visibility: hidden;
-	color: var(--gruvbox-bg4);
-}
-header .content .profile:hover .more .fa-ellipsis-vertical {
-	visibility: visible;
 }

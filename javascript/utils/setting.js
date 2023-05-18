@@ -33,8 +33,8 @@ SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
 
 // fliphighlightcolor
-SettingElement.flip.off.addEventListener("click", updatefliphighlight);
-SettingElement.flip.on.addEventListener("click", updatefliphighlight);
+SettingElement.flip.off.addEventListener("click", updatefliphighlightcolor);
+SettingElement.flip.on.addEventListener("click", updatefliphighlightcolor);
 
 // backspace
 SettingElement.backspace.off.addEventListener("click", updatebackspace);
@@ -85,10 +85,10 @@ SettingElement.error.replace.addEventListener("click", updateerror);
 SettingElement.forgive.off.addEventListener("click", updateforgive);
 SettingElement.forgive.on.addEventListener("click", updateforgive);
 
-// stoponerror
-SettingElement.stop.off.addEventListener("click", updatestoponerror);
-SettingElement.stop.letter.addEventListener("click", updatestoponerror);
-SettingElement.stop.word.addEventListener("click", updatestoponerror);
+// stop
+SettingElement.stop.off.addEventListener("click", updatestop);
+SettingElement.stop.letter.addEventListener("click", updatestop);
+SettingElement.stop.word.addEventListener("click", updatestop);
 
 // whitespace
 SettingElement.whitespace.off.addEventListener("click", updatewhitespace);
@@ -113,6 +113,23 @@ SettingElement.live.speed.addEventListener("click", updatelive);
 SettingElement.live.accuracy.addEventListener("click", updatelive);
 SettingElement.live.burst.addEventListener("click", updatelive);
 SettingElement.live.timer.addEventListener("click", updatelive);
+
+// focus
+SettingElement.focus.off.addEventListener("click", updatefocus);
+SettingElement.focus.on.addEventListener("click", updatefocus);
+
+// focus
+function updatefocus(evt) {
+  if ( !evt.isTrusted ) return;
+  
+  if ( this.dataset.value === "off" ) {
+    Config.warning.focus = false;
+  } else {
+    Config.warning.focus = true;
+  }
+
+  SettingUI.changeUIFocusButtonTo(this.dataset.value);
+}
 
 // live
 function updatelive(evt) {
@@ -231,7 +248,7 @@ function updatewhitespace(evt) {
 }
 
 // stoponerror 📌
-function updatestoponerror(evt) {
+function updatestop(evt) {
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.error.stop.off ) return;
@@ -412,18 +429,24 @@ function updatescroll(evt) {
 function updateconfidence(evt) {
   
   if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "low" && Config.confidence === Const.LOW ) return;
-  if ( this.dataset.value === "high" && Config.confidence === Const.HIGH ) return;
-  if ( this.dataset.value === "max" && Config.confidence === Const.MAX ) return;
+  if ( this.dataset.value === "low" && Config.confidence.low ) return;
+  if ( this.dataset.value === "high" && Config.confidence.high ) return;
+  if ( this.dataset.value === "max" && Config.confidence.max ) return;
   
   SettingUI.changeUIConfidenceButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "high" ) {
-    Config.confidence = Const.HIGH;
+    Config.confidence.low = false;
+    Config.confidence.high = true;
+    Config.confidence.max = false;
   } else if ( this.dataset.value === "max" ) {
-    Config.confidence = Const.MAX;
+    Config.confidence.low = false;
+    Config.confidence.high = false;
+    Config.confidence.max = true;
   } else {
-    Config.confidence = Const.LOW;
+    Config.confidence.low = true;
+    Config.confidence.high = false;
+    Config.confidence.max = false;
   }
 }
 
@@ -513,13 +536,13 @@ function updatebackspace(evt) {
 }
 
 // fliphighlightcolor
-function updatefliphighlight(evt) {
+function updatefliphighlightcolor(evt) {
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
 
-  SettingUI.changeUIFlipButtonTo(this.dataset.value);
+  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
   
   if ( this.dataset.value === "off" ) {
     Config.fliphighlightcolor = false;

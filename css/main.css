@@ -112,7 +112,7 @@
   --mona-sans: "Mona Sans", monospace;
 
   --textcolor-primary: #e0dddd;
-  --textcolor-secondary: var(--molokai-bg2);
+  --textcolor-secondary: var(--gruvbox-bg2);
 
   --textsize: 1.22rem;
   --textweight: 420;
