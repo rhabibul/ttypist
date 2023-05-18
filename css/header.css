@@ -93,7 +93,7 @@ header .content .setting .setting-label {
 header .content .profile {
 	width: 310px;
 	border-radius: 45px;
-	background-color: rgb(16, 16, 16);	
+	background-color: rgb(0, 0, 0, 0.2);
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;

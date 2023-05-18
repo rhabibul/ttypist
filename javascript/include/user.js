@@ -1,18 +1,16 @@
 export default {
-	username: "",
-	email: "",
-	password: "",
-
 	name: "",
 	gender: "",
 	country: "",
+	username: "",
+	email: "",
+	password: "",
 	description: "",
 	social: {
 		github: "",
 		twitter: "",
 		website: "",
 	},
-
 	timetyping: "",
 	testcompleted: "",
 	points: "",
