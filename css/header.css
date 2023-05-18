@@ -5,10 +5,9 @@ header {
 	display: flex;
 	justify-content: center;
 	
-	color: var(--gruvbox-fg2);
-	background-color: #1b1c1d;
-
 	font-family: var(--mona-sans);
+	color: var(--gruvbox-fg2);
+  background-color: var(--gruvbox-bg0_h);
 	border-bottom: 1px solid #2a2a2a;
 }
 

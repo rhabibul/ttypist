@@ -4,8 +4,8 @@
   --caret-color-hidden: var(--gruvbox-bg0_h);
   
   /* block caret color */
-  --caret-block-color: var(--molokai-bg0);
-  --caret-block-backgroundcolor: var(--molokai-fg0);
+  --caret-block-color: var(--textcolor-secondary);
+  --caret-block-backgroundcolor: var(--gruvbox-fg0_h);
   
   /* caret animation (blink duration, count, rhythm, delay) */
   --caret-animation-delay: 1.5s;
@@ -147,7 +147,7 @@
   }
   51%,
   100% {
-    color: var(--textcolor);
+    color: var(--textcolor-primary);
     background-color: var(--caret-color-hidden);
   }
 }
