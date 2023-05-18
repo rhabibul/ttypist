@@ -11,7 +11,7 @@ export default {
   oppositeshift: false, // ignore B, Y, ^
   underline: false, // underline active word
   endwithspace: false, // test ends only after typing a space after last word
-  inputvisibility: "hidden", // hidden | visible
+  inputarea: "hidden", // hidden | visible
   scroll: "abrupt", // abrupt | smooth
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
@@ -42,8 +42,16 @@ export default {
       meta: false,
     },
   },
-  confidence: 1, // low(1) | high(2) | max(3)
-  difficulty: 1, // beginner(1) | expert(2) | master(3)
+  confidence: {
+    low: true,
+    high: false,
+    max: false,
+  },
+  difficulty: {
+    off: true,
+    expert: false,
+    master: false,
+  },
   error: {
     off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
     insert: true, // 

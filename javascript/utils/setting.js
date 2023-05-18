@@ -48,7 +48,7 @@ SettingElement.tape.off.addEventListener("click", updatetape);
 SettingElement.tape.on.addEventListener("click", updatetape);
 
 // difficulty
-SettingElement.difficulty.normal.addEventListener("click", updatedifficulty);
+SettingElement.difficulty.off.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.expert.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.master.addEventListener("click", updatedifficulty);
 
@@ -68,14 +68,13 @@ SettingElement.keyboard.reaction.react.addEventListener("click", updatekeyboard)
 SettingElement.keyboard.reaction.next.addEventListener("click", updatekeyboard);
 
 // warning
-SettingElement.warning.focus.addEventListener("click", updatewarning);
 SettingElement.warning.capslock.addEventListener("click", updatewarning);
 SettingElement.warning.numlock.addEventListener("click", updatewarning);
 SettingElement.warning.scrolllock.addEventListener("click", updatewarning);
 
-// inputvisibility
-SettingElement.inputvisibility.hidden.addEventListener("click", updateinputvisibility);
-SettingElement.inputvisibility.visible.addEventListener("click", updateinputvisibility);
+// inputarea
+SettingElement.inputarea.hidden.addEventListener("click", updateinputarea);
+SettingElement.inputarea.visible.addEventListener("click", updateinputarea);
 
 // error
 SettingElement.error.off.addEventListener("click", updateerror);
@@ -316,19 +315,19 @@ function updateerror(evt) {
   }
 }
 
-// inputvisibility
-function updateinputvisibility(evt) {
+// inputarea
+function updateinputarea(evt) {
 
   if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "hidden" && Config.inputvisibility === "hidden" ) return;
-  if ( this.dataset.value === "visible" && Config.inputvisibility === "visible" ) return;
+  if ( this.dataset.value === "hidden" && Config.inputarea === "hidden" ) return;
+  if ( this.dataset.value === "visible" && Config.inputarea === "visible" ) return;
 
-  SettingUI.changeUIInputvisibilityButtonTo(this.dataset.value);
+  SettingUI.changeUIinputareaButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "visible" ) {
-    Config.inputvisibility = "visible";
+    Config.inputarea = "visible";
   } else {
-    Config.inputvisibility = "hidden";
+    Config.inputarea = "hidden";
   }
 }
 
@@ -432,18 +431,24 @@ function updateconfidence(evt) {
 function updatedifficulty(evt) {
 
   if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "normal" && Config.difficulty === Const.NORMAL ) return;
-  if ( this.dataset.value === "expert" && Config.difficulty === Const.EXPERT ) return;
-  if ( this.dataset.value === "master" && Config.difficulty === Const.MASTER ) return;
+  if ( this.dataset.value === "off" && Config.difficulty.off ) return;
+  if ( this.dataset.value === "expert" && Config.difficulty.expert ) return;
+  if ( this.dataset.value === "master" && Config.difficulty.master ) return;
 
   SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "expert" ) {
-    Config.difficulty = Const.EXPERT;
+    Config.difficulty.off = false;
+    Config.difficulty.expert = true;
+    Config.difficulty.master = false;
   } else if ( this.dataset.value === "master" ) {
-    Config.difficulty = Const.MASTER;
+    Config.difficulty.off = false;
+    Config.difficulty.expert = false;
+    Config.difficulty.master = true;
   } else {
-    Config.difficulty = Const.NORMAL;
+    Config.difficulty.off = true;
+    Config.difficulty.expert = false;
+    Config.difficulty.master = false;
   }
 }
 

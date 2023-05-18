@@ -78,15 +78,11 @@
     </text>
 
     <button type="reset"> <i class="fa-solid fa-arrow-rotate-right"></i> </button>
-    <!-- <button class="fullscreen" type="fullscreen">
-      <i class="fa-sharp fa-solid fa-expand"></i>
-      <i class="fa-sharp fa-solid fa-compress hidden"></i>
-    </button> -->
 
     <setting>
       <!-- column 1 -->
-      <div class="column column1">
-        <div class="row">
+      <div class="column column-1">
+        <row>
           <span>caret</span>
           <caret class="config">
             <off data-value="off" class="caret-shape">off</off>
@@ -95,95 +91,95 @@
             <box data-value="box" class="caret-shape"> <shape></shape> </box>
             <block data-value="block" class="caret-shape"> <shape></shape> </block>
           </caret>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>highlight</span>
-          <highlight class="config threestates">
+          <highlight class="config">
             <off data-value="off">off</off>
             <letter data-value="letter" id="chosen">letter</letter>
             <word data-value="word">word</word>
           </highlight>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>fliphighlight</span>
-          <flip class="config twostates">
+          <flip class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </flip>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>underline</span>
-          <underline class="config twostates">
+          <underline class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </underline>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span> <i style="display: none;" class="fa-solid fa-delete-left"></i> backspace</span>
-          <backspace class="config twostates">
+          <backspace class="config">
             <off data-value="off">off</off>
             <on data-value="on" id="chosen">on</on>
           </backspace>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>modifier</span>
-          <modifier class="config threestates">
+          <modifier class="config">
             <alt data-value="alt" id="chosen">alt</alt>
             <ctrl data-value="ctrl" id="chosen">ctrl</ctrl>
             <mmeta data-value="meta">meta</mmeta>
           </modifier>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>difficulty</span>
-          <difficulty class="config threestates">
-            <normal data-value="normal" id="chosen">normal</normal>
+          <difficulty class="config">
+            <off data-value="off" id="chosen">off</off>
             <expert data-value="expert">expert</expert>
             <master data-value="master">master</master>
           </difficulty>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>confidence</span>
-          <confidence class="config threestates">
+          <confidence class="config">
             <low data-value="low" id="chosen">low</low>
             <high data-value="high">high</high>
             <max data-value="max">max</max>
           </confidence>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>error</span>
-          <error class="config threestates">
+          <error class="config">
             <off data-value="off">off</off>
             <insert data-value="insert" id="chosen">insert</insert>
             <replace data-value="replace">replace</replace>
           </error>
-        </div>
-        <div class="row">
-          <span>forgive</span>
-          <forgive class="config twostates">
+        </row>
+        <row>
+          <span>forgive error</span>
+          <forgive class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </forgive>
-        </div>
-        <div class="row">
-          <span>stop</span>
-          <stop class="config threestates">
+        </row>
+        <row>
+          <span>stop on error</span>
+          <stop class="config">
             <off data-value="off" id="chosen">off</off>
             <letter data-value="letter">letter</letter>
             <word data-value="word">word</word>
           </stop>
-        </div>
+        </row>
       </div>
 
       <!-- column 2 -->
-      <div class="column column2">
-        <div class="row">
+      <div class="column column-2">
+        <row>
           <span>tape mode</span>
-          <tape class="config twostates">
+          <tape class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </tape>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>pace caret</span>
           <input id="pacecaret-speed" type="number" placeholder="pace caret speed (wpm)">
           <pacecaret class="config">
@@ -193,71 +189,77 @@
             <box data-value="box" class="pacecaret-shape"> <shape></shape> </box>
             <block data-value="block" class="pacecaret-shape"> <shape></shape> </block>
           </pacecaret>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>whitespace</span>
-          <whitespace class="config fourstates">
+          <whitespace class="config">
             <off data-value="off">off</off>
             <bullet data-value="bullet" data-code="11825" data-character="⸱">bullet</bullet>
             <space data-value="space" data-code="160" data-character="&nbsp;" id="chosen">space</space>
             <bar data-value="bar" data-code="9251" data-character="␣">bar</bar>
           </whitespace>
-        </div>
-        <div class="row endwithspace">
+        </row>
+        <row>
           <span>endwithspace</span>
-          <endwithspace class="config twostates">
+          <endwithspace class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </endwithspace>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>oppositeshift</span>
-          <oppositeshift class="config twostates">
+          <oppositeshift class="config">
             <off data-value="off" id="chosen">off</off>
             <on data-value="on">on</on>
           </oppositeshift>
-        </div>
-        <div class="row">
-          <span>inputvisibility</span>
-          <inputvisibility class="config twostates">
+        </row>
+        <row>
+          <span>inputarea</span>
+          <inputarea class="config">
             <hidden data-value="hidden" id="chosen">hidden</hidden>
             <visible data-value="visible">visible</visible>
-          </inputvisibility>
-        </div>
-        <div class="row">
+          </inputarea>
+        </row>
+        <row>
           <span>keyboard</span>
-          <keyboard class="config fourstates">
+          <keyboard class="config">
             <off data-value="off">off</off>
             <static data-value="static">static</static>
             <react data-value="react" id="chosen">react</react>
             <next data-value="next">next</next>
           </keyboard>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>line scroll</span>
-          <scroll class="config twostates">
+          <scroll class="config">
             <abrupt data-value="abrupt" id="chosen">abrupt</abrupt>
             <smooth data-value="smooth">smooth</smooth>
           </scroll>
-        </div>
-        <div class="row">
+        </row>
+        <row>
           <span>live</span>
-          <live class="config fourstates">
+          <live class="config">
             <speed data-value="speed">speed</speed>
             <accuracy data-value="accuracy">accuracy</accuracy>
             <burst data-value="burst">burst</burst>
             <timer data-value="timer">timer</timer>
           </live>
-        </div>
-        <div class="row">
-          <span>warnings</span>
-          <warning class="config threestates">
-            <focus data-value="focus" id="chosen">focus</focus>
+        </row>
+        <row>
+          <span>key lock warning</span>
+          <warning class="config">
             <capslock data-value="capslock">capslock</capslock>
             <numlock data-value="numlock">numlock</numlock>
             <scrolllock data-value="scrolllock">scrolllock</scrolllock>
           </warning>
-        </div>
+        </row>
+        <row>
+          <span>focus indicator</span>
+          <focus class="config">
+            <off data-value="off">off</off>
+            <on data-value="on" id="chosen">on</on>
+          </focus>
+        </row>
       </div>
     </setting>
 

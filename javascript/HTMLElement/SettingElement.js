@@ -43,7 +43,7 @@ export const tape = {
 }
 
 export const difficulty = {
-	normal: document.querySelector("difficulty normal"),
+	off: document.querySelector("difficulty off"),
 	expert: document.querySelector("difficulty expert"),
 	master: document.querySelector("difficulty master"),
 }
@@ -69,15 +69,19 @@ export const keyboard = {
 }
 
 export const warning = {
-	focus: document.querySelector("warning focus"),
 	capslock: document.querySelector("warning capslock"),
 	numlock: document.querySelector("warning numlock"),
 	scrolllock: document.querySelector("warning scrolllock"),
 }
 
-export const inputvisibility = {
-	hidden: document.querySelector("inputvisibility hidden"),
-	visible: document.querySelector("inputvisibility visible"),
+export const focus = {
+	off: document.querySelector("focus off"),
+	on: document.querySelector("focus on"),
+}
+
+export const inputarea = {
+	hidden: document.querySelector("inputarea hidden"),
+	visible: document.querySelector("inputarea visible"),
 }
 
 export const error = {

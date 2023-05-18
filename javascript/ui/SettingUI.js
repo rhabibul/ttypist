@@ -173,17 +173,17 @@ export function changeUITapeButtonTo(state) {
 // difficulty
 export function changeUIDifficultyButtonTo(level) {
 if ( level === "expert" ) {
-		SettingElement.difficulty.normal.id = "";
+		SettingElement.difficulty.off.id = "";
 		SettingElement.difficulty.master.id = "";
 		SettingElement.difficulty.expert.id = "chosen";
 	} else if ( level === "master" ) {
-		SettingElement.difficulty.normal.id = "";
+		SettingElement.difficulty.off.id = "";
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "chosen";
 	} else {
 		SettingElement.difficulty.expert.id = "";
 		SettingElement.difficulty.master.id = "";
-		SettingElement.difficulty.normal.id = "chosen";
+		SettingElement.difficulty.off.id = "chosen";
 	}
 }
 
@@ -249,14 +249,14 @@ export function toggleUIWarningButton(button) {
 	}
 }
 
-// inputvisibility
-export function changeUIInputvisibilityButtonTo(visibility) {
+// inputarea
+export function changeUIinputareaButtonTo(visibility) {
 	if ( visibility === "visible" ) {
-		SettingElement.inputvisibility.hidden.id = "";
-		SettingElement.inputvisibility.visible.id = "chosen";
+		SettingElement.inputarea.hidden.id = "";
+		SettingElement.inputarea.visible.id = "chosen";
 	} else {
-		SettingElement.inputvisibility.visible.id = "";
-		SettingElement.inputvisibility.hidden.id = "chosen";
+		SettingElement.inputarea.visible.id = "";
+		SettingElement.inputarea.hidden.id = "chosen";
 	}
 }
 

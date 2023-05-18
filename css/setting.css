@@ -10,7 +10,7 @@
 }
 
 setting {
-  width: 1000px;
+  width: 900px;
   display: flex;
   justify-content: center;
   background-color: var(--molokai-bg0);
@@ -20,8 +20,6 @@ setting .column {
   display: flex;
   flex-direction: column;
   background-color: var(--molokai-bg0);
-  padding: 5px 10px 5px 0px;
-  border-radius: 8px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -37,18 +35,18 @@ setting .column {
   }
 }
 
-setting .row {
-  width: 500px;
-  height: 45px;
+setting row {
+  width: 450px;
+  height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-setting .row span {
-  height: 100%;
-  width: 115px;
+setting row span {
+  height: 40px;
+  width: 140px;
   font-weight: 400;
   font-size: 1rem;
   color: var(--gruvbox-fg4);
@@ -58,61 +56,70 @@ setting .row span {
   justify-content: flex-end;
 }
 
-setting .row .config {
-  height: 90%;
-  width: 380px;
+setting row .config {
+  border: 1px solid black;
+  width: 300px;
+  height: 40px;
+  font-size: 0.9rem;
   font-weight: 450;
   color: var(--inactive-foreground);
-  font-size: 1rem;
   font-family: var(--roboto-mono);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.twostates,
-.threestates
-.fourstates {
+/* ---------->  all individual setting buttons  <---------- */
+live *,
+warning *,
+focus * {
+  height: 30px;
   display: flex;
-}
-.twostates *,
-.threestates *,
-.fourstates * {
-  height: 80%;
-  display: flex;
-  justify-content: center;  
   align-items: center;
-  border-radius: 4px;
+  justify-content: center;
+
+  border-radius: 3px;
   background-color: var(--inactive-background);
 }
-.twostates * {
-  flex-basis: 49%;
-}
-.fourstates * {
-  flex-basis: 25%;
-}
-.fourstates off {
-  flex-basis: 18%;
-}
 
-live.fourstates * {
+/* ---------->  live  <---------- */
+live {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+live speed,
+live burst,
+live timer {
   flex-basis: 22%;
 }
-live.fourstates accuracy {
+live accuracy {
   flex-basis: 30%;
 }
 
+/* ---------->  key warning  <---------- */
+warning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 warning capslock,
 warning numlock,
-warning focus {
-  flex-basis: 24%;  
-}
-warning focus {
-  flex-basis: 18%;
-}
 warning scrolllock {
-  flex-basis: 30%;
+  flex-basis: 32%;
 }
+
+/* ---------->  focus warning  <---------- */
+focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+focus off,
+focus on {
+  flex-basis: 49%;
+}
+
 
 error.threestates *,
 modifier.threestates *,
@@ -197,7 +204,6 @@ oppositeshift,
 inputvisibility,
 warning,
 keyboard,
-scroll,
-sound {
+scroll {
   user-select: none;
 }

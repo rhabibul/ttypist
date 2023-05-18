@@ -63,6 +63,7 @@ header .content .stats {
 
 header .content .profile {
 	width: 310px;
+	height: 62px;
 	border-radius: 45px;
 	background-color: rgb(0, 0, 0, 0.2);
 	display: flex;
