@@ -2,18 +2,16 @@
   --setting-caret-color: var(--gruvbox-fg0_s);
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
-  --setting-caret-shape-container-width: 26px;
-  --setting-caret-shape-container-height: 35px;
-
-  --setting-container-width-caret: 180px;
-  --setting-container-width-whitespace: 160px;
+  --setting-caret-shape-container-width: 24px;
+  --setting-caret-shape-container-height: 30px;
 }
 
 setting {
-  width: 900px;
+  width: 910px;
   display: flex;
   justify-content: center;
   background-color: var(--molokai-bg0);
+  border-radius: 4px;
 }
 
 setting .column {
@@ -22,16 +20,12 @@ setting .column {
   background-color: var(--molokai-bg0);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 910px) {
   setting {
     width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-  setting .column {
-    padding-top: 0px;
-    padding-bottom: 0px;
   }
 }
 
@@ -57,7 +51,6 @@ setting row span {
 }
 
 setting row .config {
-  border: 1px solid black;
   width: 300px;
   height: 40px;
   font-size: 0.9rem;
@@ -67,27 +60,93 @@ setting row .config {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 4px;
+}
+
+/* ---------->  all individual setting button containers  <---------- */
+highlight,
+flip,
+underline,
+backspace,
+modifier,
+difficulty,
+confidence,
+error,
+forgive,
+stop,
+tape,
+whitespace,
+endwithspace,
+oppositeshift,
+keyboard,
+scroll,
+live,
+warning,
+focus  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
 }
 
 /* ---------->  all individual setting buttons  <---------- */
-live *,
-warning *,
-focus * {
+highlight > *,
+flip > *,
+underline.config > *,
+inputarea > *,
+backspace > *,
+modifier > *,
+difficulty > *,
+confidence > *,
+error > *,
+forgive > *,
+stop > *,
+tape > *,
+whitespace > *,
+endwithspace > *,
+oppositeshift > *,
+keyboard > *,
+scroll > *,
+live > *,
+warning > *,
+focus > * {
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: var(--inactive-background);
 }
-
-/* ---------->  live  <---------- */
-live {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+caret.config off,
+pacecaret.config off {
+  height: 30px;
 }
+
+/* ----------> 2 buttons <---------- */
+forgive > *,
+tape > *,
+flip > *,
+backspace > *,
+underline > *,
+oppositeshift > *,
+endwithspace > *,
+inputarea > *,
+scroll > *,
+focus > * {
+  flex-basis: 49%;
+}
+
+/* ----------> 3 buttons <---------- */
+stop > *,
+error > *,
+confidence > *,
+difficulty > *,
+modifier > *,
+highlight > *,
+warning > * {
+  flex-basis: 32%;
+}
+
+/* ----------> 4 buttons <---------- */
 live speed,
 live burst,
 live timer {
@@ -96,43 +155,21 @@ live timer {
 live accuracy {
   flex-basis: 30%;
 }
-
-/* ---------->  key warning  <---------- */
-warning {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+whitespace off {
+  flex-basis: 19%;
 }
-warning capslock,
-warning numlock,
-warning scrolllock {
-  flex-basis: 32%;
+whitespace space,
+whitespace bar,
+whitespace bullet {
+  flex-basis: 25%;
 }
-
-/* ---------->  focus warning  <---------- */
-focus {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+keyboard off {
+  flex-basis: 19%;
 }
-focus off,
-focus on {
-  flex-basis: 49%;
-}
-
-
-error.threestates *,
-modifier.threestates *,
-confidence.threestates *,
-stop.threestates *,
-highlight.threestates *,
-difficulty.threestates * {
-  flex-basis: 32%;
-}
-confidence off,
-stop off,
-highlight off {
-  flex-basis: 26%;
+keyboard static,
+keyboard react,
+keyboard next {
+  flex-basis: 25%;
 }
 
 caret off,
@@ -179,6 +216,7 @@ underline shape {
   width: calc(var(--setting-caret-shape-width) + 1.5px); /* width: 11.5px */
   height: var(--setting-caret-shape-height);
   border-bottom: 1px solid var(--setting-caret-color);
+  border-radius: none;
 }
 #pacecaret-speed {
   display: none; /* speed input field for pacecaret */
