@@ -3,15 +3,15 @@ button i {
 }
 button {
   font-size: 1.25rem;
-  border-radius: 7px;
+  border-radius: 3px;
   width: 35px;
   height: 35px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--molokai-fg0);
-  background-color: var(--molokai-bg1);
+  color: gray;
+  background-color: whitesmoke;
 }
 button:focus {
   outline: none;

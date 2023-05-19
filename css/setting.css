@@ -1,5 +1,7 @@
 :root {
-  --setting-caret-color: var(--gruvbox-fg0_s);
+  background-color: var(--default-bg0_h);
+
+  --setting-caret-color: gray;
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
   --setting-caret-shape-container-width: 24px;
@@ -10,14 +12,15 @@ setting {
   width: 950px;
   display: flex;
   justify-content: space-between;
-  background-color: var(--gruvbox-bg0_h);
+  background-color: var(--default-bg0_h);
 }
 
 setting .column {
   display: flex;
   flex-direction: column;
-  background-color: var(--molokai-bg0);
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  background-color: var(--default-bg0_h);
   padding: 10px;
 }
 
@@ -45,9 +48,9 @@ setting row {
 setting row span {
   height: 40px;
   width: 130px;
-  font-weight: 400;
+  font-weight: 450;
   font-size: 1rem;
-  color: var(--gruvbox-fg4);
+  color: rgb(74, 74, 74);
   font-family: var(--mona-sans);
   display: flex;
   align-items: center;

@@ -6,7 +6,6 @@ import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
-
 const active_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--active-foreground");
 const active_background = getComputedStyle(MiscElement.root).getPropertyValue("--active-background");
 const inactive_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-foreground");

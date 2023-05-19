@@ -1,11 +1,11 @@
 :root {
   /* caret color */
-  --caret-color: var(--molokai-red);
-  --caret-color-hidden: var(--gruvbox-bg0_h);
+  --caret-color: red;
+  --caret-color-hidden: var(--default-bg0_h);
   
   /* block caret color */
-  --caret-block-color: var(--textcolor-secondary);
-  --caret-block-backgroundcolor: var(--gruvbox-fg0_h);
+  --caret-block-color: whitesmoke;
+  --caret-block-backgroundcolor: var(--gruvbox-bg0_h);
   
   /* caret animation (blink duration, count, rhythm, delay) */
   --caret-animation-delay: 1.5s;

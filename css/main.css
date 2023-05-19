@@ -23,9 +23,6 @@
 }
 
 :root {
-  /* ------------- default white color palette ------------- */
-  /* yet to be added.. */
-  
   /* ------------- gruvbox color palette ------------- */
   --gruvbox-bg0_h:      #1d2021;
   --gruvbox-bg0:        #282828;
@@ -103,6 +100,11 @@
   --solarized-blue:      #268bd2;
   --solarized-cyan:      #2aa198;
   --solarized-green:     #859900;
+
+  /* ------------- default white color palette ------------- */
+  --default-bg0_h: #ffffff;
+  --default-bg0: #f9f8f8;
+  --default-bg0_s: #f5f5f5;
 }
 
 :root {
@@ -111,24 +113,24 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
 
-  --textcolor-primary: #e0dddd;
-  --textcolor-secondary: var(--gruvbox-bg2);
+  --textcolor-primary: var(--gruvbox-bg0_h);
+  --textcolor-secondary: #8c8c8c;
 
-  --textsize: 1.22rem;
-  --textweight: 420;
+  --textsize: 1.25rem;
+  --textweight: 450;
   --textfamily: var(--roboto-mono);
 
   --error-primary: #ff0000;
   --error-secondary: #a30d0d;
 
-  --word-underline-offset: 2px;
+  --word-underline-offset: 1px;
   --word-underline-thickness: 2px;
 
-  --active-foreground: var(--molokai-bg0);
-  --active-background: var(--gruvbox-fg0_s);
+  --active-foreground: whitesmoke;
+  --active-background: rgb(139, 0, 238);
 
-  --inactive-foreground: var(--molokai-fg1);
-  --inactive-background: var(--molokai-bg1);
+  --inactive-foreground: gray;
+  --inactive-background: whitesmoke;
 }
 
 *,
@@ -152,7 +154,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-color: var(--gruvbox-bg0_h);
+  background-color: var(--default-bg0_h);
   row-gap: 10px;
 }
 
