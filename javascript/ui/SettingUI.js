@@ -1,15 +1,15 @@
 import Config from "../include/config.js";
 import { word } from "../main.js";
 import * as Misc from "../utils/misc.js";
+import * as Const from "../include/constant.js";
 import * as CaretHandler from "../handler/carethandler.js";
-import * as MiscElement from "../HTMLElement/MiscElement.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js";
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
-const active_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--active-foreground");
-const active_background = getComputedStyle(MiscElement.root).getPropertyValue("--active-background");
-const inactive_foreground = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-foreground");
-const inactive_background = getComputedStyle(MiscElement.root).getPropertyValue("--inactive-background");
+const active_foreground = Const.css.getPropertyValue("--active-foreground");
+const active_background = Const.css.getPropertyValue("--active-background");
+const inactive_foreground = Const.css.getPropertyValue("--inactive-foreground");
+const inactive_background = Const.css.getPropertyValue("--inactive-background");
 
 export function applyupdatedcaret(prev) {
   CaretHandler.removecaretfrom(word.activeletter);
