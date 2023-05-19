@@ -4,6 +4,7 @@ import { Test } from "../main.js";
 import * as Misc from "./misc.js";
 import * as Const from "../include/constant.js";
 import * as SettingUI from "../ui/SettingUI.js";
+import * as TestUI from "../ui/TestUI.js";
 import * as SettingElement from "../HTMLElement/SettingElement.js"
 import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 
@@ -541,14 +542,14 @@ function updatefliphighlightcolor(evt) {
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
   if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
-
-  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
   
   if ( this.dataset.value === "off" ) {
     Config.fliphighlightcolor = false;
   } else {
     Config.fliphighlightcolor = true;
   }
+  SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
+  TestUI.fliphighlightcolor();
 }
 
 // highlight

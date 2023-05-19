@@ -1,19 +1,18 @@
-export const LOW = 1, HIGH = 2, MAX = 3;
-export const BEGINNER = 1, EXPERT = 2, MASTER = 3;
+export const css = getComputedStyle(document.querySelector(":root"));
 
-export const NOT_PRINTABLE = [
+export const notprintable = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
   'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
   'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp', 'PageDown',
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
-export const STOPPER = [ // _ and 0..9 are not considered as stopppers, they're part of text
+export const stopper = [ // _ and 0..9 are not considered as stopppers, they're part of text
   '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+',
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
-const MODIFIER_KEYS = {
+const modifier = {
   "ctrlKey": false,
   "shiftKey": false,
   "altKey": false,

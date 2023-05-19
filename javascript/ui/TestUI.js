@@ -1,3 +1,13 @@
+import Config from "../include/config.js";
+import * as Const from "../include/constant.js";
+import * as MiscElement from "../HTMLElement/MiscElement.js"
+
+export function fliphighlightcolor() {
+	const primary = Const.css.getPropertyValue("--textcolor-primary");
+	MiscElement.root.style.setProperty("--textcolor-primary", Const.css.getPropertyValue("--textcolor-secondary"));
+	MiscElement.root.style.setProperty("--textcolor-secondary", primary);
+}
+
 export function addwordhighlight(word) {
 	if ( (typeof word === "object" ) && ( word?.tagName === "WORD" ) ) {
 		// add active class to word
