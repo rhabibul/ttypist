@@ -83,7 +83,7 @@ export function wordelements(s) {
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
     // letter.innerHTML = `&nbsp;`;
-    letter.innerHTML = `<svg height="10" width="10"> <circle cx="5" cy="5" r="2.5" fill="gray" /> </svg>`
+    letter.innerHTML = `<svg height="12" width="12"> <circle cx="6" cy="6" r="2.3" fill="#bbbbbb" /> </svg>`
     
     word.appendChild(letter);
     wordarray.push(word);

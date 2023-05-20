@@ -211,8 +211,8 @@ text word letter {
   font-weight: var(--textweight);
   font-family: var(--textfamily);
   
-  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 input#textinput {
@@ -226,9 +226,11 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 letter.whitespace {
-  height: 27px;
-  padding-left: 2px; 
-  padding-right: 2px; 
+  color: #bbbbbb;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .none {
