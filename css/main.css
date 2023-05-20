@@ -121,7 +121,7 @@
   --roboto-mono: "Roboto Mono", monospace;
   --monospace: monospace; 
 
-  --textsize: 1.25rem;
+  --textsize: 1.2rem;
   --textweight: 450;
   --textfamily: var(--roboto-mono);
   --textcolor-primary: #1d2021;
@@ -199,8 +199,6 @@ text word {
   justify-content: flex-start;
 }
 text word letter {
-  height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,16 +226,22 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-bullet {
-  width: 100%;
-  height: 100%;
+letter.whitespace {
+  width: 11.23px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  /* border: 1px solid black; */
 }
-bullet dot {
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 3px;
-  height: 3px;
+letter.whitespace dot {
+  transform: translateY(2px);
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
+  background-color: gray;
 }
 
 .none {

@@ -1,10 +1,10 @@
-/*----------------- off -----------------*/
+/* =================================== off  =================================== */
 .off {
   border: none;
   outline: none;
 }
 
-/*----------------- line -----------------*/
+/* =================================== line  =================================== */
 #line {
   /* border-left-color: var(--caret-color); */
   box-shadow: calc(-1 * var(--caret-width-line)) 0px 0px var(--caret-color);
@@ -32,7 +32,7 @@
   }
 }
 
-/*----------------- underline -----------------*/
+/* ================================= underline  ================================= */
 #underline {
   /* text-decoration-color: var(--caret-color); */
   border-bottom-color: var(--caret-color);
@@ -68,7 +68,7 @@
   }
 }
 
-/*----------------- box -----------------*/
+/* ==================================== box  ==================================== */
 #box {
   /* border: var(--caret-width-box) solid var(--caret-color); */
   outline-style: solid;
@@ -99,7 +99,7 @@
   }
 }
 
-/*----------------- block -----------------*/
+/* =================================== block  =================================== */
 #block {
   color: var(--caret-block-color);
   background-color: var(--caret-block-backgroundcolor);
