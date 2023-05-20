@@ -225,6 +225,10 @@ input#textinput {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
+.dot {
+  width: 20px;
+  height: 27px;
+}
 
 .none {
   display: none;

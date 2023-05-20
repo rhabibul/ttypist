@@ -83,7 +83,7 @@ export function wordelements(s) {
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
     // letter.innerHTML = `&nbsp;`;
-    letter.innerHTML = `•`
+    letter.innerHTML = `<img class="dot" src="./assets/pictures/dot.svg" alt="bullet whitespace">`
     
     word.appendChild(letter);
     wordarray.push(word);
