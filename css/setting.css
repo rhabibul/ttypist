@@ -239,8 +239,9 @@ underline,
 whitespace,
 endwithspace,
 oppositeshift,
-inputvisibility,
+inputarea,
 warning,
+focus,
 keyboard,
 scroll {
   user-select: none;
