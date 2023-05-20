@@ -162,7 +162,7 @@ function updatelive(evt) {
       Config.live.timer = true;
     }
   }
-
+  
   SettingUI.toggleUILiveButton(this);
 }
 
@@ -276,7 +276,7 @@ function updatestop(evt) {
     Config.error.forgive = false;
 
   } else {
-    
+
     Config.error.stop.off = true; 
     Config.error.stop.letter = false; 
     Config.error.stop.word = false; 

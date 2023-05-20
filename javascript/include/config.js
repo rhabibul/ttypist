@@ -37,8 +37,8 @@ export default {
     off: false,
     modifier: {
        alt: true,
-      ctrl: true,
-      meta: false,
+       meta: false,
+       ctrl: false,
     },
   },
   confidence: {
@@ -103,21 +103,26 @@ export default {
     scrolllock: false,
   },
   live: {
-    speed: false,
-    accuracy: false,
-    burst: false,
-    timer: false,
+    interval: {
+      every1keystroke: true,
+      every1word: false,
+      every1second: false,
+    },
+    speed: false,    // show live speed in wpm/cpm
+    accuracy: false, // show live accuracy
+    burst: false,    // show live burst, speed of last word typed
+    timer: false,    // show live timer countdown
   },
   practice: {
-    off: true,
-    guidedlession: false,
-    providedtext: false,
-    numpad: false, // only numpad digits and symbols
-    numrow: false, // only numrow digits [0-9]
-    alphanumeric: false, // ascii alphabets [a-z, A-Z] and digits [0-9]
-    bracket: false, // {[(<>)]}
-    arrowkey: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    special: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-    functionkey: false, // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    off: true,            // turn off practice mode
+    guidedlession: false, // guided lessons
+    providedtext: false,  // custom text (alphanumeric, specials ascii symbols)
+    numpad: false,        // only numpad digits and symbols
+    numrow: false,        // only numrow digits [0-9]
+    alphanumeric: false,  // ascii characters [a-z, A-Z] and digits [0-9]
+    bracket: false,       // {[(<>)]}
+    arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+    functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
