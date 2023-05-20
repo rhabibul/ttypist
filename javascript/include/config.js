@@ -47,15 +47,15 @@ export default {
     max: false,
   },
   difficulty: {
-    off: true,
-    expert: false,
-    master: false,
+    off: true, // its the normal typing experience (enabled by default)
+    expert: false, // fails the test if user submit (press space) an incorrect word
+    master: false, // fails the test if user press a single incorrect key (need to type with 100% accuracy)
   },
   error: {
     off: false, // if true, then no errors or incorrect words are highlighted (blind mode)
-    insert: true, // 
-    replace: false,
-    forgive: false,
+    insert: true, // insert incorrect letter before to be typed letter
+    replace: false, // replace to be typed letter with incorrectly typed letter and move caret forward
+    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
     stop: {
       off: true,
       word: false,
