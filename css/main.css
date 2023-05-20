@@ -237,7 +237,7 @@ letter.whitespace {
   /* border: 1px solid black; */
 }
 letter.whitespace dot {
-  transform: translateY(2px);
+  /* transform: translateY(1px); */
   width: 5px;
   height: 5px;
   border-radius: 50%;
