@@ -42,9 +42,9 @@ export default {
     },
   },
   confidence: {
-    low: true,
-    high: false,
-    max: false,
+    low: true, // can use backspace key to delete previous words/letters
+    high: false, // can not use backspace key to go back to previous word to correct mistakes
+    max: false, // can not use backspace key at all to back
   },
   difficulty: {
     off: true, // its the normal typing experience (enabled by default)

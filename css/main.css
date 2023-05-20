@@ -207,43 +207,58 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
  
-.extra {
-  color: var(--error-secondary);
-}
-.fade {
-  color: #9b9b9b;
-}
 .none {
   display: none;
 }
 .hidden {
   visibility: hidden;
 }
+
+/* used for fading out the typed letters in letter highlight mode */
+.fade {
+  color: #9b9b9b;
+}
+
+/* used to highlight active word in word highlight mode */
 .active {
   color: black;
 }
+
+/* used for correctly typed letters */
 .correct {
   color: var(--textcolor-secondary);
 }
+
+/* used for incorrectly typed letters */
 .incorrect {
   color: var(--error-primary);
 }
+
+/* used for extra letters which are inserted in the text */
+.extra {
+  color: var(--error-secondary);
+}
+
+/* used to mark the word as incorrect i.e, word with mistakes */
 .error {
   color: var(--error-primary);
-  text-decoration-line: underline;
-  text-decoration-style: solid;
   text-decoration-color: var(--error-secondary);
-  text-underline-offset: var(--word-underline-offset);
-  text-decoration-thickness: var(--word-underline-thickness);
-}
-.____ {
   text-decoration-style: solid;
   text-decoration-line: underline;
-  text-decoration-color: var(--textcolor);
   text-underline-offset: var(--word-underline-offset);
   text-decoration-thickness: var(--word-underline-thickness);
 }
 
+/* used to underline active word in word highlight mode and letter in letter highlight mode */
+.____ {
+  text-decoration-color: var(--textcolor);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-underline-offset: var(--word-underline-offset);
+  text-decoration-thickness: var(--word-underline-thickness);
+}
+
+/* used for selected item */
 #chosen {
   color: var(--active-foreground);
   background-color: var(--active-background);

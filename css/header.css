@@ -44,7 +44,7 @@ header .content .logo .logo-icon img {
 header .content .logo .logo-label {
 	width: 112px;
 	font-size: 2.1rem;
-	color: lightgray;
+	color: #f6f6f6;
 	font-weight: 650;
 	letter-spacing: 1px;
 	font-family: var(--nunito);
