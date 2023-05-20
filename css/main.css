@@ -22,6 +22,14 @@
   font-stretch: 75% 125%;
 }
 
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 :root {
   /* ------------- gruvbox color palette ------------- */
   --gruvbox-bg0_h:      #1d2021;
@@ -108,37 +116,48 @@
 }
 
 :root {
-  --monospace: monospace; 
-  --roboto-mono: "Roboto Mono", monospace;
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
+  --roboto-mono: "Roboto Mono", monospace;
+  --monospace: monospace; 
 
-  --textcolor-primary: var(--gruvbox-bg0_h);
-  --textcolor-secondary: #8c8c8c;
-
-  --textsize: 1.2rem;
+  --textsize: 1.25rem;
   --textweight: 450;
   --textfamily: var(--roboto-mono);
+  --textcolor-primary: #1d2021;
+  --textcolor-secondary: #7b7b7b;
 
-  --error-primary: #ff0000;
-  --error-secondary: #a30d0d;
+  --error: #ff0000; /* normal error */
+  --error-extra: #a30d0d; /* extra inserted error */
 
-  --word-underline-offset: 1px;
-  --word-underline-thickness: 2px;
+  --underline-offset: 1px;
+  --underline-thickness: 2px;
 
-  --active-foreground: whitesmoke;
-  --active-background: rgb(139, 0, 238);
+  --caret-color: red;
+  --caret-color-hidden: var(--default-bg0_h);
+  
+  --caret-offset-box: -1px; /* box caret offset */
+  --caret-width-box: 1px; /* box caret width */
+  --caret-width-line: 1px; /* line caret width */
+  --caret-width-underline: 2px; /* underline caret width */
+  --caret-block-color: whitesmoke; /* text color under block caret */
+  --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
 
-  --inactive-foreground: gray;
-  --inactive-background: whitesmoke;
-}
+  --caret-animation-delay: 1.5s;
+  --caret-animation-duration: 1.17s;
+  --caret-animation-iteration-count: 20;
+  --caret-animation-timing-function: ease-out;
 
-*,
-*::after,
-*::before {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+  --setting-caret-color: #393838;
+  --setting-caret-shape-width: 10px;
+  --setting-caret-shape-height: 20px;
+  --setting-caret-shape-container-width: 24px;
+  --setting-caret-shape-container-height: 34px;
+  
+  --active-foreground: #f3f3f3;
+  --inactive-foreground: #484848;
+  --active-background: #484848;
+  --inactive-background: #f3f3f3;
 }
 
 body {
@@ -188,6 +207,8 @@ text word letter {
 
   color: var(--textcolor-primary);
 
+  /* line-height: 1; */
+  /* white-space: nowrap; */
   font-size: var(--textsize);
   font-weight: var(--textweight);
   font-family: var(--textfamily);
@@ -206,7 +227,19 @@ input#textinput {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
- 
+
+bullet {
+  width: 100%;
+  height: 100%;
+}
+bullet dot {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+
 .none {
   display: none;
 }
@@ -241,12 +274,12 @@ input#textinput {
 
 /* used to mark the word as incorrect i.e, word with mistakes */
 .error {
-  color: var(--error-primary);
-  text-decoration-color: var(--error-secondary);
+  color: var(--error);
+  text-decoration-color: var(--error-extra);
   text-decoration-style: solid;
   text-decoration-line: underline;
-  text-underline-offset: var(--word-underline-offset);
-  text-decoration-thickness: var(--word-underline-thickness);
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
 }
 
 /* used to underline active word in word highlight mode and letter in letter highlight mode */
@@ -254,8 +287,8 @@ input#textinput {
   text-decoration-color: var(--textcolor);
   text-decoration-style: solid;
   text-decoration-line: underline;
-  text-underline-offset: var(--word-underline-offset);
-  text-decoration-thickness: var(--word-underline-thickness);
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
 }
 
 /* used for selected item */

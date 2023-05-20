@@ -1,11 +1,5 @@
 :root {
   background-color: var(--default-bg0_h);
-
-  --setting-caret-color: gray;
-  --setting-caret-shape-width: 10px;
-  --setting-caret-shape-height: 20px;
-  --setting-caret-shape-container-width: 24px;
-  --setting-caret-shape-container-height: 34px;
 }
 
 setting {

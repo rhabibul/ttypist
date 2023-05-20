@@ -19,11 +19,13 @@ export default {
     off: false,
     type: "line", // off | line | underline | box | block
     opacity: 1, // [0, 1] -> alpha's value in rgba
+    color: "",
   },
   pacecaret: {
     off: true,
     type: "line", // off | line | underline | box | block
     opacity: 1, // [0, 1] -> alpha's value in rgba
+    color: "",
   },
   fliphighlightcolor: false, // by default, future text is brighter than the already typed text
   highlight: {
@@ -65,8 +67,8 @@ export default {
   text: {
     length: 0, // number of characters in text
     color: {
-      primary: "", // future text
-      secondary: "", // past text
+      primary: "#1d2021", // future text, text which needs to be typed
+      secondary: "#7b7b7b", // past text, text which has been typed
     },
     font: {
       size: 1.2, // size of each letter
@@ -77,7 +79,7 @@ export default {
       off: false, // if enabled, no space will be there between two word
       type: "space", // bullet | space | bar
       code: 160, // 8226 | 160 | 9251
-      character: "&nbsp;", // '•', '&nbsp', '␣'
+      character: "&nbsp;", // '•', '&nbsp', '␣'  |  ('⸱')
     },
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story

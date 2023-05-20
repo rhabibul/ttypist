@@ -1,29 +1,3 @@
-:root {
-  /* caret color */
-  --caret-color: red;
-  --caret-color-hidden: var(--default-bg0_h);
-  
-  /* block caret color */
-  --caret-block-color: whitesmoke;
-  --caret-block-backgroundcolor: var(--gruvbox-bg0_h);
-  
-  /* caret animation (blink duration, count, rhythm, delay) */
-  --caret-animation-delay: 1.5s;
-  --caret-animation-duration: 1.17s;
-  --caret-animation-iteration-count: 20;
-  --caret-animation-timing-function: ease-out;
-  
-  /* box caret width */
-  --caret-width-box: 1px;
-  --caret-offset-box: -1px;
-
-  /* line caret width */
-  --caret-width-line: 1px;
-
-  /* underline caret width */
-  --caret-width-underline: 2px;
-}
-
 /*----------------- off -----------------*/
 .off {
   border: none;

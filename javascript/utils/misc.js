@@ -75,7 +75,7 @@ export function wordelements(s) {
 
     wordarray.push(word);
 
-    if ( !Config.endtestwithspace && (i === s.length - 1) ) return wordarray;
+    if ( !Config.endwithspace && (i === s.length - 1) ) return wordarray;
 
     // create a word which will only contain a letter with whitespace in it
     word = document.createElement("word");
