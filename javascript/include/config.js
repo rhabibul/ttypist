@@ -63,24 +63,30 @@ export default {
     },
   },
   text: {
-    primarytextcolor: "",
-    secondarytextcolor: "",
-    textsize: 1.2,
-    textweight: 445,
+    length: 0, // number of characters in text
+    color: {
+      primary: "", // future text
+      secondary: "", // past text
+    },
+    font: {
+      size: 1.2, // size of each letter
+      weight: 445, // thickness of each letter
+      family: "Roboto Mono",
+    },
     whitespace: {
       off: false, // if enabled, no space will be there between two word
       type: "space", // bullet | space | bar
-      code: 160, // 11825 | 160 | 9251
-      character: "&nbsp;", // '⸱', '&nbsp', '␣'
+      code: 160, // 8226 | 160 | 9251
+      character: "&nbsp;", // '•', '&nbsp', '␣'
     },
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
-      count: 25, // 25 | 50 | 100 | custom | infinite
+      count: 25, // 30 | custom input box | infinite
     },
     include: {
       digit: false, // include numbers along with words
-      punctuation: false, // include punctuation characters along with words
+      punctuation: false, // 
     },
   },
   keyboard: {
