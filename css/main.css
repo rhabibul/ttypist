@@ -226,6 +226,10 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
+letter.whitespace {
+  font-family: "nunito";
+}
+
 .none {
   display: none;
 }
