@@ -226,24 +226,6 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-letter.whitespace {
-  width: 11.23px;
-  height: 27px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2px;
-  margin-right: 2px;
-  /* border: 1px solid black; */
-}
-letter.whitespace dot {
-  /* transform: translateY(1px); */
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: gray;
-}
-
 .none {
   display: none;
 }

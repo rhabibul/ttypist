@@ -83,7 +83,7 @@ export function wordelements(s) {
     letter.classList.add("whitespace");
     letter.classList.add(Config.caret.type);
     // letter.innerHTML = `&nbsp;`;
-    letter.innerHTML = `<dot></dot>`
+    letter.innerHTML = `⸱`
     
     word.appendChild(letter);
     wordarray.push(word);
