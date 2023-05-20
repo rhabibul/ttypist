@@ -7,8 +7,6 @@ export default class Word {
     this.#word = new Array();
   }
 
-  text() {} // word.text()
-
   loadword(word, option) {
 
     this.#word = Array.from(word?.children);

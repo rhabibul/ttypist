@@ -162,7 +162,7 @@ function updatelive(evt) {
       Config.live.timer = true;
     }
   }
-  
+
   SettingUI.toggleUILiveButton(this);
 }
 
@@ -248,7 +248,7 @@ function updatewhitespace(evt) {
   }
 }
 
-// stoponerror 📌
+// stop on error 📌
 function updatestop(evt) {
 
   if ( !evt.isTrusted ) return;
@@ -308,14 +308,16 @@ function updateerror(evt) {
   if ( this.dataset.value === "replace" && Config.error.replace ) return;
 
   if ( this.dataset.value === "replace" ) {
-    Config.error.off = false;
+
     Config.error.replace = true;
+    Config.error.off = false;
     Config.error.forgive = false;
     Config.error.insert = false;
+    
   } else if ( this.dataset.value === "insert" ) {
 
-    // replace is not possible while inserting errors, but forgive errors is possible
-    // so we will turn off replace, users can turn on forgive while inserting errors
+    // replace is not possible while inserting errors, but forgive error is possible
+    // so we will turn off replace, users can turn on forgive
     Config.error.off = false;
     Config.error.insert = true;
     Config.error.replace = false;

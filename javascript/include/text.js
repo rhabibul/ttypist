@@ -3,18 +3,18 @@ import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
 import { addunderline, removeunderline } from "../testlogic/logic.js";
 
 export default class Text {
+  #text; // stores whole text as array of strings
   #words; // array of <word></word> tag which contains <letter></letter> tags
   #wordindex; // keeps track of the index of <word></word> tag
 
   constructor() {
+    this.#text = "";
     this.#words = new Array();
     this.#wordindex = 0;
     
     TestAreaElement.input.value = "";
     TestAreaElement.text.innerHTML = "";
   }
-
-  text() {} // phrase.text();
 
   loadwords(words) {
     this.#words = words;
