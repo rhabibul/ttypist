@@ -257,6 +257,7 @@ function updatestop(evt) {
   if ( this.dataset.value === "word" && Config.error.stop.word ) return;
 
   if ( this.dataset.value === "letter" ) {
+
     Config.error.stop.off = false;
     Config.error.stop.letter = true;
     Config.error.stop.word = false;
@@ -264,14 +265,18 @@ function updatestop(evt) {
     Config.error.insert = false;
     Config.error.forgive = false;
     Config.error.replace = false;
+    
   } else if ( this.dataset.value === "word" ) {
+    
     Config.error.stop.off = false;
     Config.error.stop.letter = false;
     Config.error.stop.word = true;
 
     Config.backspace.off = false;
     Config.error.forgive = false;
+
   } else {
+    
     Config.error.stop.off = true; 
     Config.error.stop.letter = false; 
     Config.error.stop.word = false; 
