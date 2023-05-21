@@ -226,24 +226,6 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-letter.whitespace {
-  width: 11.53px;
-}
-letter.whitespace span#dot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  height: 100%;
-  width: 100%;
-
-  color: #26243d80;
-
-  font-weight: 900;
-  font-style: normal;
-  white-space: nowrap;
-}
-
 .none {
   display: none;
 }
@@ -284,6 +266,7 @@ letter.whitespace span#dot {
   text-decoration-line: underline;
   text-underline-offset: var(--underline-offset);
   text-decoration-thickness: var(--underline-thickness);
+  text-decoration-skip-ink: all;
 }
 
 /* used to underline active word in word highlight mode and letter in letter highlight mode */
@@ -293,6 +276,12 @@ letter.whitespace span#dot {
   text-decoration-line: underline;
   text-underline-offset: var(--underline-offset);
   text-decoration-thickness: var(--underline-thickness);
+
+  /* all: the browser must interrupt underlines and overlines so that they do not touch
+          or closely approach a glyph. 
+    none: drawn across the full length of the text content, including parts that
+          cross over glyph descenders and ascenders. */
+  text-decoration-skip-ink: all;
 }
 
 /* used for selected item */

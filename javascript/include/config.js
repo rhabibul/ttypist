@@ -78,8 +78,8 @@ export default {
     whitespace: {
       off: false, // if enabled, no space will be there between two word
       type: "space", // bullet | space | bar
-      code: 160, // 8226 | 160 | 9251
-      character: "&nbsp;", // '⸱' | '•', '&nbsp', '␣'
+      code: 160, // 11825 | 160 | 9251
+      character: "&nbsp;", // '⸱', '&nbsp', '␣'   ('•' = 8226)
     },
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story
@@ -88,7 +88,7 @@ export default {
     },
     include: {
       digit: false, // include numbers along with words
-      punctuation: false, // 
+      punctuation: false, // .?",-';:()[]{}/...
     },
   },
   keyboard: {

@@ -248,6 +248,34 @@ function updatewhitespace(evt) {
   }
 }
 
+// difficulty
+function updatedifficulty(evt) {
+
+  if ( !evt.isTrusted ) return;
+  if ( this.dataset.value === "off" && Config.difficulty.off ) return;
+  if ( this.dataset.value === "expert" && Config.difficulty.expert ) return;
+  if ( this.dataset.value === "master" && Config.difficulty.master ) return;
+
+  SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
+
+  if ( this.dataset.value === "expert" ) {
+    Config.difficulty.off = false;
+    Config.difficulty.expert = true;
+    Config.difficulty.master = false;
+  } else if ( this.dataset.value === "master" ) {
+    Config.difficulty.off = false;
+    Config.difficulty.expert = false;
+    Config.difficulty.master = true;
+  } else {
+    Config.difficulty.off = true;
+    Config.difficulty.expert = false;
+    Config.difficulty.master = false;
+
+    Config.error.insert = false;
+    Config.error.forgive = false;
+  }
+}
+
 // stop on error 📌
 function updatestop(evt) {
 
@@ -455,31 +483,6 @@ function updateconfidence(evt) {
     Config.confidence.low = true;
     Config.confidence.high = false;
     Config.confidence.max = false;
-  }
-}
-
-// difficulty
-function updatedifficulty(evt) {
-
-  if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "off" && Config.difficulty.off ) return;
-  if ( this.dataset.value === "expert" && Config.difficulty.expert ) return;
-  if ( this.dataset.value === "master" && Config.difficulty.master ) return;
-
-  SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
-
-  if ( this.dataset.value === "expert" ) {
-    Config.difficulty.off = false;
-    Config.difficulty.expert = true;
-    Config.difficulty.master = false;
-  } else if ( this.dataset.value === "master" ) {
-    Config.difficulty.off = false;
-    Config.difficulty.expert = false;
-    Config.difficulty.master = true;
-  } else {
-    Config.difficulty.off = true;
-    Config.difficulty.expert = false;
-    Config.difficulty.master = false;
   }
 }
 
