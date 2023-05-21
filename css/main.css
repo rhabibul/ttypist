@@ -225,12 +225,23 @@ input#textinput {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
+
 letter.whitespace {
-  color: #bbbbbb;
-  height: 25px;
+  width: 11.53px;
+}
+letter.whitespace span#dot {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  height: 100%;
+  width: 100%;
+
+  color: #26243d80;
+
+  font-weight: 900;
+  font-style: normal;
+  white-space: nowrap;
 }
 
 .none {

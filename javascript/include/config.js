@@ -79,7 +79,7 @@ export default {
       off: false, // if enabled, no space will be there between two word
       type: "space", // bullet | space | bar
       code: 160, // 8226 | 160 | 9251
-      character: "&nbsp;", // '•', '&nbsp', '␣'  |  ('⸱')
+      character: "&nbsp;", // '⸱' | '•', '&nbsp', '␣'
     },
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story
