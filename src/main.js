@@ -6,7 +6,7 @@ import * as Misc from "./utils/misc.js";
 import * as CaretHandler from "./handler/carethandler.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 
-import { time, typedchar, mInput } from "../include/stats.js";
+import { time, typedchar, mInput } from "../include/stats-trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js"; 
 
 export const text = new Text();
