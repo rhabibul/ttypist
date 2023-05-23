@@ -4,13 +4,13 @@ export default {
     hastypedeveryword: false,
   },
   deviceinformation: "comma,separated,value",
-  theme: "white", // white | blue | black
+  theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
   language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
   tape: false,
   oppositeshift: false, // ignore B, Y, ^
   underline: false, // underline active word
-  endwithspace: false, // test ends only after typing a space after last word
+  endwithspace: false, // test ends only after typing a space after typing last word
   inputarea: "hidden", // hidden | visible
   scroll: "abrupt", // abrupt | smooth
   cpm: false, // use cpm instead of wpm
@@ -26,6 +26,15 @@ export default {
     type: "line", // off | line | underline | box | block
     opacity: 1, // [0, 1] -> alpha's value in rgba
     color: "",
+    against: {
+      off: true,
+      last: false,
+      average: false,
+      custom: {
+        off: true,
+        speed: 0,
+      },
+    },
   },
   fliphighlightcolor: false, // by default, future text is brighter than the already typed text
   highlight: {
