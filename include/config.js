@@ -28,8 +28,8 @@ export default {
     color: "",
     against: {
       off: true,
-      last: false,
-      average: false,
+      last: false, // previous speed
+      average: false, // average of last 10 wpm
       custom: {
         off: true,
         speed: 0,
