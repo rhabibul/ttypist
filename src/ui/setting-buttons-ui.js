@@ -1,10 +1,10 @@
-import Config from "../include/config.js";
+import Config from "../../include/config.js";
 import { word } from "../main.js";
 import * as Misc from "../utils/misc.js";
-import * as Const from "../include/constant.js";
-import * as CaretHandler from "../handler/carethandler.js";
-import * as SettingElement from "../HTMLElement/SettingElement.js";
-import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import * as Const from "../../include/constants.js";
+import * as CaretController from "../controllers/caret-controller.js";
+import * as SettingElement from "../elements/settings-elements.js";
+import * as TestAreaElement from "../elements/testarea-elements.js";
 
 const active_foreground = Const.css.getPropertyValue("--active-foreground");
 const active_background = Const.css.getPropertyValue("--active-background");
@@ -12,12 +12,12 @@ const inactive_foreground = Const.css.getPropertyValue("--inactive-foreground");
 const inactive_background = Const.css.getPropertyValue("--inactive-background");
 
 export function applyupdatedcaret(prev) {
-  CaretHandler.removecaretfrom(word.activeletter);
+  CaretController.removecaretfrom(word.activeletter);
   Array.from(Misc.HTMLCollection("letter", { tagname: true })).forEach(function (letter) {
     letter.classList.remove(prev);
     letter.classList.add(Config.caret.type);
   });
-  CaretHandler.addcaretto(word.activeletter);
+  CaretController.addcaretto(word.activeletter);
   TestAreaElement.input.focus();
 }
 

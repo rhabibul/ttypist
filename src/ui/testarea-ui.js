@@ -1,6 +1,6 @@
-import Config from "../include/config.js";
-import * as Const from "../include/constant.js";
-import * as MiscElement from "../HTMLElement/MiscElement.js"
+import Config from "../../include/config.js";
+import * as Const from "../../include/constants.js";
+import * as MiscElement from "../elements/misc-elements.js"
 
 export function fliphighlightcolor() {
 	const primary = Const.css.getPropertyValue("--textcolor-primary");

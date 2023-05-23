@@ -1,16 +1,12 @@
-import Config from "../include/config.js";
+import Config from "../../include/config.js";
 
-// import story from "../static/story.js";
-// import quote from "../static/quote.js";
-import w1k from "../static/w1k.js";
-// import w3k from "../static/w3k.js";
-// import rootword from "../static/rootword.js";
+// import w1k from "../../static/texts/words/w1k.js";
+import w3k from "../../static/texts/words/w3k.js";
+// import rootword from "../../static/texts/words/root-words.js";
 
-import * as Const from "../include/constant.js";
-import * as CaretHandler from "../handler/carethandler.js";
-import * as MiscElement from "../HTMLElement/MiscElement.js";
-import * as SettingElement from "../HTMLElement/SettingElement.js";
-import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+
+import * as MiscElement from "../elements/misc-elements.js";
+import * as TestAreaElement from "../elements/testarea-elements.js";
 
 export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === 160;
@@ -51,8 +47,8 @@ export function randomwords() {
   let words = new Array(Config.text.word.count);
   for (let i = 0; i < Config.text.word.count; ++i) {
     // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
-    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
-    // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+    // words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }

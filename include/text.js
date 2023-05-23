@@ -1,6 +1,6 @@
-import Config from "./config.js";
-import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
-import { addunderline, removeunderline } from "../testlogic/logic.js";
+import Config from "../include/config.js";
+import * as TestAreaElement from "../src/elements/testarea-elements.js";
+import { addunderline, removeunderline } from "../src/engine/logic.js";
 
 export default class Text {
   #text; // stores whole text as array of strings

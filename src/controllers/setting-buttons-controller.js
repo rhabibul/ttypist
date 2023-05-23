@@ -1,12 +1,10 @@
-import Config from "../include/config.js"
+import Config from "../../include/config.js"
 import { Test } from "../main.js";
 
-import * as Misc from "./misc.js";
-import * as Const from "../include/constant.js";
-import * as SettingUI from "../ui/SettingUI.js";
-import * as TestUI from "../ui/TestUI.js";
-import * as SettingElement from "../HTMLElement/SettingElement.js"
-import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import * as SettingUI from "../ui/setting-buttons-ui.js";
+import * as TestUI from "../ui/testarea-ui.js";
+import * as SettingElement from "../elements/settings-elements.js"
+import * as TestAreaElement from "../elements/testarea-elements.js";
 
 // input field
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
