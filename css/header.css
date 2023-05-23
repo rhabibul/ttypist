@@ -12,7 +12,7 @@ header {
 
 header .content {
 	height: 100%;
-	width: 96%;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -23,7 +23,7 @@ header .content > * {
 }
 
 header .content .logo {
-	width: 160px;
+	width: 140px;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -42,31 +42,20 @@ header .content .logo .logo-icon img {
 	height: 30px;
 }
 header .content .logo .logo-label {
-	width: 112px;
-	font-size: 2.1rem;
-	color: #f6f6f6;
+	width: 100px;
+	font-size: 1.8rem;
+	color: var(--solarized-green);
 	font-weight: 650;
 	letter-spacing: 1px;
 	font-family: var(--nunito);
 }
 
-header .content .stats {
-	height: 60px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 1.2rem;
-	font-weight: 450;
-	font-family: var(--mona-sans);
-}
-
 header .content .profile {
-	width: 250px;
+	width: 235px;
 	height: 100%;
-	/* background-color: rgb(0, 0, 0, 0.2); */
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 header .content .profile .picture {
 	width: 50px;
@@ -76,8 +65,8 @@ header .content .profile .picture {
 }
 header .content .profile .picture img,
 header .content .profile .picture i.fa-user {
-	height: 50px;
-	width: 50px;
+	height: 45px;
+	width: 45px;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -94,10 +83,10 @@ header .content .profile .user {
 	justify-content: center;
 }
 header .content .profile .user .name {
-	font-size: 1rem;
+	font-size: 0.9rem;
 	color: var(--gruvbox-fg1);
 }
 header .content .profile .user .username {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	color: var(--gruvbox-bg4);
 }
