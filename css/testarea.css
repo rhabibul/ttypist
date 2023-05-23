@@ -11,6 +11,8 @@ text {
   row-gap: 0px;
   user-select: none;
   background-color: var(--caret-color-hidden);
+
+  margin-left: 5px; /* --remove-- */
 }
 
 text word {
