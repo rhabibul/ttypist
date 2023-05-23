@@ -1,9 +1,9 @@
-import Config from "../include/config.js";
-import * as CaretHandler from "../handler/carethandler.js";
-import * as TestAreaElement from "../HTMLElement/TestAreaElement.js";
+import Config from "../../include/config.js";
+import * as CaretController from "../controllers/caret-controller.js";
+import * as TestAreaElement from "../elements/testarea-elements.js";
 import * as Misc from "../utils/misc.js";
 
-import { time, typedchar, mInput } from "./statskeeper.js";
+import { time, typedchar, mInput } from "../../include/stats-trackers.js";
 import { Test, text, word } from "../main.js";
 
 let wasSpace = false;
@@ -31,7 +31,7 @@ export function registerkeydown(evt) {
 
 		wasSpace = true;
 		
-		CaretHandler.removecaretfrom(word.activeletter);
+		CaretController.removecaretfrom(word.activeletter);
 
 		if ( Config.underline && (text.activewordindex > 0) ) {
 			removeunderline(text.prevword);
@@ -41,11 +41,11 @@ export function registerkeydown(evt) {
 		if ( Config.underline ) {
 			addunderline(text.activeword);
 		}
-		CaretHandler.addcaretto(word.activeletter);
+		CaretController.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
 
-		CaretHandler.removecaretfrom(word.activeletter);
+		CaretController.removecaretfrom(word.activeletter);
 
 		word.activeletter.classList.add("correct");
 		if ( Config.underline ) {
@@ -53,14 +53,14 @@ export function registerkeydown(evt) {
 		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
-			CaretHandler.addcaretto(word.nextletter);
+			CaretController.addcaretto(word.nextletter);
 		} else {
 
 			if ( word.activeletterindex === word.lastletterindex ) { // load next word
 
 				if ( text.activewordindex < text.lastwordindex ) {
 					word.loadword(text.nextword, { nextword: true });
-					CaretHandler.addcaretto(word.activeletter);
+					CaretController.addcaretto(word.activeletter);
 				}	
 
 				if ( text.activewordindex === text.lastwordindex ) { // test complete
@@ -77,10 +77,10 @@ export function registerkeydown(evt) {
 
 		if ( evt.metaKey ) { // cmd + backspace
 
-			CaretHandler.removecaretfrom(word.activeletter);
+			CaretController.removecaretfrom(word.activeletter);
 			text.resetwordindex();
 			word.loadword(text.activeword, { activeword: true });
-			CaretHandler.addcaretto(word.activeletter);
+			CaretController.addcaretto(word.activeletter);
 
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + backspace
 
@@ -90,15 +90,15 @@ export function registerkeydown(evt) {
 					text.decrementwordindex();
 				}
 
-				CaretHandler.removecaretfrom(word.activeletter);
+				CaretController.removecaretfrom(word.activeletter);
 				word.loadword(text.prevword, { prevword: true });
-				CaretHandler.addcaretto(word.activeletter);
+				CaretController.addcaretto(word.activeletter);
 			}
 
 			// delete all typed letters of the active word and put caret to first letter
-			CaretHandler.removecaretfrom(word.activeletter);
+			CaretController.removecaretfrom(word.activeletter);
 			word.resetletterindex();
-			CaretHandler.addcaretto(word.activeletter);
+			CaretController.addcaretto(word.activeletter);
 
 		} else { // backspace
 
@@ -108,8 +108,8 @@ export function registerkeydown(evt) {
 				if ( Config.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
 				}
-				CaretHandler.removecaretfrom(word.activeletter);
-				CaretHandler.addcaretto(word.prevletter);
+				CaretController.removecaretfrom(word.activeletter);
+				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
@@ -118,7 +118,7 @@ export function registerkeydown(evt) {
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
-				CaretHandler.removecaretfrom(word.activeletter);
+				CaretController.removecaretfrom(word.activeletter);
 				word.loadword(text.prevword, { prevword: true });
 				
 				if ( Config.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
@@ -130,7 +130,7 @@ export function registerkeydown(evt) {
 				if ( Config.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
 				}
-				CaretHandler.addcaretto(word.activeletter);
+				CaretController.addcaretto(word.activeletter);
 			}
 		}
 	} else {
@@ -170,22 +170,22 @@ export function registerinput(evt) {
 
 			TestAreaElement.input.value = "";
 			
-			CaretHandler.removecaretfrom(word.activeletter);
+			CaretController.removecaretfrom(word.activeletter);
 			word.loadword(text.nextword, { nextword: true });
-			CaretHandler.addcaretto(word.activeletter);
+			CaretController.addcaretto(word.activeletter);
 			
 		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
 			
-			CaretHandler.removecaretfrom(word.activeletter);
+			CaretController.removecaretfrom(word.activeletter);
 	
 			if ( word.activeletterindex < word.lastletterindex ) {
-				CaretHandler.addcaretto(word.nextletter);
+				CaretController.addcaretto(word.nextletter);
 			} else {
 	
 				if ( word.activeletterindex === word.lastletterindex ) {
 					if ( text.activewordindex < text.lastwordindex ) { // load next word
 						word.loadword(text.nextword, { nextword: true });
-						CaretHandler.addcaretto(word.activeletter);
+						CaretController.addcaretto(word.activeletter);
 					}	
 	
 					if ( text.activewordindex === text.lastwordindex ) { // test complete
@@ -213,7 +213,7 @@ export function registerkeyup(evt) {
 
 	if ( Config.ttypist.hastypedeveryword ) {
 		TestAreaElement.input.blur();
-		CaretHandler.removecaretfrom(word.activeletter);
+		CaretController.removecaretfrom(word.activeletter);
 		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 		Test.restart();
 	}

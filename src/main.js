@@ -1,15 +1,13 @@
-import Config from "./include/config.js";
-import Text from "./include/text.js";
-import Word from "./include/word.js";
+import Config from "../include/config.js";
+import Text from "../include/text.js";
+import Word from "../include/word.js";
 
 import * as Misc from "./utils/misc.js";
-import * as SettingUI from "./ui/SettingUI.js";
 import * as CaretHandler from "./handler/carethandler.js";
-import * as SettingElement from "./HTMLElement/SettingElement.js";
 import * as TestAreaElement from "./HTMLElement/TestAreaElement.js";
 
-import { time, typedchar, mInput } from "./testlogic/statskeeper.js";
-import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./testlogic/logic.js"; 
+import { time, typedchar, mInput } from "../include/stats.js";
+import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js"; 
 
 export const text = new Text();
 export const word = new Word();
