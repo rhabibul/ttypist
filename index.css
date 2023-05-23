@@ -1,0 +1,242 @@
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"), url("./static/fonts/robotomono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 700;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"), url("./static/fonts/nunito.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: local("Mona Sans"), url("./static/fonts/monasans.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ------------- gruvbox color palette ------------- */
+  --gruvbox-bg0_h:      #1d2021;
+  --gruvbox-bg0:        #282828;
+  --gruvbox-bg0_s:      #32302f;
+  --gruvbox-bg1:        #3c3836;
+  --gruvbox-bg2:        #504945;
+  --gruvbox-bg3:        #665c54;
+  --gruvbox-bg4:        #7c6f64;
+  --gruvbox-fg4:        #a89984;
+  --gruvbox-fg3:        #bdae93;
+  --gruvbox-fg2:        #d5c4a1;
+  --gruvbox-fg1:        #ebdbb2;
+  --gruvbox-fg0_s:      #f2e5bc;
+  --gruvbox-fg0:        #fbf1c7;
+  --gruvbox-fg0_h:      #f9f5d7;
+  --gruvbox-gray:       #928374;
+  --gruvbox-red:        #fb4934;
+  --gruvbox-red-dim:    #cc241d;
+  --gruvbox-green:      #b8bb26;
+  --gruvbox-green-dim:  #98971a;
+  --gruvbox-yellow:     #fabd2f;
+  --gruvbox-yellow-dim: #d79921;
+  --gruvbox-blue:       #83a598;
+  --gruvbox-blue-dim:   #458588;
+  --gruvbox-purple:     #d3869b;
+  --gruvbox-purple-dim: #b16286;
+  --gruvbox-aqua:       #8ec07c;
+  --gruvbox-aqua-dim:   #689d6a;
+  --gruvbox-orange:     #fe8019;
+  --gruvbox-orange-dim: #d65d0e;
+
+
+  /* ------------- gruvbox color palette ------------- */
+  --molokai-bg0:     #272822;
+  --molokai-bg1:     #3e3d32;
+  --molokai-bg2:     #75715e;
+  --molokai-fg0:     #f8f8f2;
+  --molokai-fg1:     #cfcfc2;
+  --molokai-yellow:  #e6db74;
+  --molokai-orange:  #fd971f;
+  --molokai-red:     #f92672;
+  --molokai-magenta: #fd5ff0;
+  --molokai-violet:  #ae81ff;
+  --molokai-blue:    #66d9ef;
+  --molokai-cyan:    #a1efe4;
+  --molokai-green:   #a6e22e;
+
+
+  /* ------------- cobalt color palette ------------- */
+  /* add more, incomplete... */
+  --cobalt-blue:            #193549;
+  --cobalt-blue-highlight:  #1F4662;
+  --cobalt-blue-highlight2: #234E6D;
+  --cobalt-dark-blue:       #122738;
+  --cobalt-yellow:          #ffc600;
+  --cobalt-hot-pink:        #ff0088;
+  --cobalt-blush-pink:      #ff628c;
+  --cobalt-orange:          #ff9d00;
+
+
+  /* ------------- solarized color palette ------------- */
+  --solarized-base03:    #002b36;
+  --solarized-base02:    #073642;
+  --solarized-base01:    #586e75;
+  --solarized-base00:    #657b83;
+  --solarized-base0:     #839496;
+  --solarized-base1:     #93a1a1;
+  --solarized-base2:     #eee8d5;
+  --solarized-base3:     #fdf6e3;
+  --solarized-yellow:    #b58900;
+  --solarized-orange:    #cb4b16;
+  --solarized-red:       #dc322f;
+  --solarized-magenta:   #d33682;
+  --solarized-violet:    #6c71c4;
+  --solarized-blue:      #268bd2;
+  --solarized-cyan:      #2aa198;
+  --solarized-green:     #859900;
+
+  /* ------------- default white color palette ------------- */
+  --default-bg0_h: #ffffff;
+  --default-bg0: #f9f8f8;
+  --default-bg0_s: #f5f5f5;
+}
+
+:root {
+  --nunito: "Nunito", monospace;
+  --mona-sans: "Mona Sans", monospace;
+  --roboto-mono: "Roboto Mono", monospace;
+  --monospace: monospace; 
+
+  --textsize: 1.2rem;
+  --textweight: 450;
+  --textfamily: var(--roboto-mono);
+  --textcolor-primary: #1d2021;
+  --textcolor-secondary: #7b7b7b;
+
+  --error: #ff0000; /* normal error */
+  --error-extra: #a30d0d; /* extra inserted error */
+
+  --underline-offset: 1px;
+  --underline-thickness: 2px;
+
+  --caret-color: red;
+  --caret-color-hidden: var(--default-bg0_h);
+  
+  --caret-offset-box: -1px; /* box caret offset */
+  --caret-width-box: 1px; /* box caret width */
+  --caret-width-line: 1px; /* line caret width */
+  --caret-width-underline: 2px; /* underline caret width */
+  --caret-block-color: whitesmoke; /* text color under block caret */
+  --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
+
+  --caret-animation-delay: 1.5s;
+  --caret-animation-duration: 1.17s;
+  --caret-animation-iteration-count: 20;
+  --caret-animation-timing-function: ease-out;
+
+  --setting-caret-color: #393838;
+  --setting-caret-shape-width: 10px;
+  --setting-caret-shape-height: 20px;
+  --setting-caret-shape-container-width: 24px;
+  --setting-caret-shape-container-height: 34px;
+  
+  --active-foreground: #f3f3f3;
+  --inactive-foreground: #484848;
+  --active-background: #484848;
+  --inactive-background: #f3f3f3;
+}
+
+body {
+  /* removes blue background hightlighting on mobile browser when clicked on board cells */
+  -webkit-tap-highlight-color: transparent;
+  
+  width: 100%;
+  height: 100%;
+  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--default-bg0_h);
+  row-gap: 10px;
+}
+
+.none {
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
+
+/* used for fading out the typed letters in letter highlight mode */
+.fade {
+  color: #9b9b9b;
+}
+
+/* used to highlight active word in word highlight mode */
+.active {
+  color: black;
+}
+
+/* used for correctly typed letters */
+.correct {
+  color: var(--textcolor-secondary);
+}
+
+/* used for incorrectly typed letters */
+.incorrect {
+  color: var(--error-primary);
+}
+
+/* used for extra letters which are inserted in the text */
+.extra {
+  color: var(--error-secondary);
+}
+
+/* used to mark the word as incorrect i.e, word with mistakes */
+.error {
+  color: var(--error);
+  text-decoration-color: var(--error-extra);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
+  text-decoration-skip-ink: all;
+}
+
+/* used to underline active word in word and letter highlight mode */
+.____ {
+  text-decoration-color: var(--textcolor);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
+
+  /* all: the browser must interrupt underlines and overlines so that they do not touch
+          or closely approach a glyph. 
+    none: drawn across the full length of the text content, including parts that
+          cross over glyph descenders and ascenders. */
+  text-decoration-skip-ink: all;
+}
+
+/* used for selected item */
+#chosen {
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+}
