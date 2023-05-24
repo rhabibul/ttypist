@@ -72,14 +72,24 @@ export function wordelements(s) {
 
     // create a word which will only contain a letter with whitespace in it
     word = document.createElement("word");
-    letter = document.createElement("letter");
+    letter = document.createElement("letter");    
+
+    letter.classList.add(Config.caret.type);
     letter.classList.add("whitespace");
     
-    if ( Config.text.whitespace.off ) {
-      
+    if ( Config.text.whitespace.type.bullet ) {
+      letter.classList.add("bullet");
+      letter.innerHTML = `&nbsp;`;
+    } else if ( Config.text.whitespace.type.bar ) {
+      letter.classList.add("bar");
+      letter.innerHTML = `␣`;
+    } else if ( Config.text.whitespace.type.space ) {
+      letter.classList.add("space");
+      letter.innerHTML = `&nbsp;`;
+    } else {
+      letter.classList.add("off");
+      letter.innerHTML = ``;
     }
-    letter.classList.add(Config.caret.type);
-    letter.innerHTML = `&nbsp;`;
     
     word.appendChild(letter);
     wordarray.push(word);

@@ -1,27 +1,6 @@
 import Config from "../include/config.js";
 import * as MiscElement from "../src/elements/misc-elements.js";
 
-if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-	console.log("DARK MODE");
-} else {
-	console.log("LIGHT MODE");
-}
-// const runColorMode = (fn) => {
-//   if (!window.matchMedia) {
-//     return;
-//   }
-//   const query = window.matchMedia('(prefers-color-scheme: dark)');
-//   fn(query.matches);
-//   query.addEventListener('change', (event) => fn(event.matches));
-// }
-// runColorMode((isDarkMode) => {
-//   if (isDarkMode) {
-//     document.body.classList.add('dark-mode');
-//   } else {
-//     document.body.classList.remove('dark-mode');
-//   }
-// })
-
 // config debug
 window.addEventListener("click", () => {
 	
@@ -109,3 +88,24 @@ window.addEventListener("online", (evt) => {
 // 	console.log(d, d.length);
 // 	console.log(sym, sym.length);
 // });
+
+if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+	console.log("DARK MODE");
+} else {
+	console.log("LIGHT MODE");
+}
+// const runColorMode = (fn) => {
+//   if (!window.matchMedia) {
+//     return;
+//   }
+//   const query = window.matchMedia('(prefers-color-scheme: dark)');
+//   fn(query.matches);
+//   query.addEventListener('change', (event) => fn(event.matches));
+// }
+// runColorMode((isDarkMode) => {
+//   if (isDarkMode) {
+//     document.body.classList.add('dark-mode');
+//   } else {
+//     document.body.classList.remove('dark-mode');
+//   }
+// })

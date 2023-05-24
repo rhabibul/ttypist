@@ -87,11 +87,11 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: true,
-        bullet: false,
-        bar: false,
+        space: true, // 160 | '&nbsp'
+        bullet: false, // 0 | '•' (8226) -> ::after is used to draw bullet not this character
+        bar: false, // 9251 | '␣'
       },
-      code: 160, // 160(space) | 9251(bar)
+      code: 160, // 160 | 9251
       character: "&nbsp;", // '&nbsp', '␣'
     },
     word: {
