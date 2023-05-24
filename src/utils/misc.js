@@ -132,7 +132,7 @@ export function validtext(text) {
   return false;
 }
 
-export function startautotyper(wpm) {
+export function autotyper(wpm) {
 
   const keystroke_interval = (60000 / (wpm * 5));
 	const letters = document.getElementsByTagName("letter");
@@ -148,7 +148,7 @@ export function startautotyper(wpm) {
 
 	setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
-    // keep some delay between keydown & keyup to avoid getting caught
+    // keep some delay between keydown & keyup to avoid getting caught by cheat detector
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
 		if ( i == s.length - 1 ) clearInterval(id);
