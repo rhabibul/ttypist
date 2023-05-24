@@ -1,12 +1,9 @@
 import Config from "../../include/config.js";
-
-// import w1k from "../../static/texts/words/w1k.js";
-import w3k from "../../static/texts/words/w3k.js";
-// import rootword from "../../static/texts/words/root-words.js";
-
-
 import * as MiscElement from "../elements/misc-elements.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
+import w3k from "../../static/texts/words/w3k.js";
+// import w1k from "../../static/texts/words/w1k.js";
+// import rootword from "../../static/texts/words/root-words.js";
 
 export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === 160;
@@ -77,6 +74,10 @@ export function wordelements(s) {
     word = document.createElement("word");
     letter = document.createElement("letter");
     letter.classList.add("whitespace");
+    
+    if ( Config.text.whitespace.off ) {
+      
+    }
     letter.classList.add(Config.caret.type);
     letter.innerHTML = `&nbsp;`;
     

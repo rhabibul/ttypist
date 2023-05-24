@@ -1,10 +1,10 @@
-import Config from "../../include/config.js";
 import * as Const from "../../include/constants.js";
 import * as MiscElement from "../elements/misc-elements.js"
 
 export function fliphighlightcolor() {
-	const primary = Const.css.getPropertyValue("--textcolor-primary");
-	MiscElement.root.style.setProperty("--textcolor-primary", Const.css.getPropertyValue("--textcolor-secondary"));
+	const css = getComputedStyle(MiscElement.root);
+	const primary = css.getPropertyValue("--textcolor-primary");
+	MiscElement.root.style.setProperty("--textcolor-primary", css.getPropertyValue("--textcolor-secondary"));
 	MiscElement.root.style.setProperty("--textcolor-secondary", primary);
 }
 

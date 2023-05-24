@@ -1,15 +1,17 @@
 import Config from "../../include/config.js";
 import { word } from "../main.js";
 import * as Misc from "../utils/misc.js";
-import * as Const from "../../include/constants.js";
 import * as CaretController from "../controllers/caret-controller.js";
 import * as SettingElement from "../elements/settings-elements.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
 
-const active_foreground = Const.css.getPropertyValue("--active-foreground");
-const active_background = Const.css.getPropertyValue("--active-background");
-const inactive_foreground = Const.css.getPropertyValue("--inactive-foreground");
-const inactive_background = Const.css.getPropertyValue("--inactive-background");
+
+const css = getComputedStyle(document.querySelector(":root"));
+
+const active_foreground = css.getPropertyValue("--active-foreground");
+const active_background = css.getPropertyValue("--active-background");
+const inactive_foreground = css.getPropertyValue("--inactive-foreground");
+const inactive_background = css.getPropertyValue("--inactive-background");
 
 export function applyupdatedcaret(prev) {
   CaretController.removecaretfrom(word.activeletter);
@@ -262,25 +264,25 @@ export function changeUIinputareaButtonTo(visibility) {
 // whitespace
 export function changeUIWhitespaceButtonTo(whitespace) {
 	if ( whitespace === "off" ) {
-		SettingElement.whitespace.bullet.id = "";
-		SettingElement.whitespace.space.id = "";
-		SettingElement.whitespace.bar.id = "";
+		SettingElement.whitespace.type.bullet.id = "";
+		SettingElement.whitespace.type.space.id = "";
+		SettingElement.whitespace.type.bar.id = "";
 		SettingElement.whitespace.off.id = "chosen";
 	} else if ( whitespace === "bullet" ) {
 		SettingElement.whitespace.off.id = "";
-		SettingElement.whitespace.space.id = "";
-		SettingElement.whitespace.bar.id = "";
-		SettingElement.whitespace.bullet.id = "chosen";
+		SettingElement.whitespace.type.space.id = "";
+		SettingElement.whitespace.type.bar.id = "";
+		SettingElement.whitespace.type.bullet.id = "chosen";
 	} else if ( whitespace === "bar" ) {
 		SettingElement.whitespace.off.id = "";
-		SettingElement.whitespace.bullet.id = "";
-		SettingElement.whitespace.space.id = "";
-		SettingElement.whitespace.bar.id = "chosen";
+		SettingElement.whitespace.type.bullet.id = "";
+		SettingElement.whitespace.type.space.id = "";
+		SettingElement.whitespace.type.bar.id = "chosen";
 	} else {
 		SettingElement.whitespace.off.id = "";
-		SettingElement.whitespace.bullet.id = "";
-		SettingElement.whitespace.bar.id = "";
-		SettingElement.whitespace.space.id = "chosen";
+		SettingElement.whitespace.type.bullet.id = "";
+		SettingElement.whitespace.type.bar.id = "";
+		SettingElement.whitespace.type.space.id = "chosen";
 	}
 }
 

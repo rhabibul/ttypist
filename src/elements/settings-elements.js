@@ -103,9 +103,11 @@ export const stop = {
 
 export const whitespace = {
 	off: document.querySelector("whitespace off"),
-	bullet: document.querySelector("whitespace bullet"),
-	space: document.querySelector("whitespace space"),
-	bar: document.querySelector("whitespace bar"),
+	type: {
+		bullet: document.querySelector("whitespace bullet"),
+		space: document.querySelector("whitespace space"),
+		bar: document.querySelector("whitespace bar"),
+	},
 }
 
 export const underline = {

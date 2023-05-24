@@ -127,6 +127,9 @@
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #7b7b7b;
 
+  --whitespace-color: #b3b3b3;
+  --whitespace-color-active: #505050;
+
   --error: #ff0000; /* normal error */
   --error-extra: #a30d0d; /* extra inserted error */
 
@@ -143,9 +146,9 @@
   --caret-block-color: whitesmoke; /* text color under block caret */
   --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
 
-  --caret-animation-delay: 1.5s;
+  --caret-animation-delay: 2s;
   --caret-animation-duration: 1.17s;
-  --caret-animation-iteration-count: 20;
+  --caret-animation-iteration-count: 25;
   --caret-animation-timing-function: ease-out;
 
   --setting-caret-color: #393838;
@@ -228,10 +231,10 @@ body {
   text-underline-offset: var(--underline-offset);
   text-decoration-thickness: var(--underline-thickness);
 
-  /* all: the browser must interrupt underlines and overlines so that they do not touch
-          or closely approach a glyph. 
-    none: drawn across the full length of the text content, including parts that
-          cross over glyph descenders and ascenders. */
+  /* all - the browser must interrupt underlines and overlines so that they do not touch
+           or closely approach a glyph
+    none - drawn across the full length of the text content, including parts that
+           cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
 }
 

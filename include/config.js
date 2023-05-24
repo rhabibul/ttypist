@@ -85,10 +85,14 @@ export default {
       family: "Roboto Mono",
     },
     whitespace: {
-      off: false, // if enabled, no space will be there between two word
-      type: "space", // bullet | space | bar
-      code: 160, // 11825 | 160 | 9251
-      character: "&nbsp;", // '⸱', '&nbsp', '␣'   ('•' = 8226)
+      off: false, // nospace
+      type: {
+        space: true,
+        bullet: false,
+        bar: false,
+      },
+      code: 160, // 160(space) | 9251(bar)
+      character: "&nbsp;", // '&nbsp', '␣'
     },
     word: {
       type: "dictionary", // dictionary | root word | lorem epsum | quote | story

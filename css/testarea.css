@@ -49,21 +49,24 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-letter.whitespace {
+letter.whitespace.bullet {
   position: relative;
   margin-left: 1px;
   margin-right: 1px;
 }
-letter.whitespace::after {
+letter.whitespace.bullet::after {
   transform: translateY(1px);
   position: absolute;
   content: "";
   width: 4px;
   height: 4px;
-  opacity: 1; /* will use for word highlight mode */
+  opacity: 1;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #b3b3b3;
+  background-color: var(--whitespace-color);
+}
+letter.whitespace.whitespace-color-active::after {
+  background-color: var(--whitespace-color-active);
 }

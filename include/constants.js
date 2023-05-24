@@ -1,5 +1,3 @@
-export const css = getComputedStyle(document.querySelector(":root"));
-
 export const notprintable = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
   'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',

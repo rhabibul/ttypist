@@ -91,9 +91,9 @@ SettingElement.stop.word.addEventListener("click", updatestop);
 
 // whitespace
 SettingElement.whitespace.off.addEventListener("click", updatewhitespace);
-SettingElement.whitespace.bullet.addEventListener("click", updatewhitespace);
-SettingElement.whitespace.space.addEventListener("click", updatewhitespace);
-SettingElement.whitespace.bar.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.type.bullet.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.type.space.addEventListener("click", updatewhitespace);
+SettingElement.whitespace.type.bar.addEventListener("click", updatewhitespace);
 
 // underline
 SettingElement.underline.off.addEventListener("click", updateunderline);
@@ -217,31 +217,39 @@ function updatewhitespace(evt) {
 
   if ( !evt.isTrusted ) return;
   if ( this.dataset.value === "off" && Config.text.whitespace.off ) return;
-  if ( this.dataset.value === "bullet" && Config.text.whitespace.type === "bullet" ) return;
-  if ( this.dataset.value === "space" && Config.text.whitespace.type === "space" ) return;
-  if ( this.dataset.value === "bar" && Config.text.whitespace.type === "bar" ) return;
+  if ( this.dataset.value === "bullet" && Config.text.whitespace.type.bullet ) return;
+  if ( this.dataset.value === "space" && Config.text.whitespace.type.space ) return;
+  if ( this.dataset.value === "bar" && Config.text.whitespace.type.bar ) return;
   
   SettingUI.changeUIWhitespaceButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "off" ) {
     Config.text.whitespace.off = true;
-    Config.text.whitespace.type = "off";
-    Config.text.whitespace.code = -1;
+    Config.text.whitespace.type.space = false;
+    Config.text.whitespace.type.bullet = false;
+    Config.text.whitespace.type.bar = false;
+    Config.text.whitespace.code = Number.parseInt(this.dataset.code); // -1
     Config.text.whitespace.character = "";
   } else if ( this.dataset.value === "bullet" ) {
     Config.text.whitespace.off = false;
-    Config.text.whitespace.type = "bullet";
-    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.type.space = false;
+    Config.text.whitespace.type.bullet = true;
+    Config.text.whitespace.type.bar = false;
+    Config.text.whitespace.code = Number.parseInt(this.dataset.code); // 0
     Config.text.whitespace.character = this.dataset.character;
   } else if ( this.dataset.value === "bar" ) {
     Config.text.whitespace.off = false;
-    Config.text.whitespace.type = "bar";
-    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.type.space = false;
+    Config.text.whitespace.type.bullet = false;
+    Config.text.whitespace.type.bar = true;
+    Config.text.whitespace.code = Number.parseInt(this.dataset.code); // 9251
     Config.text.whitespace.character = this.dataset.character;
   } else {
     Config.text.whitespace.off = false;
-    Config.text.whitespace.type = "space";
-    Config.text.whitespace.code = this.dataset.code;
+    Config.text.whitespace.type.space = true;
+    Config.text.whitespace.type.bullet = false;
+    Config.text.whitespace.type.bar = false;
+    Config.text.whitespace.code = Number.parseInt(this.dataset.code); // 160
     Config.text.whitespace.character = this.dataset.character;
   }
 }

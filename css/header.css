@@ -6,8 +6,9 @@ header {
 	justify-content: center;
 	
 	font-family: var(--mona-sans);
-	color: var(--gruvbox-fg2);
-  background-color: var(--gruvbox-bg0_h);
+	color: black;
+	border-bottom: 1px solid whitesmoke;
+  background-color: rgba(245, 245, 245, 0.4);
 }
 
 header .content {
@@ -44,8 +45,7 @@ header .content .logo .logo-icon img {
 header .content .logo .logo-label {
 	width: 100px;
 	font-size: 1.8rem;
-	color: var(--solarized-green);
-	font-weight: 650;
+	font-weight: 750;
 	letter-spacing: 1px;
 	font-family: var(--nunito);
 }
@@ -84,9 +84,11 @@ header .content .profile .user {
 }
 header .content .profile .user .name {
 	font-size: 0.9rem;
-	color: var(--gruvbox-fg1);
+	color: #424242;
+	font-weight: 475;
 }
 header .content .profile .user .username {
 	font-size: 0.8rem;
-	color: var(--gruvbox-bg4);
+	font-weight: 400;
+	color: #a2a2a2;
 }

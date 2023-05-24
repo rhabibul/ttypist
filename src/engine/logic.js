@@ -2,7 +2,7 @@ import Config from "../../include/config.js";
 import * as CaretController from "../controllers/caret-controller.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
 import * as Misc from "../utils/misc.js";
-
+import * as Const from "../../include/constants.js";
 import { time, typedchar, mInput } from "../../include/stats-trackers.js";
 import { Test, text, word } from "../main.js";
 
@@ -29,6 +29,12 @@ export function registerkeydown(evt) {
 
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
+		if ( !Config.fliphighlightcolor ) {
+			word.activeletter.classList.remove("whitespace-color-active");
+		} else {
+			word.activeletter.classList.add("whitespace-color-active");
+		}
+		
 		wasSpace = true;
 		
 		CaretController.removecaretfrom(word.activeletter);
@@ -37,7 +43,9 @@ export function registerkeydown(evt) {
 			removeunderline(text.prevword);
 			text.incrementwordindex();
 		}
+
 		word.loadword(text.nextword, { nextword: true });
+		
 		if ( Config.underline ) {
 			addunderline(text.activeword);
 		}
@@ -56,14 +64,20 @@ export function registerkeydown(evt) {
 			CaretController.addcaretto(word.nextletter);
 		} else {
 
-			if ( word.activeletterindex === word.lastletterindex ) { // load next word
+			// load next word
+			if ( word.activeletterindex === word.lastletterindex ) {
 
 				if ( text.activewordindex < text.lastwordindex ) {
 					word.loadword(text.nextword, { nextword: true });
 					CaretController.addcaretto(word.activeletter);
 				}	
 
-				if ( text.activewordindex === text.lastwordindex ) { // test complete
+				if ( !Config.fliphighlightcolor ) { 
+					word.activeletter.classList.add("whitespace-color-active");
+				}
+
+				// test complete
+				if ( text.activewordindex === text.lastwordindex ) {
 					time.end = window.performance.now();
 					Config.ttypist.hastypedeveryword = true;
 					return;
