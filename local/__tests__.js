@@ -24,14 +24,7 @@ if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
 
 // config debug
 window.addEventListener("click", () => {
-	console.log(
-		Config.text.whitespace.off,
-		Config.text.whitespace.type.space,
-		Config.text.whitespace.type.bullet,
-		Config.text.whitespace.type.bar,
-		Config.text.whitespace.code,
-		Config.text.whitespace.character,
-	);
+	
 });
 
 window.addEventListener('load', (evt) => {
