@@ -54,6 +54,7 @@ letter {
 }
 
 letter.whitespace::after {
+  transform: translateY(1px);
   position: absolute;
   content: "";
   width: 4px;
