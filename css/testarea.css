@@ -48,3 +48,20 @@ input#textinput {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
+
+letter {
+  position: relative;
+}
+
+letter.whitespace::after {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  opacity: 1; /* will use for word highlight mode */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+}
