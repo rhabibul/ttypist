@@ -88,7 +88,7 @@ export default {
       off: false, // nospace
       type: {
         space: true, // 160 | '&nbsp'
-        bullet: false, // 0 | '•' {::after is used to draw bullet}
+        bullet: false, // 0 | '•'   [::after is used to draw bullet character]
         bar: false, // 9251 | '␣'
       },
       code: 160, // 160 | 9251
