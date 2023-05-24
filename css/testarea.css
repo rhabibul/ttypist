@@ -49,10 +49,11 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-letter {
+letter.whitespace {
   position: relative;
+  margin-left: 1px;
+  margin-right: 1px;
 }
-
 letter.whitespace::after {
   transform: translateY(1px);
   position: absolute;
@@ -64,5 +65,5 @@ letter.whitespace::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
+  background-color: #b3b3b3;
 }
