@@ -79,16 +79,16 @@ export function wordelements(s) {
     
     if ( Config.text.whitespace.type.bullet ) {
       letter.classList.add("bullet");
-      letter.innerHTML = `&nbsp;`;
+      letter.innerHTML = "&nbsp;";
     } else if ( Config.text.whitespace.type.bar ) {
       letter.classList.add("bar");
-      letter.innerHTML = `␣`;
+      letter.innerHTML = "␣";
     } else if ( Config.text.whitespace.type.space ) {
       letter.classList.add("space");
-      letter.innerHTML = `&nbsp;`;
+      letter.innerHTML = "&nbsp;";
     } else {
       letter.classList.add("off");
-      letter.innerHTML = ``;
+      letter.innerHTML = "";
     }
     
     word.appendChild(letter);
