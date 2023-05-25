@@ -4,14 +4,14 @@ export default {
     hastypedeveryword: false,
   },
   deviceinformation: "comma,separated,value",
-  theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
-  language: "english", // english | hindi | bengali | arabic | russian
   dynamicsettingchange: true, // apply settings instantly without restart test
-  tape: false,
+  inputarea: "hidden", // hidden | visible
+  tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
   oppositeshift: false, // ignore B, Y, ^
   underline: true, // underline word being typed
   endwithspace: false, // test ends only after typing a space after typing last word
-  inputarea: "hidden", // hidden | visible
+  blind: false, // no errors or incorrect words are highlighted
+  strictspace: true, // hitting space doesn't move caret to next word instead inserts it
   scroll: "abrupt", // abrupt | smooth
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
@@ -73,6 +73,7 @@ export default {
       letter: false,
     },
   },
+  theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
   text: {
     length: 0, // number of characters in text
     color: {
@@ -104,6 +105,7 @@ export default {
       punctuation: false, // .?",-';:()[]{}/...
     },
   },
+  language: "english", // english | hindi | bengali | arabic | russian | +indian-languages
   keyboard: {
     off: false,
     reaction: "react", // off | static | react | next
@@ -147,3 +149,5 @@ export default {
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
+
+// hitting space before typing the last letter of the word moves caret to next word
