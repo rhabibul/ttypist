@@ -12,14 +12,12 @@ mInput.keydownUnidentified = true;
 // 1. keydown
 export function registerkeydown(evt) {
 
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 
-	// console.log(evt.key, evt.isTrusted);
-
-	// if ( (evt.key === "Unidentified") || (evt.code === "") ) {
-	// 	mInput.keydownUnidentified = true;
-	// 	return;
-	// }
+	if ( (evt.key === "Unidentified") || (evt.code === "") ) {
+		mInput.keydownUnidentified = true;
+		return;
+	}
 
 	if ( !Config.ttypist.istyping ) {
 		time.begin = performance.now();
@@ -150,26 +148,24 @@ export function registerkeydown(evt) {
 			}
 		}
 	} else {
-		// if ( !Const.NOT_PRINTABLE.includes(typedchar.value) ) {
-		// 	word.activeletter.classList.add("____");
-		// }
+		// error handling..
 	}
 }
 
 // 2. keypress
 export function registerkeypress(evt) {
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 }
 
 // 3. beforeinput
 export function registerbeforeinput(evt) {
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 }
 
 // 4. input
 export function registerinput(evt) {
 
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 
 	if ( mInput.keydownUnidentified ) {
 		
@@ -220,7 +216,7 @@ export function registerinput(evt) {
 // 5. keyup
 export function registerkeyup(evt) {
 
-	// if ( !evt.isTrusted ) return;
+	if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
 		TestAreaElement.input.value = "";

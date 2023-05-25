@@ -99,11 +99,9 @@ export function wordelements(s) {
 }
 
 export function autotyper(wpm) {
-
-  const keystroke_interval = (60000 / (wpm * 5));
-	const letters = document.getElementsByTagName("letter");
 	let i = 0, id = 0, s = "";
-
+  const letters = document.getElementsByTagName("letter");
+  const interval = (60000 / (wpm * 5));
 	for ( const l of letters ) {
 		if ( l.textContent.charCodeAt(0) === 160 ) {
 			s += " ";
@@ -111,15 +109,13 @@ export function autotyper(wpm) {
 			s += l.textContent;
 		}
 	}
-  
 	id = setInterval(() => {
-
-		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
+		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
 		if ( i == s.length - 1 ) clearInterval(id);
-	}, keystroke_interval);
+	}, interval);
 }
 
 export function deviceinformation() {

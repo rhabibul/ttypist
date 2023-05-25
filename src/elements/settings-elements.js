@@ -43,7 +43,7 @@ export const tape = {
 }
 
 export const difficulty = {
-	off: document.querySelector("difficulty off"),
+	noob: document.querySelector("difficulty noob"),
 	expert: document.querySelector("difficulty expert"),
 	master: document.querySelector("difficulty master"),
 }

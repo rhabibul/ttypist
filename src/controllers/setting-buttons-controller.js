@@ -47,7 +47,7 @@ SettingElement.tape.off.addEventListener("click", updatetape);
 SettingElement.tape.on.addEventListener("click", updatetape);
 
 // difficulty
-SettingElement.difficulty.off.addEventListener("click", updatedifficulty);
+SettingElement.difficulty.noob.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.expert.addEventListener("click", updatedifficulty);
 SettingElement.difficulty.master.addEventListener("click", updatedifficulty);
 
@@ -258,22 +258,22 @@ function updatewhitespace(evt) {
 function updatedifficulty(evt) {
 
   if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "off" && Config.difficulty.off ) return;
+  if ( this.dataset.value === "noob" && Config.difficulty.noob ) return;
   if ( this.dataset.value === "expert" && Config.difficulty.expert ) return;
   if ( this.dataset.value === "master" && Config.difficulty.master ) return;
 
   SettingUI.changeUIDifficultyButtonTo(this.dataset.value);
 
   if ( this.dataset.value === "expert" ) {
-    Config.difficulty.off = false;
+    Config.difficulty.noob = false;
     Config.difficulty.expert = true;
     Config.difficulty.master = false;
   } else if ( this.dataset.value === "master" ) {
-    Config.difficulty.off = false;
+    Config.difficulty.noob = false;
     Config.difficulty.expert = false;
     Config.difficulty.master = true;
   } else {
-    Config.difficulty.off = true;
+    Config.difficulty.noob = true;
     Config.difficulty.expert = false;
     Config.difficulty.master = false;
 
