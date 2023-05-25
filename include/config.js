@@ -9,7 +9,7 @@ export default {
   dynamicsettingchange: true, // apply settings instantly without restart test
   tape: false,
   oppositeshift: false, // ignore B, Y, ^
-  underline: false, // underline active word
+  underline: true, // underline word being typed
   endwithspace: false, // test ends only after typing a space after typing last word
   inputarea: "hidden", // hidden | visible
   scroll: "abrupt", // abrupt | smooth

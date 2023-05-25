@@ -98,40 +98,6 @@ export function wordelements(s) {
   return wordarray;
 }
 
-export function wordtags_tostring() {
-	let s = "", ws_code = 0;
-  let words = HTMLCollection("word", { tagname: true });
-	for ( let word of words ) {
-		let letters = word.children;
-		for ( let letter of letters ) {
-      ws_code = letter.textContent.charCodeAt(0);
-			if ( ws_code === 160 || ws_code === 11825 || ws_code === 9251 ) {
-				s += " ";
-			} else {
-				s += letter.textContent;
-			}
-		}
-	}
-  return s;
-}
-
-export function validtext(text) {
-  // text type must be object i.e, array and it should not be empty,
-  // every string should be in <word></word> tag and every character should
-  // be in <letter></letter> tag and no letter tag must contain more than
-  // one character
-  const validtype = typeof(text) === "object";
-  const notempty = text.length > 0;
-  const validwordtags = text.every((word) => word.tagName === "WORD");
-  const validlettertags = text.every((word) => {
-    return Array.from(word?.children).every((letter) => {
-      return letter.tagName === "LETTER" && letter.textContent.length === 1;
-    });
-  });
-  if (validtype && notempty && validwordtags && validlettertags) return true;
-  return false;
-}
-
 export function autotyper(wpm) {
 
   const keystroke_interval = (60000 / (wpm * 5));
@@ -145,8 +111,9 @@ export function autotyper(wpm) {
 			s += l.textContent;
 		}
 	}
+  
+	id = setInterval(() => {
 
-	setInterval(() => {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
@@ -156,8 +123,7 @@ export function autotyper(wpm) {
 }
 
 export function deviceinformation() {
-  let s = navigator.userAgent;
-  return { os: "", devicetype: "" };
+  return navigator.userAgent;
 }
 
 export function tolower(letter) { // Lowercase: 0'11'?????

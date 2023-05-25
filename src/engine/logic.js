@@ -12,12 +12,14 @@ mInput.keydownUnidentified = true;
 // 1. keydown
 export function registerkeydown(evt) {
 
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
-	if ( (evt.key === "Unidentified") || (evt.code === "") ) {
-		mInput.keydownUnidentified = true;
-		return;
-	}
+	// console.log(evt.key, evt.isTrusted);
+
+	// if ( (evt.key === "Unidentified") || (evt.code === "") ) {
+	// 	mInput.keydownUnidentified = true;
+	// 	return;
+	// }
 
 	if ( !Config.ttypist.istyping ) {
 		time.begin = performance.now();
@@ -26,7 +28,7 @@ export function registerkeydown(evt) {
 
 	typedchar.reset();
   typedchar.value = evt.key;
-
+	
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
 		if ( !Config.fliphighlightcolor ) {
@@ -156,18 +158,18 @@ export function registerkeydown(evt) {
 
 // 2. keypress
 export function registerkeypress(evt) {
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 }
 
 // 3. beforeinput
 export function registerbeforeinput(evt) {
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 }
 
 // 4. input
 export function registerinput(evt) {
 
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
 	if ( mInput.keydownUnidentified ) {
 		
@@ -218,7 +220,7 @@ export function registerinput(evt) {
 // 5. keyup
 export function registerkeyup(evt) {
 
-	if ( !evt.isTrusted ) return;
+	// if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
 		TestAreaElement.input.value = "";
@@ -244,5 +246,9 @@ export function addunderline(word) {
 		letter.classList.add("____");
 	}
 }
+
+// setTimeout(() => {
+	// Misc.autotyper(400);
+// }, 3000);
 
 export { text, word };
