@@ -128,6 +128,11 @@ function updatefocus(evt) {
   SettingUI.changeUIFocusButtonTo(this.dataset.value);
 }
 
+// setting
+//    - update internal state (config object)
+//    - update external state (ui changes - buttons)
+//    - update dependencies between among setting config options in both internal and external states
+
 // live
 function updatelive(evt) {
   

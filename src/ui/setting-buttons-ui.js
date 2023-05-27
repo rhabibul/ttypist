@@ -132,11 +132,11 @@ export function changeUIHighlightButtonTo(highlight) {
 // flip
 export function changeUIFliphighlightcolorButtonTo(state) {
 	if ( state === "on" ) {
-		SettingElement.flip.on.id = "chosen";
-		SettingElement.flip.off.id = "";
+		SettingElement.highlight.flipcolor.on.id = "chosen";
+		SettingElement.highlight.flipcolor.off.id = "";
 	} else {
-		SettingElement.flip.on.id = "";
-		SettingElement.flip.off.id = "chosen";
+		SettingElement.highlight.flipcolor.on.id = "";
+		SettingElement.highlight.flipcolor.off.id = "chosen";
 	}
 }
 

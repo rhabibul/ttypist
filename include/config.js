@@ -7,17 +7,26 @@ export default {
   },
   caret: {
     off: false,
-    type: "line", // off | line | underline | box | block
-    opacity: 1, // [0, 1] -> alpha's value in rgba
+    type: {
+      underline: false,
+      line: true,
+      box: false,
+      block: false,
+    },
+    opacity: 1, // rgba(r,g,b,a) a=[0, 1]
     color: "",
   },
   pacecaret: {
     off: true,
-    type: "line", // off | line | underline | box | block
-    opacity: 1, // [0, 1] -> alpha's value in rgba
+    type: {
+      underline: false,
+      line: true,
+      box: false,
+      block: false,
+    },
+    opacity: 1, // rgba(r,g,b,a) a=[0, 1]
     color: "",
     threshold: {
-      off: true,
       last: false, // previous speed
       average: false, // average of last 10 wpm
       custom: {
@@ -29,6 +38,10 @@ export default {
   inputarea: {
     hidden: true,
     visible: false,
+  },
+  scroll: {
+    abrupt: true,
+    smooth: false,
   },
   scroll: "abrupt", // abrupt | smooth
   tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
