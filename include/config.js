@@ -16,7 +16,7 @@ export default {
     type: "line", // off | line | underline | box | block
     opacity: 1, // [0, 1] -> alpha's value in rgba
     color: "",
-    against: {
+    threshold: {
       off: true,
       last: false, // previous speed
       average: false, // average of last 10 wpm
@@ -94,7 +94,7 @@ export default {
     flipcolor: false, // default: future text is brighter than the already typed text
   },
   text: {
-    length: 0, // number of characters in text
+    length: 0, // number of characters in the text
     color: {
       primary: "#1d2021", // future text, text which needs to be typed
       secondary: "#7b7b7b", // past text, text which has been typed

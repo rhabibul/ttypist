@@ -30,10 +30,8 @@ SettingElement.pacecaret.underline.addEventListener("click", updatepacecaret);
 SettingElement.highlight.off.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.letter.addEventListener("click", updatehighlight);
 SettingElement.highlight.mode.word.addEventListener("click", updatehighlight);
-
-// fliphighlightcolor
-SettingElement.flip.off.addEventListener("click", updatefliphighlightcolor);
-SettingElement.flip.on.addEventListener("click", updatefliphighlightcolor);
+SettingElement.highlight.flipcolor.off.addEventListener("click", updatefliphighlightcolor);
+SettingElement.highlight.flipcolor.on.addEventListener("click", updatefliphighlightcolor);
 
 // backspace
 SettingElement.backspace.off.addEventListener("click", updatebackspace);
@@ -556,13 +554,13 @@ function updatebackspace(evt) {
 function updatefliphighlightcolor(evt) {
 
   if ( !evt.isTrusted ) return;
-  if ( this.dataset.value === "off" && !Config.fliphighlightcolor ) return;
-  if ( this.dataset.value === "on" && Config.fliphighlightcolor ) return;
+  if ( this.dataset.value === "off" && !Config.highlight.flipcolor ) return;
+  if ( this.dataset.value === "on"  &&  Config.highlight.flipcolor ) return;
   
   if ( this.dataset.value === "off" ) {
-    Config.fliphighlightcolor = false;
+    Config.highlight.flipcolor = false;
   } else {
-    Config.fliphighlightcolor = true;
+    Config.highlight.flipcolor = true;
   }
   SettingUI.changeUIFliphighlightcolorButtonTo(this.dataset.value);
   TestUI.fliphighlightcolor();
