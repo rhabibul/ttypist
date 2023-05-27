@@ -12,7 +12,7 @@ text {
   user-select: none;
   background-color: var(--caret-color-hidden);
 
-  margin-left: 5px; /* --remove-- */
+  margin: 0px 10px; /* --remove-- */
 }
 
 text word {

@@ -30,8 +30,8 @@
   box-sizing: border-box;
 }
 
+/* ---------- color palette ---------- */
 :root {
-  /* ------------- gruvbox color palette ------------- */
   --gruvbox-bg0_h:      #1d2021;
   --gruvbox-bg0:        #282828;
   --gruvbox-bg0_s:      #32302f;
@@ -62,8 +62,6 @@
   --gruvbox-orange:     #fe8019;
   --gruvbox-orange-dim: #d65d0e;
 
-
-  /* ------------- gruvbox color palette ------------- */
   --molokai-bg0:     #272822;
   --molokai-bg1:     #3e3d32;
   --molokai-bg2:     #75715e;
@@ -78,9 +76,6 @@
   --molokai-cyan:    #a1efe4;
   --molokai-green:   #a6e22e;
 
-
-  /* ------------- cobalt color palette ------------- */
-  /* add more, incomplete... */
   --cobalt-blue:            #193549;
   --cobalt-blue-highlight:  #1F4662;
   --cobalt-blue-highlight2: #234E6D;
@@ -90,8 +85,6 @@
   --cobalt-blush-pink:      #ff628c;
   --cobalt-orange:          #ff9d00;
 
-
-  /* ------------- solarized color palette ------------- */
   --solarized-base03:    #002b36;
   --solarized-base02:    #073642;
   --solarized-base01:    #586e75;
@@ -109,7 +102,6 @@
   --solarized-cyan:      #2aa198;
   --solarized-green:     #859900;
 
-  /* ------------- default white color palette ------------- */
   --default-bg0_h: #ffffff;
   --default-bg0: #f9f8f8;
   --default-bg0_s: #f5f5f5;
