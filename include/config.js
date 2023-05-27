@@ -5,19 +5,6 @@ export default {
     istyping: false,
     hastypedeveryword: false,
   },
-  inputarea: {
-    hidden: true,
-    visible: false,
-  },
-  scroll: "abrupt", // abrupt | smooth
-  tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
-  oppositeshift: false, // ignore B, Y, ^
-  underline: true, // underline word being typed
-  endwithspace: false, // test ends only after typing a space after typing last word
-  blind: false, // no errors or incorrect words are highlighted
-  strictspace: true, // hitting space doesn't move caret to next word instead inserts it
-  cpm: false, // use cpm instead of wpm
-  usefloats: false, // display floating point number
   caret: {
     off: false,
     type: "line", // off | line | underline | box | block
@@ -39,20 +26,27 @@ export default {
       },
     },
   },
-  fliphighlightcolor: false, // by default, future text is brighter than the already typed text
-  highlight: {
-    off: false,
-    mode: {
-      letter: true,
-      word: false,
-    },
+  inputarea: {
+    hidden: true,
+    visible: false,
   },
+  scroll: "abrupt", // abrupt | smooth
+  tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
+  oppositeshift: false, // ignore B, Y, ^
+  underline: true, // underline word being typed
+  endwithspace: false, // test ends only after typing a space after typing last word
+  cpm: false, // use cpm instead of wpm
+  usefloats: false, // display floating point number
+  blind: false, // no errors or incorrect words are highlighted
+  // hitting space before typing the last letter of the word moves caret to next word
+  strictspace: true, // hitting space doesn't move caret to next word instead inserts it
+
   backspace: {
     off: false,
     modifier: {
-       alt: true,
-       meta: false,
-       ctrl: false,
+       alt: true, // backspace + alt
+       meta: false, // backspace + cmd/win
+       ctrl: false, // backspace + ctrl
     },
   },
   confidence: {
@@ -91,6 +85,14 @@ export default {
     },
   },
   theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
+  highlight: {
+    off: false,
+    mode: {
+      letter: true,
+      word: false,
+    },
+    flipcolor: false, // default: future text is brighter than the already typed text
+  },
   text: {
     length: 0, // number of characters in text
     color: {
@@ -166,5 +168,3 @@ export default {
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
-
-// hitting space before typing the last letter of the word moves caret to next word

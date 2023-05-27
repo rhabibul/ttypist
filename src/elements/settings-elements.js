@@ -15,10 +15,14 @@ export const pacecaret = {
 };
 
 export const highlight = {
-	off: document.querySelector("highlight off"),
+	off: document.querySelector("div.config.highlight off"),
 	mode: {
-		letter: document.querySelector("highlight letter"),
-		word: document.querySelector("highlight	word"),
+		letter: document.querySelector("div.config.highlight letter"),
+		word: document.querySelector("div.config.highlight	word"),
+	},
+	flipcolor: {
+		off: document.querySelector("div.config.highlight.flipcolor off"),
+		on: document.querySelector("div.config.highlight.flipcolor on"),
 	}
 }
 
