@@ -1,14 +1,37 @@
-:root {
-  background-color: var(--default-bg0_h);
-}
-
 setting {
   width: 800px;
-  border: 1px solid black;
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+}
+
+config {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+text size: 12px |14px
+button container height: 28px | 32px
+button content height: 18px | 20px
+
+button: (text, content-height, container-height)
+        (12, 20, _)
+        (12, 18, 28)
+        (14, 20, 32)
+
+icons blue color on hover
+get the colors of text and icons in static & hover & click states
+scrap all icon usage from fontawesome
+*/
+
+caret {
+  width: 130px;
   display: flex;
   justify-content: space-between;
 }
-
 caret off,
 caret underline,
 caret line,
@@ -48,8 +71,4 @@ underline shape {
   height: var(--setting-caret-shape-height);
   border-bottom: 1px solid var(--setting-caret-color);
   border-radius: none;
-}
-
-config {
-  user-select: none;
 }
