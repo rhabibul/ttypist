@@ -26,18 +26,13 @@ export const highlight = {
 	}
 }
 
-export const flip = {
-	off: document.querySelector("flip off"),
-	on: document.querySelector("flip on"),
-}
-
 export const backspace = {
 	off: document.querySelector("backspace off"),
 	on: document.querySelector("backspace on"),
 	modifier: {
 		alt: document.querySelector("modifier alt"),
-		ctrl: document.querySelector("modifier ctrl"),
 		meta: document.querySelector("modifier mmeta"),
+		ctrl: document.querySelector("modifier ctrl"),
 	}
 }
 
