@@ -19,9 +19,9 @@ export function registerkeydown(evt) {
 		return;
 	}
 
-	if ( !Config.ttypist.istyping ) {
+	if ( !Config.user.istyping ) {
 		time.begin = performance.now();
-		Config.ttypist.istyping = true;
+		Config.user.istyping = true;
 	}
 
 	typedchar.reset();
@@ -79,7 +79,7 @@ export function registerkeydown(evt) {
 				// test complete
 				if ( text.activewordindex === text.lastwordindex ) {
 					time.end = window.performance.now();
-					Config.ttypist.hastypedeveryword = true;
+					Config.user.hastypedallwords = true;
 					return;
 				}
 			}	
@@ -171,9 +171,9 @@ export function registerinput(evt) {
 		
 		TestAreaElement.input.focus();
 
-		if ( !Config.ttypist.istyping ) {
+		if ( !Config.user.istyping ) {
 			time.begin = performance.now();
-			Config.ttypist.istyping = true;
+			Config.user.istyping = true;
 		}
 
 		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
@@ -223,7 +223,7 @@ export function registerkeyup(evt) {
 		wasSpace = false;
 	}
 
-	if ( Config.ttypist.hastypedeveryword ) {
+	if ( Config.user.hastypedallwords ) {
 		TestAreaElement.input.blur();
 		CaretController.removecaretfrom(word.activeletter);
 		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));

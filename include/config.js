@@ -1,59 +1,58 @@
 export default {
-  deviceinformation: "device | os | browser",
   dynamicsettingchange: true, // apply settings instantly without restart test
-  ttypist: {
+  user: {
+    system: "device,os,browser",
     istyping: false,
-    hastypedeveryword: false,
+    hastypedallwords: false,
+  },
+  warning: {
+    focus: true,
+    capslock: false,
+    numlock: false,
+    scrolllock: false,
   },
   caret: {
     off: false,
     type: {
-      underline: false,
       line: true,
+      underline: false,
       box: false,
       block: false,
     },
-    opacity: 1, // rgba(r,g,b,a) a=[0, 1]
+    opacity: 1, // alpha[0,1]
     color: "",
   },
   pacecaret: {
     off: true,
     type: {
-      underline: false,
       line: true,
+      underline: false,
       box: false,
       block: false,
     },
-    opacity: 1, // rgba(r,g,b,a) a=[0, 1]
+    opacity: 1, // alpha[0,1]
     color: "",
     threshold: {
       last: false, // previous speed
-      average: false, // average of last 10 wpm
+      personalbest: false, // personal best speed
+      average: false, // average of last 10 speeds
       custom: {
         off: true,
         speed: 0,
       },
     },
   },
-  inputarea: {
-    hidden: true,
-    visible: false,
-  },
-  scroll: {
-    abrupt: true,
-    smooth: false,
-  },
-  scroll: "abrupt", // abrupt | smooth
   tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
+  blind: false, // no errors or incorrect words are highlighted
   oppositeshift: false, // ignore B, Y, ^
   underline: true, // underline word being typed
-  endwithspace: false, // test ends only after typing a space after typing last word
+  input: {
+    hidden: true, // hide input box
+    visible: false, // unhide input box
+  },
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
-  blind: false, // no errors or incorrect words are highlighted
-  // hitting space before typing the last letter of the word moves caret to next word
-  strictspace: true, // hitting space doesn't move caret to next word instead inserts it
-
+  scroll: "abrupt", // abrupt | smooth
   backspace: {
     off: false,
     modifier: {
@@ -83,21 +82,7 @@ export default {
       letter: false,
     },
   },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-    burst: {
-      off: true,
-      threshold: 0,
-    },
-  },
-  theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
+  theme: "light", // light(github) | molokai+gruvbox(grayish) | hammerhead+cobalt(bluish) | darkish
   highlight: {
     off: false,
     mode: {
@@ -151,17 +136,11 @@ export default {
       numpad: true,
     },
   },
-  warning: {
-    focus: true,
-    capslock: false,
-    numlock: false,
-    scrolllock: false,
-  },
   live: {
     interval: {
-      every1keystroke: true,
-      every1word: false,
-      every1second: false,
+      word: false, // after every word
+      keystroke: true, // on every keystroke
+      second: false, // after every one second
     },
     speed: false,    // show live speed in wpm/cpm
     accuracy: false, // show live accuracy
@@ -179,5 +158,19 @@ export default {
     arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+    },
   },
 };
