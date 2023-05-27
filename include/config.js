@@ -3,7 +3,7 @@ export default {
     istyping: false,
     hastypedeveryword: false,
   },
-  deviceinformation: "comma,separated,value",
+  deviceinformation: "device | os | browser",
   dynamicsettingchange: true, // apply settings instantly without restart test
   inputarea: "hidden", // hidden | visible
   tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
