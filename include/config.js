@@ -1,18 +1,21 @@
 export default {
+  deviceinformation: "device | os | browser",
+  dynamicsettingchange: true, // apply settings instantly without restart test
   ttypist: {
     istyping: false,
     hastypedeveryword: false,
   },
-  deviceinformation: "device | os | browser",
-  dynamicsettingchange: true, // apply settings instantly without restart test
-  inputarea: "hidden", // hidden | visible
+  inputarea: {
+    hidden: true,
+    visible: false,
+  },
+  scroll: "abrupt", // abrupt | smooth
   tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
   oppositeshift: false, // ignore B, Y, ^
   underline: true, // underline word being typed
   endwithspace: false, // test ends only after typing a space after typing last word
   blind: false, // no errors or incorrect words are highlighted
   strictspace: true, // hitting space doesn't move caret to next word instead inserts it
-  scroll: "abrupt", // abrupt | smooth
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
   caret: {
@@ -73,6 +76,20 @@ export default {
       letter: false,
     },
   },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+    },
+  },
   theme: "white", // github(white) | molokai+gruvbox(gray) | hammerhead+cobalt(blue) | black
   text: {
     length: 0, // number of characters in text
@@ -88,9 +105,9 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: true, // 160 | '&nbsp'
-        bullet: false, // 0 | '•'   [::after is used to draw bullet character]
-        bar: false, // 9251 | '␣'
+        space: true, // 160, '&nbsp'
+        bullet: false, // 0, '•'   (::after is used to draw bullet character)
+        bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251
       character: "&nbsp;", // '&nbsp', '␣'
