@@ -8,7 +8,6 @@ header {
 	font-family: var(--mona-sans);
 	color: black;
 	border-bottom: 1px solid whitesmoke;
-  background-color: rgba(245, 245, 245, 0.4);
 }
 
 header .content {

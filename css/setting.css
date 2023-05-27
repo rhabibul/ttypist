@@ -3,193 +3,27 @@
 }
 
 setting {
-  width: 950px;
+  width: 800px;
+  border: 1px solid black;
   display: flex;
   justify-content: space-between;
-  background-color: var(--default-bg0_h);
-}
-
-setting .column {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  background-color: var(--default-bg0_h);
-  padding: 10px;
-}
-
-@media only screen and (max-width: 910px) {
-  setting {
-    width: 500px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  setting .column {
-    border-radius: 0px;
-  }
-}
-
-setting row {
-  width: 450px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-setting row span {
-  height: 40px;
-  width: 130px;
-  font-weight: 450;
-  font-size: 1rem;
-  color: rgb(74, 74, 74);
-  font-family: var(--mona-sans);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-setting row .config {
-  width: 300px;
-  height: 40px;
-  font-size: 0.9rem;
-  font-weight: 450;
-  color: var(--inactive-foreground);
-  font-family: var(--roboto-mono);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* ---------->  all individual setting button containers  <---------- */
-highlight,
-flip,
-underline,
-backspace,
-modifier,
-difficulty,
-confidence,
-error,
-forgive,
-stop,
-tape,
-whitespace,
-endwithspace,
-oppositeshift,
-keyboard,
-scroll,
-live,
-warning,
-focus  {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;  
-  /* border: 1px solid red; */
-}
-
-/* ---------->  all individual setting buttons  <---------- */
-highlight > *,
-flip > *,
-underline.config > *,
-inputarea > *,
-backspace > *,
-modifier > *,
-difficulty > *,
-confidence > *,
-error > *,
-forgive > *,
-stop > *,
-tape > *,
-whitespace > *,
-endwithspace > *,
-oppositeshift > *,
-keyboard > *,
-scroll > *,
-live > *,
-warning > *,
-focus > * {
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  background-color: var(--inactive-background);
-}
-
-/* ----------> 2 buttons <---------- */
-forgive > *,
-tape > *,
-flip > *,
-backspace > *,
-underline > *,
-oppositeshift > *,
-endwithspace > *,
-inputarea > *,
-scroll > *,
-focus > * {
-  flex-basis: 49%;
-}
-
-/* ----------> 3 buttons <---------- */
-stop > *,
-error > *,
-confidence > *,
-difficulty > *,
-modifier > *,
-highlight > *,
-warning > * {
-  flex-basis: 32%;
-}
-
-/* ----------> 4 buttons <---------- */
-live speed,
-live burst,
-live timer {
-  flex-basis: 22%;
-}
-live accuracy {
-  flex-basis: 30%;
-}
-whitespace off {
-  flex-basis: 19%;
-}
-whitespace space,
-whitespace bar,
-whitespace bullet {
-  flex-basis: 25%;
-}
-keyboard off {
-  flex-basis: 19%;
-}
-keyboard static,
-keyboard react,
-keyboard next {
-  flex-basis: 25%;
 }
 
 caret off,
 caret underline,
 caret line,
 caret box,
-caret block,
-pacecaret off,
-pacecaret underline,
-pacecaret line,
-pacecaret box,
-pacecaret block {  
+caret block {  
   display: flex;
   align-items: center;
   justify-content: center;
 
+  border-radius: 3px;
   width: var(--setting-caret-shape-container-width);
   height: var(--setting-caret-shape-container-height);
-  border-radius: 3px;
   background-color: var(--inactive-background);
 }
-caret off,
-pacecaret off {
+caret off {
   height: 80%;
   flex-basis: 49%;
 }
@@ -215,31 +49,7 @@ underline shape {
   border-bottom: 1px solid var(--setting-caret-color);
   border-radius: none;
 }
-#pacecaret-speed {
-  display: none; /* speed input field for pacecaret */
-}
 
-caret,
-pacecaret,
-highlight,
-backspace,
-modifier,
-confidence,
-difficulty,
-error,
-live,
-tape,
-flip,
-forgive,
-stop,
-underline,
-whitespace,
-endwithspace,
-oppositeshift,
-inputarea,
-warning,
-focus,
-keyboard,
-scroll {
+config {
   user-select: none;
 }

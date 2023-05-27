@@ -1,15 +1,13 @@
 export default {
-  dynamicsettingchange: true, // apply settings instantly without restart test
+  dynamicsettingchange: true, // apply settings instantly without restarting test
   user: {
-    system: "device,os,browser",
+    system: {
+      device: "",
+      os: "",
+      browser: "",
+    },
     istyping: false,
     hastypedallwords: false,
-  },
-  warning: {
-    focus: true,
-    capslock: false,
-    numlock: false,
-    scrolllock: false,
   },
   caret: {
     off: false,
@@ -19,8 +17,8 @@ export default {
       box: false,
       block: false,
     },
-    opacity: 1, // alpha[0,1]
     color: "",
+    opacity: 1, // alpha[0,1]
   },
   pacecaret: {
     off: true,
@@ -30,8 +28,8 @@ export default {
       box: false,
       block: false,
     },
-    opacity: 1, // alpha[0,1]
     color: "",
+    opacity: 1, // alpha[0,1]
     threshold: {
       last: false, // previous speed
       personalbest: false, // personal best speed
@@ -136,6 +134,26 @@ export default {
       numpad: true,
     },
   },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+    },
+  },
+  warning: {
+    focus: true,
+    capslock: false,
+    numlock: false,
+    scrolllock: false,
+  },
   live: {
     interval: {
       word: false, // after every word
@@ -158,19 +176,5 @@ export default {
     arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-  },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-    burst: {
-      off: true,
-      threshold: 0,
-    },
   },
 };
