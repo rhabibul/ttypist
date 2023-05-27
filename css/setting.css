@@ -11,6 +11,10 @@ config {
   justify-content: center;
 }
 
+svg.heart {
+  color: deeppink;
+}
+
 /* 
 text size: 12px |14px
 button container height: 28px | 32px
