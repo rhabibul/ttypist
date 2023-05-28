@@ -5,39 +5,19 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-  background-color: var(--gruvbox-bg0_h);
 	row-gap: 5px;
 }
 nav {
-  width: 150px;
+  border: 1px solid black;
+  width: 100px;
 	height: 100%;
 
-	border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-nav i {
-  font-size: 1.7rem;
-  color: white;
 }
 nav a {
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;
-}
-nav a:hover i {
-  color: var(--gruvbox-fg0);
-}
-
-.developer {
-	display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 88px;
-  height: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: var(--mona-sans);
-  color: var(--molokai-bg1);
 }
