@@ -106,28 +106,10 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Righteous --------- */
-@font-face {
-  font-family: "Righteous";
-  src: local("Righteous"), url("./static/fonts/Righteous.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Diploma (GTA Game) --------- */
+/* --------- Diploma (GTA San Andreas) --------- */
 @font-face {
   font-family: "Diploma";
   src: local("Diploma"), url("./static/fonts/Diploma.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Beckett (GTA Game) --------- */
-@font-face {
-  font-family: "Beckett";
-  src: local("Beckett"), url("./static/fonts/Beckett.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -228,10 +210,10 @@
 }
 
 :root {
-  --nunito: "Nunito", monospace;
-  --mona-sans: "Mona Sans", monospace;
-  --roboto-mono: "Roboto Mono", monospace;
-  --CourierPrime: "Courier Prime";
+  --Nunito: "Nunito", monospace;
+  --MonaSans: "Mona Sans", monospace;
+  --RobotoMono: "Roboto Mono", monospace;
+  --CourierPrime: "Courier Prime", monospace;
   --FiraCode: "Fira Code", monospace;
   --SourceCodePro: "Source Code Pro", monospace;
   --UbuntuMono: "Ubuntu Mono", monospace;
@@ -241,14 +223,11 @@
   --TsukimiRounded: "Tsukimi Rounded", monospace;
   --RampartOne: "Rampart One", monospace;
   --RubikVinyl: "Rubik Vinyl", monospace;
-  --Righteous: "Righteous", monospace;
-  --Diploma: "Diploma", monospace;
-  --Beckett: "Beckett", monospace;
+  --GTASanAndreas: "Diploma", monospace;
 
   --textsize: 1.2rem;
-  /* --textweight: 455; */
-  /* --textfamily: var(--roboto-mono); */
-  --textfamily: var(--TsukimiRounded);
+  --textweight: 455;
+  --textfamily: var(--RobotoMono);
 
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #7b7b7b;

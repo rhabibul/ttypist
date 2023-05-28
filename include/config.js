@@ -35,7 +35,7 @@ export default {
   strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
   testendswithspace: false, // to end test user needs to type space after last word
   oppositeshift: false, // ignore B, Y, ^
-  underline: false, // underline word being typed
+  underline: true, // underline word being typed
   input: {
     hidden: true, // hide input box
     visible: false, // unhide input box
@@ -95,8 +95,8 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: true, // 160, '&nbsp'
-        bullet: false, // 0, '•'   (::after is used to draw bullet character)
+        space: false, // 160, '&nbsp'
+        bullet: true, // 0, '•'   (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251

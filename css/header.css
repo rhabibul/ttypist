@@ -5,7 +5,7 @@ header {
 	display: flex;
 	justify-content: center;
 	
-	font-family: var(--mona-sans);
+	font-family: var(--MonaSans);
 	color: black;
 	border-bottom: 1px solid whitesmoke;
 }
