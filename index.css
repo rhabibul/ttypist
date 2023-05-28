@@ -1,21 +1,3 @@
-/* --------- Roboto Mono --------- */
-@font-face {
-  font-family: "Roboto Mono";
-  src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 200 700;
-  font-stretch: 75% 125%;
-}
-
-/* --------- VT323 --------- */
-@font-face {
-  font-family: "VT323";
-  src: local("VT323"), url("./static/fonts/VT323.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
 /* --------- Nunito --------- */
 @font-face {
   font-family: "Nunito";
@@ -25,21 +7,21 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Diploma (GTA Game) --------- */
+/* --------- Mona Sans --------- */
 @font-face {
-  font-family: "Diploma";
-  src: local("Diploma"), url("./static/fonts/Diploma.ttf") format("truetype");
+  font-family: "Mona Sans";
+  src: local("Mona Sans"), url("./static/fonts/MonaSans.woff2") format("woff2-variations");
   font-style: normal;
-  font-weight: 100 1000;
+  font-weight: 100 900;
   font-stretch: 75% 125%;
 }
 
-/* --------- Beckett (GTA Game) --------- */
+/* --------- Roboto Mono --------- */
 @font-face {
-  font-family: "Beckett";
-  src: local("Beckett"), url("./static/fonts/Beckett.ttf") format("truetype");
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
   font-style: normal;
-  font-weight: 100 1000;
+  font-weight: 200 700;
   font-stretch: 75% 125%;
 }
 
@@ -70,6 +52,42 @@
   font-stretch: 75% 125%;
 }
 
+/* --------- Ubuntu Mono --------- */
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: local("Ubuntu Mono"), url("./static/fonts/UbuntuMono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Fuzzy Bubbles --------- */
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  src: local("Fuzzy Bubbles"), url("./static/fonts/FuzzyBubbles.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- VT323  --------- */
+@font-face {
+  font-family: "VT323";
+  src: local("VT323"), url("./static/fonts/VT323.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Syne Mono --------- */
+@font-face {
+  font-family: "Syne Mono";
+  src: local("Syne Mono"), url("./static/fonts/SyneMono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
 /* --------- Rampart One --------- */
 @font-face {
   font-family: "Rampart One";
@@ -88,11 +106,39 @@
   font-stretch: 75% 125%;
 }
 
+/* --------- Righteous --------- */
 @font-face {
-  font-family: "Mona Sans";
-  src: local("Mona Sans"), url("./static/fonts/MonaSans.woff2") format("woff2-variations");
+  font-family: "Righteous";
+  src: local("Righteous"), url("./static/fonts/Righteous.ttf") format("truetype");
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Diploma (GTA Game) --------- */
+@font-face {
+  font-family: "Diploma";
+  src: local("Diploma"), url("./static/fonts/Diploma.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Beckett (GTA Game) --------- */
+@font-face {
+  font-family: "Beckett";
+  src: local("Beckett"), url("./static/fonts/Beckett.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Tsukimi Rounded --------- */
+@font-face {
+  font-family: "Tsukimi Rounded";
+  src: local("Tsukimi Rounded"), url("./static/fonts/TsukimiRounded.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
   font-stretch: 75% 125%;
 }
 
@@ -185,20 +231,24 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   --roboto-mono: "Roboto Mono", monospace;
-  --RampartOne: "Rampart One", monospace;
-  --RubikVinyl: "Rubik Vinyl", monospace;
   --CourierPrime: "Courier Prime";
-  --VT323: "VT323", monospace;
   --FiraCode: "Fira Code", monospace;
   --SourceCodePro: "Source Code Pro", monospace;
-  
-  --Diploma: "Diploma";
-  --Beckett: "Beckett";
+  --UbuntuMono: "Ubuntu Mono", monospace;
+  --VT323: "VT323", monospace;
+  --SyneMono: "Syne Mono", monospace;
+  --FuzzyBubbles: "Fuzzy Bubbles", monospace;
+  --TsukimiRounded: "Tsukimi Rounded", monospace;
+  --RampartOne: "Rampart One", monospace;
+  --RubikVinyl: "Rubik Vinyl", monospace;
+  --Righteous: "Righteous", monospace;
+  --Diploma: "Diploma", monospace;
+  --Beckett: "Beckett", monospace;
 
   --textsize: 1.2rem;
-  --textweight: 455;
+  /* --textweight: 455; */
   /* --textfamily: var(--roboto-mono); */
-  --textfamily: var(--SourceCodePro);
+  --textfamily: var(--TsukimiRounded);
 
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #7b7b7b;
@@ -240,14 +290,14 @@
 }
 
 p.text1 {
-  font-size: 1.2rem;
+  font-size: 1.65rem;
   color: blue;
-  font-family: var(--SourceCodePro);
+  font-family: var(--VT323);
 }
 p.text2 {
   font-size: 1.2rem;
   color: red;
-  font-family: var(--FiraCode);
+  font-family: var(--SyneMono);
 }
 
 

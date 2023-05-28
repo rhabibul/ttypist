@@ -11,7 +11,7 @@ export default {
   },
   caret: {
     off: false,
-    style: "underline", // off | line | underline | box | block
+    style: "line", // off | line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
@@ -95,8 +95,8 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp'
-        bullet: true, // 0, '•'   (::after is used to draw bullet character)
+        space: true, // 160, '&nbsp'
+        bullet: false, // 0, '•'   (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251
