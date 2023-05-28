@@ -1,3 +1,4 @@
+/* --------- Roboto Mono --------- */
 @font-face {
   font-family: "Roboto Mono";
   src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
@@ -6,10 +7,64 @@
   font-stretch: 75% 125%;
 }
 
+/* --------- VT323 --------- */
+@font-face {
+  font-family: "VT323";
+  src: local("VT323"), url("./static/fonts/VT323.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
 /* --------- Nunito --------- */
 @font-face {
   font-family: "Nunito";
   src: local("Nunito"), url("./static/fonts/Nunito.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Diploma (GTA Game) --------- */
+@font-face {
+  font-family: "Diploma";
+  src: local("Diploma"), url("./static/fonts/Diploma.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Beckett (GTA Game) --------- */
+@font-face {
+  font-family: "Beckett";
+  src: local("Beckett"), url("./static/fonts/Beckett.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Source Code Pro --------- */
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"), url("./static/fonts/SourceCodePro.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Courier Prime --------- */
+@font-face {
+  font-family: "Courier Prime";
+  src: local("Courier Prime"), url("./static/fonts/Courier.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Fira Code --------- */
+@font-face {
+  font-family: "Fira Code";
+  src: local("Fira Code"), url("./static/fonts/FiraCode.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -130,13 +185,21 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   --roboto-mono: "Roboto Mono", monospace;
-  --monospace: monospace;
   --RampartOne: "Rampart One", monospace;
   --RubikVinyl: "Rubik Vinyl", monospace;
+  --CourierPrime: "Courier Prime";
+  --VT323: "VT323", monospace;
+  --FiraCode: "Fira Code", monospace;
+  --SourceCodePro: "Source Code Pro", monospace;
+  
+  --Diploma: "Diploma";
+  --Beckett: "Beckett";
 
   --textsize: 1.2rem;
   --textweight: 455;
-  --textfamily: var(--roboto-mono);
+  /* --textfamily: var(--roboto-mono); */
+  --textfamily: var(--SourceCodePro);
+
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #7b7b7b;
 
@@ -175,6 +238,18 @@
   --inactive-foreground: #484848;
   --inactive-background: #f3f3f3;
 }
+
+p.text1 {
+  font-size: 1.2rem;
+  color: blue;
+  font-family: var(--SourceCodePro);
+}
+p.text2 {
+  font-size: 1.2rem;
+  color: red;
+  font-family: var(--FiraCode);
+}
+
 
 body {
   /* removes blue background hightlighting on mobile browser when clicked on board cells */

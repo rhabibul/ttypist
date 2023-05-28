@@ -27,6 +27,7 @@ text word letter {
 
   /* line-height: 1; */
   /* white-space: nowrap; */
+  
   font-size: var(--textsize);
   font-weight: var(--textweight);
   font-family: var(--textfamily);

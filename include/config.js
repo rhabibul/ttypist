@@ -11,7 +11,7 @@ export default {
   },
   caret: {
     off: false,
-    style: "line", // off | line | underline | box | block
+    style: "underline", // off | line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
@@ -30,12 +30,12 @@ export default {
       },
     },
   },
-  tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
+  tape: false, // text in one line, text scrolls horizontally either ltr or rtl direction depending on language
   blind: false, // no errors or incorrect words are highlighted
   strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
   testendswithspace: false, // to end test user needs to type space after last word
   oppositeshift: false, // ignore B, Y, ^
-  underline: true, // underline word being typed
+  underline: false, // underline word being typed
   input: {
     hidden: true, // hide input box
     visible: false, // unhide input box
@@ -95,8 +95,8 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: true, // 160, '&nbsp'
-        bullet: false, // 0, '•'   (::after is used to draw bullet character)
+        space: false, // 160, '&nbsp'
+        bullet: true, // 0, '•'   (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251

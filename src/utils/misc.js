@@ -75,7 +75,7 @@ export function wordelements(s) {
     word = document.createElement("word");
     letter = document.createElement("letter");    
 
-    letter.classList.add(Config.caret.type);
+    letter.classList.add(Config.caret.style);
     letter.classList.add("whitespace");
     
     if ( Config.text.whitespace.type.bullet ) {
