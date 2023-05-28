@@ -42,6 +42,8 @@ export default {
   },
   tape: false, // text in one line, text scrolls horizontally from ltr/rtl depending on language
   blind: false, // no errors or incorrect words are highlighted
+  strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
+  endtestwithspace: false, // to end test user needs to type space after last word
   oppositeshift: false, // ignore B, Y, ^
   underline: true, // underline word being typed
   input: {
