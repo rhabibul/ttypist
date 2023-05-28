@@ -54,12 +54,12 @@ export default {
   confidence: {
     low: true, // can use backspace key to delete previous words/letters
     high: false, // can not use backspace key to go back to previous word to correct mistakes
-    max: false, // can not use backspace key at all to back
+    peak: false, // can not use backspace key at all to back
   },
   difficulty: {
-    off: true, // its the normal typing experience (enabled by default)
-    expert: false, // fails the test if user submit (press space) an incorrect word
-    master: false, // fails the test if user press a single incorrect key (need to type with 100% accuracy)
+    beginner: true, // its the normal typing experience (enabled by default)
+    intermediate: false, // fails the test if user submit (press space) an incorrect word
+    advanced: false, // fails the test if user press a single incorrect key (need to type with 100% accuracy)
   },
   error: {
     off: false, // if true, then no errors or incorrect words are highlighted
