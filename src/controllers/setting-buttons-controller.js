@@ -13,6 +13,3 @@ import * as TestAreaElement from "../elements/testarea-elements.js";
 
 // input field
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
-
-// reset button
-SettingElement.reset.addEventListener("click", () => { Test.restart(); });

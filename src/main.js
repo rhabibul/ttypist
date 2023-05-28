@@ -21,8 +21,8 @@ export const Test = {
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
-		Config.ttypist.istyping = false;
-		Config.ttypist.hastypedeveryword = false;
+		Config.user.istyping = false;
+		Config.user.hastypedallwords = false;
 
 		typedchar.reset();
 		time.reset();

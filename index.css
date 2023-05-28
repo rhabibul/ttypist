@@ -1,14 +1,33 @@
 @font-face {
   font-family: "Roboto Mono";
-  src: local("Roboto Mono"), url("./static/fonts/robotomono.ttf") format("truetype");
+  src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
   font-style: normal;
   font-weight: 200 700;
   font-stretch: 75% 125%;
 }
 
+/* --------- Nunito --------- */
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito"), url("./static/fonts/nunito.ttf") format("truetype");
+  src: local("Nunito"), url("./static/fonts/Nunito.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Rampart One --------- */
+@font-face {
+  font-family: "Rampart One";
+  src: local("Rampart One"), url("./static/fonts/RampartOne.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+}
+
+/* --------- Rubik Vinyl --------- */
+@font-face {
+  font-family: "Rubik Vinyl";
+  src: local("Rubik Vinyl"), url("./static/fonts/RubikVinyl.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -16,7 +35,7 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: local("Mona Sans"), url("./static/fonts/monasans.woff2") format("woff2-variations");
+  src: local("Mona Sans"), url("./static/fonts/MonaSans.woff2") format("woff2-variations");
   font-style: normal;
   font-weight: 100 900;
   font-stretch: 75% 125%;
@@ -111,7 +130,9 @@
   --nunito: "Nunito", monospace;
   --mona-sans: "Mona Sans", monospace;
   --roboto-mono: "Roboto Mono", monospace;
-  --monospace: monospace; 
+  --monospace: monospace;
+  --RampartOne: "Rampart One", monospace;
+  --RubikVinyl: "Rubik Vinyl", monospace;
 
   --textsize: 1.2rem;
   --textweight: 455;
@@ -143,15 +164,15 @@
   --caret-animation-iteration-count: 25;
   --caret-animation-timing-function: ease-out;
 
-  --setting-caret-color: #393838;
+  --setting-caret-color: black;
   --setting-caret-shape-width: 10px;
   --setting-caret-shape-height: 20px;
   --setting-caret-shape-container-width: 24px;
   --setting-caret-shape-container-height: 34px;
   
-  --active-foreground: #f3f3f3;
+  --active-foreground: green;
+  --active-background: rgb(176, 255, 176);
   --inactive-foreground: #484848;
-  --active-background: #484848;
   --inactive-background: #f3f3f3;
 }
 
@@ -172,6 +193,11 @@ body {
   row-gap: 10px;
 }
 
+/* used for selected item */
+#chosen {
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+}
 .none {
   display: none;
 }
@@ -228,10 +254,4 @@ body {
     none - drawn across the full length of the text content, including parts that
            cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
-}
-
-/* used for selected item */
-#chosen {
-  color: var(--active-foreground);
-  background-color: var(--active-background);
 }

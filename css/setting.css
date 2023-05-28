@@ -32,7 +32,7 @@ scrap all icon usage from fontawesome
 */
 
 caret {
-  width: 130px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
 }
@@ -49,10 +49,6 @@ caret block {
   width: var(--setting-caret-shape-container-width);
   height: var(--setting-caret-shape-container-height);
   background-color: var(--inactive-background);
-}
-caret off {
-  height: 80%;
-  flex-basis: 49%;
 }
 line shape {
   width: calc((var(--setting-caret-shape-width) / 10)); /* width: 1px */

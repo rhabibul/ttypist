@@ -1,6 +1,7 @@
 import Config from "../../include/config.js";
 import * as MiscElement from "../elements/misc-elements.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
+import * as ConfigElement from "../elements/settings-elements.js";
 import w3k from "../../static/texts/words/w3k.js";
 // import w1k from "../../static/texts/words/w1k.js";
 // import rootword from "../../static/texts/words/root-words.js";
@@ -62,7 +63,7 @@ export function wordelements(s) {
     for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
       letter.textContent = s[i][j];
-      letter.classList.add(Config.caret.type);
+      letter.classList.add(Config.caret.style);
       word.appendChild(letter);
     }
 

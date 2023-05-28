@@ -11,32 +11,22 @@ export default {
   },
   caret: {
     off: false,
-    type: {
-      line: true,
-      underline: false,
-      box: false,
-      block: false,
-    },
-    color: "",
+    style: "line", // off | line | underline | box | block
     opacity: 1, // alpha[0,1]
+    color: "",
   },
-  pacecaret: {
+  pace_caret: {
     off: true,
-    type: {
-      line: true,
-      underline: false,
-      box: false,
-      block: false,
-    },
+    style: "line", // off | line | underline | box | block
+    opacity: 0.5, // alpha[0,1]
     color: "",
-    opacity: 1, // alpha[0,1]
     threshold: {
       last: false, // previous speed
       personalbest: false, // personal best speed
       average: false, // average of last 10 speeds
       custom: {
         off: true,
-        speed: 0,
+        speed: 0, // provide custom speed (in wpm) to compete against
       },
     },
   },
