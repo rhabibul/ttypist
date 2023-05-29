@@ -62,14 +62,13 @@ export default {
     advanced: false, // fails the test if user press a single incorrect key (need to type with 100% accuracy)
   },
   error: {
-    off: false, // if true, then no errors or incorrect words are highlighted
+    off: false, // no errors or incorrect words are highlighted
+    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     insert: true, // insert incorrect letter before to be typed letter
-    replace: false, // replace to be typed letter with incorrectly typed letter and move caret forward
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
     stop: {
-      off: true,
-      word: false,
       letter: false,
+      word: false,
     },
   },
   theme: "light", // light(github) | molokai+gruvbox(grayish) | hammerhead+cobalt(bluish) | darkish
