@@ -2,9 +2,9 @@ export default {
   dynamicsettingchange: true, // apply settings instantly without restarting test
   user: {
     isUsing: {
-      device: "",
-      os: "",
-      browser: "",
+      device: "", // android/ios | desktop | tablet
+      os: "", // MacOS | Windows | Linux
+      browser: "", // chrome | safari | firefox
     },
     istyping: false,
     hastypedallwords: false,
@@ -36,9 +36,10 @@ export default {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
   },
-  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
-  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   underline: true, // underline the current word being typed
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
+  allowedtogobackoncorrect: true,
   backspace: {
     off: false,
     modifier: {
@@ -48,9 +49,9 @@ export default {
     },
   },
   confidence: {
-    low: true, // can use backspace key to delete previous words/letters
-    high: false, // can not use backspace key to go back to previous word to correct mistakes
-    peak: false, // backspace is turned off (no deletion allowed)
+    low: true, // use backspace key to delete previous words/letters
+    high: false, // cannot use backspace key to go back to previous word to correct mistakes
+    peak: false, // cannot use backspace key at all (no deletion allowed)
   },
   difficulty: {
     beginner: true, // classic typing experience, mistakes can be corrected or left behind
@@ -138,22 +139,22 @@ export default {
       threshold: 0,
     },
   },
-  warning: {
-    focus: true,
-    capslock: false,
-    numlock: false,
-    scrolllock: false,
-  },
   live: {
     interval: {
       word: false, // after every word
-      keystroke: true, // on every keystroke
+      keystroke: true, // on each keystroke
       second: false, // after every one second
     },
     speed: false,    // show live speed in wpm/cpm
     accuracy: false, // show live accuracy
     burst: false,    // show live burst, speed of last word typed
     timer: false,    // show live timer countdown
+  },
+  warning: {
+    focus: true,
+    capslock: false,
+    numlock: false,
+    scrolllock: false,
   },
   practice: {
     off: true,            // turn off practice mode

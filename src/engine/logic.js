@@ -148,7 +148,7 @@ export function registerkeydown(evt) {
 			}
 		}
 	} else {
-		// error handling..
+		// error handling
 	}
 }
 
