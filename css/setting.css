@@ -31,11 +31,14 @@ scrap all icon usage from fontawesome
 }
 .config .description {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .config .config-name {
-  border: 1px dashed blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px dashed blue; */
 }
 .config .config-buttons {
   border: 1px dashed #a89100;
