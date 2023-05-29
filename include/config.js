@@ -1,7 +1,7 @@
 export default {
   dynamicsettingchange: true, // apply settings instantly without restarting test
   user: {
-    system: {
+    isUsing: {
       device: "",
       os: "",
       browser: "",
@@ -30,19 +30,15 @@ export default {
       },
     },
   },
-  tape: false, // text in one line, text scrolls horizontally either ltr or rtl direction depending on language
-  blind: false, // no errors or incorrect words are highlighted
-  strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
-  testendswithspace: false, // to end test user needs to type space after last word
-  oppositeshift: false, // ignore B, Y, ^
-  underline: true, // underline word being typed
-  input: {
-    hidden: true, // hide input box
-    visible: false, // unhide input box
-  },
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
-  scroll: "abrupt", // abrupt | smooth
+  input: {
+    hidden: true, // hide input box during the test
+    visible: false, // unhide input box during the test
+  },
+  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  underline: true, // underline the current word being typed
   backspace: {
     off: false,
     modifier: {
@@ -54,15 +50,17 @@ export default {
   confidence: {
     low: true, // can use backspace key to delete previous words/letters
     high: false, // can not use backspace key to go back to previous word to correct mistakes
-    peak: false, // can not use backspace key at all to back
+    peak: false, // backspace is turned off (no deletion allowed)
   },
   difficulty: {
-    beginner: true, // its the normal typing experience (enabled by default)
-    intermediate: false, // fails the test if user submit (press space) an incorrect word
-    advanced: false, // fails the test if user press a single incorrect key (need to type with 100% accuracy)
+    beginner: true, // classic typing experience, mistakes can be corrected or left behind
+    intermediate: false, // fails the test if user submit an incorrect word, current word can be edited
+    advanced: false, // fails the test if user press a single incorrect key
   },
+  strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
+  testendswithspace: false, // to end test user needs to type space after last word
   error: {
-    off: false, // no errors or incorrect words are highlighted
+    off: false, // no errors or incorrect words are highlighted (blind mode)
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     insert: true, // insert incorrect letter before to be typed letter
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
@@ -71,7 +69,8 @@ export default {
       word: false,
     },
   },
-  theme: "light", // light(github) | molokai+gruvbox(grayish) | hammerhead+cobalt(bluish) | darkish
+  theme: "light", // github: light | dark | molokai+gruvbox | hammerhead+cobalt
+  scroll: "abrupt", // abrupt | smooth
   highlight: {
     off: false,
     mode: {
@@ -102,9 +101,9 @@ export default {
       character: "&nbsp;", // '&nbsp', '␣'
     },
     word: {
-      type: "dictionary", // dictionary | root word | lorem epsum | quote | story
+      type: "dictionary", // dictionary | root words | lorem epsum | quotes | stories
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
-      count: 25, // 30 | custom input box | infinite
+      count: 25, // 25 | infinite | input
     },
     include: {
       digit: false, // include numbers along with words
