@@ -38,8 +38,8 @@ export default {
   },
   underline: true, // underline the current word being typed
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  oppositethumbforspace: false, // use opposite thumb for hitting space key
   tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
-  allowedtogobackoncorrect: true,
   backspace: {
     off: false,
     modifier: {
@@ -70,7 +70,7 @@ export default {
       word: false,
     },
   },
-  theme: "light", // github: light | dark | molokai+gruvbox | hammerhead+cobalt
+  theme: "light",
   scroll: "abrupt", // abrupt | smooth
   highlight: {
     off: false,

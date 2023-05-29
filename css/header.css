@@ -7,7 +7,7 @@ header {
 	
 	font-family: var(--MonaSans);
 	color: black;
-	border-bottom: 1px solid whitesmoke;
+	border-bottom: 1px solid lightgray;
 }
 
 header .content {
@@ -44,7 +44,7 @@ header .content .logo .logo-icon img {
 header .content .logo .logo-label {
 	width: 180px;
 	letter-spacing: 1px;
-	color: green;
+	color: gray;
 	font-size: 1.6rem;
 	font-family: var(--RubikVinyl);
 }

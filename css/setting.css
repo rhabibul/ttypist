@@ -1,21 +1,3 @@
-setting {
-  width: 800px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-}
-
-config {
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-svg.heart {
-  color: deeppink;
-}
-
 /* 
 text size: 12px |14px
 button container height: 28px | 32px
@@ -30,45 +12,31 @@ icons blue color on hover
 get the colors of text and icons in static & hover & click states
 scrap all icon usage from fontawesome
 */
+.setting {
+  width: 800px;
+  border: 1px solid black;
+}
+.config {
+  width: 100%;
 
-caret {
-  width: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.config .wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
-caret off,
-caret underline,
-caret line,
-caret box,
-caret block {  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.config .description {
+  width: 100%;
+  border: 1px solid red;
+}
 
-  border-radius: 3px;
-  width: var(--setting-caret-shape-container-width);
-  height: var(--setting-caret-shape-container-height);
-  background-color: var(--inactive-background);
+.config .config-name {
+  border: 1px dashed blue;
 }
-line shape {
-  width: calc((var(--setting-caret-shape-width) / 10)); /* width: 1px */
-  height: var(--setting-caret-shape-height);
-  background-color: var(--setting-caret-color);
-}
-block shape {
-  width: var(--setting-caret-shape-width);
-  height: var(--setting-caret-shape-height);
-  background-color: var(--setting-caret-color);
-}
-box shape {
-  width: var(--setting-caret-shape-width);
-  height: var(--setting-caret-shape-height);
-  border: 1px solid var(--setting-caret-color);
-}
-underline shape {
-  display: inline-flex;
-  width: calc(var(--setting-caret-shape-width) + 1.5px); /* width: 11.5px */
-  height: var(--setting-caret-shape-height);
-  border-bottom: 1px solid var(--setting-caret-color);
-  border-radius: none;
+.config .config-buttons {
+  border: 1px dashed #a89100;
 }
