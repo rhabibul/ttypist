@@ -1,3 +1,14 @@
+input#textinput {
+  margin: 0px;
+  padding: 0px;
+  width: 0px;
+  height: 0px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+
 text {  
   max-width: 800px;
 
@@ -36,17 +47,6 @@ text word letter {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-input#textinput {
-  margin: 0px;
-  padding: 0px;
-  width: 0px;
-  height: 0px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
-
 letter.whitespace.bullet {
   position: relative;
   margin-left: 1px;
@@ -65,6 +65,6 @@ letter.whitespace.bullet::after {
   justify-content: center;
   background-color: var(--whitespace-color);
 }
-letter.whitespace.whitespace-color-active::after {
+letter.whitespace.whitespace-color-active::after { /* rename is required (too long name) */
   background-color: var(--whitespace-color-active);
 }

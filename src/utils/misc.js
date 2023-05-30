@@ -32,15 +32,6 @@ export function totalchar() {
   return cnt;
 }
 
-export function showspeed(lettercount, time) {
-  const wpm = ((lettercount / 5) / (time)) * 60;
-  MiscElement.speed.style.color = "var(--molokai-orange)";
-  MiscElement.speed.textContent = `${Math.ceil(wpm)}wpm`;
-  setTimeout(() => {
-    MiscElement.speed.style.color = "var(--molokai-bg1)";
-  }, 2500);
-}
-
 export function randomwords() {
   let words = new Array(Config.text.word.count);
   for (let i = 0; i < Config.text.word.count; ++i) {

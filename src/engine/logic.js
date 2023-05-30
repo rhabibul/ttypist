@@ -89,7 +89,7 @@ export function registerkeydown(evt) {
 		// caret is on first letter of first word, so no deletion
 		if ( word.activeletterindex === 0 && text.activewordindex === 0 ) return;
 
-		if ( evt.metaKey ) { // cmd + backspace
+		if ( evt.metaKey ) { // cmd/win + backspace
 
 			CaretController.removecaretfrom(word.activeletter);
 			text.resetwordindex();
@@ -201,9 +201,7 @@ export function registerinput(evt) {
 					}	
 	
 					if ( text.activewordindex === text.lastwordindex ) { // test complete
-						
 						time.end = window.performance.now();
-						Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
 						Test.restart();
 					}
 				}	
@@ -226,7 +224,7 @@ export function registerkeyup(evt) {
 	if ( Config.user.hastypedallwords ) {
 		TestAreaElement.input.blur();
 		CaretController.removecaretfrom(word.activeletter);
-		Misc.showspeed(Misc.totalchar(), (time.duration / 1000));
+		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
 		Test.restart();
 	}
 }

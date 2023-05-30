@@ -1,11 +1,6 @@
 export default {
-  dynamicsettingchange: true, // apply settings instantly without restarting test
+  dynamicchange: true, // apply settings instantly without restarting test
   user: {
-    isUsing: {
-      device: "", // android/ios | desktop | tablet
-      os: "", // MacOS | Windows | Linux
-      browser: "", // chrome | safari | firefox
-    },
     istyping: false,
     hastypedallwords: false,
   },
@@ -36,7 +31,7 @@ export default {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
   },
-  underline: true, // underline the current word being typed
+  underline: false, // underline the current word being typed
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key
   tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
@@ -137,6 +132,8 @@ export default {
     burst: {
       off: true,
       threshold: 0,
+      fixed: false,
+      flex: false,
     },
   },
   live: {

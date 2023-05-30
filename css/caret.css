@@ -5,6 +5,16 @@
 }
 
 /* =================================== line  =================================== */
+/*
+box-shadow: offset-x | offset-y | blur-radius | color
+	offset-x (width & direction)
+		- negative value will put caret before letter
+		- positive value will put caret after letter
+
+	offset-y (width & directioin)
+		- negative value will put caret above letter
+		- positive value will put caret below letter
+*/
 #line {
   /* border-left-color: var(--caret-color); */
   box-shadow: calc(-1 * var(--caret-width-line)) 0px 0px var(--caret-color);

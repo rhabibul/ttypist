@@ -37,7 +37,7 @@
 /* --------- Courier Prime --------- */
 @font-face {
   font-family: "Courier Prime";
-  src: local("Courier Prime"), url("./static/fonts/Courier.ttf") format("truetype");
+  src: local("Courier Prime"), url("./static/fonts/CourierPrime.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -225,12 +225,12 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
-  --textsize: 1.2rem;
+  --textsize: 1.4rem;
   --textweight: 460;
-  --textfamily: var(--RobotoMono);
+  --textfamily: var(--UbuntuMono);
 
   --textcolor-primary: #1d2021;
-  --textcolor-secondary: #7b7b7b;
+  --textcolor-secondary: #8d8d8d;
 
   --whitespace-color: #b3b3b3;
   --whitespace-color-active: #505050;
@@ -241,12 +241,12 @@
   --underline-offset: 1px;
   --underline-thickness: 2px;
 
-  --caret-color: red;
+  --caret-color: black;
   --caret-color-hidden: var(--default-bg0_h);
   
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
-  --caret-width-line: 1px; /* line caret width */
+  --caret-width-line: 1 px; /* line caret width */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
   --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
@@ -287,14 +287,13 @@ body {
   width: 100%;
   height: 100%;
   
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  row-gap: 10px;
 
   background-color: var(--default-bg0_h);
-  row-gap: 10px;
 }
 
 /* used for selected item */

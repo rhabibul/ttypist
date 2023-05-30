@@ -33,17 +33,13 @@ window.addEventListener('load', (evt) => {
 // sliders
 const slider_fontsize = document.querySelector("input#fontsize-slider.fsize");
 const slider_fontweight = document.querySelector("input#fontweight-slider.fweight");
-const label_fontsize = document.querySelector(".fontsize-value");
-const label_fontweight = document.querySelector(".fontweight-value");
 
 slider_fontsize.addEventListener("input", () => {
 	MiscElement.root.style.setProperty("--textsize", `${slider_fontsize.value}rem`);
-	label_fontsize.textContent = `${slider_fontsize.value}rem`;
   Config.text.textsize = slider_fontsize.value;
 });
 slider_fontweight.addEventListener("input", () => {
 	MiscElement.root.style.setProperty("--textweight", `${slider_fontweight.value}`);
-	label_fontweight.textContent = `${slider_fontweight.value}`;
   Config.text.textweight = slider_fontweight.value;
 });
 
