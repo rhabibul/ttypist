@@ -67,33 +67,58 @@
         <letter>f</letter>
       </word>
     </text>
-
-    <div class="setting">
-      <div class="config">
-        <div class="wrapper">
-          <div class="config-name">
-            <span class="icon">
-              <svg height="16" viewBox="0 0 16 16" version="1.1" width="16">
-                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
-              </svg>
-            </span>
-            <span class="name">caret</span>
-          </div>
-          <div class="config-buttons">
-            <button type="button" class="config-button">off</button>
-            <button type="button" class="config-button">underline</button>
-            <button type="button" class="config-button">line</button>
-            <button type="button" class="config-button">box</button>
-            <button type="button" class="config-button">block</button>
-          </div>
-        </div>
-        <div class="description">
+    
+    <setting>
+      <row>
+        <name>
+          <svg class="more-info" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+          </svg>
+          <span>caret</span>
+        </name>
+        <description>
           <p>the quick brown fox jumped over the lazy dog</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis odio error dolore accusantium iure dolorum.</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, aperiam.</p>
-        </div>
-      </div>
-    </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore veniam velit mollitia amet esse incidunt.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, consequuntur.</p>
+        </description>
+        <wrapper>
+          <config data-config="caret" class="caret">
+            <off>off</off>
+            <underline>underline</underline>
+            <line>line</line>
+            <box>box</box>
+            <block>block</block>
+          </config>
+        </wrapper>
+      </row>
+      <row>
+        <name>
+          <svg class="more-info" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+          </svg>
+          <span>caret</span>
+        </name>
+        <description>
+          <p>the quick brown fox jumped over the lazy dog</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore veniam velit mollitia amet esse incidunt.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, consequuntur.</p>
+        </description>
+        <wrapper>
+          <input type="number" min="0" step="1" tabindex="0">
+          <config data-config="pacecaret" class="pace-caret">
+            <off>off</off>
+            <underline>underline</underline>
+            <line>line</line>
+            <box>box</box>
+            <block>block</block>
+          </config>
+        </wrapper>
+      </row>
+    </setting>
+
+    <script type="text/javascript">
+
+    </script>
 
     <div>
       <input type="range" min="1" max="3" step="0.001" value="1.22" id="fontsize-slider" class="fsize"/>

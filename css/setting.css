@@ -12,34 +12,16 @@ icons blue color on hover
 get the colors of text and icons in static & hover & click states
 scrap all icon usage from fontawesome
 */
-.setting {
+
+setting {
   width: 800px;
-  border: 1px solid black;
+  height: 400px;
+  /* border: 1px solid black; */
 }
-.config {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
+setting * {
+  display: block;
 }
-.config .wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.config .description {
-  width: 100%;
-  /* border: 1px solid red; */
-}
-
-.config .config-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border: 1px dashed blue; */
-}
-.config .config-buttons {
-  border: 1px dashed #a89100;
+setting row {
+  /* width: 100%; */
+  border: 1px solid gray;
 }
