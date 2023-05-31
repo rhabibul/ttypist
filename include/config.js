@@ -89,7 +89,7 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp'
+        space: false, // 160, '&nbsp' | include wide unicode space
         bullet: true, // 0, '•'   (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },

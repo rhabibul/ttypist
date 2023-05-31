@@ -219,7 +219,7 @@
   --UbuntuMono: "Ubuntu Mono", monospace;
   --VT323: "VT323", monospace;
   --SyneMono: "Syne Mono", monospace;
-  --FuzzyBubbles: "Fuzzy Bubbles", monospace;
+  --FuzzyBubbles: "Fuzzy Bubbles", monospace; /* use a wider unicode space character */
   --TsukimiRounded: "Tsukimi Rounded", monospace;
   --RampartOne: "Rampart One", monospace;
   --RubikVinyl: "Rubik Vinyl", monospace;
@@ -227,7 +227,7 @@
 
   --textsize: 1.2rem;
   --textweight: 460;
-  --textfamily: var(--UbuntuMono);
+  --textfamily: var(--FuzzyBubbles);
 
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #8d8d8d;
@@ -249,7 +249,7 @@
   --caret-width-line: -1px; /* line caret width */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
-  --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
+  --caret-block-backgroundcolor: black; /* color of block caret */
 
   --caret-animation-delay: 2s;
   --caret-animation-duration: 1.17s;
