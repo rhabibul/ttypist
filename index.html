@@ -71,7 +71,7 @@
     </wrapper>
 
     <div class="setting">
-      <div class="config text">
+      <div class="config">
         <div class="color primary">
           <object data="./static/images/color.svg" width="20" height="20"></object>
           <input type="color" value="#1d2021">
@@ -81,40 +81,41 @@
           <input type="color" value="#999999">
         </div>
         
-        <div class="font">
-          <div class="size">
+        <div id="font">
+          <div id="size">
             <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
-            <span class="text">1.2</span>
+            <span class="lebel">1.2</span>
           </div>
-          <div class="weight">
+
+          <div id="weight">
             <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
-            <span class="text">450</span>
+            <span class="label">450</span>
           </div>
+
+          <details id="family">
+            <summary>
+              <span class="label">Roboto Mono</span>
+              <span class="icon"> <svg class="fontfamily-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
+            </summary>
+            <div class="wrapper">
+              <div class="Item Nunito" data-fontfamily="Nunito">Nunito</div>
+              <div class="Item MonaSans" data-fontfamily="Mona Sans">Mona Sans</div>
+              <div class="Item CourierPrime" data-fontfamily="Courier Prime">Courier Prime</div>
+              <div class="Item FiraCode" data-fontfamily="Fira Code">Fira Code</div>
+              <div class="Item SourceCodePro" data-fontfamily="Source Code Pro">Source Code Pro</div>
+              <div class="Item RobotoMono" data-fontfamily="Roboto Mono">Roboto Mono</div>
+              <div class="Item UbuntuMono" data-fontfamily="Ubuntu Mono">Ubuntu Mono</div>
+              <div class="Item SyneMono" data-fontfamily="Syne Mono">Syne Mono</div>
+              <div class="Item VT323" data-fontfamily="VT323">VT323</div>
+              <div class="Item FuzzyBubbles" data-fontfamily="Fuzzy Bubbles">Fuzzy Bubbles</div>
+              <div class="Item TsukimiRounded" data-fontfamily="Tsukimi Rounded">Tsukimi Rounded</div>
+              <div class="Item RampartOne" data-fontfamily="Rampart One">Rampart One</div>
+              <div class="Item RubikVinyl" data-fontfamily="Rubik Vinyl">Rubik&nbsp; &nbsp;Vinyl</div>
+              <div class="Item GTASanAndreas" data-fontfamily="Diploma">Diploma</div>
+            </div>
+          </details>
         </div>
         
-        
-        <details>
-          <summary>
-            <span class="text">Roboto Mono</span>
-            <span class="icon"> <svg class="fontfamily-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
-          </summary>
-          <div class="wrapper font-family">
-            <div class="item Nunito" data-fontfamily="Nunito">Nunito</div>
-            <div class="item MonaSans" data-fontfamily="Mona Sans">Mona Sans</div>
-            <div class="item CourierPrime" data-fontfamily="Courier Prime">Courier Prime</div>
-            <div class="item FiraCode" data-fontfamily="Fira Code">Fira Code</div>
-            <div class="item SourceCodePro" data-fontfamily="Source Code Pro">Source Code Pro</div>
-            <div class="item RobotoMono" data-fontfamily="Roboto Mono">Roboto Mono</div>
-            <div class="item UbuntuMono" data-fontfamily="Ubuntu Mono">Ubuntu Mono</div>
-            <div class="item SyneMono" data-fontfamily="Syne Mono">Syne Mono</div>
-            <div class="item VT323" data-fontfamily="VT323">VT323</div>
-            <div class="item FuzzyBubbles" data-fontfamily="Fuzzy Bubbles">Fuzzy Bubbles</div>
-            <div class="item TsukimiRounded" data-fontfamily="Tsukimi Rounded">Tsukimi Rounded</div>
-            <div class="item RampartOne" data-fontfamily="Rampart One">Rampart One</div>
-            <div class="item RubikVinyl" data-fontfamily="Rubik Vinyl">Rubik&nbsp; &nbsp;Vinyl</div>
-            <div class="item GTASanAndreas" data-fontfamily="Diploma">Diploma</div>
-          </div>
-        </details>
       </div>
     </div>
 

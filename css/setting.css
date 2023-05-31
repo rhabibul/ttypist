@@ -1,4 +1,4 @@
-details {
+div#font details#family {
 	position: relative;
 	width: 160px;
 	height: 30px;
@@ -10,11 +10,11 @@ details {
 	border: 1px solid #1f232826;
 }
 
-details summary::-webkit-details-marker {
+div#font details#family summary::-webkit-details-marker {
 	display: none;
 }
 
-details summary {
+div#font details#family summary {
 	width: 100%;
 	height: 100%;
 	
@@ -24,7 +24,7 @@ details summary {
 	user-select: none;
 }
 
-details summary span.text {
+div#font details#family summary span.label {
 	position: absolute;
 	width: 130px;
 	height: 100%;
@@ -39,7 +39,7 @@ details summary span.text {
 	border-right: 1px solid #1f232826;
 }
 
-details summary .icon {
+div#font details#family summary .icon {
 	width: 30px;
 	height: 100%;
 	position: absolute;
@@ -50,15 +50,15 @@ details summary .icon {
 	justify-content: center;
 }
 
-details summary .icon svg {
+div#font details#family summary .icon svg {
 	height: 100%;
 }
 
-details summary .icon .font-family-dropdown-icon {
+div#font details#family summary .icon .font-family-dropdown-icon {
 	fill: #363636;
 }
 
-details div.font-family.wrapper {
+div#font details#family div.wrapper {
 	width: 100%;
 	position: absolute;
 	top: 100%;
@@ -73,7 +73,7 @@ details div.font-family.wrapper {
 	border-radius: 5px;
 	z-index: 999;
 }
-details div.font-family.wrapper .item {
+div#font details#family div.wrapper div.Item {
 	width: 100%;
 	height: 35px;
 	padding: 4px 0px 4px 8px;
@@ -85,73 +85,73 @@ details div.font-family.wrapper .item {
 	justify-content: flex-start;
 	border-bottom: 1px solid #1f232826;
 }
-details div.font-family.wrapper .item:hover {
+div#font details#family div.wrapper div.Item:hover {
 	color: blue;
 	background-color: #f6f8fa;
 }
-details div.font-family.wrapper .item:first-child {
+div#font details#family div.wrapper div.Item:first-child {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-details div.font-family.wrapper .item:last-child {
+div#font details#family div.wrapper div.Item:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom: none;
 }
 
-details div.font-family.wrapper .item.Nunito {
+div#font details#family div.wrapper div.Item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Ninito);
 }
-details div.font-family.wrapper .item.MonaSans {
+div#font details#family div.wrapper div.Item.MonaSans {
 	font-size: 1rem;
 	font-family: var(--MonaSans);
 }
-details div.font-family.wrapper .item.RobotoMono {
+div#font details#family div.wrapper div.Item.RobotoMono {
 	font-size: 0.95rem;
 	font-family: var(--RoboMono);
 }
-details div.font-family.wrapper .item.CourierPrime {
+div#font details#family div.wrapper div.Item.CourierPrime {
 	font-size: 1rem;
 	font-family: var(--CourierPrime);
 }
-details div.font-family.wrapper .item.FiraCode {
+div#font details#family div.wrapper div.Item.FiraCode {
 	font-size: 0.95rem;
 	font-family: var(--FiraCode);
 }
-details div.font-family.wrapper .item.SourceCodePro {
+div#font details#family div.wrapper div.Item.SourceCodePro {
 	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-details div.font-family.wrapper .item.UbuntuMono {
+div#font details#family div.wrapper div.Item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details div.font-family.wrapper .item.SyneMono {
+div#font details#family div.wrapper div.Item.SyneMono {
 	font-size: 1.15rem;
 	font-family: var(--SyneMono);
 }
-details div.font-family.wrapper .item.VT323 {
+div#font details#family div.wrapper div.Item.VT323 {
 	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-details div.font-family.wrapper .item.FuzzyBubbles {
+div#font details#family div.wrapper div.Item.FuzzyBubbles {
 	font-size: 1.05rem;
 	font-family: var(--FuzzyBubbles);
 }
-details div.font-family.wrapper .item.TsukimiRounded {
+div#font details#family div.wrapper div.Item.TsukimiRounded {
 	font-size: 0.95rem;
 	font-family: var(--TsukimiRounded);
 }
-details div.font-family.wrapper .item.RampartOne {
+div#font details#family div.wrapper div.Item.RampartOne {
 	font-size: 1.15rem;
 	font-family: var(--RampartOne);
 }
-details div.font-family.wrapper .item.RubikVinyl {
+div#font details#family div.wrapper div.Item.RubikVinyl {
 	font-size: 1.15rem;
 	font-family: var(--RubikVinyl);
 }
-details div.font-family.wrapper .item.GTASanAndreas {
+div#font details#family div.wrapper div.Item.GTASanAndreas {
 	font-size: 1.35rem;
 	font-family: var(--GTASanAndreas);
 }
