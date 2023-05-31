@@ -268,18 +268,6 @@
   --inactive-background: #f3f3f3;
 }
 
-p.text1 {
-  font-size: 1.65rem;
-  color: blue;
-  font-family: var(--VT323);
-}
-p.text2 {
-  font-size: 1.2rem;
-  color: red;
-  font-family: var(--SyneMono);
-}
-
-
 body {
   /* removes blue background hightlighting on mobile browser when clicked on board cells */
   -webkit-tap-highlight-color: transparent;
@@ -296,11 +284,11 @@ body {
   background-color: var(--default-bg0_h);
 }
 
-/* used for selected item */
-#chosen {
-  color: var(--active-foreground);
-  background-color: var(--active-background);
+#selected {
+	color: #0969da;
+	background-color: #f6f8fa;
 }
+
 .none {
   display: none;
 }

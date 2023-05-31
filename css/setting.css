@@ -1,6 +1,6 @@
 details {
 	position: relative;
-	width: 170px;
+	width: 160px;
 	height: 30px;
 	border-radius: 5px;
 	font-size: 500;
@@ -26,25 +26,24 @@ details summary {
 
 details summary .text {
 	position: absolute;
-	width: 125px;
+	width: 130px;
 	height: 100%;
 
 	left: 0px;
 	
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: center;
 	
 	color: #363636;
+	border-right: 1px solid #1f232826;
 }
 
 details summary .icon {
-	position: absolute;
-
-	width: 32px;
+	width: 30px;
 	height: 100%;
+	position: absolute;
 	right: 0px;
-	border-left: 1px solid #1f232826;
 	
 	display: flex;
 	align-items: center;
@@ -55,96 +54,104 @@ details summary .icon svg {
 	height: 100%;
 }
 
-details summary .icon .fontfamily-dropdown-icon {
+details summary .icon .font-family-dropdown-icon {
 	fill: #363636;
 }
 
-details menu {
+details div.font-family.wrapper {
 	width: 100%;
 	position: absolute;
 	top: 100%;
 	margin-top: 5px;
 
 	display: flex;
-	align-items: flex-start;
-	justify-content: center;
 	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
 
 	border: 1px solid #1f232826;
 	border-radius: 5px;
+	z-index: 999;
 }
-details menu .item {
-	padding: 8px 10px;
+details div.font-family.wrapper .item {
 	width: 100%;
+	height: 35px;
+	padding: 4px 0px 4px 8px;
+
+	user-select: none;
+	
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 	border-bottom: 1px solid #1f232826;
 }
-details menu .item:hover {
-	color: white;
-	background-color: #0969da;
+details div.font-family.wrapper .item:hover {
+	color: blue;
+	background-color: #f6f8fa;
 }
-details menu .item:first-child {
+details div.font-family.wrapper .item:first-child {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-details menu .item:last-child {
+details div.font-family.wrapper .item:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom: none;
 }
 
-details menu .item.Nunito {
+details div.font-family.wrapper .item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Ninito);
 }
-details menu .item.MonaSans {
+details div.font-family.wrapper .item.MonaSans {
 	font-size: 1rem;
 	font-family: var(--MonaSans);
 }
-details menu .item.RobotoMono {
-	font-size: 1rem;
+details div.font-family.wrapper .item.RobotoMono {
+	font-size: 0.95rem;
 	font-family: var(--RoboMono);
 }
-details menu .item.CourierPrime {
+details div.font-family.wrapper .item.CourierPrime {
 	font-size: 1rem;
 	font-family: var(--CourierPrime);
 }
-details menu .item.FiraCode {
-	font-size: 1rem;
+details div.font-family.wrapper .item.FiraCode {
+	font-size: 0.95rem;
 	font-family: var(--FiraCode);
 }
-details menu .item.SourceCodePro {
-	font-size: 1rem;
+details div.font-family.wrapper .item.SourceCodePro {
+	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-details menu .item.UbuntuMono {
+details div.font-family.wrapper .item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details menu .item.SyneMono {
+details div.font-family.wrapper .item.SyneMono {
 	font-size: 1.15rem;
 	font-family: var(--SyneMono);
 }
-details menu .item.VT323 {
-	font-size: 1.15rem;
+details div.font-family.wrapper .item.VT323 {
+	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-details menu .item.FuzzyBubbles {
-	font-size: 1rem;
+details div.font-family.wrapper .item.FuzzyBubbles {
+	font-size: 1.05rem;
 	font-family: var(--FuzzyBubbles);
 }
-details menu .item.TsukimiRounded {
-	font-size: 1rem;
+details div.font-family.wrapper .item.TsukimiRounded {
+	font-size: 0.95rem;
 	font-family: var(--TsukimiRounded);
 }
-details menu .item.RampartOne {
+details div.font-family.wrapper .item.RampartOne {
 	font-size: 1.15rem;
 	font-family: var(--RampartOne);
 }
-details menu .item.RubikVinyl {
+details div.font-family.wrapper .item.RubikVinyl {
 	font-size: 1.15rem;
 	font-family: var(--RubikVinyl);
 }
-details menu .item.GTASanAndreas {
+details div.font-family.wrapper .item.GTASanAndreas {
 	font-size: 1.35rem;
 	font-family: var(--GTASanAndreas);
 }
