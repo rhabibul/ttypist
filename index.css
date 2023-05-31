@@ -132,7 +132,7 @@
   box-sizing: border-box;
 }
 
-/* ---------- color palette ---------- */
+/* ---------- colorscheme's color palettes ---------- */
 :root {
   --gruvbox-bg0_h:      #1d2021;
   --gruvbox-bg0:        #282828;
@@ -217,17 +217,17 @@
   --FiraCode: "Fira Code", monospace;
   --SourceCodePro: "Source Code Pro", monospace;
   --UbuntuMono: "Ubuntu Mono", monospace;
-  --VT323: "VT323", monospace;
   --SyneMono: "Syne Mono", monospace;
+  --VT323: "VT323", monospace;
   --FuzzyBubbles: "Fuzzy Bubbles", monospace; /* use a wider unicode space character */
-  --TsukimiRounded: "Tsukimi Rounded", monospace;
+  --TsukimiRounded: "Tsukimi Rounded", monospace; /* use a wider unicode space character */
   --RampartOne: "Rampart One", monospace;
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
   --textsize: 1.2rem;
   --textweight: 460;
-  --textfamily: var(--FuzzyBubbles);
+  --textfamily: var(--RobotoMono);
 
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #8d8d8d;

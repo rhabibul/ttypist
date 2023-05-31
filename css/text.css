@@ -36,7 +36,7 @@ text word letter {
 
   color: var(--textcolor-primary);
 
-  /* line-height: 1; */
+  /* line-height: 1em; */
   /* white-space: nowrap; */
   
   font-size: var(--textsize);

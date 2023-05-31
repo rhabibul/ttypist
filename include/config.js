@@ -27,14 +27,14 @@ export default {
   },
   cpm: false, // use cpm instead of wpm
   usefloats: false, // display floating point number
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  oppositethumbforspace: false, // use opposite thumb for hitting space key
+  underline: true, // underline the current word being typed
+  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
   input: {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
   },
-  underline: false, // underline the current word being typed
-  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // use opposite thumb for hitting space key
-  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
   backspace: {
     off: false,
     modifier: {
