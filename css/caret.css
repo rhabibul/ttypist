@@ -17,7 +17,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
 */
 #line {
   /* border-left-color: var(--caret-color); */
-  box-shadow: calc(-1 * var(--caret-width-line)) 0px 0px var(--caret-color);
+  box-shadow: var(--caret-width-line) 0px 0px var(--caret-color);
   animation-name: animate-line;
 }
 .line {

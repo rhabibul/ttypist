@@ -1,5 +1,5 @@
 import Config from "../include/config.js";
-import * as MiscElement from "../src/elements/misc-elements.js";
+import * as MiscElement from "./elements/misc-elements.js";
 
 // config debug
 window.addEventListener("click", () => {

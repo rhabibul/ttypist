@@ -225,7 +225,7 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
-  --textsize: 1.4rem;
+  --textsize: 1.2rem;
   --textweight: 460;
   --textfamily: var(--UbuntuMono);
 
@@ -246,7 +246,7 @@
   
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
-  --caret-width-line: 1 px; /* line caret width */
+  --caret-width-line: -1px; /* line caret width */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
   --caret-block-backgroundcolor: var(--gruvbox-bg0_h); /* color of block caret */
