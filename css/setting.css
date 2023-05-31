@@ -6,7 +6,6 @@ details {
 	font-size: 500;
 	font-size: 0.85rem;
 	font-family: var(--MonaSans);
-	color: rgb(137, 137, 137);
 	background-color: #f6f8fa;
 	border: 1px solid #1f232826;
 }
@@ -36,7 +35,7 @@ details summary .text {
 	align-items: center;
 	justify-content: flex-end;
 	
-	/* border: 1px solid black; */
+	color: #363636;
 }
 
 details summary .icon {
@@ -45,19 +44,18 @@ details summary .icon {
 	width: 32px;
 	height: 100%;
 	right: 0px;
-	border-left: 1px solid rgba(31,35,40,0.15);
+	border-left: 1px solid #1f232826;
 	
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
 details summary .icon svg {
 	height: 100%;
 }
 
 details summary .icon .fontfamily-dropdown-icon {
-	fill: gray;
+	fill: #363636;
 }
 
 details menu {
@@ -76,6 +74,7 @@ details menu .item {
 	padding: 8px 10px;
 	width: 100%;
 	font-size: 1rem;
+	border-bottom: 1px solid #1f232826;
 }
 details menu .item:first-child {
 	border-top-left-radius: 5px;
@@ -84,4 +83,5 @@ details menu .item:first-child {
 details menu .item:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+	border-bottom: none;
 }
