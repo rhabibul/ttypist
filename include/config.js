@@ -31,7 +31,7 @@ export default {
   oppositethumbforspace: false, // use opposite thumb for hitting space key
   underline: true, // underline the current word being typed
   tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
-  input: {
+  textinput: {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
   },
