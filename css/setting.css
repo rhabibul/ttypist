@@ -50,6 +50,7 @@ details summary .icon {
 	align-items: center;
 	justify-content: center;
 }
+
 details summary .icon svg {
 	height: 100%;
 }
@@ -59,22 +60,27 @@ details summary .icon .fontfamily-dropdown-icon {
 }
 
 details menu {
-	position: absolute;
 	width: 100%;
-	margin-top: 5px;
+	position: absolute;
 	top: 100%;
+	margin-top: 5px;
+
 	display: flex;
-	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
+	flex-direction: column;
+
 	border: 1px solid #1f232826;
 	border-radius: 5px;
 }
 details menu .item {
 	padding: 8px 10px;
 	width: 100%;
-	font-size: 1rem;
 	border-bottom: 1px solid #1f232826;
+}
+details menu .item:hover {
+	color: white;
+	background-color: #0969da;
 }
 details menu .item:first-child {
 	border-top-left-radius: 5px;
@@ -84,4 +90,61 @@ details menu .item:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom: none;
+}
+
+details menu .item.Nunito {
+	font-size: 1rem;
+	font-family: var(--Ninito);
+}
+details menu .item.MonaSans {
+	font-size: 1rem;
+	font-family: var(--MonaSans);
+}
+details menu .item.RobotoMono {
+	font-size: 1rem;
+	font-family: var(--RoboMono);
+}
+details menu .item.CourierPrime {
+	font-size: 1rem;
+	font-family: var(--CourierPrime);
+}
+details menu .item.FiraCode {
+	font-size: 1rem;
+	font-family: var(--FiraCode);
+}
+details menu .item.SourceCodePro {
+	font-size: 1rem;
+	font-family: var(--SourceCodePro);
+}
+details menu .item.UbuntuMono {
+	font-size: 1.1rem;
+	font-family: var(--UbuntuMono);
+}
+details menu .item.SyneMono {
+	font-size: 1.15rem;
+	font-family: var(--SyneMono);
+}
+details menu .item.VT323 {
+	font-size: 1.15rem;
+	font-family: var(--VT323);
+}
+details menu .item.FuzzyBubbles {
+	font-size: 1rem;
+	font-family: var(--FuzzyBubbles);
+}
+details menu .item.TsukimiRounded {
+	font-size: 1rem;
+	font-family: var(--TsukimiRounded);
+}
+details menu .item.RampartOne {
+	font-size: 1.15rem;
+	font-family: var(--RampartOne);
+}
+details menu .item.RubikVinyl {
+	font-size: 1.15rem;
+	font-family: var(--RubikVinyl);
+}
+details menu .item.GTASanAndreas {
+	font-size: 1.35rem;
+	font-family: var(--GTASanAndreas);
 }
