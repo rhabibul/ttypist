@@ -97,7 +97,7 @@ export default {
       character: "&nbsp;", // '&nbsp', '␣'
     },
     word: {
-      type: "dictionary", // dictionary | root words | lorem epsum | quotes | stories
+      type: "dictionary", // dictionary | root words | lorem epsum | quotes | stories | code | algorithms
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
       count: 25, // 25 | infinite | input
     },
@@ -120,6 +120,11 @@ export default {
       numpad: true,
     },
   },
+  calculation_interval: {
+    word: false, // calculate after every word
+    keystroke: true, // calculate after each keystroke
+    second: false, // calculate after every one second
+  },
   minimum: {
     speed: {
       off: true,
@@ -137,11 +142,6 @@ export default {
     },
   },
   live: {
-    interval: {
-      word: false, // after every word
-      keystroke: true, // on each keystroke
-      second: false, // after every one second
-    },
     speed: false,    // show live speed in wpm/cpm
     accuracy: false, // show live accuracy
     burst: false,    // show live burst, speed of last word typed
