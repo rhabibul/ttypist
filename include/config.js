@@ -99,7 +99,7 @@ export default {
     word: {
       type: "dictionary", // dictionary | root words | lorem epsum | quotes | stories | code | algorithms
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
-      count: 25, // 25 | infinite | input
+      count: 25, // 10 | 25 | 50 | 100 | infinite | input
     },
     include: {
       digit: false, // include numbers along with words

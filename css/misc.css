@@ -1,5 +1,5 @@
-input#fontsize-slider,
-input#fontweight-slider {
+input#slider-fontsize,
+input#slider-fontweight {
   border: none;
   outline: none;
 }

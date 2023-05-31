@@ -31,8 +31,8 @@ window.addEventListener('load', (evt) => {
 // });
 
 // sliders
-const slider_fontsize = document.querySelector("input#fontsize-slider.fsize");
-const slider_fontweight = document.querySelector("input#fontweight-slider.fweight");
+const slider_fontsize = document.querySelector("input#slider-fontsize");
+const slider_fontweight = document.querySelector("input#slider-fontweight");
 
 slider_fontsize.addEventListener("input", () => {
 	MiscElement.root.style.setProperty("--textsize", `${slider_fontsize.value}rem`);
