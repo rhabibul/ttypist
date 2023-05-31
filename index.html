@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Developer: Habibul Rahman" />    
-
+    
     <!-- Tab Bar Icon -->
     <link rel="icon" href="./static/images/typewriter-white.png" />
 
@@ -42,8 +42,6 @@
       </div>
     </header>
     
-    <!-- <object data="happy.svg" width="300" height="300"> </object> -->
-
     <wrapper>
       <text>
         <word>
@@ -72,38 +70,53 @@
       <input id="textinput" tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
     </wrapper>
 
-
-    <div class="font-size">
-      <input type="range" min="1" max="2" step="0.001" value="1.22" id="slider-fontsize"/>
-      <span class="text">1.2</span>
-    </div>
-    <div class="font-weight">
-      <input type="range" min="100" max="900" step="1" value="440" id="slider-fontweight"/>
-      <span class="text">460</span>
-    </div>
-    
-    <details>
-      <summary>
-        <span class="text">Roboto Mono</span>
-        <span class="icon"> <svg class="fontfamily-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
-      </summary>
-      <div class="wrapper font-family">
-        <div class="item Nunito" data-fontfamily="Nunito">Nunito</div>
-        <div class="item MonaSans" data-fontfamily="Mona Sans">Mona Sans</div>
-        <div class="item CourierPrime" data-fontfamily="Courier Prime">Courier Prime</div>
-        <div class="item FiraCode" data-fontfamily="Fira Code">Fira Code</div>
-        <div class="item SourceCodePro" data-fontfamily="Source Code Pro">Source Code Pro</div>
-        <div class="item RobotoMono" data-fontfamily="Roboto Mono">Roboto Mono</div>
-        <div class="item UbuntuMono" data-fontfamily="Ubuntu Mono">Ubuntu Mono</div>
-        <div class="item SyneMono" data-fontfamily="Syne Mono">Syne Mono</div>
-        <div class="item VT323" data-fontfamily="VT323">VT323</div>
-        <div class="item FuzzyBubbles" data-fontfamily="Fuzzy Bubbles">Fuzzy Bubbles</div>
-        <div class="item TsukimiRounded" data-fontfamily="Tsukimi Rounded">Tsukimi Rounded</div>
-        <div class="item RampartOne" data-fontfamily="Rampart One">Rampart One</div>
-        <div class="item GTASanAndreas" data-fontfamily="Diploma">Diploma</div>
-        <div class="item RubikVinyl" data-fontfamily="Rubik Vinyl">Rubik&nbsp; &nbsp;Vinyl</div>
+    <div class="setting">
+      <div class="config text">
+        <div class="color primary">
+          <input type="color" value="#1d2021">
+          <object data="./static/images/color.svg" width="20" height="20"></object>
+        </div>
+        <div class="color secondary">
+          <input type="color" value="#8d8d8de4" class="secondary-color">
+          <object data="./static/images/color.svg" width="20" height="20"></object>
+        </div>
+        
+        <div class="font">
+          <div class="size">
+            <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
+            <span class="text">1.2</span>
+          </div>
+          <div class="weight">
+            <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
+            <span class="text">450</span>
+          </div>
+        </div>
+        
+        
+        <details>
+          <summary>
+            <span class="text">Roboto Mono</span>
+            <span class="icon"> <svg class="fontfamily-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
+          </summary>
+          <div class="wrapper font-family">
+            <div class="item Nunito" data-fontfamily="Nunito">Nunito</div>
+            <div class="item MonaSans" data-fontfamily="Mona Sans">Mona Sans</div>
+            <div class="item CourierPrime" data-fontfamily="Courier Prime">Courier Prime</div>
+            <div class="item FiraCode" data-fontfamily="Fira Code">Fira Code</div>
+            <div class="item SourceCodePro" data-fontfamily="Source Code Pro">Source Code Pro</div>
+            <div class="item RobotoMono" data-fontfamily="Roboto Mono">Roboto Mono</div>
+            <div class="item UbuntuMono" data-fontfamily="Ubuntu Mono">Ubuntu Mono</div>
+            <div class="item SyneMono" data-fontfamily="Syne Mono">Syne Mono</div>
+            <div class="item VT323" data-fontfamily="VT323">VT323</div>
+            <div class="item FuzzyBubbles" data-fontfamily="Fuzzy Bubbles">Fuzzy Bubbles</div>
+            <div class="item TsukimiRounded" data-fontfamily="Tsukimi Rounded">Tsukimi Rounded</div>
+            <div class="item RampartOne" data-fontfamily="Rampart One">Rampart One</div>
+            <div class="item RubikVinyl" data-fontfamily="Rubik Vinyl">Rubik&nbsp; &nbsp;Vinyl</div>
+            <div class="item GTASanAndreas" data-fontfamily="Diploma">Diploma</div>
+          </div>
+        </details>
       </div>
-    </details>
+    </div>
 
     <script type="importmap"></script>
     <script type="module" src="./src/main.js"></script>

@@ -24,7 +24,7 @@ details summary {
 	user-select: none;
 }
 
-details summary .text {
+details summary span.text {
 	position: absolute;
 	width: 130px;
 	height: 100%;

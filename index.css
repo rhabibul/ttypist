@@ -225,12 +225,12 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
-  --textsize: 1.2rem;
-  --textweight: 460;
+  --textsize: 20px;
+  --textweight: 450;
   --textfamily: var(--RobotoMono);
 
   --textcolor-primary: #1d2021;
-  --textcolor-secondary: #8d8d8d;
+  --textcolor-secondary: #8d8d8de4;
 
   --whitespace-color: #b3b3b3;
   --whitespace-color-active: #505050;

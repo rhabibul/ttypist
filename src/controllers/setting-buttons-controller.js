@@ -13,3 +13,13 @@ import * as TestAreaElement from "../elements/testarea-elements.js";
 
 // input field
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
+
+
+// "open" attribute can be used on details tag to keep it open
+// details.addEventListener("toggle", (event) => {
+//   if (details.open) {
+//     // the element was toggled open
+//   } else {
+//     // the element was toggled closed
+//   }
+// });
