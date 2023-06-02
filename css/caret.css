@@ -1,9 +1,3 @@
-/* =================================== off  =================================== */
-.off {
-  border: none;
-  outline: none;
-}
-
 /* =================================== line  =================================== */
 /*
 box-shadow: offset-x | offset-y | blur-radius | color
@@ -134,4 +128,10 @@ box-shadow: offset-x | offset-y | blur-radius | color
     color: var(--textcolor-primary);
     background-color: var(--caret-color-hidden);
   }
+}
+
+/* =================================== caret off  =================================== */
+.nope {
+  border: none;
+  outline: none;
 }

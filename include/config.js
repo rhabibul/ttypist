@@ -5,8 +5,8 @@ export default {
     hastypedallwords: false,
   },
   caret: {
-    off: false,
-    style: "line", // off | line | underline | box | block
+    off: true,
+    style: "off", // off | line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
