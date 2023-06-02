@@ -87,19 +87,38 @@ details div.menu {
 details div.menu div.item {
 	width: 100%;
 	height: 33px;
-	padding: 4px 0px 4px 12px;
+	padding: 0px 6px 0px 12px;
 
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 	
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: space-between;
 	border-bottom: 1px solid #1f232826;
+}
+.unmarked {
+	visibility: hidden;
+}
+.marked {
+	fill: green;
+}
+details div.menu div.item span.text,
+details div.menu div.item span.icon {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 details div.menu div.item:hover {
 	color: blue;
 	background-color: #f6f8fa;
+}
+details div.menu div.item:hover span.icon {
+	visibility: visible;
+}
+details div.menu div.item:hover span.icon svg.tick {
+	fill: rgb(184, 184, 184);
 }
 details div.menu div.item:first-child {
 	border-top-left-radius: var(--roundness);
@@ -122,14 +141,14 @@ details#font-family summary > span.text {
 	width: 130px;
 }
 details#font-family div.menu {
-	width: 170px;
+	width: 190px;
 }
 details#font-family div.menu div.item.Nunito {
 	font-size: 1rem;
-	font-family: var(--Ninito);
+	font-family: var(--Nunito);
 }
 details#font-family div.menu div.item.MonaSans {
-	font-size: 1rem;
+	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 }
 details#font-family div.menu div.item.RobotoMono {
@@ -137,11 +156,11 @@ details#font-family div.menu div.item.RobotoMono {
 	font-family: var(--RobotoMono);
 }
 details#font-family div.menu div.item.CourierPrime {
-	font-size: 1rem;
+	font-size: 0.98rem;
 	font-family: var(--CourierPrime);
 }
 details#font-family div.menu div.item.FiraCode {
-	font-size: 0.95rem;
+	font-size: 0.94rem;
 	font-family: var(--FiraCode);
 }
 details#font-family div.menu div.item.SourceCodePro {
@@ -153,7 +172,7 @@ details#font-family div.menu div.item.UbuntuMono {
 	font-family: var(--UbuntuMono);
 }
 details#font-family div.menu div.item.SyneMono {
-	font-size: 1.15rem;
+	font-size: 1.12rem;
 	font-family: var(--SyneMono);
 }
 details#font-family div.menu div.item.VT323 {
@@ -161,19 +180,19 @@ details#font-family div.menu div.item.VT323 {
 	font-family: var(--VT323);
 }
 details#font-family div.menu div.item.FuzzyBubbles {
-	font-size: 1.05rem;
+	font-size: 1rem;
 	font-family: var(--FuzzyBubbles);
 }
 details#font-family div.menu div.item.TsukimiRounded {
-	font-size: 0.95rem;
+	font-size: 0.93rem;
 	font-family: var(--TsukimiRounded);
 }
 details#font-family div.menu div.item.RampartOne {
-	font-size: 1.15rem;
+	font-size: 1.1rem;
 	font-family: var(--RampartOne);
 }
 details#font-family div.menu div.item.RubikVinyl {
-	font-size: 1.15rem;
+	font-size: 1.1rem;
 	font-family: var(--RubikVinyl);
 }
 details#font-family div.menu div.item.GTASanAndreas {
@@ -200,5 +219,25 @@ details#word-length summary > span.text {
 	width: 80px;
 }
 details#word-length div.menu {
-	width: 130px;
+	width: 145px;
+	padding-right: 4px;
+}
+details#word-length div.menu div.item {
+	justify-content: space-between;
+}
+details#word-length div.menu div.item span.text,
+details#word-length div.menu div.item span.range {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+details#word-length div.menu div.item span.text {
+	flex-basis: 50%;
+}
+details#word-length div.menu div.item span.range {
+	flex-basis: 30%;
+	font-size: 0.8rem;
+	color: #a0a0a0;
 }

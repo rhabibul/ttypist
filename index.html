@@ -89,13 +89,15 @@
       
       <div id="size">
         <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
-        <span class="lebel">1.2</span>
+        <span class="text">1.2</span>
       </div>
 
       <div id="weight">
         <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
-        <span class="label">450</span>
+        <span class="text">450</span>
       </div>
+
+      <svg height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>
 
       <details id="font-family">
         <summary>
@@ -103,20 +105,62 @@
           <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
         </summary>
         <div class="menu font-family">
-          <div class="item Nunito" data-value="Nunito">Nunito</div>
-          <div class="item MonaSans" data-value="Mona Sans">Mona Sans</div>
-          <div class="item CourierPrime" data-value="Courier Prime">Courier Prime</div>
-          <div class="item FiraCode" data-value="Fira Code">Fira Code</div>
-          <div class="item SourceCodePro" data-value="Source Code Pro">Source Code Pro</div>
-          <div class="item RobotoMono" data-value="Roboto Mono">Roboto Mono</div>
-          <div class="item UbuntuMono" data-value="Ubuntu Mono">Ubuntu Mono</div>
-          <div class="item SyneMono" data-value="Syne Mono">Syne Mono</div>
-          <div class="item VT323" data-value="VT323">VT323</div>
-          <div class="item FuzzyBubbles" data-value="Fuzzy Bubbles">Fuzzy Bubbles</div>
-          <div class="item TsukimiRounded" data-value="Tsukimi Rounded">Tsukimi Rounded</div>
-          <div class="item RampartOne" data-value="Rampart One">Rampart One</div>
-          <div class="item RubikVinyl" data-value="Rubik Vinyl">Rubik&nbsp; &nbsp;Vinyl</div>
-          <div class="item GTASanAndreas" data-value="Diploma">Diploma</div>
+          <div class="item Nunito" data-value="Nunito">
+            <span class="text">Nunito</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item MonaSans" data-value="Mona Sans">
+            <span class="text">Mona Sans</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item CourierPrime" data-value="Courier Prime">
+            <span class="text">Courier Prime</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item FiraCode" data-value="Fira Code">
+            <span class="text">Fira Code</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item SourceCodePro" data-value="Source Code Pro">
+            <span class="text">Source Code Pro</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item RobotoMono" data-value="Roboto Mono">
+            <span class="text">Roboto Mono</span>
+            <span class="icon"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item UbuntuMono" data-value="Ubuntu Mono">
+            <span class="text">Ubuntu Mono</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item SyneMono" data-value="Syne Mono">
+            <span class="text">Syne Mono</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item VT323" data-value="VT323">
+            <span class="text">VT323</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item FuzzyBubbles" data-value="Fuzzy Bubbles">
+            <span class="text">Fuzzy Bubbles</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item TsukimiRounded" data-value="Tsukimi Rounded">
+            <span class="text">Tsukimi Rounded</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item RampartOne" data-value="Rampart One">
+            <span class="text">Rampart One</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item RubikVinyl" data-value="Rubik Vinyl">
+            <span class="text">Rubik&nbsp; &nbsp;Vinyl</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item GTASanAndreas" data-value="Diploma">
+            <span class="text">Diploma</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
         </div>
       </details>
 
@@ -127,13 +171,34 @@
           <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
         </summary>
         <div class="menu">
-          <div class="item dictionary" data-value="dictionary">dictionary</div>
-          <div class="item root" data-value="root">root</div>
-          <div class="item gibberish" data-value="gibberish">gibberish</div>
-          <div class="item quote" data-value="quote">quote</div>
-          <div class="item poetry" data-value="poetry">poetry</div>
-          <div class="item story" data-value="story">story</div>
-          <div class="item algorithm" data-value="algorithm">algorithm</div>
+          <div class="item quote" data-value="quote">
+            <span class="text">quote</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item poetry" data-value="poetry">
+            <span class="text">poetry</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item story" data-value="story">
+            <span class="text">story</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item dictionary" data-value="dictionary">
+            <span class="text">dictionary</span>
+            <span class="icon marked"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item root" data-value="root">
+            <span class="text">root</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item gibberish" data-value="gibberish">
+            <span class="text">gibberish</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
+          <div class="item algorithm" data-value="algorithm">
+            <span class="text">algorithm</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+          </div>
         </div>
       </details>
 
@@ -145,19 +210,29 @@
         </summary>
         <div class="menu">
           <div class="item short">
-            <span class="text">short</span> <span class="range">[1, 5&#41;</span>
+            <span class="text">short</span>
+            <span class="range">[1,5&#41;</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
           </div>
           <div class="item medium">
-            <span class="text">medium</span> <span class="range">[5,10&#41;</span>
+            <span class="text">medium</span>
+            <span class="range">[5,10&#41;</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
           </div>
           <div class="item long">
-            <span class="text">long</span> <span class="range">[10, 13&#41;</span>  
+            <span class="text">long</span>
+            <span class="range">[10,13&#41;</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
           </div>
-          <div class="item very-long">
-            <span class="text">very long</span> <span class="range">[13,&infin;&#41;</span>
+          <div class="item verylong">
+            <span class="text">very long</span>
+            <span class="range">[13,&infin;&#41;</span>
+            <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
           </div>
           <div class="item random">
-            <span class="text">random</span> <span class="range"></span>
+            <span class="text">random</span>
+            <span class="range"></span>
+            <span class="icon"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
           </div>
         </div>
       </details>
