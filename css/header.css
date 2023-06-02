@@ -46,7 +46,7 @@ header .content .logo .logo-label {
 	letter-spacing: 1px;
 	color: gray;
 	font-size: 1.6rem;
-	font-family: var(--RubikVinyl);
+	font-family: var(--SyneMono);
 }
 
 header .content .profile {
