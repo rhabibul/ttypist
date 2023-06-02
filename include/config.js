@@ -158,10 +158,10 @@ export default {
     timer: false,    // show live timer countdown
   },
   warning: {
-    focus: true,
-    capslock: false,
-    numlock: false,
-    scrolllock: false,
+    focus: true,        // user is out of focus (not typing anymore)
+    capslock: false,    // capslock key is left turned on
+    numlock: false,     // numlock key is left turned on
+    scrolllock: false,  // scolllock key is left turned on
   },
   practice: {
     off: true,            // turn off practice mode
