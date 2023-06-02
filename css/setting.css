@@ -1,6 +1,5 @@
 div.setting {
-	width: 500px;
-	height: 400px;
+	width: 800px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -197,7 +196,7 @@ details#font-family div.menu div.item.RubikVinyl {
 	font-family: var(--RubikVinyl);
 }
 details#font-family div.menu div.item.GTASanAndreas {
-	font-size: 1.35rem;
+	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
 }
 

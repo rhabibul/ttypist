@@ -273,5 +273,48 @@
 			</svg>
 		</div>
 	</github>
+
+	<!-- 
+		Thumb:
+			input[type=”range”]::-webkit-slider-thumb
+			input[type=”range”]::-moz-range-thumb
+			input[type=”range”]::-ms-thumb
+
+		Track:
+			input[type=”range”]::-webkit-slider-runnable-track
+			input[type=”range”]::-moz-range-track
+			input[type=”range”]::-ms-track
+	 -->
+	
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		input[type="range"] {
+			width: 150px;
+			height: 20px;
+			background: black;
+			border: none;
+			outline: none;
+		}
+	</style>
+
+	<input type="range" min="0" max="100" value="30" step="10" list="ticks">
+	<datalist id="ticks">
+		<option value="0">0</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="30">30</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		<option value="60">60</option>
+		<option value="70">70</option>
+		<option value="80">80</option>
+		<option value="90">90</option>
+		<option value="100">100</option>
+	</datalist>
 </body>
 </html>

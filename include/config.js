@@ -88,7 +88,7 @@ export default {
     font: {
       size: 1.2, // size of each letter
       weight: 445, // thickness of each letter
-      family: "Roboto Mono",
+      family: "Roboto Mono", // roboto | fira | mona | ubuntu | syne | source | VT323 | fuzzy | tsukimi | rampart | rubik | diploma
     },
     whitespace: {
       off: false, // nospace
@@ -97,8 +97,8 @@ export default {
         bullet: true, // 0, '•'   (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
-      code: 160, // 160 | 9251
-      character: "&nbsp;", // '&nbsp', '␣'
+      code: 160, // 160 | 9251 | 0
+      character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     word: {
       type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
