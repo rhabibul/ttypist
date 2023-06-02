@@ -10,10 +10,10 @@ div.setting {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	/* border: 1px dashed gray; */
+	border: 1px dashed gray;
 }
 
-/* ------ COMMON STYLES | <details></details> ------ */
+/* ------------------ COMMON STYLES | <details></details> ------------------ */
 details {
 	box-sizing: border-box;
 	position: relative;
@@ -60,7 +60,6 @@ details summary > span.icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid blue;
 }
 details summary > span.icon svg.dropdown {
 	height: 100%;
@@ -69,12 +68,12 @@ details summary > span.icon svg.dropdown {
 	fill: #363636;
 }
 details div.menu {
+	width: 100%;
 	position: absolute;
 	top: 100%;
 	right: 0px;
 	margin-top: 5px;
 
-	width: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -87,7 +86,7 @@ details div.menu {
 }
 details div.menu div.item {
 	width: 100%;
-	height: 34px;
+	height: 33px;
 	padding: 4px 0px 4px 12px;
 
 	font-size: 0.9rem;
@@ -113,92 +112,93 @@ details div.menu div.item:last-child {
 }
 
 
-/* ------ CUSTOM STYLES | <details></details> ------ */
+/* ------------------ CUSTOM STYLES | <details></details> ------------------ */
 
-/* config.text.font.family */
+/* ------- config.text.font.family */
 details#font-family {
 	width: 160px;
 }
 details#font-family summary > span.text {
 	width: 130px;
 }
+details#font-family div.menu {
+	width: 170px;
+}
+details#font-family div.menu div.item.Nunito {
+	font-size: 1rem;
+	font-family: var(--Ninito);
+}
+details#font-family div.menu div.item.MonaSans {
+	font-size: 1rem;
+	font-family: var(--MonaSans);
+}
+details#font-family div.menu div.item.RobotoMono {
+	font-size: 0.95rem;
+	font-family: var(--RobotoMono);
+}
+details#font-family div.menu div.item.CourierPrime {
+	font-size: 1rem;
+	font-family: var(--CourierPrime);
+}
+details#font-family div.menu div.item.FiraCode {
+	font-size: 0.95rem;
+	font-family: var(--FiraCode);
+}
+details#font-family div.menu div.item.SourceCodePro {
+	font-size: 0.95rem;
+	font-family: var(--SourceCodePro);
+}
+details#font-family div.menu div.item.UbuntuMono {
+	font-size: 1.1rem;
+	font-family: var(--UbuntuMono);
+}
+details#font-family div.menu div.item.SyneMono {
+	font-size: 1.15rem;
+	font-family: var(--SyneMono);
+}
+details#font-family div.menu div.item.VT323 {
+	font-size: 1.4rem;
+	font-family: var(--VT323);
+}
+details#font-family div.menu div.item.FuzzyBubbles {
+	font-size: 1.05rem;
+	font-family: var(--FuzzyBubbles);
+}
+details#font-family div.menu div.item.TsukimiRounded {
+	font-size: 0.95rem;
+	font-family: var(--TsukimiRounded);
+}
+details#font-family div.menu div.item.RampartOne {
+	font-size: 1.15rem;
+	font-family: var(--RampartOne);
+}
+details#font-family div.menu div.item.RubikVinyl {
+	font-size: 1.15rem;
+	font-family: var(--RubikVinyl);
+}
+details#font-family div.menu div.item.GTASanAndreas {
+	font-size: 1.35rem;
+	font-family: var(--GTASanAndreas);
+}
 
-/* config.text.word.type */
+/* ------- config.text.word.type */
 details#word-type {
 	width: 120px;
 }
 details#word-type summary > span.text {
 	width: 90px;
 }
+details#word-type div.menu {
+	width: 100%;
+}
 
-/* config.text.word.length */
+/* ------- config.text.word.length */
 details#word-length {
 	width: 110px;
 }
 details#word-length summary > span.text {
 	width: 80px;
 }
-
-
-/* word length */
-details#word-length summary span.label {
-	font-size: 0.85rem;
-}
-
-/* font family menu */
-details div.menu div.item.Nunito {
-	font-size: 1rem;
-	font-family: var(--Ninito);
-}
-details div.menu div.item.MonaSans {
-	font-size: 1rem;
-	font-family: var(--MonaSans);
-}
-details div.menu div.item.RobotoMono {
-	font-size: 0.95rem;
-	font-family: var(--RobotoMono);
-}
-details div.menu div.item.CourierPrime {
-	font-size: 1rem;
-	font-family: var(--CourierPrime);
-}
-details div.menu div.item.FiraCode {
-	font-size: 0.95rem;
-	font-family: var(--FiraCode);
-}
-details div.menu div.item.SourceCodePro {
-	font-size: 0.95rem;
-	font-family: var(--SourceCodePro);
-}
-details div.menu div.item.UbuntuMono {
-	font-size: 1.1rem;
-	font-family: var(--UbuntuMono);
-}
-details div.menu div.item.SyneMono {
-	font-size: 1.15rem;
-	font-family: var(--SyneMono);
-}
-details div.menu div.item.VT323 {
-	font-size: 1.4rem;
-	font-family: var(--VT323);
-}
-details div.menu div.item.FuzzyBubbles {
-	font-size: 1.05rem;
-	font-family: var(--FuzzyBubbles);
-}
-details div.menu div.item.TsukimiRounded {
-	font-size: 0.95rem;
-	font-family: var(--TsukimiRounded);
-}
-details div.menu div.item.RampartOne {
-	font-size: 1.15rem;
-	font-family: var(--RampartOne);
-}
-details div.menu div.item.RubikVinyl {
-	font-size: 1.15rem;
-	font-family: var(--RubikVinyl);
-}
-details div.menu div.item.GTASanAndreas {
-	font-size: 1.35rem;
-	font-family: var(--GTASanAndreas);
+details#word-length div.menu {
+	width: 130px;
 }
