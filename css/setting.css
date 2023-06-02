@@ -1,9 +1,3 @@
-:root {
-	--roundness: 4px;
-	--button-width: 30px;
-	--button-height: 30px;
-}
-
 div.setting {
 	width: 500px;
 	height: 400px;
@@ -13,7 +7,20 @@ div.setting {
 	border: 1px dashed gray;
 }
 
-/* ------------------ COMMON STYLES | <details></details> ------------------ */
+:root {
+	--roundness: 4px;
+	--button-width: 30px;
+	--button-height: 30px;
+}
+
+.unmarked {
+	visibility: hidden;
+}
+.marked {
+	fill: green;
+}
+
+/* ------------------ COMMON | <details></details> ------------------ */
 details {
 	box-sizing: border-box;
 	position: relative;
@@ -89,19 +96,13 @@ details div.menu div.item {
 	height: 33px;
 	padding: 0px 6px 0px 12px;
 
-	font-size: 0.9rem;
+	font-size: 0.95rem;
 	font-family: var(--MonaSans);
 	
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid #1f232826;
-}
-.unmarked {
-	visibility: hidden;
-}
-.marked {
-	fill: green;
 }
 details div.menu div.item span.text,
 details div.menu div.item span.icon {
@@ -118,7 +119,7 @@ details div.menu div.item:hover span.icon {
 	visibility: visible;
 }
 details div.menu div.item:hover span.icon svg.tick {
-	fill: rgb(184, 184, 184);
+	fill: #b8b8b8;
 }
 details div.menu div.item:first-child {
 	border-top-left-radius: var(--roundness);
@@ -131,7 +132,7 @@ details div.menu div.item:last-child {
 }
 
 
-/* ------------------ CUSTOM STYLES | <details></details> ------------------ */
+/* ------------------ CUSTOM | <details></details> ------------------ */
 
 /* ------- config.text.font.family */
 details#font-family {
@@ -219,7 +220,7 @@ details#word-length summary > span.text {
 	width: 80px;
 }
 details#word-length div.menu {
-	width: 145px;
+	width: 150px;
 	padding-right: 4px;
 }
 details#word-length div.menu div.item {
