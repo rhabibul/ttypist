@@ -93,17 +93,17 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp' | include wide unicode space
-        bullet: true, // 0, '•'   (::after is used to draw bullet character)
+        space: false, // 160, '&nbsp'
+        bullet: true, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
-      code: 160, // 160 | 9251 | 0
+      code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     word: {
+      count: 25, // 10 | 25 | 50 | 100 | infinite | input
       type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
-      count: 25, // 10 | 25 | 50 | 100 | infinite | input
     },
     include: {
       digit: false, // include numbers along with words
@@ -113,6 +113,7 @@ export default {
       firstletter: false,
       allfirstletters: false,
       random: false,
+      between: false,
     }
   },
   language: "english", // english | hindi | bengali | arabic | russian | +indian-languages

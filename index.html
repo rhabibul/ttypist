@@ -82,13 +82,21 @@
             - collapsed
               labels and buttons but user has the option to see config description
       -->
+    <!-- <object data="./static/images/color.svg" width="20" height="20"></object> -->
     <div class="setting">
-      <!-- <object data="./static/images/color.svg" width="20" height="20"></object> -->
+
+
+      <!-- ------------------- config.text ------------------- -->
+      <div class="config" id="text-length">
+        <span class="text">text length</span>
+        <input type="number" placeholder="Number of characters">
+      </div>
+
       <div class="config" id="text-whitespace">
-        <button type="button" value="off">off</button>
-        <button type="button" value="bullet">bullet</button>
-        <button type="button" value="space">space</button>
-        <button type="button" value="bar">bar</button>
+        <button type="button" value="off"    data-code="0"    data-character=""       class="off">off</button>
+        <button type="button" value="bullet" data-code="8226" data-character="•"      class="bullet">bullet</button>
+        <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="space">space</button>
+        <button type="button" value="bar"    data-code="9251" data-character="␣"      class="bar">bar</button>
       </div>
       
       <div class="config" id="text-primary-color">
@@ -109,6 +117,24 @@
       <div class="config" id="text-font-weight">
         <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
         <span class="text">450</span>
+      </div>
+
+      <div class="config" id="text-word-count">
+        <span class="text">word count</span>
+        <input type="number" placeholder="25">
+      </div>
+
+      <div class="config" id="text-include">
+        <button type="button" value="digit" class="digit">digit</button>
+        <button type="button" value="punctuation" class="punctuation">punctuation</button>
+      </div>
+
+      <div class="config" id="text-capitalize">
+        <button type="button" value="off" class="off">off</button>
+        <button type="button" value="firstletter" class="firstletter">firstletter</button>
+        <button type="button" value="allfirstletters" class="allfirstletters">allfirstletters</button>
+        <button type="button" value="random" class="random">random</button>
+        <button type="button" value="between" class="between">between</button>
       </div>
 
       <details class="config" id="text-font-family">
@@ -248,17 +274,14 @@
           </div>
         </div>
       </details>
-
-      <div class="config" id="text-word-count">
-        <span class="text">word count</span>
-        <input type="number" placeholder="25">
-      </div>
-
-      <div class="config" id="text-include">
-        <button type="button" value="digit" class="digit">digit</button>
-        <button type="button" value="punctuation" class="punctuation">punctuation</button>
-      </div>
     </div>
+
+    <script type="text/javascript">
+      // const btn = document.querySelectorAll("div.config#text-whitespace > *");
+      // for ( const b of btn ) {
+      //   console.log(b.type, b.value, b.dataset.code, b.dataset.character);
+      // }
+    </script>
 
     <script type="importmap"></script>
     <script type="module" src="./src/main.js"></script>
