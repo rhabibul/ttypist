@@ -30,7 +30,11 @@ export default {
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key
   underline: true, // underline the current word being typed
-  tape: false, // text in one line, text scrolls horizontally either from ltr or rtl direction
+  tape: { // text remains in one line, text scrolls horizontally either from ltr or rtl direction
+    off: true,
+    letter: false,
+    word: false,
+  },
   textinput: {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
