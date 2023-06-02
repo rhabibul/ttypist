@@ -134,109 +134,109 @@ details div.menu div.item:last-child {
 /* ------------------ CUSTOM | <details></details> ------------------ */
 
 /* ------- config.text.font.family */
-details#font-family {
+details#text-font-family {
 	width: 160px;
 }
-details#font-family summary > span.text {
+details#text-font-family summary > span.text {
 	width: 130px;
 }
-details#font-family div.menu {
+details#text-font-family div.menu {
 	width: 200px;
 }
-details#font-family div.menu div.item.Nunito {
+details#text-font-family div.menu div.item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Nunito);
 }
-details#font-family div.menu div.item.MonaSans {
+details#text-font-family div.menu div.item.MonaSans {
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 }
-details#font-family div.menu div.item.RobotoMono {
+details#text-font-family div.menu div.item.RobotoMono {
 	font-size: 0.95rem;
 	font-family: var(--RobotoMono);
 }
-details#font-family div.menu div.item.CourierPrime {
+details#text-font-family div.menu div.item.CourierPrime {
 	font-size: 0.98rem;
 	font-family: var(--CourierPrime);
 }
-details#font-family div.menu div.item.FiraCode {
+details#text-font-family div.menu div.item.FiraCode {
 	font-size: 0.94rem;
 	font-family: var(--FiraCode);
 }
-details#font-family div.menu div.item.SourceCodePro {
+details#text-font-family div.menu div.item.SourceCodePro {
 	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-details#font-family div.menu div.item.UbuntuMono {
+details#text-font-family div.menu div.item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details#font-family div.menu div.item.SyneMono {
+details#text-font-family div.menu div.item.SyneMono {
 	font-size: 1.12rem;
 	font-family: var(--SyneMono);
 }
-details#font-family div.menu div.item.VT323 {
+details#text-font-family div.menu div.item.VT323 {
 	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-details#font-family div.menu div.item.FuzzyBubbles {
+details#text-font-family div.menu div.item.FuzzyBubbles {
 	font-size: 1rem;
 	font-family: var(--FuzzyBubbles);
 }
-details#font-family div.menu div.item.TsukimiRounded {
+details#text-font-family div.menu div.item.TsukimiRounded {
 	font-size: 0.93rem;
 	font-family: var(--TsukimiRounded);
 }
-details#font-family div.menu div.item.RampartOne {
+details#text-font-family div.menu div.item.RampartOne {
 	font-size: 1.1rem;
 	font-family: var(--RampartOne);
 }
-details#font-family div.menu div.item.RubikVinyl {
+details#text-font-family div.menu div.item.RubikVinyl {
 	font-size: 1.1rem;
 	font-family: var(--RubikVinyl);
 }
-details#font-family div.menu div.item.GTASanAndreas {
+details#text-font-family div.menu div.item.GTASanAndreas {
 	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
 }
 
 /* ------- config.text.word.type */
-details#word-type {
+details#text-word-type {
 	width: 120px;
 }
-details#word-type summary > span.text {
+details#text-word-type summary > span.text {
 	width: 90px;
 }
-details#word-type div.menu {
+details#text-word-type div.menu {
 	width: 100%;
 }
 
 /* ------- config.text.word.length */
-details#word-length {
+details#text-word-length {
 	width: 110px;
 }
-details#word-length summary > span.text {
+details#text-word-length summary > span.text {
 	width: 80px;
 }
-details#word-length div.menu {
+details#text-word-length div.menu {
 	width: 150px;
 	padding-right: 4px;
 }
-details#word-length div.menu div.item {
+details#text-word-length div.menu div.item {
 	justify-content: space-between;
 }
-details#word-length div.menu div.item span.text,
-details#word-length div.menu div.item span.range {
+details#text-word-length div.menu div.item span.text,
+details#text-word-length div.menu div.item span.range {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
 
-details#word-length div.menu div.item span.text {
+details#text-word-length div.menu div.item span.text {
 	flex-basis: 50%;
 }
-details#word-length div.menu div.item span.range {
+details#text-word-length div.menu div.item span.range {
 	flex-basis: 30%;
 	font-size: 0.8rem;
 	color: #a0a0a0;

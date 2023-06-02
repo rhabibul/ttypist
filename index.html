@@ -84,34 +84,34 @@
       -->
     <div class="setting">
       <!-- <object data="./static/images/color.svg" width="20" height="20"></object> -->
-      <div class="config" id="whitespace">
+      <div class="config" id="text-whitespace">
         <button type="button" value="off">off</button>
         <button type="button" value="bullet">bullet</button>
         <button type="button" value="space">space</button>
         <button type="button" value="bar">bar</button>
       </div>
       
-      <div id="text-primary-color">
+      <div class="config" id="text-primary-color">
         <input type="color" value="#1d2021" >
         <span class="text">#1d2021</span>
       </div>
 
-      <div id="text-secondary-color">
+      <div class="config" id="text-secondary-color">
         <input type="color" value="#999999" >
         <span class="text">#999999</span>
       </div>
 
-      <div id="text-font-size">
-        <input type="range" min="1" max="2" step="0.01" value="1.2" id="slider-fontsize"/>
+      <div class="config" id="text-font-size">
+        <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
         <span class="text">1.2</span>
       </div>
 
-      <div id="text-font-weight">
-        <input type="range" min="100" max="900" step="2" value="450" id="slider-fontweight"/>
+      <div class="config" id="text-font-weight">
+        <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
         <span class="text">450</span>
       </div>
 
-      <details id="font-family">
+      <details class="config" id="text-font-family">
         <summary>
           <span class="text">roboto mono</span>
           <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
@@ -176,7 +176,7 @@
         </div>
       </details>
 
-      <details id="word-type">
+      <details class="config" id="text-word-type">
         <summary>
           <!-- text: dictionary | root | gibberish | quote | story | algorithm -->
           <span class="text">dictionary</span>
@@ -214,7 +214,7 @@
         </div>
       </details>
 
-      <details id="word-length">
+      <details class="config" id="text-word-length">
         <summary>
           <!-- text: short | medium | long | very long -->
           <span class="text">random</span>
@@ -249,7 +249,7 @@
         </div>
       </details>
 
-      <div id="text-word-count">
+      <div class="config" id="text-word-count">
         <span class="text">word count</span>
         <input type="number" placeholder="25">
       </div>
