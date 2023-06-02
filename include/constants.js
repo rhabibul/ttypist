@@ -10,6 +10,19 @@ export const stopper = [ // _ and 0..9 are not considered as stopppers, they're 
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];
 
+export const whitespace = {
+  "tab": "	", // 9 (tab)
+  "space": " ", // 32 (ascii space)
+  "nobreak": "&nbsp;", // 160 (non-breaking space)
+  "ideographic": "　", // 12288 (ideographic space)
+  "mathematical": " ", // 8287 (medium mathematical space)
+  "narrow": " ", // 8239 (narrow no-break space) [width is usually 1/3 of normal space]
+  "figure": " ", // 8199 (figure space)
+  "punctuation": " ", // 8200 (punctuation space)
+  "thin": " ", // 8201 (thin space)
+  "hair": " " // 8202 (hair space)
+}
+
 const modifier = {
   "ctrlKey": false,
   "shiftKey": false,

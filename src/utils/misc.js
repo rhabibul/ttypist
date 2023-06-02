@@ -33,6 +33,8 @@ export function totalchar() {
 }
 
 export function randomwords() {
+  // modify the string here with all config options like capitalizations of letters
+  // word type, word length, word count etc
   let words = new Array(Config.text.word.count);
   for (let i = 0; i < Config.text.word.count; ++i) {
     // words[i] = rootword[Math.floor(Math.random() * rootword.length)];

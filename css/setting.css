@@ -1,20 +1,27 @@
-div#font details#family {
+div.setting {
+	width: 800px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid black;
+}
+
+/* ------ common ------ */
+details {
 	position: relative;
 	width: 160px;
 	height: 30px;
-	
+
 	user-select: none;
 	
 	background-color: #f6f8fa;
 	border: 1px solid #1f232826;
 	border-radius: 5px;
 }
-
-div#font details#family summary::-webkit-details-marker {
+details summary::-webkit-details-marker {
 	display: none;
 }
-
-div#font details#family summary {
+details summary {
 	width: 100%;
 	height: 100%;
 	
@@ -23,8 +30,7 @@ div#font details#family summary {
 	list-style: none;
 	user-select: none;
 }
-
-div#font details#family summary span.label {
+details summary span.label {
 	position: absolute;
 	width: 130px;
 	height: 100%;
@@ -41,8 +47,7 @@ div#font details#family summary span.label {
 	font-family: var(--MonaSans);
 	border-right: 1px solid #1f232826;
 }
-
-div#font details#family summary .icon {
+details summary .icon {
 	width: 30px;
 	height: 100%;
 	position: absolute;
@@ -52,16 +57,15 @@ div#font details#family summary .icon {
 	align-items: center;
 	justify-content: center;
 }
-
-div#font details#family summary .icon svg {
+details summary .icon svg {
 	height: 100%;
 }
 
-div#font details#family summary .icon .font-family-dropdown-icon {
+details summary .icon .dropdown-icon {
 	fill: #363636;
 }
 
-div#font details#family div.wrapper {
+details div.menu {
 	width: 100%;
 	position: absolute;
 	top: 100%;
@@ -76,83 +80,92 @@ div#font details#family div.wrapper {
 	border-radius: 5px;
 	z-index: 999;
 }
-div#font details#family div.wrapper div.Item {
+details div.menu div.item {
 	width: 100%;
 	height: 35px;
 	padding: 4px 0px 4px 8px;
+
+	font-size: 0.9rem;
+	font-family: var(--MonaSans);
 	
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	border-bottom: 1px solid #1f232826;
 }
-div#font details#family div.wrapper div.Item:hover {
+details div.menu div.item:hover {
 	color: blue;
 	background-color: #f6f8fa;
 }
-div#font details#family div.wrapper div.Item:first-child {
+details div.menu div.item:first-child {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-div#font details#family div.wrapper div.Item:last-child {
+details div.menu div.item:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom: none;
 }
 
-div#font details#family div.wrapper div.Item.Nunito {
+/* word length */
+details#word-length summary span.label {
+	font-size: 0.85rem;
+}
+
+/* font family menu */
+details div.menu div.item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Ninito);
 }
-div#font details#family div.wrapper div.Item.MonaSans {
+details div.menu div.item.MonaSans {
 	font-size: 1rem;
 	font-family: var(--MonaSans);
 }
-div#font details#family div.wrapper div.Item.RobotoMono {
+details div.menu div.item.RobotoMono {
 	font-size: 0.95rem;
-	font-family: var(--RoboMono);
+	font-family: var(--RobotoMono);
 }
-div#font details#family div.wrapper div.Item.CourierPrime {
+details div.menu div.item.CourierPrime {
 	font-size: 1rem;
 	font-family: var(--CourierPrime);
 }
-div#font details#family div.wrapper div.Item.FiraCode {
+details div.menu div.item.FiraCode {
 	font-size: 0.95rem;
 	font-family: var(--FiraCode);
 }
-div#font details#family div.wrapper div.Item.SourceCodePro {
+details div.menu div.item.SourceCodePro {
 	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-div#font details#family div.wrapper div.Item.UbuntuMono {
+details div.menu div.item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-div#font details#family div.wrapper div.Item.SyneMono {
+details div.menu div.item.SyneMono {
 	font-size: 1.15rem;
 	font-family: var(--SyneMono);
 }
-div#font details#family div.wrapper div.Item.VT323 {
+details div.menu div.item.VT323 {
 	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-div#font details#family div.wrapper div.Item.FuzzyBubbles {
+details div.menu div.item.FuzzyBubbles {
 	font-size: 1.05rem;
 	font-family: var(--FuzzyBubbles);
 }
-div#font details#family div.wrapper div.Item.TsukimiRounded {
+details div.menu div.item.TsukimiRounded {
 	font-size: 0.95rem;
 	font-family: var(--TsukimiRounded);
 }
-div#font details#family div.wrapper div.Item.RampartOne {
+details div.menu div.item.RampartOne {
 	font-size: 1.15rem;
 	font-family: var(--RampartOne);
 }
-div#font details#family div.wrapper div.Item.RubikVinyl {
+details div.menu div.item.RubikVinyl {
 	font-size: 1.15rem;
 	font-family: var(--RubikVinyl);
 }
-div#font details#family div.wrapper div.Item.GTASanAndreas {
+details div.menu div.item.GTASanAndreas {
 	font-size: 1.35rem;
 	font-family: var(--GTASanAndreas);
 }

@@ -97,14 +97,19 @@ export default {
       character: "&nbsp;", // '&nbsp', '␣'
     },
     word: {
-      type: "dictionary", // dictionary | root words | lorem epsum | quotes | stories | code | algorithms
-      length: "random", // short(<5) | medium(>=5, <=9), | long(>=11, <= 13) | very long(>=13) | random
+      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
+      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
       count: 25, // 10 | 25 | 50 | 100 | infinite | input
     },
     include: {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
+    capitalize: {
+      firstletter: false,
+      allfirstletters: false,
+      random: false,
+    }
   },
   language: "english", // english | hindi | bengali | arabic | russian | +indian-languages
   keyboard: {
