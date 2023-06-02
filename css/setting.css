@@ -1,89 +1,94 @@
+:root {
+	--roundness: 4px;
+	--button-width: 30px;
+	--button-height: 30px;
+}
+
 div.setting {
-	width: 800px;
+	width: 500px;
 	height: 400px;
 	display: flex;
 	flex-wrap: wrap;
-	border: 1px solid black;
+	justify-content: space-evenly;
+	/* border: 1px dashed gray; */
 }
 
-/* ------ common ------ */
+/* ------ COMMON STYLES | <details></details> ------ */
 details {
+	box-sizing: border-box;
 	position: relative;
-	width: 160px;
-	height: 30px;
+	height: var(--button-height);
 
 	user-select: none;
 	
 	background-color: #f6f8fa;
 	border: 1px solid #1f232826;
-	border-radius: 5px;
+	border-radius: var(--roundness);
 }
 details summary::-webkit-details-marker {
 	display: none;
 }
 details summary {
 	width: 100%;
-	height: 100%;
-	
+	height: 100%;	
 	position: absolute;
-
 	list-style: none;
 	user-select: none;
 }
-details summary span.label {
+details summary > span.text {
 	position: absolute;
-	width: 130px;
-	height: 100%;
-
 	left: 0px;
+	height: 100%;
 	
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	
 	color: #363636;
-	font-weight: 450;
 	font-size: 0.9rem;
+	font-weight: 450;
 	font-family: var(--MonaSans);
 	border-right: 1px solid #1f232826;
 }
-details summary .icon {
-	width: 30px;
-	height: 100%;
+details summary > span.icon {
 	position: absolute;
 	right: 0px;
-	
+
+	width: calc(var(--button-height) - 1px);
+	height: calc(var(--button-height) - 1px);
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: 1px solid blue;
 }
-details summary .icon svg {
+details summary > span.icon svg.dropdown {
 	height: 100%;
 }
-
-details summary .icon .dropdown-icon {
+details summary > span.icon svg.dropdown {
 	fill: #363636;
 }
-
 details div.menu {
-	width: 100%;
 	position: absolute;
 	top: 100%;
+	right: 0px;
 	margin-top: 5px;
 
+	width: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 
+	background-color: rgba(245, 245, 245, 0.5);
 	border: 1px solid #1f232826;
-	border-radius: 5px;
+	border-radius: var(--roundness);
 	z-index: 999;
 }
 details div.menu div.item {
 	width: 100%;
-	height: 35px;
-	padding: 4px 0px 4px 8px;
+	height: 34px;
+	padding: 4px 0px 4px 12px;
 
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
@@ -98,14 +103,42 @@ details div.menu div.item:hover {
 	background-color: #f6f8fa;
 }
 details div.menu div.item:first-child {
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: var(--roundness);
+	border-top-right-radius: var(--roundness);
 }
 details div.menu div.item:last-child {
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: var(--roundness);
+	border-bottom-right-radius: var(--roundness);
 	border-bottom: none;
 }
+
+
+/* ------ CUSTOM STYLES | <details></details> ------ */
+
+/* config.text.font.family */
+details#font-family {
+	width: 160px;
+}
+details#font-family summary > span.text {
+	width: 130px;
+}
+
+/* config.text.word.type */
+details#word-type {
+	width: 120px;
+}
+details#word-type summary > span.text {
+	width: 90px;
+}
+
+/* config.text.word.length */
+details#word-length {
+	width: 110px;
+}
+details#word-length summary > span.text {
+	width: 80px;
+}
+
 
 /* word length */
 details#word-length summary span.label {
