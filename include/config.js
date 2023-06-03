@@ -6,7 +6,7 @@ export default {
   },
   caret: {
     off: true,
-    style: "off", // off | line | underline | box | block
+    style: "line", // off | line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
