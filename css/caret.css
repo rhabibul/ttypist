@@ -138,8 +138,8 @@ box-shadow: offset-x | offset-y | blur-radius | color
 
 /* ============================================================================ */
 object.icon-caret-off {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 object.icon-caret-color {
@@ -147,21 +147,53 @@ object.icon-caret-color {
   height: 25px;
 }
 
-span.shape-underline,
-span.shape-line,
-span.shape-box,
-span.shape-block {
-  height: 30px;
+div.carets,
+div.pace-carets {
+  height: 40px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
+button.caret-off,
+button.caret-underline,
+button.caret-line,
+button.caret-box,
+button.caret-block,
+button.pace-caret-off,
+button.pace-caret-underline,
+button.pace-caret-line,
+button.pace-caret-box,
+button.pace-caret-block {
+  width: 20px;  
+  height: var(--default-button-height);
+  background-color: var(--default-button-backgroundcolor);
+  border: 1px solid #1f232826;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 span.shape-underline {
-  border: var(--solid);
+  width: 10px;
+  height: 18px;
+  border-bottom: 1px solid var(--setting-caret-color);
 }
 span.shape-line {
-  border: var(--solid);
+  width: 1px;
+  height: 18px;
+  background-color: var(--setting-caret-color);
+
 }
 span.shape-box {
-  border: var(--solid);
+  width: 10px;
+  height: 18px;
+  border: 1px solid var(--setting-caret-color);
 }
 span.shape-block {
-  border: var(--solid);
+  width: 10px;
+  height: 18px;
+  background-color: var(--setting-caret-color);
 }

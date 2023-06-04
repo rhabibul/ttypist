@@ -229,6 +229,10 @@
   --textweight: 450;
   --textfamily: var(--RobotoMono);
 
+  --default-text-size: 20px;
+  --default-text-thickness: 450;
+  --default-text-font: "Roboto Mono";
+
   --textcolor-primary: #1d2021;
   --textcolor-secondary: #999999;
 
@@ -249,7 +253,7 @@
   --caret-width-line: -1px; /* line caret width */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
-  --caret-block-backgroundcolor: black; /* color of block caret */
+  --caret-block-backgroundcolor: black; /* block caret of color */
 
   --caret-animation-delay: 2s;
   --caret-animation-duration: 1.17s;
@@ -261,8 +265,12 @@
   --dotted: 1px dotted black;
 
   --roundness: 4px;
-  --button-width: 30px;
-  --button-height: 30px;
+  --default-border-color: #1f232826;
+  --default-button-width: 80px;
+  --default-button-height: 30px;
+  --default-button-backgroundcolor: #f6f8fa;
+
+  --setting-caret-color: red;
   
   --active-foreground: green;
   --active-background: rgb(176, 255, 176);

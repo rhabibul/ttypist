@@ -17,12 +17,12 @@ div.setting {
 details {
 	box-sizing: border-box;
 	position: relative;
-	height: var(--button-height);
+	height: var(--default-button-height);
 
 	user-select: none;
 	
 	background-color: #f6f8fa;
-	border: 1px solid #1f232826;
+	border: 1px solid var(--default-border-color);
 	border-radius: var(--roundness);
 }
 details summary::-webkit-details-marker {
@@ -48,14 +48,14 @@ details summary > span.text {
 	font-size: 0.9rem;
 	font-weight: 450;
 	font-family: var(--MonaSans);
-	border-right: 1px solid #1f232826;
+	border-right: 1px solid var(--default-border-color);
 }
 details summary > span.icon {
 	position: absolute;
 	right: 0px;
 
-	width: calc(var(--button-height) - 1px);
-	height: calc(var(--button-height) - 1px);
+	width: calc(var(--default-button-height) - 1px);
+	height: calc(var(--default-button-height) - 1px);
 
 	display: flex;
 	align-items: center;
@@ -80,7 +80,7 @@ details div.menu {
 	align-items: flex-start;
 
 	background-color: rgba(245, 245, 245, 0.5);
-	border: 1px solid #1f232826;
+	border: 1px solid var(--default-border-color);
 	border-radius: var(--roundness);
 	z-index: 999;
 }
@@ -95,7 +95,7 @@ details div.menu div.item {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid #1f232826;
+	border-bottom: 1px solid var(--default-border-color);
 }
 details div.menu div.item span.text,
 details div.menu div.item span.icon {
@@ -234,11 +234,4 @@ details#text-word-length div.menu div.item span.range {
 	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;
-}
-
-div.config#caret {
-	border: var(--dotted);
-}
-div.config#pace-caret {
-	border: var(--dotted);
 }
