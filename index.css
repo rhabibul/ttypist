@@ -225,22 +225,27 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
+  --text-font: "Roboto Mono";
+  --text-thickness: 450;
+  --text-size: 20px;
+  --text-primary-color: #1d2021;
+  --text-secondary-color: #999999;
+  --text-underline-offset: 1px;
+  --text-underline-thickness: 2px;
+  --text-error: red; /* normal error color */
+  --text-error-extra: #a30d0d; /* extra inserted error color */
+  --text-whitespace-color: #b3b3b3; 
+  --text-whitespace-color-active: #303030;
+
+
   --textsize: 20px;
   --textweight: 450;
   --textfamily: var(--RobotoMono);
 
-  --default-text-size: 20px;
-  --default-text-thickness: 450;
-  --default-text-font: "Roboto Mono";
-
-  --textcolor-primary: #1d2021;
-  --textcolor-secondary: #999999;
-
+  --error: #ff0000;
+  --error-extra: #a30d0d;
   --whitespace-color: #b3b3b3;
   --whitespace-color-active: #505050;
-
-  --error: #ff0000; /* normal error */
-  --error-extra: #a30d0d; /* extra inserted error */
 
   --underline-offset: 1px;
   --underline-thickness: 2px;
