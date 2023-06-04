@@ -2,13 +2,18 @@ export default {
   user: {
     istyping: false,
     hastypedallwords: false,
+    system: {
+      device: "",
+      operating_system: "",
+      browser: "",
+    }
   },
+  arrow: true, // implicit
   setting: {
     dynamic: false, // apply settings instantly without restarting test
     expand: false, // label, buttons and description visible
     condense: true, // label and buttons visible (option to toggle description)
   },
-  arrow: true, // implicit
   caret: {
     off: true,
     style: "line", // line | underline | box | block
