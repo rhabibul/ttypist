@@ -225,6 +225,7 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
+  /* -------- *new */
   --text-font: "Roboto Mono";
   --text-thickness: 450;
   --text-size: 20px;
@@ -237,33 +238,30 @@
   --text-whitespace-color: #b3b3b3; 
   --text-whitespace-color-active: #303030;
 
-
-  --textsize: 20px;
-  --textweight: 450;
-  --textfamily: var(--RobotoMono);
-
-  --error: #ff0000;
-  --error-extra: #a30d0d;
-  --whitespace-color: #b3b3b3;
-  --whitespace-color-active: #505050;
-
-  --underline-offset: 1px;
-  --underline-thickness: 2px;
-
   --caret-color: black;
   --caret-color-hidden: var(--default-bg0_h);
-  
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
   --caret-width-line: -1px; /* line caret width */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
   --caret-block-backgroundcolor: black; /* block caret of color */
+  --caret-animation-delay: 2s; /* time to wait before blinking */
+  --caret-animation-duration: 1.17s; /* duration of a single blink */
+  --caret-animation-iteration-count: 25; /* number of blinks */
+  --caret-animation-timing-function: ease-out; /* blink rhythm */
 
-  --caret-animation-delay: 2s;
-  --caret-animation-duration: 1.17s;
-  --caret-animation-iteration-count: 25;
-  --caret-animation-timing-function: ease-out;
+
+  --textsize: 20px;
+  --textweight: 450;
+  --textfamily: var(--RobotoMono);
+  --error: #ff0000;
+  --error-extra: #a30d0d;
+  --whitespace-color: #b3b3b3;
+  --whitespace-color-active: #505050;
+  --underline-offset: 1px;
+  --underline-thickness: 2px;
+
 
   --solid: 1px solid black;
   --dashed: 1px dashed black;
