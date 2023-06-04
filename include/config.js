@@ -1,18 +1,23 @@
 export default {
-  dynamicchange: true, // apply settings instantly without restarting test
   user: {
     istyping: false,
     hastypedallwords: false,
   },
+  setting: {
+    dynamic: false, // apply settings instantly without restarting test
+    expand: false, // label, buttons and description visible
+    condense: true, // label and buttons visible (option to toggle description)
+  },
+  arrow: true, // implicit
   caret: {
     off: true,
-    style: "line", // off | line | underline | box | block
+    style: "line", // line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
   pace_caret: {
     off: true,
-    style: "line", // off | line | underline | box | block
+    style: "line", // line | underline | box | block
     opacity: 0.5, // alpha[0,1]
     color: "",
     threshold: {
@@ -175,5 +180,4 @@ export default {
     special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
-  arrow: true,
 };
