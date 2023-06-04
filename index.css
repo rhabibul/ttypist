@@ -229,7 +229,7 @@
   --text-font: "Roboto Mono";
   --text-thickness: 450;
   --text-primary-color: #1d2021;
-  --text-secondary-color: #999999;
+  --text-secondary-color: #8d8989;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-error: red; /* normal error color */
@@ -251,10 +251,14 @@
   --caret-animation-timing-function: ease-out; /* blink rhythm */
 
   --setting-caret-color: black;
+  --setting-caret-width: 10px;
+  --setting-caret-height: 18px;
 
   --textsize: 20px;
   --textweight: 450;
   --textfamily: var(--RobotoMono);
+  --textcolor-primary: #1d2021;
+  --textcolor-secondary: #868282;
   --error: #ff0000;
   --error-extra: #a30d0d;
   --whitespace-color: #b3b3b3;
@@ -267,7 +271,8 @@
   --dotted: 1px dotted black;
 
   --roundness: 4px;
-  --default-border-color: #1f232826;
+  /* --default-border-color: #1f232826; */
+  --default-border-color: rgba(31, 35, 40, 0.1);
   --default-button-width: 80px;
   --default-button-height: 30px;
   --default-button-backgroundcolor: #f6f8fa;

@@ -169,7 +169,7 @@ button.pace-caret-block {
   width: 20px;  
   height: var(--default-button-height);
   background-color: var(--default-button-backgroundcolor);
-  border: 1px solid #1f232826;
+  border: 1px solid var(--default-border-color);
 
   display: flex;
   align-items: center;
@@ -182,18 +182,13 @@ button.pace-caret-block {
   justify-content: center;
 }
 
-:root {
-  --setting-caret-width: 10px;
-  --setting-caret-height: 18px;
-}
-
 span.shape-underline {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
 span.shape-line {
-  width: calc(var(--setting-caret-width) - 9px);
+  width: 1px;
   height: var(--setting-caret-height);
   background-color: var(--setting-caret-color);
 }

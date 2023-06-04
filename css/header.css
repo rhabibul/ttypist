@@ -23,7 +23,7 @@ header .content > * {
 }
 
 header .content .logo {
-	width: 220px;
+	width: 165px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -35,18 +35,18 @@ header .content .logo > * {
 	justify-content: center;
 }
 header .content .logo .logo-icon {
-	width: 48px;
+	width: 45px;
 }
 header .content .logo .logo-icon img {
 	width: 30px;
 	height: 30px;
 }
 header .content .logo .logo-label {
-	width: 180px;
+	width: 120px;
 	letter-spacing: 1px;
 	color: gray;
-	font-size: 1.6rem;
-	font-family: var(--SyneMono);
+	font-size: 1.7rem;
+	font-family: var(--RubikVinyl);
 }
 
 header .content .profile {
