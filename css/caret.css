@@ -1,3 +1,9 @@
+/* =================================== caret off  =================================== */
+.off {
+  border: none;
+  outline: none;
+}
+
 /* =================================== line  =================================== */
 /*
 box-shadow: offset-x | offset-y | blur-radius | color
@@ -130,8 +136,32 @@ box-shadow: offset-x | offset-y | blur-radius | color
   }
 }
 
-/* =================================== caret off  =================================== */
-.nope {
-  border: none;
-  outline: none;
+/* ============================================================================ */
+object.icon-caret-off {
+  width: 20px;
+  height: 20px;
+}
+
+object.icon-caret-color {
+  width: 25px;
+  height: 25px;
+}
+
+span.shape-underline,
+span.shape-line,
+span.shape-box,
+span.shape-block {
+  height: 30px;
+}
+span.shape-underline {
+  border: var(--solid);
+}
+span.shape-line {
+  border: var(--solid);
+}
+span.shape-box {
+  border: var(--solid);
+}
+span.shape-block {
+  border: var(--solid);
 }

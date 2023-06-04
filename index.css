@@ -256,11 +256,13 @@
   --caret-animation-iteration-count: 25;
   --caret-animation-timing-function: ease-out;
 
-  --setting-caret-color: black;
-  --setting-caret-shape-width: 10px;
-  --setting-caret-shape-height: 20px;
-  --setting-caret-shape-container-width: 24px;
-  --setting-caret-shape-container-height: 34px;
+  --solid: 1px solid black;
+  --dashed: 1px dashed black;
+  --dotted: 1px dotted black;
+
+  --roundness: 4px;
+  --button-width: 30px;
+  --button-height: 30px;
   
   --active-foreground: green;
   --active-background: rgb(176, 255, 176);
@@ -340,9 +342,13 @@ body {
   text-underline-offset: var(--underline-offset);
   text-decoration-thickness: var(--underline-thickness);
 
-  /* all - the browser must interrupt underlines and overlines so that they do not touch
-           or closely approach a glyph
+  /* all - the browser must interrupt underlines and overlines so that they do not
+           touch or closely approach a glyph
     none - drawn across the full length of the text content, including parts that
            cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
+}
+
+button {
+  border: none;
 }

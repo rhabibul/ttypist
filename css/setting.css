@@ -6,12 +6,6 @@ div.setting {
 	border: 1px dashed gray;
 }
 
-:root {
-	--roundness: 4px;
-	--button-width: 30px;
-	--button-height: 30px;
-}
-
 .unmarked {
 	visibility: hidden;
 }
@@ -237,7 +231,14 @@ details#text-word-length div.menu div.item span.text {
 	flex-basis: 50%;
 }
 details#text-word-length div.menu div.item span.range {
+	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;
-	color: #a0a0a0;
+}
+
+div.config#caret {
+	border: var(--dotted);
+}
+div.config#pace-caret {
+	border: var(--dotted);
 }
