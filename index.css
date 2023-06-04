@@ -225,10 +225,9 @@
   --RubikVinyl: "Rubik Vinyl", monospace;
   --GTASanAndreas: "Diploma", monospace;
 
-  /* -------- *new */
+  --text-size: 20px;
   --text-font: "Roboto Mono";
   --text-thickness: 450;
-  --text-size: 20px;
   --text-primary-color: #1d2021;
   --text-secondary-color: #999999;
   --text-underline-offset: 1px;
@@ -251,6 +250,7 @@
   --caret-animation-iteration-count: 25; /* number of blinks */
   --caret-animation-timing-function: ease-out; /* blink rhythm */
 
+  --setting-caret-color: black;
 
   --textsize: 20px;
   --textweight: 450;
@@ -262,7 +262,6 @@
   --underline-offset: 1px;
   --underline-thickness: 2px;
 
-
   --solid: 1px solid black;
   --dashed: 1px dashed black;
   --dotted: 1px dotted black;
@@ -272,8 +271,6 @@
   --default-button-width: 80px;
   --default-button-height: 30px;
   --default-button-backgroundcolor: #f6f8fa;
-
-  --setting-caret-color: red;
   
   --active-foreground: green;
   --active-background: rgb(176, 255, 176);

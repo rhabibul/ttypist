@@ -175,25 +175,35 @@ button.pace-caret-block {
   align-items: center;
   justify-content: center;
 }
+.shape-off {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --setting-caret-width: 10px;
+  --setting-caret-height: 18px;
+}
 
 span.shape-underline {
-  width: 10px;
-  height: 18px;
+  width: var(--setting-caret-width);
+  height: var(--setting-caret-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
 span.shape-line {
-  width: 1px;
-  height: 18px;
+  width: calc(var(--setting-caret-width) - 9px);
+  height: var(--setting-caret-height);
   background-color: var(--setting-caret-color);
-
 }
 span.shape-box {
-  width: 10px;
-  height: 18px;
+  width: var(--setting-caret-width);
+  height: var(--setting-caret-height);
   border: 1px solid var(--setting-caret-color);
 }
 span.shape-block {
-  width: 10px;
-  height: 18px;
+  width: var(--setting-caret-width);
+  height: var(--setting-caret-height);
   background-color: var(--setting-caret-color);
 }
