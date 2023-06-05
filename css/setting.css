@@ -17,6 +17,11 @@ div.config {
 	fill: green;
 }
 
+object.icon__caretOpacity {
+  width: 20px;
+  height: 20px;
+}
+
 /* ------------------ COMMON | <details></details> ------------------ */
 details {
 	box-sizing: border-box;
@@ -149,6 +154,10 @@ details#fontFamilyList div.menu div.item.MonaSans {
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 }
+details#fontFamilyList div.menu div.item.WorkSans {
+	font-size: 1rem;
+	font-family: var(--WorkSans);
+}
 details#fontFamilyList div.menu div.item.RobotoMono {
 	font-size: 0.95rem;
 	font-family: var(--RobotoMono);
@@ -199,42 +208,42 @@ details#fontFamilyList div.menu div.item.GTASanAndreas {
 }
 
 /* ------- config.text.word.type */
-details#textWordType {
+details#wordTypeList {
 	width: 120px;
 }
-details#textWordType summary > span.text {
+details#wordTypeList summary > span.text {
 	width: 90px;
 }
-details#textWordType div.menu {
+details#wordTypeList div.menu {
 	width: 100%;
 }
 
 /* ------- config.text.word.length */
-details#textWordLength {
+details#wordLengthList {
 	width: 110px;
 }
-details#textWordLength summary > span.text {
+details#wordLengthList summary > span.text {
 	width: 80px;
 }
-details#textWordLength div.menu {
+details#wordLengthList div.menu {
 	width: 150px;
 	padding-right: 4px;
 }
-details#textWordLength div.menu div.item {
+details#wordLengthList div.menu div.item {
 	justify-content: space-between;
 }
-details#textWordLength div.menu div.item span.text,
-details#textWordLength div.menu div.item span.range {
+details#wordLengthList div.menu div.item span.text,
+details#wordLengthList div.menu div.item span.range {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
 
-details#textWordLength div.menu div.item span.text {
+details#wordLengthList div.menu div.item span.text {
 	flex-basis: 50%;
 }
-details#textWordLength div.menu div.item span.range {
+details#wordLengthList div.menu div.item span.range {
 	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;

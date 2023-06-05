@@ -137,15 +137,6 @@ box-shadow: offset-x | offset-y | blur-radius | color
 }
 
 /* ============================================================================ */
-object.icon__caret-color {
-  width: 25px;
-  height: 25px;
-}
-
-object.icon__caret-opacity {
-  width: 20px;
-  height: 20px;
-}
 
 div.carets,
 div.pace-carets {
