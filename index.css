@@ -144,10 +144,9 @@
 /* ---------- colorscheme's color palettes ---------- */
 :root {
   --youtube-bg0_h: #181818;
-  --youtube-bg0: #212121;
+  --youtube-bg0:   #212121;
   --youtube-bg0_s: #3d3d3d;
-  --youtube-white: #ffffff;
-  --youtube-gray: #aaaaaa;
+  --youtube-gray:  #aaaaaa;
   
   --gruvbox-bg0_h:      #1d2021;
   --gruvbox-bg0:        #282828;

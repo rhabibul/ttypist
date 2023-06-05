@@ -91,18 +91,18 @@
       <div class="config" id="caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">caret</span>
-        <div class="carets">
-          <button type="button" value="off"       class="caret-off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
-          <button type="button" value="underline" class="caret-underline"><span class="shape-underline"></span></button>
-          <button type="button" value="line"      class="caret-line">     <span class="shape-line"></span></button>
-          <button type="button" value="box"       class="caret-box">      <span class="shape-box"></span></button>
-          <button type="button" value="block"     class="caret-block">    <span class="shape-block"></span></button>
+        <div class="button-container carets">
+          <button type="button" value="off"       class="button caret-off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
+          <button type="button" value="underline" class="button caret-underline"><span class="shape-underline"></span></button>
+          <button type="button" value="line"      class="button caret-line">     <span class="shape-line"></span></button>
+          <button type="button" value="box"       class="button caret-box">      <span class="shape-box"></span></button>
+          <button type="button" value="block"     class="button caret-block">    <span class="shape-block"></span></button>
         </div>
         <div class="opacity">
-          <object data="./static/images/opacity.png" type="image/png" class="icon__caretOpacity"></object>
+          <object data="./static/images/opacity.png" type="image/png" class="iconCaretOpacity"></object>
           <span class="text">opacity</span>
-          <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="caret-opacity-ticks">
-          <datalist id="caret-opacity-ticks">
+          <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="caretOpacityTicks">
+          <datalist id="caretOpacityTicks">
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
             <option value="0.3">0.3</option>
@@ -125,18 +125,18 @@
       <div class="config" id="pace-caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">pace caret</span>
-        <div class="pace-carets">
-          <button type="button" value="off"       class="pace-caret-off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
-          <button type="button" value="underline" class="pace-caret-underline"><span class="shape-underline"></span></button>
-          <button type="button" value="line"      class="pace-caret-line">     <span class="shape-line"></span></button>
-          <button type="button" value="box"       class="pace-caret-box">      <span class="shape-box"></span></button>
-          <button type="button" value="block"     class="pace-caret-block">    <span class="shape-block"></span></button>
+        <div class="button-container pace-carets">
+          <button type="button" value="off"       class="button pace-caret-off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
+          <button type="button" value="underline" class="button pace-caret-underline"><span class="shape-underline"></span></button>
+          <button type="button" value="line"      class="button pace-caret-line">     <span class="shape-line"></span></button>
+          <button type="button" value="box"       class="button pace-caret-box">      <span class="shape-box"></span></button>
+          <button type="button" value="block"     class="button pace-caret-block">    <span class="shape-block"></span></button>
         </div>
         <div class="opacity">
-          <object data="./static/images/opacity.png" type="image/png" class="icon__caretOpacity"></object>
+          <object data="./static/images/opacity.png" type="image/png" class="iconCaretOpacity"></object>
           <span class="text">opacity</span>
-          <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="pace-caret-opacity-ticks">
-          <datalist id="pace-caret-opacity-ticks">
+          <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="paceCaretOpacityTicks">
+          <datalist id="paceCaretOpacityTicks">
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
             <option value="0.3">0.3</option>
@@ -156,44 +156,44 @@
         </div>
         <div class="threshold">
           <span class="text">pace caret speed</span>
-          <div class="wrapper-threshold">
+          <input type="number" placeholder="60" class="paceCaretCustomSpeed">
+          <div class="button-container thresholdSpeed">
             <button type="button" value="last" class="last">last</button>
-            <button type="button" value="personalbest" class="personal-best">personal best</button>
+            <button type="button" value="personalbest" class="personalbest">personal best</button>
             <button type="button" value="average" class="average">average</button>
             <button type="button" value="custom" class="custom">custom</button>
           </div>
-          <input type="number" placeholder="60" id="custom-threshold-speed">
         </div>
       </div>
 
       <div class="config" id="confidence">
         <i class="fas fa-backspace"></i>
         <span class="text">confidence</span>
-        <div class="confidence-buttons">
-          <button type="button" value="low">low</button>
-          <button type="button" value="high">high</button>
-          <button type="button" value="peak">peak</button>
+        <div class="button-container confidence-buttons">
+          <button type="button" value="low" class="button low">low</button>
+          <button type="button" value="high" class="button high">high</button>
+          <button type="button" value="peak" class="button peak">peak</button>
         </div>
       </div>
             
       <div class="config" id="textLength">
         <span class="text">text length</span>
-        <input type="number" min="1" max="5000" step="1" placeholder="Number of characters">
+        <input type="number" min="1" max="5000" step="1" placeholder="Number of characters" class="textLengthInput">
       </div>
 
       <div class="config" id="textWhitespace">
         <span class="text">whitespace</span>
-        <div class="whitespace-buttons">
-          <button type="button" value="off"    data-code="0"    data-character=""       class="off">off</button>
-          <button type="button" value="bullet" data-code="8226" data-character="•"      class="bullet">bullet</button>
-          <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="space">space</button>
-          <button type="button" value="bar"    data-code="9251" data-character="␣"      class="bar">bar</button>
+        <div class="button-container whitespace-buttons">
+          <button type="button" value="off"    data-code="0"    data-character=""       class="button off">off</button>
+          <button type="button" value="bullet" data-code="8226" data-character="•"      class="button bullet">bullet</button>
+          <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="button space">space</button>
+          <button type="button" value="bar"    data-code="9251" data-character="␣"      class="button bar">bar</button>
         </div>
       </div>
       
       <div class="config" id="textPrimaryColor">
         <span class="text">primary color</span>
-        <input type="color" value="#1d2021">
+        <input type="color" value="#1d2021" class="textPrimaryColorInput">
         <span class="text value">#1d2021</span>
       </div>
 

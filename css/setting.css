@@ -17,9 +17,9 @@ div.config {
 	fill: green;
 }
 
-object.icon__caretOpacity {
-  width: 20px;
-  height: 20px;
+object.iconCaretOpacity {
+  width: 18px;
+  height: 18px;
 }
 
 /* ------------------ COMMON | <details></details> ------------------ */
