@@ -88,12 +88,6 @@
               labels and buttons but user has the option to see config description
       -->
     <div class="setting">
-      
-      <div class="confit" id="confidence">
-        <i class="fas fa-backspace"></i>
-      </div>
-      
-      <!-- --------------- config.caret -->
       <div class="config" id="caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">caret</span>
@@ -129,7 +123,6 @@
         </div>
       </div>
       
-      <!-- --------------- config.pace_caret -->
       <div class="config" id="pace-caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">pace caret</span>
@@ -175,37 +168,53 @@
         </div>
       </div>
       
-      <!-- --------------- config.text -->
       <div class="config" id="text-length">
         <span class="text">text length</span>
         <input type="number" min="1" max="5000" step="1" placeholder="Number of characters">
       </div>
 
+      <div class="config" id="confidence">
+        <i class="fas fa-backspace"></i>
+        <span class="text">confidence</span>
+        <div class="confidence-buttons">
+          <button type="button" value="low">low</button>
+          <button type="button" value="high">high</button>
+          <button type="button" value="peak">peak</button>
+        </div>
+      </div>
+
       <div class="config" id="text-whitespace">
-        <button type="button" value="off"    data-code="0"    data-character=""       class="off">off</button>
-        <button type="button" value="bullet" data-code="8226" data-character="•"      class="bullet">bullet</button>
-        <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="space">space</button>
-        <button type="button" value="bar"    data-code="9251" data-character="␣"      class="bar">bar</button>
+        <span class="text">whitespace</span>
+        <div class="whitespace-buttons">
+          <button type="button" value="off"    data-code="0"    data-character=""       class="off">off</button>
+          <button type="button" value="bullet" data-code="8226" data-character="•"      class="bullet">bullet</button>
+          <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="space">space</button>
+          <button type="button" value="bar"    data-code="9251" data-character="␣"      class="bar">bar</button>
+        </div>
       </div>
       
       <div class="config" id="text-primary-color">
-        <input type="color" value="#1d2021" >
-        <span class="text">#1d2021</span>
+        <span class="text">primary color</span>
+        <input type="color" value="#1d2021">
+        <span class="text value">#1d2021</span>
       </div>
 
       <div class="config" id="text-secondary-color">
+        <span class="text">secondary color</span>
         <input type="color" value="#999999" >
-        <span class="text">#999999</span>
+        <span class="text value">#999999</span>
       </div>
 
       <div class="config" id="text-font-size">
+        <span class="text">font size</span>
         <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
-        <span class="text">1.2</span>
+        <span class="text value">1.2</span>
       </div>
 
       <div class="config" id="text-font-weight">
+        <span class="text">font weight</span>
         <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
-        <span class="text">450</span>
+        <span class="text value">450</span>
       </div>
 
       <div class="config" id="text-word-count">

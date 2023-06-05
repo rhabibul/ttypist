@@ -38,14 +38,14 @@ header .content .logo .logo-icon {
 	width: 45px;
 }
 header .content .logo .logo-icon img {
-	width: 30px;
-	height: 30px;
+	width: 35px;
+	height: 35px;
 }
 header .content .logo .logo-label {
 	width: 120px;
 	letter-spacing: 1px;
 	color: gray;
-	font-size: 1.7rem;
+	font-size: 1.6rem;
 	font-family: var(--RubikVinyl);
 }
 

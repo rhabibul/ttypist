@@ -1,9 +1,13 @@
 div.setting {
 	max-width: 800px;
 	display: flex;
-	flex-direction: column;
-	/* justify-content: space-evenly; */
+	flex-wrap: wrap;
 	row-gap: 5px;
+	column-gap: 5px;
+}
+div.config {
+	padding: 10px;
+	border: var(--dashed);
 }
 
 .unmarked {
@@ -234,12 +238,4 @@ details#text-word-length div.menu div.item span.range {
 	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;
-}
-
-/* ---------------------------------------------------------------------------- */
-
-div.config#caret,
-div.config#pace-caret {
-	padding: 10px;
-	border: var(--dashed);
 }
