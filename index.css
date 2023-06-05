@@ -226,16 +226,16 @@
   --GTASanAndreas: "Diploma", monospace;
 
   --text-size: 20px;
-  --text-font: "Roboto Mono";
+  --text-font: var(--RobotoMono);
   --text-thickness: 450;
   --text-primary-color: #1d2021;
   --text-secondary-color: #8d8989;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
-  --text-error: red; /* normal error color */
-  --text-error-extra: #a30d0d; /* extra inserted error color */
-  --text-whitespace-color: #b3b3b3; 
-  --text-whitespace-color-active: #303030;
+  --text-error: red; /* normal letter error color */
+  --text-error-extra: #a30d0d; /* extra inserted letter error color */
+  --text-whitespace-color: #b3b3b3; /* dot/bar whitespace color */
+  --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
 
   --caret-color: black;
   --caret-color-hidden: var(--default-bg0_h);
@@ -257,18 +257,6 @@
   --setting-button-border-color: rgba(31, 35, 40, 0.15);
   --setting-button-height: 30px;
   --setting-background-color: #f6f8fa;
-
-  --textsize: 20px;
-  --textweight: 450;
-  --textfamily: var(--RobotoMono);
-  --textcolor-primary: #1d2021;
-  --textcolor-secondary: #868282;
-  --error: #ff0000;
-  --error-extra: #a30d0d;
-  --whitespace-color: #b3b3b3;
-  --whitespace-color-active: #505050;
-  --underline-offset: 1px;
-  --underline-thickness: 2px;
 
   --solid: 1px solid black;
   --dashed: 1px dashed black;
@@ -308,11 +296,6 @@ body {
   visibility: hidden;
 }
 
-/* used for fading out the typed letters in letter highlight mode */
-.fade {
-  color: #9b9b9b;
-}
-
 /* used to highlight active word in word highlight mode */
 .active {
   color: black;
@@ -320,37 +303,37 @@ body {
 
 /* used for correctly typed letters */
 .correct {
-  color: var(--textcolor-secondary);
+  color: var(--text-secondary-color);
 }
 
 /* used for incorrectly typed letters */
 .incorrect {
-  color: var(--error-primary);
+  color: var(--text-error);
 }
 
 /* used for extra letters which are inserted in the text */
 .extra {
-  color: var(--error-secondary);
+  color: var(--text-error-extra);
 }
 
 /* used to mark the word as incorrect i.e, word with mistakes */
 .error {
   color: var(--error);
-  text-decoration-color: var(--error-extra);
+  text-decoration-color: var(--text-error-extra);
   text-decoration-style: solid;
   text-decoration-line: underline;
-  text-underline-offset: var(--underline-offset);
-  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--text-underline-offset);
+  text-decoration-thickness: var(--text-underline-thickness);
   text-decoration-skip-ink: all;
 }
 
 /* used to underline active word in word and letter highlight mode */
-.____ {
-  text-decoration-color: var(--textcolor);
+.__ {
+  text-decoration-color: var(--text-primary-color);
   text-decoration-style: solid;
   text-decoration-line: underline;
-  text-underline-offset: var(--underline-offset);
-  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--text-underline-offset);
+  text-decoration-thickness: var(--text-underline-thickness);
 
   /* all - the browser must interrupt underlines and overlines so that they do not
            touch or closely approach a glyph
@@ -361,4 +344,6 @@ body {
 
 button {
   border: none;
+  outline: none;
+  background-color: var(--setting-background-color);
 }

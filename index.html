@@ -110,7 +110,7 @@
           <input type="range" min="0" max="1" step="0.1" value="1">
         </div>
         <div class="color">
-          <object data="./static/images/color.svg" class="icon__caret-color"></object>
+          <i class="fa-solid fa-fill-drip"></i>
           <span class="text">color</span>
           <input type="color" value="#ff0000">
         </div>
@@ -133,11 +133,12 @@
           <input type="range" min="0" max="1" step="0.1" value="1">
         </div>
         <div class="color">
-          <object data="./static/images/color.svg" class="icon__caret-color"></object>
+          <i class="fa-solid fa-fill-drip"></i>
           <span class="text">color</span>
           <input type="color" value="#00ff00">
         </div>
         <div class="threshold">
+          <span class="text">pace caret speed</span>
           <div class="wrapper-threshold">
             <button type="button" value="last" class="last">last</button>
             <button type="button" value="personalbest" class="personal-best">personal best</button>
@@ -147,6 +148,14 @@
           <input type="number" placeholder="60" id="custom-threshold-speed">
         </div>
       </div>
+
+      <script type="text/javascript">
+        const btn = document.querySelector("button.caret-off")
+        btn.addEventListener("click", (e) => {
+          console.log("caret is disabled");
+        })
+      </script>
+      
         
       <!-- --------------- config.text -->
       <div class="config" id="text-length">

@@ -34,14 +34,14 @@ text word letter {
   align-items: center;
   justify-content: center;
 
-  color: var(--textcolor-primary);
+  color: var(--text-primary-color);
 
   /* line-height: 1em; */
   /* white-space: nowrap; */
   
-  font-size: var(--textsize);
-  font-weight: var(--textweight);
-  font-family: var(--textfamily);
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+  font-weight: var(--text-thickness);
   
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -63,8 +63,8 @@ letter.whitespace.bullet::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--whitespace-color);
+  background-color: var(--text-whitespace-color);
 }
 letter.whitespace.whitespace-color-active::after { /* rename is required (too long name) */
-  background-color: var(--whitespace-color-active);
+  background-color: var(--text-whitespace-color-active);
 }

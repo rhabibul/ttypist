@@ -2,7 +2,6 @@ import Config from "../../include/config.js";
 import * as CaretController from "../controllers/caret-controller.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
 import * as Misc from "../utils/misc.js";
-import * as Const from "../../include/constants.js";
 import { time, typedchar, mInput } from "../../include/stats-trackers.js";
 import { Test, text, word } from "../main.js";
 
@@ -57,7 +56,7 @@ export function registerkeydown(evt) {
 
 		word.activeletter.classList.add("correct");
 		if ( Config.underline ) {
-			word.activeletter.style["text-decoration-color"] = "var(--textcolor-secondary)";
+			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
 		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -120,14 +119,14 @@ export function registerkeydown(evt) {
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.removecaretfrom(word.activeletter);
 				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -142,7 +141,7 @@ export function registerkeydown(evt) {
 				}
 				word.activeletter.classList.remove("correct");
 				if ( Config.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--textcolor-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.addcaretto(word.activeletter);
 			}
@@ -231,13 +230,13 @@ export function registerkeyup(evt) {
 
 export function removeunderline(word) {
 	for ( const letter of word.children ) {
-		letter.classList.remove("____");
+		letter.classList.remove("__");
 	}
 }
 
 export function addunderline(word) {
 	for (const letter of word.children ) {	
-		letter.classList.add("____");
+		letter.classList.add("__");
 	}
 }
 
