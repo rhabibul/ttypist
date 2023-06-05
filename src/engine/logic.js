@@ -97,15 +97,29 @@ export function registerkeydown(evt) {
 
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/opt + backspace
 
+			for ( const letter of text.activeword.children ) {
+				letter.classList.remove("correct");
+				letter.style["text-decoration-color"] = "var(--text-primary-color)";
+			}
+
 			if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
+				removeunderline(text.activeword);
+				
 				if ( Misc.isspace(text.word_at(text.activewordindex - 1)?.children[0])) {
+
 					text.decrementwordindex();
 				}
 
 				CaretController.removecaretfrom(word.activeletter);
 				word.loadword(text.prevword, { prevword: true });
+				addunderline(text.activeword);
 				CaretController.addcaretto(word.activeletter);
+				
+				for ( const letter of text.activeword.children ) {
+					letter.classList.remove("correct");
+					letter.style["text-decoration-color"] = "var(--text-primary-color)";
+				}
 			}
 
 			// delete all typed letters of the active word and put caret to first letter
@@ -132,6 +146,7 @@ export function registerkeydown(evt) {
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
 				CaretController.removecaretfrom(word.activeletter);
+				removeunderline(text.activeword);
 				word.loadword(text.prevword, { prevword: true });
 				
 				if ( Config.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
