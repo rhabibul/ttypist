@@ -1,9 +1,9 @@
 div.setting {
 	max-width: 800px;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	border: 1px dashed gray;
+	flex-direction: column;
+	/* justify-content: space-evenly; */
+	row-gap: 5px;
 }
 
 .unmarked {
@@ -17,13 +17,13 @@ div.setting {
 details {
 	box-sizing: border-box;
 	position: relative;
-	height: var(--default-button-height);
+	height: var(--setting-button-height);
 
 	user-select: none;
 	
-	background-color: #f6f8fa;
-	border: 1px solid var(--default-border-color);
-	border-radius: var(--roundness);
+	background-color: var(--setting-background-color);
+	border: 1px solid var(--setting-button-border-color);
+	border-radius: 4px;
 }
 details summary::-webkit-details-marker {
 	display: none;
@@ -48,14 +48,14 @@ details summary > span.text {
 	font-size: 0.9rem;
 	font-weight: 450;
 	font-family: var(--MonaSans);
-	border-right: 1px solid var(--default-border-color);
+	border-right: 1px solid var(--setting-button-border-color);
 }
 details summary > span.icon {
 	position: absolute;
 	right: 0px;
 
-	width: calc(var(--default-button-height) - 1px);
-	height: calc(var(--default-button-height) - 1px);
+	width: calc(var(--setting-button-height) - 1px);
+	height: calc(var(--setting-button-height) - 1px);
 
 	display: flex;
 	align-items: center;
@@ -79,9 +79,9 @@ details div.menu {
 	justify-content: center;
 	align-items: flex-start;
 
-	background-color: rgba(245, 245, 245, 0.5);
-	border: 1px solid var(--default-border-color);
-	border-radius: var(--roundness);
+	background-color: #f5f5f580;
+	border: 1px solid var(--setting-button-border-color);
+	border-radius: 4px;
 	z-index: 999;
 }
 details div.menu div.item {
@@ -95,7 +95,7 @@ details div.menu div.item {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid var(--default-border-color);
+	border-bottom: 1px solid var(--setting-button-border-color);
 }
 details div.menu div.item span.text,
 details div.menu div.item span.icon {
@@ -115,12 +115,12 @@ details div.menu div.item:hover span.icon svg.tick {
 	fill: #b8b8b8;
 }
 details div.menu div.item:first-child {
-	border-top-left-radius: var(--roundness);
-	border-top-right-radius: var(--roundness);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
 details div.menu div.item:last-child {
-	border-bottom-left-radius: var(--roundness);
-	border-bottom-right-radius: var(--roundness);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 	border-bottom: none;
 }
 
@@ -236,7 +236,10 @@ details#text-word-length div.menu div.item span.range {
 	font-size: 0.8rem;
 }
 
+/* ---------------------------------------------------------------------------- */
+
 div.config#caret,
 div.config#pace-caret {
+	padding: 10px;
 	border: var(--dashed);
 }

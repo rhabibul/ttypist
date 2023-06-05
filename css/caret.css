@@ -137,14 +137,14 @@ box-shadow: offset-x | offset-y | blur-radius | color
 }
 
 /* ============================================================================ */
-object.icon-caret-off {
-  width: 18px;
-  height: 18px;
-}
-
-object.icon-caret-color {
+object.icon__caret-color {
   width: 25px;
   height: 25px;
+}
+
+object.icon__caret-opacity {
+  width: 20px;
+  height: 20px;
 }
 
 div.carets,
@@ -167,16 +167,10 @@ button.pace-caret-line,
 button.pace-caret-box,
 button.pace-caret-block {
   width: 20px;  
-  height: var(--default-button-height);
-  background-color: var(--default-button-backgroundcolor);
-  border: 1px solid var(--default-border-color);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.shape-off {
-  height: 100%;
+  height: var(--setting-button-height);
+  background-color: var(--setting-background-color);
+  border: 1px solid var(--setting-caret-border-color);
+  border-radius: 1px;
   display: flex;
   align-items: center;
   justify-content: center;

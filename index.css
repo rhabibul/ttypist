@@ -253,6 +253,10 @@
   --setting-caret-color: black;
   --setting-caret-width: 10px;
   --setting-caret-height: 18px;
+  --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
+  --setting-button-border-color: rgba(31, 35, 40, 0.15);
+  --setting-button-height: 30px;
+  --setting-background-color: #f6f8fa;
 
   --textsize: 20px;
   --textweight: 450;
@@ -269,13 +273,6 @@
   --solid: 1px solid black;
   --dashed: 1px dashed black;
   --dotted: 1px dotted black;
-
-  --roundness: 4px;
-  /* --default-border-color: #1f232826; */
-  --default-border-color: rgba(31, 35, 40, 0.1);
-  --default-button-width: 80px;
-  --default-button-height: 30px;
-  --default-button-backgroundcolor: #f6f8fa;
   
   --active-foreground: green;
   --active-background: rgb(176, 255, 176);
