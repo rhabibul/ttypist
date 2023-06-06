@@ -208,13 +208,13 @@ details#fontFamilyList div.list div.item.GTASanAndreas {
 }
 
 /* ------- config.text.word.type */
-details#wordTypeList {
+details.wordTypeList {
 	width: 120px;
 }
-details#wordTypeList summary > div.label {
+details.wordTypeList summary > div.label {
 	width: 90px;
 }
-details#wordTypeList div.list {
+details.wordTypeList div.list {
 	width: 100%;
 }
 
