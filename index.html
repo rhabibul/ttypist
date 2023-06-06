@@ -93,7 +93,7 @@
           <div class="symbol"><i class="fa-solid fa-i-cursor"></i></div>
           <div class="text">caret</div>
         </div>
-        <div class="button-container carets">
+        <div class="config caret">
           <button type="button" value="off"       class="button caret-off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
           <button type="button" value="underline" class="button caret-underline"><span class="shape-underline"></span></button>
           <button type="button" value="line"      class="button caret-line">     <span class="shape-line"></span></button>
@@ -101,8 +101,10 @@
           <button type="button" value="block"     class="button caret-block">    <span class="shape-block"></span></button>
         </div>
         <div class="opacity">
-          <object data="./static/images/opacity.png" type="image/png" class="iconCaretOpacity"></object>
-          <span class="text">opacity</span>
+          <div class="label">
+            <div class="symbol"> <object  class="iconCaretOpacity" data="./static/images/opacity.png" type="image/png"></object> </div>
+            <div class="text">opacity</div>
+          </div>
           <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="caretOpacityTicks">
           <datalist id="caretOpacityTicks">
             <option value="0.1">0.1</option>
@@ -118,8 +120,10 @@
           </datalist>
         </div>
         <div class="color">
-          <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
-          <div class="label">color</div>
+          <div class="label">
+            <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+            <div class="text">color</div>
+          </div>
           <div class="colorPickerInput">
             <input type="color" value="#00ff00">
             <input type="text" value="#00ff00">
@@ -140,8 +144,10 @@
           <button type="button" value="block"     class="button pace-caret-block">    <span class="shape-block"></span></button>
         </div>
         <div class="config opacity">
-          <object data="./static/images/opacity.png" type="image/png" class="iconCaretOpacity"></object>
-          <span class="text">opacity</span>
+          <div class="label">
+            <div class="symbol"> <object class="iconCaretOpacity" data="./static/images/opacity.png" type="image/png"></object> </div>
+            <div class="text">opacity</div>
+          </div>
           <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="paceCaretOpacityTicks">
           <datalist id="paceCaretOpacityTicks">
             <option value="0.1">0.1</option>
@@ -157,8 +163,10 @@
           </datalist>
         </div>
         <div class="config color">
-          <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
-          <div class="label">color</div>
+          <div class="label">
+            <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+            <div class="text">color</div>
+          </div>
           <div class="colorPickerInput">
             <input type="color" value="#00ff00">
             <input type="text" value="#00ff00">
