@@ -37,9 +37,11 @@ object.iconFontWeight {
 	width: 20px;
   height: 20px;
 }
-object.iconTextLength {
-	width: 20px;
-  height: 20px;
+object.iconTextLength,
+object.iconWordCount,
+object.iconWhitespace {
+	width: 23px;
+  height: 23px;
 }
 
 input[type="color"] {
