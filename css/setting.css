@@ -33,19 +33,20 @@ object.iconFontSize {
 	width: 20px;
   height: 20px;
 }
+object.iconFontWeight {
+	width: 20px;
+  height: 20px;
+}
+object.iconTextLength {
+	width: 20px;
+  height: 20px;
+}
 
 input[type="color"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	width: 40px;
-	height: 32px;
 	cursor: pointer;
-	transition: all .15s;
-	border: 0;
-	background: #fcfcfc;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-	border-radius: 8px 0 0 8px;
+}
+input[type="text"] {	
+	cursor: text;
 }
 
 /* ------------------ COMMON | <details></details> ------------------ */

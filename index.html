@@ -119,8 +119,8 @@
           <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
           <div class="label">color</div>
           <div class="colorPickerInput">
-            <input type="color" value="#00ff00"> <!-- [css] cursor: pointer-->
-            <input type="text" value="#00ff00"> <!--  [css] cursor: text-->
+            <input type="color" value="#00ff00">
+            <input type="text" value="#00ff00">
           </div>
         </div>
       </div>
@@ -152,23 +152,24 @@
             <option value="1.0">1.0</option>
           </datalist>
         </div>
-        <div class="color">
+        <div class="config color">
           <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
           <div class="label">color</div>
           <div class="colorPickerInput">
-            <input type="color" value="#00ff00"> <!-- [css] cursor: pointer-->
-            <input type="text" value="#00ff00"> <!--  [css] cursor: text-->
+            <input type="color" value="#00ff00">
+            <input type="text" value="#00ff00">
           </div>
         </div>
         <div class="threshold">
-          <span class="text">pace caret speed</span>
-          <input type="number" placeholder="60" class="paceCaretCustomSpeed">
-          <div class="button-container thresholdSpeed">
+          <div class="label">pace caret speed</div>
+          <div class="paceCaretCustomSpeedInput"><input type="number" placeholder="60"></div>
+          <div class="config thresholdSpeed">
             <button type="button" value="last" class="last">last</button>
             <button type="button" value="personalbest" class="personalbest">personal best</button>
             <button type="button" value="average" class="average">average</button>
             <button type="button" value="custom" class="custom">custom</button>
           </div>
+          <div class="description"></div>
         </div>
       </div>
 
@@ -182,11 +183,6 @@
         </div>
       </div>
             
-      <div class="row" id="textLength">
-        <span class="text">character count</span>
-        <input type="number" min="1" max="5000" step="1" placeholder="150" class="textLengthInput">
-      </div>
-
       <div class="row" id="textWhitespace">
         <span class="text">whitespace</span>
         <div class="buttons">
@@ -214,15 +210,23 @@
       <div class="row" id="textFontSize">
         <div class="symbol"><object class="iconFontSize" data="./static/images/fontsize.svg"></object></div>
         <div class="label">text size</div>
-        <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
-        <span class="text value">1.2</span>
+        <div class="fontSizeInput"><input type="range" min="1" max="2" step="0.001" value="1.2"/></div>
+        <div class="label value">1.2</div>
+        <div class="description"></div>
       </div>
 
       <div class="row" id="textFontWeight">
-        <div class="symbol"><i class="fa-solid fa-bars-filter"></i></div>
+        <div class="symbol"><object class="iconFontWeight" data="./static/images/fontweight.svg"></object></div>
         <div class="label">text thickness</div>
         <div class="fontWeightInput"><input type="range" min="100" max="900" step="1" value="450"/></div>
         <div class="label value">450</div>
+        <div class="description"></div>
+      </div>
+
+      <div class="row" id="textLength">
+        <div class="symbol"><object class="iconTextLength" data="./static/images/unknown.svg"></object></div>
+        <div class="label">character count</div>
+        <div class="textLengthInput"><input type="number" min="1" max="5000" step="1" placeholder="150"></div>
         <div class="description"></div>
       </div>
 
