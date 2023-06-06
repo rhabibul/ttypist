@@ -122,7 +122,7 @@
         </div>
       </div>
       
-      <div class="row" id="pace-caret">
+      <div class="row" id="paceCaret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">pace caret</span>
         <div class="button-container pace-carets">
@@ -192,15 +192,17 @@
       </div>
       
       <div class="row" id="textPrimaryColor">
-        <span class="text">primary color</span>
-        <input type="color" value="#1d2021" class="textPrimaryColorInput">
-        <span class="text value">#1d2021</span>
+        <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+        <div class="label">primary color</div>
+        <div class="textPrimaryColorInput"><input type="color" value="#1d2021"></div>
+        <div class="label value"><input type="text" placeholder="#1d2021"></div>
       </div>
 
       <div class="row" id="textSecondaryColor">
-        <span class="text">secondary color</span>
-        <input type="color" value="#999999" >
-        <span class="text value">#999999</span>
+        <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+        <div class="label">secondary color</div>
+        <div class="secondaryColorInput"><input type="color" value="#999999"></div>
+        <div class="label value"><input type="text" placeholder="#999999"></div>
       </div>
 
       <div class="row" id="textFontSize">
@@ -217,7 +219,7 @@
 
       <div class="row" id="textWordCount">
         <span class="text">word count</span>
-        <input type="number" min="1" max="5000" step="1" placeholder="25" class="textWordCountInput">
+        <input class="textWordCountInput" type="number" min="1" max="5000" step="1" placeholder="25">
       </div>
 
       <div class="row" id="textInclude">
@@ -235,73 +237,73 @@
       </div>
 
       <div class="row" id="textFontFamily">
-        <i class="fas fa-font"></i>
-        <span class="text">font family</span>
-        <details class="config" id="fontFamilyList">
+        <div class="symbol"><i class="fas fa-font"></i></div>
+        <div class="label">font family</div>
+        <details class="config fontFamilyList">
           <summary>
-            <span class="text">roboto mono</span>
-            <span class="icon"> <svgwidth="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
+            <div class="label">roboto mono</div>
+            <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg></div>
           </summary>
-          <div class="menu">
+          <div class="list">
             <div class="item Nunito" data-value="Nunito">
-              <span class="text">Nunito</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Nunito</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item MonaSans" data-value="Mona Sans">
-              <span class="text">Mona Sans</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Mona Sans</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item WorkSans" data-value="Work Sans">
-              <span class="text">Work Sans</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Work Sans</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item CourierPrime" data-value="Courier Prime">
-              <span class="text">Courier Prime</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Courier Prime</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item FiraCode" data-value="Fira Code">
-              <span class="text">Fira Code</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Fira Code</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item SourceCodePro" data-value="Source Code Pro">
-              <span class="text">Source Code Pro</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Source Code Pro</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item RobotoMono" data-value="Roboto Mono">
-              <span class="text">Roboto Mono</span>
-              <span class="icon"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Roboto Mono</div>
+              <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item UbuntuMono" data-value="Ubuntu Mono">
-              <span class="text">Ubuntu Mono</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Ubuntu Mono</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item SyneMono" data-value="Syne Mono">
-              <span class="text">Syne Mono</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Syne Mono</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item VT323" data-value="VT323">
-              <span class="text">VT323</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">VT323</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item FuzzyBubbles" data-value="Fuzzy Bubbles">
-              <span class="text">Fuzzy Bubbles</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Fuzzy Bubbles</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item TsukimiRounded" data-value="Tsukimi Rounded">
-              <span class="text">Tsukimi Rounded</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Tsukimi Rounded</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item RampartOne" data-value="Rampart One">
-              <span class="text">Rampart One</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Rampart One</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item RubikVinyl" data-value="Rubik Vinyl">
-              <span class="text">Rubik&nbsp; &nbsp;Vinyl</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">Rubik&nbsp; &nbsp;Vinyl</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item GTASanAndreas" data-value="Diploma">
-              <span class="text">San Andreas</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">San Andreas</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
           </div>
         </details>
@@ -309,7 +311,7 @@
 
       <div class="row" id="textWordType">
         <div class="symbol"><i class="fas fa-font"></i></div>
-        <div class="label">word type</div>
+        <div class="label">type of words</div>
         <details class="config wordTypeList">
           <summary>
             <div class="label">dictionary</div>
