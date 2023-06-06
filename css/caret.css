@@ -152,11 +152,11 @@ button.caret-underline,
 button.caret-line,
 button.caret-box,
 button.caret-block,
-button.pace-caret-off,
-button.pace-caret-underline,
-button.pace-caret-line,
-button.pace-caret-box,
-button.pace-caret-block {
+button.paceCaret-off,
+button.paceCaret-underline,
+button.paceCaret-line,
+button.paceCaret-box,
+button.paceCaret-block {
   width: 20px;  
   height: var(--setting-button-height);
   background-color: var(--setting-background-color);
@@ -167,7 +167,7 @@ button.pace-caret-block {
   justify-content: center;
 }
 button.caret-off span.shape-off,
-button.pace-caret-off span.shape-off {
+button.paceCaret-off span.shape-off {
   width: 100%;
   height: 100%;
   font-size: 1rem;
