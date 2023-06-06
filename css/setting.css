@@ -5,7 +5,7 @@ div.setting {
 	row-gap: 5px;
 	column-gap: 5px;
 }
-div.config {
+div.row {
 	padding: 10px;
 	border: var(--dashed);
 }
@@ -44,7 +44,7 @@ details summary {
 	list-style: none;
 	user-select: none;
 }
-details summary > span.text {
+details summary > div.label {
 	position: absolute;
 	left: 0px;
 	height: 100%;
@@ -59,7 +59,7 @@ details summary > span.text {
 	font-family: var(--MonaSans);
 	border-right: 1px solid var(--setting-button-border-color);
 }
-details summary > span.icon {
+details summary > div.symbol {
 	position: absolute;
 	right: 0px;
 
@@ -70,13 +70,13 @@ details summary > span.icon {
 	align-items: center;
 	justify-content: center;
 }
-details summary > span.icon svg.dropdown {
+details summary > div.symbol svg {
 	height: 100%;
 }
-details summary > span.icon svg.dropdown {
+details summary > div.symbol svg {
 	fill: #363636;
 }
-details div.menu {
+details div.list {
 	width: 100%;
 	position: absolute;
 	top: 100%;
@@ -93,7 +93,7 @@ details div.menu {
 	border-radius: 4px;
 	z-index: 999;
 }
-details div.menu div.item {
+details div.list div.item {
 	width: 100%;
 	height: 33px;
 	padding: 0px 6px 0px 12px;
@@ -106,28 +106,28 @@ details div.menu div.item {
 	justify-content: space-between;
 	border-bottom: 1px solid var(--setting-button-border-color);
 }
-details div.menu div.item span.text,
-details div.menu div.item span.icon {
+details div.list div.item div.label,
+details div.list div.item div.symbol {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-details div.menu div.item:hover {
+details div.list div.item:hover {
 	color: blue;
-	background-color: #f6f8fa;
+	background-color: rgb(245, 245, 245);
 }
-details div.menu div.item:hover span.icon {
+details div.list div.item:hover div.symbol {
 	visibility: visible;
 }
-details div.menu div.item:hover span.icon svg.tick {
+details div.list div.item:hover div.symbol svg.tick {
 	fill: #b8b8b8;
 }
-details div.menu div.item:first-child {
+details div.list div.item:first-child {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
-details div.menu div.item:last-child {
+details div.list div.item:last-child {
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-bottom: none;
@@ -140,69 +140,69 @@ details div.menu div.item:last-child {
 details#fontFamilyList {
 	width: 160px;
 }
-details#fontFamilyList summary > span.text {
+details#fontFamilyList summary > div.label {
 	width: 130px;
 }
-details#fontFamilyList div.menu {
+details#fontFamilyList div.list {
 	width: 200px;
 }
-details#fontFamilyList div.menu div.item.Nunito {
+details#fontFamilyList div.list div.item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Nunito);
 }
-details#fontFamilyList div.menu div.item.MonaSans {
+details#fontFamilyList div.list div.item.MonaSans {
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 }
-details#fontFamilyList div.menu div.item.WorkSans {
+details#fontFamilyList div.list div.item.WorkSans {
 	font-size: 1rem;
 	font-family: var(--WorkSans);
 }
-details#fontFamilyList div.menu div.item.RobotoMono {
+details#fontFamilyList div.list div.item.RobotoMono {
 	font-size: 0.95rem;
 	font-family: var(--RobotoMono);
 }
-details#fontFamilyList div.menu div.item.CourierPrime {
+details#fontFamilyList div.list div.item.CourierPrime {
 	font-size: 0.98rem;
 	font-family: var(--CourierPrime);
 }
-details#fontFamilyList div.menu div.item.FiraCode {
+details#fontFamilyList div.list div.item.FiraCode {
 	font-size: 0.94rem;
 	font-family: var(--FiraCode);
 }
-details#fontFamilyList div.menu div.item.SourceCodePro {
+details#fontFamilyList div.list div.item.SourceCodePro {
 	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-details#fontFamilyList div.menu div.item.UbuntuMono {
+details#fontFamilyList div.list div.item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details#fontFamilyList div.menu div.item.SyneMono {
+details#fontFamilyList div.list div.item.SyneMono {
 	font-size: 1.12rem;
 	font-family: var(--SyneMono);
 }
-details#fontFamilyList div.menu div.item.VT323 {
+details#fontFamilyList div.list div.item.VT323 {
 	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-details#fontFamilyList div.menu div.item.FuzzyBubbles {
+details#fontFamilyList div.list div.item.FuzzyBubbles {
 	font-size: 1rem;
 	font-family: var(--FuzzyBubbles);
 }
-details#fontFamilyList div.menu div.item.TsukimiRounded {
+details#fontFamilyList div.list div.item.TsukimiRounded {
 	font-size: 0.93rem;
 	font-family: var(--TsukimiRounded);
 }
-details#fontFamilyList div.menu div.item.RampartOne {
+details#fontFamilyList div.list div.item.RampartOne {
 	font-size: 1.1rem;
 	font-family: var(--RampartOne);
 }
-details#fontFamilyList div.menu div.item.RubikVinyl {
+details#fontFamilyList div.list div.item.RubikVinyl {
 	font-size: 1.1rem;
 	font-family: var(--RubikVinyl);
 }
-details#fontFamilyList div.menu div.item.GTASanAndreas {
+details#fontFamilyList div.list div.item.GTASanAndreas {
 	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
 }
@@ -211,39 +211,39 @@ details#fontFamilyList div.menu div.item.GTASanAndreas {
 details#wordTypeList {
 	width: 120px;
 }
-details#wordTypeList summary > span.text {
+details#wordTypeList summary > div.label {
 	width: 90px;
 }
-details#wordTypeList div.menu {
+details#wordTypeList div.list {
 	width: 100%;
 }
 
 /* ------- config.text.word.length */
-details#wordLengthList {
+details.wordLengthList {
 	width: 110px;
 }
-details#wordLengthList summary > span.text {
+details.wordLengthList summary > div.label {
 	width: 80px;
 }
-details#wordLengthList div.menu {
+details.wordLengthList div.list {
 	width: 150px;
 	padding-right: 4px;
 }
-details#wordLengthList div.menu div.item {
+details.wordLengthList div.list div.item {
 	justify-content: space-between;
 }
-details#wordLengthList div.menu div.item span.text,
-details#wordLengthList div.menu div.item span.range {
+details.wordLengthList div.list div.item div.label,
+details.wordLengthList div.list div.item div.value.range {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
 
-details#wordLengthList div.menu div.item span.text {
+details.wordLengthList div.list div.item div.label {
 	flex-basis: 50%;
 }
-details#wordLengthList div.menu div.item span.range {
+details.wordLengthList div.list div.item div.value.range {
 	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;

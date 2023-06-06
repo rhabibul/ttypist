@@ -75,10 +75,10 @@
       <input id="textinput" tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
     </wrapper>
 
-    <!-- 
+    <!--
         as of now just design the buttons for each config field, later have wrappers
-        to categorize config fields (similar configs put together)
-        don't have description section, only labels & buttons
+        to categorize config fields (similar configs put together) don't have 
+        description section, only labels & buttons
 
         setting
             - expanded
@@ -88,7 +88,7 @@
               labels and buttons but user has the option to see config description
       -->
     <div class="setting">
-      <div class="config" id="caret">
+      <div class="row" id="caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">caret</span>
         <div class="button-container carets">
@@ -122,7 +122,7 @@
         </div>
       </div>
       
-      <div class="config" id="pace-caret">
+      <div class="row" id="pace-caret">
         <i class="fa-solid fa-i-cursor"></i>
         <span class="text">pace caret</span>
         <div class="button-container pace-carets">
@@ -166,7 +166,7 @@
         </div>
       </div>
 
-      <div class="config" id="confidence">
+      <div class="row" id="confidence">
         <i class="fas fa-backspace"></i>
         <span class="text">confidence</span>
         <div class="button-container confidence-buttons">
@@ -176,14 +176,14 @@
         </div>
       </div>
             
-      <div class="config" id="textLength">
+      <div class="row" id="textLength">
         <span class="text">character count</span>
         <input type="number" min="1" max="5000" step="1" placeholder="150" class="textLengthInput">
       </div>
 
-      <div class="config" id="textWhitespace">
+      <div class="row" id="textWhitespace">
         <span class="text">whitespace</span>
-        <div class="button-container whitespace-buttons">
+        <div class="buttons">
           <button type="button" value="off"    data-code="0"    data-character=""       class="button off">off</button>
           <button type="button" value="bullet" data-code="8226" data-character="•"      class="button bullet">bullet</button>
           <button type="button" value="space"  data-code="160"  data-character="&nbsp;" class="button space">space</button>
@@ -191,42 +191,42 @@
         </div>
       </div>
       
-      <div class="config" id="textPrimaryColor">
+      <div class="row" id="textPrimaryColor">
         <span class="text">primary color</span>
         <input type="color" value="#1d2021" class="textPrimaryColorInput">
         <span class="text value">#1d2021</span>
       </div>
 
-      <div class="config" id="textSecondaryColor">
+      <div class="row" id="textSecondaryColor">
         <span class="text">secondary color</span>
         <input type="color" value="#999999" >
         <span class="text value">#999999</span>
       </div>
 
-      <div class="config" id="textFontSize">
+      <div class="row" id="textFontSize">
         <span class="text">font size</span>
         <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
         <span class="text value">1.2</span>
       </div>
 
-      <div class="config" id="textFontWeight">
+      <div class="row" id="textFontWeight">
         <span class="text">font weight</span>
         <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
         <span class="text value">450</span>
       </div>
 
-      <div class="config" id="textWordCount">
+      <div class="row" id="textWordCount">
         <span class="text">word count</span>
         <input type="number" min="1" max="5000" step="1" placeholder="25" class="textWordCountInput">
       </div>
 
-      <div class="config" id="textInclude">
+      <div class="row" id="textInclude">
         <span class="text">include</span>
         <button type="button" value="digit" class="digit">digit</button>
         <button type="button" value="punctuation" class="punctuation">punctuation</button>
       </div>
 
-      <div class="config" id="textCapitalization">
+      <div class="row" id="textCapitalization">
         <button type="button" value="off" class="off">off</button>
         <button type="button" value="firstletter" class="firstletter">firstletter</button>
         <button type="button" value="allfirstletters" class="allfirstletters">allfirstletters</button>
@@ -234,13 +234,13 @@
         <button type="button" value="jumbled" class="jumbled">jumbled</button>
       </div>
 
-      <div class="config" id="textFontFamily">
+      <div class="row" id="textFontFamily">
         <i class="fas fa-font"></i>
         <span class="text">font family</span>
         <details class="config" id="fontFamilyList">
           <summary>
             <span class="text">roboto mono</span>
-            <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
+            <span class="icon"> <svgwidth="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
           </summary>
           <div class="menu">
             <div class="item Nunito" data-value="Nunito">
@@ -300,46 +300,45 @@
               <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
             </div>
             <div class="item GTASanAndreas" data-value="Diploma">
-              <span class="text">GTA San Andreas</span>
+              <span class="text">San Andreas</span>
               <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
             </div>
           </div>
         </details>
       </div>
 
-      <div class="config" id="textWordType">
+      <div class="row" id="textWordType">
         <i class="fas fa-font"></i>
         <span class="text">word type</span>
         <details class="config" id="wordTypeList">
           <summary>
-            <!-- text: dictionary | root | gibberish | quote | story | algorithm -->
-            <span class="text">dictionary</span>
-            <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
+            <div class="label">dictionary</div>
+            <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </div>
           </summary>
-          <div class="menu">
+          <div class="list">
             <div class="item quote" data-value="quote">
-              <span class="text">quote</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">quote</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item poetry" data-value="poetry">
-              <span class="text">poetry</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">poetry</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item story" data-value="story">
-              <span class="text">story</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">story</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item dictionary" data-value="dictionary">
-              <span class="text">dictionary</span>
-              <span class="icon marked"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">dictionary</div>
+              <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item root" data-value="root">
-              <span class="text">root</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">text</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item gibberish" data-value="gibberish">
-              <span class="text">gibberish</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+              <div class="label">gibberish</div>
+              <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
             </div>
             <div class="item algorithm" data-value="algorithm">
               <span class="text">algorithm</span>
@@ -349,43 +348,55 @@
         </details>
       </div>
 
-      <div class="config" id="textWordLength">
-        <i class="fa-solid fa-ruler"></i>
-        <span class="text">word length</span>
-        <details class="config" id="wordLengthList">
-          <summary>
-            <!-- text: short | medium | long | very long -->
-            <span class="text">random</span>
-            <span class="icon"> <svg class="dropdown" width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </span>
-          </summary>
-          <div class="menu">
-            <div class="item random" data-value="random">
-              <span class="text">random</span>
-              <span class="range"></span>
-              <span class="icon"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
+      <div class="row" id="textWordLength">
+        <div class="symbol"><i class="fa-solid fa-ruler"></i></div>
+        <div class="label">word length</div>
+        <div class="list">
+          <details class="config wordLengthList">
+            <summary>
+              <div class="label">random</div>
+              <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </div>
+            </summary>
+            <div class="list">
+              <div class="item short" data-value="short">
+                <div class="label">short</div>
+                <div class="value range">[1,5&#41;</div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+              </div>
+              <div class="item medium" data-value="medium">
+                <div class="label">medium</div>
+                <div class="value range">[5,10&#41;</div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+              </div>
+              <div class="item long" data-value="long">
+                <div class="label">long</div>
+                <div class="value range">[10,13&#41;</div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+              </div>
+              <div class="item very-long" data-value="very long">
+                <div class="label">very long</div>
+                <div class="value range">[13,&infin;&#41;</div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+              </div>
+              <div class="item random" data-value="random">
+                <div class="label">random</div>
+                <div class="value range"></div>
+                <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+              </div>
             </div>
-            <div class="item short" data-value="short">
-              <span class="text">short</span>
-              <span class="range">[1,5&#41;</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
-            </div>
-            <div class="item medium" data-value="medium">
-              <span class="text">medium</span>
-              <span class="range">[5,10&#41;</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
-            </div>
-            <div class="item long" data-value="long">
-              <span class="text">long</span>
-              <span class="range">[10,13&#41;</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
-            </div>
-            <div class="item very-long" data-value="very long">
-              <span class="text">very long</span>
-              <span class="range">[13,&infin;&#41;</span>
-              <span class="icon unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></span>
-            </div>
-          </div>
-        </details>
+          </details>
+        </div>
+        <div class="description"></div>
+      </div>
+
+      <div class="row" id="statistics">
+        <div class="symbol">statistics</div>
+        <div class="config statistics">
+          <button type="button" value="wpm" class="button wpm">wpm</button>
+          <button type="button" value="cpm" class="button cpm">cpm</button>
+          <button type="button" value="usefloats" class="button usefloats">usefloats</button>
+        </div>
+        <div class="description"></div>
       </div>
     </div>
 

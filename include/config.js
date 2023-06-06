@@ -35,8 +35,13 @@ export default {
       },
     },
   },
-  cpm: false, // use cpm instead of wpm
-  usefloats: false, // display floating point number
+  statistics: {
+    speed: {
+      cpm: false, // show characters per minute
+      wpm: true, // show words per minute
+    },
+    usefloats: false, // display floating point number
+  },
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key
   underline: true, // underline the current word being typed
