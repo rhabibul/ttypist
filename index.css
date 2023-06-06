@@ -241,8 +241,7 @@
   --GTASanAndreas: "Diploma", monospace;
 
   --text-size: 20px;
-  /* --text-font: var(--RobotoMono); */
-  --text-font: var(--WorkSans);
+  --text-font: var(--RobotoMono);
   --text-thickness: 450;
   --text-primary-color: #1d2021;
   --text-secondary-color: #8d8989;

@@ -119,11 +119,11 @@ export default {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
-    capitalize: {
-      firstletter: false,
-      allfirstletters: false,
-      random: false,
-      between: false,
+    capitalization: {
+      firstletter: false, // capitalize only the first letter of first word in the text
+      allfirstletters: false, // capitalize all the first letters of all words in the text
+      random: false, // randomly capitalize the first letter of all words in the text
+      jumbled: false, // randomly capitalize the letters of a word
     }
   },
   language: "english", // english | hindi | bengali | arabic | russian | +indian-languages

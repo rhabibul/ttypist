@@ -177,8 +177,8 @@
       </div>
             
       <div class="config" id="textLength">
-        <span class="text">text length</span>
-        <input type="number" min="1" max="5000" step="1" placeholder="Number of characters" class="textLengthInput">
+        <span class="text">character count</span>
+        <input type="number" min="1" max="5000" step="1" placeholder="150" class="textLengthInput">
       </div>
 
       <div class="config" id="textWhitespace">
@@ -217,20 +217,21 @@
 
       <div class="config" id="textWordCount">
         <span class="text">word count</span>
-        <input type="number" placeholder="25">
+        <input type="number" min="1" max="5000" step="1" placeholder="25" class="textWordCountInput">
       </div>
 
       <div class="config" id="textInclude">
+        <span class="text">include</span>
         <button type="button" value="digit" class="digit">digit</button>
         <button type="button" value="punctuation" class="punctuation">punctuation</button>
       </div>
 
-      <div class="config" id="textCapitalize">
+      <div class="config" id="textCapitalization">
         <button type="button" value="off" class="off">off</button>
         <button type="button" value="firstletter" class="firstletter">firstletter</button>
         <button type="button" value="allfirstletters" class="allfirstletters">allfirstletters</button>
         <button type="button" value="random" class="random">random</button>
-        <button type="button" value="between" class="between">between</button>
+        <button type="button" value="jumbled" class="jumbled">jumbled</button>
       </div>
 
       <div class="config" id="textFontFamily">
