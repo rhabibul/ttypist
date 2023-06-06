@@ -35,13 +35,8 @@ export default {
       },
     },
   },
-  statistics: {
-    speed: {
-      cpm: false, // show characters per minute
-      wpm: true, // show words per minute
-    },
-    usefloats: false, // display floating point number
-  },
+  theme: "light",
+  scroll: "abrupt", // abrupt | smooth
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key
   underline: true, // underline the current word being typed
@@ -84,8 +79,6 @@ export default {
       word: false,
     },
   },
-  theme: "light",
-  scroll: "abrupt", // abrupt | smooth
   highlight: {
     off: false,
     mode: {
@@ -130,6 +123,16 @@ export default {
       random: false, // randomly capitalize the first letter of all words in the text
       jumbled: false, // randomly capitalize the letters of a word
     }
+  },
+  test: {
+    duration: 60,
+  },
+  statistics: {
+    speed: {
+      cpm: false, // show characters per minute
+      wpm: true, // show words per minute
+    },
+    usefloats: false, // display floating point number
   },
   language: "english", // english | hindi | bengali | arabic | russian | +indian-languages
   keyboard: {

@@ -212,9 +212,10 @@
       </div>
 
       <div class="row" id="textFontWeight">
-        <span class="text">font weight</span>
-        <input type="range" min="100" max="900" step="1" value="450" id="slider-fontweight"/>
-        <span class="text value">450</span>
+        <div class="symbol"><i class="fa-solid fa-bars-filter"></i></div>
+        <div class="label">text thickness</div>
+        <div class="fontWeightInput"><input type="range" min="100" max="900" step="1" value="450"/></div>
+        <div class="label value">450</div>
       </div>
 
       <div class="row" id="textWordCount">
@@ -223,9 +224,12 @@
       </div>
 
       <div class="row" id="textInclude">
-        <span class="text">include</span>
-        <button type="button" value="digit" class="digit">digit</button>
-        <button type="button" value="punctuation" class="punctuation">punctuation</button>
+        <div class="symbol"><svg role="img" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"> <path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg></div>
+        <div class="label">include</div>
+        <div class="config include">
+          <button type="button" value="digit" class="digit">digit</button>
+          <button type="button" value="punctuation" class="punctuation">punctuation</button>
+        </div>
       </div>
 
       <div class="row" id="textCapitalization">
@@ -362,7 +366,7 @@
       </div>
 
       <div class="row" id="textWordLength">
-        <div class="symbol"><i class="fa-solid fa-ruler"></i></div>
+        <div class="symbol"><object data="./static/images/ruler.svg"></object></div>
         <div class="label">word length</div>
         <div class="details">
           <details class="config wordLengthList">
@@ -403,7 +407,8 @@
       </div>
 
       <div class="row" id="statistics">
-        <div class="symbol">statistics</div>
+        <div class="symbol"><svg height="16" viewBox="0 0 16 16" version="1.1" width="16"> <path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></div>
+        <div class="label">statistics</div>
         <div class="config statistics">
           <button type="button" value="wpm" class="button wpm">wpm</button>
           <button type="button" value="cpm" class="button cpm">cpm</button>
