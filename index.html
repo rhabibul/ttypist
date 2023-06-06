@@ -116,9 +116,12 @@
           </datalist>
         </div>
         <div class="color">
-          <i class="fa-solid fa-fill-drip"></i>
-          <span class="text">color</span>
-          <input type="color" value="#ff0000">
+          <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+          <div class="label">color</div>
+          <div class="colorPickerInput">
+            <input type="color" value="#00ff00"> <!-- [css] cursor: pointer-->
+            <input type="text" value="#00ff00"> <!--  [css] cursor: text-->
+          </div>
         </div>
       </div>
       
@@ -150,9 +153,12 @@
           </datalist>
         </div>
         <div class="color">
-          <i class="fa-solid fa-fill-drip"></i>
-          <span class="text">color</span>
-          <input type="color" value="#00ff00">
+          <div class="symbol"><i class="fa-solid fa-fill-drip"></i></div>
+          <div class="label">color</div>
+          <div class="colorPickerInput">
+            <input type="color" value="#00ff00"> <!-- [css] cursor: pointer-->
+            <input type="text" value="#00ff00"> <!--  [css] cursor: text-->
+          </div>
         </div>
         <div class="threshold">
           <span class="text">pace caret speed</span>
@@ -206,7 +212,8 @@
       </div>
 
       <div class="row" id="textFontSize">
-        <span class="text">font size</span>
+        <div class="symbol"><object class="iconFontSize" data="./static/images/fontsize.svg"></object></div>
+        <div class="label">text size</div>
         <input type="range" min="1" max="2" step="0.001" value="1.2" id="slider-fontsize"/>
         <span class="text value">1.2</span>
       </div>
@@ -216,6 +223,7 @@
         <div class="label">text thickness</div>
         <div class="fontWeightInput"><input type="range" min="100" max="900" step="1" value="450"/></div>
         <div class="label value">450</div>
+        <div class="description"></div>
       </div>
 
       <div class="row" id="textWordCount">
@@ -230,6 +238,7 @@
           <button type="button" value="digit" class="digit">digit</button>
           <button type="button" value="punctuation" class="punctuation">punctuation</button>
         </div>
+        <div class="description"></div>
       </div>
 
       <div class="row" id="textCapitalization">
@@ -366,7 +375,7 @@
       </div>
 
       <div class="row" id="textWordLength">
-        <div class="symbol"><object data="./static/images/ruler.svg"></object></div>
+        <div class="symbol"><object class="iconRuler" data="./static/images/ruler.svg"></object></div>
         <div class="label">word length</div>
         <div class="details">
           <details class="config wordLengthList">
