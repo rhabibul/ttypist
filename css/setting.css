@@ -21,6 +21,10 @@ object.iconCaretOpacity {
   width: 18px;
   height: 18px;
 }
+object.iconFontCase {
+	width: 23px;
+  height: 23px;
+}
 
 /* ------------------ COMMON | <details></details> ------------------ */
 details {
