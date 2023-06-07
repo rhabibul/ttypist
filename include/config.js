@@ -8,7 +8,6 @@ export default {
       browser: "",
     }
   },
-  arrow: true, // implicit
   setting: {
     dynamic: false, // apply settings instantly without restarting test
     expand: false, // label, buttons and description visible
@@ -35,10 +34,12 @@ export default {
       },
     },
   },
-  theme: "light",
+  language: "english", // english | hindi | bengali | arabic | russian | +IndianLanguages
+  theme: "light", // light | dark
   scroll: "abrupt", // abrupt | smooth
+  arrow: true, // implicit
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // use opposite thumb for hitting space key
+  oppositethumbforspace: false, // use opposite thumb for hitting space key (bsdk kaise pata lagaiga opposite thumb use krbana hai 🤣)
   underline: true, // underline the current word being typed
   tape: { // text remains in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
@@ -89,6 +90,11 @@ export default {
   },
   text: {
     length: 0, // number of characters in the text
+    word: {
+      count: 25, // 10 | 25 | 50 | 100 | infinite | input
+      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
+      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
+    },
     color: {
       primary: "#1d2021", // future text, text which needs to be typed
       secondary: "#7b7b7b", // past text, text which has been typed
@@ -96,7 +102,7 @@ export default {
     font: {
       size: 1.2, // size of each letter
       weight: 445, // thickness of each letter
-      family: "Roboto Mono", // roboto | fira | mona | ubuntu | syne | source | VT323 | fuzzy | tsukimi | rampart | rubik | diploma
+      family: "Roboto Mono", // roboto | fira | mona | ubuntu | syne | source | VT323 | fuzzy | tsukimi | rampart | rubik | diploma | work | mona | nunito
     },
     whitespace: {
       off: false, // nospace
@@ -107,11 +113,6 @@ export default {
       },
       code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'
-    },
-    word: {
-      count: 25, // 10 | 25 | 50 | 100 | infinite | input
-      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
-      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
     },
     include: {
       digit: false, // include numbers along with words
@@ -124,9 +125,6 @@ export default {
       jumbled: false, // randomly capitalize the letters of a word
     }
   },
-  test: {
-    duration: 60,
-  },
   statistics: {
     speed: {
       cpm: false, // show characters per minute
@@ -134,7 +132,6 @@ export default {
     },
     usefloats: false, // display floating point number
   },
-  language: "english", // english | hindi | bengali | arabic | russian | +indian-languages
   keyboard: {
     off: false,
     reaction: "react", // off | static | react | next

@@ -37,13 +37,19 @@ object.iconFontWeight {
 	width: 20px;
   height: 20px;
 }
-object.iconTextLength,
+object.iconLetterCount,
 object.iconWordCount,
 object.iconWhitespace,
 object.iconPaceCaretSpeed {
 	width: 23px;
   height: 23px;
 }
+svg.iconPrimaryColor,
+svg.iconSecondaryColor {
+	width: 20px;
+	height: 20px;
+}
+
 
 input[type="color"] {
 	cursor: pointer;
