@@ -253,7 +253,7 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
 
   --caret-color: black;
-  --caret-color-hidden: var(--default-bg0_h);
+  --caret-color-hidden: var(--default-bg0_h); /* match invisible underline caret color with background color of text */
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
   --caret-width-line: -1px; /* line caret width */
