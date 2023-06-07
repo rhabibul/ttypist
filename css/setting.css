@@ -39,7 +39,8 @@ object.iconFontWeight {
 }
 object.iconTextLength,
 object.iconWordCount,
-object.iconWhitespace {
+object.iconWhitespace,
+object.iconPaceCaretSpeed {
 	width: 23px;
   height: 23px;
 }
