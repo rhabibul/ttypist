@@ -7,7 +7,29 @@ div.setting {
 }
 div.row {
 	padding: 10px;
-	border: 1px solid gray;
+	border: 1px dashed #f0f0f0;	
+}
+
+div.config {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.config .button {
+	height: var(--setting-button-height);
+	margin: 2px;
+	padding: 0px 8px;
+	font-size: 0.9rem;
+	font-family: var(--MonaSans);
+	border-radius: 2px;
+	border: 1px solid var(--setting-button-border-color);
+	background-color: var(--setting-button-backgroundcolor);
+}
+
+div.paceCaretSpeed {
+	display: flex;
+	flex-direction: column;
 }
 
 div.label {
@@ -41,9 +63,9 @@ object.iconFontSize {
 	width: 20px;
   height: 20px;
 }
-object.iconFontWeight {
-	width: 20px;
-  height: 20px;
+.iconFontWeight {
+	width: 25px;
+  height: 25px;
 }
 object.iconLetterCount,
 object.iconWordCount,
@@ -132,7 +154,7 @@ details div.list {
 	justify-content: center;
 	align-items: flex-start;
 
-	background-color: var(--setting-button-backgroundcolor);
+	background-color: #fefbfb;
 	border: 1px solid var(--setting-button-border-color);
 	box-shadow: 0 8px 24px rgba(140,149,159,0.2);
 	border-radius: 4px;
@@ -160,7 +182,6 @@ details div.list div.item div.symbol {
 }
 details div.list div.item:hover {
 	color: blue;
-	background-color: rgba(245, 245, 245, 0.9);
 }
 details div.list div.item:hover div.symbol {
 	visibility: visible;

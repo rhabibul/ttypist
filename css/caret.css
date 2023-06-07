@@ -159,7 +159,8 @@ button.paceCaret-box,
 button.paceCaret-block {
   width: 20px;  
   height: var(--setting-button-height);
-  background-color: var(--setting-background-color);
+  background-color: var(--setting-button-backgroundcolor);
+  background-color: rgba(245, 245, 245, 0.6);
   border: 1px solid var(--setting-caret-border-color);
   border-radius: none;
   display: flex;
