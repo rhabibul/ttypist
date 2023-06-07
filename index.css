@@ -296,6 +296,7 @@ body {
   justify-content: center;
   row-gap: 10px;
 
+  color: #1f2328;
   background-color: var(--default-bg0_h);
 }
 

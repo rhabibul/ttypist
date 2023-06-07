@@ -73,18 +73,6 @@
       <input id="textinput" tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
     </wrapper>
 
-    <!--
-        as of now just design the buttons for each config field, later have wrappers
-        to categorize config fields (similar configs put together) don't have 
-        description section, only labels & buttons
-
-        setting
-            - expanded
-              labels, buttons and description(opened), configs will also be 
-              categorized i.e, similar configs are put together
-            - collapsed
-              labels and buttons but user has the option to see config description
-      -->
     <div class="setting">
       <div class="row" id="caret">
         <div class="label">
@@ -502,26 +490,21 @@
       </div>
 
       <div class="row" id="statistics">
-        <div class="symbol"><svg height="16" viewBox="0 0 16 16" version="1.1" width="16"> <path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></div>
-        <div class="label">statistics</div>
+        <div class="label">
+          <div class="symbol"><svg height="16" viewBox="0 0 16 16" version="1.1" width="16"> <path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></div>
+          <div class="text">statistics</div>
+        </div>
+
         <div class="config statistics">
           <button type="button" value="wpm" class="button wpm">wpm</button>
           <button type="button" value="cpm" class="button cpm">cpm</button>
           <button type="button" value="usefloats" class="button usefloats">usefloats</button>
         </div>
+
         <div class="description"></div>
       </div>
     </div>
-
-    <i class="fa-solid fa-house"></i>
-
-    <script type="text/javascript">
-      // const btn = document.querySelectorAll("div.config#text-whitespace > *");
-      // for ( const b of btn ) {
-      //   console.log(b.type, b.value, b.dataset.code, b.dataset.character);
-      // }
-    </script>
-
+    
     <script type="importmap"></script>
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/controllers/setting-buttons-controller.js"></script>
