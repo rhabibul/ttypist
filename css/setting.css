@@ -66,7 +66,7 @@ details {
 
 	user-select: none;
 	
-	background-color: var(--setting-background-color);
+	background-color: var(--setting-button-backgroundcolor);
 	border: 1px solid var(--setting-button-border-color);
 	border-radius: 4px;
 }
@@ -124,7 +124,7 @@ details div.list {
 	justify-content: center;
 	align-items: flex-start;
 
-	background-color: hsla(0, 0%, 96%, 0.502);
+	background-color: var(--setting-button-backgroundcolor);
 	border: 1px solid var(--setting-button-border-color);
 	border-radius: 4px;
 	z-index: 999;
@@ -151,7 +151,7 @@ details div.list div.item div.symbol {
 }
 details div.list div.item:hover {
 	color: blue;
-	background-color: hsla(0, 0%, 96%, 0.9);
+	background-color: rgba(245, 245, 245, 0.9);
 }
 details div.list div.item:hover div.symbol {
 	visibility: visible;
@@ -173,113 +173,113 @@ details div.list div.item:last-child {
 /* ------------------ CUSTOM | <details></details> ------------------ */
 
 /* ------- config.text.font.family */
-details.fontFamilyList {
+details.textFontFamilyList {
 	width: 160px;
 }
-details.fontFamilyList summary > div.text {
+details.textFontFamilyList summary > div.text {
 	width: 130px;
 }
-details.fontFamilyList div.list {
+details.textFontFamilyList div.list {
 	width: 200px;
 }
-details.fontFamilyList div.list div.item.Nunito {
+details.textFontFamilyList div.list div.item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Nunito);
 }
-details.fontFamilyList div.list div.item.MonaSans {
+details.textFontFamilyList div.list div.item.MonaSans {
 	font-size: 0.9rem;
 	font-family: var(--MonaSans);
 }
-details.fontFamilyList div.list div.item.WorkSans {
+details.textFontFamilyList div.list div.item.WorkSans {
 	font-size: 1rem;
 	font-family: var(--WorkSans);
 }
-details.fontFamilyList div.list div.item.RobotoMono {
+details.textFontFamilyList div.list div.item.RobotoMono {
 	font-size: 0.95rem;
 	font-family: var(--RobotoMono);
 }
-details.fontFamilyList div.list div.item.CourierPrime {
+details.textFontFamilyList div.list div.item.CourierPrime {
 	font-size: 0.98rem;
 	font-family: var(--CourierPrime);
 }
-details.fontFamilyList div.list div.item.FiraCode {
+details.textFontFamilyList div.list div.item.FiraCode {
 	font-size: 0.94rem;
 	font-family: var(--FiraCode);
 }
-details.fontFamilyList div.list div.item.SourceCodePro {
+details.textFontFamilyList div.list div.item.SourceCodePro {
 	font-size: 0.95rem;
 	font-family: var(--SourceCodePro);
 }
-details.fontFamilyList div.list div.item.UbuntuMono {
+details.textFontFamilyList div.list div.item.UbuntuMono {
 	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details.fontFamilyList div.list div.item.SyneMono {
+details.textFontFamilyList div.list div.item.SyneMono {
 	font-size: 1.12rem;
 	font-family: var(--SyneMono);
 }
-details.fontFamilyList div.list div.item.VT323 {
+details.textFontFamilyList div.list div.item.VT323 {
 	font-size: 1.4rem;
 	font-family: var(--VT323);
 }
-details.fontFamilyList div.list div.item.FuzzyBubbles {
+details.textFontFamilyList div.list div.item.FuzzyBubbles {
 	font-size: 1rem;
 	font-family: var(--FuzzyBubbles);
 }
-details.fontFamilyList div.list div.item.TsukimiRounded {
+details.textFontFamilyList div.list div.item.TsukimiRounded {
 	font-size: 0.93rem;
 	font-family: var(--TsukimiRounded);
 }
-details.fontFamilyList div.list div.item.RampartOne {
+details.textFontFamilyList div.list div.item.RampartOne {
 	font-size: 1.1rem;
 	font-family: var(--RampartOne);
 }
-details.fontFamilyList div.list div.item.RubikVinyl {
+details.textFontFamilyList div.list div.item.RubikVinyl {
 	font-size: 1.1rem;
 	font-family: var(--RubikVinyl);
 }
-details.fontFamilyList div.list div.item.GTASanAndreas {
+details.textFontFamilyList div.list div.item.GTASanAndreas {
 	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
 }
 
 /* ------- config.text.word.type */
-details.wordTypeList {
+details.textWordTypeList {
 	width: 120px;
 }
-details.wordTypeList summary > div.text {
+details.textWordTypeList summary > div.text {
 	width: 90px;
 }
-details.wordTypeList div.list {
+details.textWordTypeList div.list {
 	width: 100%;
 }
 
 /* ------- config.text.word.length */
-details.wordLengthList {
+details.textWordLengthList {
 	width: 110px;
 }
-details.wordLengthList summary > div.text {
+details.textWordLengthList summary > div.text {
 	width: 80px;
 }
-details.wordLengthList div.list {
+details.textWordLengthList div.list {
 	width: 150px;
 	padding-right: 4px;
 }
-details.wordLengthList div.list div.item {
+details.textWordLengthList div.list div.item {
 	justify-content: space-between;
 }
-details.wordLengthList div.list div.item div.label,
-details.wordLengthList div.list div.item div.value.range {
+details.textWordLengthList div.list div.item div.text,
+details.textWordLengthList div.list div.item div.text.range {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
 
-details.wordLengthList div.list div.item div.label {
+details.textWordLengthList div.list div.item div.text {
 	flex-basis: 50%;
 }
-details.wordLengthList div.list div.item div.value.range {
+details.textWordLengthList div.list div.item div.text.range {
 	color: #a0a0a0;
 	flex-basis: 30%;
 	font-size: 0.8rem;

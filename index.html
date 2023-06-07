@@ -180,13 +180,13 @@
             <div class="symbol"><object class="iconPaceCaretSpeed" data="./static/images/speed.svg"></object></div>
             <div class="text">pace caret speed</div>
           </div>
-          <div class="config paceCaretSpeedCutomInput"><input type="number" placeholder="60"></div>
           <div class="config paceCaretSpeedButtons">
             <button type="button" value="last" class="last">last</button>
             <button type="button" value="personalbest" class="personalbest">personal best</button>
             <button type="button" value="average" class="average">average</button>
             <button type="button" value="custom" class="custom">custom</button>
           </div>
+          <div class="config paceCaretSpeedCutomInput"><input type="number" placeholder="60"></div>
         </div>
         <div class="description"></div>
       </div>
@@ -255,8 +255,8 @@
           <div class="text">text size</div>
         </div>
 
-        <div class="config fontSize">
-          <div class="fontSizeInput"><input type="range" min="1" max="2" step="0.001" value="1.2"/></div>
+        <div class="config textFontSize">
+          <div class="textFontSizeInput"><input type="range" min="1" max="2" step="0.001" value="1.2"/></div>
           <div class="text value">1.2</div>
         </div>
 
@@ -269,16 +269,16 @@
           <div class="text">text thickness</div>
         </div>
 
-        <div class="config fontWeight">
-          <div class="fontWeightInput"><input type="range" min="100" max="900" step="1" value="450"/></div>
+        <div class="config textFontWeight">
+          <div class="textFontWeightInput"><input type="range" min="100" max="900" step="1" value="450"/></div>
           <div class="text value">450</div>
         </div>
         
         <div class="description"></div>
       </div>
 
-      <div class="row" id="count">
-        <div class="config textLetter">
+      <div class="row" id="textCount">
+        <div class="config textLetterCount">
           <div class="label">
             <div class="symbol"><object class="iconLetterCount" data="./static/images/unknown.svg"></object></div>
             <div class="text">letter count</div>
@@ -286,7 +286,7 @@
           <div class="textLetterCountInput"><input type="number" placeholder="150"></div>
         </div>
   
-        <div class="config textWord">
+        <div class="config textWordCount">
           <div class="label">
             <div class="symbol"><object class="iconWordCount" data="./static/images/unknown.svg"></object></div>
             <div class="text">word count</div>
@@ -307,6 +307,7 @@
           <button type="button" value="digit" class="digit">digit</button>
           <button type="button" value="punctuation" class="punctuation">punctuation</button>
         </div>
+
         <div class="description"></div>
       </div>
 
@@ -315,13 +316,15 @@
           <div class="symbol"><object class="iconFontCase" data="./static/images/fontcase.svg"></object></div>
           <div class="text">text capitalization</div>
         </div>
-        <div class="config capitalization">
+
+        <div class="config textCapitalization">
           <button type="button" value="off" class="button off">off</button>
           <button type="button" value="firstletter" class="button firstletter">firstletter</button>
           <button type="button" value="allfirstletters" class="button allfirstletters">allfirstletters</button>
           <button type="button" value="random" class="button random">random</button>
           <button type="button" value="jumbled" class="button jumbled">jumbled</button>
         </div>
+
         <div class="description"></div>
       </div>
 
@@ -332,70 +335,70 @@
         </div>
 
         <div class="details">
-          <details class="config fontFamilyList">
+          <details class="config textFontFamilyList">
             <summary>
               <div class="text">roboto mono</div>
               <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg></div>
             </summary>
             <div class="list">
               <div class="item Nunito" data-value="Nunito">
-                <div class="label">Nunito</div>
+                <div class="text">Nunito</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item MonaSans" data-value="Mona Sans">
-                <div class="label">Mona Sans</div>
+                <div class="text">Mona Sans</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item WorkSans" data-value="Work Sans">
-                <div class="label">Work Sans</div>
+                <div class="text">Work Sans</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item CourierPrime" data-value="Courier Prime">
-                <div class="label">Courier Prime</div>
+                <div class="text">Courier Prime</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item FiraCode" data-value="Fira Code">
-                <div class="label">Fira Code</div>
+                <div class="text">Fira Code</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item SourceCodePro" data-value="Source Code Pro">
-                <div class="label">Source Code Pro</div>
+                <div class="text">Source Code Pro</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item RobotoMono" data-value="Roboto Mono">
-                <div class="label">Roboto Mono</div>
+                <div class="text">Roboto Mono</div>
                 <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item UbuntuMono" data-value="Ubuntu Mono">
-                <div class="label">Ubuntu Mono</div>
+                <div class="text">Ubuntu Mono</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item SyneMono" data-value="Syne Mono">
-                <div class="label">Syne Mono</div>
+                <div class="text">Syne Mono</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item VT323" data-value="VT323">
-                <div class="label">VT323</div>
+                <div class="text">VT323</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item FuzzyBubbles" data-value="Fuzzy Bubbles">
-                <div class="label">Fuzzy Bubbles</div>
+                <div class="text">Fuzzy Bubbles</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item TsukimiRounded" data-value="Tsukimi Rounded">
-                <div class="label">Tsukimi Rounded</div>
+                <div class="text">Tsukimi Rounded</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item RampartOne" data-value="Rampart One">
-                <div class="label">Rampart One</div>
+                <div class="text">Rampart One</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item RubikVinyl" data-value="Rubik Vinyl">
-                <div class="label">Rubik&nbsp; &nbsp;Vinyl</div>
+                <div class="text">Rubik&nbsp; &nbsp;Vinyl</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item GTASanAndreas" data-value="Diploma">
-                <div class="label">San Andreas</div>
+                <div class="text">San Andreas</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
             </div>
@@ -412,38 +415,38 @@
         </div>
 
         <div class="details">
-          <details class="config wordTypeList">
+          <details class="config textWordTypeList">
             <summary>
               <div class="text">dictionary</div>
               <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </div>
             </summary>
             <div class="list">
               <div class="item quote" data-value="quote">
-                <div class="label">quote</div>
+                <div class="text">quote</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item poetry" data-value="poetry">
-                <div class="label">poetry</div>
+                <div class="text">poetry</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item story" data-value="story">
-                <div class="label">story</div>
+                <div class="text">story</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item dictionary" data-value="dictionary">
-                <div class="label">dictionary</div>
+                <div class="text">dictionary</div>
                 <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item root" data-value="root">
-                <div class="label">root</div>
+                <div class="text">root</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item gibberish" data-value="gibberish">
-                <div class="label">gibberish</div>
+                <div class="text">gibberish</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item algorithm" data-value="algorithm">
-                <div class="label">algorithm</div>
+                <div class="text">algorithm</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
             </div>
@@ -460,41 +463,41 @@
         </div>
 
         <div class="details">
-          <details class="config wordLengthList">
+          <details class="config textWordLengthList">
             <summary>
               <div class="text">random</div>
               <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16" version="1.1"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path> </svg> </div>
             </summary>
             <div class="list">
               <div class="item short" data-value="short">
-                <div class="label">short</div>
-                <div class="value range">[1,5&#41;</div>
+                <div class="text">short</div>
+                <div class="text range">[1,5&#41;</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item medium" data-value="medium">
-                <div class="label">medium</div>
-                <div class="value range">[5,10&#41;</div>
+                <div class="text">medium</div>
+                <div class="text range">[5,10&#41;</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item long" data-value="long">
-                <div class="label">long</div>
-                <div class="value range">[10,13&#41;</div>
+                <div class="text">long</div>
+                <div class="text range">[10,13&#41;</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item very-long" data-value="very long">
-                <div class="label">very long</div>
-                <div class="value range">[13,&infin;&#41;</div>
+                <div class="text">very long</div>
+                <div class="text range">[13,&infin;&#41;</div>
                 <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
               <div class="item random" data-value="random">
-                <div class="label">random</div>
-                <div class="value range"></div>
+                <div class="text">random</div>
+                <div class="text range"></div>
                 <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
             </div>
           </details>
         </div>
-        
+
         <div class="description"></div>
       </div>
 
