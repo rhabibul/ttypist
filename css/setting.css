@@ -80,7 +80,7 @@ details summary {
 	list-style: none;
 	user-select: none;
 }
-details summary > div.label {
+details summary > div.text {
 	position: absolute;
 	left: 0px;
 	height: 100%;
@@ -142,7 +142,7 @@ details div.list div.item {
 	justify-content: space-between;
 	border-bottom: 1px solid var(--setting-button-border-color);
 }
-details div.list div.item div.label,
+details div.list div.item div.text,
 details div.list div.item div.symbol {
 	height: 100%;
 	display: flex;
@@ -176,7 +176,7 @@ details div.list div.item:last-child {
 details.fontFamilyList {
 	width: 160px;
 }
-details.fontFamilyList summary > div.label {
+details.fontFamilyList summary > div.text {
 	width: 130px;
 }
 details.fontFamilyList div.list {
@@ -247,7 +247,7 @@ details.fontFamilyList div.list div.item.GTASanAndreas {
 details.wordTypeList {
 	width: 120px;
 }
-details.wordTypeList summary > div.label {
+details.wordTypeList summary > div.text {
 	width: 90px;
 }
 details.wordTypeList div.list {
@@ -258,7 +258,7 @@ details.wordTypeList div.list {
 details.wordLengthList {
 	width: 110px;
 }
-details.wordLengthList summary > div.label {
+details.wordLengthList summary > div.text {
 	width: 80px;
 }
 details.wordLengthList div.list {
