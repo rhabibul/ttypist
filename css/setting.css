@@ -1,4 +1,4 @@
-div.setting {
+div.testSetting {
 	max-width: 800px;
 	display: flex;
 	flex-wrap: wrap;
@@ -6,10 +6,17 @@ div.setting {
 	column-gap: 5px;
 }
 div.row {
-	padding: 10px;
-	border: 1px dashed #f0f0f0;	
+	padding: 8px;
+	border: 1px dashed #bbbbbb;	
 }
-
+div.column {
+	margin: 8px;
+	padding: 5px;
+	border: 1px dashed lightgray;
+}
+div.description {
+	height: 10px;
+}
 div.config {
 	display: flex;
 	align-items: center;
@@ -17,10 +24,10 @@ div.config {
 }
 
 div.config .button {
-	height: var(--setting-button-height);
+	height: 25px;
 	margin: 2px;
 	padding: 0px 8px;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	font-family: var(--MonaSans);
 	border-radius: 2px;
 	border: 1px solid var(--setting-button-border-color);

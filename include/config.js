@@ -9,7 +9,7 @@ export default {
     }
   },
   setting: {
-    dynamic: false, // apply settings instantly without restarting test
+    dynamicchange: false, // apply settings instantly without restarting test
     expand: false, // label, buttons and description visible
     condense: true, // label and buttons visible (option to toggle description)
   },

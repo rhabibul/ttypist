@@ -30,22 +30,22 @@ window.addEventListener('load', (evt) => {
 // 	}
 // });
 
-// sliders
-const slider_fontsize = document.querySelector("input#slider-fontsize");
-const slider_fontweight = document.querySelector("input#slider-fontweight");
-const t1 = document.querySelector("#text-font-size span.text.value");
-const t2 = document.querySelector("#text-font-weight span.text.value");
+// // sliders
+// const slider_fontsize = document.querySelector("input#slider-fontsize");
+// const slider_fontweight = document.querySelector("input#slider-fontweight");
+// const t1 = document.querySelector("#text-font-size span.text.value");
+// const t2 = document.querySelector("#text-font-weight span.text.value");
 
-slider_fontsize.addEventListener("input", () => {
-	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}rem`);
-  Config.text.textsize = slider_fontsize.value;
-	t1.textContent = slider_fontsize.value;
-});
-slider_fontweight.addEventListener("input", () => {
-	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
-  Config.text.textweight = slider_fontweight.value;
-	t2.textContent = slider_fontweight.value;
-});
+// slider_fontsize.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}rem`);
+//   Config.text.textsize = slider_fontsize.value;
+// 	t1.textContent = slider_fontsize.value;
+// });
+// slider_fontweight.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
+//   Config.text.textweight = slider_fontweight.value;
+// 	t2.textContent = slider_fontweight.value;
+// });
 
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
