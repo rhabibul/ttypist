@@ -71,6 +71,7 @@ div.label div.symbol {
 	fill: green;
 }
 
+object.iconUseFloats,
 object.iconCaretOpacity {
   width: 20px;
   height: 20px;
