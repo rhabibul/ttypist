@@ -29,7 +29,7 @@ div.config .button {
 	padding: 0px 8px;
 	font-size: 0.8rem;
 	font-family: var(--MonaSans);
-	border-radius: 2px;
+	border-radius: 3px;
 	border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
 }
@@ -80,6 +80,10 @@ object.iconWhitespace,
 object.iconPaceCaretSpeed {
 	width: 23px;
   height: 23px;
+}
+svg.iconDynamicSettingChange {
+	width: 21px;
+	height: 21px;	
 }
 svg.iconPrimaryColor,
 svg.iconSecondaryColor {
