@@ -23,6 +23,13 @@ div.config {
 	justify-content: center;
 }
 
+div.util {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 60px;
+}
+
 div.config .button {
 	height: 28px;
 	margin: 2px;
@@ -225,7 +232,7 @@ details.textFontFamilyList {
 	width: 160px;
 }
 details.textFontFamilyList summary > div.text {
-	width: 130px;
+	width: 132px;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list {
@@ -237,7 +244,7 @@ details.textWordTypeList {
 	width: 140px;
 }
 details.textWordTypeList summary > div.text {
-	width: 110px;
+	width: 112px;
 
 	font-family: var(--RobotoMono);
 }
@@ -250,7 +257,7 @@ details.textWordLengthList {
 	width: 130px;
 }
 details.textWordLengthList summary > div.text {
-	width: 100px;
+	width: 102px;
 	font-family: var(--RobotoMono);
 }
 details.textWordLengthList div.list {

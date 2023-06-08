@@ -34,10 +34,10 @@ export default {
       },
     },
   },
-  language: "english", // english | hindi | bengali | arabic | russian | +IndianLanguages
   theme: "light", // light | dark
-  scroll: "abrupt", // abrupt | smooth
+  language: "english", // english | hindi | bengali | arabic | russian | +IndianLanguages
   arrow: true, // implicit
+  scroll: "abrupt", // abrupt | smooth
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key (bsdk kaise pata lagaiga opposite thumb use krbana hai 🤣)
   underline: true, // underline the current word being typed
@@ -91,7 +91,7 @@ export default {
   text: {
     length: 0, // number of characters in the text
     word: {
-      count: 25, // 10 | 25 | 50 | 100 | infinite | input
+      count: 30, // 10 | 25 | 50 | 100 | infinite | input
       type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
     },
@@ -107,8 +107,8 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp'
-        bullet: true, // 8226, '•' (::after is used to draw bullet character)
+        space: true, // 160, '&nbsp'
+        bullet: false, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251 | 8226
