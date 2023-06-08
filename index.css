@@ -243,9 +243,8 @@
   --text-size: 19px;
   --text-font: var(--RobotoMono);
   --text-thickness: 440;
-  /* --text-primary-color: #182124; */
-  --text-primary-color: #031d26;
-  --text-secondary-color: #949292;
+  --text-primary-color: #0c212b;
+  --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-error: red; /* normal letter error color */
