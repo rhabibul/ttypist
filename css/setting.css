@@ -24,13 +24,13 @@ div.config {
 }
 
 div.config .button {
-	height: 25px;
+	height: 28px;
 	margin: 2px;
 	padding: 0px 8px;
 	font-size: 0.8rem;
-	font-family: var(--MonaSans);
-	background-color: rgba(245, 245, 245, 0.8);
-  border: 1px solid var(--setting-caret-border-color);
+	font-family: var(--RobotoMono);
+	background-color: var(--setting-button-backgroundcolor);
+  border: 1px solid var(--setting-button-border-color);
 	border-radius: 3px;
 }
 
@@ -51,7 +51,7 @@ div.label > * {
 }
 div.label div.text {
 	font-size: 0.9rem;
-	font-family: var(--RobotoMono);
+	font-family: var(--SourceCodePro);
 }
 div.label div.symbol {
 	margin-right: 6px;
@@ -72,6 +72,7 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconTheme,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
@@ -84,7 +85,6 @@ svg.iconSetttingFieldView {
 	width: 20px;
 	height: 20px;
 }
-svg.iconTheme,
 svg.iconPaceCaretSpeed,
 svg.iconTextWhitespace,
 svg.iconTextFontSize {
@@ -95,7 +95,11 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
-i {
+i.fas.fa-font,
+i.fa-solid.fa-i-cursor,
+i.fa-solid.fa-fill-drip,
+i.fa-solid.fa-plus,
+i.fas.fa-backspace {
 	color: var(--setting-icon-color);
 }
 
@@ -106,7 +110,6 @@ input[type="text"] {
 	cursor: text;
 }
 
-/* ------------------ COMMON | <details></details> ------------------ */
 details {
 	box-sizing: border-box;
 	position: relative;
@@ -140,7 +143,6 @@ details summary > div.text {
 	color: #363636;
 	font-size: 0.9rem;
 	font-weight: 450;
-	font-family: var(--MonaSans);
 	border-right: 1px solid var(--setting-button-border-color);
 }
 details summary > div.symbol {
@@ -180,11 +182,11 @@ details div.list {
 }
 details div.list div.item {
 	width: 100%;
-	height: 33px;
+	height: 30px;
 	padding: 0px 6px 0px 12px;
 
 	font-size: 0.95rem;
-	font-family: var(--MonaSans);
+	font-family: var(--RobotoMono);
 	
 	display: flex;
 	align-items: center;
@@ -194,6 +196,7 @@ details div.list div.item {
 details div.list div.item div.text,
 details div.list div.item div.symbol {
 	height: 100%;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -217,19 +220,64 @@ details div.list div.item:last-child {
 	border-bottom: none;
 }
 
-
-/* ------------------ CUSTOM | <details></details> ------------------ */
-
 /* ------- config.text.font.family */
 details.textFontFamilyList {
 	width: 160px;
 }
 details.textFontFamilyList summary > div.text {
 	width: 130px;
+	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list {
 	width: 200px;
 }
+
+/* ------- config.text.word.type */
+details.textWordTypeList {
+	width: 140px;
+}
+details.textWordTypeList summary > div.text {
+	width: 110px;
+
+	font-family: var(--RobotoMono);
+}
+details.textWordTypeList div.list {
+	width: 140px;
+}
+
+/* ------- config.text.word.length */
+details.textWordLengthList {
+	width: 130px;
+}
+details.textWordLengthList summary > div.text {
+	width: 100px;
+	font-family: var(--RobotoMono);
+}
+details.textWordLengthList div.list {
+	width: 200px;
+}
+details.textWordLengthList div.list div.item {
+	justify-content: space-between;
+}
+details.textWordLengthList div.list div.item div.text,
+details.textWordLengthList div.list div.item div.text.range {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+details.textWordLengthList div.list div.item div.text {
+	flex-basis: 50%;
+}
+details.textWordLengthList div.list div.item div.text.range {
+	color: #a0a0a0;
+	flex-basis: 30%;
+	font-size: 0.8rem;
+}
+
+/* ############################################################################ */
+
 details.textFontFamilyList div.list div.item.Nunito {
 	font-size: 1rem;
 	font-family: var(--Nunito);
@@ -289,46 +337,4 @@ details.textFontFamilyList div.list div.item.RubikVinyl {
 details.textFontFamilyList div.list div.item.GTASanAndreas {
 	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
-}
-
-/* ------- config.text.word.type */
-details.textWordTypeList {
-	width: 120px;
-}
-details.textWordTypeList summary > div.text {
-	width: 90px;
-}
-details.textWordTypeList div.list {
-	width: 100%;
-}
-
-/* ------- config.text.word.length */
-details.textWordLengthList {
-	width: 110px;
-}
-details.textWordLengthList summary > div.text {
-	width: 80px;
-}
-details.textWordLengthList div.list {
-	width: 150px;
-	padding-right: 4px;
-}
-details.textWordLengthList div.list div.item {
-	justify-content: space-between;
-}
-details.textWordLengthList div.list div.item div.text,
-details.textWordLengthList div.list div.item div.text.range {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-}
-
-details.textWordLengthList div.list div.item div.text {
-	flex-basis: 50%;
-}
-details.textWordLengthList div.list div.item div.text.range {
-	color: #a0a0a0;
-	flex-basis: 30%;
-	font-size: 0.8rem;
 }
