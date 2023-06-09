@@ -35,20 +35,20 @@ export default {
     },
   },
   theme: "light", // light | dimmed | dark
-  language: "english", // english | hindi | bengali | arabic | russian | +IndianLanguages
-  arrow: true, // implicit
-  textscroll: "abrupt", // abrupt | smooth
+  language: "english", // english | hindi | bengali | arabic | russian
+  arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
+  oppositethumbforspace: false, // experimental: use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
   underline: true, // underline the current word being typed
+  textscroll: "abrupt", // abrupt | smooth
+  textinput: {
+    hidden: true, // hide input box during the test
+    visible: false, // unhide input box during the test
+  },
   tape: { // text remains in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     letter: false,
     word: false,
-  },
-  textinput: {
-    hidden: true, // hide input box during the test
-    visible: false, // unhide input box during the test
   },
   backspace: {
     off: false,
