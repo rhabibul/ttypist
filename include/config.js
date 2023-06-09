@@ -34,8 +34,8 @@ export default {
       },
     },
   },
-  theme: "light", // light | dimmed | dark
   language: "english", // english | hindi | bengali | arabic | russian
+  theme: "light", // light | dimmed | dark
   arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   underline: true, // underline the current word being typed

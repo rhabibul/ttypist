@@ -23,30 +23,22 @@ header .content > * {
 }
 
 header .content .logo {
-	width: 165px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-header .content .logo > * {
 	height: 100%;
+	width: 220px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 }
-header .content .logo .logo-icon {
+header .content .logo .symbol svg.iconSiteLogo {
 	width: 45px;
+	height: 45px;
 }
-header .content .logo .logo-icon img {
-	width: 35px;
-	height: 35px;
+header .content .logo .symbol {
+
 }
-header .content .logo .logo-label {
-	width: 120px;
-	letter-spacing: 1px;
-	color: gray;
+header .content .logo .text {
 	font-size: 1.6rem;
-	font-family: var(--RubikVinyl);
+	font-family: var(--SyneMono);
 }
 
 header .content .profile {
