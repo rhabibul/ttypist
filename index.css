@@ -226,7 +226,6 @@
 :root {
   --Nunito: "Nunito", monospace;
   --MonaSans: "Mona Sans", monospace;
-  --WorkSans: "Work Sans", monospace;
   --RobotoMono: "Roboto Mono", monospace;
   --CourierPrime: "Courier Prime", monospace;
   --FiraCode: "Fira Code", monospace;
@@ -362,5 +361,4 @@ body {
 button {
   border: none;
   outline: none;
-  background-color: var(--setting-background-color);
 }

@@ -8,25 +8,25 @@ export default {
       browser: "",
     }
   },
-  setting: {
-    dynamicchange: false, // apply settings instantly without restarting test
-    expand: false, // label, buttons and description visible
-    condense: true, // label and buttons visible (option to toggle description)
+  dynamic_settings: false, // live setting changes without restarting test
+  view: {
+    condensed: true, // label and buttons visible (toggle description)
+    expanded: false, // label, buttons and description visible
   },
   caret: {
-    off: true,
+    off: true, // none
     style: "line", // line | underline | box | block
     opacity: 1, // alpha[0,1]
     color: "",
   },
   pace_caret: {
-    off: true,
+    off: true, // none
     style: "line", // line | underline | box | block
     opacity: 0.5, // alpha[0,1]
     color: "",
     threshold: {
       last: false, // previous speed
-      personalbest: false, // personal best speed
+      best: false, // personal best speed
       average: false, // average of last 10 speeds
       custom: {
         off: true,
@@ -34,12 +34,12 @@ export default {
       },
     },
   },
-  theme: "light", // light | dark
+  theme: "light", // light | dimmed | dark
   language: "english", // english | hindi | bengali | arabic | russian | +IndianLanguages
   arrow: true, // implicit
-  scroll: "abrupt", // abrupt | smooth
+  textscroll: "abrupt", // abrupt | smooth
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // use opposite thumb for hitting space key (bsdk kaise pata lagaiga opposite thumb use krbana hai 🤣)
+  oppositethumbforspace: false, // use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
   underline: true, // underline the current word being typed
   tape: { // text remains in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,

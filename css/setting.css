@@ -1,7 +1,7 @@
 div.testSetting {
-	max-width: 800px;
+	width: 800px;
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
 	row-gap: 5px;
 	column-gap: 5px;
 }
@@ -39,6 +39,9 @@ div.config .button {
 	background-color: var(--setting-button-backgroundcolor);
   border: 1px solid var(--setting-button-border-color);
 	border-radius: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 div.paceCaretSpeed {
@@ -346,4 +349,20 @@ details.textFontFamilyList div.list div.item.RubikVinyl {
 details.textFontFamilyList div.list div.item.GTASanAndreas {
 	font-size: 1.25rem;
 	font-family: var(--GTASanAndreas);
+}
+
+div.config.textCapitalization {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	column-gap: 10px;
+	
+	font-size: 0.85rem;
+	font-family: var(--RobotoMono);
+}
+div.config.textCapitalization div.radioButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 5px;
 }
