@@ -320,21 +320,22 @@
         <div class="column description"></div>
       </div>
 
-      <div class="row" id="textCount">
-        <div class="column config textLetterCount">
-          <div class="label">
-            <div class="symbol"> <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00" fill="none"><rect x="-3" y="-3" width="26.00" height="26.00" rx="13" opacity="0.2" fill="var(--setting-icon-color)" strokewidth="0"></rect><line x1="4" y1="7.25" x2="16" y2="7.25" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line> <line x1="4" y1="12.75" x2="16" y2="12.75" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line> <path d="M7.75 4L6.75 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></path> <path d="M13.25 4L12.25 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></path></svg> </div>
-            <div class="text">letter count</div>
-          </div>
-          <div class="textLetterCountInput"><input type="number" placeholder="150"></div>
-        </div>
-  
+      <div class="row" id="textCount">  
         <div class="column config textWordCount">
           <div class="label">
             <div class="symbol"> <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00" fill="none"><rect x="-3" y="-3" width="26.00" height="26.00" rx="13" opacity="0.2" fill="var(--setting-icon-color)" strokewidth="0"></rect><line x1="4" y1="7.25" x2="16" y2="7.25" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line> <line x1="4" y1="12.75" x2="16" y2="12.75" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line> <path d="M7.75 4L6.75 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></path> <path d="M13.25 4L12.25 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></path></svg> </div>
             <div class="text">word count</div>
           </div>
-          <div class="textWordCountInput"><input type="number" placeholder="25"></div>
+          <div class="textWordCountButtons">
+            <button type="button" value="10" class="button words10">10</button>
+            <button type="button" value="25" class="button words25">25</button>
+            <button type="button" value="50" class="button words50">50</button>
+            <button type="button" value="100" class="button words100">100</button>
+            <button type="button" value="100" class="button custom">
+              <div class="symbol"> <svg class="iconTextWordCountCustom" height="16" viewBox="0 0 16 16" version="1.1" width="16"> <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path> </svg> </div>
+              <div hidden class="textWordCountInput"><input type="number" placeholder="25"></div>
+            </button>
+          </div>
         </div>
          
         <div class="column description"></div>
