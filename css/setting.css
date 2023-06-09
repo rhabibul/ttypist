@@ -83,6 +83,8 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconFillColor,
+svg.iconTextUnderline,
 svg.iconTheme,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
@@ -96,16 +98,21 @@ svg.iconSetttingFieldView {
 	width: 20px;
 	height: 20px;
 }
+svg.iconDynamicSettingChange {
+	width: 21px;
+	height: 21px;	
+}
 svg.iconPaceCaretSpeed,
 svg.iconTextWhitespace,
 svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
-svg.iconDynamicSettingChange {
-	width: 21px;
-	height: 21px;	
+svg.iconTextInput {
+	width: 27px;
+	height: 27px;
 }
+i.fa-solid.fa-scroll,
 i.fas.fa-font,
 i.fa-solid.fa-i-cursor,
 i.fa-solid.fa-fill-drip,

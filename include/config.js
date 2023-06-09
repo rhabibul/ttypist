@@ -38,7 +38,6 @@ export default {
   language: "english", // english | hindi | bengali | arabic | russian
   arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // experimental: use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
   underline: true, // underline the current word being typed
   textscroll: "abrupt", // abrupt | smooth
   textinput: {
@@ -189,5 +188,6 @@ export default {
     arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
     functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    oppositethumbforspace: false, // use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
   },
 };
