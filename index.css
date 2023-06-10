@@ -224,20 +224,14 @@
 }
 
 :root {
-  --Nunito: "Nunito", monospace;
   --MonaSans: "Mona Sans", monospace;
-  --RobotoMono: "Roboto Mono", monospace;
+  --Nunito: "Nunito", monospace;
   --CourierPrime: "Courier Prime", monospace;
   --FiraCode: "Fira Code", monospace;
+  --RobotoMono: "Roboto Mono", monospace;
   --SourceCodePro: "Source Code Pro", monospace;
   --UbuntuMono: "Ubuntu Mono", monospace;
   --SyneMono: "Syne Mono", monospace;
-  --VT323: "VT323", monospace;
-  --FuzzyBubbles: "Fuzzy Bubbles", monospace;
-  --TsukimiRounded: "Tsukimi Rounded", monospace;
-  --RampartOne: "Rampart One", monospace;
-  --RubikVinyl: "Rubik Vinyl", monospace;
-  --GTASanAndreas: "Diploma", monospace;
 
   --text-size: 19px;
   --text-font: var(--RobotoMono);

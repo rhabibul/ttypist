@@ -117,7 +117,10 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
-svg.iconDifficulty,
+svg.iconDifficulty {
+	width: 22px;
+	height: 22px;	
+}
 svg.iconTheme,
 svg.iconFlipHighlightModeColor,
 svg.iconPaceCaretSpeed,

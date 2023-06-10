@@ -58,9 +58,9 @@ export default {
     peak: false, // cannot use backspace key at all (no deletion allowed)
   },
   difficulty: {
-    beginner: true, // classic typing experience, mistakes can be corrected or left behind
-    intermediate: false, // fails the test if user submit an incorrect word, current word can be edited
-    advanced: false, // fails the test if user press a single incorrect key
+    ease: true, // classic typing experience, mistakes can be corrected or left behind
+    expert: false, // fails the test if user submit an incorrect word, current word can be edited
+    master: false, // fails the test if user press a single incorrect key
   },
   strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
   testendswithspace: false, // to end test user needs to type space after last word
