@@ -88,18 +88,17 @@ svg.iconTextWordCountCustom {
 	width: 15px;
 	height: 15px;
 }
+svg.iconTextUnderline,
 svg.iconStopOnError,
 svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
-
-svg.iconErrorHandling,
-svg.iconTextUnderline {
+svg.iconTextScroll,
+svg.iconErrorHandling {
 	width: 19px;
 	height: 19px;
 }
-svg.iconTextScroll,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
@@ -132,10 +131,9 @@ svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
-
 svg.iconTextInput {
-	width: 26px;
-	height: 26px;
+	width: 25px;
+	height: 25px;
 }
 svg.bomb,
 svg.iconErrorForgive {
