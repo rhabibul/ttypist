@@ -117,6 +117,8 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconTapeMode,
+svg.iconBackspaceKey,
 svg.iconDifficulty {
 	width: 22px;
 	height: 22px;	
@@ -152,14 +154,10 @@ svg.iconHighlightMode {
 }
 
 i.fas.fa-minus,
-i.fa-solid.fa-tape,
 i.fa-solid.fa-scroll,
 i.fas.fa-font,
 i.fa-solid.fa-i-cursor,
-i.fa-solid.fa-fill-drip,
-i.fa-solid.fa-plus,
-i.fa-solid.fa-arrow-right-arrow-left,
-i.fas.fa-backspace {
+i.fa-solid.fa-plus {
 	color: var(--setting-icon-color);
 }
 
