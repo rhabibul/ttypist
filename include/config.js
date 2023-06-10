@@ -44,11 +44,6 @@ export default {
     hidden: true, // hide input box during the test
     visible: false, // unhide input box during the test
   },
-  tape: { // text remains in one line, text scrolls horizontally either from ltr or rtl direction
-    off: true,
-    letter: false,
-    word: false,
-  },
   backspace: {
     off: false,
     modifier: {
@@ -86,6 +81,12 @@ export default {
       word: false,
     },
     flipcolor: false, // default: future text is brighter than the already typed text
+  },
+  tape: {
+    // text remains in one line, text scrolls horizontally either from ltr or rtl direction
+    off: true,
+    letter: false,
+    word: false,
   },
   text: {
     length: 0, // number of characters in the text
