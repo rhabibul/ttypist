@@ -1,3 +1,10 @@
+div.util {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 60px;
+}
+
 div.testSetting {
 	max-width: 800px;
 	display: flex;
@@ -5,6 +12,7 @@ div.testSetting {
 	row-gap: 5px;
 	column-gap: 5px;
 }
+
 div.row {
 	padding: 8px;
 	border: 1px dashed #bbbbbb;	
@@ -17,17 +25,11 @@ div.column {
 div.description {
 	height: 10px;
 }
+
 div.config {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-div.util {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	width: 60px;
 }
 
 div.config .button {
@@ -84,6 +86,7 @@ object.iconCaretOpacity {
   width: 20px;
   height: 20px;
 }
+svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
 svg.iconTextWordCountCustom {
 	width: 15px;
@@ -94,9 +97,9 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
-svg.iconTestEndsWithSpace,
-svg.iconTextScroll,
 svg.iconTextUnderline,
+svg.iconErrorHandling,
+svg.iconTextScroll,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
@@ -124,6 +127,12 @@ svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
+svg.iconCaretOpacity,
+svg.iconPaceCaretOpacity {
+	width: 24px;
+	height: 24px;	
+}
+
 svg.iconTextInput {
 	width: 26px;
 	height: 26px;

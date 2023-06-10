@@ -89,7 +89,6 @@ export default {
     word: false,
   },
   text: {
-    length: 0, // number of characters in the text
     word: {
       count: 30, // 10 | 25 | 50 | 100 | infinite | input
       type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
