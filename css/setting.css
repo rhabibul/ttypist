@@ -1,5 +1,5 @@
 div.testSetting {
-	width: 800px;
+	max-width: 800px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 5px;
@@ -89,12 +89,12 @@ svg.iconTextWordCountCustom {
 	width: 15px;
 	height: 15px;
 }
+svg.iconStopOnError,
 svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
 svg.iconTestEndsWithSpace,
-svg.iconStopOnError,
 svg.iconTextScroll,
 svg.iconTextUnderline,
 svg.iconPrimaryColor,
@@ -114,7 +114,8 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
-svg.iconErrorInsertion,
+svg.iconDifficulty,
+svg.iconErrorLetters,
 svg.iconTheme,
 svg.iconFlipHighlightModeColor,
 svg.iconPaceCaretSpeed,
@@ -126,6 +127,11 @@ svg.iconTextFontSize {
 svg.iconTextInput {
 	width: 26px;
 	height: 26px;
+}
+svg.bomb,
+svg.iconErrorForgive {
+	width: 29px;
+	height: 29px;	
 }
 i.fas.fa-minus,
 i.fa-solid.fa-highlighter,
