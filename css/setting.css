@@ -74,17 +74,29 @@ div.label div.symbol {
 	fill: green;
 }
 
-object.iconUseFloats,
+div.symbol.iconUseFloats {
+	color: var(--setting-icon-color);
+	font-size: 0.9rem;
+	font-weight: 700;
+	font-family: var(--RobotoMono);
+}
 object.iconCaretOpacity {
   width: 20px;
   height: 20px;
+}
+svg.iconPaceCaretSpeedCustom,
+svg.iconTextWordCountCustom {
+	width: 15px;
+	height: 15px;
 }
 svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconTestEndsWithSpace,
+svg.iconStopOnError,
+svg.iconTextScroll,
 svg.iconTextUnderline,
-svg.iconTheme,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
@@ -102,6 +114,9 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconErrorInsertion,
+svg.iconTheme,
+svg.iconFlipHighlightModeColor,
 svg.iconPaceCaretSpeed,
 svg.iconTextWhitespace,
 svg.iconTextFontSize {
@@ -112,6 +127,8 @@ svg.iconTextInput {
 	width: 26px;
 	height: 26px;
 }
+i.fas.fa-minus,
+i.fa-solid.fa-highlighter,
 i.fa-solid.fa-tape,
 i.fa-solid.fa-scroll,
 i.fas.fa-font,
