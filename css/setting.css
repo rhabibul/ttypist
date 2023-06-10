@@ -83,7 +83,6 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
-svg.iconFillColor,
 svg.iconTextUnderline,
 svg.iconTheme,
 svg.iconPrimaryColor,
@@ -98,6 +97,7 @@ svg.iconSetttingFieldView {
 	width: 20px;
 	height: 20px;
 }
+svg.iconFillColor,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
