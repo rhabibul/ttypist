@@ -78,13 +78,9 @@ div.label div.symbol {
 
 div.symbol.iconUseFloats {
 	color: var(--setting-icon-color);
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	font-weight: 700;
 	font-family: var(--RobotoMono);
-}
-object.iconCaretOpacity {
-  width: 20px;
-  height: 20px;
 }
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
@@ -97,8 +93,12 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
-svg.iconTextUnderline,
+
 svg.iconErrorHandling,
+svg.iconTextUnderline {
+	width: 19px;
+	height: 19px;
+}
 svg.iconTextScroll,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
@@ -112,13 +112,13 @@ svg.iconSetttingFieldView {
 	width: 20px;
 	height: 20px;
 }
+svg.iconErrorLetters,
 svg.iconFillColor,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
 svg.iconDifficulty,
-svg.iconErrorLetters,
 svg.iconTheme,
 svg.iconFlipHighlightModeColor,
 svg.iconPaceCaretSpeed,
