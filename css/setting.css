@@ -84,7 +84,7 @@ div.symbol.iconUseFloats {
 }
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
-svg.iconTextWordCountCustom {
+svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
@@ -121,6 +121,8 @@ svg.iconDifficulty {
 	width: 22px;
 	height: 22px;	
 }
+svg.iconTestTimer,
+svg.iconModifierKeys,
 svg.iconTheme,
 svg.iconFlipHighlightModeColor,
 svg.iconPaceCaretSpeed,
