@@ -109,9 +109,10 @@ svg.iconTextFontSize {
   height: 23px;
 }
 svg.iconTextInput {
-	width: 27px;
-	height: 27px;
+	width: 26px;
+	height: 26px;
 }
+i.fa-solid.fa-tape,
 i.fa-solid.fa-scroll,
 i.fas.fa-font,
 i.fa-solid.fa-i-cursor,

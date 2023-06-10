@@ -16,13 +16,13 @@ export default {
   caret: {
     off: true, // none
     style: "line", // line | underline | box | block
-    opacity: 1, // alpha[0,1]
+    opacity: 1, // rgba - alpha[0,1]
     color: "",
   },
   pace_caret: {
     off: true, // none
     style: "line", // line | underline | box | block
-    opacity: 0.5, // alpha[0,1]
+    opacity: 0.5, // rgba - alpha[0,1]
     color: "",
     threshold: {
       last: false, // previous speed

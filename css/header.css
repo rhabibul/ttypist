@@ -33,9 +33,6 @@ header .content .logo .symbol svg.iconSiteLogo {
 	width: 45px;
 	height: 45px;
 }
-header .content .logo .symbol {
-
-}
 header .content .logo .text {
 	font-size: 1.6rem;
 	font-family: var(--SyneMono);
