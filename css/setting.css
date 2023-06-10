@@ -145,8 +145,12 @@ svg.iconErrorForgive {
 	width: 29px;
 	height: 29px;	
 }
+svg.iconHighlightMode {
+	width: 32px;
+	height: 32px;	
+}
+
 i.fas.fa-minus,
-i.fa-solid.fa-highlighter,
 i.fa-solid.fa-tape,
 i.fa-solid.fa-scroll,
 i.fas.fa-font,
