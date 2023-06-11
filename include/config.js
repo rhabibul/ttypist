@@ -55,7 +55,7 @@ export default {
   confidence: {
     low: true, // use backspace key to delete previous words/letters
     high: false, // cannot use backspace key to go back to previous word to correct mistakes
-    peak: false, // cannot use backspace key at all (no deletion allowed)
+    peak: false, // cannot use backspace key   at all (no deletion allowed)
   },
   difficulty: {
     ease: true, // classic typing experience, mistakes can be corrected or left behind

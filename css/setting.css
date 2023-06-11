@@ -117,6 +117,7 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.speedometer,
 svg.iconCaret,
 svg.iconTapeMode,
 svg.iconBackspaceKey,
@@ -129,7 +130,6 @@ svg.iconTestTimer,
 svg.iconModifierKeys,
 svg.iconTheme,
 svg.iconFlipHighlightModeColor,
-svg.iconPaceCaretSpeed,
 svg.iconTextWhitespace,
 svg.iconTextFontSize {
 	width: 23px;
