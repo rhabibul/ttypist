@@ -156,9 +156,50 @@
         </div>
       </div>
 
+      <div class="row" id="liveStatus">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
+              <rect fill="none" width="48" height="48" fill="none"></rect>
+              <circle  fill="var(--setting-icon-color)" opacity="1" cx="24" cy="24" r="5"></circle>
+              <path  fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
+              <path  fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
+              <path fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
+              <path fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
+            </svg>
+          </div>
+          <div class="text">live status</div>
+        </div>
+        
+        <div class="column config liveStatusButtons">
+          <button type="button" value="speed" class="button speed">speed</button>
+          <button type="button" value="accuracy" class="button accuracy">accuracy</button>
+          <button type="button" value="burst" class="button burst">burst</button>
+        </div>
+      </div>
+
+      <div class="row" id="warning">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
+              <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
+              <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
+            </svg>
+          </div>
+          <div class="text">warning</div>
+        </div>
+
+        <div class="column config warning">
+          <button type="button" value="focus" class="button focus">focus</button>
+          <button type="button" value="capslock" class="button capslock">capslock</button>
+          <button type="button" value="numlock" class="button numlock">numlock</button>
+          <button type="button" value="scrolllock" class="button scrolllock">scrolllock</button>
+        </div>
+      </div>
+
       <div class="row" id="errorHandling">
         <div class="column label">
-          <div class="symbol"> <svg class="iconErrorHandling" fill="var(--setting-icon-color)" height="256px" width="256px" viewBox="0 0 466.705 466.705"><path d="M459.925,358.907L269.505,61.503c-7.893-12.323-21.518-19.776-36.145-19.776c-14.628,0-28.254,7.453-36.146,19.776 L6.78,358.907c-8.462,13.209-9.047,29.987-1.511,43.752c7.522,13.757,21.964,22.319,37.655,22.319h380.854 c15.691,0,30.134-8.555,37.656-22.319C468.972,388.894,468.387,372.116,459.925,358.907z M209.453,162.607 c0-13.078,10.605-23.675,23.675-23.675c13.072,0,23.676,10.597,23.676,23.675v101.584c0,13.078-10.604,23.675-23.676,23.675 c-13.07,0-23.675-10.597-23.675-23.675V162.607z M232.682,373.613c-16.338,0-29.594-13.249-29.594-29.594 c0-16.347,13.256-29.594,29.594-29.594c16.339,0,29.595,13.247,29.595,29.594C262.276,360.364,249.021,373.613,232.682,373.613z"></path></svg> </div>
+          <div class="symbol"> <svg class="iconErrorHandling" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="-1.7 0 20.4 20.4"> <path d="M16.417 10.283A7.917 7.917 0 1 1 8.5 2.366a7.916 7.916 0 0 1 7.917 7.917zm-6.804.01 3.032-3.033a.792.792 0 0 0-1.12-1.12L8.494 9.173 5.46 6.14a.792.792 0 0 0-1.12 1.12l3.034 3.033-3.033 3.033a.792.792 0 0 0 1.12 1.119l3.032-3.033 3.033 3.033a.792.792 0 0 0 1.12-1.12z"></path> </svg> </div>
           <div class="text">error</div>
         </div>
 
@@ -807,22 +848,22 @@
         <div class="column label">
           <div class="symbol">
             <svg class="iconTextWordLength" viewBox="0 0 512 512" width="256px" height="256px">
-              <polygon fill="var(--setting-icon-color)" opacity="0.2" points="452.923,512 59.077,512 452.923,0 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.2" points="452.923,512 256,512 59.077,512 256.219,255.781 452.923,0 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.4" points="256,512 59.077,512 256.219,255.781 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.1" points="452.923,512 59.077,512 452.923,0 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.1" points="452.923,512 256,512 59.077,512 256.219,255.781 452.923,0 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.15" points="256,512 59.077,512 256.219,255.781 "></polygon>
               <polygon fill="var(--setting-icon-color)" opacity="0.0" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.6" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.8" points="256,320.593 139.062,472.615 256,472.615 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.5" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.3" points="256,320.593 139.062,472.615 256,472.615 "></polygon>
               <polygon fill="#FFFFFF"                                 points="285.7,400.41 341.333,328.088 341.333,400.41 "></polygon>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="413.538" y="131.282" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="413.538" y="210.051" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="413.538" y="288.821" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="413.538" y="367.590" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="413.538" y="446.359" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="190.359" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="256.000" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="321.641" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.7" x="387.282" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="131.282" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="210.051" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="288.821" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="367.590" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="446.359" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="1.0" x="190.359" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="256.000" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="321.641" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="387.282" y="472.615" width="26.256" height="39.385"></rect>
             </svg>
           </div>
           <div class="text">word length</div>

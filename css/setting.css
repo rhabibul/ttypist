@@ -105,6 +105,8 @@ svg.iconErrorHandling {
 	width: 19px;
 	height: 19px;
 }
+svg.iconLiveStatus,
+svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,

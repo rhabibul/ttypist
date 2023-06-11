@@ -172,7 +172,6 @@ export default {
     speed: false,    // show live speed in wpm/cpm
     accuracy: false, // show live accuracy
     burst: false,    // show live burst, speed of last word typed
-    timer: false,    // show live timer countdown
   },
   warning: {
     focus: true,        // user is out of focus (not typing anymore)
