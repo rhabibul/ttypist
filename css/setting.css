@@ -100,8 +100,7 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
-svg.iconTextScroll,
-svg.iconErrorHandling {
+svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
@@ -118,7 +117,8 @@ svg.iconSetttingFieldView {
 	width: 20px;
 	height: 20px;
 }
-svg.iconErrorLetters,
+svg.iconErrorHandling,
+svg.iconErrorExtraLetters,
 svg.iconFillColor,
 svg.iconDynamicSettingChange {
 	width: 21px;
@@ -138,7 +138,6 @@ svg.iconOppositeShiftMode,
 svg.iconTestTimer,
 svg.iconModifierKeys,
 svg.iconTheme,
-svg.iconFlipHighlightModeColor,
 svg.iconTextWhitespace,
 svg.iconTextFontSize {
 	width: 23px;
@@ -150,12 +149,12 @@ svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
+svg.iconFlipHighlightModeColor,
 svg.iconTextInput {
 	width: 25px;
 	height: 25px;
 }
-svg.bomb,
-svg.iconErrorForgive {
+svg.iconForgiveExtraError {
 	width: 29px;
 	height: 29px;	
 }
@@ -164,8 +163,9 @@ svg.iconHighlightMode {
 	height: 32px;	
 }
 
-i.fas.fa-font {
-	color: var(--setting-icon-color);
+svg.bomb {
+	width: 20px;
+	height: 20px;
 }
 
 input[type="color"] {
