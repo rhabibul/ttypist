@@ -130,6 +130,11 @@ export default {
       cpm: false, // show characters per minute
       wpm: true, // show words per minute
     },
+    interval: {
+      word: false, // calculate after every word
+      keystroke: true, // calculate after each keystroke
+      second: false, // calculate after every one second
+    },
     usefloats: false, // display floating point number
   },
   keyboard: {
@@ -144,11 +149,6 @@ export default {
       arrowpad: true,
       numpad: true,
     },
-  },
-  calculation_interval: {
-    word: false, // calculate after every word
-    keystroke: true, // calculate after each keystroke
-    second: false, // calculate after every one second
   },
   minimum: {
     speed: {

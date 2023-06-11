@@ -82,12 +82,14 @@ div.symbol.iconUseFloats {
 	font-weight: 700;
 	font-family: var(--RobotoMono);
 }
+svg.iconTextInclude,
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
 svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
+svg.iconStrictSpace,
 svg.iconTextUnderline,
 svg.iconStopOnError,
 svg.iconTestStatistics {
@@ -103,7 +105,6 @@ svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
 svg.iconFontWeight,
-svg.iconNumberCount,
 svg.iconTextInclude,
 svg.iconWordLength,
 svg.icondynamicSettingChange,
@@ -117,6 +118,7 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconNumberCount,
 svg.speedometer,
 svg.iconCaret,
 svg.iconTapeMode,
@@ -135,6 +137,7 @@ svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
+svg.iconCalculationInterval,
 svg.iconCaretOpacity,
 svg.iconPaceCaretOpacity {
 	width: 24px;
@@ -154,9 +157,7 @@ svg.iconHighlightMode {
 	height: 32px;	
 }
 
-i.fas.fa-minus,
-i.fas.fa-font,
-i.fa-solid.fa-plus {
+i.fas.fa-font {
 	color: var(--setting-icon-color);
 }
 
@@ -381,6 +382,7 @@ div.config.textCapitalization div.radioButton {
 	column-gap: 5px;
 }
 
+/* --------------------------> text capitalization <-------------------------- */
 input[type="radio"] + label {
 	color: gray;
 }
