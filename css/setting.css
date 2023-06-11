@@ -122,6 +122,8 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconTestTimer,
+svg.iconBomb,
 svg.iconSetttingFieldView,
 svg.iconLiveStatus,
 svg.iconTextWordLength,
@@ -135,7 +137,6 @@ svg.iconDifficulty {
 	height: 22px;	
 }
 svg.iconOppositeShiftMode,
-svg.iconTestTimer,
 svg.iconModifierKeys,
 svg.iconTheme,
 svg.iconTextWhitespace,
@@ -149,11 +150,14 @@ svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
-svg.iconHide,
 svg.iconFlipHighlightModeColor,
 svg.iconTextInput {
 	width: 25px;
 	height: 25px;
+}
+svg.iconHide {
+	width: 30px;
+	height: 30px;	
 }
 svg.iconForgiveExtraError {
 	width: 29px;
@@ -162,11 +166,6 @@ svg.iconForgiveExtraError {
 svg.iconHighlightMode {
 	width: 32px;
 	height: 32px;	
-}
-
-svg.bomb {
-	width: 20px;
-	height: 20px;
 }
 
 input[type="color"] {
