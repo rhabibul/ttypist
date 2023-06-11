@@ -82,6 +82,10 @@ div.symbol.iconUseFloats {
 	font-weight: 700;
 	font-family: var(--RobotoMono);
 }
+svg.iconTextFont {
+	width: 14px;
+	height: 14px;	
+}
 svg.iconTextInclude,
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
@@ -118,6 +122,7 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconTextWordLength,
 svg.iconNumberCount,
 svg.speedometer,
 svg.iconCaret,
