@@ -36,7 +36,6 @@ export default {
       },
     },
   },
-  language: "english", // english | hindi | bengali | arabic | russian
   theme: "light", // light | dimmed | dark
   arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
@@ -84,8 +83,7 @@ export default {
     },
     flipcolor: false, // default: future text is brighter than the already typed text
   },
-  tape: {
-    // text remains in one line, text scrolls horizontally either from ltr or rtl direction
+  tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     letter: false,
     word: false,
@@ -126,31 +124,25 @@ export default {
       jumbled: false, // randomly capitalize the letters of a word
     }
   },
-  timer: 60, // 15 | 30 | 60 | custom
-  statistics: {
-    speed: {
-      cpm: false, // show characters per minute
-      wpm: true, // show words per minute
-    },
-    interval: {
+  speedunit: {
+    cpm: false, // show characters per minute
+    wpm: true, // show words per minute
+  },
+  usefloats: false, // display floating point number
+  live: {
+    interval: { // calculation interval for speed, accuracy, burst
       word: false, // calculate after every word
       keystroke: true, // calculate after each keystroke
       second: false, // calculate after every one second
     },
-    usefloats: false, // display floating point number
+    speed: false,    // show live speed in wpm/cpm
+    accuracy: false, // show live accuracy
+    burst: false,    // show live burst, speed of last word typed
   },
-  keyboard: {
+  timer: {
     off: false,
-    reaction: "react", // off | static | react | next
-    layout: "qwerty", // qwerty | dvorak | colemak | workman
-    emulate: false,
-    visibile: {
-      alphanumeric: true,
-      function: true,
-      controlpad: true,
-      arrowpad: true,
-      numpad: true,
-    },
+    seconds: 60, // 15 | 30 | 60 | 120 | custom
+    hide: false,
   },
   minimum: {
     speed: {
@@ -161,17 +153,20 @@ export default {
       off: true,
       threshold: 0,
     },
-    burst: {
-      off: true,
-      threshold: 0,
-      fixed: false,
-      flex: false,
-    },
   },
-  live: {
-    speed: false,    // show live speed in wpm/cpm
-    accuracy: false, // show live accuracy
-    burst: false,    // show live burst, speed of last word typed
+  keyboard: {
+    off: false,
+    reaction: "react", // off | static | react | next
+    language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
+    layout: "qwerty", // qwerty | dvorak | colemak | workman
+    emulate: false,
+    visible: {
+      function: true,
+      alphanumeric: true,
+      arrowpad: true,
+      controlpad: true,
+      numpad: true,
+    },
   },
   warning: {
     focus: true,        // user is out of focus (not typing anymore)
@@ -179,17 +174,19 @@ export default {
     numlock: false,     // numlock key is left turned on
     scrolllock: false,  // scolllock key is left turned on
   },
-  practice: {
-    off: true,            // turn off practice mode
-    guidedlession: false, // guided lessons
-    providedtext: false,  // custom text (alphanumeric, specials ascii symbols)
-    numpad: false,        // only numpad digits and symbols
-    numrow: false,        // only numrow digits [0-9]
-    alphanumeric: false,  // ascii characters [a-z, A-Z] and digits [0-9]
-    bracket: false,       // {[(<>)]}
-    arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-    functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+  misc: {
+    learn: false, // guided lessons
+    customtext: false,
     oppositethumbforspace: false, // use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
+    practice_mode: {
+      arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+      brackets: false, // {[(<>)]}
+      numpad: false, // number pad's digits and symbols only
+      numrow: false, // number row's digits [0-9] only
+      specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+      alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
+      gibberish: false, // all printable ascii characters
+      function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    },
   },
 };
