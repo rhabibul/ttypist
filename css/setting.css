@@ -380,3 +380,16 @@ div.config.textCapitalization div.radioButton {
 	justify-content: center;
 	column-gap: 5px;
 }
+
+input[type="radio"] + label {
+	color: gray;
+}
+input[type="radio"]:checked + label {
+	color: black;
+  text-decoration-color: gray;
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: all;
+}
