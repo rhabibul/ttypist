@@ -156,7 +156,12 @@ export default {
   },
   keyboard: {
     off: false,
-    reaction: "react", // off | static | react | next
+    reaction: {
+      off: false,
+      static: false,
+      react: true,
+      next: false,
+    },
     language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
     layout: "qwerty", // qwerty | dvorak | colemak | workman
     emulate: false,
