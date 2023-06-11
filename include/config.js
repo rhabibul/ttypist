@@ -39,6 +39,7 @@ export default {
   theme: "light", // light | dimmed | dark
   arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  oppositethumbforspace: false, // use opposite thumb for hitting space key [emulate opposite thumb by splitting space into two halves]
   underline: true, // underline the current word being typed
   textscroll: "abrupt", // abrupt | smooth
   textinput: {
@@ -179,19 +180,16 @@ export default {
     numlock: false,     // numlock key is left turned on
     scrolllock: false,  // scolllock key is left turned on
   },
-  misc: {
-    learn: false, // guided lessons
-    customtext: false,
-    oppositethumbforspace: false, // use opposite thumb for hitting space key [split the space bar into two halves on ui keyboard]
-    practice_mode: {
-      arrowkeys: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-      brackets: false, // {[(<>)]}
-      numpad: false, // number pad's digits and symbols only
-      numrow: false, // number row's digits [0-9] only
-      specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-      alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
-      gibberish: false, // all printable ascii characters
-      function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-    },
+  guidedlessions: false, // learn touch typing using typing lessons
+  customtext: false, // type custom ascii text
+  practice: {
+    arrow: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    brackets: false, // {[(<>)]}
+    numpad: false, // number pad's digits and symbols only
+    numrow: false, // number row's digits [0-9] only
+    specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+    alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
+    gibberish: false, // all printable ascii characters
+    function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
