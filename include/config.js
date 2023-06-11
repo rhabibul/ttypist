@@ -8,10 +8,12 @@ export default {
       browser: "",
     }
   },
-  dynamic_settings: false, // live setting changes without restarting test
-  view: {
-    condensed: true, // label and buttons visible (toggle description)
-    expanded: false, // label, buttons and description visible
+  setting: {
+    dynamic: true, // live setting changes without restarting test
+    view: {
+      condensed: true, // label and buttons visible (toggle description)
+      expanded: false, // label, buttons and description visible
+    },
   },
   caret: {
     off: true, // none

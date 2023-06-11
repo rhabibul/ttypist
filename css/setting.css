@@ -384,7 +384,7 @@ div.config.textCapitalization div.radioButton {
 
 /* --------------------------> text capitalization <-------------------------- */
 input[type="radio"] + label {
-	color: gray;
+	color: #6e6e6e;
 }
 input[type="radio"]:checked + label {
 	color: black;
