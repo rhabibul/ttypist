@@ -155,6 +155,12 @@ export default {
       threshold: 0,
     },
   },
+  warning: {
+    focus: true, // user is out of focus (not typing anymore)
+    capslock: false, // capslock key is left turned on
+    numlock: false, // numlock key is left turned on
+    scrolllock: false, // scolllock key is left turned on
+  },
   keyboard: {
     off: false,
     reaction: {
@@ -174,12 +180,9 @@ export default {
       numpad: true,
     },
   },
-  warning: {
-    focus: true,        // user is out of focus (not typing anymore)
-    capslock: false,    // capslock key is left turned on
-    numlock: false,     // numlock key is left turned on
-    scrolllock: false,  // scolllock key is left turned on
-  },
+};
+
+export const guided_lessions = {
   guidedlessions: false, // learn touch typing using typing lessons
   customtext: false, // type custom ascii text
   practice: {
@@ -192,4 +195,4 @@ export default {
     gibberish: false, // all printable ascii characters
     function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
-};
+}
