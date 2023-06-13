@@ -9,7 +9,7 @@ export default {
   },
   caret: {
     off: true, // none
-    style: "box", // line | underline | box | block
+    style: "line", // line | underline | box | block
     opacity: 1, // rgba - alpha[0,1]
     color: "",
   },

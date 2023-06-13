@@ -598,6 +598,47 @@
         <div class="column description"></div>
       </div>
 
+      <div class="row" id="minimumSpeed">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
+              <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
+              <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
+            </svg>
+          </div>
+          <div class="text">minimum speed</div>
+        </div>
+
+        <div class="column config minimumSpeedButton s2-1">
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <input class="minimumSpeedInput" tabindex="0" type="text" placeholder="min wpm">
+        </div>
+
+        <div class="column description"></div>
+      </div>
+
+      <div class="row" id="minimumAccuracy">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
+              <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
+              <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
+            </svg>
+          </div>
+          <div class="text">minimum accuracy</div>
+        </div>
+
+        <div class="column config minimumAccuracyButton s2-1">
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <input class="minimumAccuracyInput" tabindex="0" type="text" placeholder="min acc">
+        </div>
+        
+        <div class="column description"></div>
+      </div>
+
+
       <div class="row" id="timer">
         <div class="column config timerTime">
           <div class="column label">
@@ -611,17 +652,14 @@
             <div class="text">timer</div>
           </div>
 
-          <div class="column config timerTimerButton s5">
+          <div class="column config timerTimerButton s5-1">
             <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
             <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
             <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
             <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
             <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
           </div>
-
-          <div hidden class="timerTimeCustomInput">
-            <input type="number" placeholder="25">
-          </div>
+          <div hidden class="timerTimeCustomInputContainer"> <input class="timerTimeCustomInput" type="number" placeholder="25"> </div>
         </div>
 
         <div class="column config timerTimeVisibility">
@@ -646,46 +684,6 @@
         <div class="column description"></div>
       </div>
 
-      <div class="row" id="minimumSpeed">
-        <div class="column label">
-          <div class="symbol">
-            <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
-              <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-              <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-            </svg>
-          </div>
-          <div class="text">minimum speed</div>
-        </div>
-
-        <div class="column config minimumSpeedButton">
-          <button type="button" value="off" class="button off">off</button>
-          <button type="button" value="on" class="button on">on</button>
-          <input type="text" placeholder="min wpm">
-        </div>
-
-        <div class="column description"></div>
-      </div>
-
-      <div class="row" id="minimumAccuracy">
-        <div class="column label">
-          <div class="symbol">
-            <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
-              <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-              <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-            </svg>
-          </div>
-          <div class="text">minimum accuracy</div>
-        </div>
-
-        <div class="column config minimumAccuracyButtons">
-          <button type="button" value="off" class="button off">off</button>
-          <button type="button" value="on" class="button on">on</button>
-          <input type="text" placeholder="min acc">
-        </div>
-        
-        <div class="column description"></div>
-      </div>
-
       <div class="row" id="textWordCount">
         <div class="column label">
           <div class="symbol">
@@ -700,16 +698,14 @@
           <div class="text">word count</div>
         </div>
 
-        <div class="column config textWordCountButtons">
-          <button type="button" value="10" class="button words10">10</button>
-          <button type="button" value="25" class="button words25">25</button>
-          <button type="button" value="50" class="button words50">50</button>
-          <button type="button" value="100" class="button words100">100</button>
-          <button type="button" value="-1" class="button customWordCount">
-            <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div>
-            <div hidden class="textWordCountInput"><input type="number" placeholder="25"></div>
-          </button>
+        <div class="column config textWordCountButton s5-1">
+          <button class="button words10"         tabindex="0" role="button" type="button" value="10" >10</button>
+          <button class="button words25"         tabindex="0" role="button" type="button" value="25" >25</button>
+          <button class="button words50"         tabindex="0" role="button" type="button" value="50" >50</button>
+          <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
+          <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"  > <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
         </div>
+        <div hidden class="textWordCountCustomInputContainer"> <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"> </div>
 
         <div class="column description"></div>
       </div>
@@ -754,7 +750,7 @@
             <input type="radio" name="capitalization" id="randomly">
             <label for="randomly">randomly</label>
           </div>
-          
+
           <div class="radioButton jumbled">
             <input type="radio" name="capitalization" id="jumbled">
             <label for="jumbled">jumbled</label>
