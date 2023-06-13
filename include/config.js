@@ -68,11 +68,11 @@ export default {
   strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
   testendswithspace: false, // to end test user needs to type space after last word
   error: {
-    off: false, // no errors or incorrect words are highlighted (blind mode)
-    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
-    insert: true, // insert incorrect letter before to be typed letter
-    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
+    off: false, // blind mode: no errors or incorrect words are highlighted
     skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
+    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
+    insert: true, // insert incorrect letter before to be typed letter
+    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     stop: {
       letter: false,
       word: false,
