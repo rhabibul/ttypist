@@ -93,6 +93,7 @@ svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
+svg.iconErrorHandling,
 svg.iconStrictSpace,
 svg.iconTextUnderline,
 svg.iconStopOnError,
@@ -104,19 +105,17 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
-svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconTextCapitalization,
 svg.iconFontWeight,
 svg.iconTextInclude,
 svg.iconWordLength,
-svg.icondynamicSettingChange {
+svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
-svg.iconErrorHandling,
-svg.iconErrorExtraLetters,
+svg.iconWarning,
 svg.iconFillColor,
 svg.iconDynamicSettingChange {
 	width: 21px;
@@ -125,7 +124,6 @@ svg.iconDynamicSettingChange {
 svg.iconTestTimer,
 svg.iconBomb,
 svg.iconSetttingFieldView,
-svg.iconLiveStatus,
 svg.iconTextWordLength,
 svg.iconNumberCount,
 svg.speedometer,
@@ -136,6 +134,8 @@ svg.iconDifficulty {
 	width: 22px;
 	height: 22px;	
 }
+svg.iconErrorExtraLetters,
+svg.iconLiveStatus,
 svg.iconOppositeShiftMode,
 svg.iconModifierKeys,
 svg.iconTheme,

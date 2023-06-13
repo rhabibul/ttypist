@@ -70,6 +70,6 @@ letter.whitespace.bullet::after {
   justify-content: center;
   background-color: var(--text-whitespace-color);
 }
-letter.whitespace.whitespace-color-active::after { /* rename is required (too long name) */
+letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
   background-color: var(--text-whitespace-color-active);
 }

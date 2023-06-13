@@ -1,14 +1,5 @@
-// // global temporary object
-//   user: {
-//   istyping: false,
-//   hastypedallwords: false,
-//   system: {
-//     device: "",
-//     operating_system: "",
-//     browser: "",
-//   }
-// },
 export default {
+  arrow: true, // implicitly enabled (mystical feature)
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -38,7 +29,6 @@ export default {
     },
   },
   theme: "light", // light | dimmed | dark
-  arrow: true, // implicitly enabled
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key [emulate opposite thumb by splitting space into two halves]
   underline: true, // underline the current word being typed
@@ -69,10 +59,10 @@ export default {
   testendswithspace: false, // to end test user needs to type space after last word
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
-    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
-    insert: true, // insert incorrect letter before to be typed letter
+    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
+    insert: true, // insert incorrect letter before to be typed letter
     stop: {
       letter: false,
       word: false,

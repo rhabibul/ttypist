@@ -1,4 +1,3 @@
-
 // learn to touch type config
 export default {
   guidedlessions: false, // learn touch typing using typing lessons
@@ -12,4 +11,8 @@ export default {
     alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
     function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
+}
+
+export const govt_exam = {
+	// big input boxes, one for text to type and the other [<textarea></textarea>] for typing
 }

@@ -79,7 +79,7 @@
       <div class="row" id="dynamicSettingChange">
         <div class="column label sub">
           <div class="symbol">
-            <svg class="icondynamicSettingChange" width="64px" height="64px" viewBox="0 0 24 24">
+            <svg class="iconDynamicSettingChange" width="64px" height="64px" viewBox="0 0 24 24">
               <path fill="var(--setting-icon-color)" opacity="0.4" d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z"></path>
               <path fill="var(--setting-icon-color)" opacity="1" d="M12 15.25C13.7949 15.25 15.25 13.7949 15.25 12C15.25 10.2051 13.7949 8.75 12 8.75C10.2051 8.75 8.75 10.2051 8.75 12C8.75 13.7949 10.2051 15.25 12 15.25Z"></path>path
             </svg>
@@ -111,8 +111,8 @@
         </div>
 
         <div class="column config settingFieldViewButtons">
-          <button type="button" class="button expanded">expanded</button>
-          <button type="button" class="button condensed">condensed</button>
+          <button class="button expanded" tabindex="0" role="button" type="button">expanded</button>
+          <button class="button condensed" tabindex="0" role="button" type="button">condensed</button>
         </div>
         
         <div class="column description"></div>
@@ -137,13 +137,13 @@
               <path fill="var(--setting-icon-color)" opacity="1" d="M90.166,247.5h17.667c4.234,0,7.666-3.432,7.666-7.667v-17.667c0-4.234-3.432-7.667-7.666-7.667 H90.166c-4.234,0-7.666,3.432-7.666,7.667v17.667C82.5,244.068,85.932,247.5,90.166,247.5z"></path>
             </svg>
           </div>
-          <div class="text">live status interval</div>
+          <div class="text">live status calculation interval</div>
         </div>
 
         <div class="column config liveStatusIntervalButtons">
-          <button type="button" value="word" class="button word">word</button>
-          <button type="button" value="keystroke" class="button keystroke">keystroke</button>
-          <button type="button" value="second" class="button second">second</button>
+          <button class="button word" tabindex="0" role="button" type="button" value="word">word</button>
+          <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke">keystroke</button>
+          <button class="button second" tabindex="0" role="button" type="button" value="second">second</button>
         </div>
         
         <div class="column description"></div>
@@ -165,9 +165,9 @@
         </div>
 
         <div class="column config liveStatusButtons">
-          <button type="button" value="speed" class="button speed">speed</button>
-          <button type="button" value="accuracy" class="button accuracy">accuracy</button>
-          <button type="button" value="burst" class="button burst">burst</button>
+          <button class="button speed" tabindex="0" role="button" type="button" value="speed">speed</button>
+          <button class="button accuracy" tabindex="0" role="button" type="button" value="accuracy">accuracy</button>
+          <button class="button burst" tabindex="0" role="button" type="button" value="burst">burst</button>
         </div>
       </div>
 
@@ -183,36 +183,38 @@
         </div>
 
         <div class="column config warning">
-          <button type="button" value="focus" class="button focus">focus</button>
-          <button type="button" value="capslock" class="button capslock">capslock</button>
-          <button type="button" value="numlock" class="button numlock">numlock</button>
-          <button type="button" value="scrolllock" class="button scrolllock">scrolllock</button>
+          <button class="button focus" tabindex="0" role="button" type="button" value="focus">focus</button>
+          <button class="button capslock" tabindex="0" role="button" type="button" value="capslock">capslock</button>
+          <button class="button numlock" tabindex="0" role="button" type="button" value="numlock">numlock</button>
+          <button class="button scrolllock" tabindex="0" role="button" type="button" value="scrolllock">scrolllock</button>
         </div>
       </div>
 
       <div class="row" id="errorHandling">
         <div class="column label">
           <div class="symbol">
-            <svg class="iconErrorHandling" width="256px" height="256px" viewBox="0 0 60 60" fill="none"><path fill="#e90707" fill-rule="evenodd"  transform="translate(-350 -690)" d="M390.774,690a3.994,3.994,0,0,1,2.824,1.17l15.231,15.23A4,4,0,0,1,410,709.233v21.534a4,4,0,0,1-1.172,2.831L393.6,748.828A3.989,3.989,0,0,1,390.774,750H369.225a3.989,3.989,0,0,1-2.824-1.171l-15.23-15.23A3.994,3.994,0,0,1,350,730.767V709.233a4,4,0,0,1,1.173-2.832l15.23-15.23a3.994,3.994,0,0,1,2.824-1.17h21.549ZM395,729.951A3.406,3.406,0,0,1,395,734.77l-0.22.22a3.42,3.42,0,0,1-4.833,0l-8.764-8.755a1.71,1.71,0,0,0-2.417,0l-8.741,8.746a3.417,3.417,0,0,1-4.836,0l-0.194-.193a3.408,3.408,0,0,1,.017-4.842l8.834-8.735a1.7,1.7,0,0,0,0-2.43l-8.831-8.725a3.409,3.409,0,0,1-.018-4.844l0.193-.193a3.411,3.411,0,0,1,2.418-1c0.944,0,3.255,1.835,3.872,2.455l7.286,7.287a1.708,1.708,0,0,0,2.417,0l8.764-8.748a3.417,3.417,0,0,1,4.831,0L395,705.243a3.406,3.406,0,0,1,0,4.818l-8.727,8.737a1.7,1.7,0,0,0,0,2.407Z"></path></svg>
+            <svg class="iconErrorHandling" width="256px" height="256px" viewBox="0 0 60 60" fill="none"><path fill="var(--setting-icon-color)" opacity="0.8" fill-rule="evenodd"  transform="translate(-350 -690)" d="M390.774,690a3.994,3.994,0,0,1,2.824,1.17l15.231,15.23A4,4,0,0,1,410,709.233v21.534a4,4,0,0,1-1.172,2.831L393.6,748.828A3.989,3.989,0,0,1,390.774,750H369.225a3.989,3.989,0,0,1-2.824-1.171l-15.23-15.23A3.994,3.994,0,0,1,350,730.767V709.233a4,4,0,0,1,1.173-2.832l15.23-15.23a3.994,3.994,0,0,1,2.824-1.17h21.549ZM395,729.951A3.406,3.406,0,0,1,395,734.77l-0.22.22a3.42,3.42,0,0,1-4.833,0l-8.764-8.755a1.71,1.71,0,0,0-2.417,0l-8.741,8.746a3.417,3.417,0,0,1-4.836,0l-0.194-.193a3.408,3.408,0,0,1,.017-4.842l8.834-8.735a1.7,1.7,0,0,0,0-2.43l-8.831-8.725a3.409,3.409,0,0,1-.018-4.844l0.193-.193a3.411,3.411,0,0,1,2.418-1c0.944,0,3.255,1.835,3.872,2.455l7.286,7.287a1.708,1.708,0,0,0,2.417,0l8.764-8.748a3.417,3.417,0,0,1,4.831,0L395,705.243a3.406,3.406,0,0,1,0,4.818l-8.727,8.737a1.7,1.7,0,0,0,0,2.407Z"></path></svg>
           </div>
           <div class="text">error</div>
         </div>
 
         <div class="column config errorHandling">
-          <button type="button" value="off" class="button">off</button>
-          <button type="button" value="on" class="button">on</button>
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
         </div>
       </div>
       
       <div class="row" id="errorExtraLetters">
         <div class="column label">
-          <div class="symbol"> <svg class="iconErrorExtraLetters"  width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" clip-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-5.009c0-.867.659-1.491 1.491-1.491.85 0 1.509.624 1.509 1.491 0 .867-.659 1.509-1.509 1.509-.832 0-1.491-.642-1.491-1.509zM11.172 6a.5.5 0 0 0-.499.522l.306 7a.5.5 0 0 0 .5.478h1.043a.5.5 0 0 0 .5-.478l.305-7a.5.5 0 0 0-.5-.522h-1.655z"></path></svg></div>
+          <div class="symbol"> <svg class="iconErrorExtraLetters"  width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none"> <path fill="var(--setting-icon-color)" opacity="0.8" fill-rule="evenodd" clip-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-5.009c0-.867.659-1.491 1.491-1.491.85 0 1.509.624 1.509 1.491 0 .867-.659 1.509-1.509 1.509-.832 0-1.491-.642-1.491-1.509zM11.172 6a.5.5 0 0 0-.499.522l.306 7a.5.5 0 0 0 .5.478h1.043a.5.5 0 0 0 .5-.478l.305-7a.5.5 0 0 0-.5-.522h-1.655z"></path></svg></div>
           <div class="text">extra letters</div>
         </div>
+
         <div class="column config errorExtraLetterButtons">
-          <button type="button" value="off" class="button off">off</button>
-          <button type="button" value="replace" class="button replace">replace</button>
-          <button type="button" value="insert" class="button insert">insert</button>
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button insert" tabindex="0" role="button" type="button" value="insert">insert</button>
+          <button class="button skip" tabindex="0" role="button" type="button" value="skip">skp</button>
+          <button class="button replace" tabindex="0" role="button" type="button" value="replace">replace</button>
         </div>
       </div>
 
@@ -235,8 +237,8 @@
         </div>
 
         <div class="column config forgiveExtraErrorButtons">
-          <button type="button" value="off" class="button off">off</button>
-          <button type="button" value="on" class="button on">on</button>
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
         </div>
       </div>
 
