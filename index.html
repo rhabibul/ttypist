@@ -652,14 +652,16 @@
             <div class="text">timer</div>
           </div>
 
-          <div class="column config timerTimerButton s5-1">
-            <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
-            <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
-            <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
-            <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
-            <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
+          <div class="timerTimerButtonContainer">
+            <div class="column config timerTimerButton s5-1">
+              <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
+              <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
+              <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
+              <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
+              <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
+            </div>
+            <div hidden class="timerTimeCustomInputContainer"> <input class="timerTimeCustomInput" type="number" placeholder="25"> </div>
           </div>
-          <div hidden class="timerTimeCustomInputContainer"> <input class="timerTimeCustomInput" type="number" placeholder="25"> </div>
         </div>
 
         <div class="column config timerTimeVisibility">
@@ -698,14 +700,16 @@
           <div class="text">word count</div>
         </div>
 
-        <div class="column config textWordCountButton s5-1">
-          <button class="button words10"         tabindex="0" role="button" type="button" value="10" >10</button>
-          <button class="button words25"         tabindex="0" role="button" type="button" value="25" >25</button>
-          <button class="button words50"         tabindex="0" role="button" type="button" value="50" >50</button>
-          <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
-          <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"  > <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
+        <div class="textWordCountButtonContainer">
+          <div class="column config textWordCountButton s5-1">
+            <button class="button words10"         tabindex="0" role="button" type="button" value="10" >10</button>
+            <button class="button words25"         tabindex="0" role="button" type="button" value="25" >25</button>
+            <button class="button words50"         tabindex="0" role="button" type="button" value="50" >50</button>
+            <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
+            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"  > <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
+          </div>
+          <div hidden class="textWordCountCustomInputContainer"> <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"> </div>
         </div>
-        <div hidden class="textWordCountCustomInputContainer"> <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"> </div>
 
         <div class="column description"></div>
       </div>
@@ -730,7 +734,7 @@
           <div class="text">text capitalization</div>
         </div>
 
-        <div class="column config textCapitalization">
+        <div class="column config textCapitalizationRadioButton">
           <div class="radioButton off">
             <input checked type="radio" name="capitalization" id="off">
             <label for="off">off</label>
@@ -977,10 +981,12 @@
           <div class="symbol iconUseFloats">00</div>
           <div class="text">usefloats</div>
         </div>
-        <div class="column config useFloatsButtons">
-          <button type="button" value="off" class="button off">off</button>
-          <button type="button" value="on" class="button on">on</button>
+
+        <div class="column config useFloatsButton s2">
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
         </div>
+
         <div class="column description"></div>
       </div>
       
@@ -989,10 +995,12 @@
           <div class="symbol"> <svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path> </svg> </div>
           <div class="text">speed unit</div>
         </div>
-        <div class="column config speedUnitButtons">
-          <button type="button" value="wpm" class="button wpm">wpm</button>
-          <button type="button" value="cpm" class="button cpm">cpm</button>
+
+        <div class="column config speedUnitButton s2">
+          <button class="button wpm" tabindex="0" role="button" type="button" value="wpm">wpm</button>
+          <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
         </div>
+
         <div class="column description"></div>
       </div>
 
@@ -1009,10 +1017,10 @@
           </div>
           <div class="text">theme</div>
         </div>
-        <div class="column config themeButtons">
-          <button type="button" class="button light" value="light">light</button>
-          <button type="button" class="button dimmed" value="dimmed">dimmed</button>
-          <button type="button" class="button dark" value="dark">dark</button>
+        <div class="column config themeButton s3">
+          <button class="button light" tabindex="0" role="button" type="button" value="light">light</button>
+          <button class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
+          <button class="button dark" tabindex="0" role="button" type="button" value="dark">dark</button>
         </div>
       </div>
       
@@ -1028,12 +1036,12 @@
           <div class="text">caret</div>
         </div>
 
-        <div class="column config0 caretButtons">
-          <button type="button" value="off" class="button0 caret-off"> <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
-          <button type="button" value="underline" class="button0 caret-underline"><span class="shape-underline"></span></button>
-          <button type="button" value="line" class="button0 caret-line"> <span class="shape-line"></span></button>
-          <button type="button" value="box" class="button0 caret-box"> <span class="shape-box"></span></button>
-          <button type="button" value="block" class="button0 caret-block"> <span class="shape-block"></span></button>
+        <div class="column caretButton">
+          <button class="caret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
+          <button class="caret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
+          <button class="caret-line"      tabindex="0" role="button" type="button" value="line">     <span class="shape-line"></span></button>
+          <button class="caret-box"       tabindex="0" role="button" type="button" value="box">      <span class="shape-box"></span></button>
+          <button class="caret-block"     tabindex="0" role="button" type="button" value="block">    <span class="shape-block"></span></button>
         </div>
         
         <div class="column config caretOpacity">
@@ -1047,7 +1055,7 @@
             </div>
             <div class="text">opacity</div>
           </div>
-          <div class="column config caretOpacityInput">
+          <div class="column caretOpacityInput">
             <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="caretOpacityTicks">
             <datalist id="caretOpacityTicks">
               <option value="0.1">0.1</option>
@@ -1064,7 +1072,7 @@
           </div>
         </div>
 
-        <div class="column config caretColor">
+        <div class="column caretColor">
           <div class="column label sub">
             <div class="symbol">
               <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
@@ -1075,9 +1083,9 @@
             </div>
             <div class="text">color</div>
           </div>
-          <div class="column config caretColorPickerInput">
-            <input type="color" value="#000000">
-            <input type="text" value="#000000">
+          <div class="column config caretColorPickerContainer">
+            <input class="caretColorSelector" type="color" value="#000000">
+            <input class="caretColorInput" type="text" value="#000000">
           </div>
         </div>
 
@@ -1104,8 +1112,8 @@
           <button type="button" value="block" class="button0 paceCaret-block"> <span class="shape-block"></span></button>
         </div>
 
-        <div class="column config paceCaretOpacity">
-          <div class="column label">
+        <div class="column paceCaretOpacity s1">
+          <div class="column label sub">
             <div class="symbol">
               <svg class="iconPaceCaretOpacity" width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none">
                 <path fill="var(--setting-icon-color)" opacity="0.2" d="M22 11C22 13.6522 20.9464 16.1957 19.0711 18.0711C17.1957 19.9464 14.6522 21 12 21C9.34784 21 6.8043 19.9464 4.92893 18.0711C3.05357 16.1957 2 13.6522 2 11L22 11Z"></path>
@@ -1115,6 +1123,7 @@
             </div>
             <div class="text">opacity</div>
           </div>
+
           <div class="column config paceCaretOpacityInput">
             <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="paceCaretOpacityTicks">
             <datalist id="paceCaretOpacityTicks">
@@ -1132,7 +1141,7 @@
           </div>
         </div>
 
-        <div class="column config paceCaretColor">
+        <div class="column paceCaretColor s1">
           <div class="column label sub">
             <div class="symbol">
               <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
@@ -1143,26 +1152,27 @@
             </div>
             <div class="text">color</div>
           </div>
-          <div class="column config paceCaretColorPickerInput">
-            <input type="color" value="#000000">
-            <input type="text" value="#000000">
+
+          <div class="column config paceCaretColorPickerContainer">
+            <input class="paceCaretColorSelector" type="color" value="#808080">
+            <input class="paceCaretColorInput" type="text" value="#808080">
           </div>
         </div>
 
-        <div class="column config paceCaretSpeed">
+        <div class="column paceCaretSpeed">
           <div class="column label sub">
             <div class="symbol"> <svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path> </svg> </div>
             <div class="text">speed</div>
           </div>
 
-          <div class="column config paceCaretSpeedButtons">
-            <button type="button" value="last" class="button last">last</button>
-            <button type="button" value="average" class="button average">average</button>
-            <button type="button" value="personalbest" class="button best">best</button>
-            <button type="button" value="custom" class="button custom">
-              <div class="symbol"><svg class="iconPaceCaretSpeedCustom" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              <div hidden class="paceCaretSpeedCutomInput"><input type="number" placeholder="wpm"></div>
-            </button>
+          <div class="paceCaretSpeedButtonContainer">
+            <div class="column config paceCaretSpeedButton s4">
+              <button class="button last"    tabindex="0" role="button" type="button" value="last">last</button>
+              <button class="button average" tabindex="0" role="button" type="button" value="average">average</button>
+              <button class="button best"    tabindex="0" role="button" type="button" value="personalbest">best</button>
+              <button class="button custom"  tabindex="0" role="button" type="button" value="custom"> <div class="symbol"><svg class="iconPaceCaretSpeedCustom" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div> </button>
+            </div>
+            <div hidden class="paceCaretSpeedCutomInput"><input type="number" placeholder="wpm"></div>
           </div>
         </div>
 
