@@ -6,7 +6,7 @@ import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret-controller.js";
 import * as TestAreaElement from "./elements/testarea-elements.js";
 
-import { time, typedchar, mInput } from "../include/stats-trackers.js";
+import { time, typedchar, mInput, user } from "../include/stats-trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";
 
 export const text = new Text();
@@ -21,9 +21,8 @@ export const Test = {
 		TestAreaElement.input.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
-		Config.user.istyping = false;
-		Config.user.hastypedallwords = false;
-
+		user.istyping = false;
+		user.hastypedallwords = false;
 		typedchar.reset();
 		time.reset();
 		mInput.reset();

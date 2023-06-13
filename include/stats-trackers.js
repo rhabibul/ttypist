@@ -1,3 +1,13 @@
+export const user = {
+	istyping: false,
+	hastypedallwords: false,
+	system: {
+		device: "",
+		operating_system: "",
+		browser: "",
+	}
+}
+
 export const time = {
   begin: 0,
   end: 0,

@@ -2,16 +2,11 @@ import Config from "../../include/config.js";
 import * as CaretController from "../controllers/caret-controller.js";
 import * as TestAreaElement from "../elements/testarea-elements.js";
 import * as Misc from "../utils/misc.js";
-import { time, typedchar, mInput } from "../../include/stats-trackers.js";
+import { time, typedchar, mInput, user } from "../../include/stats-trackers.js";
 import { Test, text, word } from "../main.js";
 
 let wasSpace = false;
 mInput.keydownUnidentified = true;
-
-const ttypist = {
-	istyping: false,
-	hastypedallwords: false,
-}
 
 // 1. keydown
 export function registerkeydown(evt) {
@@ -23,9 +18,9 @@ export function registerkeydown(evt) {
 		return;
 	}
 
-	if ( !Config.user.istyping ) {
+	if ( !user.istyping ) {
 		time.begin = performance.now();
-		Config.user.istyping = true;
+		user.istyping = true;
 	}
 
 	typedchar.reset();
@@ -83,7 +78,7 @@ export function registerkeydown(evt) {
 				// test complete
 				if ( text.activewordindex === text.lastwordindex ) {
 					time.end = window.performance.now();
-					Config.user.hastypedallwords = true;
+					user.hastypedallwords = true;
 					return;
 				}
 			}	
@@ -240,7 +235,7 @@ export function registerkeyup(evt) {
 		wasSpace = false;
 	}
 
-	if ( Config.user.hastypedallwords ) {
+	if ( user.hastypedallwords ) {
 		TestAreaElement.input.blur();
 		CaretController.removecaretfrom(word.activeletter);
 		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);

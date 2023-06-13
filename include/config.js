@@ -9,15 +9,6 @@
 //   }
 // },
 export default {
-  user: {
-    istyping: false,
-    hastypedallwords: false,
-    system: {
-      device: "",
-      operating_system: "",
-      browser: "",
-    }
-  },
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -81,6 +72,7 @@ export default {
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     insert: true, // insert incorrect letter before to be typed letter
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
+    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     stop: {
       letter: false,
       word: false,
