@@ -138,10 +138,11 @@ box-shadow: offset-x | offset-y | blur-radius | color
 
 /* ============================================================================ */
 
-div.caretButtons,
-div.paceCaretButtons {
+div.caretButton,
+div.paceCaretButton {
   height: 40px;
   width: 140px;
+
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -176,6 +177,9 @@ button.paceCaret-off span.shape-off {
   align-items: center;
 }
 
+span.shape-off svg.iconCaretOff {
+  fill: var(--setting-caret-color);
+}
 span.shape-underline {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);

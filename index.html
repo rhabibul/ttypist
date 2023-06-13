@@ -74,6 +74,55 @@
 
     <div class="testSetting">
 
+      <!-- font.size-->
+      <div class="row" id="textFontSize">
+        <div class="column label sub">
+          <div class="symbol"> <svg class="iconTextFontSize" width="64px" height="64px" viewBox="-180 -180 1560.00 1560.00" fill="var(--setting-icon-color)"> <path d="M991.699,0L783.398,209.399h139.452V990.6H783.398L991.699,1200 L1200,990.601h-139.38V209.399H1200L991.699,0z M5.933,207.642L0,420.703h74.048c0-146.136,0.1-145.972,186.841-145.972V862.5 c0,73.264-0.037,73.141-102.539,71.338v58.521h379.468v-58.521c-102.335,0-102.539-0.179-102.539-71.338V274.731 c186.839,0,187.354,0.041,187.354,145.972h73.535l-5.347-213.062L5.933,207.642L5.933,207.642z"> </path> </svg> </div>
+          <div class="text">text size</div>
+        </div>
+
+        <div class="column config textFontSize">
+          <div class="textFontSizeInput"><input type="range" min="16" max="32" step="1" value="19" list="textFontSizeTicks"></div>
+          <datalist id="textFontSizeTicks">
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+          </datalist>
+          <div class="text value">19px</div>
+        </div>
+
+        <div class="column description"></div>
+      </div>
+
+      <!-- font.weight -->
+      <div class="row" id="textFontWeight">
+        <div class="column label">
+          <div class="symbol"> <svg class="iconFontWeight" fill="var(--setting-icon-color)" width="64px" height="64px" viewBox="0 0 24.00 24.00" stroke="var(--setting-icon-color)" stroke-width="0.96"> <path d="M16,5V4H13v9h1a1,1,0,0,1,0,2H10a1,1,0,0,1,0-2h1V4H8V5A1,1,0,0,1,6,5V3A1,1,0,0,1,7,2H17a1,1,0,0,1,1,1V5a1,1,0,0,1-2,0Zm3.707,9.293a1,1,0,0,0-1.414,1.414L19.586,17H4.414l1.293-1.293a1,1,0,0,0-1.414-1.414l-3,3a1,1,0,0,0,0,1.414l3,3a1,1,0,1,0,1.414-1.414L4.414,19H19.586l-1.293,1.293a1,1,0,1,0,1.414,1.414l3-3a1,1,0,0,0,0-1.414Z"> </path></svg></div>
+          <div class="text">text thickness</div>
+        </div>
+
+        <div class="column config textFontWeight">
+          <div class="textFontWeightInput"><input type="range" min="100" max="900" step="1" value="440"></div>
+          <div class="text value">440</div>
+        </div>
+
+        <div class="column description"></div>
+      </div>
+
       <!-- setting.view: off | on -->
       <div class="row" id="dynamicSettingChange">
         <div class="column label sub">
@@ -337,7 +386,7 @@
       <!-- tape (off | letter | word) -->
       <div class="row" id="tapeMode">
         <div class="column label sub">
-          <svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg>
+          <div class="symbol"> <svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg> </div>
           <div class="text">tape mode</div>
         </div>
 
@@ -465,10 +514,11 @@
         <div class="column description"></div>
       </div>
 
+      <!-- difficult (ease | expert | master) -->
       <div class="row" id="testDifficulty">
         <div class="column label sub">
           <div class="symbol">
-            <svg class="iconDifficulty" width="256px" height="256px" viewBox="0 0 64 64">
+            <svg class="iconTestDifficulty" width="256px" height="256px" viewBox="0 0 64 64">
               <path fill="var(--setting-icon-color)" opacity="0.4" d="M2.1 42.2c-.9-6.8 3.3-17.7 5.3-32.4c.4-2.6 14-5.4 20.4-5.4c1.6 0 3 7.5 2.6 10.1c-.3 1.9-3 1.4-3 1.4c-.9 2.5-3.6 1.5-3.6 1.5c-.8 2.1-3.2 1.1-3.2 1.1c-1 2-3.2 1-3.2 1c-2 8.7 1.7 7.9 4.4 21c0 0 .8-.1 2.9-4.4c8.6-17.3 38.8-11.8 37 6.8c-.4 4.1 4 10.9-12.3 16c-12.9 4-28.7-3.7-28.7-3.7c-5.4 1.7-15.9 1.6-16.2-2.4c-.3-4.7-1.9-7.1-2.4-10.6"></path>
               <path fill="var(--setting-icon-color)" opacity="1.0" d="M61.8 42.9c.4-4.4-.9-8-3.3-10.6c1.4 2.4 2.1 5.3 1.8 8.7c-.4 4.1 4 10.9-12.3 16c-12.9 4-28.7-3.7-28.7-3.7c-4.2 1.3-11.6 1.5-14.7-.4c.4 3.9 10.8 4 16.2 2.3c0 0 15.8 7.7 28.7 3.7c16.2-5.1 11.9-11.9 12.3-16"></path>
               <path fill="var(--setting-icon-color)" opacity="1.0" d="M16.3 19.4c-2.5 10.2 1.6 9.8 4.3 22.7l1.4-1.5c-2-13-5.4-11.4-4.6-21c-.6 0-1.1-.2-1.1-.2"></path>
@@ -492,14 +542,15 @@
         <div class="column description"></div>
       </div>
 
+      <!-- confidence (low | high | peak) -->
       <div class="row" id="confidence">
-        <div class="column label">
+        <div class="column label sub">
           <div class="symbol"> <svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path> </svg> </div>
           <div class="text">confidence</div>
         </div>
 
-        <div class="column config confidenceButton">
-          <button class="button low" tabindex="0" role="button" type="button" value="low">low</button>
+        <div class="column config confidenceButton s3">
+          <button class="button low"  tabindex="0" role="button" type="button" value="low">low</button>
           <button class="button high" tabindex="0" role="button" type="button" value="high">high</button>
           <button class="button peak" tabindex="0" role="button" type="button" value="peak">peak</button>
         </div>
@@ -507,28 +558,30 @@
         <div class="column description"></div>
       </div>
 
+      <!-- backspace (off | on) -->
       <div class="row" id="backspaceKey">
-        <div class="column label">
+        <div class="column label sub">
           <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
           <div class="text">backspace key</div>
         </div>
 
         <div class="column config backspaceKeyButton s2">
           <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
       </div>
 
+      <!-- modifier (alt | ctrl | meta) -->
       <div class="row" id="modifierKey">
-        <div class="column label">
+        <div class="column label sub">
           <div class="symbol"><svg class="iconModifierKeys" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
           <div class="text">modifier keys</div>
         </div>
 
         <div class="column config modifierKey s3">
-          <button class="button alt" tabindex="0" role="button" type="button" value="alt">alt</button>
+          <button class="button alt"  tabindex="0" role="button" type="button" value="alt">alt</button>
           <button class="button ctrl" tabindex="0" role="button" type="button" value="ctrl">ctrl</button>
           <button class="button meta" tabindex="0" role="button" type="button" value="meta">meta</button>
         </div>
@@ -586,39 +639,6 @@
             <input type="color" value="#9a9a9a">
             <input type="text" value="#9a9a9a">
           </div>
-        </div>
-
-        <div class="column description"></div>
-      </div>
-
-      <div class="row" id="textFontSize">
-        <div class="column label">
-          <div class="symbol"> <svg class="iconTextFontSize" width="64px" height="64px" viewBox="-180 -180 1560.00 1560.00" fill="var(--setting-icon-color)"> <path d="M991.699,0L783.398,209.399h139.452V990.6H783.398L991.699,1200 L1200,990.601h-139.38V209.399H1200L991.699,0z M5.933,207.642L0,420.703h74.048c0-146.136,0.1-145.972,186.841-145.972V862.5 c0,73.264-0.037,73.141-102.539,71.338v58.521h379.468v-58.521c-102.335,0-102.539-0.179-102.539-71.338V274.731 c186.839,0,187.354,0.041,187.354,145.972h73.535l-5.347-213.062L5.933,207.642L5.933,207.642z"> </path> </svg> </div>
-          <div class="text">text size</div>
-        </div>
-
-        <div class="column config textFontSize">
-          <div class="textFontSizeInput"><input type="range" min="1" max="2" step="0.001" value="1.2" /></div>
-          <div class="text value">1.2</div>
-        </div>
-
-        <div class="column description"></div>
-      </div>
-
-      <div class="row" id="textFontWeight">
-        <div class="column label">
-          <div class="symbol"> <svg class="iconFontWeight" fill="var(--setting-icon-color)" width="64px" height="64px"
-              viewBox="0 0 24.00 24.00" stroke="var(--setting-icon-color)" stroke-width="0.96">
-              <path
-                d="M16,5V4H13v9h1a1,1,0,0,1,0,2H10a1,1,0,0,1,0-2h1V4H8V5A1,1,0,0,1,6,5V3A1,1,0,0,1,7,2H17a1,1,0,0,1,1,1V5a1,1,0,0,1-2,0Zm3.707,9.293a1,1,0,0,0-1.414,1.414L19.586,17H4.414l1.293-1.293a1,1,0,0,0-1.414-1.414l-3,3a1,1,0,0,0,0,1.414l3,3a1,1,0,1,0,1.414-1.414L4.414,19H19.586l-1.293,1.293a1,1,0,1,0,1.414,1.414l3-3a1,1,0,0,0,0-1.414Z">
-              </path>
-            </svg> </div>
-          <div class="text">text thickness</div>
-        </div>
-
-        <div class="column config textFontWeight">
-          <div class="textFontWeightInput"><input type="range" min="100" max="900" step="1" value="450" /></div>
-          <div class="text value">450</div>
         </div>
 
         <div class="column description"></div>
@@ -941,22 +961,22 @@
         <div class="column label">
           <div class="symbol">
             <svg class="iconTextWordLength" viewBox="0 0 512 512" width="256px" height="256px">
-              <polygon fill="var(--setting-icon-color)" opacity="0.1" points="452.923,512 59.077,512 452.923,0 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.1" points="452.923,512 256,512 59.077,512 256.219,255.781 452.923,0 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.15" points="256,512 59.077,512 256.219,255.781 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.0" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.5" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
-              <polygon fill="var(--setting-icon-color)" opacity="0.3" points="256,320.593 139.062,472.615 256,472.615 "></polygon>
-              <polygon fill="#FFFFFF"                                 points="285.7,400.41 341.333,328.088 341.333,400.41 "></polygon>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="131.282" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="210.051" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="288.821" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="367.590" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="413.538" y="446.359" width="39.385" height="26.256"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="1.0" x="190.359" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="256.000" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="321.641" y="472.615" width="26.256" height="39.385"></rect>
-              <rect    fill="var(--setting-icon-color)" opacity="0.8" x="387.282" y="472.615" width="26.256" height="39.385"></rect>
+              <polygon fill="var(--setting-icon-color)" opacity="0.10" points="452.923,512 59.077,512 452.923,0 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.10" points="452.923,512 256,512 59.077,512 256.219,255.781 452.923,0 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.00" points="256,512 59.077,512 256.219,255.781 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.00" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.30" points="139.062,472.615 413.538,115.796 413.538,472.615 "></polygon>
+              <polygon fill="var(--setting-icon-color)" opacity="0.00" points="256,320.593 139.062,472.615 256,472.615 "></polygon>
+              <polygon fill="#FFFFFF"                                  points="285.7,400.41 341.333,328.088 341.333,400.41 "></polygon>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="413.538" y="131.282" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="413.538" y="210.051" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="413.538" y="288.821" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="413.538" y="367.590" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="413.538" y="446.359" width="39.385" height="26.256"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="190.359" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="256.000" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="321.641" y="472.615" width="26.256" height="39.385"></rect>
+              <rect    fill="var(--setting-icon-color)" opacity="0.85" x="387.282" y="472.615" width="26.256" height="39.385"></rect>
             </svg>
           </div>
           <div class="text">word length</div>
@@ -1029,6 +1049,7 @@
         <div class="column description"></div>
       </div>
 
+      <!-- theme (light | dark | dimmed) -->
       <div class="row" id="theme">
         <div class="column label sub">
           <div class="symbol">
@@ -1042,13 +1063,15 @@
           </div>
           <div class="text">theme</div>
         </div>
+
         <div class="column config themeButton s3">
-          <button class="button light" tabindex="0" role="button" type="button" value="light">light</button>
+          <button class="button light"  tabindex="0" role="button" type="button" value="light">light</button>
+          <button class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
           <button class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
-          <button class="button dark" tabindex="0" role="button" type="button" value="dark">dark</button>
         </div>
       </div>
       
+      <!-- pacecaret (off | line | underline | box | block) | (opacity) | (color)-->
       <div class="row" id="caret">
         <div class="column label">
           <div class="symbol">
@@ -1061,8 +1084,8 @@
           <div class="text">caret</div>
         </div>
 
-        <div class="column caretButton">
-          <button class="caret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
+        <div class="column caretButton s5">
+          <button class="caret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><svg class="iconCaretOff" width="256px" height="256px" viewBox="0 0 1000 1000"><path d="M500 930q-117 0-217-59-97-57-154-154-59-100-59-217t59-217q57-97 154-154 100-59 217-59t217 59q97 57 154 154 59 100 59 217t-59 217q-57 97-154 154-100 59-217 59zM320 760q39 28 85.5 42.5T500 817q86 0 160-44 71-42 113-113 44-74 44-160 0-48-14.5-94.5T760 320zm180-577q-86 0-160 44-71 42-113 113-44 74-44 160 0 48 14.5 94.5T240 680l440-440q-39-28-85.5-42.5T500 183z"></path></svg></span></button>
           <button class="caret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
           <button class="caret-line"      tabindex="0" role="button" type="button" value="line">     <span class="shape-line"></span></button>
           <button class="caret-box"       tabindex="0" role="button" type="button" value="box">      <span class="shape-box"></span></button>
@@ -1080,6 +1103,7 @@
             </div>
             <div class="text">opacity</div>
           </div>
+
           <div class="column caretOpacityInput">
             <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="caretOpacityTicks">
             <datalist id="caretOpacityTicks">
@@ -1117,6 +1141,7 @@
         <div class="column description"></div>
       </div>
 
+      <!-- pacecaret (off | line | underline | box | block) | (opacity) | (color) | (last | average | best | custom) -->
       <div class="row" id="paceCaret">
         <div class="column label">
           <div class="symbol">
@@ -1129,15 +1154,33 @@
           <div class="text">pace caret</div>
         </div>
 
-        <div class="column config0 paceCaretButtons">
-          <button type="button" value="off" class="button0 paceCaret-off"> <span class="shape-off"><i class="fa-solid fa-ban"></i></span></button>
-          <button type="button" value="underline" class="button0 paceCaret-underline"><span class="shape-underline"></span></button>
-          <button type="button" value="line" class="button0 paceCaret-line"> <span class="shape-line"></span></button>
-          <button type="button" value="box" class="button0 paceCaret-box"> <span class="shape-box"></span></button>
-          <button type="button" value="block" class="button0 paceCaret-block"> <span class="shape-block"></span></button>
+        <div class="column paceCaretButton s5">
+          <button class="paceCaret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><svg class="iconCaretOff" width="256px" height="256px" viewBox="0 0 1000 1000"><path d="M500 930q-117 0-217-59-97-57-154-154-59-100-59-217t59-217q57-97 154-154 100-59 217-59t217 59q97 57 154 154 59 100 59 217t-59 217q-57 97-154 154-100 59-217 59zM320 760q39 28 85.5 42.5T500 817q86 0 160-44 71-42 113-113 44-74 44-160 0-48-14.5-94.5T760 320zm180-577q-86 0-160 44-71 42-113 113-44 74-44 160 0 48 14.5 94.5T240 680l440-440q-39-28-85.5-42.5T500 183z"></path></svg></span></button>
+          <button class="paceCaret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
+          <button class="paceCaret-line"      tabindex="0" role="button" type="button" value="line">     <span class="shape-line"></span></button>
+          <button class="paceCaret-box"       tabindex="0" role="button" type="button" value="box">      <span class="shape-box"></span></button>
+          <button class="paceCaret-block"     tabindex="0" role="button" type="button" value="block">    <span class="shape-block"></span></button>
         </div>
 
-        <div class="column paceCaretOpacity s1">
+        <div class="column paceCaretColor">
+          <div class="column label sub">
+            <div class="symbol">
+              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
+                <path opacity="0.3" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
+                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
+                <path opacity="1" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
+              </svg>
+            </div>
+            <div class="text">color</div>
+          </div>
+
+          <div class="column config paceCaretColorPickerContainer s1">
+            <input class="paceCaretColorSelector" type="color" value="#808080">
+            <input class="paceCaretColorInput" type="text" value="#808080">
+          </div>
+        </div>
+
+        <div class="column paceCaretOpacity">
           <div class="column label sub">
             <div class="symbol">
               <svg class="iconPaceCaretOpacity" width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none">
@@ -1149,7 +1192,7 @@
             <div class="text">opacity</div>
           </div>
 
-          <div class="column config paceCaretOpacityInput">
+          <div class="column config paceCaretOpacityInput s1">
             <input type="range" min="0.1" max="1.0" step="0.1" value="1" list="paceCaretOpacityTicks">
             <datalist id="paceCaretOpacityTicks">
               <option value="0.1">0.1</option>
@@ -1166,23 +1209,6 @@
           </div>
         </div>
 
-        <div class="column paceCaretColor s1">
-          <div class="column label sub">
-            <div class="symbol">
-              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
-                <path opacity="0.3" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
-                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
-                <path opacity="1" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
-              </svg>
-            </div>
-            <div class="text">color</div>
-          </div>
-
-          <div class="column config paceCaretColorPickerContainer">
-            <input class="paceCaretColorSelector" type="color" value="#808080">
-            <input class="paceCaretColorInput" type="text" value="#808080">
-          </div>
-        </div>
 
         <div class="column paceCaretSpeed">
           <div class="column label sub">
@@ -1190,8 +1216,8 @@
             <div class="text">speed</div>
           </div>
 
-          <div class="paceCaretSpeedButtonContainer">
-            <div class="column config paceCaretSpeedButton s5-1">
+          <div class="column paceCaretSpeedButtonContainer">
+            <div class="column config paceCaretSpeedButton s4-1">
               <button class="button last"    tabindex="0" role="button" type="button" value="last">last</button>
               <button class="button average" tabindex="0" role="button" type="button" value="average">average</button>
               <button class="button best"    tabindex="0" role="button" type="button" value="personalbest">best</button>

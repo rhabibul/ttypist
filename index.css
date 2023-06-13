@@ -234,8 +234,8 @@
   --SyneMono: "Syne Mono", monospace;
 
   --text-size: 19px;
-  --text-font: var(--RobotoMono);
   --text-thickness: 440;
+  --text-font: var(--RobotoMono);
   --text-primary-color: #061f2c;
   --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
@@ -258,14 +258,14 @@
   --caret-animation-iteration-count: 25; /* number of blinks */
   --caret-animation-timing-function: ease-out; /* blink rhythm */
 
-  --setting-caret-color: black;
+  --setting-caret-color: var(--setting-icon-color);
   --setting-caret-width: 10px;
   --setting-caret-height: 18px;
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
   --setting-button-border-color: rgba(31, 35, 40, 0.15);
   --setting-button-height: 28px;
   --setting-button-backgroundcolor: #fbfdff;
-  --setting-icon-color: #d33682;
+  --setting-icon-color: black;
 
   --solid: 1px solid black;
   --dashed: 1px dashed black;
@@ -398,6 +398,12 @@ letter.whitespace.whitespace-color-active::after { /* renaming is required (way 
   display: none;
 }
 
+/* for setting buttons */
+.active {
+  color: red;
+}
+
+/* for text (word & letter) */
 .current {
   color: black;
 }
@@ -405,15 +411,12 @@ letter.whitespace.whitespace-color-active::after { /* renaming is required (way 
 .correct {
   color: var(--text-secondary-color);
 }
-
 .incorrect {
   color: var(--text-error);
 }
-
 .extra {
   color: var(--text-error-extra);
 }
-
 .error {
   color: var(--error);
   text-decoration-color: var(--text-error-extra);

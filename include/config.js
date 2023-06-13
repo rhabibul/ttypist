@@ -1,4 +1,5 @@
 export default {
+  arrow: true, // implicitly enabled (mystical)
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -6,7 +7,6 @@ export default {
       expanded: false, // label, buttons and description visible
     },
   },
-  arrow: true, // implicitly enabled (mystical)
   theme: "light", // light | dimmed | dark
   caret: {
     off: true, // none
@@ -14,7 +14,7 @@ export default {
     opacity: 1, // rgba - alpha[0,1]
     color: "",
   },
-  pace_caret: {
+  pacecaret: {
     off: true, // none
     style: "line", // line | underline | box | block
     opacity: 0.5, // rgba - alpha[0,1]

@@ -107,7 +107,6 @@ svg.iconTextScroll {
 }
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
-svg.iconTextCapitalization,
 svg.iconFontWeight,
 svg.iconTextInclude,
 svg.iconWordLength,
@@ -116,7 +115,6 @@ svg.iconDynamicSettingChange {
 	height: 20px;
 }
 svg.iconWarning,
-svg.iconFillColor,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
@@ -130,7 +128,7 @@ svg.speedometer,
 svg.iconCaret,
 svg.iconTapeMode,
 svg.iconBackspaceKey,
-svg.iconDifficulty {
+svg.iconTestDifficulty {
 	width: 22px;
 	height: 22px;	
 }
@@ -144,12 +142,14 @@ svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
+svg.iconTextCapitalization,
 svg.iconLiveStatusInterval,
 svg.iconCaretOpacity,
 svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
+svg.iconFillColor,
 svg.iconFlipHighlightModeColor,
 svg.iconTextInput {
 	width: 25px;

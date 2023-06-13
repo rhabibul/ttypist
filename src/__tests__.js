@@ -30,22 +30,29 @@ window.addEventListener('load', (evt) => {
 // 	}
 // });
 
-// // sliders
-// const slider_fontsize = document.querySelector("input#slider-fontsize");
-// const slider_fontweight = document.querySelector("input#slider-fontweight");
-// const t1 = document.querySelector("#text-font-size span.text.value");
-// const t2 = document.querySelector("#text-font-weight span.text.value");
+// sliders
+const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
+const t1 = document.querySelector("div.config.textFontSize > div.text.value");
+slider_fontsize.addEventListener("input", () => {
+	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
+  Config.text.font.size = slider_fontsize.value;
+	t1.textContent = `${slider_fontsize.value}px`;
+});
 
-// slider_fontsize.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}rem`);
-//   Config.text.textsize = slider_fontsize.value;
-// 	t1.textContent = slider_fontsize.value;
-// });
-// slider_fontweight.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
-//   Config.text.textweight = slider_fontweight.value;
-// 	t2.textContent = slider_fontweight.value;
-// });
+const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");
+const t2 = document.querySelector("div.config.textFontWeight > div.text.value");
+
+slider_fontweight.addEventListener("input", () => {
+	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
+  Config.text.font.weight = slider_fontweight.value;
+	t2.textContent = slider_fontweight.value;
+});
+
+let k = 99;
+for ( let i = 0; i < 100; ++i ) {
+	console.log(`<option value="${k+1}">${k+1}</option>`)
+	k += 1;
+}
 
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
