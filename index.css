@@ -319,7 +319,7 @@ text {
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  row-gap: 0px;
+  row-gap: 2px;
   user-select: none;
   background-color: var(--caret-color-hidden);
 }
