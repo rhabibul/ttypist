@@ -1,6 +1,4 @@
 export default {
-  arrow: true, // implicitly enabled (mystical feature)
-  theme: "light", // light | dimmed | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -8,6 +6,8 @@ export default {
       expanded: false, // label, buttons and description visible
     },
   },
+  arrow: true, // implicitly enabled (mystical)
+  theme: "light", // light | dimmed | dark
   caret: {
     off: true, // none
     style: "line", // line | underline | box | block

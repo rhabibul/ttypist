@@ -15,7 +15,7 @@ div.testSetting {
 
 div.row {
 	padding: 8px;
-	border: 1px dashed #bbbbbb;	
+	border: 1px dashed red;	
 }
 div.column {
 	margin: 8px;
@@ -134,7 +134,7 @@ svg.iconDifficulty {
 	width: 22px;
 	height: 22px;	
 }
-svg.iconErrorExtraLetters,
+svg.iconExtraLetterError,
 svg.iconLiveStatus,
 svg.iconOppositeShiftMode,
 svg.iconModifierKeys,
@@ -159,7 +159,7 @@ svg.iconHide {
 	width: 30px;
 	height: 30px;	
 }
-svg.iconForgiveExtraError {
+svg.iconForgiveExtraLetterError {
 	width: 29px;
 	height: 29px;	
 }
