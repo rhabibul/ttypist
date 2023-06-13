@@ -1,5 +1,6 @@
 export default {
   arrow: true, // implicitly enabled (mystical feature)
+  theme: "light", // light | dimmed | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -28,9 +29,10 @@ export default {
       },
     },
   },
-  theme: "light", // light | dimmed | dark
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   underline: true, // underline the current word being typed
+  strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
+  endswithspace: false, // if enabled then to end test user needs to type space after last word
   scroll: {
     abrupt: true,
     smooth: false,
@@ -57,8 +59,6 @@ export default {
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
   },
-  strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
-  endswithspace: false, // if enabled then to end test user needs to type space after last word
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
