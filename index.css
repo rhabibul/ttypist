@@ -294,39 +294,126 @@ body {
   background-color: var(--default-bg0_h);
 }
 
+wrapper {
+  padding: 25px 15px;
+  border: 1px dashed gray;
+}
+
+input#textinput {
+  margin: 0px;
+  padding: 0px;
+  width: 0px;
+  height: 0px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+
+text {  
+  max-width: 700px;
+
+  display: flex; /* these keeps all the words in a single line */
+  align-items: flex-start; /* determines how the items as a whole are aligned within the container */
+  align-content: flex-start; /* determines the spacing between lines */
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  row-gap: 0px;
+  user-select: none;
+  background-color: var(--caret-color-hidden);
+}
+
+text word {
+  background-color: var(--caret-color-hidden);
+
+  display: flex; /* these fixes the extra spaces between the letters of the words */
+  justify-content: flex-start;
+}
+text word letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary-color);
+
+  /* line-height: 1em; */
+  /* white-space: nowrap; */
+  
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+  font-weight: var(--text-thickness);
+  
+  /*
+  -moz-osx-font-smoothing (firefox)
+      auto - allow the browser to select an optimization for font smoothing,
+             typically grayscale.
+      grayscale - render text with grayscale anti-aliasing, as opposed to the subpixel
+                  switching from subpixel rendering to anti-aliasing for light text 
+                  on dark backgrounds makes it look lighter.
+
+  -webkit-font-smoothing (macOS)
+      auto - let the browser decide, uses subpixel anti-aliasing when available
+      none - turn font smoothing off; display text with jagged sharp edges
+      antialiased - smooth the font on the level of the pixel, as opposed to the subpixel.
+                    switching from subpixel rendering to anti-aliasing for light text 
+                    on dark backgrounds makes it look lighter.
+      subpixel-antialiased - on most non-retina displays, this will give the sharpest text.
+  */
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+letter.whitespace.bullet {
+  position: relative;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+letter.whitespace.bullet::after {
+  transform: translateY(1px);
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  opacity: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-whitespace-color);
+}
+letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
+  background-color: var(--text-whitespace-color-active);
+}
+
 #selected {
 	color: #0969da;
 	background-color: #f6f8fa;
 }
 
-.none {
-  display: none;
-}
-.hidden {
+.hide {
   visibility: hidden;
 }
+.remove {
+  display: none;
+}
 
-/* used to highlight active word in word highlight mode */
-.active {
+.current {
   color: black;
 }
 
-/* used for correctly typed letters */
 .correct {
   color: var(--text-secondary-color);
 }
 
-/* used for incorrectly typed letters */
 .incorrect {
   color: var(--text-error);
 }
 
-/* used for extra letters which are inserted in the text */
 .extra {
   color: var(--text-error-extra);
 }
 
-/* used to mark the word as incorrect i.e, word with mistakes */
 .error {
   color: var(--error);
   text-decoration-color: var(--text-error-extra);
@@ -350,9 +437,4 @@ body {
     none - drawn across the full length of the text content, including parts that
            cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
-}
-
-button {
-  /* border: none; */
-  /* outline: none; */
 }

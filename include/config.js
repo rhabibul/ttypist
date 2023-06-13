@@ -9,7 +9,7 @@ export default {
   },
   caret: {
     off: true, // none
-    style: "line", // line | underline | box | block
+    style: "box", // line | underline | box | block
     opacity: 1, // rgba - alpha[0,1]
     color: "",
   },
@@ -32,10 +32,13 @@ export default {
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // use opposite thumb for hitting space key [emulate opposite thumb by splitting space into two halves]
   underline: true, // underline the current word being typed
-  textscroll: "abrupt", // abrupt | smooth
-  textinput: {
-    hidden: true, // hide input box during the test
-    visible: false, // unhide input box during the test
+  scroll: {
+    abrupt: true,
+    smooth: false,
+  },
+  input: {
+    hidden: true,
+    visible: false,
   },
   backspace: {
     off: false,
