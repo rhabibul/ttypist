@@ -8,6 +8,11 @@ import { Test, text, word } from "../main.js";
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
+const ttypist = {
+	istyping: false,
+	hastypedallwords: false,
+}
+
 // 1. keydown
 export function registerkeydown(evt) {
 
@@ -28,7 +33,7 @@ export function registerkeydown(evt) {
 	
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
-		if ( !Config.highlight.flipcolor ) {
+		if ( !Config.highlight.flip ) {
 			word.activeletter.classList.remove("whitespace-color-active");
 		} else {
 			word.activeletter.classList.add("whitespace-color-active");
@@ -71,7 +76,7 @@ export function registerkeydown(evt) {
 					CaretController.addcaretto(word.activeletter);
 				}	
 
-				if ( !Config.highlight.flipcolor ) { 
+				if ( !Config.highlight.flip ) { 
 					word.activeletter.classList.add("whitespace-color-active");
 				}
 

@@ -86,13 +86,13 @@ export default {
       word: false,
     },
   },
-  highlight: {
+  highlight: { // by default, future text is brighter than the already typed text
     off: false,
     mode: {
       letter: true,
       word: false,
     },
-    flipcolor: false, // default: future text is brighter than the already typed text
+    flip: false, // flip highlight's primary and secondary color
   },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
