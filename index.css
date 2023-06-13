@@ -265,7 +265,7 @@
   --setting-button-border-color: rgba(31, 35, 40, 0.15);
   --setting-button-height: 28px;
   --setting-button-backgroundcolor: #fbfdff;
-  --setting-icon-color: indigo;
+  --setting-icon-color: blue;
 
   --solid: 1px solid black;
   --dashed: 1px dashed black;
@@ -353,6 +353,6 @@ body {
 }
 
 button {
-  border: none;
-  outline: none;
+  /* border: none; */
+  /* outline: none; */
 }

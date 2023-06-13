@@ -1,3 +1,13 @@
+// // global temporary object
+//   user: {
+//   istyping: false,
+//   hastypedallwords: false,
+//   system: {
+//     device: "",
+//     operating_system: "",
+//     browser: "",
+//   }
+// },
 export default {
   user: {
     istyping: false,
@@ -162,7 +172,7 @@ export default {
     scrolllock: false, // scolllock key is left turned on
   },
   keyboard: {
-    off: false,
+    off: false, // toggle UI keyboard
     reaction: {
       off: false,
       static: false,
@@ -181,18 +191,3 @@ export default {
     },
   },
 };
-
-export const guided_lessions = {
-  guidedlessions: false, // learn touch typing using typing lessons
-  customtext: false, // type custom ascii text
-  practice: {
-    arrow: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    brackets: false, // {[(<>)]}
-    numpad: false, // number pad's digits and symbols only
-    numrow: false, // number row's digits [0-9] only
-    specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-    alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
-    gibberish: false, // all printable ascii characters
-    function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
-  },
-}
