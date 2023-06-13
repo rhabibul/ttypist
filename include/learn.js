@@ -11,6 +11,9 @@ export default {
     alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
     function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
+
+  // use opposite thumb for hitting space key [emulate opposite thumb by splitting space into two halves]
+  oppositethumbforspace: false,
 }
 
 export const govt_exam = {

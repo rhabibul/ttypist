@@ -30,7 +30,6 @@ export default {
   },
   theme: "light", // light | dimmed | dark
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // use opposite thumb for hitting space key [emulate opposite thumb by splitting space into two halves]
   underline: true, // underline the current word being typed
   scroll: {
     abrupt: true,
@@ -59,7 +58,7 @@ export default {
     master: false, // fails the test if user press a single incorrect key
   },
   strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
-  testendswithspace: false, // to end test user needs to type space after last word
+  endswithspace: false, // if enabled then to end test user needs to type space after last word
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
