@@ -118,13 +118,14 @@ svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
-svg.iconWarning,
+svg.iconBomb,
+svg.iconLiveStatusInterval,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconWarning,
 svg.iconTestTimer,
-svg.iconBomb,
 svg.iconSetttingFieldView,
 svg.iconTextWordLength,
 svg.iconNumberCount,
@@ -141,18 +142,17 @@ svg.iconLiveStatus,
 svg.iconOppositeShiftMode,
 svg.iconModifierKeys,
 svg.iconTheme,
-svg.iconTextWhitespace,
 svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
 svg.iconTextCapitalizationRadio,
-svg.iconLiveStatusInterval,
 svg.iconCaretOpacity,
 svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
+svg.iconTextWhitespace,
 svg.iconFillColor,
 svg.iconFlipHighlightModeColor,
 svg.iconTextInput {
@@ -294,42 +294,34 @@ details.textFontFamilyList {
 	width: 160px;
 }
 details.textFontFamilyList summary > div.text {
-	width: 132px;
+	width: 130px;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list {
-	width: 200px;
-}
-details.textFontFamilyList div.list div.item.Nunito {
-	font-size: 1rem;
-	font-family: var(--Nunito);
-}
-details.textFontFamilyList div.list div.item.MonaSans {
-	font-size: 0.9rem;
-	font-family: var(--MonaSans);
+	width: 180px;
 }
 details.textFontFamilyList div.list div.item.RobotoMono {
-	font-size: 0.95rem;
+	font-size: 0.9rem;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list div.item.CourierPrime {
-	font-size: 0.98rem;
+	font-size: 0.9rem;
 	font-family: var(--CourierPrime);
 }
 details.textFontFamilyList div.list div.item.FiraCode {
-	font-size: 0.94rem;
+	font-size: 0.9rem;
 	font-family: var(--FiraCode);
 }
 details.textFontFamilyList div.list div.item.SourceCodePro {
-	font-size: 0.95rem;
+	font-size: 0.9rem;
 	font-family: var(--SourceCodePro);
 }
 details.textFontFamilyList div.list div.item.UbuntuMono {
-	font-size: 1.1rem;
+	font-size: 0.9rem;
 	font-family: var(--UbuntuMono);
 }
 details.textFontFamilyList div.list div.item.SyneMono {
-	font-size: 1.12rem;
+	font-size: 0.9rem;
 	font-family: var(--SyneMono);
 }
 
