@@ -20,7 +20,7 @@ div.row {
 div.column {
 	margin: 8px;
 	padding: 5px;
-	border: 1px dashed lightgray;
+	border: 1px dashed red;
 }
 div.description {
 	height: 10px;
@@ -32,8 +32,8 @@ div.config {
 	justify-content: center;
 }
 
-div.config .button {
-	height: 28px;
+div.config button.button {
+	height: var(--setting-button-height);
 
 	display: flex;
 	align-items: center;
@@ -415,7 +415,7 @@ input[type="color"] {
 
 	width: 30px;
 	height: 30px;
-	
+
 	cursor: pointer;
 	writing-mode: horizontal-tb !important;
 	background-color: transparent;
@@ -423,7 +423,6 @@ input[type="color"] {
 	margin: 0px;
 	outline: none;
 	border: none;
-
   position: relative;
 }
 input[type="color"]::before {
@@ -458,12 +457,11 @@ input[type="color"].colorSelector.secondaryTextColorSelector::before {
 	background: #9a9a9a;
 }
 input[type="color"].colorSelector.caretColorSelector::before {
-	background: black;
+	background: #000000;
 }
 input[type="color"].colorSelector.paceCaretColorSelector::before {
-	background: deeppink;
+	background: #ff0088;
 }
-
 div.colorPickerContainer {
 	height: 30px;
 	width: 120px;
@@ -478,11 +476,13 @@ div.colorPickerContainer {
 }
 div.colorPickerContainer input.colorSelector {
 	height: 100%;
+	outline: none;
 }
 div.colorPickerContainer input.colorInput {
 	height: 100%;
 	width: 90px;
 	padding-left: 5px;
+	outline: none;
 	border: 1px solid var(--setting-button-border-color);
 	border-left: none;
 	border-top-right-radius: 6px;
