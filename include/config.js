@@ -10,15 +10,17 @@ export default {
   theme: "light", // light | dimmed | dark
   caret: {
     off: true, // none
-    style: "line", // line | underline | box | block
+    style: "box", // line | underline | box | block
+    width: "1px", // implicit (1px, 1.5px, 2px)
     opacity: 1, // rgba - alpha[0,1]
-    color: "",
+    color: "black",
   },
   pacecaret: {
     off: true, // none
     style: "line", // line | underline | box | block
+    width: "1px", // implicit (1px, 1.5px, 2px)
     opacity: 0.5, // rgba - alpha[0,1]
-    color: "",
+    color: "gray",
     threshold: {
       last: false, // previous speed
       best: false, // personal best speed
@@ -30,9 +32,6 @@ export default {
     },
   },
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  underline: true, // underline the current word being typed
-  strictspace: true, // default: hitting space will not move caret to next word instead it will be inserted
-  endswithspace: false, // if enabled then to end test user needs to type space after last word
   scroll: {
     abrupt: true,
     smooth: false,
@@ -59,6 +58,7 @@ export default {
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
   },
+  spacestrict: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
@@ -84,6 +84,7 @@ export default {
     word: false,
   },
   text: {
+    underline: false, // underline the current word being typed
     word: {
       count: 30, // 10 | 25 | 50 | 100 | infinite | input
       type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm

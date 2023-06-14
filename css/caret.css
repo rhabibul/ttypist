@@ -33,12 +33,12 @@ box-shadow: offset-x | offset-y | blur-radius | color
   0%,
   50% {
     /* border-left-color: var(--caret-color); */
-    box-shadow: -1px 0px 0px var(--caret-color);
+    box-shadow: var(--caret-width-line) 0px 0px var(--caret-color);
   }
   51%,
   100% {
     /* border-left-color: var(--caret-color-hidden); */
-    box-shadow: -1px 0px 0px var(--caret-color-hidden);
+    box-shadow: var(--caret-width-line) 0px 0px var(--caret-color-hidden);
   }
 }
 
