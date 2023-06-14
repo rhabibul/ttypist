@@ -15,7 +15,7 @@ div.testSetting {
 
 div.row {
 	padding: 8px;
-	border: 1px dashed red;	
+	border: 1px dashed blue;
 }
 div.column {
 	margin: 8px;
@@ -403,21 +403,80 @@ input[type="radio"]:checked + label {
   text-decoration-skip-ink: all;
 }
 
+/* --------------------------> color selection <-------------------------- */
 input[type="color"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+
+	width: 30px;
 	height: 30px;
-	width: 50px;
-	border: none;
+	
 	cursor: pointer;
+	writing-mode: horizontal-tb !important;
 	background-color: transparent;
+	padding: 0px;
+	margin: 0px;
+	outline: none;
+	border: none;
+
+  position: relative;
+}
+input[type="color"]::before {
+	content: '';
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+	cursor: pointer;
+  pointer-events: none; /* This allows you to click on the main input. */
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
 }
 input[type="color"]:-webkit-color-swatch {
 	border-radius: none;
 	border: none;
+	outline: none;
 }
 input[type="color"]:-moz-color-swatch {
 	border-radius: none;
 	border: none;
+	outline: none;
+}
+input[type="color"].colorSelector.primaryTextColorSelector::before {
+	background: #061f2c;
+}
+input[type="color"].colorSelector.secondaryTextColorSelector::before {
+	background: #9a9a9a;
+}
+input[type="color"].colorSelector.caretColorSelector::before {
+	background: black;
+}
+input[type="color"].colorSelector.paceCaretColorSelector::before {
+	background: deeppink;
+}
+
+div.colorPickerContainer {
+	height: 30px;
+	width: 125px;
+
+	display: flex;
+	justify-content: space-between;
+	
+	/* border: 1px solid black; */
+	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+	background-color: rgba(245, 245, 245, 0.5);
+}
+div.colorPickerContainer input.colorSelector {
+	height: 100%;
+	/* border: 1px solid yellow; */
+}
+div.colorPickerContainer input.colorInput {
+	height: 100%;
+	width: 90px;
+	border: none;
+	background-color: rgba(245, 245, 245, 0.5);
+	/* border: 1px solid blue; */
 }

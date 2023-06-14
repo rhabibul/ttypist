@@ -16,19 +16,10 @@ window.addEventListener('load', (evt) => {
 	}
 });
 
-// SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
-// 	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
-// 		SettingElement.enterFullscreen.classList.add("hidden");
-// 		SettingElement.exitFullscreen.classList.remove("hidden");
-// 		document.documentElement.requestFullscreen();
-//     TestAreaElement.input.focus();
-// 	} else {
-//     SettingElement.exitFullscreen.classList.add("hidden");
-// 		SettingElement.enterFullscreen.classList.remove("hidden");
-// 		document.exitFullscreen();
-//     TestAreaElement.input.focus();
-// 	}
-// });
+// let colorPicker = document.querySelectorAll('input.colorSelector');
+// colorPicker.addEventListener('input',() => {
+// 	colorPicker.style.setProperty('--color-picker', colorPicker.value)
+// })
 
 // sliders
 const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
@@ -110,3 +101,17 @@ if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
 //     document.body.classList.remove('dark-mode');
 //   }
 // })
+
+// SettingElement.fullscreenToggleButton.addEventListener("click", (evt) => {
+// 	if (!document.fullscreenElement && !SettingElement.enterFullscreen.classList.contains("hidden")) {
+// 		SettingElement.enterFullscreen.classList.add("hidden");
+// 		SettingElement.exitFullscreen.classList.remove("hidden");
+// 		document.documentElement.requestFullscreen();
+//     TestAreaElement.input.focus();
+// 	} else {
+//     SettingElement.exitFullscreen.classList.add("hidden");
+// 		SettingElement.enterFullscreen.classList.remove("hidden");
+// 		document.exitFullscreen();
+//     TestAreaElement.input.focus();
+// 	}
+// });

@@ -266,6 +266,11 @@
   --setting-button-height: 28px;
   --setting-button-backgroundcolor: #fbfdff;
   --setting-icon-color: green;
+
+  --primaryTextColor-colorPicker: black;
+  --secondaryTextColor-colorPicker: black;
+  --caretColor-colorPicker: black;
+  --paceCaretColor-colorPicker: black;
   
   --active-foreground: green;
   --active-background: rgb(176, 255, 176);
