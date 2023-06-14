@@ -48,12 +48,6 @@ slider_fontweight.addEventListener("input", () => {
 	t2.textContent = slider_fontweight.value;
 });
 
-let k = 99;
-for ( let i = 0; i < 100; ++i ) {
-	console.log(`<option value="${k+1}">${k+1}</option>`)
-	k += 1;
-}
-
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
 	console.log("You are currently offline.");

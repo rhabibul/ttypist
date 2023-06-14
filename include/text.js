@@ -27,7 +27,7 @@ export default class Text {
     	TestAreaElement.text.insertAdjacentElement("beforeend", word);
     }
     
-    if ( Config.underline ) {
+    if ( Config.text.underline ) {
       addunderline(this.#words[this.#wordindex]);
     }
   }

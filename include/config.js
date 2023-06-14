@@ -1,16 +1,15 @@
 export default {
-  arrow: true, // implicitly enabled (mystical)
+  arrows: true, // implicitly enabled (mystical)
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
-      condensed: true, // label and buttons visible (toggle description)
-      expanded: false, // label, buttons and description visible
+      condensed: true, // label & buttons visible (toggle description)
+      expanded: false, // all label, buttons and description are visible
     },
   },
-  theme: "light", // light | dimmed | dark
   caret: {
     off: true, // none
-    style: "box", // line | underline | box | block
+    style: "line", // line | underline | box | block
     width: "1px", // implicit (1px, 1.5px, 2px)
     opacity: 1, // rgba - alpha[0,1]
     color: "black",
@@ -32,10 +31,6 @@ export default {
     },
   },
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  scroll: {
-    abrupt: true,
-    smooth: false,
-  },
   input: {
     hidden: true,
     visible: false,
@@ -58,7 +53,7 @@ export default {
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
   },
-  spacestrict: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
+  strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
@@ -66,8 +61,8 @@ export default {
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     insert: true, // insert incorrect letter before to be typed letter
     stop: {
-      letter: false,
-      word: false,
+      letter: false, // stop before letter if wrongly typed
+      word: false, // don't move to the next word until all mistakes are corrected
     },
   },
   highlight: { // by default, future text is brighter than the already typed text
@@ -84,15 +79,10 @@ export default {
     word: false,
   },
   text: {
-    underline: false, // underline the current word being typed
-    word: {
-      count: 30, // 10 | 25 | 50 | 100 | infinite | input
-      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
-      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
-    },
+    underline: true, // underline the current word being typed
     color: {
-      primary: "#1d2021", // future text, text which needs to be typed
-      secondary: "#7b7b7b", // past text, text which has been typed
+      primary: "#061f2c", // future text, text which needs to be typed (more bright)
+      secondary: "#9a9a9a", // past text, text which has been typed (less bright)
     },
     font: {
       size: 1.2, // size of each letter
@@ -109,16 +99,25 @@ export default {
       code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'
     },
+    word: {
+      count: 30, // 10 | 25 | 50 | 100 | infinite | input
+      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
+      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
+    },
     include: {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
-    capitalization: {
+    capitalize: {
       firstletter: false, // capitalize only the first letter of first word in the text
       allfirstletters: false, // capitalize all the first letters of all words in the text
       random: false, // randomly capitalize the first letter of all words in the text
       jumbled: false, // randomly capitalize the letters of a word
-    }
+    },
+    scroll: {
+      abrupt: true,
+      smooth: false,
+    },
   },
   speedunit: {
     cpm: false, // show characters per minute
@@ -175,4 +174,5 @@ export default {
       numpad: true,
     },
   },
+  theme: "light", // light | dimmed | dark
 };

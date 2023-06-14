@@ -38,14 +38,14 @@ export function registerkeydown(evt) {
 		
 		CaretController.removecaretfrom(word.activeletter);
 
-		if ( Config.underline && (text.activewordindex > 0) ) {
+		if ( Config.text.underline && (text.activewordindex > 0) ) {
 			removeunderline(text.prevword);
 			text.incrementwordindex();
 		}
 
 		word.loadword(text.nextword, { nextword: true });
 		
-		if ( Config.underline ) {
+		if ( Config.text.underline ) {
 			addunderline(text.activeword);
 		}
 		CaretController.addcaretto(word.activeletter);
@@ -55,7 +55,7 @@ export function registerkeydown(evt) {
 		CaretController.removecaretfrom(word.activeletter);
 
 		word.activeletter.classList.add("correct");
-		if ( Config.underline ) {
+		if ( Config.text.underline ) {
 			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
 		}
 
@@ -132,14 +132,14 @@ export function registerkeydown(evt) {
 			if ( word.activeletterindex > 0 ) {
 
 				word.activeletter.classList.remove("correct");
-				if ( Config.underline ) {
+				if ( Config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.removecaretfrom(word.activeletter);
 				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
-				if ( Config.underline ) {
+				if ( Config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				
@@ -149,13 +149,13 @@ export function registerkeydown(evt) {
 				removeunderline(text.activeword);
 				word.loadword(text.prevword, { prevword: true });
 				
-				if ( Config.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
+				if ( Config.text.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
 					text.decrementwordindex();
 					addunderline(text.activeword);
 					text.incrementwordindex();
 				}
 				word.activeletter.classList.remove("correct");
-				if ( Config.underline ) {
+				if ( Config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.addcaretto(word.activeletter);
