@@ -255,7 +255,7 @@ details div.list div.item {
 	height: 30px;
 	padding: 0px 6px 0px 12px;
 
-	font-size: 0.95rem;
+	font-size: 0.9rem;
 	font-family: var(--RobotoMono);
 	
 	display: flex;
@@ -292,37 +292,37 @@ details div.list div.item:last-child {
 
 /* ------- config.text.font.family */
 details.textFontFamilyList {
-	width: 160px;
+	width: 185px;
 }
-details.textFontFamilyList summary > div.text {
-	width: 130px;
+details.textFontFamilyList summary > div.text.in-use {
+	width: 155px;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list {
-	width: 180px;
+	width: 100%;
+}
+details.textFontFamilyList div.list div.item.FiraCode {
+	font-size: 0.92rem;
+	font-family: var(--FiraCode);
+}
+details.textFontFamilyList div.list div.item.SourceCodePro {
+	font-size: 0.95rem;
+	font-family: var(--SourceCodePro);
 }
 details.textFontFamilyList div.list div.item.RobotoMono {
 	font-size: 0.9rem;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list div.item.CourierPrime {
-	font-size: 0.9rem;
+	font-size: 0.98rem;
 	font-family: var(--CourierPrime);
 }
-details.textFontFamilyList div.list div.item.FiraCode {
-	font-size: 0.9rem;
-	font-family: var(--FiraCode);
-}
-details.textFontFamilyList div.list div.item.SourceCodePro {
-	font-size: 0.9rem;
-	font-family: var(--SourceCodePro);
-}
 details.textFontFamilyList div.list div.item.UbuntuMono {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-family: var(--UbuntuMono);
 }
 details.textFontFamilyList div.list div.item.SyneMono {
-	font-size: 0.9rem;
+	font-size: 0.98rem;
 	font-family: var(--SyneMono);
 }
 
@@ -332,23 +332,22 @@ details.textWordTypeList {
 }
 details.textWordTypeList summary > div.text {
 	width: 112px;
-
 	font-family: var(--RobotoMono);
 }
 details.textWordTypeList div.list {
-	width: 140px;
+	width: 100%;
 }
 
 /* ------- config.text.word.length */
 details.textWordLengthList {
-	width: 130px;
+	width: 140px;
 }
 details.textWordLengthList summary > div.text {
-	width: 102px;
+	width: 112px;
 	font-family: var(--RobotoMono);
 }
 details.textWordLengthList div.list {
-	width: 200px;
+	width: 100%;
 }
 details.textWordLengthList div.list div.item {
 	justify-content: space-between;
@@ -428,8 +427,8 @@ input[type="color"]::before {
   height: 100%;
 	cursor: pointer;
   pointer-events: none; /* This allows you to click on the main input. */
-	border-top-left-radius: 6px;
-	border-bottom-left-radius: 6px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
 	border: 1px solid var(--setting-button-border-color);
 	border-right: none;
 }
@@ -462,7 +461,7 @@ div.colorPickerContainer {
 	display: flex;
 	justify-content: space-between;
 
-	border-radius: 6px;
+	border-radius: 4px;
 	
 	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
 	background-color: var(--setting-button-backgroundcolor);
@@ -478,7 +477,7 @@ div.colorPickerContainer input.colorInput {
 	outline: none;
 	border: 1px solid var(--setting-button-border-color);
 	border-left: none;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
 	background-color: var(--setting-button-backgroundcolor);
 }
