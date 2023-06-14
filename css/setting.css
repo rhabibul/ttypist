@@ -14,13 +14,13 @@ div.testSetting {
 }
 
 div.row {
+	display: flex;
+	flex-wrap: wrap;
 	padding: 8px;
-	border: 1px dashed blue;
+	border-bottom: 1px dashed lightgray;
 }
 div.column {
-	margin: 8px;
-	padding: 5px;
-	border: 1px dashed red;
+	margin: 5px;
 }
 div.description {
 	height: 10px;

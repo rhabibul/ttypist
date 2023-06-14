@@ -258,7 +258,7 @@
   --caret-animation-iteration-count: 25; /* number of blinks */
   --caret-animation-timing-function: ease-out; /* blink rhythm */
 
-  --setting-caret-color: var(--setting-icon-color);
+  --setting-caret-color: rgb(42, 42, 42);
   --setting-caret-width: 10px;
   --setting-caret-height: 18px;
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
