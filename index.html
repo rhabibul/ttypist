@@ -677,69 +677,69 @@
 
         <div class="column config minimumAccuracyButton s2-1">
           <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           <input class="minimumAccuracyInput" tabindex="0" type="text" placeholder="min acc">
         </div>
         
         <div class="column description"></div>
       </div>
 
-      <div class="row" id="timer">
-        <div class="column config timerTime">
-          <div class="column label">
-            <div class="symbol">
-              <svg class="iconTestTimer" fill="none" height="256px" width="256px" viewBox="0 0 512 512" >
-                <path fill="var(--setting-icon-color)" opacity="0.7" d="M469.337,154.624c6.818,0,13.636-2.594,18.833-7.791c10.385-10.377,10.385-27.281,0-37.666l-34.133-34.133 c-10.385-10.377-27.29-10.377-37.666,0c-8.269,8.269-9.847,20.608-4.958,30.558l-13.85,13.85 c-30.148-25.037-66.995-42.274-107.426-48.538V51.2H306.7c9.685,0,17.57-7.876,17.57-17.562V17.57 C324.27,7.885,316.385,0,306.7,0H205.298c-9.685,0-17.562,7.885-17.562,17.57v16.068c0,9.685,7.876,17.562,17.562,17.562h16.572 v19.703c-40.431,6.263-77.286,23.501-107.426,48.538l-13.858-13.85c4.89-9.95,3.311-22.289-4.949-30.558 c-10.385-10.377-27.29-10.377-37.666,0l-34.133,34.133c-10.394,10.385-10.394,27.29,0,37.666 c5.188,5.197,12.006,7.791,18.833,7.791c6.025,0,11.981-2.15,16.888-6.195l14.694,14.694 c-25.242,36.011-40.115,79.795-40.115,127.01C34.137,412.476,133.661,512,256.003,512c122.334,0,221.867-99.524,221.867-221.867 c0-47.215-14.874-90.999-40.124-127.01l14.703-14.694C457.347,152.474,463.303,154.624,469.337,154.624z M238.937,51.2h34.133 v17.758c-0.324-0.026-0.623-0.017-0.939-0.034c-5.333-0.393-10.701-0.657-16.128-0.657c-5.436,0-10.795,0.265-16.128,0.657 c-0.324,0.017-0.623,0.009-0.939,0.034V51.2z M71.803,136.533l17.801-17.801l12.058,12.066 c-6.059,5.862-11.767,12.049-17.092,18.509L71.803,136.533z M443.737,290.133c0,51.592-20.924,98.372-54.716,132.343 c-0.119,0.119-0.154,0.282-0.273,0.41c-0.119,0.119-0.282,0.154-0.41,0.265c-33.963,33.801-80.751,54.716-132.335,54.716 c-51.593,0-98.372-20.915-132.344-54.716c-0.119-0.111-0.282-0.145-0.41-0.265c-0.119-0.128-0.154-0.29-0.265-0.41 C89.185,388.506,68.27,341.726,68.27,290.133c0-51.584,20.915-98.372,54.716-132.335c0.111-0.128,0.145-0.29,0.265-0.41 c0.128-0.119,0.29-0.154,0.41-0.265c33.971-33.801,80.751-54.724,132.344-54.724c51.584,0,98.372,20.924,132.335,54.724 c0.128,0.111,0.29,0.145,0.41,0.265c0.12,0.119,0.154,0.282,0.273,0.41C422.813,191.761,443.737,238.549,443.737,290.133z M427.429,149.308c-5.325-6.46-11.034-12.646-17.084-18.509l12.058-12.066l17.8,17.801L427.429,149.308z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.9" d="M401.066,281.604h25.165c-2.022-40.61-18.227-77.457-43.861-105.771l-17.758,17.758c-1.664,1.664-3.849,2.5-6.033,2.5 c-2.185,0-4.369-0.836-6.033-2.5c-3.337-3.336-3.337-8.73,0-12.066l17.758-17.758c-28.314-25.634-65.161-41.839-105.771-43.861 v25.165c0,4.71-3.823,8.533-8.533,8.533s-8.533-3.823-8.533-8.533v-25.165c-40.61,2.022-77.457,18.227-105.771,43.861 l17.758,17.758c3.337,3.337,3.337,8.73,0,12.066c-1.664,1.664-3.849,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5 l-17.758-17.758c-25.634,28.314-41.839,65.161-43.861,105.771h25.165c4.71,0,8.533,3.823,8.533,8.533 c0,4.71-3.823,8.533-8.533,8.533H85.768c2.022,40.61,18.227,77.457,43.861,105.771l17.758-17.758 c3.337-3.336,8.73-3.336,12.066,0c3.337,3.337,3.337,8.73,0,12.066l-17.758,17.758c28.314,25.626,65.161,41.839,105.771,43.861 v-25.165c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v25.165c40.61-2.022,77.457-18.236,105.771-43.861 l-17.758-17.758c-3.337-3.337-3.337-8.73,0-12.066c3.337-3.336,8.73-3.336,12.066,0l17.758,17.758 c25.634-28.314,41.839-65.161,43.861-105.771h-25.165c-4.71,0-8.533-3.823-8.533-8.533 C392.533,285.427,396.356,281.604,401.066,281.604z M256,324.066c-18.765,0-34.031-15.266-34.031-34.031 c0-15.804,10.871-29.005,25.498-32.819v-78.012c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v78.012 c14.626,3.814,25.498,17.015,25.498,32.819C290.031,308.8,274.765,324.066,256,324.066z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
-              </svg>
-            </div>
-            <div class="text">timer</div>
+      <!-- timer (15 | 30 | 60 | 120 | custom) -->
+      <div class="row" id="timerTime">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconTestTimer" height="256px" width="256px" viewBox="0 0 512 512">
+              <path fill="var(--setting-icon-color)" opacity="0.7" d="M469.337,154.624c6.818,0,13.636-2.594,18.833-7.791c10.385-10.377,10.385-27.281,0-37.666l-34.133-34.133 c-10.385-10.377-27.29-10.377-37.666,0c-8.269,8.269-9.847,20.608-4.958,30.558l-13.85,13.85 c-30.148-25.037-66.995-42.274-107.426-48.538V51.2H306.7c9.685,0,17.57-7.876,17.57-17.562V17.57 C324.27,7.885,316.385,0,306.7,0H205.298c-9.685,0-17.562,7.885-17.562,17.57v16.068c0,9.685,7.876,17.562,17.562,17.562h16.572 v19.703c-40.431,6.263-77.286,23.501-107.426,48.538l-13.858-13.85c4.89-9.95,3.311-22.289-4.949-30.558 c-10.385-10.377-27.29-10.377-37.666,0l-34.133,34.133c-10.394,10.385-10.394,27.29,0,37.666 c5.188,5.197,12.006,7.791,18.833,7.791c6.025,0,11.981-2.15,16.888-6.195l14.694,14.694 c-25.242,36.011-40.115,79.795-40.115,127.01C34.137,412.476,133.661,512,256.003,512c122.334,0,221.867-99.524,221.867-221.867 c0-47.215-14.874-90.999-40.124-127.01l14.703-14.694C457.347,152.474,463.303,154.624,469.337,154.624z M238.937,51.2h34.133 v17.758c-0.324-0.026-0.623-0.017-0.939-0.034c-5.333-0.393-10.701-0.657-16.128-0.657c-5.436,0-10.795,0.265-16.128,0.657 c-0.324,0.017-0.623,0.009-0.939,0.034V51.2z M71.803,136.533l17.801-17.801l12.058,12.066 c-6.059,5.862-11.767,12.049-17.092,18.509L71.803,136.533z M443.737,290.133c0,51.592-20.924,98.372-54.716,132.343 c-0.119,0.119-0.154,0.282-0.273,0.41c-0.119,0.119-0.282,0.154-0.41,0.265c-33.963,33.801-80.751,54.716-132.335,54.716 c-51.593,0-98.372-20.915-132.344-54.716c-0.119-0.111-0.282-0.145-0.41-0.265c-0.119-0.128-0.154-0.29-0.265-0.41 C89.185,388.506,68.27,341.726,68.27,290.133c0-51.584,20.915-98.372,54.716-132.335c0.111-0.128,0.145-0.29,0.265-0.41 c0.128-0.119,0.29-0.154,0.41-0.265c33.971-33.801,80.751-54.724,132.344-54.724c51.584,0,98.372,20.924,132.335,54.724 c0.128,0.111,0.29,0.145,0.41,0.265c0.12,0.119,0.154,0.282,0.273,0.41C422.813,191.761,443.737,238.549,443.737,290.133z M427.429,149.308c-5.325-6.46-11.034-12.646-17.084-18.509l12.058-12.066l17.8,17.801L427.429,149.308z"></path>
+              <path fill="var(--setting-icon-color)" opacity="0.9" d="M401.066,281.604h25.165c-2.022-40.61-18.227-77.457-43.861-105.771l-17.758,17.758c-1.664,1.664-3.849,2.5-6.033,2.5 c-2.185,0-4.369-0.836-6.033-2.5c-3.337-3.336-3.337-8.73,0-12.066l17.758-17.758c-28.314-25.634-65.161-41.839-105.771-43.861 v25.165c0,4.71-3.823,8.533-8.533,8.533s-8.533-3.823-8.533-8.533v-25.165c-40.61,2.022-77.457,18.227-105.771,43.861 l17.758,17.758c3.337,3.337,3.337,8.73,0,12.066c-1.664,1.664-3.849,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5 l-17.758-17.758c-25.634,28.314-41.839,65.161-43.861,105.771h25.165c4.71,0,8.533,3.823,8.533,8.533 c0,4.71-3.823,8.533-8.533,8.533H85.768c2.022,40.61,18.227,77.457,43.861,105.771l17.758-17.758 c3.337-3.336,8.73-3.336,12.066,0c3.337,3.337,3.337,8.73,0,12.066l-17.758,17.758c28.314,25.626,65.161,41.839,105.771,43.861 v-25.165c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v25.165c40.61-2.022,77.457-18.236,105.771-43.861 l-17.758-17.758c-3.337-3.337-3.337-8.73,0-12.066c3.337-3.336,8.73-3.336,12.066,0l17.758,17.758 c25.634-28.314,41.839-65.161,43.861-105.771h-25.165c-4.71,0-8.533-3.823-8.533-8.533 C392.533,285.427,396.356,281.604,401.066,281.604z M256,324.066c-18.765,0-34.031-15.266-34.031-34.031 c0-15.804,10.871-29.005,25.498-32.819v-78.012c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v78.012 c14.626,3.814,25.498,17.015,25.498,32.819C290.031,308.8,274.765,324.066,256,324.066z"></path>
+              <path fill="var(--setting-icon-color)" opacity="1.0" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
+            </svg>
           </div>
+          <div class="text">timer</div>
+        </div>
+        <div class="timerTimeButtonContainer">
+          <div class="column config timerTimeButton s5-1">
+            <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
+            <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
+            <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
+            <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
+            <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
+          </div>
+          <div hidden class="timerTimeCustomInputContainer"><input class="timerTimeCustomInput" type="number" placeholder="25"></div>
+        </div>
+      </div>
 
-          <div class="timerTimerButtonContainer">
-            <div class="column config timerTimerButton s5-1">
-              <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
-              <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
-              <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
-              <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
-              <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
-            </div>
-            <div hidden class="timerTimeCustomInputContainer"> <input class="timerTimeCustomInput" type="number" placeholder="25"> </div>
+      <!-- timer visibility (off | on) -->
+      <div class="row" id="timerTimeVisibility">
+        <div class="column label">
+          <div class="symbol">
+            <svg class="iconHide" width="256px" height="256px" viewBox="0 0 24 24">
+              <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
+              <path   fill="var(--setting-icon-color)" opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" d="M15.7872 16.9085L6.85842 7.97974C5.54385 8.96489 4.48541 10.1167 3.81198 10.9343C3.42382 11.4056 3.22974 11.6412 3.22974 12C3.22974 12.3588 3.42382 12.5944 3.81198 13.0657C5.23207 14.7899 8.36428 18 12 18C13.3529 18 14.636 17.5555 15.7872 16.9085ZM9.57695 6.45563C10.3479 6.17115 11.1605 6 12 6C15.6357 6 18.768 9.21014 20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C19.7137 13.6416 19.0484 14.3833 18.2371 15.1157L9.57695 6.45563Z"></path>
+              <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
+              <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="1.2" d="M8 5L20 17"></path>
+            </svg>
           </div>
+          <div class="text">hide timer</div>
         </div>
 
-        <div class="column config timerTimeVisibility">
-          <div class="column label">
-            <div class="symbol">
-              <svg class="iconHide" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path fill="var(--setting-icon-color)" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
-                <path  fill="var(--setting-icon-color)" fill-opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M15.7872 16.9085L6.85842 7.97974C5.54385 8.96489 4.48541 10.1167 3.81198 10.9343C3.42382 11.4056 3.22974 11.6412 3.22974 12C3.22974 12.3588 3.42382 12.5944 3.81198 13.0657C5.23207 14.7899 8.36428 18 12 18C13.3529 18 14.636 17.5555 15.7872 16.9085ZM9.57695 6.45563C10.3479 6.17115 11.1605 6 12 6C15.6357 6 18.768 9.21014 20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C19.7137 13.6416 19.0484 14.3833 18.2371 15.1157L9.57695 6.45563Z"></path>
-                <path fill="var(--setting-icon-color)" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="1.2" d="M8 5L20 17"></path>
-              </svg>
-            </div>
-            <div class="text">hide timer</div>
-          </div>
-
-          <div class="column config timerTimeVisibilityButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
-          </div>
+        <div class="column config timerTimeVisibilityButton s2">
+          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
-        
+
         <div class="column description"></div>
       </div>
 
+      <!-- text.word.count (10 | 25 | 50 | 1000 | custom) -->
       <div class="row" id="textWordCount">
         <div class="column label">
           <div class="symbol">
-            <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00" fill="none">
-              <rect x="-3" y="-3" width="26.00" height="26.00" rx="13" opacity="0.2" fill="var(--setting-icon-color)" strokewidth="0"></rect>
-              <line x1="4" y1="7.25" x2="16" y2="7.25" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line>
-              <line x1="4" y1="12.75" x2="16" y2="12.75" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"></line>
-              <path d="M7.75 4L6.75 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"> </path>
-              <path d="M13.25 4L12.25 16" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round"> </path>
+            <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00">
+              <rect   fill="var(--setting-icon-color)" opacity="0.1" stroke-width="0" width="26.00" height="26.00" x="-3" y="-3" rx="13"></rect>
+              <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="7.25" x2="16" y2="7.25"></line>
+              <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="12.75" x2="16" y2="12.75"></line>
+              <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M7.75 4L6.75 16"> </path>
+              <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M13.25 4L12.25 16"> </path>
             </svg>
           </div>
           <div class="text">word count</div>
@@ -747,35 +747,37 @@
 
         <div class="textWordCountButtonContainer">
           <div class="column config textWordCountButton s5-1">
-            <button class="button words10"         tabindex="0" role="button" type="button" value="10" >10</button>
-            <button class="button words25"         tabindex="0" role="button" type="button" value="25" >25</button>
-            <button class="button words50"         tabindex="0" role="button" type="button" value="50" >50</button>
+            <button class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
+            <button class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
+            <button class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
             <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
-            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"  > <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg> </div> </button>
+            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
           </div>
-          <div hidden class="textWordCountCustomInputContainer"> <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"> </div>
+          <div hidden class="textWordCountCustomInputContainer"><input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"></div>
         </div>
 
         <div class="column description"></div>
       </div>
 
+      <!-- text.include (digit | punctuation) -->
       <div class="row" id="textInclude">
-        <div class="column label">
-          <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path> </svg> </div>
+        <div class="column label sub">
+          <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
           <div class="text">include</div>
         </div>
 
-        <div class="column config textInclude">
-          <button type="button" value="digit" class="button digit">digit</button>
-          <button type="button" value="punctuation" class="button punctuation">punctuation</button>
+        <div class="column config textInclude s2">
+          <button class="button digit"       tabindex="0" role="button" type="button" value="digit">digit</button>
+          <button class="button punctuation" tabindex="0" role="button" type="button" value="punctuation">punctuation</button>
         </div>
 
         <div class="column description"></div>
       </div>
 
+      <!-- text.capitalize (off | firstletter | allfirstletters | randomly | jumbled) -->
       <div class="row" id="textCapitalization">
         <div class="column label">
-          <div class="symbol"> <svg class="iconTextCapitalization" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </path> </svg> </div>
+          <div class="symbol"> <svg class="iconTextCapitalizationRadio" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </path> </svg> </div>
           <div class="text">text capitalization</div>
         </div>
 
@@ -809,6 +811,7 @@
         <div class="column description"></div>
       </div>
 
+      <!-- text.font.family (Nunito | Mona Sans | Courier Prime | Fira Code | Source Code Pro | Roboto Mono | Ubuntu Mono | Syne Mono) -->
       <div class="row" id="textFontFamily">
         <div class="column label">
           <div class="symbol">
@@ -827,40 +830,48 @@
           <details class="config textFontFamilyList">
             <summary>
               <div class="text in-use">roboto mono</div>
-              <div class="symbol"><svg class="dropdownArrowDdown" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"> </path></svg></div>
+              <div class="symbol"><svg class="dropdownArrowDdown" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
+
             <div class="list">
               <div class="item Nunito" data-value="Nunito">
                 <div class="text">Nunito</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path> </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item MonaSans" data-value="Mona Sans">
                 <div class="text">Mona Sans</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path> </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item CourierPrime" data-value="Courier Prime">
                 <div class="text">Courier Prime</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path> </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item FiraCode" data-value="Fira Code">
                 <div class="text">Fira Code</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item SourceCodePro" data-value="Source Code Pro">
                 <div class="text">Source Code Pro</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+              
               <div class="item RobotoMono" data-value="Roboto Mono">
                 <div class="text">Roboto Mono</div>
-                <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
+                <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item UbuntuMono" data-value="Ubuntu Mono">
                 <div class="text">Ubuntu Mono</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item SyneMono" data-value="Syne Mono">
                 <div class="text">Syne Mono</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
             </div>
           </details>
@@ -869,6 +880,7 @@
         <div class="column description"></div>
       </div>
 
+      <!-- text.word.type (quote | poetry | story | dictionary | root | gibberish | algorithm) -->
       <div class="row" id="textWordType">
         <div class="column label">
           <div class="symbol">
@@ -887,68 +899,43 @@
           <details class="config textWordTypeList">
             <summary>
               <div class="text in-use">dictionary</div>
-              <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16">
-                  <path
-                    d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z">
-                  </path>
-                </svg> </div>
+              <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
+
             <div class="list">
               <div class="item quote" data-value="quote">
                 <div class="text">quote</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item poetry" data-value="poetry">
                 <div class="text">poetry</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+              
               <div class="item story" data-value="story">
                 <div class="text">story</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item dictionary" data-value="dictionary">
                 <div class="text">dictionary</div>
-                <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
               </div>
+
               <div class="item root" data-value="root">
                 <div class="text">root</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+              
               <div class="item gibberish" data-value="gibberish">
                 <div class="text">gibberish</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
+
               <div class="item algorithm" data-value="algorithm">
                 <div class="text">algorithm</div>
-                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16">
-                    <path
-                      d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                    </path>
-                  </svg></div>
+                <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
               </div>
             </div>
           </details>
@@ -957,6 +944,7 @@
         <div class="column description"></div>
       </div>
 
+      <!-- text.word.length (short | medium | long | very long | random) -->
       <div class="row" id="textWordLength">
         <div class="column label">
           <div class="symbol">
@@ -986,8 +974,9 @@
           <details class="config textWordLengthList">
             <summary>
               <div class="text in-use">random</div>
-              <div class="symbol"> <svg width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"> </path> </svg> </div>
+              <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
+
             <div class="list">
               <div class="item short" data-value="short">
                 <div class="text">short</div>
@@ -1021,6 +1010,7 @@
         <div class="column description"></div>
       </div>
       
+      <!-- usefloats (off | on) -->
       <div class="row" id="useFloats">
         <div class="column label sub">
           <div class="symbol iconUseFloats">00</div>
@@ -1029,15 +1019,16 @@
 
         <div class="column config useFloatsButton s2">
           <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
       </div>
       
+      <!-- speedunit (wpm | cpm) -->
       <div class="row " id="speedUnit">
         <div class="column label">
-          <div class="symbol"> <svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path> </svg> </div>
+          <div class="symbol"> <svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
           <div class="text">speed unit</div>
         </div>
 

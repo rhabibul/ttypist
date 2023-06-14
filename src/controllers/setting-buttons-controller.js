@@ -9,11 +9,11 @@ import * as TestAreaElement from "../elements/testarea-elements.js";
 // setting
 //    - update internal state (config object)
 //    - update external state (ui changes - buttons)
-//    - update dependencies between among setting config options in both internal and external states
+//    - update dependencies between among setting config options in both
+//  		internal and external states
 
 // input field
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
-
 
 // "open" attribute can be used on details tag to keep it open
 // details.addEventListener("toggle", (event) => {
@@ -23,3 +23,6 @@ TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.foc
 //     // the element was toggled closed
 //   }
 // });
+
+// 🫵
+// use evt.isTrusted to prevent bots clicking any button on ttypist
