@@ -168,12 +168,21 @@ export default {
     language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
     layout: "qwerty", // qwerty | dvorak | colemak | workman
     emulate: false,
-    visible: {
-      function: true,
-      alphanumeric: true,
-      arrowpad: true,
-      controlpad: true,
-      numpad: true,
+
+    sections: {
+
+      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
+      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert Home PageUp   •   NumLock  /   *  -
+      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete End  PageDown •   7        8   9  +
+      RowC: true, // 
+      RowB: true, // 
+      RowA: true, // 
+
+      ArrowPad: true,
+      ControlPad: true,
+      NumPad: true,
+      Function: true,
+      Alphanumeric: true,
     },
   },
   theme: "light", // light | dimmed | dark
