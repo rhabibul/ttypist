@@ -140,7 +140,7 @@ export default {
       accuracy: false, // live accuracy
       burst: false,    // live burst, speed of last word typed
     },
-    calculation_interval: { // calculation interval for speed, accuracy, burst
+    interval: { // calculation interval for speed, accuracy, burst
       word: false, // calculate after every word
       keystroke: true, // calculate after each keystroke
       second: false, // calculate after every one second
