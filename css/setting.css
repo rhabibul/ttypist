@@ -16,6 +16,7 @@ div.testSetting {
 div.row {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	padding: 8px;
 	border-bottom: 1px dashed lightgray;
 }
@@ -118,6 +119,7 @@ svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
+svg.iconModifierKeys,
 svg.iconBomb,
 svg.iconLiveStatusInterval,
 svg.iconDynamicSettingChange {
@@ -140,7 +142,6 @@ svg.iconTestDifficulty {
 svg.iconExtraLetterError,
 svg.iconLiveStatus,
 svg.iconOppositeShiftMode,
-svg.iconModifierKeys,
 svg.iconTheme,
 svg.iconTextFontSize {
 	width: 23px;
@@ -369,20 +370,20 @@ details.textWordLengthList div.list div.item div.text.range {
 	font-size: 0.8rem;
 }
 
-div.config.textCapitalization {
+div.config.textCapitalizationRadioButton {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 	column-gap: 10px;
-	
-	font-size: 0.85rem;
-	font-family: var(--RobotoMono);
+	font-size: 0.8rem;
+
 }
-div.config.textCapitalization div.radioButton {
+div.config.textCapitalizationRadioButton div.radioButton {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	column-gap: 5px;
+	font-family: var(--RobotoMono);
 }
 
 /* --------------------------> text capitalization <-------------------------- */
@@ -443,7 +444,7 @@ input[type="color"]:-moz-color-swatch {
 	outline: none;
 }
 input[type="color"].colorSelector.primaryTextColorSelector::before {
-	background: #061f2c;
+	background: #001e2e;
 }
 input[type="color"].colorSelector.secondaryTextColorSelector::before {
 	background: #9a9a9a;
