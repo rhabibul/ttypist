@@ -258,14 +258,14 @@
   --caret-animation-iteration-count: 25; /* number of blinks */
   --caret-animation-timing-function: ease-out; /* blink rhythm */
 
-  --setting-caret-color: rgb(42, 42, 42);
+  --setting-caret-color: black;
   --setting-caret-width: 10px;
   --setting-caret-height: 18px;
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
   --setting-button-border-color: rgba(31, 35, 40, 0.15);
   --setting-button-height: 30px;
   --setting-button-backgroundcolor: #fbfdff;
-  --setting-icon-color: green;
+  --setting-icon-color: black;
 
   --primaryTextColor-colorPicker: black;
   --secondaryTextColor-colorPicker: black;
