@@ -119,21 +119,6 @@ export default {
       smooth: false,
     },
   },
-  speedunit: {
-    cpm: false, // show characters per minute
-    wpm: true, // show words per minute
-  },
-  usefloats: false, // display floating point number
-  live: {
-    interval: { // calculation interval for speed, accuracy, burst
-      word: false, // calculate after every word
-      keystroke: true, // calculate after each keystroke
-      second: false, // calculate after every one second
-    },
-    speed: false,    // show live speed in wpm/cpm
-    accuracy: false, // show live accuracy
-    burst: false,    // show live burst, speed of last word typed
-  },
   timer: {
     off: false,
     seconds: 60, // 15 | 30 | 60 | 120 | custom
@@ -148,6 +133,23 @@ export default {
       off: true,
       threshold: 0,
     },
+  },
+  statistics: {
+    live: {
+      speed: false,    // live speed in wpm/cpm
+      accuracy: false, // live accuracy
+      burst: false,    // live burst, speed of last word typed
+    },
+    calculation_interval: { // calculation interval for speed, accuracy, burst
+      word: false, // calculate after every word
+      keystroke: true, // calculate after each keystroke
+      second: false, // calculate after every one second
+    },
+    unit: {
+      cpm: false, // characters per minute
+      wpm: true, // words per minute
+    },
+    usefloats: false, // display floating point number
   },
   warning: {
     focus: true, // user is out of focus (not typing anymore)
