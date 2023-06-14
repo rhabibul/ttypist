@@ -237,7 +237,7 @@ details div.list {
 	position: absolute;
 	top: 100%;
 	right: 0px;
-	margin-top: 5px;
+	margin-top: 3px;
 
 	display: flex;
 	flex-direction: column;
