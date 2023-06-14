@@ -85,9 +85,9 @@ export default {
       secondary: "#9a9a9a", // past text, text which has been typed (less bright)
     },
     font: {
-      size: 1.2, // size of each letter
-      weight: 445, // thickness of each letter
-      family: "Roboto Mono", // roboto | fira | mona | ubuntu | syne | source | VT323 | fuzzy | tsukimi | rampart | rubik | diploma | work | mona | nunito
+      size: 1.2, // size of letter
+      weight: 445, // thickness of letter
+      family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
     },
     whitespace: {
       off: false, // nospace
@@ -101,8 +101,8 @@ export default {
     },
     word: {
       count: 30, // 10 | 25 | 50 | 100 | infinite | input
-      type: "dictionary", // dictionary | root | gibberish | quote | story | algorithm
-      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, <=12) | very long(>=13) | random
+      type: "dictionary", // dictionary | gibberish | quote | story | algorithm
+      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, inf) | mixed
     },
     include: {
       digit: false, // include numbers along with words
