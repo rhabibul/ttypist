@@ -172,11 +172,11 @@ export default {
     sections: {
 
       RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
-      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert Home PageUp   •   NumLock  /   *  -
-      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete End  PageDown •   7        8   9  +
-      RowC: true, // 
-      RowB: true, // 
-      RowA: true, // 
+      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
+      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete      End        PageDown    •   7  8  9  +
+      RowC: true, // CapsLock A S D F G H J K L :; "' Enter             •                                      •   4  5  6  +
+      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
+      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
 
       ArrowPad: true,
       ControlPad: true,
