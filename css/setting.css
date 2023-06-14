@@ -34,16 +34,20 @@ div.config {
 
 div.config .button {
 	height: 28px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	margin: 2px;
 	padding: 0px 8px;
 	font-size: 0.8rem;
 	font-family: var(--RobotoMono);
-	background-color: var(--setting-button-backgroundcolor);
-  border: 1px solid var(--setting-button-border-color);
+
 	border-radius: 3px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  border: 1px solid var(--setting-button-border-color);
+	background-color: var(--setting-button-backgroundcolor);
+	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
 }
 
 div.paceCaretSpeed {
@@ -434,6 +438,8 @@ input[type="color"]::before {
   pointer-events: none; /* This allows you to click on the main input. */
 	border-top-left-radius: 6px;
 	border-bottom-left-radius: 6px;
+	border: 1px solid var(--setting-button-border-color);
+	border-right: none;
 }
 input[type="color"]:-webkit-color-swatch {
 	border-radius: none;
@@ -460,23 +466,26 @@ input[type="color"].colorSelector.paceCaretColorSelector::before {
 
 div.colorPickerContainer {
 	height: 30px;
-	width: 125px;
+	width: 120px;
 
 	display: flex;
 	justify-content: space-between;
+
+	border-radius: 6px;
 	
-	/* border: 1px solid black; */
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-	background-color: rgba(245, 245, 245, 0.5);
+	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
+	background-color: var(--setting-button-backgroundcolor);
 }
 div.colorPickerContainer input.colorSelector {
 	height: 100%;
-	/* border: 1px solid yellow; */
 }
 div.colorPickerContainer input.colorInput {
 	height: 100%;
 	width: 90px;
-	border: none;
-	background-color: rgba(245, 245, 245, 0.5);
-	/* border: 1px solid blue; */
+	padding-left: 5px;
+	border: 1px solid var(--setting-button-border-color);
+	border-left: none;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	background-color: var(--setting-button-backgroundcolor);
 }
