@@ -119,7 +119,7 @@ svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
-svg.iconModifierKeys,
+svg.iconKeyboard,
 svg.iconBomb,
 svg.iconDynamicSettingChange {
 	width: 21px;
@@ -351,22 +351,40 @@ details.textWordLengthList div.list {
 details.textWordLengthList div.list div.item {
 	justify-content: space-between;
 }
-details.textWordLengthList div.list div.item div.text,
-details.textWordLengthList div.list div.item div.text.range {
+details.textWordLengthList div.list div.item div.text {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
-
 details.textWordLengthList div.list div.item div.text {
 	flex-basis: 50%;
 }
-details.textWordLengthList div.list div.item div.text.range {
-	color: #a0a0a0;
-	flex-basis: 30%;
-	font-size: 0.8rem;
+
+/* ------- config.keyboard.language */
+details.UIKeyboardLanguage {
+	width: 140px;
 }
+details.UIKeyboardLanguage summary > div.text {
+	width: 112px;
+	font-family: var(--RobotoMono);
+}
+details.UIKeyboardLanguage div.list {
+	width: 100%;
+}
+
+/* ------- config.keyboard.layout */
+details.UIKeyboardLayout {
+	width: 140px;
+}
+details.UIKeyboardLayout summary > div.text {
+	width: 112px;
+	font-family: var(--RobotoMono);
+}
+details.UIKeyboardLayout div.list {
+	width: 100%;
+}
+
 
 div.config.textCapitalizationRadioButton {
 	display: flex;

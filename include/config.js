@@ -172,8 +172,10 @@ export default {
     },
   
     language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
-    layout: "qwerty", // qwerty | dvorak | colemak | workman
-    emulate: false,
+    layout: {
+      keymap: "qwerty", // qwerty | dvorak | colemak | workman
+      emulate: false,
+    },
 
     section: {
       RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
