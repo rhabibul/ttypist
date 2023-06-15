@@ -254,13 +254,16 @@
             <div class="text">speed</div>
           </div>
           <div class="paceCaretSpeedButtonContainer">
-            <div class="column config paceCaretSpeedButton s4-1">
-              <button class="button last"    tabindex="0" role="button" type="button" value="last">last</button>
-              <button class="button average" tabindex="0" role="button" type="button" value="average">average</button>
-              <button class="button best"    tabindex="0" role="button" type="button" value="personalbest">best</button>
-              <button class="button custom"  tabindex="0" role="button" type="button" value="custom"> <div class="symbol"><svg class="iconPaceCaretSpeedCustom" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div> </button>
+            <div class="column config paceCaretSpeedButton s5-1">
+              <button id="selected"  class="button off"     tabindex="0" role="button" type="button" value="off">off</button>
+              <button                class="button last"    tabindex="0" role="button" type="button" value="last">last</button>
+              <button                class="button average" tabindex="0" role="button" type="button" value="average">average</button>
+              <button                class="button best"    tabindex="0" role="button" type="button" value="personalbest">best</button>
+              <button                class="button custom"  tabindex="0" role="button" type="button" value="custom"> <div class="symbol"><svg class="iconPaceCaretSpeedCustom" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div> </button>
             </div>
-            <div hidden class="paceCaretSpeedCutomInputContainer"><input class="paceCaretSpeedCutomInput" type="number" placeholder="wpm"></div>
+            <div hidden class="paceCaretSpeedCutomInputContainer s1">
+              <input class="paceCaretSpeedCutomInput" type="number" placeholder="wpm">
+            </div>
           </div>
         </div>
 
@@ -916,9 +919,9 @@
 
         <div class="textWordCountButtonContainer">
           <div class="column config textWordCountButton s6-1">
-            <button id="selected" class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
+            <button               class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
             <button               class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
-            <button               class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
+            <button id="selected" class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
             <button               class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
             <button               class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
             <button               class="button wordCountCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>

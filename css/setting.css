@@ -390,7 +390,7 @@ input[type="radio"] + label {
 }
 input[type="radio"]:checked + label {
 	color: black;
-  text-decoration-color: gray;
+  text-decoration-color: #c3c3c3;
   text-decoration-style: solid;
   text-decoration-line: underline;
   text-underline-offset: 2px;
