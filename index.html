@@ -1211,9 +1211,34 @@
         <div class="column description"></div>
       </div>
 
-      <div class="row" id="keyboard">
-
+      <!-- keyboard (off | on) -->
+      <div class="row" id="keyboardToggle">
+        <div class="column label sub">
+          <div class="symbol"></div>
+          <div class="text">ui keyboard</div>
+        </div>
+        <div class="column config keyboardToggleButton s2">
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+        </div>
+        <div class="column description"></div>
       </div>
+
+      <!-- keyboard.reaction (static | react | next) -->
+      <div class="row" id="keyboardReaction">
+        <div class="column label sub">
+          <div class="symbol"></div>
+          <div class="text">keyboard reaction</div>
+        </div>
+        <div class="column config keyboardReactionButton s3">
+          <button id="selected" class="button static" tabindex="0" role="button" type="button" value="static">static</button>
+          <button               class="button react"  tabindex="0" role="button" type="button" value="react">react</button>
+          <button               class="button next"   tabindex="0" role="button" type="button" value="next">next</button>
+        </div>
+        <div class="column description"></div>
+      </div>
+
+      <!-- language, layout, emulate -->
 
       <keyboard>
         <row id="K"> <key> </key> </row>

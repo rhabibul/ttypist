@@ -166,7 +166,6 @@ export default {
     off: false, // toggle UI keyboard
 
     reaction: {
-      off: false,
       static: false,
       react: true,
       next: false,
