@@ -160,20 +160,23 @@ export default {
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
   },
+  theme: "light", // light | dimmed | dark
+
   keyboard: {
     off: false, // toggle UI keyboard
+
     reaction: {
       off: false,
       static: false,
       react: true,
       next: false,
     },
+  
     language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
     layout: "qwerty", // qwerty | dvorak | colemak | workman
     emulate: false,
 
-    sections: {
-
+    section: {
       RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
       RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
       RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete      End        PageDown    •   7  8  9  +
@@ -181,12 +184,14 @@ export default {
       RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
       RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
 
-      ArrowPad: true,
-      ControlPad: true,
-      NumPad: true,
-      Function: true,
-      Alphanumeric: true,
+      arrowpad: true,
+      controlpad: true,
+      numpad: true,
+      function: true,
+      alphanumeric: {
+        numrow: true,
+        alphabets: true,
+      }
     },
   },
-  theme: "light", // light | dimmed | dark
 };
