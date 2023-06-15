@@ -48,7 +48,6 @@ div.config button.button {
 	border-radius: 3px;
   border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
-	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
 }
 
 div.paceCaretSpeed {
@@ -110,6 +109,7 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
+svg.iconLiveStatusInterval,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconFontWeight,
@@ -121,7 +121,6 @@ svg.iconDynamicSettingChange {
 }
 svg.iconModifierKeys,
 svg.iconBomb,
-svg.iconLiveStatusInterval,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
@@ -387,7 +386,7 @@ div.config.textCapitalizationRadioButton div.radioButton {
 
 /* --------------------------> text capitalization <-------------------------- */
 input[type="radio"] + label {
-	color: #6e6e6e;
+	color: #575757;
 }
 input[type="radio"]:checked + label {
 	color: black;

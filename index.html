@@ -329,8 +329,8 @@
         </div>
 
         <div class="column config dynamicSettingChangeButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
         
         <div class="column description"></div>
@@ -353,8 +353,8 @@
         </div>
 
         <div class="column config settingFieldViewButton s2">
-          <button class="button condensed" tabindex="0" role="button" type="button">condensed</button>
-          <button class="button expanded"  tabindex="0" role="button" type="button">expanded</button>
+          <button id="selected" class="button condensed" tabindex="0" role="button" type="button">condensed</button>
+          <button               class="button expanded"  tabindex="0" role="button" type="button">expanded</button>
         </div>
         
         <div class="column description"></div>
@@ -398,9 +398,9 @@
         </div>
 
         <div class="column config liveStatusIntervalButton s3">
-          <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
-          <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke">keystroke</button>
-          <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
+          <button               class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
+          <button id="selected" class="button keystroke" tabindex="0" role="button" type="button" value="keystroke">keystroke</button>
+          <button               class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
         </div>
         
         <div class="column description"></div>
@@ -418,11 +418,12 @@
           <div class="text">warning</div>
         </div>
 
-        <div class="column config warning s4">
-          <button class="button focus"      tabindex="0" role="button" type="button" value="focus">focus</button>
-          <button class="button capslock"   tabindex="0" role="button" type="button" value="capslock">capslock</button>
-          <button class="button numlock"    tabindex="0" role="button" type="button" value="numlock">numlock</button>
-          <button class="button scrolllock" tabindex="0" role="button" type="button" value="scrolllock">scrolllock</button>
+        <div class="column config warning s3">
+          <button id="selected" class="button capslock"   tabindex="0" role="button" type="button" value="capslock">capslock</button>
+          <button id="selected" class="button numlock"    tabindex="0" role="button" type="button" value="numlock">numlock</button>
+          <button id="selected" class="button focus"      tabindex="0" role="button" type="button" value="focus">focus</button>
+          <!-- <button               class="button scrolllock" tabindex="0" role="button" type="button" value="scrolllock">scrolllock</button> -->
+
         </div>
 
         <div class="column description"></div>
@@ -436,8 +437,8 @@
         </div>
 
         <div class="column config errorHandling">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -450,10 +451,10 @@
           <div class="text">extra letter</div>
         </div>
 
-        <div class="column config errorExtraLetterErrorButton s3">
-          <button class="button insert"  tabindex="0" role="button" type="button" value="insert">insert</button>
-          <button class="button skip"    tabindex="0" role="button" type="button" value="skip">skip</button>
-          <button class="button replace" tabindex="0" role="button" type="button" value="replace">replace</button>
+        <div class="column config extraLetterErrorButton s3">
+          <button id="selected" class="button insert"  tabindex="0" role="button" type="button" value="insert">insert</button>
+          <button               class="button skip"    tabindex="0" role="button" type="button" value="skip">skip</button>
+          <button               class="button replace" tabindex="0" role="button" type="button" value="replace">replace</button>
         </div>
 
         <div class="column description"></div>
@@ -479,8 +480,8 @@
         </div>
 
         <div class="column config forgiveExtraLetterErrorButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -517,9 +518,9 @@
         </div>
 
         <div class="column config stopOnErrorButton s3">
-          <button class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
-          <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
+          <button id="selected" class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
+          <button               class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
         </div>
 
         <div class="column description"></div>
@@ -544,9 +545,9 @@
         </div>
 
         <div class="column config highlightModeButton s3">
-          <button class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
-          <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
+          <button               class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
+          <button               class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
         </div>
 
         <div class="column description"></div>
@@ -566,8 +567,8 @@
         </div>
 
         <div class="column config flipHightlightModeColorButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -581,9 +582,9 @@
         </div>
 
         <div class="column config tapeModeButton s3">
-          <button class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
-          <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
+          <button id="selected" class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
+          <button               class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
         </div>
 
         <div class="column description"></div>
@@ -602,8 +603,8 @@
         </div>
         
         <div class="column config textInputBoxButton s2">
-          <button class="button hidden"  tabindex="0" role="button" type="button" value="hidden">hidden</button>
-          <button class="button visible" tabindex="0" role="button" type="button" value="visible">visible</button>
+          <button id="selected" class="button hidden"  tabindex="0" role="button" type="button" value="hidden">hidden</button>
+          <button               class="button visible" tabindex="0" role="button" type="button" value="visible">visible</button>
         </div>
 
         <div class="column description"></div>
@@ -623,8 +624,8 @@
         </div>
 
         <div class="column config textUnderlineButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="description"></div>
@@ -638,8 +639,8 @@
         </div>
 
         <div class="column config strictSpaceButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -658,8 +659,8 @@
         </div>
 
         <div class="column config testEndsWithSpaceButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -677,8 +678,8 @@
         </div>
 
         <div class="column config textScrollButton s2">
-          <button class="button abrupt" tabindex="0" role="button" type="button" value="abrupt">abrupt</button>
-          <button class="button smooth" tabindex="0" role="button" type="button" value="smooth">smooth</button>
+          <button id="selected" class="button abrupt" tabindex="0" role="button" type="button" value="abrupt">abrupt</button>
+          <button               class="button smooth" tabindex="0" role="button" type="button" value="smooth">smooth</button>
         </div>
 
         <div class="column description"></div>
@@ -697,8 +698,8 @@
         </div>
 
         <div class="column config oppositeShiftButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -724,9 +725,9 @@
         </div>
 
         <div class="column config testDifficultyButton s3">
-          <button class="button ease"   tabindex="0" role="button" type="button" value="ease">ease</button>
-          <button class="button expert" tabindex="0" role="button" type="button" value="expert">expert</button>
-          <button class="button master" tabindex="0" role="button" type="button" value="master">master</button>
+          <button id="selected" class="button ease"   tabindex="0" role="button" type="button" value="ease">ease</button>
+          <button               class="button expert" tabindex="0" role="button" type="button" value="expert">expert</button>
+          <button               class="button master" tabindex="0" role="button" type="button" value="master">master</button>
         </div>
 
         <div class="column description"></div>
@@ -740,9 +741,9 @@
         </div>
 
         <div class="column config confidenceButton s3">
-          <button class="button low"  tabindex="0" role="button" type="button" value="low">low</button>
-          <button class="button high" tabindex="0" role="button" type="button" value="high">high</button>
-          <button class="button peak" tabindex="0" role="button" type="button" value="peak">peak</button>
+          <button id="selected" class="button low"  tabindex="0" role="button" type="button" value="low">low</button>
+          <button               class="button high" tabindex="0" role="button" type="button" value="high">high</button>
+          <button               class="button peak" tabindex="0" role="button" type="button" value="peak">peak</button>
         </div>
 
         <div class="column description"></div>
@@ -756,8 +757,8 @@
         </div>
 
         <div class="column config backspaceKeyButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -771,9 +772,9 @@
         </div>
 
         <div class="column config modifierKey s3">
-          <button class="button alt"  tabindex="0" role="button" type="button" value="alt">alt</button>
-          <button class="button ctrl" tabindex="0" role="button" type="button" value="ctrl">ctrl</button>
-          <button class="button meta" tabindex="0" role="button" type="button" value="meta">meta</button>
+          <button id="selected" class="button alt"  tabindex="0" role="button" type="button" value="alt">alt</button>
+          <button id="selected" class="button ctrl" tabindex="0" role="button" type="button" value="ctrl">ctrl</button>
+          <button               class="button meta" tabindex="0" role="button" type="button" value="meta">meta</button>
         </div>
         
         <div class="column description"></div>
@@ -787,10 +788,10 @@
         </div>
 
         <div class="column config textWhitespaceButton s4">
-          <button class="button off"    tabindex="0" role="button" type="button" value="off" data-code="0" data-character="">off</button>
-          <button class="button bullet" tabindex="0" role="button" type="button" value="bullet" data-code="8226" data-character="•">bullet</button>
-          <button class="button space"  tabindex="0" role="button" type="button" value="space" data-code="160" data-character="&nbsp;">space</button>
-          <button class="button bar"    tabindex="0" role="button" type="button" value="bar" data-code="9251" data-character="␣">bar</button>
+          <button               class="button off"    tabindex="0" role="button" type="button" value="off" data-code="0" data-character="">off</button>
+          <button id="selected" class="button bullet" tabindex="0" role="button" type="button" value="bullet" data-code="8226" data-character="•">bullet</button>
+          <button               class="button space"  tabindex="0" role="button" type="button" value="space" data-code="160" data-character="&nbsp;">space</button>
+          <button               class="button bar"    tabindex="0" role="button" type="button" value="bar" data-code="9251" data-character="␣">bar</button>
         </div>
 
         <div class="column description"></div>
@@ -810,10 +811,10 @@
 
         <div class="minimumSpeedButtonContainer">
           <div class="column config minimumSpeedButton s2-1">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+            <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
-          <div hidden class="minimumSpeedCustomInputContainer">
+          <div hidden class="minimumSpeedCustomInputContainer s1">
             <input class="minimumSpeedCustomInput" tabindex="0" type="text" placeholder="min wpm">
           </div>
         </div>
@@ -835,10 +836,10 @@
 
         <div class="minimumAccuracyButtonContainer">
           <div class="column config minimumAccuracyButton s2-1">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+            <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
-          <div hidden class="minimumAccuracyCustomInputContainer">
+          <div hidden class="minimumAccuracyCustomInputContainer s1">
             <input class="minimumAccuracyCustomInput" tabindex="0" type="text" placeholder="min acc">
           </div>
         </div>
@@ -860,14 +861,17 @@
         </div>
 
         <div class="column timerTimeButtonContainer">
-          <div class="column config timerTimeButton s5-1">
-            <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
-            <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
-            <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
-            <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
-            <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
+          <div class="column config timerTimeButton s6-1">
+            <button id="selected" class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
+            <button               class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
+            <button               class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
+            <button               class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
+            <button               class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
+            <button               class="button timerTimeCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
           </div>
-          <div hidden class="timerTimeCustomInputContainer"><input class="timerTimeCustomInput" type="number" placeholder="25"></div>
+          <div hidden class="timerTimeCustomInputContainer s1">
+            <input class="timerTimeCustomInput" type="number" placeholder="25">
+          </div>
         </div>
 
         <div class="column description"></div>
@@ -888,8 +892,8 @@
         </div>
 
         <div class="column config timerTimeVisibilityButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -911,14 +915,17 @@
         </div>
 
         <div class="textWordCountButtonContainer">
-          <div class="column config textWordCountButton s5-1">
-            <button class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
-            <button class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
-            <button class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
-            <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
-            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="0"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
+          <div class="column config textWordCountButton s6-1">
+            <button id="selected" class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
+            <button               class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
+            <button               class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
+            <button               class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
+            <button               class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
+            <button               class="button wordCountCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
           </div>
-          <div hidden class="textWordCountCustomInputContainer"><input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25"></div>
+          <div hidden class="textWordCountCustomInputContainer s1">
+            <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25">
+          </div>
         </div>
 
         <div class="column description"></div>
@@ -1155,8 +1162,8 @@
         </div>
 
         <div class="column config useFloatsButton s2">
-          <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
 
         <div class="column description"></div>
@@ -1170,8 +1177,8 @@
         </div>
 
         <div class="column config speedUnitButton s2">
-          <button class="button wpm" tabindex="0" role="button" type="button" value="wpm">wpm</button>
-          <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
+          <button               class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
+          <button id="selected" class="button wpm" tabindex="0" role="button" type="button" value="wpm">wpm</button>
         </div>
 
         <div class="column description"></div>
@@ -1193,9 +1200,9 @@
         </div>
 
         <div class="column config themeButton s3">
-          <button class="button light"  tabindex="0" role="button" type="button" value="light">light</button>
-          <button class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
-          <button class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
+          <button id="selected" class="button light"  tabindex="0" role="button" type="button" value="light">light</button>
+          <button               class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
+          <button               class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
         </div>
 
         <div class="column description"></div>

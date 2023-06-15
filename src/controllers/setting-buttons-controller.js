@@ -26,3 +26,12 @@ TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.foc
 
 // 🫵
 // use evt.isTrusted to prevent bots clicking any button on ttypist
+
+
+// change css variable color for all four input selector's ::before and also update 
+// in input tag beside it
+// 
+// let colorPicker = document.querySelectorAll('input.colorSelector');
+// colorPicker.addEventListener('input',() => {
+// 	colorPicker.style.setProperty('--color-picker', colorPicker.value)
+// })

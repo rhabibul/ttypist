@@ -7,6 +7,9 @@ export default {
       expanded: false, // all label, buttons and description are visible
     },
   },
+  test: {
+    mode: "word",
+  },
   caret: {
     off: true, // none
     style: "line", // line | underline | box | block
@@ -92,15 +95,15 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp'
-        bullet: true, // 8226, '•' (::after is used to draw bullet character)
+        space: true, // 160, '&nbsp'
+        bullet: false, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     word: {
-      count: 30, // 10 | 25 | 50 | 100 | infinite | input
+      count: 25, // off | 10 | 25 | 50 | 100 | input | 0(infinite)
       type: "dictionary", // dictionary | gibberish | quote | story | algorithm
       length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, inf) | mixed
     },
@@ -109,9 +112,9 @@ export default {
       punctuation: false, // .?",-';:()[]{}/...
     },
     capitalize: {
+      random: false, // randomly capitalize the first letter of all words in the text
       firstletter: false, // capitalize only the first letter of first word in the text
       allfirstletters: false, // capitalize all the first letters of all words in the text
-      random: false, // randomly capitalize the first letter of all words in the text
       jumbled: false, // randomly capitalize the letters of a word
     },
     scroll: {

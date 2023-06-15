@@ -16,14 +16,6 @@ window.addEventListener('load', (evt) => {
 	}
 });
 
-// change css variable color for all four input selector's ::before and also update 
-// in input tag beside it
-// 
-// let colorPicker = document.querySelectorAll('input.colorSelector');
-// colorPicker.addEventListener('input',() => {
-// 	colorPicker.style.setProperty('--color-picker', colorPicker.value)
-// })
-
 // sliders
 const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
 const t1 = document.querySelector("div.config.textFontSize > div.text.value");

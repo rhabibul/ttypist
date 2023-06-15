@@ -16,21 +16,12 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Work Sans --------- */
+/* --------- Fira Code --------- */
 @font-face {
-  font-family: "Work Sans";
-  src: local("Work Sans"), url("./static/fonts/WorkSans.ttf") format("truetype");
+  font-family: "Fira Code";
+  src: local("Fira Code"), url("./static/fonts/FiraCode.ttf") format("truetype");
   font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Roboto Mono --------- */
-@font-face {
-  font-family: "Roboto Mono";
-  src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 200 700;
+  font-weight: 100 1000;
   font-stretch: 75% 125%;
 }
 
@@ -43,19 +34,19 @@
   font-stretch: 75% 125%;
 }
 
+/* --------- Roboto Mono --------- */
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 700;
+  font-stretch: 75% 125%;
+}
+
 /* --------- Courier Prime --------- */
 @font-face {
   font-family: "Courier Prime";
   src: local("Courier Prime"), url("./static/fonts/CourierPrime.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Fira Code --------- */
-@font-face {
-  font-family: "Fira Code";
-  src: local("Fira Code"), url("./static/fonts/FiraCode.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -70,64 +61,10 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Fuzzy Bubbles --------- */
-@font-face {
-  font-family: "Fuzzy Bubbles";
-  src: local("Fuzzy Bubbles"), url("./static/fonts/FuzzyBubbles.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- VT323  --------- */
-@font-face {
-  font-family: "VT323";
-  src: local("VT323"), url("./static/fonts/VT323.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
 /* --------- Syne Mono --------- */
 @font-face {
   font-family: "Syne Mono";
   src: local("Syne Mono"), url("./static/fonts/SyneMono.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Rampart One --------- */
-@font-face {
-  font-family: "Rampart One";
-  src: local("Rampart One"), url("./static/fonts/RampartOne.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Rubik Vinyl --------- */
-@font-face {
-  font-family: "Rubik Vinyl";
-  src: local("Rubik Vinyl"), url("./static/fonts/RubikVinyl.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Diploma (GTA San Andreas) --------- */
-@font-face {
-  font-family: "Diploma";
-  src: local("Diploma"), url("./static/fonts/Diploma.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-/* --------- Tsukimi Rounded --------- */
-@font-face {
-  font-family: "Tsukimi Rounded";
-  src: local("Tsukimi Rounded"), url("./static/fonts/TsukimiRounded.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 75% 125%;
@@ -371,9 +308,8 @@ letter.whitespace.bullet {
   margin-right: 1px;
 }
 letter.whitespace.bullet::after {
-  transform: translateY(1px);
-  position: absolute;
   content: "";
+  position: absolute;
   width: 4px;
   height: 4px;
   opacity: 1;
@@ -382,14 +318,16 @@ letter.whitespace.bullet::after {
   align-items: center;
   justify-content: center;
   background-color: var(--text-whitespace-color);
+  transform: translateY(1px);
 }
 letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
   background-color: var(--text-whitespace-color-active);
 }
 
 #selected {
-	color: #0969da;
-	background-color: #f6f8fa;
+	color: darkorange;
+	background-color: rgb(255, 238, 218);
+  border-color: darkorange;
 }
 
 .hide {
