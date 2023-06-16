@@ -107,8 +107,8 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: true, // 160, '&nbsp'
-        bullet: false, // 8226, '•' (::after is used to draw bullet character)
+        space: false, // 160, '&nbsp'
+        bullet: true, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
       },
       code: 160, // 160 | 9251 | 8226
