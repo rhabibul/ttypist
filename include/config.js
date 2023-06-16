@@ -7,36 +7,26 @@ export default {
       expanded: false, // all label, buttons and description are visible
     },
   },
-  test: {
-    mode: "word",
+  timer: {
+    off: false,
+    seconds: 60, // 15 | 30 | 60 | 120 | custom
+    hide: false,
   },
-  caret: {
-    off: true, // none
-    style: "line", // line | underline | box | block
-    width: "1px", // implicit (1px, 1.5px, 2px)
-    opacity: 1, // rgba - alpha[0,1]
-    color: "black",
-  },
-  pacecaret: {
-    off: true, // none
-    style: "line", // line | underline | box | block
-    width: "1px", // implicit (1px, 1.5px, 2px)
-    opacity: 0.5, // rgba - alpha[0,1]
-    color: "gray",
-    threshold: {
-      last: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        speed: 0, // provide custom speed (in wpm) to compete against
-      },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
     },
   },
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  input: {
-    hidden: true,
-    visible: false,
+  tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
+    off: true,
+    letter: false,
+    word: false,
   },
   backspace: {
     off: false,
@@ -68,24 +58,46 @@ export default {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
-  highlight: { // by default, future text is brighter than the already typed text
-    off: false,
-    mode: {
-      letter: true,
-      word: false,
-    },
-    flip: false, // flip highlight's primary and secondary color
+  caret: {
+    off: true, // none
+    style: "line", // line | underline | box | block
+    width: "1px", // implicit (1px, 1.5px, 2px)
+    opacity: 1, // rgba - alpha[0,1]
+    color: "black",
   },
-  tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
-    off: true,
-    letter: false,
-    word: false,
+  pacecaret: {
+    off: true, // none
+    style: "line", // line | underline | box | block
+    width: "1px", // implicit (1px, 1.5px, 2px)
+    opacity: 0.5, // rgba - alpha[0,1]
+    color: "gray",
+    threshold: {
+      last: false, // previous speed
+      best: false, // personal best speed
+      average: false, // average of last 10 speeds
+      custom: {
+        off: true,
+        speed: 0, // provide custom speed (in wpm) to compete against
+      },
+    },
   },
   text: {
+    input: {
+      hidden: true,
+      visible: false,
+    },
     underline: true, // underline the current word being typed
     color: {
       primary: "#061f2c", // future text, text which needs to be typed (more bright)
       secondary: "#9a9a9a", // past text, text which has been typed (less bright)
+    },
+    highlight: { // by default, future text is brighter than the already typed text
+      off: false,
+      mode: {
+        letter: true,
+        word: false,
+      },
+      flip: false, // flip highlight's primary and secondary color
     },
     font: {
       size: 1.2, // size of letter
@@ -122,33 +134,18 @@ export default {
       smooth: false,
     },
   },
-  timer: {
-    off: false,
-    seconds: 60, // 15 | 30 | 60 | 120 | custom
-    hide: false,
-  },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-  },
   statistics: {
     live: {
       speed: false,    // live speed in wpm/cpm
       accuracy: false, // live accuracy
       burst: false,    // live burst, speed of last word typed
     },
-    interval: { // calculation interval for speed, accuracy, burst
+    calculation_interval: { // calculation interval for speed, accuracy, burst
       word: false, // calculate after every word
       keystroke: true, // calculate after each keystroke
       second: false, // calculate after every one second
     },
-    unit: {
+    speedunit: {
       cpm: false, // characters per minute
       wpm: true, // words per minute
     },
@@ -164,19 +161,16 @@ export default {
 
   keyboard: {
     off: false, // toggle UI keyboard
-
     reaction: {
       static: false,
-      react: true,
+      react: false,
       next: false,
     },
-  
     language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
     layout: {
-      keymap: "qwerty", // qwerty | dvorak | colemak | workman
+      map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
     },
-
     section: {
       RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
       RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
@@ -184,7 +178,6 @@ export default {
       RowC: true, // CapsLock A S D F G H J K L :; "' Enter             •                                      •   4  5  6  +
       RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
       RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
-
       arrowpad: true,
       controlpad: true,
       numpad: true,

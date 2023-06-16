@@ -28,7 +28,7 @@ export function registerkeydown(evt) {
 	
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
-		if ( !Config.highlight.flip ) {
+		if ( !Config.text.highlight.flip ) {
 			word.activeletter.classList.remove("whitespace-color-active");
 		} else {
 			word.activeletter.classList.add("whitespace-color-active");
@@ -71,7 +71,7 @@ export function registerkeydown(evt) {
 					CaretController.addcaretto(word.activeletter);
 				}	
 
-				if ( !Config.highlight.flip ) { 
+				if ( !Config.text.highlight.flip ) { 
 					word.activeletter.classList.add("whitespace-color-active");
 				}
 
