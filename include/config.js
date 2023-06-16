@@ -61,14 +61,14 @@ export default {
   caret: {
     off: true, // none
     style: "line", // line | underline | box | block
-    width: "1px", // implicit (1px, 1.5px, 2px)
+    width: "1px", // will be adjusted implicitly (1px, 1.5px, 2px)
     opacity: 1, // rgba - alpha[0,1]
     color: "black",
   },
   pacecaret: {
     off: true, // none
     style: "line", // line | underline | box | block
-    width: "1px", // implicit (1px, 1.5px, 2px)
+    width: "1px", // will be adjusted implicitly (1px, 1.5px, 2px)
     opacity: 0.5, // rgba - alpha[0,1]
     color: "gray",
     threshold: {
@@ -157,8 +157,6 @@ export default {
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
   },
-  theme: "light", // light | dimmed | dark
-
   keyboard: {
     off: false, // toggle UI keyboard
     reaction: {
@@ -188,4 +186,5 @@ export default {
       }
     },
   },
+  theme: "light", // light | dimmed | dark
 };
