@@ -248,8 +248,8 @@ input#textinput {
   background-color: var(--caret-color-hidden);
 }
 
-text {  
-  max-width: 700px;
+text {
+  max-width: 720px;
 
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
