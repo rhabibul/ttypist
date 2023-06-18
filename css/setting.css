@@ -4,14 +4,12 @@ div.setting {
 	flex-direction: column;
 	border: 1px dashed red;
 }
-
 div.row {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	height: 40px;
 }
-
 div.label {
 	display: flex;
 }
