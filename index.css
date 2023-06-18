@@ -304,9 +304,9 @@ letter.whitespace.whitespace-color-active::after { /* renaming is required (way 
 }
 
 #selected {
-	color: darkorange;
+	color: #ffa73c;
 	background-color: rgb(255, 238, 218);
-  border-color: darkorange;
+  border-color: #ffa73c;
 }
 
 .hide {
