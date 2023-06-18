@@ -298,8 +298,8 @@ text word letter {
                     on dark backgrounds makes it look lighter.
       subpixel-antialiased - on most non-retina displays, this will give the sharpest text.
   */
-  /* -moz-osx-font-smoothing: auto; */
-  /* -webkit-font-smoothing: subpixel-antialiased; */
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 letter.whitespace.bullet {

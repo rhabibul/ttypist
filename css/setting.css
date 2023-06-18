@@ -1,16 +1,10 @@
-div.util {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	width: 60px;
-}
-
 div.setting {
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
-	row-gap: 5px;
-	column-gap: 5px;
+	row-gap: 10px;
+	padding: 8px;
+	border: 1px dashed lightgray;
 }
 
 div.row {
@@ -18,7 +12,7 @@ div.row {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 8px;
-	border-bottom: 1px dashed lightgray;
+	border: 1px solid black;
 }
 div.column {
 	margin: 5px;
