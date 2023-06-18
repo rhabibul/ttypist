@@ -63,7 +63,7 @@ export default {
       off: true,
       threshold: 0,
       option: {
-        fixed: false, // fix the speed for all words (short, medium, long)
+        fixed: false, // fixed the speed set by user for all words (short, medium, long)
         flex: false, // reduce speed set by user for longer words
       },
     }
