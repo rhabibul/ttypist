@@ -138,8 +138,8 @@ box-shadow: offset-x | offset-y | blur-radius | color
 
 /* ============================================================================ */
 
-div.caretButton,
-div.paceCaretButton {
+div.caretStyleButton,
+div.paceCaretStyleButton {
   height: 40px;
   width: 140px;
 
