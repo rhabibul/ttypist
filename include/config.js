@@ -1,5 +1,5 @@
 export default {
-  arrows: true, // implicitly enabled (mystical)
+  theme: "light", // light | dimmed | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -12,22 +12,13 @@ export default {
     seconds: 60, // 15 | 30 | 60 | 120 | custom
     hide: false,
   },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-  },
-  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     letter: false,
     word: false,
   },
+  arrows: true, // implicitly enabled (mythical)
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
     off: false,
     modifier: {
@@ -35,13 +26,14 @@ export default {
        meta: false, // backspace + cmd/win
        ctrl: false, // backspace + ctrl
     },
+    notAllowedOnCorrect: false, // if previous word was correctly typed then don't allow backspace
   },
-  confidence: {
+  confidence: { // ..backspace control
     low: true, // use backspace key to delete previous words/letters
-    high: false, // cannot use backspace key to go back to previous word to correct mistakes
-    peak: false, // cannot use backspace key   at all (no deletion allowed)
+    high: false, // only current word can be edited with bs, cannot go to prev word whether it is correct or incorrect
+    peak: false, // cannot use backspace key at all (no deletion)
   },
-  difficulty: {
+  difficulty: { // ..test failing
     ease: true, // classic typing experience, mistakes can be corrected or left behind
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
@@ -57,6 +49,24 @@ export default {
       letter: false, // stop before letter if wrongly typed
       word: false, // don't move to the next word until all mistakes are corrected
     },
+  },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+      option: {
+        fixed: false,
+        flex: false,
+      },
+    }
   },
   caret: {
     off: true, // none
@@ -140,12 +150,12 @@ export default {
       accuracy: false, // live accuracy
       burst: false,    // live burst, speed of last word typed
     },
-    calculation_interval: { // calculation interval for speed, accuracy, burst
+    calculationInterval: { // calculation interval for speed, accuracy, burst
       word: false, // calculate after every word
       keystroke: true, // calculate after each keystroke
       second: false, // calculate after every one second
     },
-    speedunit: {
+    unit: {
       cpm: false, // characters per minute
       wpm: true, // words per minute
     },
@@ -158,33 +168,16 @@ export default {
     scrolllock: false, // scolllock key is left turned on
   },
   keyboard: {
-    off: false, // toggle UI keyboard
+    off: false,
     reaction: {
       static: false,
       react: false,
       next: false,
     },
-    language: "english", // english | hindi | bengali | arabic | russian | +languages(indian)
+    language: "english",
     layout: {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
     },
-    section: {
-      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
-      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
-      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete      End        PageDown    •   7  8  9  +
-      RowC: true, // CapsLock A S D F G H J K L :; "' Enter             •                                      •   4  5  6  +
-      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
-      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
-      arrowpad: true,
-      controlpad: true,
-      numpad: true,
-      function: true,
-      alphanumeric: {
-        numrow: true,
-        alphabets: true,
-      }
-    },
   },
-  theme: "light", // light | dimmed | dark
 };

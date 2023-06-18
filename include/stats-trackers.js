@@ -103,7 +103,6 @@ export const keypress_timings = {
 // previous sentence typed
 // words on which mistake happend (so that user can practice those words after test)
 
-
 // call it on every keystoke to update livestats
 export function compute() {}
 
@@ -113,4 +112,9 @@ export class History {
 
 const WordStats = {
   missedwords: [],
+}
+
+const keystrokeCount = {
+  totalKeystrokesSupposedToHit: 0,
+  totalkeystrokesActuallyHit: 0, // all keystrokes will be counted (shift keys will be ignored only for capital letters)
 }
