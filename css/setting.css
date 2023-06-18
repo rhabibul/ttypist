@@ -25,10 +25,10 @@ div.label > * {
 div.label div.text {
 	font-size: 0.9rem;
 	font-family: var(--SyneMono);
-	border: 1px solid gray;
+	/* border: 1px solid gray; */
 }
 div.label div.symbol {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
 
 div.config button.button {
