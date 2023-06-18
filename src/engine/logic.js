@@ -27,7 +27,6 @@ export function registerkeydown(evt) {
   typedchar.value = evt.key;
 	
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
-
 		if ( !Config.text.highlight.flip ) {
 			word.activeletter.classList.remove("whitespace-color-active");
 		} else {

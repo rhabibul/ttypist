@@ -181,8 +181,10 @@
   --text-error-extra: #a30d0d; /* extra inserted letter error color */
   --text-whitespace-color: #b3b3b3; /* dot/bar whitespace color */
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
+  --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: black;
+  --caret-color: #000000;
+  --pace-caret-color: #6b6b6b;
   --caret-color-hidden: var(--default-bg0_h); /* match invisible underline caret color with background color of text */
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
@@ -199,9 +201,10 @@
   --setting-caret-width: 10px;
   --setting-caret-height: 18px;
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
-  --setting-button-border-color: rgba(31, 35, 40, 0.15);
+  --setting-button-border-color: #9a9a9a;
   --setting-button-height: 30px;
   --setting-button-backgroundcolor: #fbfdff;
+  --setting-button-roundness: 4px;
   --setting-icon-color: black;
 
   --primaryTextColor-colorPicker: black;
@@ -232,24 +235,8 @@ body {
   background-color: var(--default-bg0_h);
 }
 
-wrapper {
-  padding: 25px 15px;
-  border: 1px dashed gray;
-}
-
-input#textinput {
-  margin: 0px;
-  padding: 0px;
-  width: 0px;
-  height: 0px;
-  border: none;
-  outline: none;
-  caret-color: transparent;
-  background-color: var(--caret-color-hidden);
-}
-
 text {
-  max-width: 720px;
+  width: 800px;
 
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */
@@ -261,7 +248,6 @@ text {
   user-select: none;
   background-color: var(--caret-color-hidden);
 }
-
 text word {
   background-color: var(--caret-color-hidden);
 
@@ -281,37 +267,30 @@ text word letter {
   font-family: var(--text-font);
   font-size: var(--text-size);
   font-weight: var(--text-thickness);
-  
-  /*
-  -moz-osx-font-smoothing (firefox)
-      auto - allow the browser to select an optimization for font smoothing,
-             typically grayscale.
-      grayscale - render text with grayscale anti-aliasing, as opposed to the subpixel
-                  switching from subpixel rendering to anti-aliasing for light text 
-                  on dark backgrounds makes it look lighter.
 
-  -webkit-font-smoothing (macOS)
-      auto - let the browser decide, uses subpixel anti-aliasing when available
-      none - turn font smoothing off; display text with jagged sharp edges
-      antialiased - smooth the font on the level of the pixel, as opposed to the subpixel.
-                    switching from subpixel rendering to anti-aliasing for light text 
-                    on dark backgrounds makes it look lighter.
-      subpixel-antialiased - on most non-retina displays, this will give the sharpest text.
-  */
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-
-letter.whitespace.bullet {
+input#textInput {
+  margin: 0px;
+  padding: 0px;
+  width: 0px;
+  height: 0px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: var(--caret-color-hidden);
+}
+text word letter.whitespace.bullet {
   position: relative;
   margin-left: 1px;
   margin-right: 1px;
 }
-letter.whitespace.bullet::after {
+text word letter.whitespace.bullet::after {
   content: "";
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: var(--text-whitespace-bullet-dimension);
+  height: var(--text-whitespace-bullet-dimension);
   opacity: 1;
   border-radius: 50%;
   display: flex;

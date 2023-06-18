@@ -1,9 +1,9 @@
 div.setting {
-	max-width: 800px;
+	width: 800px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 10px;
-	padding: 8px;
+
 	border: 1px dashed lightgray;
 }
 
@@ -11,8 +11,6 @@ div.row {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 8px;
-	border: 1px solid black;
 }
 div.column {
 	margin: 5px;
@@ -438,9 +436,8 @@ input[type="color"]::before {
   height: 100%;
 	cursor: pointer;
   pointer-events: none; /* This allows you to click on the main input. */
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border: 1px solid var(--setting-button-border-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
 	border-right: none;
 }
 input[type="color"]:-webkit-color-swatch {
@@ -453,17 +450,45 @@ input[type="color"]:-moz-color-swatch {
 	border: none;
 	outline: none;
 }
+input[type="color"].colorSelector.primaryTextColorSelector {
+	background-color: var(--text-primary-color);
+	border: 1px solid var(--text-primary-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
+}
 input[type="color"].colorSelector.primaryTextColorSelector::before {
-	background: #001e2e;
+	background-color: var(--text-primary-color);
+	border: 1px solid var(--text-primary-color);
+}
+input[type="color"].colorSelector.secondaryTextColorSelector {
+	background-color: var(--text-secondary-color);
+	border: 1px solid var(--text-secondary-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
 }
 input[type="color"].colorSelector.secondaryTextColorSelector::before {
-	background: #9a9a9a;
+	background-color: var(--text-secondary-color);
+	border: 1px solid var(--text-secondary-color);
+}
+input[type="color"].colorSelector.caretColorSelector {
+	background-color: var(--caret-color);
+	border: 1px solid var(--caret-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
 }
 input[type="color"].colorSelector.caretColorSelector::before {
-	background: #000000;
+	background-color: var(--caret-color);
+	border: 1px solid var(--caret-color);
+}
+input[type="color"].colorSelector.paceCaretColorSelector {
+	background-color: var(--pace-caret-color);
+	border: 1px solid var(--pace-caret-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
 }
 input[type="color"].colorSelector.paceCaretColorSelector::before {
-	background: #ff0088;
+	background-color: var(--pace-caret-color);
+	border: 1px solid var(--pace-caret-color);
 }
 div.colorPickerContainer {
 	height: 30px;
