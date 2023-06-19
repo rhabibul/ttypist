@@ -144,6 +144,7 @@ div.symbol.iconUseFloats {
 	font-weight: 650;
 	font-family: var(--RobotoMono);
 }
+svg.iconTextFont,
 svg.iconTextInclude,
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
@@ -151,7 +152,6 @@ svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
-svg.iconTextFont,
 svg.iconErrorHandling,
 svg.iconStrictSpace,
 svg.iconTextUnderline,
