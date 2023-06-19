@@ -259,75 +259,6 @@
         </div>
       </div>
 
-      <div class="row" id="liveStatus">
-        <div class="label">
-          <div class="symbol">
-            <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
-              <rect    fill="none" width="48" height="48" fill="none"></rect>
-              <circle  fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
-              <path    fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
-              <path    fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
-              <path    fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
-              <path    fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
-            </svg>
-          </div>
-          <div class="text">live status</div>
-        </div>
-        <div class="config liveStatusButton">
-          <button class="button speed"    tabindex="0" role="button" type="button" value="speed">speed</button>
-          <button class="button accuracy" tabindex="0" role="button" type="button" value="accuracy">accuracy</button>
-          <button class="button burst"    tabindex="0" role="button" type="button" value="burst">burst</button>
-        </div>
-      </div>
-
-      <div class="row" id="liveStatusInterval">
-        <div class="label">
-          <div class="symbol">
-            <svg class="iconLiveStatusInterval" height="256px" width="256px" viewBox="0 0 199.33 199.33">
-              <path fill="var(--setting-icon-color)" opacity="0.6" d="M99.664,0h-4.066v39.149h8.131V8.228c48.594,2.144,87.456,42.338,87.456,91.436 c0,50.473-41.053,91.533-91.522,91.533S8.142,150.136,8.142,99.664c0-20.657,6.707-40.144,19.412-56.363l-6.413-5.018 C7.308,55.952,0,77.178,0,99.664c0,54.957,44.714,99.664,99.664,99.664c54.957,0,99.664-44.703,99.664-99.664 C199.328,44.714,154.621,0,99.664,0z"></path>
-              <path fill="var(--setting-icon-color)" opacity="1.0" d="M85.953,97.119c-0.497,1.657-0.748,3.135-0.748,4.542c0,8.808,7.183,15.98,15.99,15.98 c8.808,0,15.98-7.172,15.98-15.98s-7.172-15.99-15.98-15.99c-1.668,0-3.368,0.308-5.218,0.952l-0.816,0.286L55.823,59.255 l30.395,36.984L85.953,97.119z"></path>
-            </svg>
-          </div>
-          <div class="text">live status interval</div>
-        </div>
-        <div class="config liveStatusIntervalButton s3">
-          <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
-          <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
-          <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
-        </div>
-      
-      </div>
-
-      <div class="row" id="warning">
-        <div class="label">
-          <div class="symbol">
-            <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
-              <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
-              <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
-            </svg>
-          </div>
-          <div class="text">warnings</div>
-        </div>
-        <div class="config warning s3">
-          <div class="capslock" data-value="capslock">
-            <input tabindex="0" type="checkbox" id="capslock" name="warning" checked>
-            <label for="capslock">capslock</label>
-          </div>
-          <div class="numlock" data-value="numlock">
-            <input tabindex="0" type="checkbox" id="numlock" name="warning">
-            <label for="numlock">numlock</label>
-          </div>
-          <div class="scrolllock" data-value="scrolllock">
-            <input tabindex="0" type="checkbox" id="scrolllock" name="warning">
-            <label for="scrolllock">scrolllock</label>
-          </div>
-          <div class="focus" data-value="focus">
-            <input tabindex="0" type="checkbox" id="focus" name="warning">
-            <label for="focus">focus</label>
-          </div>
-        </div>
-      </div>
-
       <div class="row" id="strictSpace">
         <div class="label">
           <div class="symbol"> <svg class="iconStrictSpace" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M18 10a1 1 0 01-1 1H3a1 1 0 110-2h14a1 1 0 011 1z"></path></svg></div>
@@ -715,17 +646,19 @@
           </div>
           <div class="text">timer time</div>
         </div>
-        <div class="config timerTimeButtonContainer s6-1 s7">
-          <div class="config0 timerTimeButton s6">
+        <div class="config timerTimeButtonContainer s5-1 s6">
+          <div class="config0 timerTimeButton s5">
             <button class="button off"             tabindex="0" role="button" type="button" value="off" id="selected">off</button>
             <button class="button seconds15"       tabindex="0" role="button" type="button" value="15">15</button>
             <button class="button seconds30"       tabindex="0" role="button" type="button" value="30">30</button>
             <button class="button seconds60"       tabindex="0" role="button" type="button" value="60">60</button>
             <button class="button seconds120"      tabindex="0" role="button" type="button" value="120">120</button>
-            <button class="button timerTimeCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
           </div>
-          <div hidden class="timerTimeCustomInputContainer s1">
-            <input class="timerTimeCustomInput" type="number" placeholder="25">
+          <div class="timerTimeCustomInputContainer s1">
+            <div class="customInput">
+              <input class="customInputBox minaccuracy" tabindex="0" type="number" placeholder="time">
+              <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+            </div>
           </div>
         </div>
       </div>
@@ -762,14 +695,14 @@
           <div class="text">word count</div>
         </div>
 
-        <div class="textWordCountButtonContainer">
-          <div class="config textWordCountButton s6-1">
-            <button               class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
-            <button               class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
-            <button id="selected" class="button words25"         tabindex="0" role="button" type="button" value="25">25</button>
-            <button               class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
-            <button               class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
-            <button               class="button wordCountCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="black" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
+        <div class="config textWordCountButtonContainer s6-1 s7">
+          <div class="config0 textWordCountButton s6">
+            <button class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
+            <button class="button words25"         tabindex="0" role="button" type="button" value="25" id="selected">25</button>
+            <button class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
+            <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
+            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="var(--setting-icon-color)" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
           </div>
           <div hidden class="textWordCountCustomInputContainer s1">
             <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25">
@@ -802,12 +735,12 @@
 
           <div class="radioButton firstletter">
             <input type="radio" name="capitalization" id="firstletter">
-            <label for="firstletter">1stletter</label>
+            <label for="firstletter">first letter</label>
           </div>
 
           <div class="radioButton allfirstletters">
             <input type="radio" name="capitalization" id="allfirstletters">
-            <label for="allfirstletters">all1stletters</label>
+            <label for="allfirstletters">all first letters</label>
           </div>
 
           <div class="radioButton randomly">
@@ -821,6 +754,75 @@
           </div>
         </div>
       </div>
+
+      <div class="row" id="warnings">
+        <div class="label">
+          <div class="symbol">
+            <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
+              <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
+              <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
+            </svg>
+          </div>
+          <div class="text">warnings</div>
+        </div>
+        <div class="config warnings s4">
+          <div class="warning capslock" data-value="capslock">
+            <input tabindex="0" type="checkbox" id="capslock" name="warning" checked>
+            <label for="capslock">capslock</label>
+          </div>
+          <div class="warning numlock" data-value="numlock">
+            <input tabindex="0" type="checkbox" id="numlock" name="warning">
+            <label for="numlock">numlock</label>
+          </div>
+          <div class="warning scrolllock" data-value="scrolllock">
+            <input tabindex="0" type="checkbox" id="scrolllock" name="warning">
+            <label for="scrolllock">scrolllock</label>
+          </div>
+          <div class="warning focus" data-value="focus">
+            <input tabindex="0" type="checkbox" id="focus" name="warning">
+            <label for="focus">focus</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="liveStatus">
+        <div class="label">
+          <div class="symbol">
+            <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
+              <rect    fill="none" width="48" height="48" fill="none"></rect>
+              <circle  fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
+              <path    fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
+              <path    fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
+              <path    fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
+              <path    fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
+            </svg>
+          </div>
+          <div class="text">live status</div>
+        </div>
+        <div class="config liveStatusButton">
+          <button class="button speed"    tabindex="0" role="button" type="button" value="speed">speed</button>
+          <button class="button accuracy" tabindex="0" role="button" type="button" value="accuracy">accuracy</button>
+          <button class="button burst"    tabindex="0" role="button" type="button" value="burst">burst</button>
+        </div>
+      </div>
+
+      <div class="row" id="liveStatusInterval">
+        <div class="label">
+          <div class="symbol">
+            <svg class="iconLiveStatusInterval" height="256px" width="256px" viewBox="0 0 199.33 199.33">
+              <path fill="var(--setting-icon-color)" opacity="0.6" d="M99.664,0h-4.066v39.149h8.131V8.228c48.594,2.144,87.456,42.338,87.456,91.436 c0,50.473-41.053,91.533-91.522,91.533S8.142,150.136,8.142,99.664c0-20.657,6.707-40.144,19.412-56.363l-6.413-5.018 C7.308,55.952,0,77.178,0,99.664c0,54.957,44.714,99.664,99.664,99.664c54.957,0,99.664-44.703,99.664-99.664 C199.328,44.714,154.621,0,99.664,0z"></path>
+              <path fill="var(--setting-icon-color)" opacity="1.0" d="M85.953,97.119c-0.497,1.657-0.748,3.135-0.748,4.542c0,8.808,7.183,15.98,15.99,15.98 c8.808,0,15.98-7.172,15.98-15.98s-7.172-15.99-15.98-15.99c-1.668,0-3.368,0.308-5.218,0.952l-0.816,0.286L55.823,59.255 l30.395,36.984L85.953,97.119z"></path>
+            </svg>
+          </div>
+          <div class="text">live status interval</div>
+        </div>
+        <div class="config liveStatusIntervalButton s3">
+          <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
+          <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
+          <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
+        </div>      
+      </div>
+
 
       <div class="row" id="textFontFamily">
         <div class="label">

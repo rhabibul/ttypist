@@ -2,7 +2,8 @@ div.setting {
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
-	border: 1px dashed red;
+	font-size: 0.8rem;
+	font-family: var(--RobotoMono);
 }
 div.row {
 	display: flex;
@@ -14,6 +15,7 @@ div.label {
 }
 div.config {
 	display: flex;
+	align-items: center;
 }
 div.config0 {
 	display: flex;
@@ -25,11 +27,15 @@ div.label > * {
 }
 div.label div.text {
 	font-size: 0.9rem;
-	font-family: var(--Nunito);
-	/* border: 1px solid gray; */
+	font-family: var(--FiraCode);
+	border: 1px solid gray;
 }
 div.label div.symbol {
-	/* border: 1px solid red; */
+	border: 1px solid red;
+}
+
+::placeholder {
+	color: lightgray;
 }
 
 svg.iconEditPen {
@@ -372,18 +378,25 @@ details.UIKeyboardLayout div.list {
 
 div.config.textCapitalizationRadioButton {
 	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	column-gap: 10px;
-	font-size: 0.8rem;
-
+	flex-direction: column;
+	align-items: flex-start;
 }
 div.config.textCapitalizationRadioButton div.radioButton {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	column-gap: 5px;
-	font-family: var(--RobotoMono);
+}
+div.config.warnings {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+div.config.warnings div.warning {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 /* --------------------------> text capitalization <-------------------------- */
