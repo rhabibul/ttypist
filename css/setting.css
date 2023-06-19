@@ -473,12 +473,12 @@ input[type="color"].colorSelector::after {
 	border-bottom-left-radius: var(--setting-button-roundness);
 	border-right: none;
 }
-input[type="color"]:-webkit-color-swatch {
+input[type="color"]::-webkit-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
 }
-input[type="color"]:-moz-color-swatch {
+input[type="color"]::-moz-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
