@@ -422,10 +422,6 @@ div.colorPickerContainer {
 	border-radius: 4px;
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.colorPickerContainer input.colorSelector {
-	height: 100%;
-	outline: none;
-}
 div.colorPickerContainer input.colorInput {
 	height: 100%;
 	width: 90px;
@@ -437,6 +433,10 @@ div.colorPickerContainer input.colorInput {
 	border: 1px solid var(--setting-button-border-color);
 	border-left: none;
 	font-family: var(--RobotoMono);
+}
+div.colorPickerContainer input.colorSelector {
+	height: 100%;
+	outline: none;
 }
 input[type="color"].colorSelector {
 	-webkit-appearance: none;
@@ -454,14 +454,12 @@ input[type="color"].colorSelector {
 	outline: none;
 	border: none;
   position: relative;
-	z-index: 5;
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
 input[type="color"].colorSelector::after {
 	content: '';
 	position: absolute;
-	z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -486,22 +484,22 @@ input[type="color"]::-moz-color-swatch {
 input[type="color"].colorSelector.primaryTextColorSelector,
 input[type="color"].colorSelector.primaryTextColorSelector::after {
 	background-color: var(--text-primary-color);
-	border: 1px solid var(--text-primary-color);
+	border-left-color: var(--text-primary-color);
 }
 input[type="color"].colorSelector.secondaryTextColorSelector,
 input[type="color"].colorSelector.secondaryTextColorSelector::after {
 	background-color: var(--text-secondary-color);
-	border: 1px solid var(--text-secondary-color);
+	border-left-color: var(--text-secondary-color);
 }
 input[type="color"].colorSelector.caretColorSelector,
 input[type="color"].colorSelector.caretColorSelector::after {
 	background-color: var(--caret-color);
-	border: 1px solid var(--caret-color);
+	border-left-color: var(--caret-color);
 }
 input[type="color"].colorSelector.paceCaretColorSelector,
 input[type="color"].colorSelector.paceCaretColorSelector::after {
 	background-color: var(--pace-caret-color);
-	border: 1px solid var(--pace-caret-color);
+	border-left-color: var(--pace-caret-color);
 }
 
 div.customInput {
