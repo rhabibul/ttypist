@@ -243,8 +243,8 @@ text {
   align-content: flex-start; /* determines the spacing between lines */
   justify-content: flex-start;
   flex-wrap: wrap;
-
   row-gap: 2px;
+
   -moz-user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

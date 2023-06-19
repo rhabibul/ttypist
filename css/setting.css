@@ -63,6 +63,13 @@ div.config {
 	align-items: center;
 	justify-content: space-between;
 	column-gap: 5px;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 	/* border: 1px solid gray; */
 }
 div.config div.buttonContainer {
@@ -97,6 +104,12 @@ div.config.paceCaretSpeedButtonContainer div.paceCaretSpeedButton {
 }
 
 ::placeholder {
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 	color: rgb(197, 197, 197);
 }
 svg.iconEditPen {

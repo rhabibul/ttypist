@@ -1,5 +1,5 @@
 /* ---------- caret off */
-.no-caret {
+.NOC {
   border: none;
   outline: none;
 }
@@ -176,8 +176,8 @@ button.paceCaret-off span.shape-off {
   justify-content: center;
   align-items: center;
 }
-
 span.shape-off svg.iconCaretOff {
+  height: 100%;
   fill: var(--setting-caret-color);
 }
 span.shape-underline {
