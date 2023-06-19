@@ -717,10 +717,15 @@
           <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
           <div class="text">include</div>
         </div>
-
-        <div class="config textInclude s2">
-          <button class="button digit"       tabindex="0" role="button" type="button" value="digit">digit</button>
-          <button class="button punctuation" tabindex="0" role="button" type="button" value="punctuation">punctuation</button>
+        <div class="config textIncludeCheckboxContainer s3">
+          <div class="textIncludeCheckbox digit" data-value="digit">
+            <input tabindex="0" type="checkbox" id="digit" name="textIncludeCheckbox" checked>
+            <label for="digit">digit</label>
+          </div>
+          <div class="textIncludeCheckbox punctuation" data-value="punctuation">
+            <input tabindex="0" type="checkbox" id="punctuation" name="textIncludeCheckbox">
+            <label for="punctuation">punctuation</label>
+          </div>
         </div>
       </div>
 
@@ -729,27 +734,23 @@
           <div class="symbol"> <svg class="iconTextCapitalizationRadio" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
           <div class="text">text capitalization</div>
         </div>
-        <div class="config textCapitalizationRadioButton s5">
+        <div class="config textCapitalizationRadioButtonContainer s5">
           <div class="radioButton off">
             <input checked type="radio" name="capitalization" id="off">
             <label for="off">off</label>
           </div>
-
           <div class="radioButton firstletter">
             <input type="radio" name="capitalization" id="firstletter">
-            <label for="firstletter">first letter</label>
+            <label for="firstletter">first-letter</label>
           </div>
-
           <div class="radioButton allfirstletters">
             <input type="radio" name="capitalization" id="allfirstletters">
-            <label for="allfirstletters">all first letters</label>
+            <label for="allfirstletters">all-first-letters</label>
           </div>
-
           <div class="radioButton randomly">
             <input type="radio" name="capitalization" id="randomly">
             <label for="randomly">randomly</label>
           </div>
-
           <div class="radioButton jumbled">
             <input type="radio" name="capitalization" id="jumbled">
             <label for="jumbled">jumbled</label>
@@ -767,21 +768,21 @@
           </div>
           <div class="text">warnings</div>
         </div>
-        <div class="config warnings s4">
-          <div class="warning capslock" data-value="capslock">
-            <input tabindex="0" type="checkbox" id="capslock" name="warning" checked>
+        <div class="config warningsCheckboxContainer s4">
+          <div class="warningCheckbox capslock" data-value="capslock">
+            <input tabindex="0" type="checkbox" id="capslock" name="warningCheckbox" checked>
             <label for="capslock">capslock</label>
           </div>
-          <div class="warning numlock" data-value="numlock">
-            <input tabindex="0" type="checkbox" id="numlock" name="warning">
+          <div class="warningCheckbox numlock" data-value="numlock">
+            <input tabindex="0" type="checkbox" id="numlock" name="warningCheckbox">
             <label for="numlock">numlock</label>
           </div>
-          <div class="warning scrolllock" data-value="scrolllock">
-            <input tabindex="0" type="checkbox" id="scrolllock" name="warning">
+          <div class="warningCheckbox scrolllock" data-value="scrolllock">
+            <input tabindex="0" type="checkbox" id="scrolllock" name="warningCheckbox">
             <label for="scrolllock">scrolllock</label>
           </div>
-          <div class="warning focus" data-value="focus">
-            <input tabindex="0" type="checkbox" id="focus" name="warning">
+          <div class="warningCheckbox focus" data-value="focus">
+            <input tabindex="0" type="checkbox" id="focus" name="warningCheckbox">
             <label for="focus">focus</label>
           </div>
         </div>
@@ -801,10 +802,19 @@
           </div>
           <div class="text">live status</div>
         </div>
-        <div class="config liveStatusButton">
-          <button class="button speed"    tabindex="0" role="button" type="button" value="speed">speed</button>
-          <button class="button accuracy" tabindex="0" role="button" type="button" value="accuracy">accuracy</button>
-          <button class="button burst"    tabindex="0" role="button" type="button" value="burst">burst</button>
+        <div class="config liveStatusCheckboxContainer s3">
+          <div class="liveStatusCheckbox speed" data-value="speed">
+            <input tabindex="0" type="checkbox" id="speed" name="liveStatusCheckbox" checked>
+            <label for="speed">speed</label>
+          </div>
+          <div class="liveStatusCheckbox accuracy" data-value="accuracy">
+            <input tabindex="0" type="checkbox" id="accuracy" name="liveStatusCheckbox">
+            <label for="accuracy">accuracy</label>
+          </div>
+          <div class="liveStatusCheckbox burst" data-value="burst">
+            <input tabindex="0" type="checkbox" id="burst" name="liveStatusCheckbox">
+            <label for="burst">burst</label>
+          </div>
         </div>
       </div>
 

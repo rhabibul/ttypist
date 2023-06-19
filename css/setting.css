@@ -377,26 +377,32 @@ details.UIKeyboardLayout div.list {
 }
 
 
-div.config.textCapitalizationRadioButton {
+div.config.textCapitalizationRadioButtonContainer {
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	border: 1px solid lightgray;
 }
-div.config.textCapitalizationRadioButton div.radioButton {
+div.config.textCapitalizationRadioButtonContainer div.radioButton {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
+	margin: 5px;
 	column-gap: 5px;
 }
-div.config.warnings {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-}
-div.config.warnings div.warning {
+
+div.config.textIncludeCheckboxContainer,
+div.config.warningsCheckboxContainer,
+div.config.liveStatusCheckboxContainer {
 	display: flex;
 	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid lightgray;
+}
+div.config.textIncludeCheckboxContainer div.textIncludeCheckbox,
+div.config.warningsCheckboxContainer div.warningCheckbox,
+div.config.liveStatusCheckboxContainer div.liveStatusCheckbox {
+	display: flex;
+	align-items: center;
+	margin: 5px;
 	column-gap: 5px;
 }
 
