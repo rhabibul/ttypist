@@ -430,10 +430,12 @@ input[type="color"] {
 	outline: none;
 	border: none;
   position: relative;
+	z-index: 5;
 }
 input[type="color"]::after {
 	content: '';
 	position: absolute;
+	z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -457,7 +459,6 @@ input[type="color"]:-moz-color-swatch {
 }
 input[type="color"].colorSelector.primaryTextColorSelector {
 	background-color: var(--text-primary-color);
-	/* border: 1px solid var(--text-primary-color); */
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
@@ -467,7 +468,6 @@ input[type="color"].colorSelector.primaryTextColorSelector::after {
 }
 input[type="color"].colorSelector.secondaryTextColorSelector {
 	background-color: var(--text-secondary-color);
-	/* border: 1px solid var(--text-secondary-color); */
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
@@ -477,7 +477,6 @@ input[type="color"].colorSelector.secondaryTextColorSelector::after {
 }
 input[type="color"].colorSelector.caretColorSelector {
 	background-color: var(--caret-color);
-	/* border: 1px solid var(--caret-color); */
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
@@ -487,7 +486,6 @@ input[type="color"].colorSelector.caretColorSelector::after {
 }
 input[type="color"].colorSelector.paceCaretColorSelector {
 	background-color: var(--pace-caret-color);
-	/* border: 1px solid var(--pace-caret-color); */
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
