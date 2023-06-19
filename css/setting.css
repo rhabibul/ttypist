@@ -2,6 +2,7 @@ div.setting {
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
+	row-gap: 5px;
 	font-size: 0.8rem;
 	font-family: var(--RobotoMono);
 }
@@ -419,8 +420,8 @@ div.colorPickerContainer {
 	width: 120px;
 	display: flex;
 	justify-content: space-between;
-	border-radius: 4px;
 	background-color: var(--setting-button-backgroundcolor);
+	border-radius: var(--setting-button-roundness);
 }
 div.colorPickerContainer input.colorInput {
 	height: 100%;
