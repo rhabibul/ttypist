@@ -396,7 +396,7 @@ div.config.warnings {
 div.config.warnings div.warning {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	column-gap: 5px;
 }
 
 /* --------------------------> text capitalization <-------------------------- */
