@@ -172,7 +172,7 @@
 
   --text-size: 19px;
   --text-thickness: 440;
-  --text-font: var(--SyneMono);
+  --text-font: var(--FiraCode);
   --text-primary-color: #001e2e;
   --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
@@ -245,6 +245,11 @@ text {
   flex-wrap: wrap;
 
   row-gap: 2px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
   user-select: none;
   background-color: var(--caret-color-hidden);
 }

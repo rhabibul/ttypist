@@ -467,12 +467,10 @@ div.colorPickerContainer input[type="color"].colorInputSelector::after {
 	border-bottom-left-radius: var(--setting-button-roundness);
 	border-right: none;
 }
-div.colorPickerContainer input[type="color"].colorInputSelector::-webkit-color-swatch {
-	border-radius: none;
-	border: none;
-	outline: none;
-}
-div.colorPickerContainer input[type="color"].colorInputSelector::-moz-color-swatch {
+div.colorPickerContainer input[type="color"].colorInputSelector::-webkit-color-swatch,
+div.colorPickerContainer input[type="color"].colorInputSelector::-moz-color-swatch,
+div.colorPickerContainer input[type="color"].colorInputSelector::-ms-color-swatch,
+div.colorPickerContainer input[type="color"].colorInputSelector::-o-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
