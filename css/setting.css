@@ -442,6 +442,8 @@ div.colorPickerContainer input[type="color"].colorInputSelector {
 
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 	appearance: none;
 
 	cursor: pointer;
