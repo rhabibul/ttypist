@@ -12,27 +12,30 @@ input[type="text"] {
 }
 
 div.setting {
+	width: 1100px;
 	display: flex;
-	flex-direction: column;
-	row-gap: 8px;
-	font-size: 0.8rem;
+	justify-content: space-between;
+
 	font-family: var(--RobotoMono);
+	font-size: 0.8rem;
+	border: 1px dashed black;
+}
+div.setting div.column.c1,
+div.setting div.column.c2 {
+	width: 500px;
 }
 div.row {
-	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	
-	border-bottom: 1px dashed lightgray;
 }
 div.label {
-	width: 250px;
+	width: 260px;
 	height: 30px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	column-gap: 5px;
+	column-gap: 3px;
 	/* border: 1px solid green; */
 }
 div.label div.symbol {
@@ -41,7 +44,7 @@ div.label div.symbol {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* border: 1px solid yellow; */
+	/* border: 1px solid blue; */
 }
 div.label div.symbol svg {
 	display: flex;
@@ -57,7 +60,6 @@ div.label div.text {
 	font-size: 0.9rem;
 	font-family: var(--FiraCode);
 }
-
 div.config {
 	display: flex;
 	align-items: center;
@@ -94,9 +96,13 @@ div.config button.button {
   border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.config0 {
+
+div.config.s2-1.s3,
+div.config.s3-1.s4,
+div.config.s4-1.s5,
+div.config.s5-1.s6 {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 }
 
 div.config.paceCaretSpeedButtonContainer div.paceCaretSpeedButton {
@@ -117,13 +123,9 @@ svg.iconEditPen {
 }
 div.symbol.iconUseFloats {
 	color: var(--setting-icon-color);
-	font-size: 1rem;
+	font-size: 0.94rem;
 	font-weight: 650;
 	font-family: var(--RobotoMono);
-}
-svg.iconTextFont {
-	width: 14px;
-	height: 14px;	
 }
 svg.iconTextInclude,
 svg.iconTestEndsWithSpace,
@@ -132,6 +134,7 @@ svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
+svg.iconTextFont,
 svg.iconErrorHandling,
 svg.iconStrictSpace,
 svg.iconTextUnderline,
