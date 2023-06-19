@@ -414,85 +414,6 @@ input[type="radio"]:checked + label {
 }
 
 /* --------------------------> color selection <-------------------------- */
-input[type="color"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-
-	width: 30px;
-	height: 30px;
-
-	cursor: pointer;
-	writing-mode: horizontal-tb !important;
-	background-color: transparent;
-	padding: 0px;
-	margin: 0px;
-	outline: none;
-	border: none;
-  position: relative;
-	z-index: 5;
-}
-input[type="color"]::after {
-	content: '';
-	position: absolute;
-	z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-	cursor: pointer;
-  pointer-events: none; /* This allows you to click on the main input. */
-	border-top-left-radius: var(--setting-button-roundness);
-	border-bottom-left-radius: var(--setting-button-roundness);
-	border-right: none;
-}
-input[type="color"]:-webkit-color-swatch {
-	border-radius: none;
-	border: none;
-	outline: none;
-}
-input[type="color"]:-moz-color-swatch {
-	border-radius: none;
-	border: none;
-	outline: none;
-}
-input[type="color"].colorSelector.primaryTextColorSelector {
-	background-color: var(--text-primary-color);
-	border-top-left-radius: var(--setting-button-roundness);
-	border-bottom-left-radius: var(--setting-button-roundness);
-}
-input[type="color"].colorSelector.primaryTextColorSelector::after {
-	background-color: var(--text-primary-color);
-	border: 1px solid var(--text-primary-color);
-}
-input[type="color"].colorSelector.secondaryTextColorSelector {
-	background-color: var(--text-secondary-color);
-	border-top-left-radius: var(--setting-button-roundness);
-	border-bottom-left-radius: var(--setting-button-roundness);
-}
-input[type="color"].colorSelector.secondaryTextColorSelector::after {
-	background-color: var(--text-secondary-color);
-	border: 1px solid var(--text-secondary-color);
-}
-input[type="color"].colorSelector.caretColorSelector {
-	background-color: var(--caret-color);
-	border-top-left-radius: var(--setting-button-roundness);
-	border-bottom-left-radius: var(--setting-button-roundness);
-}
-input[type="color"].colorSelector.caretColorSelector::after {
-	background-color: var(--caret-color);
-	border: 1px solid var(--caret-color);
-}
-input[type="color"].colorSelector.paceCaretColorSelector {
-	background-color: var(--pace-caret-color);
-	border-top-left-radius: var(--setting-button-roundness);
-	border-bottom-left-radius: var(--setting-button-roundness);
-}
-input[type="color"].colorSelector.paceCaretColorSelector::after {
-	background-color: var(--pace-caret-color);
-	border: 1px solid var(--pace-caret-color);
-}
 div.colorPickerContainer {
 	height: 30px;
 	width: 120px;
@@ -516,6 +437,71 @@ div.colorPickerContainer input.colorInput {
 	border: 1px solid var(--setting-button-border-color);
 	border-left: none;
 	font-family: var(--RobotoMono);
+}
+input[type="color"].colorSelector {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	width: 30px;
+	height: 30px;
+
+	cursor: pointer;
+	writing-mode: horizontal-tb !important;
+	background-color: transparent;
+	padding: 0px;
+	margin: 0px;
+	outline: none;
+	border: none;
+  position: relative;
+	z-index: 5;
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
+}
+input[type="color"].colorSelector::after {
+	content: '';
+	position: absolute;
+	z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+	cursor: pointer;
+  pointer-events: none; /* This allows us to click on the main input */
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
+	border-right: none;
+}
+input[type="color"]:-webkit-color-swatch {
+	border-radius: none;
+	border: none;
+	outline: none;
+}
+input[type="color"]:-moz-color-swatch {
+	border-radius: none;
+	border: none;
+	outline: none;
+}
+input[type="color"].colorSelector.primaryTextColorSelector,
+input[type="color"].colorSelector.primaryTextColorSelector::after {
+	background-color: var(--text-primary-color);
+	border: 1px solid var(--text-primary-color);
+}
+input[type="color"].colorSelector.secondaryTextColorSelector,
+input[type="color"].colorSelector.secondaryTextColorSelector::after {
+	background-color: var(--text-secondary-color);
+	border: 1px solid var(--text-secondary-color);
+}
+input[type="color"].colorSelector.caretColorSelector,
+input[type="color"].colorSelector.caretColorSelector::after {
+	background-color: var(--caret-color);
+	border: 1px solid var(--caret-color);
+}
+input[type="color"].colorSelector.paceCaretColorSelector,
+input[type="color"].colorSelector.paceCaretColorSelector::after {
+	background-color: var(--pace-caret-color);
+	border: 1px solid var(--pace-caret-color);
 }
 
 div.customInput {
