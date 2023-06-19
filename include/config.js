@@ -127,7 +127,7 @@ export default {
     word: {
       count: 25, // off | 10 | 25 | 50 | 100 | input | 0(infinite)
       type: "dictionary", // dictionary | gibberish | quote | story | algorithm
-      length: "random", // short(<5) | medium(>=5, <=9), | long(>=10, inf) | mixed
+      length: "mixed", // short(<5) | medium(>=5, <11), | long(>=11, inf) | mixed
     },
     include: {
       digit: false, // include numbers along with words
