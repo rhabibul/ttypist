@@ -179,7 +179,7 @@ details {
 	
 	background-color: var(--setting-button-backgroundcolor);
 	border: 1px solid var(--setting-button-border-color);
-	border-radius: 4px;
+	border-radius: var(--setting-button-roundness);
 }
 details summary::-webkit-details-marker {
 	display: none;
@@ -376,33 +376,23 @@ details.UIKeyboardLayout div.list {
 	width: 100%;
 }
 
-
-div.config.textCapitalizationRadioButtonContainer {
-	display: flex;
-	border: 1px solid lightgray;
-}
-div.config.textCapitalizationRadioButtonContainer div.radioButton {
+div.config.textCapitalizationRadioButtonContainer,
+div.config.textIncludeCheckboxButtonContainer,
+div.config.warningsCheckboxButtonContainer,
+div.config.liveStatusCheckboxButtonContainer {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	margin: 5px;
-	column-gap: 5px;
+	border: 1px solid var(--setting-button-border-color);
+	border-radius: var(--setting-button-roundness);
 }
-
-div.config.textIncludeCheckboxContainer,
-div.config.warningsCheckboxContainer,
-div.config.liveStatusCheckboxContainer {
+div.config.textCapitalizationRadioButtonContainer div.radioButton,
+div.config.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton,
+div.config.warningsCheckboxButtonContainer div.warningCheckboxButton,
+div.config.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
-	border: 1px solid lightgray;
-}
-div.config.textIncludeCheckboxContainer div.textIncludeCheckbox,
-div.config.warningsCheckboxContainer div.warningCheckbox,
-div.config.liveStatusCheckboxContainer div.liveStatusCheckbox {
-	display: flex;
-	align-items: center;
-	margin: 5px;
+	margin: 8px 5px;
 	column-gap: 5px;
 }
 
