@@ -579,7 +579,7 @@
           </div>
           <div class="minimumSpeedCustomInputContainer s1">
             <div class="customInput">
-              <input class="customInputBox minspeed" tabindex="0" type="text" placeholder="min acc">
+              <input class="customInputBox minimumSpeed" tabindex="0" type="text" placeholder="min acc">
               <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
             </div>
           </div>
@@ -603,7 +603,7 @@
           </div>
           <div class="minimumAccuracyCustomInputContainer s1">
             <div class="customInput">
-              <input class="customInputBox minaccuracy" tabindex="0" type="text" placeholder="min acc">
+              <input class="customInputBox minimumAccuracy" tabindex="0" type="text" placeholder="min acc">
               <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
             </div>
           </div>
@@ -628,7 +628,7 @@
           </div>
           <div class="minimumBurstCustomInputContainer s1">
             <div class="customInput">
-              <input class="customInputBox minburst" tabindex="0" type="text" placeholder="min burst">
+              <input class="customInputBox minimumBurst" tabindex="0" type="text" placeholder="min burst">
               <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
             </div>
           </div>
@@ -656,7 +656,7 @@
           </div>
           <div class="timerTimeCustomInputContainer s1">
             <div class="customInput">
-              <input class="customInputBox minaccuracy" tabindex="0" type="number" placeholder="time">
+              <input class="customInputBox minaccuracy" tabindex="0" type="number" placeholder="60">
               <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
             </div>
           </div>
@@ -695,17 +695,19 @@
           <div class="text">word count</div>
         </div>
 
-        <div class="config textWordCountButtonContainer s6-1 s7">
-          <div class="config0 textWordCountButton s6">
-            <button class="button off"             tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button words10"         tabindex="0" role="button" type="button" value="10">10</button>
-            <button class="button words25"         tabindex="0" role="button" type="button" value="25" id="selected">25</button>
-            <button class="button words50"         tabindex="0" role="button" type="button" value="50">50</button>
-            <button class="button words100"        tabindex="0" role="button" type="button" value="100">100</button>
-            <button class="button wordCountCustom" tabindex="0" role="button" type="button" value="-1"> <div class="symbol"> <svg class="iconEditPen" fill="var(--setting-icon-color)" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div></button>
+        <div class="config textWordCountButtonContainer s5-1 s6">
+          <div class="config0 textWordCountButton s5">
+            <button class="button off"      tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button words10"  tabindex="0" role="button" type="button" value="10">10</button>
+            <button class="button words25"  tabindex="0" role="button" type="button" value="25" id="selected">25</button>
+            <button class="button words50"  tabindex="0" role="button" type="button" value="50">50</button>
+            <button class="button words100" tabindex="0" role="button" type="button" value="100">100</button>
           </div>
-          <div hidden class="textWordCountCustomInputContainer s1">
-            <input class="textWordCountCustomInput" tabindex="0" type="number" placeholder="25">
+          <div class="textWordCountCustomInputContainer s1">
+            <div class="customInput">
+              <input class="customInputBox textWordCount" tabindex="0" type="number" placeholder="25">
+              <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+            </div>
           </div>
         </div>
       </div>
