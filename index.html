@@ -966,14 +966,12 @@
           </div>
           <div class="text">text word length</div>
         </div>
-
-        <div class="details">
-          <details class="config textWordLengthList">
+        <div class="config details textWordLengthListContainer">
+          <details class="textWordLengthList">
             <summary>
               <div class="text in-use">mixed</div>
               <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
-
             <div class="list">
               <div class="item short" data-value="short">
                 <div class="text">short</div>
@@ -997,31 +995,29 @@
       </div>
       
       <div class="row" id="useFloats">
-        <div class="label sub">
+        <div class="label">
           <div class="symbol iconUseFloats">00</div>
           <div class="text">usefloats</div>
         </div>
-
         <div class="config useFloatsButton s2">
-          <button id="selected" class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-          <button               class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
       </div>
       
       <div class="row " id="speedUnit">
         <div class="label">
-          <div class="symbol"> <svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
+          <div class="symbol"><svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
           <div class="text">speed unit</div>
         </div>
-
         <div class="config speedUnitButton s2">
-          <button               class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
-          <button id="selected" class="button wpm" tabindex="0" role="button" type="button" value="wpm">wpm</button>
+          <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
+          <button class="button wpm" tabindex="0" role="button" type="button" value="wpm" id="selected">wpm</button>
         </div>
       </div>
 
       <div class="row" id="theme">
-        <div class="label sub">
+        <div class="label">
           <div class="symbol">
             <svg class="iconTheme" height="200px" width="200px" viewBox="0 0 512 512">
               <path fill="var(--setting-icon-color)" d="M108.303,151.078c15.132,21.096,36.72,35.172,56.347,36.762l0.823,0.075l36.85-26.438l0.196-0.801 c4.774-19.103-1.646-44.071-16.773-65.155c-14.357-20.004-31.076-33.728-47.253-47.01c-11.037-9.056-22.458-18.434-33.117-29.78 C96.553,9.334,93.583,4.692,93.574,4.68L90.713,0l-2.4,2.826C77.173,15.981,72.721,39.694,76.076,67.873 C79.592,97.464,91.048,127.024,108.303,151.078z M116.517,116.056c12.018,13.598,17.63,4.692,10.4-9.17 c-9.079-17.388,0.098-18.012,5.682-12.601c5.566,5.392,12.541,17.476,18.548,14.014c3.611-2.081-0.268-9.568-5.38-20.913 c-2.932-6.496-0.4-16.24,14.701-3.236c5.515,5.544,10.747,11.523,15.618,18.309c10.564,14.707,15.565,32.428,13.121,46.329 l-31.55,22.642c-13.963-2.132-29.12-12.551-39.697-27.284c-4.049-5.651-7.761-11.768-11.078-18.201 c-0.356-0.921-0.763-1.904-1.236-2.946C100.379,111.402,104.5,102.472,116.517,116.056z"></path>
@@ -1033,25 +1029,23 @@
           </div>
           <div class="text">theme</div>
         </div>
-
         <div class="config themeButton s3">
-          <button id="selected" class="button light"  tabindex="0" role="button" type="button" value="light">light</button>
-          <button               class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
-          <button               class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
+          <button class="button light"  tabindex="0" role="button" type="button" value="light" id="selected">light</button>
+          <button class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
+          <button class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>
         </div>
       </div>
 
       <div class="row" id="UIKeyboardReaction">
-        <div class="label sub">
+        <div class="label">
           <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
           <div class="text">keymap</div>
         </div>
-
         <div class="config keyboardReactionButton s4">
-          <button id="selected" class="button off"    tabindex="0" role="button" type="button" value="off">off</button>
-          <button               class="button static" tabindex="0" role="button" type="button" value="static">static</button>
-          <button               class="button react"  tabindex="0" role="button" type="button" value="react">react</button>
-          <button               class="button next"   tabindex="0" role="button" type="button" value="next">next</button>
+          <button class="button off"    tabindex="0" role="button" type="button" value="off" id="selected">off</button>
+          <button class="button static" tabindex="0" role="button" type="button" value="static">static</button>
+          <button class="button react"  tabindex="0" role="button" type="button" value="react">react</button>
+          <button class="button next"   tabindex="0" role="button" type="button" value="next">next</button>
         </div>
       </div>
 
@@ -1060,14 +1054,12 @@
           <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
           <div class="text">keyboard language</div>
         </div>
-
-        <div class="details">
-          <details class="config UIKeyboardLanguage">
+        <div class="config details UIKeyboardLanguageContainer">
+          <details class="UIKeyboardLanguage">
             <summary>
               <div class="text in-use">English</div>
               <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
-
             <div class="list">
               <div class="item hindi" data-value="hindi">
                 <div class="text">Hindi</div>
@@ -1103,14 +1095,12 @@
           <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
           <div class="text">keyboard layout</div>
         </div>
-
-        <div class="config UIKeyboardLayoutDetailsContainer">
-          <details class="UIKeyboardLayoutDetails">
+        <div class="config UIKeyboardLayoutContainer">
+          <details class="UIKeyboardLayout">
             <summary>
               <div class="text in-use">qwerty</div>
               <div class="symbol"><svg width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
             </summary>
-            
             <div class="list">
               <div class="item dvorak" data-value="dvorak">
                 <div class="text">dvorak</div>
@@ -1138,10 +1128,9 @@
           <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
           <div class="text">emulate layout</div>
         </div>
-
         <div class="config UIKeyboardEmulateButton s2">
-          <button id="selected" tabindex="0" role="button" type="button" class="button off" value="off">off</button>
-          <button               tabindex="0" role="button" type="button" class="button on" value="on">on</button>
+          <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
+          <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
         </div>
       </div>
 

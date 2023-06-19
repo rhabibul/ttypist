@@ -394,8 +394,8 @@ div.config.warningsCheckboxButtonContainer        div.warningCheckboxButton,
 div.config.liveStatusCheckboxButtonContainer      div.liveStatusCheckboxButton {
 	display: flex;
 	align-items: center;
-	margin: 8px;
-	column-gap: 5px;
+	margin: 8px 6px;
+	column-gap: 4px;
 }
 
 /* -------------------------- text capitalization -------------------------- */
