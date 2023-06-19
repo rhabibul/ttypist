@@ -71,11 +71,6 @@ div.label div.text {
 	font-family: var(--FiraCode);
 }
 div.config {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	column-gap: 5px;
-
   -moz-user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -84,18 +79,22 @@ div.config {
   user-select: none;
 	/* border: 1px solid gray; */
 }
-div.config div.buttonContainer {
+div.buttonContainer {
+	width: 240px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	column-gap: 5px;
+	border: 1px solid black;
+}
+div.buttonContainer.s2 > .button {
+	flex-basis: 49%;
 }
 div.config button.button {
 	height: var(--setting-button-height);
 
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	column-gap: 5px;
 
 	padding: 0px 6px;
