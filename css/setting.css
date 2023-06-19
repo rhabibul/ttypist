@@ -29,10 +29,10 @@ div.label > * {
 div.label div.text {
 	font-size: 0.9rem;
 	font-family: var(--FiraCode);
-	border: 1px solid gray;
+	/* border: 1px solid gray; */
 }
 div.label div.symbol {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
 
 ::placeholder {
@@ -376,6 +376,7 @@ details.UIKeyboardLayout div.list {
 	width: 100%;
 }
 
+div.config.modifierKeyCheckboxButtonContainer,
 div.config.textCapitalizationRadioButtonContainer,
 div.config.textIncludeCheckboxButtonContainer,
 div.config.warningsCheckboxButtonContainer,
@@ -386,13 +387,14 @@ div.config.liveStatusCheckboxButtonContainer {
 	border: 1px solid var(--setting-button-border-color);
 	border-radius: var(--setting-button-roundness);
 }
+div.config.modifierKeyCheckboxButtonContainer     div.modifierKeyCheckboxButton,
 div.config.textCapitalizationRadioButtonContainer div.radioButton,
-div.config.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton,
-div.config.warningsCheckboxButtonContainer div.warningCheckboxButton,
-div.config.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton {
+div.config.textIncludeCheckboxButtonContainer     div.textIncludeCheckboxButton,
+div.config.warningsCheckboxButtonContainer        div.warningCheckboxButton,
+div.config.liveStatusCheckboxButtonContainer      div.liveStatusCheckboxButton {
 	display: flex;
 	align-items: center;
-	margin: 8px 5px;
+	margin: 8px;
 	column-gap: 5px;
 }
 
