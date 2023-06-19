@@ -400,7 +400,7 @@ div.config.warnings div.warning {
 	column-gap: 5px;
 }
 
-/* --------------------------> text capitalization <-------------------------- */
+/* -------------------------- text capitalization -------------------------- */
 input[type="radio"] + label {
 	color: #575757;
 }
@@ -414,7 +414,7 @@ input[type="radio"]:checked + label {
   text-decoration-skip-ink: all;
 }
 
-/* --------------------------> color selection <-------------------------- */
+/* -------------------------- color picker -------------------------- */
 div.colorPickerContainer {
 	height: 30px;
 	width: 120px;
@@ -423,7 +423,7 @@ div.colorPickerContainer {
 	background-color: var(--setting-button-backgroundcolor);
 	border-radius: var(--setting-button-roundness);
 }
-div.colorPickerContainer input.colorInput {
+div.colorPickerContainer input[type="text"].colorInputText {
 	height: 100%;
 	width: 90px;
 	padding-left: 5px;
@@ -435,21 +435,16 @@ div.colorPickerContainer input.colorInput {
 	border-left: none;
 	font-family: var(--RobotoMono);
 }
-div.colorPickerContainer input.colorSelector {
-	height: 100%;
-	outline: none;
-}
-input[type="color"].colorSelector {
+
+div.colorPickerContainer input[type="color"].colorInputSelector {
+	width: 30px;
+	height: 30px;
+
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 
-	width: 30px;
-	height: 30px;
-
 	cursor: pointer;
-	writing-mode: horizontal-tb !important;
-	background-color: transparent;
 	padding: 0px;
 	margin: 0px;
 	outline: none;
@@ -458,7 +453,7 @@ input[type="color"].colorSelector {
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
-input[type="color"].colorSelector::after {
+div.colorPickerContainer input[type="color"].colorInputSelector::after {
 	content: '';
 	position: absolute;
   top: 50%;
@@ -472,37 +467,38 @@ input[type="color"].colorSelector::after {
 	border-bottom-left-radius: var(--setting-button-roundness);
 	border-right: none;
 }
-input[type="color"]::-webkit-color-swatch {
+div.colorPickerContainer input[type="color"].colorInputSelector::-webkit-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
 }
-input[type="color"]::-moz-color-swatch {
+div.colorPickerContainer input[type="color"].colorInputSelector::-moz-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
 }
-input[type="color"].colorSelector.primaryTextColorSelector,
-input[type="color"].colorSelector.primaryTextColorSelector::after {
+div.colorPickerContainer input[type="color"].colorInputSelector.primaryTextColorSelector,
+div.colorPickerContainer input[type="color"].colorInputSelector.primaryTextColorSelector::after {
 	background-color: var(--text-primary-color);
 	border-left-color: var(--text-primary-color);
 }
-input[type="color"].colorSelector.secondaryTextColorSelector,
-input[type="color"].colorSelector.secondaryTextColorSelector::after {
+div.colorPickerContainer input[type="color"].colorInputSelector.secondaryTextColorSelector,
+div.colorPickerContainer input[type="color"].colorInputSelector.secondaryTextColorSelector::after {
 	background-color: var(--text-secondary-color);
 	border-left-color: var(--text-secondary-color);
 }
-input[type="color"].colorSelector.caretColorSelector,
-input[type="color"].colorSelector.caretColorSelector::after {
+div.colorPickerContainer input[type="color"].colorInputSelector.caretColorSelector,
+div.colorPickerContainer input[type="color"].colorInputSelector.caretColorSelector::after {
 	background-color: var(--caret-color);
 	border-left-color: var(--caret-color);
 }
-input[type="color"].colorSelector.paceCaretColorSelector,
-input[type="color"].colorSelector.paceCaretColorSelector::after {
+div.colorPickerContainer input[type="color"].colorInputSelector.paceCaretColorSelector,
+div.colorPickerContainer input[type="color"].colorInputSelector.paceCaretColorSelector::after {
 	background-color: var(--pace-caret-color);
 	border-left-color: var(--pace-caret-color);
 }
 
+/* -------------------------- custom input -------------------------- */
 div.customInput {
 	width: 120px;
 	height: 30px;
