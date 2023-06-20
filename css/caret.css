@@ -141,11 +141,15 @@ box-shadow: offset-x | offset-y | blur-radius | color
 div.caretStyleButton,
 div.paceCaretStyleButton {
   height: 40px;
-  width: 140px;
+  width: var(--setting-buttons-container-width);
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  background-color: var(--setting-button-backgroundcolor);
+	border: 1px solid var(--setting-caret-border-color);
+	border-radius: var(--setting-button-roundness);
+  padding: 22px 0px;
 }
 
 button.caret-off,

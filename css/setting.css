@@ -1,5 +1,6 @@
 :root {
 	--setting-buttons-container-width: 240px;
+	--setting-checkboxAndText-gap: 3px;
 }
 
 input[type="color"] {
@@ -16,7 +17,7 @@ input[type="text"] {
 }
 
 div.setting {
-	width: 940px;
+	width: 920px;
 	display: flex;
 	justify-content: space-between;
 
@@ -26,7 +27,7 @@ div.setting {
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
-	width: 460px;
+	width: 450px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -43,7 +44,7 @@ div.setting div.column div.row {
 }
 
 div.label {
-	width: 210px;
+	width: 200px;
 	height: 30px;
 	display: flex;
 	align-items: center;
@@ -83,29 +84,42 @@ div.config {
   user-select: none;
 	/* border: 1px solid gray; */
 }
-div.buttonContainer.s2-1.s3 div.minimumSpeedButton,
-div.buttonContainer.s2-1.s3 div.minimumAccuracyButton,
-div.buttonContainer.s2-1.s3 div.minimumBurstButton,
-div.buttonContainer.s3-1.s4 div.minimumBurstButton,
-div.buttonContainer {
+div.buttonContainer,
+div.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2,
+div.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2,
+div.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3,
+div.buttonContainer.timerTimeButtonContainer.s5-1.s6 div.timerTimeButton.s5,
+div.buttonContainer.textWordCountButtonContainer.s5-1.s6 div.textWordCountButton.s5,
+div.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 {
 	width: var(--setting-buttons-container-width);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	/* border: 1px solid black; */
 }
-div.buttonContainer.s2-1.s3 div.minimumSpeedButton > .button,
-div.buttonContainer.s2-1.s3 div.minimumAccuracyButton > .button,
-div.buttonContainer.s2 > .button {
+div.buttonContainer.s2 > .button,
+div.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2 > .button,
+div.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2 > .button {
 	flex-basis: 49%;
 }
-div.buttonContainer.s3-1.s4 div.minimumBurstButton > .button,
-div.buttonContainer.s3 > .button {
+div.buttonContainer.s3 > .button,
+div.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3 > .button {
 	flex-basis: 32%;
 }
 div.buttonContainer.s4 > .button {
 	
 }
+div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
+div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
+	flex-basis: 18%;
+}
+div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:first-child,
+div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:first-child,
+div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:last-child,
+div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:last-child {
+	flex-basis: 20%;
+}
+
 div.config button.button {
 	height: var(--setting-button-height);
 
@@ -344,28 +358,28 @@ details div.list div.item:last-child {
 details.textFontFamilyList div.list {
 	width: 100%;
 }
-details.textFontFamilyList div.list div.item.FiraCode {
-	font-size: 0.92rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.FiraCode {
+	font-size: 0.98rem;
 	font-family: var(--FiraCode);
 }
-details.textFontFamilyList div.list div.item.SourceCodePro {
-	font-size: 0.95rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.SourceCodePro {
+	font-size: 0.99rem;
 	font-family: var(--SourceCodePro);
 }
-details.textFontFamilyList div.list div.item.RobotoMono {
-	font-size: 0.9rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.RobotoMono {
+	font-size: 0.95rem;
 	font-family: var(--RobotoMono);
 }
-details.textFontFamilyList div.list div.item.CourierPrime {
-	font-size: 0.98rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.CourierPrime {
+	font-size: 1rem;
 	font-family: var(--CourierPrime);
 }
-details.textFontFamilyList div.list div.item.UbuntuMono {
-	font-size: 1rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.UbuntuMono {
+	font-size: 1.1rem;
 	font-family: var(--UbuntuMono);
 }
-details.textFontFamilyList div.list div.item.SyneMono {
-	font-size: 0.98rem;
+details.textFontFamilyList div.list div.item.fontFamilyOfText.SyneMono {
+	font-size: 1.1rem;
 	font-family: var(--SyneMono);
 }
 
@@ -377,9 +391,12 @@ div.config.liveStatusCheckboxButtonContainer {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+	background-color: var(--setting-button-backgroundcolor);
 	border-radius: var(--setting-button-roundness);
 	border: 1px solid var(--setting-button-border-color);
-	background-color: var(--setting-button-backgroundcolor);
+}
+div.config.warningsCheckboxButtonContainer {
+	width: calc(var(--setting-buttons-container-width) + 120px);	
 }
 div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton,
 div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
@@ -387,8 +404,7 @@ div.config.warningsCheckboxButtonContainer     div.warningCheckboxButton,
 div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
 	display: flex;
 	align-items: center;
-	margin: 0px 6px;
-	column-gap: 4px;
+	column-gap: var(--setting-checkboxAndText-gap);
 }
 
 /* -------------------------- text capitalization -------------------------- */
@@ -407,29 +423,16 @@ input[type="radio"]:checked + label {
 
 /* -------------------------- color picker -------------------------- */
 div.colorPickerContainer {
-	height: 30px;
-	width: 120px;
+	width: var(--setting-buttons-container-width);
+	height: var(--setting-button-height);
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--setting-button-backgroundcolor);
 	border-radius: var(--setting-button-roundness);
 }
-div.colorPickerContainer input[type="text"].colorInputText {
-	height: 100%;
-	width: 90px;
-	padding-left: 5px;
-	outline: none;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-	background-color: var(--setting-button-backgroundcolor);
-	border: 1px solid var(--setting-button-border-color);
-	border-left: none;
-	font-family: var(--RobotoMono);
-}
-
 div.colorPickerContainer input[type="color"].colorInputSelector {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: var(--setting-button-height);
 
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -445,6 +448,18 @@ div.colorPickerContainer input[type="color"].colorInputSelector {
   position: relative;
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
+}
+div.colorPickerContainer input[type="text"].colorInputText {
+	width: calc(var(--setting-buttons-container-width) - 40px);
+	height: 100%;
+	padding-left: 8px;
+	outline: none;
+	border-top-right-radius: var(--setting-button-roundness);
+	border-bottom-right-radius: var(--setting-button-roundness);
+	background-color: var(--setting-button-backgroundcolor);
+	border: 1px solid var(--setting-button-border-color);
+	border-left: none;
+	font-family: var(--RobotoMono);
 }
 div.colorPickerContainer input[type="color"].colorInputSelector::after {
 	content: '';
