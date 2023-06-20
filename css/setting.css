@@ -240,6 +240,7 @@ svg.iconHighlightMode {
 }
 
 details {
+	width: var(--setting-buttons-container-width);
 	box-sizing: border-box;
 	position: relative;
 	height: var(--setting-button-height);
@@ -260,10 +261,11 @@ details summary {
 	list-style: none;
 	user-select: none;
 }
-details summary > div.text {
+details summary > div.text.value.in-use {
+	width: calc(var(--setting-buttons-container-width) - 30px);
+	height: 100%;
 	position: absolute;
 	left: 0px;
-	height: 100%;
 	
 	display: flex;
 	align-items: center;
@@ -285,10 +287,8 @@ details summary > div.symbol {
 	align-items: center;
 	justify-content: center;
 }
-details summary > div.symbol svg {
+details summary div.symbol svg.iconDropDownArrow {
 	height: 100%;
-}
-details summary > div.symbol svg {
 	fill: #363636;
 }
 details div.list {
@@ -350,13 +350,13 @@ details div.list div.item:last-child {
 }
 
 /* ------- config.text.font.family */
-details.textFontFamilyList {
+/* details.textFontFamilyList {
 	width: 185px;
 }
 details.textFontFamilyList summary > div.text.value.in-use {
 	width: 155px;
 	font-family: var(--RobotoMono);
-}
+} */
 details.textFontFamilyList div.list {
 	width: 100%;
 }
@@ -386,7 +386,7 @@ details.textFontFamilyList div.list div.item.SyneMono {
 }
 
 /* ------- config.text.word.type */
-details.textWordTypeList {
+/* details.textWordTypeList {
 	width: 140px;
 }
 details.textWordTypeList summary > div.text {
@@ -395,10 +395,10 @@ details.textWordTypeList summary > div.text {
 }
 details.textWordTypeList div.list {
 	width: 100%;
-}
+} */
 
 /* ------- config.text.word.length */
-details.textWordLengthList {
+/* details.textWordLengthList {
 	width: 140px;
 }
 details.textWordLengthList summary > div.text {
@@ -419,10 +419,10 @@ details.textWordLengthList div.list div.item div.text {
 }
 details.textWordLengthList div.list div.item div.text {
 	flex-basis: 50%;
-}
+} */
 
 /* ------- config.keyboard.language */
-details.UIKeyboardLanguage {
+/* details.UIKeyboardLanguage {
 	width: 140px;
 }
 details.UIKeyboardLanguage summary > div.text {
@@ -431,10 +431,10 @@ details.UIKeyboardLanguage summary > div.text {
 }
 details.UIKeyboardLanguage div.list {
 	width: 100%;
-}
+} */
 
 /* ------- config.keyboard.layout */
-details.UIKeyboardLayout {
+/* details.UIKeyboardLayout {
 	width: 140px;
 }
 details.UIKeyboardLayout summary > div.text {
@@ -443,7 +443,7 @@ details.UIKeyboardLayout summary > div.text {
 }
 details.UIKeyboardLayout div.list {
 	width: 100%;
-}
+} */
 
 div.config.modifierKeyCheckboxButtonContainer,
 div.config.textCapitalizationRadioButtonContainer,
