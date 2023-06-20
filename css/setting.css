@@ -1,3 +1,7 @@
+:root {
+	--setting-buttons-container-width: 240px;
+}
+
 input[type="color"] {
 	cursor: pointer;
 }
@@ -22,12 +26,11 @@ div.setting {
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
-	width: 520px;
+	width: 510px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	row-gap: 5px;
 	/* border: 1px dashed gray; */
 }
 div.setting div.column div.row {
@@ -36,7 +39,7 @@ div.setting div.column div.row {
 	align-items: center;
 	justify-content: flex-start;
 	border-top: 1px dashed lightgray;
-	padding: 2px 0px 2px 5px;
+	padding: 5px 0px 5px 5px;
 }
 
 div.label {
@@ -79,18 +82,28 @@ div.config {
   user-select: none;
 	/* border: 1px solid gray; */
 }
+div.buttonContainer.s2-1.s3 div.minimumSpeedButton,
+div.buttonContainer.s2-1.s3 div.minimumAccuracyButton,
+div.buttonContainer.s2-1.s3 div.minimumBurstButton,
+div.buttonContainer.s3-1.s4 div.minimumBurstButton,
 div.buttonContainer {
-	width: 240px;
+	width: var(--setting-buttons-container-width);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	/* border: 1px solid black; */
 }
+div.buttonContainer.s2-1.s3 div.minimumSpeedButton > .button,
+div.buttonContainer.s2-1.s3 div.minimumAccuracyButton > .button,
 div.buttonContainer.s2 > .button {
 	flex-basis: 49%;
 }
+div.buttonContainer.s3-1.s4 div.minimumBurstButton > .button,
 div.buttonContainer.s3 > .button {
 	flex-basis: 32%;
+}
+div.buttonContainer.s4 > .button {
+	
 }
 div.config button.button {
 	height: var(--setting-button-height);
@@ -114,6 +127,7 @@ div.config.s4-1.s5,
 div.config.s5-1.s6 {
 	display: flex;
 	flex-direction: column;
+	row-gap: 3px;
 }
 
 div.row#textCapitalization,
@@ -121,10 +135,6 @@ div.row#warnings {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-}
-
-div.config.paceCaretSpeedButtonContainer div.paceCaretSpeedButton {
-	display: flex;
 }
 
 ::placeholder {
@@ -557,8 +567,8 @@ div.colorPickerContainer input[type="color"].colorInputSelector.paceCaretColorSe
 
 /* -------------------------- custom input -------------------------- */
 div.customInput {
-	width: 120px;
-	height: 30px;
+	width: var(--setting-buttons-container-width);
+	height: var(--setting-button-height);
 	display: flex;
 	justify-content: center;
 	background-color: var(--setting-button-backgroundcolor);
@@ -567,7 +577,7 @@ div.customInput {
 }
 div.customInput input.customInputBox {
 	height: 100%;
-	width: 90px;
+	width: calc(var(--setting-buttons-container-width) - 30px);
 	border: none;
 	outline: none;
 	padding-left: 8px;
