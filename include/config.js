@@ -28,17 +28,17 @@ export default {
     },
     notAllowedOnCorrect: false, // if previous word was correctly typed then don't allow backspace
   },
-  confidence: { // ..backspace control
+  confidence: {
     low: true, // use backspace key to delete previous words/letters
     high: false, // only current word can be edited with bs, cannot go to prev word whether it is correct or incorrect
     peak: false, // cannot use backspace key at all (no deletion)
   },
-  difficulty: { // ..test failing
+  difficulty: {
     ease: true, // classic typing experience, mistakes can be corrected or left behind
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
   },
-  strictspace: true, // if enabled then hitting space will not move caret to next word instead it will be inserted
+  strictspace: true, // hitting space will not move caret to next word (it will be inserted)
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
