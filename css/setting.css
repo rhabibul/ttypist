@@ -632,18 +632,6 @@ input::-ms-fill-upper {
   background: #e6e6e6;
   border-radius: 100px;
 }
-input::-ms-fill-lower {
-  background: #60cd18;
-}
-.rangeslider-fill-lower {
-  background-color: #60cd18;
-  border-radius: 100px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 4px;
-  will-change: width;
-}
 input::-webkit-slider-thumb {
   box-sizing: border-box;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
