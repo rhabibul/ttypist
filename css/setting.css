@@ -199,7 +199,6 @@ svg.iconTextFontFamily {
 	height: 14px;
 }
 svg.iconTestEndsWithSpace,
-svg.iconPaceCaretSpeedCustom,
 svg.iconEditPen {
 	width: 15px;
 	height: 15px;
@@ -223,6 +222,7 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
+svg.speedometer,
 svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
@@ -244,7 +244,6 @@ svg.iconLiveStatus,
 svg.iconSetttingFieldView,
 svg.iconTextWordLength,
 svg.iconNumberCount,
-svg.speedometer,
 svg.iconCaret,
 svg.iconExtraLetterError,
 svg.iconTapeMode {
