@@ -228,7 +228,7 @@ svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconWordLength,
-svg.iconDynamicSettingChange {
+svg.iconDynamicSettings {
 	width: 20px;
 	height: 20px;
 }
@@ -689,4 +689,17 @@ div.config.buttonContainer.textFontWeight.range div.text.value {
 	justify-content: center;
 	border-left: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
+}
+
+/* --------------------------- utils bar --------------------------- */
+div.utils {
+	height: 40px;
+	width: 800px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	
+	border-radius: 8px;
+	background-color: whitesmoke;
 }
