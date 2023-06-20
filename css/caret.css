@@ -146,7 +146,6 @@ div.paceCaretStyleButton {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: var(--setting-button-backgroundcolor);
 	border: 1px solid var(--setting-caret-border-color);
 	border-radius: var(--setting-button-roundness);
   padding: 22px 0px;

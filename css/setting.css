@@ -1,8 +1,3 @@
-:root {
-	--setting-buttons-container-width: 240px;
-	--setting-checkboxAndText-gap: 3px;
-}
-
 input[type="color"] {
 	cursor: pointer;
 }
@@ -230,6 +225,7 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
+svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconFontWeight,
@@ -245,7 +241,6 @@ svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
-svg.iconWarning,
 svg.iconTestTimer,
 svg.iconLiveStatus,
 svg.iconSetttingFieldView,

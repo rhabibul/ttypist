@@ -206,6 +206,8 @@
   --setting-button-backgroundcolor: hsla(210, 100%, 98%, 0.6);
   --setting-button-roundness: 4px;
   --setting-icon-color: rgb(49, 49, 49);
+  --setting-buttons-container-width: 240px;
+	--setting-checkboxAndText-gap: 3px;
 
   --primaryTextColor-colorPicker: black;
   --secondaryTextColor-colorPicker: black;
