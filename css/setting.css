@@ -39,7 +39,7 @@ div.setting div.column div.row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-top: 1px dashed rgba(222, 222, 222, 0.663);
+	border-top: 1px dashed rgba(222, 222, 222, 0.6);
 	padding: 6px 0px;
 }
 div.label {
@@ -57,6 +57,7 @@ div.label div.text {
 	align-items: center;
 	justify-content: center;
 	font-size: 0.9rem;
+	font-weight: 500;
 	font-family: var(--FiraCode);
 	/* border: 1px solid red; */
 }
@@ -199,84 +200,87 @@ div.symbol.iconUseFloats {
 	font-weight: 650;
 	font-family: var(--RobotoMono);
 }
-svg.iconTextFont,
 svg.iconTextInclude,
+svg.iconTextFontFamily {
+	width: 14px;
+	height: 14px;
+}
 svg.iconTestEndsWithSpace,
 svg.iconPaceCaretSpeedCustom,
 svg.iconEditPen {
 	width: 15px;
 	height: 15px;
 }
+svg.iconTextUnderline {
+	width: 17px;
+	height: 17px;
+}
 svg.iconErrorHandling,
 svg.iconStrictSpace,
-svg.iconTextUnderline,
+svg.iconLiveStatusInterval,
 svg.iconStopOnError,
+svg.iconBomb,
 svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconBackspaceKey,
+svg.iconKeyboard,
 svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
-svg.iconLiveStatusInterval,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconFontWeight,
 svg.iconTextInclude,
 svg.iconWordLength,
+svg.iconTestDifficulty,
 svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
-svg.iconKeyboard,
-svg.iconBomb,
+svg.iconOppositeShiftMode,
 svg.iconDynamicSettingChange {
 	width: 21px;
 	height: 21px;	
 }
 svg.iconWarning,
 svg.iconTestTimer,
+svg.iconLiveStatus,
 svg.iconSetttingFieldView,
 svg.iconTextWordLength,
 svg.iconNumberCount,
 svg.speedometer,
 svg.iconCaret,
-svg.iconTapeMode,
-svg.iconBackspaceKey,
-svg.iconTestDifficulty {
+svg.iconExtraLetterError,
+svg.iconTapeMode {
 	width: 22px;
 	height: 22px;	
 }
-svg.iconExtraLetterError,
-svg.iconLiveStatus,
-svg.iconOppositeShiftMode,
+svg.iconTextCapitalization,
+svg.iconFillColor,
 svg.iconTheme,
 svg.iconTextFontSize {
 	width: 23px;
   height: 23px;
 }
-svg.iconTextCapitalizationRadio,
 svg.iconCaretOpacity,
 svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
 svg.iconTextWhitespace,
-svg.iconFillColor,
 svg.iconFlipHighlightModeColor,
 svg.iconTextInput {
 	width: 25px;
 	height: 25px;
 }
-svg.iconHide {
-	width: 30px;
-	height: 30px;	
-}
 svg.iconForgiveExtraLetterError {
-	width: 29px;
-	height: 29px;	
+	width: 27px;
+	height: 27px;
 }
+svg.iconHide,
 svg.iconHighlightMode {
 	width: 30px;
 	height: 30px;	
