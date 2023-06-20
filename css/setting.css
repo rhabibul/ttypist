@@ -16,7 +16,7 @@ input[type="text"] {
 }
 
 div.setting {
-	width: 1100px;
+	width: 940px;
 	display: flex;
 	justify-content: space-between;
 
@@ -26,12 +26,12 @@ div.setting {
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
-	width: 510px;
+	width: 460px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	/* border: 1px dashed gray; */
+	border: 1px dashed gray;
 }
 div.setting div.column div.row {
 	width: 100%;
@@ -43,7 +43,7 @@ div.setting div.column div.row {
 }
 
 div.label {
-	width: 260px;
+	width: 210px;
 	height: 30px;
 	display: flex;
 	align-items: center;
@@ -72,6 +72,7 @@ div.label div.text {
 	justify-content: center;
 	font-size: 0.9rem;
 	font-family: var(--FiraCode);
+	/* border: 1px solid red; */
 }
 div.config {
   -moz-user-select: none;
@@ -352,7 +353,7 @@ details div.list div.item:last-child {
 details.textFontFamilyList {
 	width: 185px;
 }
-details.textFontFamilyList summary > div.text.in-use {
+details.textFontFamilyList summary > div.text.value.in-use {
 	width: 155px;
 	font-family: var(--RobotoMono);
 }
