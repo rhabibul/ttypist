@@ -37,19 +37,18 @@ div.setting div.column.c2 {
 	/* border: 1px dashed gray; */
 }
 div.setting div.column.c1 {
-	border-left: 1px dashed lightgray;
+	border-left: 1px dashed rgba(211, 211, 211, 0.7);
 }
 div.setting div.column.c2 {
-	border-right: 1px dashed lightgray;
+	border-right: 1px dashed rgba(211, 211, 211, 0.7);
 }
 div.setting div.column div.row {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	/* border-top: 1px dashed rgba(222, 222, 222, 0.6); */
-	border-top: 1px dashed lightgray;
-	padding: 6px 0px;
+	border-top: 1px dashed rgba(211, 211, 211, 0.7);
+	padding: 6px 0px 6px 3px;
 }
 div.label {
 	width: 200px;
@@ -65,6 +64,7 @@ div.label div.text {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: #001e2e;
 	font-size: 0.9rem;
 	font-weight: 500;
 	font-family: var(--FiraCode);
@@ -200,7 +200,7 @@ div.symbol.iconUseFloats {
 	font-weight: 650;
 	font-family: var(--RobotoMono);
 }
-svg.iconTextInclude,
+
 svg.iconTextFontFamily {
 	width: 14px;
 	height: 14px;
@@ -214,6 +214,7 @@ svg.iconTextUnderline {
 	width: 17px;
 	height: 17px;
 }
+svg.iconTextInclude,
 svg.iconErrorHandling,
 svg.iconStrictSpace,
 svg.iconLiveStatusInterval,
@@ -223,6 +224,8 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconTestDifficulty,
+svg.iconTextFontWeight,
 svg.iconBackspaceKey,
 svg.iconKeyboard,
 svg.iconTextScroll {
@@ -233,10 +236,7 @@ svg.speedometer,
 svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
-svg.iconFontWeight,
-svg.iconTextInclude,
 svg.iconWordLength,
-svg.iconTestDifficulty,
 svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
@@ -245,6 +245,7 @@ svg.iconOppositeShiftMode {
 	width: 21px;
 	height: 21px;	
 }
+svg.iconTextFontSize,
 svg.iconTestTimer,
 svg.iconLiveStatus,
 svg.iconTextWordLength,
@@ -255,10 +256,10 @@ svg.iconTapeMode {
 	width: 22px;
 	height: 22px;	
 }
+svg.iconTextWhitespace,
 svg.iconTextCapitalization,
 svg.iconFillColor,
-svg.iconTheme,
-svg.iconTextFontSize {
+svg.iconTheme {
 	width: 23px;
   height: 23px;
 }
@@ -267,9 +268,8 @@ svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
-svg.iconTextWhitespace,
-svg.iconFlipHighlightModeColor,
-svg.iconTextInput {
+svg.iconTextInput,
+svg.iconFlipHighlightModeColor {
 	width: 25px;
 	height: 25px;
 }
