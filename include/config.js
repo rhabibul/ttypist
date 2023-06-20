@@ -3,8 +3,8 @@ export default {
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
-      condensed: true, // label & buttons visible (toggle description)
-      expanded: false, // all label, buttons and description are visible
+      condensed: true,
+      expanded: false,
     },
   },
   timer: {
