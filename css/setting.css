@@ -19,7 +19,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 div.setting {
-	width: 920px;
+	width: 910px;
 	display: flex;
 	justify-content: space-between;
 	font-family: var(--RobotoMono);
@@ -34,17 +34,19 @@ div.setting div.column.c2 {
 	align-items: flex-start;
 }
 div.setting div.column.c1 {
-	border-left: 1px dashed rgba(211, 211, 211, 0.7);
+	border-radius: 8px;
+	border: 1px dashed rgba(211, 211, 211, 0.6);
 }
 div.setting div.column.c2 {
-	border-right: 1px dashed rgba(211, 211, 211, 0.7);
+	border-radius: 8px;
+	border: 1px dashed rgba(211, 211, 211, 0.6);
 }
 div.setting div.column div.row {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-top: 1px dashed rgba(211, 211, 211, 0.7);
+	border-bottom: 1px dashed rgba(211, 211, 211, 0.6);
 	padding: 6px 0px 6px 3px;
 }
 div.label {
