@@ -90,7 +90,7 @@ div.config.buttonContainer.s4-1.s5,
 div.config.buttonContainer.s5-1.s6 {
 	display: flex;
 	flex-direction: column;
-	row-gap: 3px;
+	row-gap: 4px;
 }
 div.buttonContainer,
 div.config.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2,
@@ -114,9 +114,38 @@ div.config.buttonContainer.s3 > .button,
 div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3 > .button {
 	flex-basis: 32%;
 }
-div.config.buttonContainer.s4 > .button {
-	
+
+div.config.buttonContainer.s3.liveStatusIntervalButton > .button.word {
+	flex-basis: 23%;
 }
+div.config.buttonContainer.s3.liveStatusIntervalButton > .button.keystroke {
+	flex-basis: 40%;
+}
+div.config.buttonContainer.s3.liveStatusIntervalButton > .button.second {
+	flex-basis: 33%;
+}
+
+div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
+div.config.buttonContainer.extraLetterErrorButton.s4 > .button.skip,
+div.config.buttonContainer.keyboardReactionButton.s4 > .button.off {
+	flex-basis: 20%;
+}
+div.config.buttonContainer.keyboardReactionButton.s4 > .button.static {
+	flex-basis: 27%;
+}
+div.config.buttonContainer.keyboardReactionButton.s4 > .button.react {
+	flex-basis: 25%;
+}
+div.config.buttonContainer.keyboardReactionButton.s4 > .button.next {
+	flex-basis: 23%;
+}
+div.config.buttonContainer.extraLetterErrorButton.s4 > .button.insert {
+	flex-basis: 25%;
+}
+div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
+	flex-basis: 29%;
+}
+
 div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
 div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
 	flex-basis: 18%;
