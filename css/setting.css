@@ -84,10 +84,13 @@ div.buttonContainer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 div.buttonContainer.s2 > .button {
 	flex-basis: 49%;
+}
+div.buttonContainer.s3 > .button {
+	flex-basis: 32%;
 }
 div.config button.button {
 	height: var(--setting-button-height);
@@ -97,7 +100,6 @@ div.config button.button {
 	justify-content: center;
 	column-gap: 5px;
 
-	padding: 0px 6px;
 	font-size: 0.8rem;
 	font-family: var(--RobotoMono);
 
