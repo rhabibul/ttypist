@@ -662,6 +662,43 @@
           </div>
         </div>
 
+        <div class="row" id="textCapitalization">
+          <div class="label">
+            <div class="symbol"> <svg class="iconTextCapitalization" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <div class="text">capitalization</div>
+          </div>
+          <div class="config details textCapitalizationContainer">
+            <details class="textCapitalization">
+              <summary>
+                <div class="text value in-use">no capitalization</div>
+                <div class="symbol downarrow"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
+              </summary>
+              <div class="list">
+                <div class="item capitalizationOfText off" data-value="off">
+                  <div class="text value">off</div>
+                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item capitalizationOfText firstletter" data-value="firstletter">
+                  <div class="text value">first letter</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item capitalizationOfText allfirstletters" data-value="allfirstletters">
+                  <div class="text value">all first letters</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item capitalizationOfText randomized" data-value="randomized">
+                  <div class="text value">randomized</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item capitalizationOfText jumbled" data-value="jumbled">
+                  <div class="text value">jumbled</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+        
         <div class="row" id="textFontFamily">
           <div class="label">
             <div class="symbol">
@@ -967,43 +1004,6 @@
           <div class="config buttonContainer speedUnitButton s2">
             <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
             <button class="button wpm" tabindex="0" role="button" type="button" value="wpm" id="selected">wpm</button>
-          </div>
-        </div>
-
-        <div class="row" id="textCapitalization">
-          <div class="label">
-            <div class="symbol"> <svg class="iconTextCapitalization" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-            <div class="text">capitalization</div>
-          </div>
-          <div class="config details textCapitalizationContainer">
-            <details class="textCapitalization">
-              <summary>
-                <div class="text value in-use">no capitalization</div>
-                <div class="symbol downarrow"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
-              </summary>
-              <div class="list">
-                <div class="item capitalizationOfText off" data-value="off">
-                  <div class="text value">off</div>
-                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item capitalizationOfText firstletter" data-value="firstletter">
-                  <div class="text value">first letter</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item capitalizationOfText allfirstletters" data-value="allfirstletters">
-                  <div class="text value">all first letters</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item capitalizationOfText randomized" data-value="randomized">
-                  <div class="text value">randomized</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item capitalizationOfText jumbled" data-value="jumbled">
-                  <div class="text value">jumbled</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-              </div>
-            </details>
           </div>
         </div>
 
