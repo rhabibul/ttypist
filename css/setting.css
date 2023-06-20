@@ -84,39 +84,47 @@ div.config {
   user-select: none;
 	/* border: 1px solid gray; */
 }
+div.config.buttonContainer.s2-1.s3,
+div.config.buttonContainer.s3-1.s4,
+div.config.buttonContainer.s4-1.s5,
+div.config.buttonContainer.s5-1.s6 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3px;
+}
 div.buttonContainer,
-div.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2,
-div.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2,
-div.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3,
-div.buttonContainer.timerTimeButtonContainer.s5-1.s6 div.timerTimeButton.s5,
-div.buttonContainer.textWordCountButtonContainer.s5-1.s6 div.textWordCountButton.s5,
-div.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 {
+div.config.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2,
+div.config.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2,
+div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3,
+div.config.buttonContainer.timerTimeButtonContainer.s5-1.s6 div.timerTimeButton.s5,
+div.config.buttonContainer.textWordCountButtonContainer.s5-1.s6 div.textWordCountButton.s5,
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 {
 	width: var(--setting-buttons-container-width);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	/* border: 1px solid black; */
 }
-div.buttonContainer.s2 > .button,
-div.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2 > .button,
-div.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2 > .button {
+div.config.buttonContainer.s2 > .button,
+div.config.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2 > .button,
+div.config.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2 > .button {
 	flex-basis: 49%;
 }
-div.buttonContainer.s3 > .button,
-div.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3 > .button {
+div.config.buttonContainer.s3 > .button,
+div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3 > .button {
 	flex-basis: 32%;
 }
-div.buttonContainer.s4 > .button {
+div.config.buttonContainer.s4 > .button {
 	
 }
-div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
-div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
+div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
+div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
 	flex-basis: 18%;
 }
-div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:first-child,
-div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:first-child,
-div.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:last-child,
-div.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:last-child {
+div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:first-child,
+div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:first-child,
+div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:last-child,
+div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:last-child {
 	flex-basis: 20%;
 }
 
@@ -134,15 +142,6 @@ div.config button.button {
 	border-radius: var(--setting-button-roundness);
   border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
-}
-
-div.config.s2-1.s3,
-div.config.s3-1.s4,
-div.config.s4-1.s5,
-div.config.s5-1.s6 {
-	display: flex;
-	flex-direction: column;
-	row-gap: 3px;
 }
 
 ::placeholder {
