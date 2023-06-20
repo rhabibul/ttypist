@@ -203,7 +203,7 @@
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
   --setting-button-border-color: #dbdbdb;
   --setting-button-height: 30px;
-  --setting-button-backgroundcolor: #fbfdff;
+  --setting-button-backgroundcolor: hsla(210, 100%, 98%, 0.4);
   --setting-button-roundness: 4px;
   --setting-icon-color: black;
 
