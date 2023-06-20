@@ -22,7 +22,7 @@ const t1 = document.querySelector("div.config.textFontSize > div.text.value");
 slider_fontsize.addEventListener("input", () => {
 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
   Config.text.font.size = slider_fontsize.value;
-	t1.textContent = `${slider_fontsize.value}px`;
+	t1.textContent = `${slider_fontsize.value}`;
 });
 
 const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");

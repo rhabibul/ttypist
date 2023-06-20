@@ -272,7 +272,7 @@
         <div class="row" id="backspaceNotAllowedOnCorrect">
           <div class="label">
             <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
-            <div class="text">noBsOnCorrect</div>
+            <div class="text">noBackOnCorrect</div>
           </div>
           <div class="config buttonContainer backspaceNotAllowedOnCorrectButton s2">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
@@ -625,9 +625,9 @@
             <div class="symbol"> <svg class="iconTextFontSize" width="64px" height="64px" viewBox="-180 -180 1560.00 1560.00" fill="var(--setting-icon-color)"> <path d="M991.699,0L783.398,209.399h139.452V990.6H783.398L991.699,1200 L1200,990.601h-139.38V209.399H1200L991.699,0z M5.933,207.642L0,420.703h74.048c0-146.136,0.1-145.972,186.841-145.972V862.5 c0,73.264-0.037,73.141-102.539,71.338v58.521h379.468v-58.521c-102.335,0-102.539-0.179-102.539-71.338V274.731 c186.839,0,187.354,0.041,187.354,145.972h73.535l-5.347-213.062L5.933,207.642L5.933,207.642z"></path></svg></div>
             <div class="text">text size</div>
           </div>
-          <div class="config buttonContainer textFontSize">
-            <div class="range textFontSizeInput"><input type="range" min="16" max="32" step="1" value="19"></div>
-            <div class="text value">19px</div>
+          <div class="config buttonContainer textFontSize range">
+            <div class="textFontSizeInput"><input type="range" min="16" max="32" step="1" value="19"></div>
+            <div class="text value">19</div>
           </div>
         </div>
 
@@ -636,8 +636,8 @@
             <div class="symbol"> <svg class="iconFontWeight" fill="var(--setting-icon-color)" width="64px" height="64px" viewBox="0 0 24.00 24.00" stroke="var(--setting-icon-color)" stroke-width="0.96"> <path d="M16,5V4H13v9h1a1,1,0,0,1,0,2H10a1,1,0,0,1,0-2h1V4H8V5A1,1,0,0,1,6,5V3A1,1,0,0,1,7,2H17a1,1,0,0,1,1,1V5a1,1,0,0,1-2,0Zm3.707,9.293a1,1,0,0,0-1.414,1.414L19.586,17H4.414l1.293-1.293a1,1,0,0,0-1.414-1.414l-3,3a1,1,0,0,0,0,1.414l3,3a1,1,0,1,0,1.414-1.414L4.414,19H19.586l-1.293,1.293a1,1,0,1,0,1.414,1.414l3-3a1,1,0,0,0,0-1.414Z"></path></svg></div>
             <div class="text">text thickness</div>
           </div>
-          <div class="config buttonContainer textFontWeight">
-            <div class="range textFontWeightInput"><input type="range" min="100" max="900" step="1" value="440"></div>
+          <div class="config buttonContainer textFontWeight range">
+            <div class="textFontWeightInput"><input type="range" min="100" max="900" step="1" value="440"></div>
             <div class="text value">440</div>
           </div>
         </div>
