@@ -165,6 +165,7 @@ export default {
     capslock: false, // capslock key is left turned on
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
+    focus: true, // warning out of focus while taking test (typing)
   },
   keyboard: {
     off: false,

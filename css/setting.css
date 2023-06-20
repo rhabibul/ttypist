@@ -234,14 +234,12 @@ svg.iconDynamicSettingChange {
 	width: 20px;
 	height: 20px;
 }
-svg.iconOppositeShiftMode,
-svg.iconDynamicSettingChange {
+svg.iconOppositeShiftMode {
 	width: 21px;
 	height: 21px;	
 }
 svg.iconTestTimer,
 svg.iconLiveStatus,
-svg.iconSetttingFieldView,
 svg.iconTextWordLength,
 svg.iconNumberCount,
 svg.iconCaret,
