@@ -24,7 +24,7 @@ header .content > * {
 
 header .content .logo {
 	height: 100%;
-	width: 220px;
+	width: 180px;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
