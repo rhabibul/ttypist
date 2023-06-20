@@ -49,14 +49,14 @@ div.setting div.column div.row {
 }
 div.label {
 	width: 200px;
-	height: 30px;
+	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	column-gap: 3px;
+	column-gap: 4px;
 }
 div.label div.text {
-	height: 30px;
+	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -67,7 +67,7 @@ div.label div.text {
 }
 div.label div.symbol {
 	width: 30px;
-	height: 30px;
+	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -483,7 +483,7 @@ div.colorPickerContainer input[type="color"].colorInputSelector {
 div.colorPickerContainer input[type="text"].colorInputText {
 	width: calc(var(--setting-buttons-container-width) - 120px);
 	height: 100%;
-	
+
 	padding-left: 8px;
 	outline: none;
 	border-top-right-radius: var(--setting-button-roundness);
