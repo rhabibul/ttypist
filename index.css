@@ -306,14 +306,23 @@ text word letter.whitespace.bullet::after {
   background-color: var(--text-whitespace-color);
   transform: translateY(1px);
 }
-letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
+text word letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
   background-color: var(--text-whitespace-color-active);
+}
+::placeholder {
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+	color: hsl(210, 33%, 88%);
 }
 
 #selected {
-	color: green;
-  border-color: rgba(144, 238, 144, 1);;
-	background-color: rgba(144, 238, 144, 0.3);
+	color: white;
+  border-color: #545454;
+	background-color: #545454;
   font-weight: 480;
 }
 
