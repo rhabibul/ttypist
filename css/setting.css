@@ -22,10 +22,8 @@ div.setting {
 	width: 920px;
 	display: flex;
 	justify-content: space-between;
-
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
-	/* border: 1px dashed black; */
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
@@ -34,7 +32,6 @@ div.setting div.column.c2 {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	/* border: 1px dashed gray; */
 }
 div.setting div.column.c1 {
 	border-left: 1px dashed rgba(211, 211, 211, 0.7);
@@ -57,7 +54,6 @@ div.label {
 	align-items: center;
 	justify-content: flex-start;
 	column-gap: 3px;
-	/* border: 1px solid green; */
 }
 div.label div.text {
 	height: 30px;
@@ -68,7 +64,6 @@ div.label div.text {
 	font-size: 0.9rem;
 	font-weight: 500;
 	font-family: var(--FiraCode);
-	/* border: 1px solid red; */
 }
 div.label div.symbol {
 	width: 30px;
@@ -76,13 +71,11 @@ div.label div.symbol {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* border: 1px solid blue; */
 }
 div.label div.symbol svg {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* border: 1px solid orangered; */
 }
 div.config {
   -moz-user-select: none;
@@ -91,7 +84,6 @@ div.config {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-	/* border: 1px solid gray; */
 }
 div.config.buttonContainer.s2-1.s3,
 div.config.buttonContainer.s3-1.s4,
@@ -200,7 +192,6 @@ div.symbol.iconUseFloats {
 	font-weight: 650;
 	font-family: var(--RobotoMono);
 }
-
 svg.iconTextFontFamily {
 	width: 14px;
 	height: 14px;
@@ -216,15 +207,14 @@ svg.iconTextUnderline {
 }
 svg.iconTextInclude,
 svg.iconErrorHandling,
-svg.iconStrictSpace,
 svg.iconLiveStatusInterval,
 svg.iconStopOnError,
-svg.iconBomb,
 svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
 svg.iconTestDifficulty,
+svg.iconBomb,
 svg.iconTextFontWeight,
 svg.iconBackspaceKey,
 svg.iconKeyboard,
@@ -232,6 +222,7 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
+svg.iconStrictSpace,
 svg.speedometer,
 svg.iconWarning,
 svg.iconPrimaryColor,
@@ -247,6 +238,7 @@ svg.iconOppositeShiftMode {
 }
 svg.iconTextFontSize,
 svg.iconTestTimer,
+svg.iconTextInput,
 svg.iconLiveStatus,
 svg.iconTextWordLength,
 svg.iconNumberCount,
@@ -268,7 +260,6 @@ svg.iconPaceCaretOpacity {
 	width: 24px;
 	height: 24px;	
 }
-svg.iconTextInput,
 svg.iconFlipHighlightModeColor {
 	width: 25px;
 	height: 25px;
