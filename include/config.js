@@ -161,8 +161,7 @@ export default {
     },
     usefloats: false, // display floating point number
   },
-  warning: {
-    focus: true, // user is out of focus (not typing anymore)
+  keyWarnings: {
     capslock: false, // capslock key is left turned on
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
