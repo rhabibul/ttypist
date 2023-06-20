@@ -32,17 +32,16 @@ div.setting div.column.c2 {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	border: 1px dashed gray;
+	/* border: 1px dashed gray; */
 }
 div.setting div.column div.row {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-top: 1px dashed lightgray;
-	padding: 5px 0px 5px 5px;
+	border-top: 1px dashed rgba(222, 222, 222, 0.663);
+	padding: 6px 0px;
 }
-
 div.label {
 	width: 200px;
 	height: 30px;
@@ -51,6 +50,15 @@ div.label {
 	justify-content: flex-start;
 	column-gap: 3px;
 	/* border: 1px solid green; */
+}
+div.label div.text {
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+	font-family: var(--FiraCode);
+	/* border: 1px solid red; */
 }
 div.label div.symbol {
 	width: 30px;
@@ -65,15 +73,6 @@ div.label div.symbol svg {
 	align-items: center;
 	justify-content: center;
 	/* border: 1px solid orangered; */
-}
-div.label div.text {
-	height: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 0.9rem;
-	font-family: var(--FiraCode);
-	/* border: 1px solid red; */
 }
 div.config {
   -moz-user-select: none;
@@ -125,14 +124,22 @@ div.config.buttonContainer.s3.liveStatusIntervalButton > .button.second {
 	flex-basis: 33%;
 }
 
-div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.skip,
+div.config.buttonContainer.textWhitespaceButton.s4 > .button.bar,
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 > .button.off,
+div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button.off,
+div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button.seconds120,
+div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button.off,
+div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button.words100,
+div.config.buttonContainer.textWhitespaceButton.s4 > .button.off,
+div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.off {
 	flex-basis: 20%;
 }
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.static {
 	flex-basis: 27%;
 }
+div.config.buttonContainer.textWhitespaceButton.s4 > .button.space,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.react {
 	flex-basis: 25%;
 }
@@ -142,19 +149,20 @@ div.config.buttonContainer.keyboardReactionButton.s4 > .button.next {
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.insert {
 	flex-basis: 25%;
 }
+div.config.buttonContainer.textWhitespaceButton.s4 > .button.bullet,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
 	flex-basis: 29%;
 }
-
 div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
 div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
 	flex-basis: 18%;
 }
-div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:first-child,
-div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:first-child,
-div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button:last-child,
-div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button:last-child {
-	flex-basis: 20%;
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.last,
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.best {
+	flex-basis: 22%;
+}
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.average {
+	flex-basis: 31%;
 }
 
 div.config button.button {
@@ -423,8 +431,11 @@ div.config.liveStatusCheckboxButtonContainer {
 	border-radius: var(--setting-button-roundness);
 	border: 1px solid var(--setting-button-border-color);
 }
+div.row#warnings div.label {
+	width: 140px;
+}
 div.config.warningsCheckboxButtonContainer {
-	width: calc(var(--setting-buttons-container-width) + 120px);	
+	width: 300px;	
 }
 div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton,
 div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
