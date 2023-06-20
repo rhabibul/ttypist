@@ -61,7 +61,7 @@ div.label div.text {
 	align-items: center;
 	justify-content: center;
 	color: #001e2e;
-	font-size: 0.9rem;
+	font-size: 0.95rem;
 	font-weight: 500;
 	font-family: var(--FiraCode);
 }
@@ -462,7 +462,7 @@ div.colorPickerContainer {
 	border-radius: var(--setting-button-roundness);
 }
 div.colorPickerContainer input[type="color"].colorInputSelector {
-	width: 40px;
+	width: 120px;
 	height: var(--setting-button-height);
 
 	-webkit-appearance: none;
@@ -481,8 +481,9 @@ div.colorPickerContainer input[type="color"].colorInputSelector {
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
 div.colorPickerContainer input[type="text"].colorInputText {
-	width: calc(var(--setting-buttons-container-width) - 40px);
+	width: calc(var(--setting-buttons-container-width) - 120px);
 	height: 100%;
+	
 	padding-left: 8px;
 	outline: none;
 	border-top-right-radius: var(--setting-button-roundness);
