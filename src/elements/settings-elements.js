@@ -8,7 +8,7 @@ export const setting = {
 		expanded: document.querySelector("div.s2.config.buttonContainer.settingsViewContainer button.button.expanded"),
 	}
 }
-export const websitetheme = {
+export const websiteTheme = {
 	light: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.light"),
 	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
 	dimmed: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dimmed"),
@@ -141,6 +141,10 @@ export const textHighlight = {
 		letter: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.letter"),
 		word: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.word"),
 	},
+	flip: {
+		off: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.off"),
+		on: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.on"),
+	}
 }
 export const textUnderline = {
 	off: document.querySelector("div.s2.config.buttonContainer.textUnderlineButton button.button.off"),
@@ -157,13 +161,12 @@ export const textColor = {
 	}
 }
 export const details = {
-	// textFontFamily: ,
-	// textWordCount: ,
-	// textWordType: ,
-	// textWordLength: ,
-	// textCapitalization: ,
-	// keyboardLanguage: ,
-	// keyboardLayout: ,
+	textFontFamily: document.querySelector("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList"),
+	textWordType: document.querySelector("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList"),
+	textWordLength: document.querySelector("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList"),
+	textCapitalization: document.querySelector("div.s1.config.buttonContainer.details.textCapitalizationListContainer details.textCapitalizationList"),
+	keyboardLanguage: document.querySelector("div.s1.config.buttonContainer.details.UIKeyboardLanguageListContainer details.UIKeyboardLanguageList"),
+	keyboardLayout: document.querySelector("div.s1.config.buttonContainer.details.UIKeyboardLayoutListContainer details.UIKeyboardLayoutList"),
 }
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
@@ -208,6 +211,11 @@ export const stats = {
 		off: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.off"),
 		on: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.on"),
 	},
+}
+export const warnings = {
+	capslock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.capslock input[type='checkbox']#capslock"),
+	numlock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.numlock input[type='checkbox']#numlock"),
+	scrolllock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
 }
 export const focusOutWarning = {
 	off: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.off"),

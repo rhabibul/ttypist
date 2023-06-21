@@ -665,8 +665,8 @@
             <div class="symbol"> <svg class="iconTextCapitalization" width="64px" height="64px" viewBox="0 0 24 24" fill="none"> <path d="M13 18L8 6L3 18M11 14H5M21 18V15M21 15V12M21 15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21 13.3431 21 15Z" stroke="var(--setting-icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
             <div class="text">capitalization</div>
           </div>
-          <div class="config details textCapitalizationContainer">
-            <details class="textCapitalization">
+          <div class="config buttonContainer details textCapitalizationListContainer s1">
+            <details class="textCapitalizationList">
               <summary>
                 <div class="text value in-use">no capitalization</div>
                 <div class="symbol downarrow"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
@@ -710,7 +710,7 @@
             </div>
             <div class="text">font family</div>
           </div>
-          <div class="config details textFontFamilyListContainer">
+          <div class="config buttonContainer details textFontFamilyListContainer s1">
             <details class="textFontFamilyList">
               <summary>
                 <div class="text value in-use">roboto mono</div>
@@ -759,7 +759,7 @@
             </div>
             <div class="text">word type</div>
           </div>
-          <div class="config details textWordTypeListContainer">
+          <div class="config buttonContainer details textWordTypeListContainer s1">
             <details class="textWordTypeList">
               <summary>
                 <div class="text value in-use">dictionary</div>
@@ -819,7 +819,7 @@
             </div>
             <div class="text value">word length</div>
           </div>
-          <div class="config details textWordLengthListContainer">
+          <div class="config buttonContainer details textWordLengthListContainer s1">
             <details class="textWordLengthList">
               <summary>
                 <div class="text value in-use">mixed</div>
@@ -1019,17 +1019,17 @@
             </div>
             <div class="text">warnings</div>
           </div>
-          <div class="config warningsCheckboxButtonContainer">
-            <div class="warningCheckboxButton capslock" data-value="capslock">
-              <input tabindex="0" type="checkbox" id="capslock" name="warningCheckboxButton" checked>
+          <div class="config buttonContainer warningsCheckboxButtonContainer s3">
+            <div class="warningsCheckboxButton capslock" data-value="capslock">
+              <input tabindex="0" type="checkbox" id="capslock" name="warningsCheckboxButton" checked>
               <label for="capslock">capslock</label>
             </div>
-            <div class="warningCheckboxButton numlock" data-value="numlock">
-              <input tabindex="0" type="checkbox" id="numlock" name="warningCheckboxButton">
+            <div class="warningsCheckboxButton numlock" data-value="numlock">
+              <input tabindex="0" type="checkbox" id="numlock" name="warningsCheckboxButton">
               <label for="numlock">numlock</label>
             </div>
-            <div class="warningCheckboxButton scrolllock" data-value="scrolllock">
-              <input tabindex="0" type="checkbox" id="scrolllock" name="warningCheckboxButton">
+            <div class="warningsCheckboxButton scrolllock" data-value="scrolllock">
+              <input tabindex="0" type="checkbox" id="scrolllock" name="warningsCheckboxButton">
               <label for="scrolllock">scrolllock</label>
             </div>
           </div>
@@ -1069,30 +1069,30 @@
             <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
             <div class="text">language</div>
           </div>
-          <div class="config details UIKeyboardLanguageContainer">
-            <details class="UIKeyboardLanguage">
+          <div class="config buttonContainer details UIKeyboardLanguageListContainer s1">
+            <details class="UIKeyboardLanguageList">
               <summary>
                 <div class="text value in-use">English</div>
                 <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
               </summary>
               <div class="list">
-                <div class="item Bengali" data-value="Bengali">
+                <div class="item keyboardLanguage Bengali" data-value="Bengali">
                   <div class="text value">Bengali</div>
                   <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item Hindi" data-value="Hindi">
+                <div class="item keyboardLanguage Hindi" data-value="Hindi">
                   <div class="text value">Hindi</div>
                   <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item English" data-value="English">
+                <div class="item keyboardLanguage English" data-value="English">
                   <div class="text value">English</div>
                   <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item Russian" data-value="Russian">
+                <div class="item keyboardLanguage Russian" data-value="Russian">
                   <div class="text value">Russian</div>
                   <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item Arabic" data-value="Arabic">
+                <div class="item keyboardLanguage Arabic" data-value="Arabic">
                   <div class="text value">Arabic</div>
                   <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
@@ -1106,8 +1106,8 @@
             <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
             <div class="text">layout</div>
           </div>
-          <div class="config details UIKeyboardLayoutContainer">
-            <details class="UIKeyboardLayout">
+          <div class="config buttonContainer details UIKeyboardLayoutListContainer s1">
+            <details class="UIKeyboardLayoutList">
               <summary>
                 <div class="text value in-use">qwerty</div>
                 <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
