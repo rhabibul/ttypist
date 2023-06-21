@@ -466,8 +466,8 @@ div.colorPickerContainer {
 	background-color: var(--setting-button-backgroundcolor);
 	border-radius: var(--setting-button-roundness);
 }
-div.colorPickerContainer input[type="color"].colorInputSelector {
-	width: 120px;
+div.colorPickerContainer input[type="color"].colorSelectorInput {
+	width: 30px;
 	height: var(--setting-button-height);
 
 	-webkit-appearance: none;
@@ -485,8 +485,8 @@ div.colorPickerContainer input[type="color"].colorInputSelector {
 	border-top-left-radius: var(--setting-button-roundness);
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
-div.colorPickerContainer input[type="text"].colorInputText {
-	width: calc(var(--setting-buttons-container-width) - 120px);
+div.colorPickerContainer input[type="text"].colorTextInput {
+	width: calc(var(--setting-buttons-container-width) - 30px);
 	height: 100%;
 
 	padding-left: 8px;
@@ -498,7 +498,7 @@ div.colorPickerContainer input[type="text"].colorInputText {
 	border-left: none;
 	font-family: var(--RobotoMono);
 }
-div.colorPickerContainer input[type="color"].colorInputSelector::after {
+div.colorPickerContainer input[type="color"].colorSelectorInput::after {
 	content: '';
 	position: absolute;
   top: 50%;
@@ -512,31 +512,31 @@ div.colorPickerContainer input[type="color"].colorInputSelector::after {
 	border-bottom-left-radius: var(--setting-button-roundness);
 	border-right: none;
 }
-div.colorPickerContainer input[type="color"].colorInputSelector::-webkit-color-swatch,
-div.colorPickerContainer input[type="color"].colorInputSelector::-moz-color-swatch,
-div.colorPickerContainer input[type="color"].colorInputSelector::-ms-color-swatch,
-div.colorPickerContainer input[type="color"].colorInputSelector::-o-color-swatch {
+div.colorPickerContainer input[type="color"].colorSelectorInput::-webkit-color-swatch,
+div.colorPickerContainer input[type="color"].colorSelectorInput::-moz-color-swatch,
+div.colorPickerContainer input[type="color"].colorSelectorInput::-ms-color-swatch,
+div.colorPickerContainer input[type="color"].colorSelectorInput::-o-color-swatch {
 	border-radius: none;
 	border: none;
 	outline: none;
 }
-div.colorPickerContainer input[type="color"].colorInputSelector.primaryTextColorSelector,
-div.colorPickerContainer input[type="color"].colorInputSelector.primaryTextColorSelector::after {
+div.colorPickerContainer input[type="color"].colorSelectorInput.primaryTextColorSelectorInput,
+div.colorPickerContainer input[type="color"].colorSelectorInput.primaryTextColorSelectorInput::after {
 	background-color: var(--text-primary-color);
 	border-left-color: var(--text-primary-color);
 }
-div.colorPickerContainer input[type="color"].colorInputSelector.secondaryTextColorSelector,
-div.colorPickerContainer input[type="color"].colorInputSelector.secondaryTextColorSelector::after {
+div.colorPickerContainer input[type="color"].colorSelectorInput.secondaryTextColorSelectorInput,
+div.colorPickerContainer input[type="color"].colorSelectorInput.secondaryTextColorSelectorInput::after {
 	background-color: var(--text-secondary-color);
 	border-left-color: var(--text-secondary-color);
 }
-div.colorPickerContainer input[type="color"].colorInputSelector.caretColorSelector,
-div.colorPickerContainer input[type="color"].colorInputSelector.caretColorSelector::after {
+div.colorPickerContainer input[type="color"].colorSelectorInput.caretColorSelectorInput,
+div.colorPickerContainer input[type="color"].colorSelectorInput.caretColorSelectorInput::after {
 	background-color: var(--caret-color);
 	border-left-color: var(--caret-color);
 }
-div.colorPickerContainer input[type="color"].colorInputSelector.paceCaretColorSelector,
-div.colorPickerContainer input[type="color"].colorInputSelector.paceCaretColorSelector::after {
+div.colorPickerContainer input[type="color"].colorSelectorInput.paceCaretColorSelectorInput,
+div.colorPickerContainer input[type="color"].colorSelectorInput.paceCaretColorSelectorInput::after {
 	background-color: var(--pace-caret-color);
 	border-left-color: var(--pace-caret-color);
 }

@@ -494,7 +494,7 @@
             </div>
             <div class="minimumSpeedCustomInputContainer s1">
               <div class="customInput">
-                <input class="customInputBox minimumSpeed" tabindex="0" type="text" placeholder="min acc">
+                <input class="customInputBox minimumSpeed threshold" tabindex="0" type="number" placeholder="min acc">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
             </div>
@@ -518,7 +518,7 @@
             </div>
             <div class="minimumAccuracyCustomInputContainer s1">
               <div class="customInput">
-                <input class="customInputBox minimumAccuracy" tabindex="0" type="text" placeholder="min acc">
+                <input class="customInputBox minimumAccuracy threshold" tabindex="0" type="number" placeholder="min acc">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
             </div>
@@ -543,7 +543,7 @@
             </div>
             <div class="minimumBurstCustomInputContainer s1">
               <div class="customInput">
-                <input class="customInputBox minimumBurst" tabindex="0" type="text" placeholder="min burst">
+                <input class="customInputBox minimumBurst threshold" tabindex="0" type="number" placeholder="min burst">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
             </div>
@@ -583,8 +583,8 @@
             <div class="text">primary text</div>
           </div>
           <div class="colorPickerContainer primaryTextColorInputContainer s1">
-            <input class="colorInputSelector primaryTextColorSelector" type="color" value="#001e2e">
-            <input class="colorInputText primaryTextColorInput"        type="text" placeholder="#001e2e">
+            <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
+            <input class="colorTextInput primaryTextColorTextInput"        type="text" placeholder="#001e2e">
           </div>
         </div>
 
@@ -600,8 +600,8 @@
             <div class="text">secondary text</div>
           </div>          
           <div class="colorPickerContainer secondaryTextColorInputContainer s1">
-            <input class="colorInputSelector secondaryTextColorSelector" type="color" value="#9a9a9a">
-            <input class="colorInputText secondaryTextColorInput"        type="text"  placeholder="#9a9a9a">
+            <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
+            <input class="colorTextInput secondaryTextColorTextInput"        type="text"  placeholder="#9a9a9a">
           </div>
         </div>
 
@@ -896,7 +896,7 @@
             </div>
             <div class="text">caret style</div>
           </div>
-          <div class="config caretStyleButton s5">
+          <div class="config caret caretStyleButton s5">
             <div class="caretShapeContainer">
               <button class="caret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><svg class="iconCaretOff" width="256px" height="256px" viewBox="0 0 1000 1000"><path d="M500 930q-117 0-217-59-97-57-154-154-59-100-59-217t59-217q57-97 154-154 100-59 217-59t217 59q97 57 154 154 59 100 59 217t-59 217q-57 97-154 154-100 59-217 59zM320 760q39 28 85.5 42.5T500 817q86 0 160-44 71-42 113-113 44-74 44-160 0-48-14.5-94.5T760 320zm180-577q-86 0-160 44-71 42-113 113-44 74-44 160 0 48 14.5 94.5T240 680l440-440q-39-28-85.5-42.5T500 183z"></path></svg></span></button>
               <button class="caret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
@@ -918,9 +918,9 @@
             </div>
             <div class="text">caret color</div>
           </div>
-          <div class="colorPickerContainer caretColorInputContainer s1">
-            <input class="colorInputSelector caretColorSelector" type="color" value="#000000">
-            <input class="colorInputText caretColorInput" type="text" placeholder="#000000">
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 
@@ -957,9 +957,9 @@
             </div>
             <div class="text">pacecaret color</div>
           </div>
-          <div class="colorPickerContainer paceCaretColorInputContainer s1">
-            <input class="colorInputSelector paceCaretColorSelector" type="color" value="#808080">
-            <input class="colorInputText paceCaretColorInput" type="text" placeholder="#808080">
+          <div class="config colorPickerContainer paceCaretColorInputContainer s1">
+            <input class="colorSelectorInput paceCaretColorSelectorInput" type="color" value="#808080">
+            <input class="colorTextInput paceCaretColorTextInput"         type="text" placeholder="#808080">
           </div>
         </div>
         
@@ -975,7 +975,7 @@
               <button class="button average" tabindex="0" role="button" type="button" value="average">average</button>
               <button class="button best"    tabindex="0" role="button" type="button" value="personalbest">best</button>
             </div>
-            <div class="paceCaretSpeedCutomInputContainer s1">
+            <div class="paceCaretSpeedCustomInputContainer s1">
               <div class="customInput">
                 <input class="customInputBox paceCaretSpeed" tabindex="0" type="number" min="0" placeholder="wpm">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>

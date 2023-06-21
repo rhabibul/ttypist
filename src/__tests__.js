@@ -2,7 +2,7 @@ import Config from "../include/config.js";
 import * as MiscElement from "./elements/misc-elements.js";
 import * as SettingsElement from "./elements/settings-elements.js";
 
-console.log(SettingsElement.highlight);
+console.log(SettingsElement.pacecaret);
 
 window.addEventListener("click", () => {
 
@@ -18,7 +18,6 @@ checkbox.addEventListener('change', function() {
   }
 });
 */
-
 
 window.addEventListener('load', (evt) => {
 	if ( localStorage.getItem('Config') === null ) {
