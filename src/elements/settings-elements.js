@@ -51,13 +51,6 @@ export const backspaceNotAllowedOnCorrect = {
 	off: document.querySelector("div.s2.config.buttonContainer.backspaceNotAllowedOnCorrectButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.backspaceNotAllowedOnCorrectButton button.button.on"),
 }
-export const highlight = {
-	off: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.off"),
-	mode: {
-		letter: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.letter"),
-		word: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.word"),
-	},
-}
 export const confidence = {
 	low: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.low"),
 	high: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.high"),
@@ -136,5 +129,29 @@ export const pacecaret = {
 		average: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.average"),
 		best: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.best"),
 		paceCaretCustomSpeedInput: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s1.paceCaretSpeedCustomInputContainer div.customInput input[type='number'].customInputBox.paceCaretSpeed"),
+	}
+}
+export const textInput = {
+	hidden: document.querySelector("div.s2.config.buttonContainer.textInputBoxButton button.button.hidden"),
+	visible: document.querySelector("div.s2.config.buttonContainer.textInputBoxButton button.button.visible"),
+}
+export const textHighlight = {
+	off: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.off"),
+	mode: {
+		letter: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.letter"),
+		word: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.word"),
+	},
+}
+export const textUnderline = {
+	off: document.querySelector("div.s2.config.buttonContainer.textUnderlineButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.textUnderlineButton button.button.on"),
+}
+export const textColor = {
+	primary: {
+		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.primaryTextColorInputContainer input[type='color'].colorSelectorInput.primaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.s1.config.colorPickerContainer.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
+	},
+	secondary: {
+
 	}
 }

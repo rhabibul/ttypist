@@ -80,11 +80,11 @@ export default {
     style: "line", // off | line | underline | box | block
     color: "black",
     threshold: {
+      off: true,
       last: false, // previous speed
       best: false, // personal best speed
       average: false, // average of last 10 speeds
       custom: {
-        off: true,
         speed: 0, // provide custom speed (in wpm) to compete against
       },
     },

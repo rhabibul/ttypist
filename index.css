@@ -376,3 +376,43 @@ text word letter.whitespace.whitespace-color-active::after { /* renaming is requ
            cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
 }
+
+/* -------------------------- GRID LINES */
+div.grid-lines {
+  background-color: #269;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  z-index: 0;
+}
+
+div.grid-lines::before {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: " ";
+  background-image: linear-gradient(lightGray 2px, transparent 2px), linear-gradient(90deg, lightGray 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  animation: gridWipe 1s linear;
+}
+
+@keyframes gridWipe {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+p {
+  background: rgba(255,255,0,0.5);
+}
