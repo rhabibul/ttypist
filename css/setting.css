@@ -601,7 +601,7 @@ input[type=range][disabled] {
   opacity: 0.3;
   cursor: default;
 }
-input::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   box-sizing: border-box;
   width: 100%;
   height: 4px;
@@ -609,7 +609,7 @@ input::-webkit-slider-runnable-track {
   border-radius: 100px;
   margin: 11px 0;
 }
-input::-moz-range-track {
+input[type="range"]::-moz-range-track {
   box-sizing: border-box;
   width: 100%;
   height: 4px;
@@ -617,7 +617,7 @@ input::-moz-range-track {
   border-radius: 100px;
   margin: 11px 0;
 }
-input::-ms-track {
+input[type="range"]::-ms-track {
   box-sizing: border-box;
   width: 100%;
   height: 4px;
@@ -628,15 +628,15 @@ input::-ms-track {
   background: transparent;
   border-color: transparent;
 }
-input::-ms-fill-lower,
-input::-ms-fill-upper {
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
   box-sizing: border-box;
   width: 100%;
   height: 4px;
   background-color: var(--setting-button-backgroundcolor);
   border-radius: 100px;
 }
-input::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
 	box-sizing: border-box;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.4);
   border: 5px solid white;
@@ -650,7 +650,7 @@ input::-webkit-slider-thumb {
   transform: translateY(-50%);
   margin-top: 2px;
 }
-input::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   box-sizing: border-box;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.4);
   border: 5px solid white;
@@ -660,7 +660,7 @@ input::-moz-range-thumb {
   background: #303030;
   cursor: pointer;
 }
-input::-ms-thumb {
+input[type="range"]::-ms-thumb {
   box-sizing: border-box;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.4);
   border: 5px solid white;
@@ -670,8 +670,8 @@ input::-ms-thumb {
   background-color: #303030;
   cursor: pointer;
 }
-div.config.buttonContainer.textFontSize.range,
-div.config.buttonContainer.textFontWeight.range {
+div.config.buttonContainer.textFontSizeContainer.range,
+div.config.buttonContainer.textFontWeightContainer.range {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -679,17 +679,17 @@ div.config.buttonContainer.textFontWeight.range {
 	border-radius: var(--setting-button-roundness);
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.config.buttonContainer.textFontSize.range div.textFontSizeInput,
-div.config.buttonContainer.textFontWeight.range div.textFontWeightInput {
-	flex-basis: 80%;
+div.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer,
+div.config.buttonContainer.textFontWeightContainer.range div.textFontWeightInputContainer {
+	width: 200px;
 	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-div.config.buttonContainer.textFontSize.range div.text.value,
-div.config.buttonContainer.textFontWeight.range div.text.value {
-	flex-basis: 15%;
+div.config.buttonContainer.textFontSizeContainer.range div.text.value,
+div.config.buttonContainer.textFontWeightContainer.range div.text.value {
+	width: 40px;
 	font-size: 0.85rem;
 	font-family: var(--RobotoMono);
 	font-weight: 500;

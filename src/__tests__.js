@@ -2,7 +2,8 @@ import Config from "../include/config.js";
 import * as MiscElement from "./elements/misc-elements.js";
 import * as SettingsElement from "./elements/settings-elements.js";
 
-console.log(SettingsElement.textColor);
+console.log(SettingsElement.textFontSize);
+console.log(SettingsElement.textFontWeight);
 
 window.addEventListener("click", () => {
 
@@ -29,23 +30,22 @@ window.addEventListener('load', (evt) => {
 	}
 });
 
-// sliders
-const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
-const t1 = document.querySelector("div.config.textFontSize > div.text.value");
-slider_fontsize.addEventListener("input", () => {
-	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
-  Config.text.font.size = slider_fontsize.value;
-	t1.textContent = `${slider_fontsize.value}`;
-});
+// // sliders
+// const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
+// const t1 = document.querySelector("div.config.textFontSize > div.text.value");
+// slider_fontsize.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
+//   Config.text.font.size = slider_fontsize.value;
+// 	t1.textContent = `${slider_fontsize.value}`;
+// });
 
-const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");
-const t2 = document.querySelector("div.config.textFontWeight > div.text.value");
-
-slider_fontweight.addEventListener("input", () => {
-	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
-  Config.text.font.weight = slider_fontweight.value;
-	t2.textContent = slider_fontweight.value;
-});
+// const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");
+// const t2 = document.querySelector("div.config.textFontWeight > div.text.value");
+// slider_fontweight.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
+//   Config.text.font.weight = slider_fontweight.value;
+// 	t2.textContent = slider_fontweight.value;
+// });
 
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
