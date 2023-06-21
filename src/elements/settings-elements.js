@@ -152,6 +152,7 @@ export const textColor = {
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
 	},
 	secondary: {
-
+		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
 	}
 }

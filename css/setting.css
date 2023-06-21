@@ -17,13 +17,12 @@ input[type=number]::-webkit-outer-spin-button {
 .marked {
 	fill: green;
 }
-
 div.setting {
-	width: 910px;
+	width: 900px;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	/* justify-content: space-between; */
+	/* flex-direction: column; */
+	/* align-items: center; */
+	justify-content: space-between;
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
 }
@@ -35,21 +34,27 @@ div.setting div.column.c2 {
 	justify-content: flex-start;
 	align-items: flex-start;
 }
-div.setting div.column.c1 {
-	border-radius: 8px;
-	border: 1px dashed rgba(211, 211, 211, 0.6);
-}
+/* div.setting div.column.c1 {
+	
+} */
 div.setting div.column.c2 {
-	border-radius: 8px;
-	border: 1px dashed rgba(211, 211, 211, 0.6);
+	border-left: 1px dashed rgba(211, 211, 211, 1);
 }
 div.setting div.column div.row {
+	height: 40px;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: 1px dashed rgba(211, 211, 211, 0.6);
-	padding: 6px 0px 6px 3px;
+	border-bottom: 1px solid rgba(211, 211, 211, 0.6);
+}
+div.setting div.column div.row#minimumSpeed,
+div.setting div.column div.row#minimumAccuracy,
+div.setting div.column div.row#minimumBurst,
+div.setting div.column div.row#timerTime,
+div.setting div.column div.row#paceCaretSpeed,
+div.setting div.column div.row#textWordCount {
+	height: 80px;
 }
 div.label {
 	width: 200px;
