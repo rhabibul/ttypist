@@ -1,5 +1,4 @@
 export default {
-  theme: "light", // light | dimmed | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -7,15 +6,13 @@ export default {
       expanded: false,
     },
   },
-  timer: {
-    off: false,
-    seconds: 60, // 15 | 30 | 60 | 120 | custom
-    hide: false,
-  },
+  websitetheme: "light", // light | dimmed | dark
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
-    letter: false,
-    word: false,
+    mode: {
+      letter: false,
+      word: false,
+    }
   },
   arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
@@ -68,17 +65,20 @@ export default {
       },
     }
   },
+  timer: {
+    off: false,
+    time: 60, // 15 | 30 | 60 | 120 | input
+    hide: false,
+  },
   caret: {
     off: true, // none
-    style: "line", // line | underline | box | block
-    opacity: 1, // rgba - alpha[0,1]
+    style: "line", // off | line | underline | box | block
     color: "black",
   },
   pacecaret: {
     off: true, // none
-    style: "line", // line | underline | box | block
-    opacity: 0.5, // rgba - alpha[0,1]
-    color: "gray",
+    style: "line", // off | line | underline | box | block
+    color: "black",
     threshold: {
       last: false, // previous speed
       best: false, // personal best speed

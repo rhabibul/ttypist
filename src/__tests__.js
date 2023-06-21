@@ -1,10 +1,24 @@
 import Config from "../include/config.js";
 import * as MiscElement from "./elements/misc-elements.js";
+import * as SettingsElement from "./elements/settings-elements.js";
 
-// config debug
+console.log(SettingsElement.highlight);
+
 window.addEventListener("click", () => {
-	
+
 });
+
+/*
+var checkbox = document.querySelector("input[name=checkbox]");
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});
+*/
+
 
 window.addEventListener('load', (evt) => {
 	if ( localStorage.getItem('Config') === null ) {

@@ -86,8 +86,8 @@
             <div class="text">dynamic settings</div>
           </div>
           <div class="config buttonContainer dynamicSettingsButton s2">
-            <button               class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button id="selected" class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
 
@@ -119,6 +119,18 @@
           <div class="config buttonContainer textInputBoxButton s2">
             <button class="button hidden"  tabindex="0" role="button" type="button" value="hidden" id="selected">hidden</button>
             <button class="button visible" tabindex="0" role="button" type="button" value="visible">visible</button>
+          </div>
+        </div>
+
+        <div class="row" id="tapeMode">
+          <div class="label">
+            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
+            <div class="text">tape mode</div>
+          </div>
+          <div class="config buttonContainer tapeModeButton s3">
+            <button class="button off"    tabindex="0" role="button" type="button" value="off" id="selected">off</button>
+            <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
+            <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
           </div>
         </div>
 
@@ -295,7 +307,7 @@
           </div>
           <div class="config buttonContainer backspaceNotAllowedOnCorrectButton s2">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button on" tabindex="0" role="button" type="button" value="on">on</button>
+            <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
         </div>
   
@@ -339,18 +351,6 @@
           </div>
         </div>
   
-        <div class="row" id="tapeMode">
-          <div class="label">
-            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
-            <div class="text">tape mode</div>
-          </div>
-          <div class="config buttonContainer tapeModeButton s3">
-            <button class="button off"    tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
-            <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
-          </div>
-        </div>
-
         <div class="row" id="textUnderline">
           <div class="label">
             <div class="symbol">
@@ -405,7 +405,7 @@
             </div>
             <div class="timerTimeCustomInputContainer s1">
               <div class="customInput">
-                <input class="customInputBox minaccuracy" tabindex="0" type="number" min="0" placeholder="60">
+                <input class="customInputBox customSecondsInput" tabindex="0" type="number" min="0" placeholder="60">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
             </div>
@@ -564,7 +564,7 @@
             </div>
             <div class="text">theme</div>
           </div>
-          <div class="config buttonContainer themeButton s3">
+          <div class="config buttonContainer websiteThemeButton s3">
             <button class="button light"  tabindex="0" role="button" type="button" value="light" id="selected">light</button>
             <button class="button dark"   tabindex="0" role="button" type="button" value="dark">dark</button>
             <button class="button dimmed" tabindex="0" role="button" type="button" value="dimmed">dimmed</button>

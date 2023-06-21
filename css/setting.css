@@ -21,7 +21,9 @@ input[type=number]::-webkit-outer-spin-button {
 div.setting {
 	width: 910px;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: space-between; */
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
 }
