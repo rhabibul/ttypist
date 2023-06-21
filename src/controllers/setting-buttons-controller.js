@@ -9,8 +9,8 @@ import * as TestAreaElement from "../elements/testarea-elements.js";
 // setting
 //    - update internal state (config object)
 //    - update external state (ui changes - buttons)
-//    - update dependencies between among setting config options in both
-//  		internal and external states
+//    - update dependencies between among other config options in both config 
+//      object and ui (settings page)
 
 // input field
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });

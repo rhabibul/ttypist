@@ -230,7 +230,8 @@ svg.iconWarning,
 svg.iconPrimaryColor,
 svg.iconSecondaryColor,
 svg.iconWordLength,
-svg.iconDynamicSettings {
+svg.iconDynamicSettings,
+svg.iconSettingsView {
 	width: 20px;
 	height: 20px;
 }

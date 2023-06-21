@@ -45,15 +45,15 @@ export function registerkeydown(evt) {
 		word.loadword(text.nextword, { nextword: true });
 		
 		if ( Config.text.underline ) {
-			addunderline(text.activeword);
+			addunderline(word.me());
 		}
 		CaretController.addcaretto(word.activeletter);
 		
 	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
 
 		CaretController.removecaretfrom(word.activeletter);
-
 		word.activeletter.classList.add("correct");
+
 		if ( Config.text.underline ) {
 			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
 		}
@@ -160,8 +160,19 @@ export function registerkeydown(evt) {
 				CaretController.addcaretto(word.activeletter);
 			}
 		}
-	} else {
-		// error handling
+	} else { // error handling
+		if ( Config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
+			CaretController.removecaretfrom(word.activeletter);
+			removeunderline(word.me());
+
+			word.loadword(text.nextword, { nextword: true });
+			word.loadword(text.nextword, { nextword: true });
+			
+			if ( Config.text.underline ) {
+				addunderline(text.activeword);
+			}
+			CaretController.addcaretto(word.activeletter);	
+		}
 	}
 }
 
@@ -177,7 +188,6 @@ export function registerbeforeinput(evt) {
 
 // 4. input
 export function registerinput(evt) {
-
 	if ( !evt.isTrusted ) return;
 
 	if ( mInput.keydownUnidentified ) {
@@ -255,7 +265,7 @@ export function addunderline(word) {
 }
 
 // setTimeout(() => {
-	// Misc.autotyper(400);
+// 	Misc.autotyper(600);
 // }, 3000);
 
 export { text, word };

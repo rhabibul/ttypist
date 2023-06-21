@@ -92,7 +92,7 @@ export function wordelements(s) {
   return wordarray;
 }
 
-export function autotyper(wpm) {
+export function autotyper(wpm, till = -1) {
 	let i = 0, id = 0, s = "";
   const letters = document.getElementsByTagName("letter");
   const interval = (60000 / (wpm * 5));
@@ -108,7 +108,7 @@ export function autotyper(wpm) {
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
 		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
-		if ( i == s.length - 1 ) clearInterval(id);
+		if ( i == s.length ) clearInterval(id);
 	}, interval);
 }
 

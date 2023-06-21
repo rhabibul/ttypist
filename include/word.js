@@ -20,7 +20,7 @@ export default class Word {
     }
   }
 
-  get size() {
+  get size() { // go with the convention of js and use length instead of size
     return this.#word.length;
   }
   get lastletterindex() {
