@@ -162,6 +162,8 @@ export const details = {
 	// textWordType: ,
 	// textWordLength: ,
 	// textCapitalization: ,
+	// keyboardLanguage: ,
+	// keyboardLayout: ,
 }
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
@@ -211,9 +213,13 @@ export const focusOutWarning = {
 	off: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.on"),
 }
-export const keyboard = {
+export const keyboardReaction = {
 	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),
 	static: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.static"),
 	react: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.react"),
 	next: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.next"),
+}
+export const emulateKeyboardLayout = {
+	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardEmulateButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardEmulateButton button.button.on"),
 }
