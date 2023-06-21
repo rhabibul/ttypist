@@ -2,8 +2,7 @@ import Config from "../include/config.js";
 import * as MiscElement from "./elements/misc-elements.js";
 import * as SettingsElement from "./elements/settings-elements.js";
 
-console.log(SettingsElement.textFontSize);
-console.log(SettingsElement.textFontWeight);
+console.log(SettingsElement.keyboard);
 
 window.addEventListener("click", () => {
 

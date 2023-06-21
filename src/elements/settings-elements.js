@@ -157,7 +157,11 @@ export const textColor = {
 	}
 }
 export const details = {
-
+	// textFontFamily: ,
+	// textWordCount: ,
+	// textWordType: ,
+	// textWordLength: ,
+	// textCapitalization: ,
 }
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
@@ -166,4 +170,50 @@ export const textFontSize = {
 export const textFontWeight = {
 	fontWeightInput: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.textFontWeightInputContainer input[type='range'].textFontWeightInput"),
 	fontWeightDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.text.value")
+}
+export const textWhitespace = {
+	off: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.off"),
+	type: {
+		bullet: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.bullet"),
+		space: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.space"),
+		bar: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.bar"),
+	}
+}
+export const textInclude = {
+	digit: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.digit input[type='checkbox']#digit"),
+	punctuation: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.punctuation input[type='checkbox']#punctuation"),
+}
+export const textScroll = {
+	abrupt: document.querySelector("div.s2.config.buttonContainer.textScrollButton button.button.abrupt"),
+	smooth: document.querySelector("div.s2.config.buttonContainer.textScrollButton button.button.smooth"),
+}
+export const stats = {
+	live: {
+		speed: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.speed input[type='checkbox']#speed"),
+		accuracy: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.accuracy input[type='checkbox']#accuracy"),
+		burst: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.burst input[type='checkbox']#burst"),
+	},
+	calcInterval: {
+		word: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.word"),
+		keystroke: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.keystroke"),
+		second: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.second"),
+	},
+	unit: {
+		cpm: document.querySelector("div.s2.config.buttonContainer.speedUnitButton button.button.cpm"),
+		wpm: document.querySelector("div.s2.config.buttonContainer.speedUnitButton button.button.wpm"),
+	},
+	usefloats: {
+		off: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.off"),
+		on: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.on"),
+	},
+}
+export const focusOutWarning = {
+	off: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.on"),
+}
+export const keyboard = {
+	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),
+	static: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.static"),
+	react: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.react"),
+	next: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.next"),
 }

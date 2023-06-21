@@ -142,13 +142,13 @@ export default {
       smooth: false,
     },
   },
-  statistics: {
+  stats: {
     live: {
       speed: false,    // live speed in wpm/cpm
       accuracy: false, // live accuracy
       burst: false,    // live burst, speed of last word typed
     },
-    calculationInterval: { // calculation interval for speed, accuracy, burst
+    calcInterval: { // calculation interval for speed, accuracy, burst
       word: false, // calculate after every word
       keystroke: true, // calculate after each keystroke
       second: false, // calculate after every one second
@@ -159,7 +159,7 @@ export default {
     },
     usefloats: false, // display floating point number
   },
-  keyWarnings: {
+  warnings: {
     capslock: false, // capslock key is left turned on
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
