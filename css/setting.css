@@ -38,7 +38,7 @@ div.setting div.column.c2 {
 	
 } */
 div.setting div.column.c2 {
-	border-left: 1px dashed rgba(211, 211, 211, 1);
+	border-left: 1px dashed rgb(170, 169, 169);
 }
 div.setting div.column div.row {
 	height: 40px;
@@ -46,7 +46,7 @@ div.setting div.column div.row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: 1px solid rgba(211, 211, 211, 0.6);
+	border-bottom: 1px dashed rgba(211, 211, 211, 0.8);
 }
 div.setting div.column div.row#minimumSpeed,
 div.setting div.column div.row#minimumAccuracy,
@@ -69,7 +69,7 @@ div.label div.text {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #001e2e;
+	color: #001e2ec7;
 	font-size: 0.95rem;
 	font-weight: 500;
 	font-family: var(--FiraCode);
