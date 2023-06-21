@@ -1,4 +1,5 @@
 export default {
+  websitetheme: "light", // light | dimmed | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
     view: {
@@ -6,7 +7,6 @@ export default {
       expanded: false,
     },
   },
-  websitetheme: "light", // light | dimmed | dark
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {

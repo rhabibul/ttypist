@@ -441,11 +441,22 @@ div.config.warningsCheckboxButtonContainer {
 }
 div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton,
 div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
-div.config.warningsCheckboxButtonContainer     div.warningCheckboxButton,
+div.config.warningsCheckboxButtonContainer     div.warningsCheckboxButton,
 div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
+	height: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	column-gap: var(--setting-checkboxAndText-gap);
+}
+div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton label,
+div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton label,
+div.config.warningsCheckboxButtonContainer     div.warningsCheckboxButton label,
+div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton  label{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* -------------------------- text capitalization -------------------------- */
