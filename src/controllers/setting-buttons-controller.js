@@ -16,6 +16,7 @@ function fn(evt) {
 	if ( !evt.isTrusted ) return;
 	// if ( this.whateverValueIsClicked === config.theValueWhichIsInUse ) return;
 	
+	// console.log(evt);
 	console.log(this?.value);
 	// console.log(this.className, this.id);
 	// console.log(this?.checked);
