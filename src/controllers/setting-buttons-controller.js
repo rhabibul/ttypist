@@ -206,11 +206,34 @@ SettingsElement.stats.live.speed.addEventListener("click", fn);
 SettingsElement.stats.live.accuracy.addEventListener("click", fn);
 SettingsElement.stats.live.burst.addEventListener("click", fn);
 
-// live stats calculation interval
+// live stats calculation interval (s3)
 SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.second.addEventListener("click", fn);
 
-// speed unit
+// speed unit (s2)
 SettingsElement.stats.unit.cpm.addEventListener("click", fn);
 SettingsElement.stats.unit.wpm.addEventListener("click", fn);
+
+// use floats (s2)
+SettingsElement.stats.usefloats.off.addEventListener("click", fn);
+SettingsElement.stats.usefloats.on.addEventListener("click", fn);
+
+// warnings (s3)
+SettingsElement.warnings.capslock.addEventListener("click", fn);
+SettingsElement.warnings.numlock.addEventListener("click", fn);
+SettingsElement.warnings.scrolllock.addEventListener("click", fn);
+
+// focus out warning (s2)
+SettingsElement.focusOutWarning.off.addEventListener("click", fn);
+SettingsElement.focusOutWarning.on.addEventListener("click", fn);
+
+// keyboard reaction (s4)
+SettingsElement.keyboardReaction.off.addEventListener("click", fn);
+SettingsElement.keyboardReaction.static.addEventListener("click", fn);
+SettingsElement.keyboardReaction.react.addEventListener("click", fn);
+SettingsElement.keyboardReaction.next.addEventListener("click", fn);
+
+// emulate keyboard layout (s2)
+SettingsElement.emulateKeyboardLayout.off.addEventListener("click", fn);
+SettingsElement.emulateKeyboardLayout.on.addEventListener("click", fn);
