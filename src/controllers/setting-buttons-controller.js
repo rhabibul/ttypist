@@ -193,3 +193,24 @@ SettingsElement.textWhitespace.type.bullet.addEventListener("click", fn);
 SettingsElement.textWhitespace.type.space.addEventListener("click", fn);
 SettingsElement.textWhitespace.type.bar.addEventListener("click", fn);
 
+// text include
+SettingsElement.textInclude.digit.addEventListener("click", fn);
+SettingsElement.textInclude.punctuation.addEventListener("click", fn);
+
+// text scroll
+SettingsElement.textScroll.abrupt.addEventListener("click", fn);
+SettingsElement.textScroll.smooth.addEventListener("click", fn);
+
+// live stats
+SettingsElement.stats.live.speed.addEventListener("click", fn);
+SettingsElement.stats.live.accuracy.addEventListener("click", fn);
+SettingsElement.stats.live.burst.addEventListener("click", fn);
+
+// live stats calculation interval
+SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
+SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
+SettingsElement.stats.calcInterval.second.addEventListener("click", fn);
+
+// speed unit
+SettingsElement.stats.unit.cpm.addEventListener("click", fn);
+SettingsElement.stats.unit.wpm.addEventListener("click", fn);
