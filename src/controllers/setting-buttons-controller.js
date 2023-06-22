@@ -12,8 +12,12 @@ import * as SettingsElement from "../elements/settings-elements.js";
 TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
 
 function fn(evt) {
-	if ( !evt.isTrusted ) return; // avoid bots clicking
+	// avoid bots clicking, also later avoid double clicking of the selected button
+	if ( !evt.isTrusted ) return;
+	// if ( this.whateverValueIsClicked === config.theValueWhichIsInUse ) return;
+	
 	console.log(this?.value);
+	// console.log(this.className, this.id);
 	// console.log(this?.checked);
 	// console.log(evt.target);
 	// console.log(evt.currentTarget);
@@ -95,11 +99,64 @@ SettingsElement.minimum.burst.fixed.addEventListener("click", fn);
 SettingsElement.minimum.burst.flex.addEventListener("click", fn);
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", fn);
 
-// caret
+// caret style
 SettingsElement.caret.off.addEventListener("click", fn);
 SettingsElement.caret.style.underline.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
 SettingsElement.caret.style.box.addEventListener("click", fn);
 SettingsElement.caret.style.block.addEventListener("click", fn);
+
+// caret color
 SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
 SettingsElement.caret.color.textInput.addEventListener("input", fn);
+
+// pacecaret style
+SettingsElement.pacecaret.off.addEventListener("click", fn);
+SettingsElement.pacecaret.style.underline.addEventListener("click", fn);
+SettingsElement.pacecaret.style.line.addEventListener("click", fn);
+SettingsElement.pacecaret.style.box.addEventListener("click", fn);
+SettingsElement.pacecaret.style.block.addEventListener("click", fn);
+
+// pacecaret color
+SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
+SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
+
+// pacecaret speed
+SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.best.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
+
+// text input box
+SettingsElement.textInput.hidden.addEventListener("click", fn);
+SettingsElement.textInput.visible.addEventListener("click", fn);
+
+// text highlight
+SettingsElement.textHighlight.off.addEventListener("click", fn);
+SettingsElement.textHighlight.mode.letter.addEventListener("click", fn);
+SettingsElement.textHighlight.mode.word.addEventListener("click", fn);
+
+// flip text highlight
+SettingsElement.textHighlight.flip.off.addEventListener("click", fn);
+SettingsElement.textHighlight.flip.on.addEventListener("click", fn);
+
+// text underline
+SettingsElement.textUnderline.off.addEventListener("click", fn);
+SettingsElement.textUnderline.on.addEventListener("click", fn);
+
+// text color
+SettingsElement.textColor.primary.selectorInput.addEventListener("input", fn);
+SettingsElement.textColor.primary.textInput.addEventListener("input", fn);
+SettingsElement.textColor.secondary.selectorInput.addEventListener("input", fn);
+SettingsElement.textColor.secondary.textInput.addEventListener("input", fn);
+
+// timer
+SettingsElement.timer.off.addEventListener("click", fn);
+SettingsElement.timer.time.seconds15.addEventListener("click", fn);
+SettingsElement.timer.time.seconds30.addEventListener("click", fn);
+SettingsElement.timer.time.seconds60.addEventListener("click", fn);
+SettingsElement.timer.time.seconds120.addEventListener("click", fn);
+SettingsElement.timer.time.customSecondsInput.addEventListener("input", fn);
+SettingsElement.timer.hide.off.addEventListener("click", fn);
+SettingsElement.timer.hide.on.addEventListener("click", fn);

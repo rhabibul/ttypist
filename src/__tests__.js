@@ -12,9 +12,8 @@ window.addEventListener("click", () => {
 // // the event listener to change the text color upon 'click'
 // root_btn.addEventListener('click', () => {
 //     // changing the color from #0b32e7 to #f44336
-//     root_theme.style.setProperty('--demo-color-change', '#f44336'); 
+//     root_theme.style.setProperty('--demo-color-change', '#f44336');
 // });
-
 
 /*
 var checkbox = document.querySelector("input[name=checkbox]");
