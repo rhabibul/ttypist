@@ -1,12 +1,23 @@
 import Config from "../include/config.js";
-import * as MiscElement from "./elements/misc-elements.js";
 import * as SettingsElement from "./elements/settings-elements.js";
-
-// console.log(SettingsElement.endWithSpace);
 
 window.addEventListener("click", () => {
 
 });
+
+function fn(evt) {
+	if ( !evt.isTrusted ) return;
+	console.log("You've clicked a button!");
+}
+
+// dynamic settings
+SettingsElement.setting.dynamic.off.addEventListener("click", fn);
+SettingsElement.setting.dynamic.on.addEventListener("click", fn);
+
+SettingsElement.websiteTheme.light.addEventListener("click", fn);
+SettingsElement.websiteTheme.dimmed.addEventListener("click", fn);
+SettingsElement.websiteTheme.dark.addEventListener("click", fn);
+SettingsElement.websiteTheme.black.addEventListener("click", fn);
 
 // 🫵
 // use evt.isTrusted to prevent bots clicking any button on ttypist

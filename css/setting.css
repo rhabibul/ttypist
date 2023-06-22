@@ -49,7 +49,6 @@ div.setting div.column.c1 div.row:last-child,
 div.setting div.column.c2 div.row:last-child {
 	border-bottom: none;
 }
-
 div.setting div.column div.row#minimumSpeed,
 div.setting div.column div.row#minimumAccuracy,
 div.setting div.column div.row#minimumBurst,
@@ -136,7 +135,6 @@ div.config.buttonContainer.s3.liveStatusIntervalButton > .button.keystroke {
 div.config.buttonContainer.s3.liveStatusIntervalButton > .button.second {
 	flex-basis: 33%;
 }
-
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.skip,
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.bar,
 div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 > .button.off,
@@ -165,6 +163,22 @@ div.config.buttonContainer.extraLetterErrorButton.s4 > .button.insert {
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.bullet,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
 	flex-basis: 29%;
+}
+div.config.buttonContainer.websiteThemeButton.s4 {
+	width: var(--setting-buttons-container-width);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+div.config.buttonContainer.websiteThemeButton.s4 > .button.dark {
+	flex-basis: 22%;
+}
+div.config.buttonContainer.websiteThemeButton.s4 > .button.light,
+div.config.buttonContainer.websiteThemeButton.s4 > .button.black {
+	flex-basis: 23%;
+}
+div.config.buttonContainer.websiteThemeButton.s4 > .button.dimmed {
+	flex-basis: 26%;
 }
 div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
 div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {

@@ -9,9 +9,10 @@ export const setting = {
 	// }
 }
 export const websiteTheme = {
-	light: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.light"),
-	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
-	dimmed: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dimmed"),
+	light: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.light"),
+	dimmed: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.dimmed"),
+	dark: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.dark"),
+	black: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.black"),
 }
 export const tape = {
 	off: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.off"),
