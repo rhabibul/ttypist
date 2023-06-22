@@ -50,3 +50,13 @@ SettingsElement.modifier.meta.addEventListener("click", fn);
 // backspace not allowed on correct
 SettingsElement.backspaceNotAllowedOnCorrect.off.addEventListener("click", fn);
 SettingsElement.backspaceNotAllowedOnCorrect.on.addEventListener("click", fn);
+
+// confidence
+SettingsElement.confidence.low.addEventListener("click", fn);
+SettingsElement.confidence.high.addEventListener("click", fn);
+SettingsElement.confidence.peak.addEventListener("click", fn);
+
+// difficulty
+SettingsElement.difficulty.ease.addEventListener("click", fn);
+SettingsElement.difficulty.expert.addEventListener("click", fn);
+SettingsElement.difficulty.master.addEventListener("click", fn);
