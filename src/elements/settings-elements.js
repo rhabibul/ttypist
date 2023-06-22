@@ -13,20 +13,6 @@ export const websiteTheme = {
 	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
 	dimmed: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dimmed"),
 }
-export const timer = {
-	off: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.off"),
-	time: {
-		seconds15: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds15"),
-		seconds30: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds30"),
-		seconds60: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds60"),
-		seconds120: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds120"),
-		customSecondsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer div.s1.timerTimeCustomInputContainer div.customInput input.customInputBox.customSecondsInput"),
-	},
-	hide: {
-		off: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.on"),
-	},
-}
 export const tape = {
 	off: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.off"),
 	mode: {
@@ -159,6 +145,34 @@ export const textColor = {
 		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
 	}
+}
+export const timer = {
+	off: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.off"),
+	time: {
+		seconds15: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds15"),
+		seconds30: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds30"),
+		seconds60: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds60"),
+		seconds120: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds120"),
+		customSecondsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer div.s1.timerTimeCustomInputContainer div.customInput input.customInputBox.customSecondsInput"),
+	},
+	hide: {
+		off: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.off"),
+		on: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.on"),
+	},
+}
+export const textWordCount = {
+	off: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.off"),
+	count: {
+		words10: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words10"),
+		words25: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words25"),
+		words50: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words50"),
+		words100: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words100"),
+		customWordsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s1.textWordCountCustomInputContainer div.customInput input[type='number'].customInputBox.textWordCount"),
+	},
+}
+export const endWithSpace = {
+	off: document.querySelector("div.s2.config.buttonContainer.testEndsWithSpaceButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.testEndsWithSpaceButton button.button.on"),
 }
 export const details = {
 	textFontFamily: document.querySelector("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList"),

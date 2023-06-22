@@ -2,11 +2,14 @@ import Config from "../include/config.js";
 import * as MiscElement from "./elements/misc-elements.js";
 import * as SettingsElement from "./elements/settings-elements.js";
 
-// console.log(SettingsElement.details);
+// console.log(SettingsElement.endWithSpace);
 
 window.addEventListener("click", () => {
 
 });
+
+// 🫵
+// use evt.isTrusted to prevent bots clicking any button on ttypist
 
 /*
 var checkbox = document.querySelector("input[name=checkbox]");
@@ -19,15 +22,32 @@ checkbox.addEventListener('change', function() {
 });
 */
 
-window.addEventListener('load', (evt) => {
-	if ( localStorage.getItem('Config') === null ) {
-		window.localStorage.setItem('Config', JSON.stringify(Config));
-	} else {
+// "open" attribute can be used on details tag to keep it open
+// details.addEventListener("toggle", (event) => {
+//   if (details.open) {
+//     // the element was toggled open
+//   } else {
+//     // the element was toggled closed
+//   }
+// });
+
+// change css variable color for all four input selector's ::before and also update 
+// in input tag beside it
+// 
+// let colorPicker = document.querySelectorAll('input.colorSelector');
+// colorPicker.addEventListener('input',() => {
+// 	colorPicker.style.setProperty('--color-picker', colorPicker.value)
+// })
+
+// window.addEventListener('load', (evt) => {
+// 	if ( localStorage.getItem('Config') === null ) {
+// 		window.localStorage.setItem('Config', JSON.stringify(Config));
+// 	} else {
 		// 1. parse local config object from localStorage
 		// 2. load the parsed local config object to main config object
 		// 3. make necessary ui changes according to local config object
-	}
-});
+// 	}
+// });
 
 // // sliders
 // const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
@@ -46,14 +66,14 @@ window.addEventListener('load', (evt) => {
 // 	t2.textContent = slider_fontweight.value;
 // });
 
-window.addEventListener("offline", (evt) => { 
+// window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
-	console.log("You are currently offline.");
-});
-window.addEventListener("online", (evt) => {
+	// console.log("You are currently offline.");
+// });
+// window.addEventListener("online", (evt) => {
 	// Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]
-	console.log("Your Internet connection was restored.");
-})
+	// console.log("Your Internet connection was restored.");
+// })
 
 // const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 // 	'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
@@ -88,11 +108,11 @@ window.addEventListener("online", (evt) => {
 // 	console.log(sym, sym.length);
 // });
 
-if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-	console.log("DARK MODE");
-} else {
-	console.log("LIGHT MODE");
-}
+// if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+// 	console.log("DARK MODE");
+// } else {
+// 	console.log("LIGHT MODE");
+// }
 // const runColorMode = (fn) => {
 //   if (!window.matchMedia) {
 //     return;
