@@ -1,7 +1,5 @@
 import Config from "../../include/config.js";
-import * as MiscElement from "../elements/misc-elements.js";
-import * as TestAreaElement from "../elements/testarea-elements.js";
-import * as ConfigElement from "../elements/settings-elements.js";
+import * as TestAreaElements from "../elements/testAreaElements.js";
 import w3k from "../../static/texts/words/w3k.js";
 // import w1k from "../../static/texts/words/w1k.js";
 // import rootword from "../../static/texts/words/root-words.js";
@@ -105,8 +103,8 @@ export function autotyper(wpm, till = -1) {
 	}
 	id = setInterval(() => {
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
-		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
-		TestAreaElement.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
+		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
+		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
 		++i;
 		if ( i == s.length ) clearInterval(id);
 	}, interval);

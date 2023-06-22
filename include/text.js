@@ -1,5 +1,5 @@
 import Config from "../include/config.js";
-import * as TestAreaElement from "../src/elements/testarea-elements.js";
+import * as TestAreaElements from "../src/elements/testAreaElements.js";
 import { addunderline, removeunderline } from "../src/engine/logic.js";
 
 export default class Text {
@@ -12,19 +12,19 @@ export default class Text {
     this.#words = new Array();
     this.#wordindex = 0;
     
-    TestAreaElement.input.value = "";
-    TestAreaElement.text.innerHTML = "";
+    TestAreaElements.input.value = "";
+    TestAreaElements.text.innerHTML = "";
   }
 
   loadwords(words) {
     this.#words = words;
     this.#wordindex = 0;
     
-    TestAreaElement.input.value = "";
-    TestAreaElement.text.innerHTML = "";
+    TestAreaElements.input.value = "";
+    TestAreaElements.text.innerHTML = "";
 
     for ( const word of this.#words ) {
-    	TestAreaElement.text.insertAdjacentElement("beforeend", word);
+    	TestAreaElements.text.insertAdjacentElement("beforeend", word);
     }
     
     if ( Config.text.underline ) {

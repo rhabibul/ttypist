@@ -60,7 +60,7 @@
         </word>
       </text>
       <div class="textInputContainer">
-        <input id="textInput" placeholder="type the above text here" tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
+        <input id="textInput" placeholder="Type the above text here." tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
       </div>
     </div>
 
@@ -70,7 +70,6 @@
     </div>
 
     <div class="setting">
-      <!-- ----------- column 1 ----------- -->
       <div class="column c1">
         <div class="row" id="dynamicSettings">
           <div class="label">
@@ -554,7 +553,6 @@
         </div>
       </div>
 
-      <!-- ----------- column 2 ----------- -->
       <div class="column c2">
         <div class="row" id="websiteTheme">
           <div class="label">
@@ -1150,18 +1148,18 @@
       </div>
     </div>
 
-    <keyboard>
-      <row id="K"><key></key></row>
-      <row id="E"><key></key></row>
-      <row id="D"><key></key></row>
-      <row id="C"><key></key></row>
-      <row id="B"><key></key></row>
-      <row id="A"><key></key></row>
-    </keyboard>
-    
+    <div class="keyboard">
+      <div class="row" id="K"><div class="key"></div></div>
+      <div class="row" id="E"><div class="key"></div></div>
+      <div class="row" id="D"><div class="key"></div></div>
+      <div class="row" id="C"><div class="key"></div></div>
+      <div class="row" id="B"><div class="key"></div></div>
+      <div class="row" id="A"><div class="key"></div></div>
+    </div>
+
     <script type="importmap"></script>
     <script type="module" src="./src/main.js"></script>
-    <script type="module" src="./src/controllers/setting-buttons-controller.js"></script>
+    <script type="module" src="./src/controllers/settings.js"></script>
     <script type="module" src="./src/__tests__.js"></script>
   </body>
 </html>

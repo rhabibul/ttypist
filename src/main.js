@@ -3,10 +3,10 @@ import Text from "../include/text.js";
 import Word from "../include/word.js";
 
 import * as Misc from "./utils/misc.js";
-import * as CaretController from "./controllers/caret-controller.js";
-import * as TestAreaElement from "./elements/testarea-elements.js";
+import * as CaretController from "./controllers/caret.js";
+import * as TestAreaElement from "./elements/testAreaElements.js";
 
-import { time, typedchar, mInput, user } from "../include/stats-trackers.js";
+import { time, typedchar, mInput, user } from "../include/statsTrackingObjects.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";
 
 export const text = new Text();

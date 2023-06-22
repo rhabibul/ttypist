@@ -1,9 +1,7 @@
 import Config from "../../include/config.js"
-import * as TestAreaElement from "../elements/testarea-elements.js";
-import * as SettingsElement from "../elements/settings-elements.js";
-
-// input field
-TestAreaElement.text.addEventListener("click", () => { TestAreaElement.input.focus(); });
+import * as SettingsElement from "../elements/settingsElements.js";
+import * as SettingsChangeInConfig from "../controllers/settingsChangeInConfig.js";
+import * as SettingsChangeInUI from "../ui/settingsChangeInUI.js";
 
 function fn(evt) {
 	// avoid bots clicking, also later avoid double clicking of the selected button
