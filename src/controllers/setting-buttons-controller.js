@@ -128,7 +128,7 @@ SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.best.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
 
-// text input box
+// text input (box)
 SettingsElement.textInput.hidden.addEventListener("click", fn);
 SettingsElement.textInput.visible.addEventListener("click", fn);
 
@@ -172,3 +172,24 @@ SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", f
 // end with space
 SettingsElement.endWithSpace.off.addEventListener("click", fn);
 SettingsElement.endWithSpace.on.addEventListener("click", fn);
+
+// details (font family, word type, word length, capitalization, keyboard language, keyboard layout)
+SettingsElement.details.textFontFamily.addEventListener("click", fn);
+SettingsElement.details.textWordLength.addEventListener("click", fn);
+SettingsElement.details.textWordType.addEventListener("click", fn);
+SettingsElement.details.textCapitalization.addEventListener("click", fn);
+SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
+SettingsElement.details.keyboardLayout.addEventListener("click", fn);
+
+// text font size (slider)
+SettingsElement.textFontSize.fontSizeInput.addEventListener("input", fn);
+
+// text font weight (slider)
+SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", fn);
+
+// text whitespace
+SettingsElement.textWhitespace.off.addEventListener("click", fn);
+SettingsElement.textWhitespace.type.bullet.addEventListener("click", fn);
+SettingsElement.textWhitespace.type.space.addEventListener("click", fn);
+SettingsElement.textWhitespace.type.bar.addEventListener("click", fn);
+
