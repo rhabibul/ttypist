@@ -160,3 +160,15 @@ SettingsElement.timer.time.seconds120.addEventListener("click", fn);
 SettingsElement.timer.time.customSecondsInput.addEventListener("input", fn);
 SettingsElement.timer.hide.off.addEventListener("click", fn);
 SettingsElement.timer.hide.on.addEventListener("click", fn);
+
+// text word count
+SettingsElement.textWordCount.off.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
+
+// end with space
+SettingsElement.endWithSpace.off.addEventListener("click", fn);
+SettingsElement.endWithSpace.on.addEventListener("click", fn);
