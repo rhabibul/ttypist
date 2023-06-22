@@ -25,6 +25,10 @@ SettingsElement.tape.off.addEventListener("click", fn);
 SettingsElement.tape.mode.letter.addEventListener("click", fn);
 SettingsElement.tape.mode.word.addEventListener("click", fn);
 
+// opposite shift mode
+SettingsElement.oppositeshift.off.addEventListener("click", fn);
+SettingsElement.oppositeshift.on.addEventListener("click", fn);
+
 /*
 var checkbox = document.querySelector("input[name=checkbox]");
 checkbox.addEventListener('change', function() {
