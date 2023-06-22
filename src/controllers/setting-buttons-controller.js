@@ -60,3 +60,41 @@ SettingsElement.confidence.peak.addEventListener("click", fn);
 SettingsElement.difficulty.ease.addEventListener("click", fn);
 SettingsElement.difficulty.expert.addEventListener("click", fn);
 SettingsElement.difficulty.master.addEventListener("click", fn);
+
+// strict space
+SettingsElement.strictspace.off.addEventListener("click", fn);
+SettingsElement.strictspace.on.addEventListener("click", fn);
+
+// error
+SettingsElement.error.off.addEventListener("click", fn);
+SettingsElement.error.insert.addEventListener("click", fn);
+SettingsElement.error.skip.addEventListener("click", fn);
+SettingsElement.error.replace.addEventListener("click", fn);
+SettingsElement.error.forgive.off.addEventListener("click", fn);
+SettingsElement.error.forgive.on.addEventListener("click", fn);
+SettingsElement.error.stop.off.addEventListener("click", fn);
+SettingsElement.error.stop.letter.addEventListener("click", fn);
+SettingsElement.error.stop.word.addEventListener("click", fn);
+
+// minimum speed
+SettingsElement.minimum.speed.off.addEventListener("click", fn);
+SettingsElement.minimum.speed.on.addEventListener("click", fn);
+SettingsElement.minimum.speed.thresholdInput.addEventListener("input", fn);
+
+// minimum accuracy
+SettingsElement.minimum.accuracy.off.addEventListener("click", fn);
+SettingsElement.minimum.accuracy.on.addEventListener("click", fn);
+SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", fn);
+
+// minimum burst
+SettingsElement.minimum.burst.off.addEventListener("click", fn);
+SettingsElement.minimum.burst.fixed.addEventListener("click", fn);
+SettingsElement.minimum.burst.flex.addEventListener("click", fn);
+SettingsElement.minimum.burst.thresholdInput.addEventListener("input", fn);
+
+// caret
+SettingsElement.caret.off.addEventListener("click", fn);
+SettingsElement.caret.style.underline.addEventListener("click", fn);
+SettingsElement.caret.style.line.addEventListener("click", fn);
+SettingsElement.caret.style.box.addEventListener("click", fn);
+SettingsElement.caret.style.block.addEventListener("click", fn);
