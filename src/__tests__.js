@@ -5,6 +5,17 @@ window.addEventListener("click", () => {
 
 });
 
+// change css variable name
+// const root_theme = document.querySelector(':root');
+// // seleting the button which will trigger the event
+// const root_btn = document.querySelector('.btn-css-v');
+// // the event listener to change the text color upon 'click'
+// root_btn.addEventListener('click', () => {
+//     // changing the color from #0b32e7 to #f44336
+//     root_theme.style.setProperty('--demo-color-change', '#f44336'); 
+// });
+
+
 /*
 var checkbox = document.querySelector("input[name=checkbox]");
 checkbox.addEventListener('change', function() {

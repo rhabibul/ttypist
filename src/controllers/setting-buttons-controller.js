@@ -17,6 +17,9 @@ function fn(evt) {
 	// console.log(this?.checked);
 	// console.log(evt.target);
 	// console.log(evt.currentTarget);
+
+	// value for color selectors (use input.value for input of type color as well)
+	// console.log("value: ", SettingsElement.caret.color.selectorInput.value);
 }
 
 // dynamic settings
@@ -98,3 +101,5 @@ SettingsElement.caret.style.underline.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
 SettingsElement.caret.style.box.addEventListener("click", fn);
 SettingsElement.caret.style.block.addEventListener("click", fn);
+SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
+SettingsElement.caret.color.textInput.addEventListener("input", fn);

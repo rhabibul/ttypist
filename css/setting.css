@@ -499,7 +499,7 @@ div.colorPickerContainer {
 	border-radius: var(--setting-button-roundness);
 }
 div.colorPickerContainer input[type="color"].colorSelectorInput {
-	width: 30px;
+	width: 54px;
 	height: var(--setting-button-height);
 
 	-webkit-appearance: none;
@@ -518,7 +518,7 @@ div.colorPickerContainer input[type="color"].colorSelectorInput {
 	border-bottom-left-radius: var(--setting-button-roundness);
 }
 div.colorPickerContainer input[type="text"].colorTextInput {
-	width: calc(var(--setting-buttons-container-width) - 30px);
+	width: calc(var(--setting-buttons-container-width) - 54px);
 	height: 100%;
 
 	padding-left: 8px;
