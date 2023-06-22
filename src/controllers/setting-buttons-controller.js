@@ -1,10 +1,6 @@
 import Config from "../../include/config.js"
-import { Test } from "../main.js";
-
-import * as SettingUI from "../ui/setting-buttons-ui.js";
-import * as TestUI from "../ui/testarea-ui.js";
-import * as SettingElement from "../elements/settings-elements.js"
 import * as TestAreaElement from "../elements/testarea-elements.js";
+import * as SettingsElement from "../elements/settings-elements.js";
 
 // setting
 //    - update internal state (config object)
