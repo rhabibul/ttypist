@@ -5,30 +5,6 @@ window.addEventListener("click", () => {
 
 });
 
-function fn(evt) {
-	if ( !evt.isTrusted ) return; // avoid bots clicking on buttons
-	console.log("You've clicked a button!");
-}
-
-// dynamic settings
-SettingsElement.setting.dynamic.off.addEventListener("click", fn);
-SettingsElement.setting.dynamic.on.addEventListener("click", fn);
-
-// website theme
-SettingsElement.websiteTheme.light.addEventListener("click", fn);
-SettingsElement.websiteTheme.dimmed.addEventListener("click", fn);
-SettingsElement.websiteTheme.dark.addEventListener("click", fn);
-SettingsElement.websiteTheme.black.addEventListener("click", fn);
-
-// tape mode
-SettingsElement.tape.off.addEventListener("click", fn);
-SettingsElement.tape.mode.letter.addEventListener("click", fn);
-SettingsElement.tape.mode.word.addEventListener("click", fn);
-
-// opposite shift mode
-SettingsElement.oppositeshift.off.addEventListener("click", fn);
-SettingsElement.oppositeshift.on.addEventListener("click", fn);
-
 /*
 var checkbox = document.querySelector("input[name=checkbox]");
 checkbox.addEventListener('change', function() {

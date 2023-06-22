@@ -43,7 +43,7 @@ div.setting div.column div.row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: 1px dashed #d3d3d3;
+	border-bottom: 1px dashed #bfbfbf;
 }
 div.setting div.column.c1 div.row:last-child,
 div.setting div.column.c2 div.row:last-child {
