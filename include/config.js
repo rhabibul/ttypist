@@ -96,8 +96,8 @@ export default {
     },
     underline: true, // underline the current word being typed
     color: {
-      primary: "#061f2c", // future text, text which needs to be typed (more bright)
-      secondary: "#9a9a9a", // past text, text which has been typed (less bright)
+      primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
+      secondary: "#9a9a9a", // past text, text which has been typed (default: less bright)
     },
     highlight: { // by default, future text is brighter than the already typed text
       off: false,

@@ -25,7 +25,6 @@ SettingsElement.setting.dynamic.on.addEventListener("click", fn);
 
 function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // website theme (s4)
@@ -36,7 +35,6 @@ SettingsElement.websiteTheme.black.addEventListener("click", fn);
 
 function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // tape mode (s3)
@@ -46,7 +44,6 @@ SettingsElement.tape.mode.word.addEventListener("click", fn);
 
 function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // opposite shift mode (s2)
@@ -55,7 +52,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // backspace key (s2)
@@ -64,7 +60,6 @@ SettingsElement.backspace.on.addEventListener("click", fn);
 
 function updateBackspaceKey(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // modifier keys (s3)
@@ -74,32 +69,51 @@ SettingsElement.modifier.meta.addEventListener("click", fn);
 
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
-
 }
 
 // backspace not allowed on correct (s2)
 SettingsElement.backspaceNotAllowedOnCorrect.off.addEventListener("click", fn);
 SettingsElement.backspaceNotAllowedOnCorrect.on.addEventListener("click", fn);
 
+function updateBackspaceNotAllowedOnCorrect(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 // confidence (s3)
 SettingsElement.confidence.low.addEventListener("click", fn);
 SettingsElement.confidence.high.addEventListener("click", fn);
 SettingsElement.confidence.peak.addEventListener("click", fn);
+
+function updateConfidence(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // difficulty (s3)
 SettingsElement.difficulty.ease.addEventListener("click", fn);
 SettingsElement.difficulty.expert.addEventListener("click", fn);
 SettingsElement.difficulty.master.addEventListener("click", fn);
 
+function updateDifficulty(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 // strict space (s2)
 SettingsElement.strictspace.off.addEventListener("click", fn);
 SettingsElement.strictspace.on.addEventListener("click", fn);
+
+function updateStrictSpace(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // error (s4)
 SettingsElement.error.off.addEventListener("click", fn);
 SettingsElement.error.insert.addEventListener("click", fn);
 SettingsElement.error.skip.addEventListener("click", fn);
 SettingsElement.error.replace.addEventListener("click", fn);
+
+function updateError(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // forgive error (s2)
 SettingsElement.error.forgive.off.addEventListener("click", fn);
