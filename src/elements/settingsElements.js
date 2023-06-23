@@ -34,9 +34,9 @@ export const modifier = {
 	ctrl: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
 	meta: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
 }
-export const backspaceNotAllowedOnCorrect = {
-	off: document.querySelector("div.s2.config.buttonContainer.backspaceNotAllowedOnCorrectButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.backspaceNotAllowedOnCorrectButton button.button.on"),
+export const goBackOnCorrect = {
+	off: document.querySelector("div.s2.config.buttonContainer.goBackOnCorrectButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.goBackOnCorrectButton button.button.on"),
 }
 export const confidence = {
 	low: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.low"),
@@ -167,9 +167,9 @@ export const textWordCount = {
 		customWordsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s1.textWordCountCustomInputContainer div.customInput input[type='number'].customInputBox.textWordCount"),
 	},
 }
-export const endWithSpace = {
-	off: document.querySelector("div.s2.config.buttonContainer.testEndsWithSpaceButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.testEndsWithSpaceButton button.button.on"),
+export const quickend = {
+	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.on"),
 }
 export const details = {
 	textFontFamily: document.querySelector("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList"),

@@ -14,6 +14,9 @@ export default {
       word: false,
     }
   },
+  arrows: true, // implicitly enabled (mythical)
+  strictspace: true, // implicitly enabled for error.skip & error.replace (will provide option to turn it off later)
+  quickend: true, // test ends as soon as last letter of last word is typed
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
     off: false,
@@ -176,6 +179,4 @@ export default {
       emulate: false,
     },
   },
-  arrows: true, // implicitly enabled (mythical)
-  onSpaceNext: true, // implicitly enabled for error.skip & error.replace (will provide option to turn it off later)
 };

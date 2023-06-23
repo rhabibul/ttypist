@@ -81,11 +81,11 @@ function updateModifierKey(evt) {
 }
 
 // backspace not allowed on correct
-SettingsElement.backspaceNotAllowedOnCorrect.off.addEventListener("click", fn);
-SettingsElement.backspaceNotAllowedOnCorrect.on.addEventListener("click", fn);
+SettingsElement.goBackOnCorrect.off.addEventListener("click", fn);
+SettingsElement.goBackOnCorrect.on.addEventListener("click", fn);
 
 // backspace not allowed on correct (s2)
-function updateBackspaceNotAllowedOnCorrect(evt) {
+function updateGoBackOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -337,11 +337,11 @@ function updateWordCountByTakingCustomInput(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// end with space
-SettingsElement.endWithSpace.off.addEventListener("click", fn);
-SettingsElement.endWithSpace.on.addEventListener("click", fn);
+// quickend
+SettingsElement.quickend.off.addEventListener("click", fn);
+SettingsElement.quickend.on.addEventListener("click", fn);
 
-// end with space (s2)
+// quickend (s2)
 function updateEndWithSpace(evt) {
 	if ( !evt.isTrusted ) return;
 }

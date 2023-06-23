@@ -71,9 +71,9 @@ div.label div.text {
 	align-items: center;
 	justify-content: center;
 	color: #001e2ec7;
-	font-size: 0.95rem;
-	font-weight: 500;
-	font-family: var(--FiraCode);
+	font-size: 0.9rem;
+	font-weight: 520;
+	font-family: var(--SourceCodePro);
 }
 div.label div.symbol {
 	width: 30px;
@@ -82,6 +82,23 @@ div.label div.symbol {
 	align-items: center;
 	justify-content: center;
 }
+
+div.config button.button {
+	height: var(--setting-button-height);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 5px;
+
+	font-size: 0.8rem;
+	font-family: var(--RobotoMono);
+
+	border-radius: var(--setting-button-roundness);
+  border: 1px solid var(--setting-button-border-color);
+	background-color: var(--setting-button-backgroundcolor);
+}
+
 div.label div.symbol svg {
 	display: flex;
 	align-items: center;
@@ -192,22 +209,6 @@ div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeed
 	flex-basis: 31%;
 }
 
-div.config button.button {
-	height: var(--setting-button-height);
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	column-gap: 5px;
-
-	font-size: 0.8rem;
-	font-family: var(--RobotoMono);
-
-	border-radius: var(--setting-button-roundness);
-  border: 1px solid var(--setting-button-border-color);
-	background-color: var(--setting-button-backgroundcolor);
-}
-
 svg.iconEditPen {
 	fill: black;
 }
@@ -221,7 +222,7 @@ svg.iconTextFontFamily {
 	width: 14px;
 	height: 14px;
 }
-svg.iconTestEndsWithSpace,
+svg.iconQuickEnd,
 svg.iconEditPen {
 	width: 15px;
 	height: 15px;
