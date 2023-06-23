@@ -323,8 +323,8 @@ text word letter.whitespace.bullet.ws-active::after {
 
 #selected {
 	color: white;
-  border-color: blue;
-	background-color: blue;
+  border-color: #444444;
+	background-color: #444444;
   font-weight: 500;
 }
 
