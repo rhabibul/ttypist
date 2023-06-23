@@ -31,9 +31,9 @@ export function registerkeydown(evt) {
 		word.activeletter.classList.add("correct");
 		
 		if ( !Config.text.highlight.flip ) {
-			word.activeletter.classList.remove("whitespace-color-active");
+			word.activeletter.classList.remove("ws-active");
 		} else {
-			word.activeletter.classList.add("whitespace-color-active");
+			word.activeletter.classList.add("ws-active");
 		}
 		
 		wasSpace = true;
@@ -74,7 +74,7 @@ export function registerkeydown(evt) {
 				}	
 
 				if ( !Config.text.highlight.flip ) { 
-					word.activeletter.classList.add("whitespace-color-active");
+					word.activeletter.classList.add("ws-active");
 				}
 
 				// test complete
@@ -108,11 +108,13 @@ export function registerkeydown(evt) {
 
 				removeunderline(text.activeword);
 				
-				if ( Misc.isspace(text.word_at(text.activewordindex - 1)?.children[0])) {
+				if ( Misc.isspace(text.word_at(text.activewordindex - 1).children[0])) {
+					text.word_at(text.activewordindex - 1).children[0].classList.remove("correct");
 					text.decrementwordindex();
 				}
 
 				CaretController.removecaretfrom(word.activeletter);
+				word.activeletter.classList.remove("correct");
 				word.loadword(text.prevword, { prevword: true });
 				addunderline(text.activeword);
 				CaretController.addcaretto(word.activeletter);

@@ -317,7 +317,7 @@ text word letter.whitespace.bullet.correct::after {
   opacity: 0.35;
   background-color: var(--text-color-secondary);
 }
-text word letter.whitespace.bullet.whitespace-color-active::after {
+text word letter.whitespace.bullet.ws-active::after {
   opacity: 0.70;
 }
 
