@@ -2,6 +2,9 @@ import Config from "../../include/config.js"
 import * as SettingsElement from "../elements/settingsElements.js";
 import * as SettingsChangeInConfig from "../controllers/settingsChangeInConfig.js";
 import * as SettingsChangeInUI from "../ui/settingsChangeInUI.js";
+import * as TestAreaElements from "../elements/testAreaElements.js";
+
+TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
 
 function fn(evt) {
 	// avoid bots clicking, also later avoid double clicking of the selected button
@@ -242,12 +245,33 @@ function updateTextUnderline(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// text color (s4)
-SettingsElement.textColor.primary.selectorInput.addEventListener("input", fn);
-SettingsElement.textColor.primary.textInput.addEventListener("input", fn);
+// primary text color (s2)
+SettingsElement.textColor.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
+SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
+
+function updatePrimaryTextColorSelectorInput(evt) {
+	if ( !evt.isTrusted ) return;
+	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
+	SettingsElement.textColor.primary.textInput.value = this.value;
+	Config.text.color.primary = this.value;
+}
+function updatePrimaryTextColorTextInput(evt) {
+	if ( !evt.isTrusted ) return;
+	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
+	Config.text.color.primary = this.value;
+}
+
+// secondary text color (s2)
 SettingsElement.textColor.secondary.selectorInput.addEventListener("input", fn);
 SettingsElement.textColor.secondary.textInput.addEventListener("input", fn);
-function update(evt) { // need 4 different functions to handle four inputs individually
+
+function updateSecondaryTextColorSelectorInput(evt) {
+	if ( !evt.isTrusted ) return;
+	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
+	SettingsElement.textColor.secondary.textInput.value = this.value;
+	Config.text.color.secondary = this.value;
+}
+function updateSecondaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 }
 

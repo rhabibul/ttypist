@@ -173,8 +173,8 @@
   --text-size: 19px;
   --text-thickness: 440;
   --text-font: var(--RobotoMono);
-  --text-primary-color: #001e2e;
-  --text-secondary-color: #9a9a9a;
+  --text-color-primary: #001e2e;
+  --text-color-secondary: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-error: red; /* normal letter error color */
@@ -266,7 +266,7 @@ text word letter {
   align-items: center;
   justify-content: center;
 
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
 
   /* line-height: 1em; */
   /* white-space: nowrap; */
@@ -303,11 +303,12 @@ text word letter.whitespace.bullet::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--text-whitespace-color);
+  background-color: var(--text-color-primary);
+  opacity: 0.35;
   transform: translateY(1px);
 }
 text word letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
-  background-color: var(--text-whitespace-color-active);
+  opacity: 0.70;
 }
 ::placeholder {
 	-moz-user-select: none;
@@ -344,7 +345,7 @@ text word letter.whitespace.whitespace-color-active::after { /* renaming is requ
 }
 
 .correct {
-  color: var(--text-secondary-color);
+  color: var(--text-color-secondary);
 }
 .incorrect {
   color: var(--text-error);
@@ -364,7 +365,7 @@ text word letter.whitespace.whitespace-color-active::after { /* renaming is requ
 
 /* used to underline active word in word and letter highlight mode */
 .__ {
-  text-decoration-color: var(--text-primary-color);
+  text-decoration-color: var(--text-color-primary);
   text-decoration-style: solid;
   text-decoration-line: underline;
   text-underline-offset: var(--text-underline-offset);
@@ -375,44 +376,4 @@ text word letter.whitespace.whitespace-color-active::after { /* renaming is requ
     none - drawn across the full length of the text content, including parts that
            cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
-}
-
-/* -------------------------- GRID LINES */
-div.grid-lines {
-  background-color: #269;
-  width: 300px;
-  height: 300px;
-  position: relative;
-  z-index: 0;
-}
-
-div.grid-lines::before {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  content: " ";
-  background-image: linear-gradient(lightGray 2px, transparent 2px), linear-gradient(90deg, lightGray 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-  animation: gridWipe 1s linear;
-}
-
-@keyframes gridWipe {
-  0% {
-    width: 0px;
-    height: 0px;
-  }
-
-  100% {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-p {
-  background: rgba(255,255,0,0.5);
 }
