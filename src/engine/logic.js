@@ -27,6 +27,9 @@ export function registerkeydown(evt) {
   typedchar.value = evt.key;
 	
 	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
+
+		word.activeletter.classList.add("correct");
+		
 		if ( !Config.text.highlight.flip ) {
 			word.activeletter.classList.remove("whitespace-color-active");
 		} else {
@@ -55,7 +58,7 @@ export function registerkeydown(evt) {
 		word.activeletter.classList.add("correct");
 
 		if ( Config.text.underline ) {
-			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
+			word.activeletter.style["text-decoration-color"] = "var(--text-color-secondary)";
 		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -98,7 +101,7 @@ export function registerkeydown(evt) {
 
 			for ( const letter of text.activeword.children ) {
 				letter.classList.remove("correct");
-				letter.style["text-decoration-color"] = "var(--text-primary-color)";
+				letter.style["text-decoration-color"] = "var(--text-color-primary)";
 			}
 
 			if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -106,7 +109,6 @@ export function registerkeydown(evt) {
 				removeunderline(text.activeword);
 				
 				if ( Misc.isspace(text.word_at(text.activewordindex - 1)?.children[0])) {
-
 					text.decrementwordindex();
 				}
 
@@ -117,7 +119,7 @@ export function registerkeydown(evt) {
 				
 				for ( const letter of text.activeword.children ) {
 					letter.classList.remove("correct");
-					letter.style["text-decoration-color"] = "var(--text-primary-color)";
+					letter.style["text-decoration-color"] = "var(--text-color-primary)";
 				}
 			}
 
@@ -132,14 +134,14 @@ export function registerkeydown(evt) {
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
 				}
 				CaretController.removecaretfrom(word.activeletter);
 				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
 				}
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -155,7 +157,7 @@ export function registerkeydown(evt) {
 				}
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
 				}
 				CaretController.addcaretto(word.activeletter);
 			}

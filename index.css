@@ -78,6 +78,16 @@
   box-sizing: border-box;
 }
 
+::placeholder {
+	color: #dae7f3;
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 /* ---------- colorscheme's color palettes ---------- */
 :root {
   --youtube-bg0_h: #181818;
@@ -177,8 +187,8 @@
   --text-color-secondary: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
-  --text-error: red; /* normal letter error color */
-  --text-error-extra: #a30d0d; /* extra inserted letter error color */
+  --text-color-error: red; /* normal letter error color */
+  --text-color-error-extra: #a30d0d; /* extra inserted letter error color */
   --text-whitespace-color: #b3b3b3; /* dot/bar whitespace color */
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
@@ -247,13 +257,14 @@ text {
   flex-wrap: wrap;
   row-gap: 2px;
 
+  background-color: var(--caret-color-hidden);
+
   -moz-user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  background-color: var(--caret-color-hidden);
 }
 text word {
   background-color: var(--caret-color-hidden);
@@ -278,7 +289,7 @@ text word letter {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-input#textInput {
+input[type="text"]#textInput {
   margin: 0px;
   padding: 0px;
   width: 0px;
@@ -287,11 +298,6 @@ input#textInput {
   outline: none;
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
-}
-text word letter.whitespace.bullet {
-  position: relative;
-  margin-left: 1px;
-  margin-right: 1px;
 }
 text word letter.whitespace.bullet::after {
   content: "";
@@ -303,21 +309,16 @@ text word letter.whitespace.bullet::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--text-color-primary);
-  opacity: 0.4;
   transform: translateY(1px);
+  opacity: 0.35;
+  background-color: var(--text-color-primary);
 }
-text word letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
-  opacity: 0.8;
+text word letter.whitespace.bullet.correct::after {
+  opacity: 0.35;
+  background-color: var(--text-color-secondary);
 }
-::placeholder {
-	-moz-user-select: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-	color: hsl(210, 33%, 88%);
+text word letter.whitespace.bullet.whitespace-color-active::after {
+  opacity: 0.70;
 }
 
 #selected {
@@ -327,53 +328,44 @@ text word letter.whitespace.whitespace-color-active::after { /* renaming is requ
   font-weight: 480;
 }
 
+.active {
+  color: var(--usage-undefined);
+}
 .hide {
   visibility: hidden;
 }
 .remove {
   display: none;
 }
-
-/* for setting buttons */
-.active {
-  color: red;
-}
-
-/* for text (word & letter) */
-.current {
+.current { /* for text (word & letter) */
   color: black;
 }
-
 .correct {
   color: var(--text-color-secondary);
 }
 .incorrect {
-  color: var(--text-error);
+  color: var(--text-color-error);
 }
 .extra {
-  color: var(--text-error-extra);
+  color: var(--text-color-error-extra);
 }
 .error {
-  color: var(--error);
-  text-decoration-color: var(--text-error-extra);
-  text-decoration-style: solid;
-  text-decoration-line: underline;
-  text-underline-offset: var(--text-underline-offset);
-  text-decoration-thickness: var(--text-underline-thickness);
-  text-decoration-skip-ink: all;
+  color: var(--text-color-error);
 }
-
-/* used to underline active word in word and letter highlight mode */
 .__ {
   text-decoration-color: var(--text-color-primary);
   text-decoration-style: solid;
   text-decoration-line: underline;
   text-underline-offset: var(--text-underline-offset);
   text-decoration-thickness: var(--text-underline-thickness);
-
-  /* all - the browser must interrupt underlines and overlines so that they do not
-           touch or closely approach a glyph
-    none - drawn across the full length of the text content, including parts that
-           cross over glyph descenders and ascenders */
   text-decoration-skip-ink: all;
 }
+
+
+/*
+text-decoration-skip-ink
+     all - the browser must interrupt underlines and overlines so that they do not
+           touch or closely approach a glyph
+    none - drawn across the full length of the text content, including parts that
+           cross over glyph descenders and ascenders
+*/
