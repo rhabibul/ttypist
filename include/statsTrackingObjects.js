@@ -84,6 +84,10 @@ export const keypress_timings = {
   }
 }
 
+// speed calculatation
+//    - in monkeytype if user submits a wrong word (typo, skpped) then its letters 
+//      are not used to calculate speed
+// 
 // grosswords (typed words):
 // This is the total number of words typed by the candidate; it includes 
 // both correct and incorrect words. Gross words per minnute is total 
@@ -102,6 +106,7 @@ export const keypress_timings = {
 // 
 // previous sentence typed
 // words on which mistake happend (so that user can practice those words after test)
+
 
 // call it on every keystoke to update livestats
 export function compute() {}

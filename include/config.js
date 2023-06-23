@@ -14,7 +14,6 @@ export default {
       word: false,
     }
   },
-  arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
     off: false,
@@ -35,7 +34,6 @@ export default {
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
   },
-  strictspace: true, // hitting space will not move caret to next word (it will be inserted)
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
     forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
@@ -178,4 +176,6 @@ export default {
       emulate: false,
     },
   },
+  arrows: true, // implicitly enabled (mythical)
+  onSpaceNext: true, // implicitly enabled for error.skip & error.replace (will provide option to turn it off later)
 };

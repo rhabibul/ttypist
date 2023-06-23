@@ -109,15 +109,6 @@ function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// strict space
-SettingsElement.strictspace.off.addEventListener("click", fn);
-SettingsElement.strictspace.on.addEventListener("click", fn);
-
-// strict space (s2)
-function updateStrictSpace(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // error
 SettingsElement.error.off.addEventListener("click", fn);
 SettingsElement.error.insert.addEventListener("click", fn);

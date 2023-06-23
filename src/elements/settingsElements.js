@@ -48,10 +48,6 @@ export const difficulty = {
 	expert: document.querySelector("div.s3.config.buttonContainer.testDifficultyButton button.button.expert"),
 	master: document.querySelector("div.s3.config.buttonContainer.testDifficultyButton button.button.master"),
 }
-export const strictspace = {
-	off: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.on"),
-}
 export const error = {
 	off: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.off"),
 	insert: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.insert"),
