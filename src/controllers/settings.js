@@ -19,178 +19,237 @@ function fn(evt) {
 	// console.log("value: ", SettingsElement.caret.color.selectorInput.value);
 }
 
-// dynamic settings (s2)
 SettingsElement.setting.dynamic.off.addEventListener("click", fn);
 SettingsElement.setting.dynamic.on.addEventListener("click", fn);
 
+// dynamic settings (s2)
 function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// website theme (s4)
 SettingsElement.websiteTheme.light.addEventListener("click", fn);
 SettingsElement.websiteTheme.dimmed.addEventListener("click", fn);
 SettingsElement.websiteTheme.dark.addEventListener("click", fn);
 SettingsElement.websiteTheme.black.addEventListener("click", fn);
 
+// website theme (s4)
 function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// tape mode (s3)
 SettingsElement.tape.off.addEventListener("click", fn);
 SettingsElement.tape.mode.letter.addEventListener("click", fn);
 SettingsElement.tape.mode.word.addEventListener("click", fn);
 
+// tape mode (s3)
 function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// opposite shift mode (s2)
 SettingsElement.oppositeshift.off.addEventListener("click", fn);
 SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
+// opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// backspace key (s2)
 SettingsElement.backspace.off.addEventListener("click", fn);
 SettingsElement.backspace.on.addEventListener("click", fn);
 
+// backspace key (s2)
 function updateBackspaceKey(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// modifier keys (s3)
 SettingsElement.modifier.alt.addEventListener("click", fn);
 SettingsElement.modifier.ctrl.addEventListener("click", fn);
 SettingsElement.modifier.meta.addEventListener("click", fn);
 
+// modifier keys (s3)
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// backspace not allowed on correct (s2)
 SettingsElement.backspaceNotAllowedOnCorrect.off.addEventListener("click", fn);
 SettingsElement.backspaceNotAllowedOnCorrect.on.addEventListener("click", fn);
 
+// backspace not allowed on correct (s2)
 function updateBackspaceNotAllowedOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// confidence (s3)
 SettingsElement.confidence.low.addEventListener("click", fn);
 SettingsElement.confidence.high.addEventListener("click", fn);
 SettingsElement.confidence.peak.addEventListener("click", fn);
 
+// confidence (s3)
 function updateConfidence(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// difficulty (s3)
 SettingsElement.difficulty.ease.addEventListener("click", fn);
 SettingsElement.difficulty.expert.addEventListener("click", fn);
 SettingsElement.difficulty.master.addEventListener("click", fn);
 
+// difficulty (s3)
 function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// strict space (s2)
 SettingsElement.strictspace.off.addEventListener("click", fn);
 SettingsElement.strictspace.on.addEventListener("click", fn);
 
+// strict space (s2)
 function updateStrictSpace(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// error (s4)
 SettingsElement.error.off.addEventListener("click", fn);
 SettingsElement.error.insert.addEventListener("click", fn);
 SettingsElement.error.skip.addEventListener("click", fn);
 SettingsElement.error.replace.addEventListener("click", fn);
 
+// error (s4)
 function updateError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// forgive error (s2)
 SettingsElement.error.forgive.off.addEventListener("click", fn);
 SettingsElement.error.forgive.on.addEventListener("click", fn);
 
-// stop on error (s3)
+// forgive error (s2)
+function updateForgiveError(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.error.stop.off.addEventListener("click", fn);
 SettingsElement.error.stop.letter.addEventListener("click", fn);
 SettingsElement.error.stop.word.addEventListener("click", fn);
 
-// minimum speed (s3)
+// stop on error (s3)
+function updateStopOnError(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.minimum.speed.off.addEventListener("click", fn);
 SettingsElement.minimum.speed.on.addEventListener("click", fn);
 SettingsElement.minimum.speed.thresholdInput.addEventListener("input", fn);
 
-// minimum accuracy (s3)
+// minimum speed (s3)
+function updateMinimumSpeed(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.minimum.accuracy.off.addEventListener("click", fn);
 SettingsElement.minimum.accuracy.on.addEventListener("click", fn);
 SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", fn);
 
-// minimum burst (s3)
+// minimum accuracy (s3)
+function updateMinimumAccuracy(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.minimum.burst.off.addEventListener("click", fn);
 SettingsElement.minimum.burst.fixed.addEventListener("click", fn);
 SettingsElement.minimum.burst.flex.addEventListener("click", fn);
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", fn);
 
-// caret style (s5)
+// minimum burst (s3)
+function updateMinimumBurst(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.caret.off.addEventListener("click", fn);
 SettingsElement.caret.style.underline.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
 SettingsElement.caret.style.box.addEventListener("click", fn);
 SettingsElement.caret.style.block.addEventListener("click", fn);
 
-// caret color (s2)
+// caret style (s5)
+function updateCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
 SettingsElement.caret.color.textInput.addEventListener("input", fn);
 
-// pacecaret style (s5)
+// caret color (s2)
+function updateCaretColor(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.pacecaret.off.addEventListener("click", fn);
 SettingsElement.pacecaret.style.underline.addEventListener("click", fn);
 SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 
-// pacecaret color (s2)
+// pacecaret style (s5)
+function updatePaceCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
 SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
 
-// pacecaret speed (s5)
+// pacecaret color (s2)
+function updatePaceCaretColor(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.best.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
 
-// text input box (s2)
+// pacecaret speed (s5)
+function updatePaceCaretSpeed(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.textInput.hidden.addEventListener("click", fn);
 SettingsElement.textInput.visible.addEventListener("click", fn);
 
-// text highlight (s3)
+// text input (s2)
+function updateTextInput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.textHighlight.off.addEventListener("click", fn);
 SettingsElement.textHighlight.mode.letter.addEventListener("click", fn);
 SettingsElement.textHighlight.mode.word.addEventListener("click", fn);
 
-// flip text highlight (s2)
+// text highlight (s3)
+function updateTextHighlight(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.textHighlight.flip.off.addEventListener("click", fn);
 SettingsElement.textHighlight.flip.on.addEventListener("click", fn);
 
-// text underline (s2)
+// flip text highlight (s2)
+function updateFlipTextHighlight(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 SettingsElement.textUnderline.off.addEventListener("click", fn);
 SettingsElement.textUnderline.on.addEventListener("click", fn);
+
+// text underline (s2)
+function updateTextUnderline(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // text color (s4)
 SettingsElement.textColor.primary.selectorInput.addEventListener("input", fn);
 SettingsElement.textColor.primary.textInput.addEventListener("input", fn);
 SettingsElement.textColor.secondary.selectorInput.addEventListener("input", fn);
 SettingsElement.textColor.secondary.textInput.addEventListener("input", fn);
+function update(evt) { // need 4 different functions to handle four inputs individually
+	if ( !evt.isTrusted ) return;
+}
 
 // timer (s6)
 SettingsElement.timer.off.addEventListener("click", fn);
