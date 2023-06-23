@@ -262,17 +262,19 @@ function updatePrimaryTextColorTextInput(evt) {
 }
 
 // secondary text color (s2)
-SettingsElement.textColor.secondary.selectorInput.addEventListener("input", fn);
-SettingsElement.textColor.secondary.textInput.addEventListener("input", fn);
+SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
+SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
 function updateSecondaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
 	SettingsElement.textColor.secondary.textInput.value = this.value;
+	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
 	Config.text.color.secondary = this.value;
 }
 function updateSecondaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
+	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
+	Config.text.color.secondary = this.value;
 }
 
 // timer (s6)

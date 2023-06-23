@@ -304,11 +304,11 @@ text word letter.whitespace.bullet::after {
   align-items: center;
   justify-content: center;
   background-color: var(--text-color-primary);
-  opacity: 0.35;
+  opacity: 0.4;
   transform: translateY(1px);
 }
 text word letter.whitespace.whitespace-color-active::after { /* renaming is required (way too long name) */
-  opacity: 0.70;
+  opacity: 0.8;
 }
 ::placeholder {
 	-moz-user-select: none;
