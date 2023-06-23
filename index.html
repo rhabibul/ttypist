@@ -146,22 +146,6 @@
             <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
-
-        <div class="row" id="testEndsWithSpace">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconTestEndsWithSpace" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" d="M3 1.773l15 10.23L3 22.226zM20 22h1V2h-1z"></path>
-                <path fill="none" d="M0 0h24v24H0z"></path>
-              </svg>
-            </div>
-            <div class="text">endWithSpace</div>
-          </div>
-          <div class="config buttonContainer testEndsWithSpaceButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
-          </div>
-        </div>
         
         <div class="row" id="extraLetterError">
           <div class="label">
@@ -191,7 +175,7 @@
                 <path opacity="0.5" d="M152.695,129.902l-43.323-31.406c-3.257-2.363-7.818-1.642-10.188,1.628L1.391,234.991 c-2.37,3.263-1.635,7.824,1.622,10.195l43.316,31.406c3.264,2.37,7.825,1.642,10.189-1.629l97.793-134.866 C156.68,136.834,155.952,132.272,152.695,129.902z M123.745,144.97c-3.939,5.428-11.546,6.646-16.981,2.701 c-5.442-3.94-6.654-11.546-2.708-16.981c3.939-5.435,11.546-6.653,16.981-2.708C126.479,131.928,127.684,139.528,123.745,144.97z"></path>
               </svg>
             </div>
-            <div class="text">forgiveError</div>
+            <div class="text">forgive error</div>
           </div>
           <div class="config buttonContainer forgiveExtraLetterErrorButton s2">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
@@ -231,6 +215,17 @@
             <button class="button off"    tabindex="0" role="button" type="button" value="off" id="selected">off</button>
             <button class="button letter" tabindex="0" role="button" type="button" value="letter">letter</button>
             <button class="button word"   tabindex="0" role="button" type="button" value="word">word</button>
+          </div>
+        </div>
+
+        <div class="row" id="backspaceNotAllowedOnCorrect">
+          <div class="label">
+            <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
+            <div class="text">backspaceOnCorrect</div>
+          </div>
+          <div class="config buttonContainer backspaceNotAllowedOnCorrectButton s2">
+            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
   
@@ -275,16 +270,16 @@
             <div class="text">modifier</div>
           </div>
           <div class="config buttonContainer modifierKeyCheckboxButtonContainer s3">
-            <div class="modifierKeyCheckboxButton alt" data-value="alt">
-              <input tabindex="0" type="checkbox" id="alt" name="modifierKeyCheckboxButton" checked>
+            <div class="modifierKeyCheckboxButton alt">
+              <input id="alt" data-value="alt" tabindex="0" type="checkbox" name="modifierKeyCheckboxButton" data-value="alt" checked>
               <label for="alt">alt</label>
             </div>
-            <div class="modifierKeyCheckboxButton ctrl" data-value="ctrl">
-              <input tabindex="0" type="checkbox" id="ctrl" name="modifierKeyCheckboxButton" checked>
+            <div class="modifierKeyCheckboxButton ctrl">
+              <input id="ctrl" data-value="ctrl" tabindex="0" type="checkbox" name="modifierKeyCheckboxButton" data-value="ctrl" checked>
               <label for="ctrl">ctrl</label>
             </div>
-            <div class="modifierKeyCheckboxButton meta" data-value="meta">
-              <input tabindex="0" type="checkbox" id="meta" name="modifierKeyCheckboxButton">
+            <div class="modifierKeyCheckboxButton meta">
+              <input id="meta" data-value="meta" tabindex="0" type="checkbox" name="modifierKeyCheckboxButton" data-value="meta">
               <label for="meta">meta</label>
             </div>
           </div>
@@ -301,13 +296,18 @@
             <button class="button peak" tabindex="0" role="button" type="button" value="peak">peak</button>
           </div>
         </div>
-  
-        <div class="row" id="backspaceNotAllowedOnCorrect">
+
+        <div class="row" id="testEndsWithSpace">
           <div class="label">
-            <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
-            <div class="text">noBackOnCorrect</div>
+            <div class="symbol">
+              <svg class="iconTestEndsWithSpace" width="256px" height="256px" viewBox="0 0 24 24">
+                <path fill="var(--setting-icon-color)" d="M3 1.773l15 10.23L3 22.226zM20 22h1V2h-1z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg>
+            </div>
+            <div class="text">endWithSpace</div>
           </div>
-          <div class="config buttonContainer backspaceNotAllowedOnCorrectButton s2">
+          <div class="config buttonContainer testEndsWithSpaceButton s2">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
             <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
@@ -629,12 +629,12 @@
             <div class="text">include</div>
           </div>
           <div class="config buttonContainer textIncludeCheckboxButtonContainer s2">
-            <div class="textIncludeCheckboxButton digit" data-value="digit">
-              <input tabindex="0" type="checkbox" id="digit" name="textIncludeCheckboxButton">
+            <div class="textIncludeCheckboxButton digit">
+              <input id="digit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="digit">digit</label>
             </div>
-            <div class="textIncludeCheckboxButton punctuation" data-value="punctuation">
-              <input tabindex="0" type="checkbox" id="punctuation" name="textIncludeCheckboxButton">
+            <div class="textIncludeCheckboxButton punctuation">
+              <input id="punctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="punctuation">punctuation</label>
             </div>
           </div>
@@ -1000,16 +1000,16 @@
             <div class="text">warnings</div>
           </div>
           <div class="config buttonContainer warningsCheckboxButtonContainer s3">
-            <div class="warningsCheckboxButton capslock" data-value="capslock">
-              <input tabindex="0" type="checkbox" id="capslock" name="warningsCheckboxButton" checked>
+            <div class="warningsCheckboxButton capslock">
+              <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
               <label for="capslock">capslock</label>
             </div>
-            <div class="warningsCheckboxButton numlock" data-value="numlock">
-              <input tabindex="0" type="checkbox" id="numlock" name="warningsCheckboxButton">
+            <div class="warningsCheckboxButton numlock">
+              <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
               <label for="numlock">numlock</label>
             </div>
-            <div class="warningsCheckboxButton scrolllock" data-value="scrolllock">
-              <input tabindex="0" type="checkbox" id="scrolllock" name="warningsCheckboxButton">
+            <div class="warningsCheckboxButton scrolllock">
+              <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
               <label for="scrolllock">scrolllock</label>
             </div>
           </div>

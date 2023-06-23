@@ -13,8 +13,8 @@ function fn(evt) {
 	
 	// console.log(evt);
 	console.log(this?.value);
-	// console.log(this.className, this.id);
-	// console.log(this?.checked);
+	// console.log(this.className);
+	// console.log(this?.checked, this.parentElement.className, this.id, this.dataset.value);
 	// console.log(evt.target);
 	// console.log(evt.currentTarget);
 
@@ -22,6 +22,7 @@ function fn(evt) {
 	// console.log("value: ", SettingsElement.caret.color.selectorInput.value);
 }
 
+// dynamic settings
 SettingsElement.setting.dynamic.off.addEventListener("click", fn);
 SettingsElement.setting.dynamic.on.addEventListener("click", fn);
 
@@ -30,6 +31,7 @@ function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// website theme
 SettingsElement.websiteTheme.light.addEventListener("click", fn);
 SettingsElement.websiteTheme.dimmed.addEventListener("click", fn);
 SettingsElement.websiteTheme.dark.addEventListener("click", fn);
@@ -40,6 +42,7 @@ function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// tape mode
 SettingsElement.tape.off.addEventListener("click", fn);
 SettingsElement.tape.mode.letter.addEventListener("click", fn);
 SettingsElement.tape.mode.word.addEventListener("click", fn);
@@ -49,6 +52,7 @@ function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// opposite shift mode
 SettingsElement.oppositeshift.off.addEventListener("click", fn);
 SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
@@ -57,6 +61,7 @@ function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// backspace key
 SettingsElement.backspace.off.addEventListener("click", fn);
 SettingsElement.backspace.on.addEventListener("click", fn);
 
@@ -65,6 +70,7 @@ function updateBackspaceKey(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// modifier keys
 SettingsElement.modifier.alt.addEventListener("click", fn);
 SettingsElement.modifier.ctrl.addEventListener("click", fn);
 SettingsElement.modifier.meta.addEventListener("click", fn);
@@ -74,6 +80,7 @@ function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// backspace not allowed on correct
 SettingsElement.backspaceNotAllowedOnCorrect.off.addEventListener("click", fn);
 SettingsElement.backspaceNotAllowedOnCorrect.on.addEventListener("click", fn);
 
@@ -82,6 +89,7 @@ function updateBackspaceNotAllowedOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// confidence
 SettingsElement.confidence.low.addEventListener("click", fn);
 SettingsElement.confidence.high.addEventListener("click", fn);
 SettingsElement.confidence.peak.addEventListener("click", fn);
@@ -91,6 +99,7 @@ function updateConfidence(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// difficulty
 SettingsElement.difficulty.ease.addEventListener("click", fn);
 SettingsElement.difficulty.expert.addEventListener("click", fn);
 SettingsElement.difficulty.master.addEventListener("click", fn);
@@ -100,6 +109,7 @@ function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// strict space
 SettingsElement.strictspace.off.addEventListener("click", fn);
 SettingsElement.strictspace.on.addEventListener("click", fn);
 
@@ -108,6 +118,7 @@ function updateStrictSpace(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// error
 SettingsElement.error.off.addEventListener("click", fn);
 SettingsElement.error.insert.addEventListener("click", fn);
 SettingsElement.error.skip.addEventListener("click", fn);
@@ -118,6 +129,7 @@ function updateError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// forgive error
 SettingsElement.error.forgive.off.addEventListener("click", fn);
 SettingsElement.error.forgive.on.addEventListener("click", fn);
 
@@ -126,6 +138,7 @@ function updateForgiveError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// stop on error
 SettingsElement.error.stop.off.addEventListener("click", fn);
 SettingsElement.error.stop.letter.addEventListener("click", fn);
 SettingsElement.error.stop.word.addEventListener("click", fn);
@@ -135,6 +148,7 @@ function updateStopOnError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// minimum speed
 SettingsElement.minimum.speed.off.addEventListener("click", fn);
 SettingsElement.minimum.speed.on.addEventListener("click", fn);
 SettingsElement.minimum.speed.thresholdInput.addEventListener("input", fn);
@@ -144,6 +158,7 @@ function updateMinimumSpeed(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// minimum accuracy
 SettingsElement.minimum.accuracy.off.addEventListener("click", fn);
 SettingsElement.minimum.accuracy.on.addEventListener("click", fn);
 SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", fn);
@@ -153,6 +168,7 @@ function updateMinimumAccuracy(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// minimum burst
 SettingsElement.minimum.burst.off.addEventListener("click", fn);
 SettingsElement.minimum.burst.fixed.addEventListener("click", fn);
 SettingsElement.minimum.burst.flex.addEventListener("click", fn);
@@ -163,6 +179,7 @@ function updateMinimumBurst(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// caret style
 SettingsElement.caret.off.addEventListener("click", fn);
 SettingsElement.caret.style.underline.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
@@ -174,6 +191,7 @@ function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// caret color
 SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
 SettingsElement.caret.color.textInput.addEventListener("input", fn);
 
@@ -182,6 +200,7 @@ function updateCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// pacecaret style
 SettingsElement.pacecaret.off.addEventListener("click", fn);
 SettingsElement.pacecaret.style.underline.addEventListener("click", fn);
 SettingsElement.pacecaret.style.line.addEventListener("click", fn);
@@ -193,6 +212,7 @@ function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// pacecaret color
 SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
 SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
 
@@ -201,6 +221,7 @@ function updatePaceCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// pacecaret speed
 SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
@@ -212,6 +233,7 @@ function updatePaceCaretSpeed(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// text input
 SettingsElement.textInput.hidden.addEventListener("click", fn);
 SettingsElement.textInput.visible.addEventListener("click", fn);
 
@@ -220,6 +242,7 @@ function updateTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// text highlight
 SettingsElement.textHighlight.off.addEventListener("click", fn);
 SettingsElement.textHighlight.mode.letter.addEventListener("click", fn);
 SettingsElement.textHighlight.mode.word.addEventListener("click", fn);
@@ -229,6 +252,7 @@ function updateTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// flip text highlight
 SettingsElement.textHighlight.flip.off.addEventListener("click", fn);
 SettingsElement.textHighlight.flip.on.addEventListener("click", fn);
 
@@ -237,6 +261,7 @@ function updateFlipTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+// text underline
 SettingsElement.textUnderline.off.addEventListener("click", fn);
 SettingsElement.textUnderline.on.addEventListener("click", fn);
 
@@ -245,10 +270,11 @@ function updateTextUnderline(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// primary text color (s2)
+// primary text color
 SettingsElement.textColor.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
 SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
 
+// primary text color (s2)
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
@@ -261,23 +287,24 @@ function updatePrimaryTextColorTextInput(evt) {
 	Config.text.color.primary = this.value;
 }
 
-// secondary text color (s2)
+// secondary text color
 SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
 SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
-function updateSecondaryTextColorSelectorInput(evt) {
+// secondary text color (s2)
+function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
 	if ( !evt.isTrusted ) return;
 	SettingsElement.textColor.secondary.textInput.value = this.value;
 	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
 	Config.text.color.secondary = this.value;
 }
-function updateSecondaryTextColorTextInput(evt) {
+function updateSecondaryTextColorTextInput(evt) { // text input (color)
 	if ( !evt.isTrusted ) return;
 	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
 	Config.text.color.secondary = this.value;
 }
 
-// timer (s6)
+// timer
 SettingsElement.timer.off.addEventListener("click", fn);
 SettingsElement.timer.time.seconds15.addEventListener("click", fn);
 SettingsElement.timer.time.seconds30.addEventListener("click", fn);
@@ -285,11 +312,24 @@ SettingsElement.timer.time.seconds60.addEventListener("click", fn);
 SettingsElement.timer.time.seconds120.addEventListener("click", fn);
 SettingsElement.timer.time.customSecondsInput.addEventListener("input", fn);
 
-// hide timer (s2)
+// hide timer
 SettingsElement.timer.hide.off.addEventListener("click", fn);
 SettingsElement.timer.hide.on.addEventListener("click", fn);
 
-// text word count (s6)
+// timer (s5)
+function updateTimerSeconds(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// timer (s1) - custom seconds input box
+function updateTimerSecondsByTakingCustomInput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// hide timer (s2)
+function updateTimerHide(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// text word count
 SettingsElement.textWordCount.off.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
@@ -297,9 +337,23 @@ SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
 
-// end with space (s2)
+// text word count (s5)
+function updateWordCount(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// text word count (s1) - custom word count input box
+function updateWordCountByTakingCustomInput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// end with space
 SettingsElement.endWithSpace.off.addEventListener("click", fn);
 SettingsElement.endWithSpace.on.addEventListener("click", fn);
+
+// end with space (s2)
+function updateEndWithSpace(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // details
 SettingsElement.details.textFontFamily.addEventListener("click", fn);
@@ -309,8 +363,53 @@ SettingsElement.details.textCapitalization.addEventListener("click", fn);
 SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
 SettingsElement.details.keyboardLayout.addEventListener("click", fn);
 
+// details: text font family (s1)
+function updateTextFontFamily(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// details: text word length (s1)
+function updateTextWordLength(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// details: text word type (s1)
+function updateTextWordType(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// details: text capitalization (s1)
+function updateTextCapitalization(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// details: keyboard langugae (s1)
+function updateKeyboardLanguage(evt) {
+	if ( !evt.isTrusted ) return;
+}
+// details: keyboard layout (s1)
+function updateKeyboardLayout(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// // sliders
+// const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
+// const t1 = document.querySelector("div.config.textFontSize > div.text.value");
+// slider_fontsize.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
+//   Config.text.font.size = slider_fontsize.value;
+// 	t1.textContent = `${slider_fontsize.value}`;
+// });
+
+// const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");
+// const t2 = document.querySelector("div.config.textFontWeight > div.text.value");
+// slider_fontweight.addEventListener("input", () => {
+// 	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
+//   Config.text.font.weight = slider_fontweight.value;
+// 	t2.textContent = slider_fontweight.value;
+// });
+
+
 // text font size slider (s1)
 SettingsElement.textFontSize.fontSizeInput.addEventListener("input", fn);
+
+
 
 // text font weight slider (s1)
 SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", fn);
