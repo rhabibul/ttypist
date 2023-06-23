@@ -3,16 +3,11 @@ export const setting = {
 		off: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.off"),
 		on: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.on"),
 	},
-	// view: {
-	// 	condensed: document.querySelector("div.s2.config.buttonContainer.settingsViewContainer button.button.condensed"),
-	// 	expanded: document.querySelector("div.s2.config.buttonContainer.settingsViewContainer button.button.expanded"),
-	// }
 }
 export const websiteTheme = {
-	light: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.light"),
-	dimmed: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.dimmed"),
-	dark: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.dark"),
-	black: document.querySelector("div.s4.config.buttonContainer.websiteThemeButton button.button.black"),
+	light: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.light"),
+	midnight: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.midnight"),
+	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
 }
 export const tape = {
 	off: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.off"),

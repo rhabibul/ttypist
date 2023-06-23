@@ -17,9 +17,6 @@ function fn(evt) {
 	// console.log(this?.checked, this.parentElement.className, this.id, this.dataset.value);
 	// console.log(evt.target);
 	// console.log(evt.currentTarget);
-
-	// value for color selectors (use input.value for input of type color as well)
-	// console.log("value: ", SettingsElement.caret.color.selectorInput.value);
 }
 
 // dynamic settings
@@ -33,11 +30,10 @@ function updateDynamicSettings(evt) {
 
 // website theme
 SettingsElement.websiteTheme.light.addEventListener("click", fn);
-SettingsElement.websiteTheme.dimmed.addEventListener("click", fn);
+SettingsElement.websiteTheme.midnight.addEventListener("click", fn);
 SettingsElement.websiteTheme.dark.addEventListener("click", fn);
-SettingsElement.websiteTheme.black.addEventListener("click", fn);
 
-// website theme (s4)
+// website theme (s3)
 function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
 }
@@ -452,6 +448,11 @@ SettingsElement.keyboardReaction.static.addEventListener("click", fn);
 SettingsElement.keyboardReaction.react.addEventListener("click", fn);
 SettingsElement.keyboardReaction.next.addEventListener("click", fn);
 
-// emulate keyboard layout (s2)
+// emulate keyboard layout
 SettingsElement.emulateKeyboardLayout.off.addEventListener("click", fn);
 SettingsElement.emulateKeyboardLayout.on.addEventListener("click", fn);
+
+// emulate keyboard layout (s2)
+function updateEmulateKeyboardLayout(evt) {
+	if ( !evt.isTrusted ) return;
+}
