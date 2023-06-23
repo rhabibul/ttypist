@@ -72,8 +72,8 @@ div.label div.text {
 	justify-content: center;
 	color: #001e2ec7;
 	font-size: 0.9rem;
-	font-weight: 520;
-	font-family: var(--SourceCodePro);
+	font-weight: 550;
+	font-family: var(--FiraCode);
 }
 div.label div.symbol {
 	width: 30px;
@@ -146,6 +146,7 @@ div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstB
 div.config.buttonContainer.s3.liveStatusIntervalButton > .button.word {
 	flex-basis: 23%;
 }
+div.config.buttonContainer.websiteThemeButton.s3 > .button.midnight,
 div.config.buttonContainer.s3.liveStatusIntervalButton > .button.keystroke {
 	flex-basis: 40%;
 }
@@ -164,6 +165,10 @@ div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.off {
 	flex-basis: 20%;
 }
+div.config.buttonContainer.websiteThemeButton.s3 > .button.light {
+	flex-basis: 28%;
+}
+div.config.buttonContainer.websiteThemeButton.s3 > .button.dark,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.static {
 	flex-basis: 27%;
 }
@@ -180,22 +185,6 @@ div.config.buttonContainer.extraLetterErrorButton.s4 > .button.insert {
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.bullet,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
 	flex-basis: 29%;
-}
-div.config.buttonContainer.websiteThemeButton.s4 {
-	width: var(--setting-buttons-container-width);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-div.config.buttonContainer.websiteThemeButton.s4 > .button.dark {
-	flex-basis: 22%;
-}
-div.config.buttonContainer.websiteThemeButton.s4 > .button.light,
-div.config.buttonContainer.websiteThemeButton.s4 > .button.black {
-	flex-basis: 23%;
-}
-div.config.buttonContainer.websiteThemeButton.s4 > .button.dimmed {
-	flex-basis: 26%;
 }
 div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
 div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
