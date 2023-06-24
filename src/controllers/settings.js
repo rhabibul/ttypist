@@ -283,12 +283,10 @@ function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
 	if ( !evt.isTrusted ) return;
 	SettingsElement.textColor.secondary.textInput.value = this.value;
 	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
-	Config.text.color.secondary = this.value;
 }
 function updateSecondaryTextColorTextInput(evt) { // text input (color)
 	if ( !evt.isTrusted ) return;
 	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
-	Config.text.color.secondary = this.value;
 }
 
 // timer
@@ -375,54 +373,72 @@ function updateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// // sliders
-// const slider_fontsize = document.querySelector("div.config.textFontSize > div.textFontSizeInput > input[type='range']");
-// const t1 = document.querySelector("div.config.textFontSize > div.text.value");
-// slider_fontsize.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--text-size", `${slider_fontsize.value}px`);
-//   Config.text.font.size = slider_fontsize.value;
-// 	t1.textContent = `${slider_fontsize.value}`;
-// });
+// text font size slider
+SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
 
-// const slider_fontweight = document.querySelector("div.config.textFontWeight > div.textFontWeightInput > input[type='range']");
-// const t2 = document.querySelector("div.config.textFontWeight > div.text.value");
-// slider_fontweight.addEventListener("input", () => {
-// 	MiscElement.root.style.setProperty("--text-thickness", `${slider_fontweight.value}`);
-//   Config.text.font.weight = slider_fontweight.value;
-// 	t2.textContent = slider_fontweight.value;
-// });
+// text font weight slider
+SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
+
 
 // text font size slider (s1)
-SettingsElement.textFontSize.fontSizeInput.addEventListener("input", fn);
-// start here..
-
+function updateTextFontSize(evt) {
+	if ( !evt.isTrusted ) return;
+	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
+	document.querySelector(":root").style.setProperty("--text-size", `${this.value}px`);
+}
 
 // text font weight slider (s1)
-SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", fn);
+function updateTextFontWeight(evt) {
+	if ( !evt.isTrusted ) return;
+	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
+	document.querySelector(":root").style.setProperty("--text-thickness", `${this.value}`);
+}
 
-// text whitespace (s4)
+// text whitespace
 SettingsElement.textWhitespace.off.addEventListener("click", fn);
 SettingsElement.textWhitespace.type.bullet.addEventListener("click", fn);
 SettingsElement.textWhitespace.type.space.addEventListener("click", fn);
 SettingsElement.textWhitespace.type.bar.addEventListener("click", fn);
 
-// text include (s2)
+// text whitespace (s4)
+function updateTextWhitespace(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// text include
 SettingsElement.textInclude.digit.addEventListener("click", fn);
 SettingsElement.textInclude.punctuation.addEventListener("click", fn);
 
-// text scroll (s2)
+// text include (s2)
+function updateTextInclude(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// text scroll
 SettingsElement.textScroll.abrupt.addEventListener("click", fn);
 SettingsElement.textScroll.smooth.addEventListener("click", fn);
 
-// live stats (s3)
+// text scroll (s2)
+function updateTextScroll(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// live stats
 SettingsElement.stats.live.speed.addEventListener("click", fn);
 SettingsElement.stats.live.accuracy.addEventListener("click", fn);
 SettingsElement.stats.live.burst.addEventListener("click", fn);
+
+// live stats (s3)
+function updateLiveStats(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // live stats calculation interval (s3)
 SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.second.addEventListener("click", fn);
+
+// start here..
 
 // speed unit (s2)
 SettingsElement.stats.unit.cpm.addEventListener("click", fn);
