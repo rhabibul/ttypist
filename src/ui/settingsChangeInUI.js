@@ -52,3 +52,29 @@ export function changeTextInputInUI(value) {
 		SettingsElement.textInput.visible.id = "";
 	}
 }
+
+export function changeTextScrollInUI(value) {
+	if ( value === "smooth" ) {
+		SettingsElement.textScroll.abrupt.id = "";
+		SettingsElement.textScroll.smooth.id = "selected";
+	} else {
+		SettingsElement.textScroll.abrupt.id = "selected";
+		SettingsElement.textScroll.smooth.id = "";
+	}
+}
+
+export function changeTextHightlightInUI(value) {
+	if ( value === "word" ) {
+		SettingsElement.textHighlight.off.id = "";
+		SettingsElement.textHighlight.mode.letter.id = "";
+		SettingsElement.textHighlight.mode.word.id = "selected";
+	} else if ( value === "letter" ) {		
+		SettingsElement.textHighlight.off.id = "";
+		SettingsElement.textHighlight.mode.letter.id = "selected";
+		SettingsElement.textHighlight.mode.word.id = "";
+	} else {
+		SettingsElement.textHighlight.off.id = "selected";
+		SettingsElement.textHighlight.mode.letter.id = "";
+		SettingsElement.textHighlight.mode.word.id = "";
+	}
+}

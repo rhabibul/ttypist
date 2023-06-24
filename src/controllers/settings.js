@@ -32,6 +32,10 @@ SettingsElement.tape.off.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.letter.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
 
+// text scroll
+SettingsElement.textScroll.abrupt.addEventListener("click", updateTextScroll);
+SettingsElement.textScroll.smooth.addEventListener("click", updateTextScroll);
+
 // website theme
 SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
 SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
@@ -212,14 +216,9 @@ function updatePaceCaretSpeed(evt) {
 }
 
 // text highlight
-SettingsElement.textHighlight.off.addEventListener("click", fn);
-SettingsElement.textHighlight.mode.letter.addEventListener("click", fn);
-SettingsElement.textHighlight.mode.word.addEventListener("click", fn);
-
-// text highlight (s3)
-function updateTextHighlight(evt) {
-	if ( !evt.isTrusted ) return;
-}
+SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
+SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
+SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHighlight);
 
 // flip text highlight
 SettingsElement.textHighlight.flip.off.addEventListener("click", fn);
@@ -396,15 +395,6 @@ function updateTextInclude(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// text scroll
-SettingsElement.textScroll.abrupt.addEventListener("click", fn);
-SettingsElement.textScroll.smooth.addEventListener("click", fn);
-
-// text scroll (s2)
-function updateTextScroll(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // live stats
 SettingsElement.stats.live.speed.addEventListener("click", fn);
 SettingsElement.stats.live.accuracy.addEventListener("click", fn);
@@ -509,6 +499,26 @@ function updateTapeMode(evt) {
 	
 	SettingsChangeInUI.changeTapeModeInUI(this.value);
 	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
+}
+
+// text scroll (s2)
+function updateTextScroll(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.scroll.abrupt && this.value === "abrupt") || (Config.text.scroll.smooth && this.value === "smooth") ) return;
+	
+	SettingsChangeInUI.changeTextScrollInUI(this.value);
+	SettingsChangeInConfig.changeTextScrollInConfig(this.value);
+}
+
+// text highlight (s3)
+function updateTextHighlight(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.highlight.off && this.value === "off") || (Config.text.highlight.mode.letter && this.value === "letter") || (Config.text.highlight.mode.word && this.value === "word")) return;
+
+	SettingsChangeInUI.changeTextHightlightInUI(this.value);
+	SettingsChangeInConfig.changeTextHightlightInConfig(this.value)
+
+	console.log(Config.text.highlight.off, Config.text.highlight.mode.letter, Config.text.highlight.mode.word);
 }
 
 // website theme (s3)

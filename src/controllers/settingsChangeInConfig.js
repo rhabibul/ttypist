@@ -38,3 +38,29 @@ export function changeTextInputInConfig(value) {
 		Config.text.input.visible = false;
 	}
 }
+
+export function changeTextScrollInConfig(value) {
+	if ( value === "smooth" ) {
+		Config.text.scroll.smooth = true;
+		Config.text.scroll.abrupt = false;
+	} else {
+		Config.text.scroll.smooth = false;
+		Config.text.scroll.abrupt = true;
+	}
+}
+
+export function changeTextHightlightInConfig(value) {
+	if ( value === "word" ) {
+		Config.text.highlight.off = false;
+		Config.text.highlight.mode.letter = false;
+		Config.text.highlight.mode.word = true;
+	}	else if ( value === "letter" ) {
+		Config.text.highlight.off = false;
+		Config.text.highlight.mode.letter = true;
+		Config.text.highlight.mode.word = false;
+	} else {
+		Config.text.highlight.off = true;
+		Config.text.highlight.mode.letter = false;
+		Config.text.highlight.mode.word = false;
+	}
+}
