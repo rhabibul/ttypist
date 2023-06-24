@@ -64,3 +64,19 @@ export function changeTextHightlightInConfig(value) {
 		Config.text.highlight.mode.word = false;
 	}
 }
+
+export function changeFlipTextHightlightInConfig(value) {
+	if ( value === "on" ) {
+		Config.text.highlight.flip = true;
+	} else {
+		Config.text.highlight.flip = false;
+	}
+}
+
+export function changeTextUnderlineInConfig(value) {
+ if ( value === "off" ) {
+	Config.text.underline = false;
+ } else {
+	 Config.text.underline = true;
+ }
+}

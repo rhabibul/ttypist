@@ -36,6 +36,19 @@ SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
 SettingsElement.textScroll.abrupt.addEventListener("click", updateTextScroll);
 SettingsElement.textScroll.smooth.addEventListener("click", updateTextScroll);
 
+// text highlight
+SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
+SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
+SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHighlight);
+
+// flip text highlight
+SettingsElement.textHighlight.flip.off.addEventListener("click", updateFlipTextHighlight);
+SettingsElement.textHighlight.flip.on.addEventListener("click", updateFlipTextHighlight);
+
+// text underline
+SettingsElement.textUnderline.off.addEventListener("click", updateTextUnderline);
+SettingsElement.textUnderline.on.addEventListener("click", updateTextUnderline);
+
 // website theme
 SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
 SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
@@ -212,29 +225,6 @@ SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("inpu
 
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// text highlight
-SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
-SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
-SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHighlight);
-
-// flip text highlight
-SettingsElement.textHighlight.flip.off.addEventListener("click", fn);
-SettingsElement.textHighlight.flip.on.addEventListener("click", fn);
-
-// flip text highlight (s2)
-function updateFlipTextHighlight(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// text underline
-SettingsElement.textUnderline.off.addEventListener("click", fn);
-SettingsElement.textUnderline.on.addEventListener("click", fn);
-
-// text underline (s2)
-function updateTextUnderline(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -517,8 +507,24 @@ function updateTextHighlight(evt) {
 
 	SettingsChangeInUI.changeTextHightlightInUI(this.value);
 	SettingsChangeInConfig.changeTextHightlightInConfig(this.value)
+}
 
-	console.log(Config.text.highlight.off, Config.text.highlight.mode.letter, Config.text.highlight.mode.word);
+// flip text highlight (s2)
+function updateFlipTextHighlight(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.highlight.flip && this.value === "on") || (!Config.text.highlight.flip && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeFlipTextHightlightInUI(this.value);
+	SettingsChangeInConfig.changeFlipTextHightlightInConfig(this.value);
+}
+
+// text underline (s2)
+function updateTextUnderline(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.underline && this.value === "on") || (!Config.text.underline && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeTextUnderlineInUI(this.value);
+	SettingsChangeInConfig.changeTextUnderlineInConfig(this.value);
 }
 
 // website theme (s3)

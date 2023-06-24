@@ -78,3 +78,24 @@ export function changeTextHightlightInUI(value) {
 		SettingsElement.textHighlight.mode.word.id = "";
 	}
 }
+
+export function changeFlipTextHightlightInUI(value) {
+
+	if ( value === "on" ) {
+		SettingsElement.textHighlight.flip.off.id = "";
+		SettingsElement.textHighlight.flip.on.id = "selected";
+	} else {
+		SettingsElement.textHighlight.flip.off.id = "selected";
+		SettingsElement.textHighlight.flip.on.id = "";
+	}
+}
+
+export function changeTextUnderlineInUI(value) {
+	if ( value === "off" ) 	{
+		SettingsElement.textUnderline.off.id = "selected";
+		SettingsElement.textUnderline.on.id = "";
+	} else {
+		SettingsElement.textUnderline.off.id = "";
+		SettingsElement.textUnderline.on.id = "selected";
+	}
+}
