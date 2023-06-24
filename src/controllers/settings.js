@@ -84,6 +84,15 @@ SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.ctrl.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.meta.addEventListener("click", updateModifierKey);
 
+// backspace not allowed on correct
+SettingsElement.goBackOnCorrect.off.addEventListener("click", fn);
+SettingsElement.goBackOnCorrect.on.addEventListener("click", fn);
+
+// backspace not allowed on correct (s2)
+function updateGoBackOnCorrect(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 
 // ###############################################################################
 
@@ -93,15 +102,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// backspace not allowed on correct
-SettingsElement.goBackOnCorrect.off.addEventListener("click", fn);
-SettingsElement.goBackOnCorrect.on.addEventListener("click", fn);
-
-// backspace not allowed on correct (s2)
-function updateGoBackOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
