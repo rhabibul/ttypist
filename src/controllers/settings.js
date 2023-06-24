@@ -433,35 +433,63 @@ function updateLiveStats(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// live stats calculation interval (s3)
+// live stats calculation interval
 SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.second.addEventListener("click", fn);
 
-// start here..
+// live stats calculation interval (s3)
+function updateLiveStatsCalculationInterval(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
-// speed unit (s2)
+// speed unit
 SettingsElement.stats.unit.cpm.addEventListener("click", fn);
 SettingsElement.stats.unit.wpm.addEventListener("click", fn);
 
-// use floats (s2)
+// speed unit (s2)
+function updateSpeedUnit(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// show floats
 SettingsElement.stats.usefloats.off.addEventListener("click", fn);
 SettingsElement.stats.usefloats.on.addEventListener("click", fn);
 
-// warnings (s3)
+// show floats (s2)
+function updateUseFloats(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// warnings
 SettingsElement.warnings.capslock.addEventListener("click", fn);
 SettingsElement.warnings.numlock.addEventListener("click", fn);
 SettingsElement.warnings.scrolllock.addEventListener("click", fn);
 
-// focus out warning (s2)
+// warnings (s3)
+function updateWarnings(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// out of focus warning
 SettingsElement.focusOutWarning.off.addEventListener("click", fn);
 SettingsElement.focusOutWarning.on.addEventListener("click", fn);
 
-// keyboard reaction (s4)
+// out of focus warning (s2)
+function updateOutOfFocusWarning(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// keyboard reaction
 SettingsElement.keyboardReaction.off.addEventListener("click", fn);
 SettingsElement.keyboardReaction.static.addEventListener("click", fn);
 SettingsElement.keyboardReaction.react.addEventListener("click", fn);
 SettingsElement.keyboardReaction.next.addEventListener("click", fn);
+
+// keyboard reaction (s4)
+function updateKeyboardReaction(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // emulate keyboard layout
 SettingsElement.emulateKeyboardLayout.off.addEventListener("click", fn);
