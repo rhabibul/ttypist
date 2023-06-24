@@ -99,3 +99,27 @@ export function changeTextUnderlineInUI(value) {
 		SettingsElement.textUnderline.on.id = "selected";
 	}
 }
+
+export function changeTextWhitespaceInUI(value) {
+	if ( value === "bullet" ) {
+		SettingsElement.textWhitespace.off.id = "";
+		SettingsElement.textWhitespace.type.bullet.id = "selected";
+		SettingsElement.textWhitespace.type.space.id = "";
+		SettingsElement.textWhitespace.type.bar.id = "";
+	} else if ( value === "bar" ) {
+		SettingsElement.textWhitespace.off.id = "";
+		SettingsElement.textWhitespace.type.bullet.id = "";
+		SettingsElement.textWhitespace.type.space.id = "";
+		SettingsElement.textWhitespace.type.bar.id = "selected";
+	} else if ( value === "space" ) {
+		SettingsElement.textWhitespace.off.id = "";
+		SettingsElement.textWhitespace.type.bullet.id = "";
+		SettingsElement.textWhitespace.type.space.id = "selected";
+		SettingsElement.textWhitespace.type.bar.id = "";
+	} else {
+		SettingsElement.textWhitespace.off.id = "selected";
+		SettingsElement.textWhitespace.type.bullet.id = "";
+		SettingsElement.textWhitespace.type.space.id = "";
+		SettingsElement.textWhitespace.type.bar.id = "";
+	}
+}

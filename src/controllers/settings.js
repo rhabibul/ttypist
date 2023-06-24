@@ -49,6 +49,12 @@ SettingsElement.textHighlight.flip.on.addEventListener("click", updateFlipTextHi
 SettingsElement.textUnderline.off.addEventListener("click", updateTextUnderline);
 SettingsElement.textUnderline.on.addEventListener("click", updateTextUnderline);
 
+// text whitespace
+SettingsElement.textWhitespace.off.addEventListener("click", updateTextWhitespace);
+SettingsElement.textWhitespace.type.bullet.addEventListener("click", updateTextWhitespace);
+SettingsElement.textWhitespace.type.space.addEventListener("click", updateTextWhitespace);
+SettingsElement.textWhitespace.type.bar.addEventListener("click", updateTextWhitespace);
+
 // website theme
 SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
 SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
@@ -365,17 +371,6 @@ function updateTextFontWeight(evt) {
 	document.querySelector(":root").style.setProperty("--text-thickness", `${this.value}`);
 }
 
-// text whitespace
-SettingsElement.textWhitespace.off.addEventListener("click", fn);
-SettingsElement.textWhitespace.type.bullet.addEventListener("click", fn);
-SettingsElement.textWhitespace.type.space.addEventListener("click", fn);
-SettingsElement.textWhitespace.type.bar.addEventListener("click", fn);
-
-// text whitespace (s4)
-function updateTextWhitespace(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // text include
 SettingsElement.textInclude.digit.addEventListener("click", fn);
 SettingsElement.textInclude.punctuation.addEventListener("click", fn);
@@ -525,6 +520,15 @@ function updateTextUnderline(evt) {
 
 	SettingsChangeInUI.changeTextUnderlineInUI(this.value);
 	SettingsChangeInConfig.changeTextUnderlineInConfig(this.value);
+}
+
+// text whitespace (s4)
+function updateTextWhitespace(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.whitespace.off && this.value === "off") || (Config.text.whitespace.type.bullet && this.value === "bullet") || (Config.text.whitespace.type.space && this.value === "space") || (Config.text.whitespace.type.bar && this.value === "bar") ) return;
+
+	SettingsChangeInUI.changeTextWhitespaceInUI(this.value);
+	SettingsChangeInConfig.changeTextWhitespaceInConfig(this.value);
 }
 
 // website theme (s3)

@@ -80,3 +80,35 @@ export function changeTextUnderlineInConfig(value) {
 	 Config.text.underline = true;
  }
 }
+
+export function changeTextWhitespaceInConfig(value) {
+	if ( value === "bullet" ) {
+		Config.text.whitespace.off = false;
+		Config.text.whitespace.type.bullet = true;
+		Config.text.whitespace.type.space = false;
+		Config.text.whitespace.type.bar = false;
+		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bullet.dataset.code);
+		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bullet.dataset.character);
+	} else if ( value === "bar" ) {
+		Config.text.whitespace.off = false;
+		Config.text.whitespace.type.bullet = false;
+		Config.text.whitespace.type.space = false;
+		Config.text.whitespace.type.bar = true;
+		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bar.dataset.code);
+		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bar.dataset.character);
+	} else if ( value === "space" ) {
+		Config.text.whitespace.off = false;
+		Config.text.whitespace.type.bullet = false;
+		Config.text.whitespace.type.space = true;
+		Config.text.whitespace.type.bar = false;
+		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.space.dataset.code);
+		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.space.dataset.character);
+	} else {
+		Config.text.whitespace.off = true;
+		Config.text.whitespace.type.bullet = false;
+		Config.text.whitespace.type.space = false;
+		Config.text.whitespace.type.bar = false;
+		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.off.dataset.code);
+		Config.text.whitespace.character = String(SettingsElement.textWhitespace.off.dataset.character);
+	}
+}
