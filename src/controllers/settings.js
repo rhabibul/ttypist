@@ -23,33 +23,22 @@ function fn(evt) {
 SettingsElement.setting.dynamic.off.addEventListener("click", updateDynamicSettings);
 SettingsElement.setting.dynamic.on.addEventListener("click", updateDynamicSettings);
 
-// dynamic settings (s2)
-function updateDynamicSettings(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.setting.dynamic && this.value === "on") ||  (!Config.setting.dynamic && this.value === "off") ) return;
-
-	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
-	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
-}
-
 // website theme
-SettingsElement.websiteTheme.light.addEventListener("click", fn);
-SettingsElement.websiteTheme.midnight.addEventListener("click", fn);
-SettingsElement.websiteTheme.dark.addEventListener("click", fn);
-
-// website theme (s3)
-function updateWebsiteTheme(evt) {
-	if ( !evt.isTrusted ) return;
-}
+SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
 
 // tape mode
-SettingsElement.tape.off.addEventListener("click", fn);
-SettingsElement.tape.mode.letter.addEventListener("click", fn);
-SettingsElement.tape.mode.word.addEventListener("click", fn);
+SettingsElement.tape.off.addEventListener("click", updateTapeMode);
+SettingsElement.tape.mode.letter.addEventListener("click", updateTapeMode);
+SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
 
 // tape mode (s3)
 function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.tape.off && this.value === "off") || (Config.tape.mode.letter && this.value === "letter") || (Config.tape.mode.word && this.value === "word") ) return;
+	SettingsChangeInUI.changeTapeModeInUI(this.value);
+	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
 }
 
 // opposite shift mode
@@ -502,4 +491,24 @@ SettingsElement.emulateKeyboardLayout.on.addEventListener("click", fn);
 // emulate keyboard layout (s2)
 function updateEmulateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
+}
+
+// ###############################################################################
+
+// dynamic settings (s2)
+function updateDynamicSettings(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.setting.dynamic && this.value === "on") ||  (!Config.setting.dynamic && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
+	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+}
+
+// website theme (s3)
+function updateWebsiteTheme(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === Config.websitetheme ) return;
+
+	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
+	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
 }

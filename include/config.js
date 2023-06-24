@@ -1,11 +1,11 @@
 export default {
-  websitetheme: "light", // light | dimmed | dark
+  websitetheme: "light", // light | midnight | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
-    view: {
-      condense: true,
-      expand: false,
-    },
+    // view: {
+    //   condense: true,
+    //   expand: false,
+    // },
   },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
