@@ -23,23 +23,21 @@ function fn(evt) {
 SettingsElement.setting.dynamic.off.addEventListener("click", updateDynamicSettings);
 SettingsElement.setting.dynamic.on.addEventListener("click", updateDynamicSettings);
 
-// website theme
-SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
+// text input
+SettingsElement.textInput.hidden.addEventListener("click", updateTextInput);
+SettingsElement.textInput.visible.addEventListener("click", updateTextInput);
 
 // tape mode
 SettingsElement.tape.off.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.letter.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
 
-// tape mode (s3)
-function updateTapeMode(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.tape.off && this.value === "off") || (Config.tape.mode.letter && this.value === "letter") || (Config.tape.mode.word && this.value === "word") ) return;
-	SettingsChangeInUI.changeTapeModeInUI(this.value);
-	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
-}
+// website theme
+SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
+
+// ###############################################################################
 
 // opposite shift mode
 SettingsElement.oppositeshift.off.addEventListener("click", fn);
@@ -210,15 +208,6 @@ SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("inpu
 
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// text input
-SettingsElement.textInput.hidden.addEventListener("click", fn);
-SettingsElement.textInput.visible.addEventListener("click", fn);
-
-// text input (s2)
-function updateTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -502,6 +491,24 @@ function updateDynamicSettings(evt) {
 
 	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
 	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+}
+
+// text input (s2)
+function updateTextInput(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.input.hidden && this.value === "hidden") || (Config.text.input.visible && this.value === "visible") ) return;
+
+	SettingsChangeInUI.changeTextInputInUI(this.value);
+	SettingsChangeInConfig.changeTextInputInConfig(this.value);
+}
+
+// tape mode (s3)
+function updateTapeMode(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.tape.off && this.value === "off") || (Config.tape.mode.letter && this.value === "letter") || (Config.tape.mode.word && this.value === "word") ) return;
+	
+	SettingsChangeInUI.changeTapeModeInUI(this.value);
+	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
 }
 
 // website theme (s3)

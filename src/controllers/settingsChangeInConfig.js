@@ -28,3 +28,13 @@ export function changeTapeModeInConfig(value) {
 		Config.tape.mode.word = false;
 	}
 }
+
+export function changeTextInputInConfig(value) {
+	if ( value === "visible" ) {
+		Config.text.input.hidden = false;
+		Config.text.input.visible = true;
+	} else {
+		Config.text.input.hidden = true;
+		Config.text.input.visible = false;
+	}
+}

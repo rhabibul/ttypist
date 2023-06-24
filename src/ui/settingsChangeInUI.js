@@ -42,3 +42,13 @@ export function changeTapeModeInUI(value) {
 		SettingsElement.tape.mode.word.id = "";
 	}
 }
+
+export function changeTextInputInUI(value) {
+	if ( value === "visible" ) {
+		SettingsElement.textInput.hidden.id = "";
+		SettingsElement.textInput.visible.id = "selected";
+	} else {
+		SettingsElement.textInput.hidden.id = "selected";
+		SettingsElement.textInput.visible.id = "";
+	}
+}
