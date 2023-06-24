@@ -20,12 +20,16 @@ function fn(evt) {
 }
 
 // dynamic settings
-SettingsElement.setting.dynamic.off.addEventListener("click", fn);
-SettingsElement.setting.dynamic.on.addEventListener("click", fn);
+SettingsElement.setting.dynamic.off.addEventListener("click", updateDynamicSettings);
+SettingsElement.setting.dynamic.on.addEventListener("click", updateDynamicSettings);
 
 // dynamic settings (s2)
 function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.setting.dynamic && this.value === "on") ||  (!Config.setting.dynamic && this.value === "off") ) return;
+
+	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
 }
 
 // website theme
