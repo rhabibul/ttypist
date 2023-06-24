@@ -19,6 +19,11 @@ function fn(evt) {
 	// console.log(evt.currentTarget);
 }
 
+// website theme
+SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
+SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
+
 // dynamic settings
 SettingsElement.setting.dynamic.off.addEventListener("click", updateDynamicSettings);
 SettingsElement.setting.dynamic.on.addEventListener("click", updateDynamicSettings);
@@ -55,10 +60,27 @@ SettingsElement.textWhitespace.type.bullet.addEventListener("click", updateTextW
 SettingsElement.textWhitespace.type.space.addEventListener("click", updateTextWhitespace);
 SettingsElement.textWhitespace.type.bar.addEventListener("click", updateTextWhitespace);
 
-// website theme
-SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
+// quickend
+SettingsElement.quickend.off.addEventListener("click", updateQuickEnd);
+SettingsElement.quickend.on.addEventListener("click", updateQuickEnd);
+
+// difficulty
+SettingsElement.difficulty.ease.addEventListener("click", updateDifficulty);
+SettingsElement.difficulty.expert.addEventListener("click", updateDifficulty);
+SettingsElement.difficulty.master.addEventListener("click", updateDifficulty);
+
+// confidence
+SettingsElement.confidence.low.addEventListener("click", updateConfidence);
+SettingsElement.confidence.high.addEventListener("click", updateConfidence);
+SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
+
+// confidence (s3)
+function updateConfidence(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changeConfidenceInUI(this.value);
+	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
+}
 
 // ###############################################################################
 
@@ -96,26 +118,6 @@ SettingsElement.goBackOnCorrect.on.addEventListener("click", fn);
 
 // backspace not allowed on correct (s2)
 function updateGoBackOnCorrect(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// confidence
-SettingsElement.confidence.low.addEventListener("click", fn);
-SettingsElement.confidence.high.addEventListener("click", fn);
-SettingsElement.confidence.peak.addEventListener("click", fn);
-
-// confidence (s3)
-function updateConfidence(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// difficulty
-SettingsElement.difficulty.ease.addEventListener("click", fn);
-SettingsElement.difficulty.expert.addEventListener("click", fn);
-SettingsElement.difficulty.master.addEventListener("click", fn);
-
-// difficulty (s3)
-function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -305,15 +307,6 @@ function updateWordCount(evt) {
 }
 // text word count (s1) - custom word count input box
 function updateWordCountByTakingCustomInput(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// quickend
-SettingsElement.quickend.off.addEventListener("click", fn);
-SettingsElement.quickend.on.addEventListener("click", fn);
-
-// quickend (s2)
-function updateEndWithSpace(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -529,6 +522,24 @@ function updateTextWhitespace(evt) {
 
 	SettingsChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingsChangeInConfig.changeTextWhitespaceInConfig(this.value);
+}
+
+// quickend (s2)
+function updateQuickEnd(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.quickend && this.value === "on") || (!Config.quickend && this.value === "off")) return;
+
+	SettingsChangeInUI.changeQuickEndInUI(this.value);
+	SettingsChangeInConfig.changeQuickEndInConfig(this.value);
+}
+
+// difficulty (s3)
+function updateDifficulty(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.difficulty.ease && this.value === "ease") || (Config.difficulty.expert && this.value === "expert") || (Config.difficulty.master && this.value === "master") ) return;
+
+	SettingsChangeInUI.changeDifficultyInUI(this.value);
+	SettingsChangeInConfig.changeDifficultyInConfig(this.value)
 }
 
 // website theme (s3)

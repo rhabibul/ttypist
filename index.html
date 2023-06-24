@@ -174,6 +174,22 @@
             <button class="button bar"    value="bar"    tabindex="0" role="button" type="button" data-code="9251" data-character="␣">bar</button>
           </div>
         </div>
+        
+        <div class="row" id="quickEnd">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconQuickEnd" width="256px" height="256px" viewBox="0 0 24 24">
+                <path fill="var(--setting-icon-color)" d="M3 1.773l15 10.23L3 22.226zM20 22h1V2h-1z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg>
+            </div>
+            <div class="text">quickend</div>
+          </div>
+          <div class="config buttonContainer quickEndButton s2">
+            <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
+            <button class="button on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
+          </div>
+        </div>
 
         <div class="row" id="testDifficulty">
           <div class="label">
@@ -193,25 +209,9 @@
             <div class="text">test difficulty</div>
           </div>
           <div class="config buttonContainer testDifficultyButton s3">
-            <button class="button ease"   tabindex="0" role="button" type="button" value="ease" id="selected">ease</button>
-            <button class="button expert" tabindex="0" role="button" type="button" value="expert">expert</button>
-            <button class="button master" tabindex="0" role="button" type="button" value="master">master</button>
-          </div>
-        </div>
-
-        <div class="row" id="quickEnd">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconQuickEnd" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" d="M3 1.773l15 10.23L3 22.226zM20 22h1V2h-1z"></path>
-                <path fill="none" d="M0 0h24v24H0z"></path>
-              </svg>
-            </div>
-            <div class="text">quickend</div>
-          </div>
-          <div class="config buttonContainer quickEndButton s2">
-            <button class="button quickend off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button quickend on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
+            <button class="button ease"   value="ease"   tabindex="0" role="button" type="button" id="selected">ease</button>
+            <button class="button expert" value="expert" tabindex="0" role="button" type="button">expert</button>
+            <button class="button master" value="master" tabindex="0" role="button" type="button">master</button>
           </div>
         </div>
 

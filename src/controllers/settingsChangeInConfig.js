@@ -112,3 +112,31 @@ export function changeTextWhitespaceInConfig(value) {
 		Config.text.whitespace.character = String(SettingsElement.textWhitespace.off.dataset.character);
 	}
 }
+
+export function changeQuickEndInConfig(value) {
+	if ( value === "off" ) {
+		Config.quickend = false;
+	} else {
+		Config.quickend = true;
+	}
+}
+
+export function changeDifficultyInConfig(value) {
+	if ( value === "expert" ) {
+		Config.difficulty.ease = false;
+		Config.difficulty.expert = true;
+		Config.difficulty.master = false;
+	} else if ( value === "master" ) {
+		Config.difficulty.ease = false;
+		Config.difficulty.expert = false;
+		Config.difficulty.master = true;
+	} else {
+		Config.difficulty.ease = true;
+		Config.difficulty.expert = false;
+		Config.difficulty.master = false;
+	}
+}
+
+export function changeConfidenceInConfig(value) {
+	
+}

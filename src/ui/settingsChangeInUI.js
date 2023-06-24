@@ -123,3 +123,45 @@ export function changeTextWhitespaceInUI(value) {
 		SettingsElement.textWhitespace.type.bar.id = "";
 	}
 }
+
+export function changeQuickEndInUI(value) {
+	if ( value === "off" ) {
+		SettingsElement.quickend.off.id = "selected";
+		SettingsElement.quickend.on.id = "";
+	} else {
+		SettingsElement.quickend.off.id = "";
+		SettingsElement.quickend.on.id = "selected";
+	}
+}
+
+export function changeDifficultyInUI(value) {
+	if ( value === "expert" ) {
+		SettingsElement.difficulty.ease.id = "";
+		SettingsElement.difficulty.expert.id = "selected";
+		SettingsElement.difficulty.master.id = "";
+	} else if ( value === "master" ) {
+		SettingsElement.difficulty.ease.id = "";
+		SettingsElement.difficulty.expert.id = "";
+		SettingsElement.difficulty.master.id = "selected";
+	} else {
+		SettingsElement.difficulty.ease.id = "selected";
+		SettingsElement.difficulty.expert.id = "";
+		SettingsElement.difficulty.master.id = "";
+	}
+}
+
+export function changeConfidenceInUI(value) {
+	if ( value === "high" ) {
+		SettingsElement.confidence.low.id = "";
+		SettingsElement.confidence.high.id = "selected";
+		SettingsElement.confidence.peak.id = "";
+	}	else if ( value === "peak" ) {
+		SettingsElement.confidence.low.id = "";
+		SettingsElement.confidence.high.id = "";
+		SettingsElement.confidence.peak.id = "selected";
+	} else {
+		SettingsElement.confidence.low.id = "selected";
+		SettingsElement.confidence.high.id = "";
+		SettingsElement.confidence.peak.id = "";
+	}
+}
