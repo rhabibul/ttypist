@@ -165,3 +165,13 @@ export function changeConfidenceInUI(value) {
 		SettingsElement.confidence.peak.id = "";
 	}
 }
+
+export function changeBackspaceKeyInUI(value) {
+	if ( value === "off" ) {
+		SettingsElement.backspace.off.id = "selected";
+		SettingsElement.backspace.on.id = "";
+	}	else {
+		SettingsElement.backspace.off.id = "";
+		SettingsElement.backspace.on.id = "selected";
+	}
+}

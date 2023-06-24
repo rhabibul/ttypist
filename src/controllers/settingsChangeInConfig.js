@@ -138,5 +138,48 @@ export function changeDifficultyInConfig(value) {
 }
 
 export function changeConfidenceInConfig(value) {
-	
+	if ( value === "high" ) {
+		Config.confidence.low = false;
+		Config.confidence.high = true;
+		Config.confidence.peak = false;
+	}	else if ( value === "peak" ) {
+		Config.confidence.low = false;
+		Config.confidence.high = false;
+		Config.confidence.peak = true;
+	} else {
+		Config.confidence.low = true;
+		Config.confidence.high = false;
+		Config.confidence.peak = false;
+	}
+}
+
+export function changeBackspaceKeyInConfig(value) {
+	if ( value === "on" ) {
+		Config.backspace.off = false;
+	} else {
+		Config.backspace.off = true;
+	}
+}
+
+export function changeModifierKeyInConfig() {
+	// alt
+	if ( SettingsElement.modifier.alt.checked ) {
+		Config.backspace.modifier.alt = true;
+	} else {
+		Config.backspace.modifier.alt = false;
+	}
+
+	// ctrl
+	if ( SettingsElement.modifier.ctrl.checked ) {
+		Config.backspace.modifier.ctrl = true;
+	} else {
+		Config.backspace.modifier.ctrl = false;
+	}
+
+	// meta
+	if ( SettingsElement.modifier.meta.checked ) {
+		Config.backspace.modifier.meta = true;
+	} else {
+		Config.backspace.modifier.meta = false;
+	}
 }

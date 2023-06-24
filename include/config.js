@@ -22,8 +22,8 @@ export default {
     off: false,
     modifier: {
        alt: true, // backspace + alt
+       ctrl: true, // backspace + ctrl
        meta: false, // backspace + cmd/win
-       ctrl: false, // backspace + ctrl
     },
     notAllowedOnCorrect: false, // if previous word was correctly typed then don't allow backspace
   },

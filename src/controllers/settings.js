@@ -74,13 +74,16 @@ SettingsElement.confidence.low.addEventListener("click", updateConfidence);
 SettingsElement.confidence.high.addEventListener("click", updateConfidence);
 SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
 
-// confidence (s3)
-function updateConfidence(evt) {
-	if ( !evt.isTrusted ) return;
+// backspace key
+SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
+SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
-	SettingsChangeInUI.changeConfidenceInUI(this.value);
-	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
-}
+
+// modifier keys
+SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
+SettingsElement.modifier.ctrl.addEventListener("click", updateModifierKey);
+SettingsElement.modifier.meta.addEventListener("click", updateModifierKey);
+
 
 // ###############################################################################
 
@@ -90,25 +93,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// backspace key
-SettingsElement.backspace.off.addEventListener("click", fn);
-SettingsElement.backspace.on.addEventListener("click", fn);
-
-// backspace key (s2)
-function updateBackspaceKey(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// modifier keys
-SettingsElement.modifier.alt.addEventListener("click", fn);
-SettingsElement.modifier.ctrl.addEventListener("click", fn);
-SettingsElement.modifier.meta.addEventListener("click", fn);
-
-// modifier keys (s3)
-function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -450,7 +434,18 @@ function updateEmulateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+
 // ###############################################################################
+
+
+// website theme (s3)
+function updateWebsiteTheme(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === Config.websitetheme ) return;
+
+	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
+	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
+}
 
 // dynamic settings (s2)
 function updateDynamicSettings(evt) {
@@ -542,11 +537,26 @@ function updateDifficulty(evt) {
 	SettingsChangeInConfig.changeDifficultyInConfig(this.value)
 }
 
-// website theme (s3)
-function updateWebsiteTheme(evt) {
+// confidence (s3)
+function updateConfidence(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.websitetheme ) return;
+	if ( (Config.confidence.low && this.value === "low") || (Config.confidence.high && this.value === "high") || (Config.confidence.peak && this.value === "peak") ) return;
 
-	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
-	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
+	SettingsChangeInUI.changeConfidenceInUI(this.value);
+	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
+}
+
+// backspace key (s2)
+function updateBackspaceKey(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.backspace.off && this.value === "off") || (!Config.backspace.off && this.value === "on") ) return;
+
+	SettingsChangeInUI.changeBackspaceKeyInUI(this.value);
+	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
+}
+
+// modifier keys (s3)
+function updateModifierKey(evt) {
+	if ( !evt.isTrusted ) return;
+	SettingsChangeInConfig.changeModifierKeyInConfig();
 }
