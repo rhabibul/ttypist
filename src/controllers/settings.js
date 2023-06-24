@@ -272,8 +272,6 @@ function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
 	Config.text.color.primary = this.value;
-	// need to parse the input for correct color values like hex, rgb, hsl, hwb etc
-	// 
 }
 
 // secondary text color
@@ -396,7 +394,7 @@ function updateKeyboardLayout(evt) {
 
 // text font size slider (s1)
 SettingsElement.textFontSize.fontSizeInput.addEventListener("input", fn);
-
+// start here..
 
 
 // text font weight slider (s1)
