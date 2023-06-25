@@ -126,6 +126,26 @@ SettingsElement.minimum.burst.option.fixed.addEventListener("click", updateMinim
 SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimumBurst);
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
 
+// keyboard reaction
+SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
+
+// emulate keyboard layout
+SettingsElement.emulateKeyboardLayout.off.addEventListener("click", updateEmulateKeyboardLayout);
+SettingsElement.emulateKeyboardLayout.on.addEventListener("click", updateEmulateKeyboardLayout);
+
+// emulate keyboard layout (s2)
+function updateEmulateKeyboardLayout(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changeEmulateKeyboardLayoutInUI(this.value);
+	SettingsChangeInConfig.changeEmulateKeyboardLayoutInConfig(this.value);
+
+	console.log("Emulate:", Config.keyboard.layout.emulate);
+}
+
 
 // ###############################################################################
 
@@ -377,27 +397,6 @@ function updateOutOfFocusWarning(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// keyboard reaction
-SettingsElement.keyboardReaction.off.addEventListener("click", fn);
-SettingsElement.keyboardReaction.static.addEventListener("click", fn);
-SettingsElement.keyboardReaction.react.addEventListener("click", fn);
-SettingsElement.keyboardReaction.next.addEventListener("click", fn);
-
-// keyboard reaction (s4)
-function updateKeyboardReaction(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// emulate keyboard layout
-SettingsElement.emulateKeyboardLayout.off.addEventListener("click", fn);
-SettingsElement.emulateKeyboardLayout.on.addEventListener("click", fn);
-
-// emulate keyboard layout (s2)
-function updateEmulateKeyboardLayout(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-
 // ###############################################################################
 
 
@@ -636,4 +635,15 @@ function updateMinimumBurstThresholdInput(evt) {
 	Config.minimum.burst.threshold = this.value;
 
 	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+}
+
+// keyboard reaction (s4)
+function updateKeyboardReaction(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.keyboard.reaction.off && this.value === "off") || (Config.keyboard.reaction.static && this.value === "static") || (Config.keyboard.reaction.react && this.value === "react") || (Config.keyboard.reaction.next && this.value === "next") ) return;
+
+	SettingsChangeInUI.changeKeyboardReactionInUI(this.value);
+	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
+
+	console.log("keyboard reation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
 }

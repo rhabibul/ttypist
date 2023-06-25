@@ -291,3 +291,31 @@ export function changeMinimumBurstInUI(value) {
 		SettingsElement.minimum.burst.option.flex.id = "";
 	}
 }
+
+export function changeKeyboardReactionInUI(value) {
+	if ( value === "next" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "selected";
+	} else if ( value === "static" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "selected";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "";
+	} else if ( value === "react" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "selected";
+		SettingsElement.keyboardReaction.next.id = "";
+	} else {
+		SettingsElement.keyboardReaction.off.id = "selected";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "";
+	}
+}
+
+export function changeEmulateKeyboardLayoutInUI(value) {
+	
+}

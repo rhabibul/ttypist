@@ -287,3 +287,32 @@ export function changeMinimumBurstInConfig(value) {
 		Config.minimum.burst.option.flex = false;
 	}
 }
+
+export function changeKeyboardReactionInConfig(value) {
+	if ( value === "next" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = true;
+	} else if ( value === "static" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = true;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = false;
+	} else if ( value === "react" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = true;
+		Config.keyboard.reaction.next = false;
+	} else {
+		Config.keyboard.reaction.off = true;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = false;
+	}
+}
+
+
+export function changeEmulateKeyboardLayoutInConfig(value) {
+	
+}

@@ -240,6 +240,6 @@ export const keyboardReaction = {
 	next: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.next"),
 }
 export const emulateKeyboardLayout = {
-	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardEmulateButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardEmulateButton button.button.on"),
+	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
 }

@@ -388,6 +388,7 @@
                 <input class="customInputBox minimumSpeed threshold" tabindex="0" type="number" placeholder="min acc">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
+              <button class="customInputButton button custom" value="custom"  tabindex="0" role="button" type="button">custom</button>
             </div>
           </div>
         </div>
@@ -412,6 +413,7 @@
                 <input class="customInputBox minimumAccuracy threshold" tabindex="0" type="number" placeholder="min acc">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
+              <button class="customInputButton button custom" value="custom"  tabindex="0" role="button" type="button">custom</button>
             </div>
           </div>
         </div>
@@ -437,6 +439,7 @@
                 <input class="customInputBox minimumBurst threshold" tabindex="0" type="number" placeholder="min burst">
                 <div class="customInputSymbol"><svg class="iconEditPen" opacity="0.8" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
               </div>
+              <button class="customInputButton button custom" value="custom"  tabindex="0" role="button" type="button">custom</button>
             </div>
           </div>
         </div>
@@ -447,10 +450,10 @@
             <div class="text">keyboard</div>
           </div>
           <div class="config buttonContainer keyboardReactionButton s4">
-            <button class="button off"    tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button static" tabindex="0" role="button" type="button" value="static">static</button>
-            <button class="button react"  tabindex="0" role="button" type="button" value="react">react</button>
-            <button class="button next"   tabindex="0" role="button" type="button" value="next">next</button>
+            <button class="button off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button static" value="static" tabindex="0" role="button" type="button">static</button>
+            <button class="button react"  value="react"  tabindex="0" role="button" type="button">react</button>
+            <button class="button next"   value="next"   tabindex="0" role="button" type="button">next</button>
           </div>
         </div>
 
@@ -524,14 +527,14 @@
           </div>
         </div>
 
-        <div class="row" id="UIKeyboardEmulate">
+        <div class="row" id="UIKeyboardLayoutEmulate">
           <div class="label">
             <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
             <div class="text">emulate layout</div>
           </div>
-          <div class="config buttonContainer UIKeyboardEmulateButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+          <div class="config buttonContainer UIKeyboardLayoutEmulateButton s2">
+            <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
       </div>
