@@ -255,3 +255,35 @@ export function changeOppositeShiftModeInConfig(value) {
 		Config.oppositeshift = false;
 	}
 }
+
+export function changeMinimumSpeedInConfig(value) {
+	if ( value === "on" ) {
+		Config.minimum.speed.off = false;
+	} else {
+		Config.minimum.speed.off = true;
+	}
+}
+
+export function changeMinimumAccuracyInConfig(value) {
+	if ( value === "on" ) {
+		Config.minimum.accuracy.off = false;
+	} else {
+		Config.minimum.accuracy.off = true;
+	}
+}
+
+export function changeMinimumBurstInConfig(value) {
+	if ( value === "fixed" ) {
+		Config.minimum.burst.off = false;
+		Config.minimum.burst.option.fixed = false;
+		Config.minimum.burst.option.flex = false;
+	} else if ( value === "flex" ) {
+		Config.minimum.burst.off = false;
+		Config.minimum.burst.option.fixed = false;
+		Config.minimum.burst.option.flex = false;
+	} else {
+		Config.minimum.burst.off = false;
+		Config.minimum.burst.option.fixed = false;
+		Config.minimum.burst.option.flex = false;
+	}
+}

@@ -255,3 +255,39 @@ export function changeOppositeShiftModeInUI(value) {
 		SettingsElement.oppositeshift.on.id = "";
 	}
 }
+
+export function changeMinimumSpeedInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.minimum.speed.off.id = "";
+		SettingsElement.minimum.speed.on.id = "selected";
+	} else {
+		SettingsElement.minimum.speed.off.id = "selected";
+		SettingsElement.minimum.speed.on.id = "";
+	}
+}
+
+export function changeMinimumAccuracyInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.minimum.accuracy.off.id = "";
+		SettingsElement.minimum.accuracy.on.id = "selected";
+	} else {
+		SettingsElement.minimum.accuracy.off.id = "selected";
+		SettingsElement.minimum.accuracy.on.id = "";
+	}
+}
+
+export function changeMinimumBurstInUI(value) {
+	if ( value === "fixed" ) {
+		SettingsElement.minimum.burst.off.id = "";
+		SettingsElement.minimum.burst.fixed.id = "selected";
+		SettingsElement.minimum.burst.flex.id = "";
+	} else if ( value === "flex") {
+		SettingsElement.minimum.burst.off.id = "";
+		SettingsElement.minimum.burst.fixed.id = "";
+		SettingsElement.minimum.burst.flex.id = "selected";
+	} else {
+		SettingsElement.minimum.burst.off.id = "selected";
+		SettingsElement.minimum.burst.fixed.id = "";
+		SettingsElement.minimum.burst.flex.id = "";
+	}
+}

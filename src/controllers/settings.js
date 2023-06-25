@@ -110,50 +110,76 @@ SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
 SettingsElement.oppositeshift.off.addEventListener("click", updateOppositeShiftMode);
 SettingsElement.oppositeshift.on.addEventListener("click", updateOppositeShiftMode);
 
-// opposite shift mode (s2)
-function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.oppositeshift && this.value === "on") || (!Config.oppositeshift && this.value === "off") ) return;
-
-	SettingsChangeInUI.changeOppositeShiftModeInUI(this.value);
-	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
-
-	console.log("oppositeshift:", Config.oppositeshift);
-}
-
-
-// ###############################################################################
-
 // minimum speed
-SettingsElement.minimum.speed.off.addEventListener("click", fn);
-SettingsElement.minimum.speed.on.addEventListener("click", fn);
-SettingsElement.minimum.speed.thresholdInput.addEventListener("input", fn);
+SettingsElement.minimum.speed.off.addEventListener("click", updateMinimumSpeed);
+SettingsElement.minimum.speed.on.addEventListener("click", updateMinimumSpeed);
+SettingsElement.minimum.speed.thresholdInput.addEventListener("input", updateMinimumSpeedThresholdInput);
+
+// minimum accuracy
+SettingsElement.minimum.accuracy.off.addEventListener("click", updateMinimumAccuracy);
+SettingsElement.minimum.accuracy.on.addEventListener("click", updateMinimumAccuracy);
+SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", updateMinimumAccuracyThresholdInput);
+
+// minimum burst
+SettingsElement.minimum.burst.off.addEventListener("click", updateMinimumBurst);
+SettingsElement.minimum.burst.option.fixed.addEventListener("click", updateMinimumBurst);
+SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimumBurst);
+SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
+
 
 // minimum speed (s3)
 function updateMinimumSpeed(evt) {
 	if ( !evt.isTrusted ) return;
-}
 
-// minimum accuracy
-SettingsElement.minimum.accuracy.off.addEventListener("click", fn);
-SettingsElement.minimum.accuracy.on.addEventListener("click", fn);
-SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", fn);
+	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
+	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
+
+	console.log("minSpeed:", Config.minimum.speed.off);
+}
+// minimum speed (s3)
+function updateMinimumSpeedThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.speed.threshold = this.value;
+	
+	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+}
 
 // minimum accuracy (s3)
 function updateMinimumAccuracy(evt) {
 	if ( !evt.isTrusted ) return;
-}
 
-// minimum burst
-SettingsElement.minimum.burst.off.addEventListener("click", fn);
-SettingsElement.minimum.burst.fixed.addEventListener("click", fn);
-SettingsElement.minimum.burst.flex.addEventListener("click", fn);
-SettingsElement.minimum.burst.thresholdInput.addEventListener("input", fn);
+	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
+	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
+
+	console.log("minSpeed:", Config.minimum.accuracy.off);
+}
+// minimum speed (s3)
+function updateMinimumAccuracyThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.accuracy.threshold = this.value;
+
+	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
+}
 
 // minimum burst (s3)
 function updateMinimumBurst(evt) {
 	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
+	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
+
+	console.log("minBurst:", Config.minimum.burst.off);
 }
+// minimum speed (s3)
+function updateMinimumBurstThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.speed.threshold = this.value;
+
+	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+}
+
+
+// ###############################################################################
 
 // caret style
 SettingsElement.caret.off.addEventListener("click", fn);
@@ -597,4 +623,15 @@ function updateStopOnError(evt) {
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
 	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
+}
+
+// opposite shift mode (s2)
+function updateOppositeShiftMode(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.oppositeshift && this.value === "on") || (!Config.oppositeshift && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeOppositeShiftModeInUI(this.value);
+	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
+
+	console.log("oppositeshift:", Config.oppositeshift);
 }
