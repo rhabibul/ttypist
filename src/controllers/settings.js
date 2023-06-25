@@ -127,58 +127,6 @@ SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimu
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
 
 
-// minimum speed (s3)
-function updateMinimumSpeed(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
-	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
-
-	console.log("minSpeed:", Config.minimum.speed.off);
-}
-// minimum speed (s3)
-function updateMinimumSpeedThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-	Config.minimum.speed.threshold = this.value;
-	
-	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
-}
-
-// minimum accuracy (s3)
-function updateMinimumAccuracy(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
-	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
-
-	console.log("minSpeed:", Config.minimum.accuracy.off);
-}
-// minimum speed (s3)
-function updateMinimumAccuracyThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-	Config.minimum.accuracy.threshold = this.value;
-
-	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
-}
-
-// minimum burst (s3)
-function updateMinimumBurst(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
-	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
-
-	console.log("minBurst:", Config.minimum.burst.off);
-}
-// minimum speed (s3)
-function updateMinimumBurstThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-	Config.minimum.speed.threshold = this.value;
-
-	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
-}
-
-
 // ###############################################################################
 
 // caret style
@@ -634,4 +582,58 @@ function updateOppositeShiftMode(evt) {
 	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
 
 	console.log("oppositeshift:", Config.oppositeshift);
+}
+
+// minimum speed (s3)
+function updateMinimumSpeed(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.minimum.speed.off && this.value === "off") || (!Config.minimum.speed.off && this.value === "on") ) return;
+
+	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
+	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
+
+	console.log("minSpeed:", Config.minimum.speed.off);
+}
+// minimum speed threashold input (s1)
+function updateMinimumSpeedThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.speed.threshold = this.value;
+	
+	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+}
+
+// minimum accuracy (s3)
+function updateMinimumAccuracy(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.minimum.accuracy.off && this.value === "off") || (!Config.minimum.accuracy.off && this.value === "on") ) return;
+
+	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
+	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
+
+	console.log("minAccuracy:", Config.minimum.accuracy.off);
+}
+// minimum accuracy threashold input (s1)
+function updateMinimumAccuracyThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.accuracy.threshold = this.value;
+
+	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
+}
+
+// minimum burst (s3)
+function updateMinimumBurst(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.minimum.burst.off && this.value === "off") || (Config.minimum.burst.option.fixed && this.value === "fixed") || (Config.minimum.burst.option.flex && this.value === "flex") ) return;
+
+	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
+	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
+
+	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
+}
+// minimum burst threashold input (s1)
+function updateMinimumBurstThresholdInput(evt) {
+	if ( !evt.isTrusted ) return;
+	Config.minimum.burst.threshold = this.value;
+
+	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
 }

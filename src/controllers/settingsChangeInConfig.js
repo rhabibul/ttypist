@@ -275,14 +275,14 @@ export function changeMinimumAccuracyInConfig(value) {
 export function changeMinimumBurstInConfig(value) {
 	if ( value === "fixed" ) {
 		Config.minimum.burst.off = false;
-		Config.minimum.burst.option.fixed = false;
+		Config.minimum.burst.option.fixed = true;
 		Config.minimum.burst.option.flex = false;
 	} else if ( value === "flex" ) {
 		Config.minimum.burst.off = false;
 		Config.minimum.burst.option.fixed = false;
-		Config.minimum.burst.option.flex = false;
+		Config.minimum.burst.option.flex = true;
 	} else {
-		Config.minimum.burst.off = false;
+		Config.minimum.burst.off = true;
 		Config.minimum.burst.option.fixed = false;
 		Config.minimum.burst.option.flex = false;
 	}

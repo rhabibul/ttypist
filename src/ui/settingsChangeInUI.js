@@ -279,15 +279,15 @@ export function changeMinimumAccuracyInUI(value) {
 export function changeMinimumBurstInUI(value) {
 	if ( value === "fixed" ) {
 		SettingsElement.minimum.burst.off.id = "";
-		SettingsElement.minimum.burst.fixed.id = "selected";
-		SettingsElement.minimum.burst.flex.id = "";
+		SettingsElement.minimum.burst.option.fixed.id = "selected";
+		SettingsElement.minimum.burst.option.flex.id = "";
 	} else if ( value === "flex") {
 		SettingsElement.minimum.burst.off.id = "";
-		SettingsElement.minimum.burst.fixed.id = "";
-		SettingsElement.minimum.burst.flex.id = "selected";
+		SettingsElement.minimum.burst.option.fixed.id = "";
+		SettingsElement.minimum.burst.option.flex.id = "selected";
 	} else {
 		SettingsElement.minimum.burst.off.id = "selected";
-		SettingsElement.minimum.burst.fixed.id = "";
-		SettingsElement.minimum.burst.flex.id = "";
+		SettingsElement.minimum.burst.option.fixed.id = "";
+		SettingsElement.minimum.burst.option.flex.id = "";
 	}
 }
