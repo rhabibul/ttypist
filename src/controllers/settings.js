@@ -580,6 +580,8 @@ function updateMinimumSpeed(evt) {
 
 	if ( this.value === "on" ) {
 		SettingsElement.minimum.speed.thresholdInput.focus();
+	} else {
+		SettingsElement.minimum.speed.thresholdInput.value = "";
 	}
 
 	console.log("minSpeed:", Config.minimum.speed.off);
@@ -602,6 +604,8 @@ function updateMinimumAccuracy(evt) {
 
 	if ( this.value === "on" ) {
 		SettingsElement.minimum.accuracy.thresholdInput.focus();
+	} else {
+		SettingsElement.minimum.accuracy.thresholdInput.value = "";
 	}
 
 	console.log("minAccuracy:", Config.minimum.accuracy.off);
@@ -624,6 +628,8 @@ function updateMinimumBurst(evt) {
 
 	if ( this.value === "fixed" || this.value === "flex" ) {
 		SettingsElement.minimum.burst.thresholdInput.focus();
+	} else {
+		SettingsElement.minimum.burst.thresholdInput.value = "";
 	}
 
 	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
