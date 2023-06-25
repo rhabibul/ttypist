@@ -148,17 +148,25 @@ div.paceCaretSpeedButtonContainer.s4-2.s6  > * {
 div.customInputContainer button.button.s1 {
 	width: 70px;
 }
-div.inputContainer.custom.s1 {
+div.inputContainer.custom {
 	width: 165px;
 	height: var(--setting-button-height);
 	display: flex;
 	justify-content: flex-end;
 	border: 1px solid var(--setting-button-border-color);
 	border-radius: var(--setting-button-roundness);
-	/* border: 1px solid darkred; */
 }
-
-div.inputContainer.custom.s1 input.inputBox {
+div.customInputContainer.minimumSpeedCustomInputContainer.s1    div.inputContainer.custom,
+div.customInputContainer.minimumAccuracyCustomInputContainer.s1 div.inputContainer.custom,
+div.customInputContainer.minimumBurstCustomInputContainer.s1    div.inputContainer.custom {
+	width: 100%;
+}
+div.customInputContainer.minimumSpeedCustomInputContainer.s1    div.inputContainer.custom input.inputBox,
+div.customInputContainer.minimumAccuracyCustomInputContainer.s1 div.inputContainer.custom input.inputBox,
+div.customInputContainer.minimumBurstCustomInputContainer.s1    div.inputContainer.custom input.inputBox{
+	width: 210px;
+}
+div.inputContainer.custom input.inputBox {
 	width: 135px;
 	border: none;
 	outline: none;
@@ -168,7 +176,7 @@ div.inputContainer.custom.s1 input.inputBox {
 	border-bottom-left-radius: var(--setting-button-roundness);
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.inputContainer.custom.s1 div.symbol {
+div.inputContainer.custom div.symbol {
 	width:  calc(var(--setting-button-height) - 1px);
 	height: 100%;
 	display: flex;
@@ -179,7 +187,7 @@ div.inputContainer.custom.s1 div.symbol {
 	border-bottom-right-radius: var(--setting-button-roundness);
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.inputContainer.custom.s1 div.symbol svg.iconEditPen {
+div.inputContainer.custom div.symbol svg.iconEditPen {
 	height: 15px;
 	width: 15px;
 	fill: var(--setting-icon-color);
@@ -479,7 +487,6 @@ details.textFontFamilyList div.list div.item.fontFamilyOfText.SyneMono {
 
 div.config.modifierKeyCheckboxButtonContainer,
 div.config.textIncludeCheckboxButtonContainer,
-div.config.warningsCheckboxButtonContainer,
 div.config.liveStatusCheckboxButtonContainer {
 	height: var(--setting-button-height);
 	display: flex;
@@ -489,15 +496,8 @@ div.config.liveStatusCheckboxButtonContainer {
 	border-radius: var(--setting-button-roundness);
 	border: 1px solid var(--setting-button-border-color);
 }
-div.row#warnings div.label {
-	width: 140px;
-}
-div.config.warningsCheckboxButtonContainer {
-	width: 300px;	
-}
 div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton,
 div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
-div.config.warningsCheckboxButtonContainer     div.warningsCheckboxButton,
 div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
 	height: 100%;
 	display: flex;
@@ -507,12 +507,50 @@ div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
 }
 div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton label,
 div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton label,
-div.config.warningsCheckboxButtonContainer     div.warningsCheckboxButton label,
-div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton  label{
+div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton  label {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+div.row#warnings {
+	height: 80px;
+}
+div.config.buttonContainer.warningsCheckboxButtonContainer.s4 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3px;
+	border-radius: var(--setting-button-roundness);
+}
+div.config.buttonContainer.warningsCheckboxButtonContainer.s4 div.warningsCheckboxButtonContainer-1.s2,
+div.config.buttonContainer.warningsCheckboxButtonContainer.s4 div.warningsCheckboxButtonContainer-2.s2 {
+	height: var(--setting-button-height);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--setting-button-backgroundcolor);
+	border: 1px solid var(--setting-button-border-color);
+	border-radius: var(--setting-button-roundness);
+}
+div.warningsCheckboxButton {
+	flex-basis: 50%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	column-gap: 3px;
+}
+div.warningsCheckboxButton label {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+div.warningsCheckboxButton.capslock,
+div.warningsCheckboxButton.scrolllock {
+	padding-left: 13px;
 }
 
 /* -------------------------- text capitalization -------------------------- */

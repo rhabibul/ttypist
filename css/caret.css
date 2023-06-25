@@ -140,7 +140,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
 
 div.caretStyleButton,
 div.paceCaretStyleButton {
-  height: 40px;
+  height: var(--setting-button-height);
   width: var(--setting-buttons-container-width);
 
   display: flex;
