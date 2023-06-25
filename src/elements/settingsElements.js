@@ -62,12 +62,12 @@ export const minimum = {
 	speed: {
 		off: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s2.minimumSpeedButton button.button.off"),
 		on: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s2.minimumSpeedButton button.button.on"),
-		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s1.minimumSpeedCustomInputContainer div.customInput input[type='number'].customInputBox.minimumSpeed.threshold"),
+		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s1.customInputContainer.minimumSpeedCustomInputContainer div.custom.inputContainer input.inputBox.speedThreshold"),
 	},
 	accuracy: {
 		off: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s2.minimumAccuracyButton button.button.off"),
 		on: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s2.minimumAccuracyButton button.button.on"),
-		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s1.minimumAccuracyCustomInputContainer div.customInput input[type='number'].customInputBox.minimumAccuracy.threshold"),
+		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s1.customInputContainer.minimumAccuracyCustomInputContainer div.custom.inputContainer input.inputBox.accuracyThreshold"),
 	},
 	burst: {
 		off: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.off"),
@@ -75,7 +75,7 @@ export const minimum = {
 			fixed: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.fixed"),
 			flex: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.flex"),
 		},
-		thresholdInput: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s1.minimumBurstCustomInputContainer div.customInput input[type='number'].customInputBox.minimumBurst.threshold"),
+		thresholdInput: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s1.customInputContainer.minimumBurstCustomInputContainer div.custom.inputContainer input.inputBox.burstThreshold"),
 	}
 }
 export const caret = {
@@ -104,11 +104,12 @@ export const pacecaret = {
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
 	},
 	speed: {
-		off: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.off"),
-		last: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.last"),
-		average: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.average"),
-		best: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.best"),
-		paceCaretCustomSpeedInput: document.querySelector("div.s4-1.s5.config.buttonContainer.paceCaretSpeedButtonContainer div.s1.paceCaretSpeedCustomInputContainer div.customInput input[type='number'].customInputBox.paceCaretSpeed"),
+		off: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.off"),
+		last: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.last"),
+		average: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.average"),
+		best: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.best"),
+		custom: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer button.s1.button.paceCaretSpeedCustomInputButton"),
+		paceCaretCustomSpeedInput: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer div.s1.custom.inputContainer input.inputBox.paceCaretSpeedThreshold"),
 	}
 }
 export const textInput = {

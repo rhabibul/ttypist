@@ -181,11 +181,14 @@ function updatePaceCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+console.log(SettingsElement.pacecaret.speed);
+
 // pacecaret speed
 SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.best.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.custom.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
 
 // pacecaret speed (s5)
