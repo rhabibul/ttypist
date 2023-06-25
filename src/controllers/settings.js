@@ -61,6 +61,10 @@ SettingsElement.textWhitespace.type.space.addEventListener("click", updateTextWh
 SettingsElement.textWhitespace.type.bar.addEventListener("click", updateTextWhitespace);
 
 // quickend
+SettingsElement.strictspace.off.addEventListener("click", updateStrictSpace);
+SettingsElement.strictspace.on.addEventListener("click", updateStrictSpace);
+
+// quickend
 SettingsElement.quickend.off.addEventListener("click", updateQuickEnd);
 SettingsElement.quickend.on.addEventListener("click", updateQuickEnd);
 
@@ -78,19 +82,35 @@ SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
 SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
 SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
-
 // modifier keys
 SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.ctrl.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.meta.addEventListener("click", updateModifierKey);
 
 // backspace not allowed on correct
-SettingsElement.goBackOnCorrect.off.addEventListener("click", fn);
-SettingsElement.goBackOnCorrect.on.addEventListener("click", fn);
+SettingsElement.goBackOnCorrect.off.addEventListener("click", updateGoBackOnCorrect);
+SettingsElement.goBackOnCorrect.on.addEventListener("click", updateGoBackOnCorrect);
+
+// error
+SettingsElement.error.off.addEventListener("click", fn);
+SettingsElement.error.insert.addEventListener("click", fn);
+SettingsElement.error.skip.addEventListener("click", fn);
+SettingsElement.error.replace.addEventListener("click", fn);
+
+// error (s4)
+function updateError(evt) {
+	if ( !evt.isTrusted ) return;
+	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
+	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
+}
 
 // backspace not allowed on correct (s2)
 function updateGoBackOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.backspace.allowedOnCorrect && this.value === "on") || (!Config.backspace.allowedOnCorrect && this.value === "off") ) return;
+	
+	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
+	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
 }
 
 
@@ -102,17 +122,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// error
-SettingsElement.error.off.addEventListener("click", fn);
-SettingsElement.error.insert.addEventListener("click", fn);
-SettingsElement.error.skip.addEventListener("click", fn);
-SettingsElement.error.replace.addEventListener("click", fn);
-
-// error (s4)
-function updateError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -517,6 +526,17 @@ function updateTextWhitespace(evt) {
 
 	SettingsChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingsChangeInConfig.changeTextWhitespaceInConfig(this.value);
+}
+
+// strictspace (s2)
+function updateStrictSpace(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.strictspace && this.value === "on") || (!Config.strictspace && this.value === "off")) return;
+
+	SettingsChangeInUI.changeStrictSpaceInUI(this.value);
+	SettingsChangeInConfig.changeStrictSpaceInConfig(this.value);
+
+	console.log(Config.strictspace);
 }
 
 // quickend (s2)

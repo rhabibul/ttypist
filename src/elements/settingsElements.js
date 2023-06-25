@@ -162,6 +162,10 @@ export const textWordCount = {
 		customWordsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s1.textWordCountCustomInputContainer div.customInput input[type='number'].customInputBox.textWordCount"),
 	},
 }
+export const strictspace = {
+	off: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.on"),
+}
 export const quickend = {
 	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.on"),

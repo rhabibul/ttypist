@@ -124,6 +124,16 @@ export function changeTextWhitespaceInUI(value) {
 	}
 }
 
+export function changeStrictSpaceInUI(value) {
+	if ( value === "off" ) {
+		SettingsElement.strictspace.off.id = "selected";
+		SettingsElement.strictspace.on.id = "";
+	} else {
+		SettingsElement.strictspace.off.id = "";
+		SettingsElement.strictspace.on.id = "selected";
+	}	
+}
+
 export function changeQuickEndInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.quickend.off.id = "selected";
@@ -173,5 +183,15 @@ export function changeBackspaceKeyInUI(value) {
 	}	else {
 		SettingsElement.backspace.off.id = "";
 		SettingsElement.backspace.on.id = "selected";
+	}
+}
+
+export function changeGoBackOnCorrectInUI(value) {
+	if ( value === "off" ) {
+		SettingsElement.goBackOnCorrect.off.id = "selected";
+		SettingsElement.goBackOnCorrect.on.id = "";
+	}	else {
+		SettingsElement.goBackOnCorrect.off.id = "";
+		SettingsElement.goBackOnCorrect.on.id = "selected";
 	}
 }

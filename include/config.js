@@ -15,7 +15,7 @@ export default {
     }
   },
   arrows: true, // implicitly enabled (mythical)
-  strictspace: true, // implicitly enabled for error.skip & error.replace
+  strictspace: true, // on error.skip & error.replace if strictspace is turned "off" then take caret to next word
   quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
@@ -25,7 +25,7 @@ export default {
        ctrl: true, // backspace + ctrl
        meta: false, // backspace + cmd/win
     },
-    notAllowedOnCorrect: false, // if previous word was correctly typed then don't allow backspace
+    allowedOnCorrect: true, // whether to allow caret to go back to previous word which was typed correctly
   },
   confidence: {
     low: true, // use backspace key to delete previous words/letters

@@ -228,6 +228,7 @@ svg.iconTestStatistics {
 	width: 18px;
 	height: 18px;
 }
+svg.iconStrictSpace,
 svg.iconTestDifficulty,
 svg.iconBomb,
 svg.iconTextFontWeight,
@@ -237,7 +238,6 @@ svg.iconTextScroll {
 	width: 19px;
 	height: 19px;
 }
-svg.iconStrictSpace,
 svg.speedometer,
 svg.iconWarning,
 svg.iconPrimaryColor,

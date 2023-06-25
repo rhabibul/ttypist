@@ -113,6 +113,14 @@ export function changeTextWhitespaceInConfig(value) {
 	}
 }
 
+export function changeStrictSpaceInConfig(value) {
+	if ( value === "off" ) {
+		Config.strictspace = false;
+	} else {
+		Config.strictspace = true;
+	}
+}
+
 export function changeQuickEndInConfig(value) {
 	if ( value === "off" ) {
 		Config.quickend = false;
@@ -181,5 +189,13 @@ export function changeModifierKeyInConfig() {
 		Config.backspace.modifier.meta = true;
 	} else {
 		Config.backspace.modifier.meta = false;
+	}
+}
+
+export function changeGoBackOnCorrectInConfig(value) {
+	if ( value === "off" ) {
+		Config.backspace.allowedOnCorrect = false;
+	} else {
+		Config.backspace.allowedOnCorrect = true;
 	}
 }
