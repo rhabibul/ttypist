@@ -181,8 +181,6 @@ function updatePaceCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-console.log(SettingsElement.pacecaret.speed);
-
 // pacecaret speed
 SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
 SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
@@ -234,6 +232,7 @@ SettingsElement.timer.time.seconds15.addEventListener("click", fn);
 SettingsElement.timer.time.seconds30.addEventListener("click", fn);
 SettingsElement.timer.time.seconds60.addEventListener("click", fn);
 SettingsElement.timer.time.seconds120.addEventListener("click", fn);
+SettingsElement.timer.time.custom.addEventListener("click", fn);
 SettingsElement.timer.time.customSecondsInput.addEventListener("input", fn);
 
 // hide timer
@@ -259,6 +258,7 @@ SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
 SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
+SettingsElement.textWordCount.count.custom.addEventListener("click", fn);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
 
 // text word count (s5)
@@ -375,18 +375,10 @@ function updateUseFloats(evt) {
 SettingsElement.warnings.capslock.addEventListener("click", fn);
 SettingsElement.warnings.numlock.addEventListener("click", fn);
 SettingsElement.warnings.scrolllock.addEventListener("click", fn);
+SettingsElement.warnings.focus.addEventListener("click", fn);
 
-// warnings (s3)
+// warnings (s4)
 function updateWarnings(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// out of focus warning
-SettingsElement.focusOutWarning.off.addEventListener("click", fn);
-SettingsElement.focusOutWarning.on.addEventListener("click", fn);
-
-// out of focus warning (s2)
-function updateOutOfFocusWarning(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -584,13 +576,17 @@ function updateMinimumSpeed(evt) {
 	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
 	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
 
+	if ( this.value === "on" ) {
+		SettingsElement.minimum.speed.thresholdInput.focus();
+	}
+
 	console.log("minSpeed:", Config.minimum.speed.off);
 }
 // minimum speed threashold input (s1)
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 	Config.minimum.speed.threshold = this.value;
-	
+
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
 }
 
@@ -601,6 +597,10 @@ function updateMinimumAccuracy(evt) {
 
 	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
 	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
+
+	if ( this.value === "on" ) {
+		SettingsElement.minimum.accuracy.thresholdInput.focus();
+	}
 
 	console.log("minAccuracy:", Config.minimum.accuracy.off);
 }
@@ -619,6 +619,10 @@ function updateMinimumBurst(evt) {
 
 	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
 	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
+
+	if ( this.value === "fixed" || this.value === "flex" ) {
+		SettingsElement.minimum.burst.thresholdInput.focus();
+	}
 
 	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
 }

@@ -142,13 +142,14 @@ export const textColor = {
 	}
 }
 export const timer = {
-	off: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.off"),
+	off: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.off"),
 	time: {
-		seconds15: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds15"),
-		seconds30: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds30"),
-		seconds60: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds60"),
-		seconds120: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer button.button.seconds120"),
-		customSecondsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.timerTimeButtonContainer div.s1.timerTimeCustomInputContainer div.customInput input.customInputBox.customSecondsInput"),
+		seconds15: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds15"),
+		seconds30: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds30"),
+		seconds60: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds60"),
+		seconds120: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds120"),
+		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.button.timerTimeCustomInputButton"),
+		customSecondsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
 	},
 	hide: {
 		off: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.off"),
@@ -156,13 +157,14 @@ export const timer = {
 	},
 }
 export const textWordCount = {
-	off: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.off"),
+	off: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.off"),
 	count: {
-		words10: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words10"),
-		words25: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words25"),
-		words50: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words50"),
-		words100: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words100"),
-		customWordsInput: document.querySelector("div.s5-1.s6.config.buttonContainer.textWordCountButtonContainer div.s1.textWordCountCustomInputContainer div.customInput input[type='number'].customInputBox.textWordCount"),
+		words10: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words10"),
+		words25: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words25"),
+		words50: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words50"),
+		words100: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words100"),
+		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer button.s1.button.textWordCountCustomInputButton"),
+		customWordsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordCount"),
 	},
 }
 export const strictspace = {
@@ -226,13 +228,10 @@ export const stats = {
 	},
 }
 export const warnings = {
-	capslock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.capslock input[type='checkbox']#capslock"),
-	numlock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.numlock input[type='checkbox']#numlock"),
-	scrolllock: document.querySelector("div.s3.config.buttonContainer.warningsCheckboxButtonContainer div.warningsCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
-}
-export const focusOutWarning = {
-	off: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.focusOutWarning button.button.on"),
+	capslock: document.querySelector("div.warningsCheckboxButton.capslock input[type='checkbox']#capslock"),
+	numlock: document.querySelector("div.warningsCheckboxButton.numlock input[type='checkbox']#numlock"),
+	scrolllock: document.querySelector("div.warningsCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
+	focus: document.querySelector("div.warningsCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
 }
 export const keyboardReaction = {
 	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),
