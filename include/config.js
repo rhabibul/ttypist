@@ -38,7 +38,7 @@ export default {
     master: false, // fails the test if user press a single incorrect key
   },
   error: {
-    off: false, // blind mode: no errors or incorrect words are highlighted
+    off: false, // (blind mode) no errors or incorrect words are highlighted
     insert: true, // insert incorrect letter before to be typed letter
     skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
