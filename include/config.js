@@ -15,7 +15,7 @@ export default {
     }
   },
   arrows: true, // implicitly enabled (mythical)
-  strictspace: true, // on error.skip & error.replace if strictspace is turned "off" then take caret to next word
+  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
@@ -39,11 +39,12 @@ export default {
   },
   error: {
     off: false, // blind mode: no errors or incorrect words are highlighted
-    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
-    skip: true, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
-    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
     insert: true, // insert incorrect letter before to be typed letter
+    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
+    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
+    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
     stop: {
+      off: true,
       letter: false, // stop before letter if wrongly typed
       word: false, // don't move to the next word until all mistakes are corrected
     },

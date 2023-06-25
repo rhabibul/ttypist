@@ -169,6 +169,14 @@ export function changeBackspaceKeyInConfig(value) {
 	}
 }
 
+export function changeGoBackOnCorrectInConfig(value) {
+	if ( value === "off" ) {
+		Config.backspace.allowedOnCorrect = false;
+	} else {
+		Config.backspace.allowedOnCorrect = true;
+	}
+}
+
 export function changeModifierKeyInConfig() {
 	// alt
 	if ( SettingsElement.modifier.alt.checked ) {
@@ -192,10 +200,34 @@ export function changeModifierKeyInConfig() {
 	}
 }
 
-export function changeGoBackOnCorrectInConfig(value) {
-	if ( value === "off" ) {
-		Config.backspace.allowedOnCorrect = false;
+export function changeErrorInConfig(value) {
+	if ( value === "skip" ) {
+		Config.error.off = false;
+		Config.error.insert = false;
+		Config.error.skip = true;
+		Config.error.replace = false;
+	}	else if ( value === "replace" ) {
+		Config.error.off = false;
+		Config.error.insert = false;
+		Config.error.skip = false;
+		Config.error.replace = true;
+	} else if ( value === "insert" ) {
+		Config.error.off = false;
+		Config.error.insert = true;
+		Config.error.skip = false;
+		Config.error.replace = false;
 	} else {
-		Config.backspace.allowedOnCorrect = true;
+		Config.error.off = true;
+		Config.error.insert = false;
+		Config.error.skip = false;
+		Config.error.replace = false;
+	}
+}
+
+export function changeForgiveErrorInConfig(value) {
+	if ( value === "on" ) {
+		Config.error.forgive = true;
+	} else {
+		Config.error.forgive = false;
 	}
 }

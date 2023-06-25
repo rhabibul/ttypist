@@ -82,37 +82,24 @@ SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
 SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
 SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
+// backspace not allowed on correct
+SettingsElement.goBackOnCorrect.off.addEventListener("click", updateGoBackOnCorrect);
+SettingsElement.goBackOnCorrect.on.addEventListener("click", updateGoBackOnCorrect);
+
 // modifier keys
 SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.ctrl.addEventListener("click", updateModifierKey);
 SettingsElement.modifier.meta.addEventListener("click", updateModifierKey);
 
-// backspace not allowed on correct
-SettingsElement.goBackOnCorrect.off.addEventListener("click", updateGoBackOnCorrect);
-SettingsElement.goBackOnCorrect.on.addEventListener("click", updateGoBackOnCorrect);
-
 // error
-SettingsElement.error.off.addEventListener("click", fn);
-SettingsElement.error.insert.addEventListener("click", fn);
-SettingsElement.error.skip.addEventListener("click", fn);
-SettingsElement.error.replace.addEventListener("click", fn);
+SettingsElement.error.off.addEventListener("click", updateError);
+SettingsElement.error.insert.addEventListener("click", updateError);
+SettingsElement.error.skip.addEventListener("click", updateError);
+SettingsElement.error.replace.addEventListener("click", updateError);
 
-// error (s4)
-function updateError(evt) {
-	if ( !evt.isTrusted ) return;
-	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
-	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
-}
-
-// backspace not allowed on correct (s2)
-function updateGoBackOnCorrect(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.backspace.allowedOnCorrect && this.value === "on") || (!Config.backspace.allowedOnCorrect && this.value === "off") ) return;
-	
-	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
-	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
-}
-
+// forgive error
+SettingsElement.error.forgive.off.addEventListener("click", updateForgiveError);
+SettingsElement.error.forgive.on.addEventListener("click", updateForgiveError);
 
 // ###############################################################################
 
@@ -122,15 +109,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// forgive error
-SettingsElement.error.forgive.off.addEventListener("click", fn);
-SettingsElement.error.forgive.on.addEventListener("click", fn);
-
-// forgive error (s2)
-function updateForgiveError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -535,8 +513,6 @@ function updateStrictSpace(evt) {
 
 	SettingsChangeInUI.changeStrictSpaceInUI(this.value);
 	SettingsChangeInConfig.changeStrictSpaceInConfig(this.value);
-
-	console.log(Config.strictspace);
 }
 
 // quickend (s2)
@@ -575,8 +551,37 @@ function updateBackspaceKey(evt) {
 	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
 }
 
+// backspace not allowed on correct (s2)
+function updateGoBackOnCorrect(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.backspace.allowedOnCorrect && this.value === "on") || (!Config.backspace.allowedOnCorrect && this.value === "off") ) return;
+	
+	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
+	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
+}
+
 // modifier keys (s3)
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 	SettingsChangeInConfig.changeModifierKeyInConfig();
+}
+
+// error (s4)
+function updateError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.off && this.value === "off") || (Config.error.insert && this.value === "insert") || (Config.error.skip && this.value === "skip") || (Config.error.replace && this.value === "replace") ) return;
+
+	SettingsChangeInUI.changeErrorInUI(this.value);
+	SettingsChangeInConfig.changeErrorInConfig(this.value);
+}
+
+// forgive error (s2)
+function updateForgiveError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
+	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
+
+	console.log("forgive:", Config.error.forgive);
 }

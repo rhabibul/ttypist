@@ -195,3 +195,37 @@ export function changeGoBackOnCorrectInUI(value) {
 		SettingsElement.goBackOnCorrect.on.id = "selected";
 	}
 }
+
+export function changeErrorInUI(value) {
+	if ( value === "skip" ) {
+		SettingsElement.error.off.id = "";
+		SettingsElement.error.insert.id = "";
+		SettingsElement.error.skip.id = "selected";
+		SettingsElement.error.replace.id = "";
+	} else if ( value === "replace" ) {
+		SettingsElement.error.off.id = "";
+		SettingsElement.error.insert.id = "";
+		SettingsElement.error.skip.id = "";
+		SettingsElement.error.replace.id = "selected";
+	} else if ( value === "insert" ) {
+		SettingsElement.error.off.id = "";
+		SettingsElement.error.insert.id = "selected";
+		SettingsElement.error.skip.id = "";
+		SettingsElement.error.replace.id = "";
+	} else {
+		SettingsElement.error.off.id = "selected";
+		SettingsElement.error.insert.id = "";
+		SettingsElement.error.skip.id = "";
+		SettingsElement.error.replace.id = "";
+	}
+}
+
+export function changeForgiveErrorInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.error.forgive.off.id = "";
+		SettingsElement.error.forgive.on.id = "selected";
+	} else {
+		SettingsElement.error.forgive.off.id = "selected";
+		SettingsElement.error.forgive.on.id = "";
+	}
+}
