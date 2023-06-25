@@ -1,3 +1,7 @@
+input {
+	caret-color: red;
+}
+
 input[type="color"] {
 	cursor: pointer;
 }
@@ -49,14 +53,6 @@ div.setting div.column.c1 div.row:last-child,
 div.setting div.column.c2 div.row:last-child {
 	border-bottom: none;
 }
-div.setting div.column div.row#minimumSpeed,
-div.setting div.column div.row#minimumAccuracy,
-div.setting div.column div.row#minimumBurst,
-div.setting div.column div.row#timerTime,
-div.setting div.column div.row#paceCaretSpeed,
-div.setting div.column div.row#textWordCount {
-	height: 80px;
-}
 div.label {
 	width: 200px;
 	height: var(--setting-button-height);
@@ -104,35 +100,92 @@ div.label div.symbol svg {
 	align-items: center;
 	justify-content: center;
 }
-div.config {
-  -moz-user-select: none;
+
+div.config.buttonContainer {
+	width: var(--setting-buttons-container-width);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	-moz-user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
 }
-div.config.buttonContainer.s2-1.s3,
-div.config.buttonContainer.s3-1.s4,
-div.config.buttonContainer.s4-1.s5,
-div.config.buttonContainer.s5-1.s6 {
-	display: flex;
-	flex-direction: column;
-	row-gap: 4px;
+
+div.setting div.column div.row#minimumSpeed,
+div.setting div.column div.row#minimumAccuracy,
+div.setting div.column div.row#minimumBurst,
+div.setting div.column div.row#timerTime,
+div.setting div.column div.row#paceCaretSpeed,
+div.setting div.column div.row#textWordCount {
+	height: 80px;
 }
-div.buttonContainer,
-div.config.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2,
-div.config.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2,
-div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3,
-div.config.buttonContainer.timerTimeButtonContainer.s5-1.s6 div.timerTimeButton.s5,
-div.config.buttonContainer.textWordCountButtonContainer.s5-1.s6 div.textWordCountButton.s5,
-div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 {
+div.minimumSpeedButtonContainer.s2-1.s3,
+div.minimumAccuracyButtonContainer.s2-1.s3,
+div.minimumBurstButtonContainer.s3-1.s4,
+div.textWordCountButtonContainer.s5-2.s7,
+div.timerTimeButtonContainer.s5-2.s7,
+div.paceCaretSpeedButtonContainer.s4-2.s6 {
 	width: var(--setting-buttons-container-width);
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	/* border: 1px solid black; */
+	flex-direction: column;
+	row-gap: 3px;
 }
+div.minimumSpeedButtonContainer.s2-1.s3 > *,
+div.minimumAccuracyButtonContainer.s2-1.s3 > *,
+div.minimumBurstButtonContainer.s3-1.s4 > *,
+div.textWordCountButtonContainer.s5-2.s7 > *,
+div.timerTimeButtonContainer.s5-2.s7 > *,
+div.paceCaretSpeedButtonContainer.s4-2.s6  > * {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+div.customInputContainer button.button.s1 {
+	width: 70px;
+}
+div.inputContainer.custom.s1 {
+	width: 165px;
+	height: var(--setting-button-height);
+	display: flex;
+	justify-content: flex-end;
+	border: 1px solid var(--setting-button-border-color);
+	border-radius: var(--setting-button-roundness);
+	/* border: 1px solid darkred; */
+}
+
+div.inputContainer.custom.s1 input.inputBox {
+	width: 135px;
+	border: none;
+	outline: none;
+	padding-left: 8px;
+	border-right: 1px solid var(--setting-button-border-color);
+	border-top-left-radius: var(--setting-button-roundness);
+	border-bottom-left-radius: var(--setting-button-roundness);
+	background-color: var(--setting-button-backgroundcolor);
+}
+div.inputContainer.custom.s1 div.symbol {
+	width:  calc(var(--setting-button-height) - 1px);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-top-right-radius: var(--setting-button-roundness);
+	border-bottom-right-radius: var(--setting-button-roundness);
+	background-color: var(--setting-button-backgroundcolor);
+}
+div.inputContainer.custom.s1 div.symbol svg.iconEditPen {
+	height: 15px;
+	width: 15px;
+	fill: var(--setting-icon-color);
+	opacity: 0.8;
+}
+
 div.config.buttonContainer.s2 > .button,
 div.config.buttonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2 > .button,
 div.config.buttonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2 > .button {
@@ -155,11 +208,11 @@ div.config.buttonContainer.s3.liveStatusIntervalButton > .button.second {
 }
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.skip,
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.bar,
-div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 div.paceCaretSpeedButton.s4 > .button.off,
-div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button.off,
-div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button.seconds120,
-div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button.off,
-div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button.words100,
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-2.s6 div.paceCaretSpeedButton.s4 > .button.off,
+div.config.buttonContainer.s5-2.s7 div.timerTimeButton.s5 > .button.off,
+div.config.buttonContainer.s5-2.s7 div.timerTimeButton.s5 > .button.seconds120,
+div.config.buttonContainer.s5-2.s7 div.textWordCountButton.s5 > .button.off,
+div.config.buttonContainer.s5-2.s7 div.textWordCountButton.s5 > .button.words100,
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.off,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.off {
@@ -186,21 +239,18 @@ div.config.buttonContainer.textWhitespaceButton.s4 > .button.bullet,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
 	flex-basis: 29%;
 }
-div.config.buttonContainer.s5-1.s6 div.timerTimeButton.s5 > .button,
-div.config.buttonContainer.s5-1.s6 div.textWordCountButton.s5 > .button {
+div.config.buttonContainer.s5-2.s7 div.timerTimeButton.s5 > .button,
+div.config.buttonContainer.s5-2.s7 div.textWordCountButton.s5 > .button {
 	flex-basis: 18%;
 }
-div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.last,
-div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.best {
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-2.s6 .paceCaretSpeedButton.s4 > .button.last,
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-2.s6 .paceCaretSpeedButton.s4 > .button.best {
 	flex-basis: 22%;
 }
-div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-1.s5 .paceCaretSpeedButton.s4 > .button.average {
+div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-2.s6 .paceCaretSpeedButton.s4 > .button.average {
 	flex-basis: 31%;
 }
 
-svg.iconEditPen {
-	fill: black;
-}
 div.symbol.iconUseFloats {
 	color: var(--setting-icon-color);
 	font-size: 0.94rem;
@@ -561,43 +611,6 @@ div.colorPickerContainer input[type="color"].colorSelectorInput.paceCaretColorSe
 div.colorPickerContainer input[type="color"].colorSelectorInput.paceCaretColorSelectorInput::after {
 	background-color: var(--pace-caret-color);
 	border-left-color: var(--pace-caret-color);
-}
-
-/* -------------------------- custom input -------------------------- */
-div.customInput {
-	width: var(--setting-buttons-container-width);
-	height: var(--setting-button-height);
-	display: flex;
-	justify-content: center;
-	background-color: var(--setting-button-backgroundcolor);
-	border: 1px solid lightgray;
-	border-radius: 4px;
-}
-div.customInput input.customInputBox {
-	height: 100%;
-	width: calc(var(--setting-buttons-container-width) - 30px);
-	border: none;
-	outline: none;
-	padding-left: 8px;
-	font-family: var(--RobotoMono);
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-	background-color: var(--setting-button-backgroundcolor);
-}
-div.customInput div.customInputSymbol {
-	height: 100%;
-	width: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-left: 1px solid lightgray;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-div.customInput div.customInputSymbol svg.iconEditPen {
-	height: 17px;
-	width: 17px;
-	fill: rgb(55, 55, 55);
 }
 
 /* -------------------------- input sliders -------------------------- */
