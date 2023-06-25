@@ -245,3 +245,13 @@ export function changeStopOnErrorInUI(value) {
 		SettingsElement.error.stop.word.id = "";
 	}
 }
+
+export function changeOppositeShiftModeInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.oppositeshift.off.id = "";
+		SettingsElement.oppositeshift.on.id = "selected";
+	} else {
+		SettingsElement.oppositeshift.off.id = "selected";
+		SettingsElement.oppositeshift.on.id = "";
+	}
+}

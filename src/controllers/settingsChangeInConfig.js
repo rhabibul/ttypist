@@ -247,3 +247,11 @@ export function changeStopOnErrorInConfig(value) {
 		Config.error.stop.word = false;
 	}
 }
+
+export function changeOppositeShiftModeInConfig(value) {
+	if ( value === "on" ) {
+		Config.oppositeshift = true;
+	} else {
+		Config.oppositeshift = false;
+	}
+}

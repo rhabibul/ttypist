@@ -106,28 +106,23 @@ SettingsElement.error.stop.off.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
 
-// stop on error (s3)
-function updateStopOnError(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
-
-	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
-	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
-
-	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
-}
-
-
-// ###############################################################################
-
 // opposite shift mode
-SettingsElement.oppositeshift.off.addEventListener("click", fn);
-SettingsElement.oppositeshift.on.addEventListener("click", fn);
+SettingsElement.oppositeshift.off.addEventListener("click", updateOppositeShiftMode);
+SettingsElement.oppositeshift.on.addEventListener("click", updateOppositeShiftMode);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.oppositeshift && this.value === "on") || (!Config.oppositeshift && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeOppositeShiftModeInUI(this.value);
+	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
+
+	console.log("oppositeshift:", Config.oppositeshift);
 }
+
+
+// ###############################################################################
 
 // minimum speed
 SettingsElement.minimum.speed.off.addEventListener("click", fn);
@@ -591,4 +586,15 @@ function updateForgiveError(evt) {
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
 	console.log("forgive:", Config.error.forgive);
+}
+
+// stop on error (s3)
+function updateStopOnError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
+
+	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
+	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
+
+	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
 }
