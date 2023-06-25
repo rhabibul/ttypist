@@ -101,6 +101,23 @@ SettingsElement.error.replace.addEventListener("click", updateError);
 SettingsElement.error.forgive.off.addEventListener("click", updateForgiveError);
 SettingsElement.error.forgive.on.addEventListener("click", updateForgiveError);
 
+// stop on error
+SettingsElement.error.stop.off.addEventListener("click", updateStopOnError);
+SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
+SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
+
+// stop on error (s3)
+function updateStopOnError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
+
+	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
+	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
+
+	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
+}
+
+
 // ###############################################################################
 
 // opposite shift mode
@@ -109,16 +126,6 @@ SettingsElement.oppositeshift.on.addEventListener("click", fn);
 
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// stop on error
-SettingsElement.error.stop.off.addEventListener("click", fn);
-SettingsElement.error.stop.letter.addEventListener("click", fn);
-SettingsElement.error.stop.word.addEventListener("click", fn);
-
-// stop on error (s3)
-function updateStopOnError(evt) {
 	if ( !evt.isTrusted ) return;
 }
 

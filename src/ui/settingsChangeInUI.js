@@ -229,3 +229,19 @@ export function changeForgiveErrorInUI(value) {
 		SettingsElement.error.forgive.on.id = "";
 	}
 }
+
+export function changeStopOnErrorInUI(value) {
+	if ( value === "letter" ) {
+		SettingsElement.error.stop.off.id = "";
+		SettingsElement.error.stop.letter.id = "selected";
+		SettingsElement.error.stop.word.id = "";
+	} else if ( value === "word" ) {
+		SettingsElement.error.stop.off.id = "";
+		SettingsElement.error.stop.letter.id = "";
+		SettingsElement.error.stop.word.id = "selected";
+	} else {
+		SettingsElement.error.stop.off.id = "selected";
+		SettingsElement.error.stop.letter.id = "";
+		SettingsElement.error.stop.word.id = "";
+	}
+}

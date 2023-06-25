@@ -231,3 +231,19 @@ export function changeForgiveErrorInConfig(value) {
 		Config.error.forgive = false;
 	}
 }
+
+export function changeStopOnErrorInConfig(value) {
+	if ( value === "letter" ) {
+		Config.error.stop.off = false;
+		Config.error.stop.letter = true;
+		Config.error.stop.word = false;
+	} else if ( value === "word" ) {
+		Config.error.stop.off = false;
+		Config.error.stop.letter = false;
+		Config.error.stop.word = true;
+	} else {
+		Config.error.stop.off = true;
+		Config.error.stop.letter = false;
+		Config.error.stop.word = false;
+	}
+}
