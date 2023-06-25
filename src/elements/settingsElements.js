@@ -239,7 +239,7 @@ export const keyboardReaction = {
 	react: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.react"),
 	next: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.next"),
 }
-export const emulateKeyboardLayout = {
+export const KeyboardLayoutEmulate = {
 	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
 }

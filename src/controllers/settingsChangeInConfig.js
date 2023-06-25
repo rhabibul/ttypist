@@ -313,6 +313,10 @@ export function changeKeyboardReactionInConfig(value) {
 }
 
 
-export function changeEmulateKeyboardLayoutInConfig(value) {
-	
+export function changeKeyboardLayoutEmulateInConfig(value) {
+	if ( value === "on" ) {
+		Config.keyboard.layout.emulate = true;
+	}	else {
+		Config.keyboard.layout.emulate = false;
+	}
 }

@@ -132,19 +132,9 @@ SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboard
 SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
 SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
 
-// emulate keyboard layout
-SettingsElement.emulateKeyboardLayout.off.addEventListener("click", updateEmulateKeyboardLayout);
-SettingsElement.emulateKeyboardLayout.on.addEventListener("click", updateEmulateKeyboardLayout);
-
-// emulate keyboard layout (s2)
-function updateEmulateKeyboardLayout(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changeEmulateKeyboardLayoutInUI(this.value);
-	SettingsChangeInConfig.changeEmulateKeyboardLayoutInConfig(this.value);
-
-	console.log("Emulate:", Config.keyboard.layout.emulate);
-}
+// keyboard layout emulate
+SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
+SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
 
 // ###############################################################################
@@ -646,4 +636,15 @@ function updateKeyboardReaction(evt) {
 	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
 
 	console.log("keyboard reation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
+}
+
+// keyboard layout emulate (s2)
+function updateKeyboardLayoutEmulate(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.keyboard.layout.emulate && this.value === "on") || (!Config.keyboard.layout.emulate && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
+	SettingsChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
+
+	console.log("Emulate:", Config.keyboard.layout.emulate);
 }

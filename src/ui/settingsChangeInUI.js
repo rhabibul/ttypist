@@ -316,6 +316,12 @@ export function changeKeyboardReactionInUI(value) {
 	}
 }
 
-export function changeEmulateKeyboardLayoutInUI(value) {
-	
+export function changeKeyboardLayoutEmulateInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.KeyboardLayoutEmulate.off.id = "";
+		SettingsElement.KeyboardLayoutEmulate.on.id = "selected";
+	}	else {
+		SettingsElement.KeyboardLayoutEmulate.off.id = "selected";
+		SettingsElement.KeyboardLayoutEmulate.on.id = "";
+	}
 }
