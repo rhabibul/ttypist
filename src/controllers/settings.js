@@ -136,6 +136,26 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
+// text word count
+SettingsElement.textWordCount.off.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
+SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
+SettingsElement.textWordCount.count.custom.addEventListener("click", fn);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
+
+// text word count (s5)
+function updateWordCount(evt) {
+	if ( !evt.isTrusted ) return;
+
+	// start here..
+}
+// text word count (s1) - custom word count input box
+function updateWordCountByTakingCustomInput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
 
 // ###############################################################################
 
@@ -249,24 +269,6 @@ function updateTimerSecondsByTakingCustomInput(evt) {
 }
 // hide timer (s2)
 function updateTimerHide(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// text word count
-SettingsElement.textWordCount.off.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
-SettingsElement.textWordCount.count.custom.addEventListener("click", fn);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
-
-// text word count (s5)
-function updateWordCount(evt) {
-	if ( !evt.isTrusted ) return;
-}
-// text word count (s1) - custom word count input box
-function updateWordCountByTakingCustomInput(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
