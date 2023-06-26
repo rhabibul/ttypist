@@ -146,10 +146,10 @@ div.paceCaretSpeedButtonContainer.s4-2.s6  > * {
 }
 
 div.customInputContainer button.button.s1 {
-	width: 70px;
+	width: 95px;
 }
 div.inputContainer.custom {
-	width: 165px;
+	width: 140px;
 	height: var(--setting-button-height);
 	display: flex;
 	justify-content: flex-end;
@@ -167,7 +167,7 @@ div.customInputContainer.minimumBurstCustomInputContainer.s1    div.inputContain
 	width: 210px;
 }
 div.inputContainer.custom input.inputBox {
-	width: 135px;
+	width: 110px;
 	border: none;
 	outline: none;
 	padding-left: 8px;

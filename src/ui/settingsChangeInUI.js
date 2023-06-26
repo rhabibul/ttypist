@@ -302,12 +302,12 @@ export function changeTextWordCountInUI(value) {
 		SettingsElement.textWordCount.count.words100.id = "";
 		SettingsElement.textWordCount.count.custom.id = "";
 	} else if ( value === "custom" ) {
-			SettingsElement.textWordCount.off.id = "";
-			SettingsElement.textWordCount.count.words10.id = "";
-			SettingsElement.textWordCount.count.words25.id = "";
-			SettingsElement.textWordCount.count.words50.id = "";
-			SettingsElement.textWordCount.count.words100.id = "";
-			SettingsElement.textWordCount.count.custom.id = "selected"; // -2 (custom)
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "selected"; // -2 (custom)
 	}	else if ( value === "10" ) {
 		SettingsElement.textWordCount.off.id = "";
 		SettingsElement.textWordCount.count.words10.id = "selected";

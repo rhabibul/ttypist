@@ -146,15 +146,22 @@ SettingsElement.textWordCount.count.words25.addEventListener("click", updateText
 SettingsElement.textWordCount.count.words50.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.words100.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", fn);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountByTakingCustomInput);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateCustomTextCountWordsInputThresholdInputFoucsOut);
 
 // text word count (s5)
 function updateTextWordCount(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.text.word.count === -1 && this.value === "off") || (Config.text.word.count === -2 && this.value === "custom") || (Config.text.word.count === 10 && this.value === "10") || (Config.text.word.count === 25 && this.value === "25") || (Config.text.word.count === 50 && this.value === "50") || (Config.text.word.count === 100 && this.value === "100") ) return;
 
 	SettingsChangeInUI.changeTextWordCountInUI(this.value);
 	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
+
+	if ( this.value === "custom" ) {
+		SettingsElement.textWordCount.count.customWordsInput.focus();
+	} else {
+		SettingsElement.textWordCount.count.customWordsInput.value = "";
+	}
 
 	console.log("text word count:", Config.text.word.count);
 }
@@ -162,20 +169,20 @@ function updateTextWordCount(evt) {
 function updateTextWordCountByTakingCustomInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on "fixed" button active if not
-	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
+	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
 		SettingsChangeInUI.changeTextWordCountInUI("custom");
 		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
 	}
-	Config.text.word.count = this.value;
+	Config.text.word.count = Number(this.value);
 
-	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+	console.log("number of words:", Config.text.word.count);
 }
-function updateCustomWordsInputThresholdInputFoucsOut(evt) {
+function updateCustomTextCountWordsInputThresholdInputFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === "" && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
-		SettingsChangeInUI.changeMinimumBurstInUI("off");
-		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+
+	if ( this.value === "" && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
+		SettingsChangeInUI.changeTextWordCountInUI("off");
+		SettingsChangeInConfig.changeTextWordCountInConfig("off");
 	}
 }
 
@@ -617,7 +624,7 @@ function updateMinimumSpeedThresholdInput(evt) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("on");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
 	}
-	Config.minimum.speed.threshold = this.value;
+	Config.minimum.speed.threshold = Number(this.value);
 
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
 }
@@ -655,7 +662,7 @@ function updateMinimumAccuracyThresholdInput(evt) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("on");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("on");
 	}
-	Config.minimum.accuracy.threshold = this.value;
+	Config.minimum.accuracy.threshold = Number(this.value);
 
 	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
 }
@@ -693,7 +700,7 @@ function updateMinimumBurstThresholdInput(evt) {
 		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
-	Config.minimum.burst.threshold = this.value;
+	Config.minimum.burst.threshold = Number(this.value);
 
 	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
 }
