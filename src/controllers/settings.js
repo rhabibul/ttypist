@@ -589,6 +589,12 @@ function updateMinimumSpeed(evt) {
 // minimum speed threashold input (s1)
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
+
+	// turn "on" button active if not
+	if ( SettingsElement.minimum.speed.off.id === "selected" ) {
+		SettingsChangeInUI.changeMinimumSpeedInUI("on");
+		SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
+	}
 	Config.minimum.speed.threshold = this.value;
 
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
@@ -613,6 +619,12 @@ function updateMinimumAccuracy(evt) {
 // minimum accuracy threashold input (s1)
 function updateMinimumAccuracyThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
+	
+	// turn "on" button active if not
+	if ( SettingsElement.minimum.accuracy.off.id === "selected" ) {
+		SettingsChangeInUI.changeMinimumAccuracyInUI("on");
+		SettingsChangeInConfig.changeMinimumAccuracyInConfig("on");
+	}
 	Config.minimum.accuracy.threshold = this.value;
 
 	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
@@ -637,6 +649,12 @@ function updateMinimumBurst(evt) {
 // minimum burst threashold input (s1)
 function updateMinimumBurstThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
+
+	// turn "fixed" button active if not
+	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
+		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
+		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
+	}
 	Config.minimum.burst.threshold = this.value;
 
 	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
@@ -663,3 +681,25 @@ function updateKeyboardLayoutEmulate(evt) {
 
 	console.log("Emulate:", Config.keyboard.layout.emulate);
 }
+
+// -------------------------------------------------------------------------------
+
+window.addEventListener("click", () => {
+
+	// if "off" button is not active but input field has been left blank then turn off minimum speed
+	if ( SettingsElement.minimum.speed.thresholdInput.value === "" && SettingsElement.minimum.speed.off !== "selected" ) {
+		SettingsChangeInUI.changeMinimumSpeedInUI("off");
+		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
+	}
+
+	// if "off" button is not active but input field has been left blank then turn off minimum accuracy
+	if ( SettingsElement.minimum.accuracy.thresholdInput.value === "" && SettingsElement.minimum.accuracy.off !== "selected" ) {
+		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
+		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
+	}
+	// if "off" button is not active but input field has been left blank then turn off minimum burst
+	if ( SettingsElement.minimum.burst.thresholdInput.value === "" && SettingsElement.minimum.burst.off !== "selected" ) {
+		SettingsChangeInUI.changeMinimumBurstInUI("off");
+		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+	}
+});
