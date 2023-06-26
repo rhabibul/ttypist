@@ -288,6 +288,26 @@ export function changeMinimumBurstInConfig(value) {
 	}
 }
 
+// text word count
+export function changeTextWordCountInConfig(value) {
+  if ( value === "infinite" ) {
+		Config.text.word.count = 0; // 0 (infinite)
+	} else if ( value === "off" ) {
+		Config.text.word.count = -1; // -1 (off)
+	} else if ( value === "custom" ) {
+		Config.text.word.count = -2; // -2 (custom)
+	} else if ( value === "10" ) {
+		Config.text.word.count = 10;
+	} else if ( value === "25" ) {
+		Config.text.word.count = 25;
+	} else if ( value === "50" ) {
+		Config.text.word.count = 50;
+	} else if ( value === "100" ) {
+		Config.text.word.count = 100;
+	}
+}
+
+// keyboard reaction
 export function changeKeyboardReactionInConfig(value) {
 	if ( value === "next" ) {
 		Config.keyboard.reaction.off = false;
@@ -312,6 +332,7 @@ export function changeKeyboardReactionInConfig(value) {
 	}
 }
 
+// keyboard emulate
 export function changeKeyboardLayoutEmulateInConfig(value) {
 	if ( value === "on" ) {
 		Config.keyboard.layout.emulate = true;

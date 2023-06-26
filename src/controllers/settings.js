@@ -114,17 +114,20 @@ SettingsElement.oppositeshift.on.addEventListener("click", updateOppositeShiftMo
 SettingsElement.minimum.speed.off.addEventListener("click", updateMinimumSpeed);
 SettingsElement.minimum.speed.on.addEventListener("click", updateMinimumSpeed);
 SettingsElement.minimum.speed.thresholdInput.addEventListener("input", updateMinimumSpeedThresholdInput);
+SettingsElement.minimum.speed.thresholdInput.addEventListener("focusout", updateMinimumSpeedThresholdInputFoucsOut);
 
 // minimum accuracy
 SettingsElement.minimum.accuracy.off.addEventListener("click", updateMinimumAccuracy);
 SettingsElement.minimum.accuracy.on.addEventListener("click", updateMinimumAccuracy);
 SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", updateMinimumAccuracyThresholdInput);
+SettingsElement.minimum.accuracy.thresholdInput.addEventListener("focusout", updateMinimumAccuracyThresholdInputFoucsOut);
 
 // minimum burst
 SettingsElement.minimum.burst.off.addEventListener("click", updateMinimumBurst);
 SettingsElement.minimum.burst.option.fixed.addEventListener("click", updateMinimumBurst);
 SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimumBurst);
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
+SettingsElement.minimum.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputFoucsOut);
 
 // keyboard reaction
 SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
@@ -137,25 +140,44 @@ SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboa
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
 // text word count
-SettingsElement.textWordCount.off.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words10.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words25.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words50.addEventListener("click", fn);
-SettingsElement.textWordCount.count.words100.addEventListener("click", fn);
-SettingsElement.textWordCount.count.custom.addEventListener("click", fn);
+SettingsElement.textWordCount.off.addEventListener("click", updateTextWordCount);
+SettingsElement.textWordCount.count.words10.addEventListener("click", updateTextWordCount);
+SettingsElement.textWordCount.count.words25.addEventListener("click", updateTextWordCount);
+SettingsElement.textWordCount.count.words50.addEventListener("click", updateTextWordCount);
+SettingsElement.textWordCount.count.words100.addEventListener("click", updateTextWordCount);
+SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", fn);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", fn);
 
 // text word count (s5)
-function updateWordCount(evt) {
+function updateTextWordCount(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// start here..
+	SettingsChangeInUI.changeTextWordCountInUI(this.value);
+	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
+
+	console.log("text word count:", Config.text.word.count);
 }
 // text word count (s1) - custom word count input box
-function updateWordCountByTakingCustomInput(evt) {
+function updateTextWordCountByTakingCustomInput(evt) {
 	if ( !evt.isTrusted ) return;
-}
 
+	// turn on "fixed" button active if not
+	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
+		SettingsChangeInUI.changeTextWordCountInUI("custom");
+		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
+	}
+	Config.text.word.count = this.value;
+
+	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+}
+function updateCustomWordsInputThresholdInputFoucsOut(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === "" && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
+		SettingsChangeInUI.changeMinimumBurstInUI("off");
+		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+	}
+}
 
 // ###############################################################################
 
@@ -590,7 +612,7 @@ function updateMinimumSpeed(evt) {
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn "on" button active if not
+	// turn on "on" button active if not
 	if ( SettingsElement.minimum.speed.off.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("on");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
@@ -598,6 +620,14 @@ function updateMinimumSpeedThresholdInput(evt) {
 	Config.minimum.speed.threshold = this.value;
 
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+}
+// minimum speed threshold input (focusout)
+function updateMinimumSpeedThresholdInputFoucsOut(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === "" && SettingsElement.minimum.speed.on.id === "selected" ) {
+		SettingsChangeInUI.changeMinimumSpeedInUI("off");
+		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
+	}
 }
 
 // minimum accuracy (s3)
@@ -620,7 +650,7 @@ function updateMinimumAccuracy(evt) {
 function updateMinimumAccuracyThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 	
-	// turn "on" button active if not
+	// turn on "on" button active if not
 	if ( SettingsElement.minimum.accuracy.off.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("on");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("on");
@@ -628,6 +658,14 @@ function updateMinimumAccuracyThresholdInput(evt) {
 	Config.minimum.accuracy.threshold = this.value;
 
 	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
+}
+// minimum accuracy threshold input (focusout)
+function updateMinimumAccuracyThresholdInputFoucsOut(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === "" && SettingsElement.minimum.accuracy.on.id === "selected" ) {
+		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
+		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
+	}
 }
 
 // minimum burst (s3)
@@ -650,7 +688,7 @@ function updateMinimumBurst(evt) {
 function updateMinimumBurstThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn "fixed" button active if not
+	// turn on "fixed" button active if not
 	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
@@ -658,6 +696,14 @@ function updateMinimumBurstThresholdInput(evt) {
 	Config.minimum.burst.threshold = this.value;
 
 	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+}
+// minimum burst threshold input (focusout)
+function updateMinimumBurstThresholdInputFoucsOut(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === "" && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
+		SettingsChangeInUI.changeMinimumBurstInUI("off");
+		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+	}
 }
 
 // keyboard reaction (s4)
@@ -681,25 +727,3 @@ function updateKeyboardLayoutEmulate(evt) {
 
 	console.log("Emulate:", Config.keyboard.layout.emulate);
 }
-
-// -------------------------------------------------------------------------------
-
-window.addEventListener("click", () => {
-
-	// if "off" button is not active but input field has been left blank then turn off minimum speed
-	if ( SettingsElement.minimum.speed.thresholdInput.value === "" && SettingsElement.minimum.speed.off !== "selected" ) {
-		SettingsChangeInUI.changeMinimumSpeedInUI("off");
-		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
-	}
-
-	// if "off" button is not active but input field has been left blank then turn off minimum accuracy
-	if ( SettingsElement.minimum.accuracy.thresholdInput.value === "" && SettingsElement.minimum.accuracy.off !== "selected" ) {
-		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
-		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
-	}
-	// if "off" button is not active but input field has been left blank then turn off minimum burst
-	if ( SettingsElement.minimum.burst.thresholdInput.value === "" && SettingsElement.minimum.burst.off !== "selected" ) {
-		SettingsChangeInUI.changeMinimumBurstInUI("off");
-		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
-	}
-});

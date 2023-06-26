@@ -292,6 +292,54 @@ export function changeMinimumBurstInUI(value) {
 	}
 }
 
+// text word count
+export function changeTextWordCountInUI(value) {
+	if ( value === "off" ) { // -1 (off)
+		SettingsElement.textWordCount.off.id = "selected";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "";
+	}	else if ( value === "10" ) {
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "selected";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "";
+	}	else if ( value === "25" ) {
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "selected";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "";
+	} else if ( value === "50" ) {
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "selected";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "";
+	} else if ( value === "100" ) {
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "selected";
+		SettingsElement.textWordCount.count.custom.id = "";
+	} else {
+		SettingsElement.textWordCount.off.id = "";
+		SettingsElement.textWordCount.count.words10.id = "";
+		SettingsElement.textWordCount.count.words25.id = "";
+		SettingsElement.textWordCount.count.words50.id = "";
+		SettingsElement.textWordCount.count.words100.id = "";
+		SettingsElement.textWordCount.count.custom.id = "selected"; // -2 (custom)
+	}
+}
+
+// keyboard reaction
 export function changeKeyboardReactionInUI(value) {
 	if ( value === "next" ) {
 		SettingsElement.keyboardReaction.off.id = "";
@@ -316,6 +364,7 @@ export function changeKeyboardReactionInUI(value) {
 	}
 }
 
+// emulate keyboard
 export function changeKeyboardLayoutEmulateInUI(value) {
 	if ( value === "on" ) {
 		SettingsElement.KeyboardLayoutEmulate.off.id = "";

@@ -1,6 +1,11 @@
 import Config from "../include/config.js";
 import * as SettingsElement from "./elements/settingsElements.js";
 
+window.addEventListener("click", () => {
+
+});
+
+
 // // set css property value
 // document.querySelector(":root").computedStyleMap.setProperty("--variable", value);
 // // retrieve css property value
