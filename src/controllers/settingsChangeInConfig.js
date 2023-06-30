@@ -290,12 +290,12 @@ export function changeMinimumBurstInConfig(value) {
 
 // text word count
 export function changeTextWordCountInConfig(value) {
-  if ( value === "infinite" ) {
-		Config.text.word.count = 0; // 0 (infinite)
+  if ( value === "custom" ) {
+		Config.text.word.count = -2; // -2 (custom)
 	} else if ( value === "off" ) {
 		Config.text.word.count = -1; // -1 (off)
-	} else if ( value === "custom" ) {
-		Config.text.word.count = -2; // -2 (custom)
+	} else if ( value === "infinite" ) {
+		Config.text.word.count = 0; // 0 (infinite)
 	} else if ( value === "10" ) {
 		Config.text.word.count = 10;
 	} else if ( value === "25" ) {

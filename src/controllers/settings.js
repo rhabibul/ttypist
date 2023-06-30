@@ -147,7 +147,7 @@ SettingsElement.textWordCount.count.words50.addEventListener("click", updateText
 SettingsElement.textWordCount.count.words100.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountByTakingCustomInput);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateCustomTextWordCountInputThresholdInputFoucsOut);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateCustomTextWordCountThresholdInputFoucsOut);
 
 // text word count (s5)
 function updateTextWordCount(evt) {
@@ -177,7 +177,7 @@ function updateTextWordCountByTakingCustomInput(evt) {
 
 	console.log("number of words:", Config.text.word.count);
 }
-function updateCustomTextWordCountInputThresholdInputFoucsOut(evt) {
+function updateCustomTextWordCountThresholdInputFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	if ( this.value === "" && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
