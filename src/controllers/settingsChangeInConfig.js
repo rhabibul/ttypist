@@ -307,6 +307,25 @@ export function changeTextWordCountInConfig(value) {
 	}
 }
 
+// text word count
+export function changeTimerSecondsInConfig(value) {
+  if ( value === "custom" ) {
+		Config.timer.time = -2; // -2 (custom)
+	} else if ( value === "off" ) {
+		Config.timer.time = -1; // -1 (off)
+	} else if ( value === "infinite" ) {
+		Config.timer.time = 0; // 0 (infinite)
+	} else if ( value === "15" ) {
+		Config.timer.time = 15;
+	} else if ( value === "30" ) {
+		Config.timer.time = 30;
+	} else if ( value === "60" ) {
+		Config.timer.time = 60;
+	} else if ( value === "120" ) {
+		Config.timer.time = 120;
+	}
+}
+
 // keyboard reaction
 export function changeKeyboardReactionInConfig(value) {
 	if ( value === "next" ) {

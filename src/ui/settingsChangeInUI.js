@@ -339,6 +339,10 @@ export function changeTextWordCountInUI(value) {
 	}
 }
 
+export function changeTimerSecondsInUI(value) {
+}
+
+
 // keyboard reaction
 export function changeKeyboardReactionInUI(value) {
 	if ( value === "next" ) {
