@@ -184,6 +184,10 @@ function updateCustomTextWordCountThresholdInputFoucsOut(evt) {
 		SettingsChangeInUI.changeTextWordCountInUI("off");
 		SettingsChangeInConfig.changeTextWordCountInConfig("off");
 	}
+
+	if ( (SettingsElement.textWordCount.count.custom.id === "selected") && SettingsElement.textWordCount.count.customWordsInput.value === "0" ) {
+		console.log("infinite words will be generated..");
+	}
 }
 
 // ###############################################################################
