@@ -125,7 +125,7 @@ export default {
       character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     word: {
-      count: 25, // -1(off) | 10 | 25 | 50 | 100 | -2(custom) | 0(infinite)
+      count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
       type: "dictionary", // dictionary | gibberish | quote | story | algorithm
       length: "mixed", // short(<5) | medium(>=5, <11), | long(>=11, inf) | mixed
     },
