@@ -145,13 +145,6 @@ div.paceCaretStyleButton {
 
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-div.caretStyleButton div.caretShapeContainer,
-div.paceCaretStyleButton div.caretShapeContainer {
-  width: 160px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -167,25 +160,26 @@ button.paceCaret-box,
 button.paceCaret-block {
   width: 20px;  
   height: var(--setting-button-height);
-  background-color: #f5f5f5b2;
-  border: 1px solid var(--setting-caret-border-color);
-  border-radius: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--setting-caret-border-color);
+  border-radius: calc(var(--setting-button-roundness) - 2px);
+  background-color: var(--setting-button-backgroundcolor);
 }
-button.caret-off span.shape-off,
-button.paceCaret-off span.shape-off {
-  width: 100%;
+
+button.caret-off,
+button.paceCaret-off {
+  flex-basis: 50%;
   height: 100%;
   font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-span.shape-off svg.iconCaretOff {
-  height: 100%;
-  fill: var(--setting-caret-color);
+
+  border-radius: var(--setting-button-roundness);
+  font-family: var(--RobotoMono);
+  font-size: 0.8rem;
 }
 span.shape-underline {
   width: var(--setting-caret-width);

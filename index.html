@@ -570,40 +570,6 @@
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
-
-        <div class="row" id="warnings">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
-              </svg>
-            </div>
-            <div class="text">warnings</div>
-          </div>
-          <div class="config buttonContainer warningsCheckboxButtonContainer s4">
-            <div class="warningsCheckboxButtonContainer-1 s2">
-              <div class="warningsCheckboxButton capslock">
-                <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="capslock">capslock</label>
-              </div>
-              <div class="warningsCheckboxButton numlock">
-                <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="numlock">numlock</label>
-              </div>
-            </div>
-            <div class="warningsCheckboxButtonContainer-2 s2">
-              <div class="warningsCheckboxButton scrolllock">
-                <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="scrolllock">scrolllock</label>
-              </div>
-              <div class="warningsCheckboxButton outoffocus">
-                <input id="outoffocus" data-value="outoffocus" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="outoffocus">out-of-focus</label>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="column c2">
@@ -930,30 +896,11 @@
             <div class="text">caret style</div>
           </div>
           <div class="config caret caretStyleButton s5">
-            <div class="caretShapeContainer">
-              <button class="caret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><svg class="iconCaretOff" width="256px" height="256px" viewBox="0 0 1000 1000"><path d="M500 930q-117 0-217-59-97-57-154-154-59-100-59-217t59-217q57-97 154-154 100-59 217-59t217 59q97 57 154 154 59 100 59 217t-59 217q-57 97-154 154-100 59-217 59zM320 760q39 28 85.5 42.5T500 817q86 0 160-44 71-42 113-113 44-74 44-160 0-48-14.5-94.5T760 320zm180-577q-86 0-160 44-71 42-113 113-44 74-44 160 0 48 14.5 94.5T240 680l440-440q-39-28-85.5-42.5T500 183z"></path></svg></span></button>
-              <button class="caret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
-              <button class="caret-line"      tabindex="0" role="button" type="button" value="line">     <span class="shape-line"></span></button>
-              <button class="caret-box"       tabindex="0" role="button" type="button" value="box">      <span class="shape-box"></span></button>
-              <button class="caret-block"     tabindex="0" role="button" type="button" value="block">    <span class="shape-block"></span></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row" id="caretColor">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret color</div>
-          </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
-            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
-            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
+            <button class="caret-off"       value="off"       tabindex="0" role="button" type="button">off</button>
+            <button class="caret-underline" value="underline" tabindex="0" role="button" type="button"><span class="shape-underline"></span></button>
+            <button class="caret-line"      value="line"      tabindex="0" role="button" type="button" id="selected"><span class="shape-line" style="background-color: white;"></span></button>
+            <button class="caret-box"       value="box"       tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
+            <button class="caret-block"     value="block"     tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
           </div>
         </div>
 
@@ -969,13 +916,28 @@
             <div class="text">pace caret style</div>
           </div>
           <div class="config paceCaretStyleButton s5">
-            <div class="caretShapeContainer">
-              <button class="paceCaret-off"       tabindex="0" role="button" type="button" value="off">      <span class="shape-off"><svg class="iconCaretOff" width="256px" height="256px" viewBox="0 0 1000 1000"><path d="M500 930q-117 0-217-59-97-57-154-154-59-100-59-217t59-217q57-97 154-154 100-59 217-59t217 59q97 57 154 154 59 100 59 217t-59 217q-57 97-154 154-100 59-217 59zM320 760q39 28 85.5 42.5T500 817q86 0 160-44 71-42 113-113 44-74 44-160 0-48-14.5-94.5T760 320zm180-577q-86 0-160 44-71 42-113 113-44 74-44 160 0 48 14.5 94.5T240 680l440-440q-39-28-85.5-42.5T500 183z"></path></svg></span></button>
-              <button class="paceCaret-underline" tabindex="0" role="button" type="button" value="underline"><span class="shape-underline"></span></button>
-              <button class="paceCaret-line"      tabindex="0" role="button" type="button" value="line">     <span class="shape-line"></span></button>
-              <button class="paceCaret-box"       tabindex="0" role="button" type="button" value="box">      <span class="shape-box"></span></button>
-              <button class="paceCaret-block"     tabindex="0" role="button" type="button" value="block">    <span class="shape-block"></span></button>
+              <button class="paceCaret-off"       value="off"       tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="paceCaret-underline" value="underline" tabindex="0" role="button" type="button"><span class="shape-underline"></span></button>
+              <button class="paceCaret-line"      value="line"      tabindex="0" role="button" type="button"><span class="shape-line"></span></button>
+              <button class="paceCaret-box"       value="box"       tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
+              <button class="paceCaret-block"     value="block"     tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
+          </div>
+        </div>
+
+        <div class="row" id="caretColor">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
             </div>
+            <div class="text">caret color</div>
+          </div>
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 
@@ -1038,7 +1000,7 @@
         <div class="row" id="speedUnit">
           <div class="label">
             <div class="symbol"><svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
-            <div class="text">measure speed in</div>
+            <div class="text">measure speed</div>
           </div>
           <div class="config buttonContainer speedUnitButton s2">
             <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
@@ -1058,7 +1020,7 @@
                 <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
               </svg>
             </div>
-            <div class="text">liveStats</div>
+            <div class="text">live stats</div>
           </div>
           <div class="config buttonContainer liveStatusCheckboxButtonContainer s3">
             <div class="liveStatusCheckboxButton speed" data-value="speed">
@@ -1084,13 +1046,47 @@
                 <path fill="var(--setting-icon-color)" opacity="1.0" d="M85.953,97.119c-0.497,1.657-0.748,3.135-0.748,4.542c0,8.808,7.183,15.98,15.99,15.98 c8.808,0,15.98-7.172,15.98-15.98s-7.172-15.99-15.98-15.99c-1.668,0-3.368,0.308-5.218,0.952l-0.816,0.286L55.823,59.255 l30.395,36.984L85.953,97.119z"></path>
               </svg>
             </div>
-            <div class="text">liveStatsCalc</div>
+            <div class="text">live stats calc</div>
           </div>
           <div class="config buttonContainer liveStatusIntervalButton s3">
             <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
             <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
             <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
           </div>      
+        </div>
+
+        <div class="row" id="warnings">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
+                <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
+              </svg>
+            </div>
+            <div class="text">warnings</div>
+          </div>
+          <div class="config buttonContainer warningsCheckboxButtonContainer s4">
+            <div class="warningsCheckboxButtonContainer-1 s2">
+              <div class="warningsCheckboxButton capslock">
+                <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="capslock">capslock</label>
+              </div>
+              <div class="warningsCheckboxButton numlock">
+                <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="numlock">numlock</label>
+              </div>
+            </div>
+            <div class="warningsCheckboxButtonContainer-2 s2">
+              <div class="warningsCheckboxButton scrolllock">
+                <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="scrolllock">scrolllock</label>
+              </div>
+              <div class="warningsCheckboxButton outoffocus">
+                <input id="outoffocus" data-value="outoffocus" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="outoffocus">out-of-focus</label>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="row" id="websiteTheme">

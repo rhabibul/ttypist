@@ -79,7 +79,7 @@
 }
 
 ::placeholder {
-	color: #dae7f3;
+	color: lightgray;
 	-moz-user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

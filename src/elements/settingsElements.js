@@ -79,12 +79,12 @@ export const minimum = {
 	}
 }
 export const caret = {
-	off: document.querySelector("div.s5.config.caretStyleButton div.caretShapeContainer button.caret-off"),
+	off: document.querySelector("div.s5.config.caretStyleButton button.caret-off"),
 	style: {
-		underline: document.querySelector("div.s5.config.caretStyleButton div.caretShapeContainer button.caret-underline"),
-		line: document.querySelector("div.s5.config.caretStyleButton div.caretShapeContainer button.caret-line"),
-		box: document.querySelector("div.s5.config.caretStyleButton div.caretShapeContainer button.caret-box"),
-		block: document.querySelector("div.s5.config.caretStyleButton div.caretShapeContainer button.caret-block"),
+		underline: document.querySelector("div.s5.config.caretStyleButton button.caret-underline"),
+		line: document.querySelector("div.s5.config.caretStyleButton button.caret-line"),
+		box: document.querySelector("div.s5.config.caretStyleButton button.caret-box"),
+		block: document.querySelector("div.s5.config.caretStyleButton button.caret-block"),
 	},
 	color: {
 		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.caretColorInputContainer input[type='color'].colorSelectorInput.caretColorSelectorInput"),
@@ -92,12 +92,12 @@ export const caret = {
 	}
 }
 export const pacecaret = {
-	off: document.querySelector("div.s5.config.paceCaretStyleButton div.caretShapeContainer button.paceCaret-off"),
+	off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 	style: {
-		underline: document.querySelector("div.s5.config.paceCaretStyleButton div.caretShapeContainer button.paceCaret-underline"),
-		line: document.querySelector("div.s5.config.paceCaretStyleButton div.caretShapeContainer button.paceCaret-line"),
-		box: document.querySelector("div.s5.config.paceCaretStyleButton div.caretShapeContainer button.paceCaret-box"),
-		block: document.querySelector("div.s5.config.paceCaretStyleButton div.caretShapeContainer button.paceCaret-block"),
+		underline: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underline"),
+		line: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-line"),
+		box: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-box"),
+		block: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-block"),
 	},
 	color: {
 		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
