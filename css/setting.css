@@ -651,6 +651,15 @@ div.colorPickerContainer input[type="color"].colorSelectorInput.paceCaretColorSe
 	border-left-color: var(--pace-caret-color);
 }
 
+div.row#textColors {
+	height: 80px;
+}
+div.config.buttonContainer.textColors {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3px;
+}
+
 /* -------------------------- input sliders -------------------------- */
 input[type=range] {
 	width: calc(var(--setting-buttons-container-width) * 0.75);

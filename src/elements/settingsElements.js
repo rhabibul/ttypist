@@ -133,12 +133,12 @@ export const textUnderline = {
 }
 export const textColor = {
 	primary: {
-		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.primaryTextColorInputContainer input[type='color'].colorSelectorInput.primaryTextColorSelectorInput"),
-		textInput: document.querySelector("div.s1.config.colorPickerContainer.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
+		selectorInput: document.querySelector("div.s1.colorPickerContainer.primaryTextColorInputContainer input[type='color'].colorSelectorInput.primaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.s1.colorPickerContainer.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
 	},
 	secondary: {
-		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
-		textInput: document.querySelector("div.s1.config.colorPickerContainer.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
+		selectorInput: document.querySelector("div.s1.colorPickerContainer.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.s1.colorPickerContainer.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
 	}
 }
 export const timer = {
