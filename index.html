@@ -333,7 +333,7 @@
         <div class="row" id="goBackOnCorrect">
           <div class="label">
             <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
-            <div class="text">deletionOnCorrect</div>
+            <div class="text">deleteOnCorrect</div>
           </div>
           <div class="config buttonContainer goBackOnCorrectButton s2">
             <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
@@ -477,102 +477,75 @@
           </div>
         </div>
 
-        <div class="row" id="UIKeyboardReaction">
+        <div class="row" id="liveStatus">
           <div class="label">
-            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
-            <div class="text">keyboard</div>
+            <div class="symbol">
+              <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
+                <rect   fill="none" width="48" height="48" fill="none"></rect>
+                <circle fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
+                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
+              </svg>
+            </div>
+            <div class="text">liveStats</div>
           </div>
-          <div class="config buttonContainer keyboardReactionButton s4">
-            <button class="button off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="button static" value="static" tabindex="0" role="button" type="button">static</button>
-            <button class="button react"  value="react"  tabindex="0" role="button" type="button">react</button>
-            <button class="button next"   value="next"   tabindex="0" role="button" type="button">next</button>
+          <div class="config buttonContainer liveStatusCheckboxButtonContainer s3">
+            <div class="liveStatusCheckboxButton speed" data-value="speed">
+              <input tabindex="0" type="checkbox" id="speed" name="liveStatusCheckboxButton">
+              <label for="speed">speed</label>
+            </div>
+            <div class="liveStatusCheckboxButton accuracy" data-value="accuracy">
+              <input tabindex="0" type="checkbox" id="accuracy" name="liveStatusCheckboxButton">
+              <label for="accuracy">accuracy</label>
+            </div>
+            <div class="liveStatusCheckboxButton burst" data-value="burst">
+              <input tabindex="0" type="checkbox" id="burst" name="liveStatusCheckboxButton">
+              <label for="burst">burst</label>
+            </div>
           </div>
         </div>
 
-        <div class="row" id="UIKeyboardLanguage">
+        <div class="row" id="liveStatusInterval">
           <div class="label">
-            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
-            <div class="text">language</div>
+            <div class="symbol">
+              <svg class="iconLiveStatusInterval" height="256px" width="256px" viewBox="0 0 199.33 199.33">
+                <path fill="var(--setting-icon-color)" opacity="0.6" d="M99.664,0h-4.066v39.149h8.131V8.228c48.594,2.144,87.456,42.338,87.456,91.436 c0,50.473-41.053,91.533-91.522,91.533S8.142,150.136,8.142,99.664c0-20.657,6.707-40.144,19.412-56.363l-6.413-5.018 C7.308,55.952,0,77.178,0,99.664c0,54.957,44.714,99.664,99.664,99.664c54.957,0,99.664-44.703,99.664-99.664 C199.328,44.714,154.621,0,99.664,0z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M85.953,97.119c-0.497,1.657-0.748,3.135-0.748,4.542c0,8.808,7.183,15.98,15.99,15.98 c8.808,0,15.98-7.172,15.98-15.98s-7.172-15.99-15.98-15.99c-1.668,0-3.368,0.308-5.218,0.952l-0.816,0.286L55.823,59.255 l30.395,36.984L85.953,97.119z"></path>
+              </svg>
+            </div>
+            <div class="text">liveStatsInterval</div>
           </div>
-          <div class="config buttonContainer details UIKeyboardLanguageListContainer s1">
-            <details class="UIKeyboardLanguageList">
-              <summary>
-                <div class="text value in-use">English</div>
-                <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
-              </summary>
-              <div class="list">
-                <div class="item keyboardLanguage Bengali" data-value="Bengali">
-                  <div class="text value">Bengali</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLanguage Hindi" data-value="Hindi">
-                  <div class="text value">Hindi</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLanguage English" data-value="English">
-                  <div class="text value">English</div>
-                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLanguage Russian" data-value="Russian">
-                  <div class="text value">Russian</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLanguage Arabic" data-value="Arabic">
-                  <div class="text value">Arabic</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="row" id="UIKeyboardLayout">
-          <div class="label">
-            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
-            <div class="text">layout</div>
-          </div>
-          <div class="config buttonContainer details UIKeyboardLayoutListContainer s1">
-            <details class="UIKeyboardLayoutList">
-              <summary>
-                <div class="text value in-use">qwerty</div>
-                <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
-              </summary>
-              <div class="list">
-                <div class="item keyboardLayout dvorak" data-value="dvorak">
-                  <div class="text">dvorak</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLayout qwerty" data-value="qwerty">
-                  <div class="text">qwerty</div>
-                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLayout colemak" data-value="colemak">
-                  <div class="text">colemak</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-                <div class="item keyboardLayout workman" data-value="workman">
-                  <div class="text">workman</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
-                </div>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="row" id="UIKeyboardLayoutEmulate">
-          <div class="label">
-            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
-            <div class="text">emulate layout</div>
-          </div>
-          <div class="config buttonContainer UIKeyboardLayoutEmulateButton s2">
-            <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
-          </div>
+          <div class="config buttonContainer liveStatusIntervalButton s3">
+            <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
+            <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
+            <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
+          </div>      
         </div>
       </div>
 
       <div class="column c2">
+        <div class="row" id="websiteTheme">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconTheme" height="200px" width="200px" viewBox="0 0 512 512">
+                <path fill="var(--setting-icon-color)" d="M108.303,151.078c15.132,21.096,36.72,35.172,56.347,36.762l0.823,0.075l36.85-26.438l0.196-0.801 c4.774-19.103-1.646-44.071-16.773-65.155c-14.357-20.004-31.076-33.728-47.253-47.01c-11.037-9.056-22.458-18.434-33.117-29.78 C96.553,9.334,93.583,4.692,93.574,4.68L90.713,0l-2.4,2.826C77.173,15.981,72.721,39.694,76.076,67.873 C79.592,97.464,91.048,127.024,108.303,151.078z M116.517,116.056c12.018,13.598,17.63,4.692,10.4-9.17 c-9.079-17.388,0.098-18.012,5.682-12.601c5.566,5.392,12.541,17.476,18.548,14.014c3.611-2.081-0.268-9.568-5.38-20.913 c-2.932-6.496-0.4-16.24,14.701-3.236c5.515,5.544,10.747,11.523,15.618,18.309c10.564,14.707,15.565,32.428,13.121,46.329 l-31.55,22.642c-13.963-2.132-29.12-12.551-39.697-27.284c-4.049-5.651-7.761-11.768-11.078-18.201 c-0.356-0.921-0.763-1.904-1.236-2.946C100.379,111.402,104.5,102.472,116.517,116.056z"></path>
+                <path fill="var(--setting-icon-color)" d="M179.632,215.898c0.511,8.306,4.156,17.363,10.078,25.05l26.851,34.813l52.614-37.746l-24.376-36.579 c-5.38-8.085-12.793-14.43-20.5-17.576c-7.707-3.147-15.038-2.794-20.267,0.952l-16.994,12.197 C181.805,200.756,179.13,207.598,179.632,215.898z"></path>
+                <path fill="var(--setting-icon-color)" d="M277.84,251.026l-51.722,37.103l160.228,207.73c11.109,14.411,27.51,20.182,37.323,13.156l0.116-0.101 c9.807-7.032,9.586-24.42-0.501-39.562L277.84,251.026z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M212.647,302.413l-38.279-49.634c-8.328-10.81-13.323-23.48-14.073-35.689 c-0.214-3.557-0.038-6.988,0.457-10.28c-20.506-2.321-41.472-14.152-58.391-32.555c-30.877,41.308-44.976,90.558-34.693,137.297 c19.973,90.772,124.179,137.619,232.762,104.647l-87.77-113.792L212.647,302.413z M113.191,229.792 c4.276-12.866,18.163-19.829,31.022-15.565c12.866,4.276,19.835,18.163,15.565,31.029c-4.276,12.866-18.17,19.828-31.023,15.564 C115.89,256.532,108.921,242.644,113.191,229.792z M160.125,342.619c-8.829,9.321-23.549,9.737-32.871,0.908 c-9.328-8.83-9.731-23.536-0.902-32.858c8.823-9.334,23.536-9.738,32.864-0.908C168.539,318.577,168.949,333.297,160.125,342.619z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M438.63,142.04c-38.711-57.984-124.224-80.801-210.512-54.591c-6.83,2.075-13.509,4.415-20.033,7.007 c13.181,22.635,18.173,47.433,13.642,68.611c3.295,0.586,6.606,1.514,9.898,2.857c11.349,4.636,21.755,13.434,29.304,24.779 l34.747,52.144h-0.003l87.029,130.644c12.503-9.763,23.909-20.478,33.861-32.032c11.617-13.484,15.641-55.196-38.181-53.039 c-57.391,2.296-65.338-67.999-6.458-73.196C445.119,208.765,460.186,174.318,438.63,142.04z M281.921,162.902 c-14.884,1.741-28.342-8.93-30.07-23.802c-1.734-14.884,8.924-28.342,23.808-30.07c14.878-1.728,28.342,8.931,30.07,23.802 C307.463,147.716,296.798,161.175,281.921,162.902z M393.474,176.714c-5.298,5.285-12.608,8.325-20.093,8.325 c-7.486,0-14.802-3.04-20.094-8.325c-5.291-5.298-8.324-12.613-8.324-20.093c0-7.493,3.033-14.808,8.324-20.106 c5.292-5.285,12.608-8.312,20.094-8.312c7.486,0,14.796,3.027,20.093,8.312c5.291,5.298,8.324,12.613,8.324,20.106 C401.798,164.101,398.765,171.416,393.474,176.714z"></path>
+              </svg>
+            </div>
+            <div class="text">theme</div>
+          </div>
+          <div class="config buttonContainer websiteThemeButton s3">
+            <button class="button light"    value="light" tabindex="0" role="button" type="button" id="selected">light</button>
+            <button class="button midnight" value="midnight" tabindex="0" role="button" type="button">midnight</button>
+            <button class="button dark"     value="dark" tabindex="0" role="button" type="button">dark</button>
+          </div>
+        </div>
+
         <div class="row" id="dynamicSettings">
           <div class="label">
             <div class="symbol">
@@ -604,7 +577,6 @@
             </div>
             <div class="text">text color</div>
           </div>
-
           <div class="config buttonContainer textColors">
             <div class="colorPickerContainer primaryTextColorInputContainer s1">
               <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
@@ -612,7 +584,7 @@
             </div>
             <div class="colorPickerContainer secondaryTextColorInputContainer s1">
               <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
-              <input class="colorTextInput secondaryTextColorTextInput"        type="text"  placeholder="secondary">
+              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary">
             </div>
           </div>
         </div>
@@ -998,51 +970,98 @@
           </div>
         </div>
 
-        <div class="row" id="liveStatus">
+        <div class="row" id="UIKeyboardReaction">
           <div class="label">
-            <div class="symbol">
-              <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
-                <rect   fill="none" width="48" height="48" fill="none"></rect>
-                <circle fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
-              </svg>
-            </div>
-            <div class="text">live stats</div>
+            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
+            <div class="text">keyboard</div>
           </div>
-          <div class="config buttonContainer liveStatusCheckboxButtonContainer s3">
-            <div class="liveStatusCheckboxButton speed" data-value="speed">
-              <input tabindex="0" type="checkbox" id="speed" name="liveStatusCheckboxButton">
-              <label for="speed">speed</label>
-            </div>
-            <div class="liveStatusCheckboxButton accuracy" data-value="accuracy">
-              <input tabindex="0" type="checkbox" id="accuracy" name="liveStatusCheckboxButton">
-              <label for="accuracy">accuracy</label>
-            </div>
-            <div class="liveStatusCheckboxButton burst" data-value="burst">
-              <input tabindex="0" type="checkbox" id="burst" name="liveStatusCheckboxButton">
-              <label for="burst">burst</label>
-            </div>
+          <div class="config buttonContainer keyboardReactionButton s4">
+            <button class="button off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button static" value="static" tabindex="0" role="button" type="button">static</button>
+            <button class="button react"  value="react"  tabindex="0" role="button" type="button">react</button>
+            <button class="button next"   value="next"   tabindex="0" role="button" type="button">next</button>
           </div>
         </div>
 
-        <div class="row" id="liveStatusInterval">
+        <div class="row" id="UIKeyboardLanguage">
           <div class="label">
-            <div class="symbol">
-              <svg class="iconLiveStatusInterval" height="256px" width="256px" viewBox="0 0 199.33 199.33">
-                <path fill="var(--setting-icon-color)" opacity="0.6" d="M99.664,0h-4.066v39.149h8.131V8.228c48.594,2.144,87.456,42.338,87.456,91.436 c0,50.473-41.053,91.533-91.522,91.533S8.142,150.136,8.142,99.664c0-20.657,6.707-40.144,19.412-56.363l-6.413-5.018 C7.308,55.952,0,77.178,0,99.664c0,54.957,44.714,99.664,99.664,99.664c54.957,0,99.664-44.703,99.664-99.664 C199.328,44.714,154.621,0,99.664,0z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M85.953,97.119c-0.497,1.657-0.748,3.135-0.748,4.542c0,8.808,7.183,15.98,15.99,15.98 c8.808,0,15.98-7.172,15.98-15.98s-7.172-15.99-15.98-15.99c-1.668,0-3.368,0.308-5.218,0.952l-0.816,0.286L55.823,59.255 l30.395,36.984L85.953,97.119z"></path>
-              </svg>
-            </div>
-            <div class="text">live stats calc</div>
+            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
+            <div class="text">language</div>
           </div>
-          <div class="config buttonContainer liveStatusIntervalButton s3">
-            <button class="button word"      tabindex="0" role="button" type="button" value="word">word</button>
-            <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
-            <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
-          </div>      
+          <div class="config buttonContainer details UIKeyboardLanguageListContainer s1">
+            <details class="UIKeyboardLanguageList">
+              <summary>
+                <div class="text value in-use">English</div>
+                <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
+              </summary>
+              <div class="list">
+                <div class="item keyboardLanguage Bengali" data-value="Bengali">
+                  <div class="text value">Bengali</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLanguage Hindi" data-value="Hindi">
+                  <div class="text value">Hindi</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLanguage English" data-value="English">
+                  <div class="text value">English</div>
+                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLanguage Russian" data-value="Russian">
+                  <div class="text value">Russian</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLanguage Arabic" data-value="Arabic">
+                  <div class="text value">Arabic</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="row" id="UIKeyboardLayout">
+          <div class="label">
+            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
+            <div class="text">layout</div>
+          </div>
+          <div class="config buttonContainer details UIKeyboardLayoutListContainer s1">
+            <details class="UIKeyboardLayoutList">
+              <summary>
+                <div class="text value in-use">qwerty</div>
+                <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
+              </summary>
+              <div class="list">
+                <div class="item keyboardLayout dvorak" data-value="dvorak">
+                  <div class="text">dvorak</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLayout qwerty" data-value="qwerty">
+                  <div class="text">qwerty</div>
+                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLayout colemak" data-value="colemak">
+                  <div class="text">colemak</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+                <div class="item keyboardLayout workman" data-value="workman">
+                  <div class="text">workman</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="row" id="UIKeyboardLayoutEmulate">
+          <div class="label">
+            <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
+            <div class="text">emulate layout</div>
+          </div>
+          <div class="config buttonContainer UIKeyboardLayoutEmulateButton s2">
+            <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
+          </div>
         </div>
 
         <div class="row" id="warnings">
@@ -1076,26 +1095,6 @@
                 <label for="outoffocus">out-of-focus</label>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="row" id="websiteTheme">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconTheme" height="200px" width="200px" viewBox="0 0 512 512">
-                <path fill="var(--setting-icon-color)" d="M108.303,151.078c15.132,21.096,36.72,35.172,56.347,36.762l0.823,0.075l36.85-26.438l0.196-0.801 c4.774-19.103-1.646-44.071-16.773-65.155c-14.357-20.004-31.076-33.728-47.253-47.01c-11.037-9.056-22.458-18.434-33.117-29.78 C96.553,9.334,93.583,4.692,93.574,4.68L90.713,0l-2.4,2.826C77.173,15.981,72.721,39.694,76.076,67.873 C79.592,97.464,91.048,127.024,108.303,151.078z M116.517,116.056c12.018,13.598,17.63,4.692,10.4-9.17 c-9.079-17.388,0.098-18.012,5.682-12.601c5.566,5.392,12.541,17.476,18.548,14.014c3.611-2.081-0.268-9.568-5.38-20.913 c-2.932-6.496-0.4-16.24,14.701-3.236c5.515,5.544,10.747,11.523,15.618,18.309c10.564,14.707,15.565,32.428,13.121,46.329 l-31.55,22.642c-13.963-2.132-29.12-12.551-39.697-27.284c-4.049-5.651-7.761-11.768-11.078-18.201 c-0.356-0.921-0.763-1.904-1.236-2.946C100.379,111.402,104.5,102.472,116.517,116.056z"></path>
-                <path fill="var(--setting-icon-color)" d="M179.632,215.898c0.511,8.306,4.156,17.363,10.078,25.05l26.851,34.813l52.614-37.746l-24.376-36.579 c-5.38-8.085-12.793-14.43-20.5-17.576c-7.707-3.147-15.038-2.794-20.267,0.952l-16.994,12.197 C181.805,200.756,179.13,207.598,179.632,215.898z"></path>
-                <path fill="var(--setting-icon-color)" d="M277.84,251.026l-51.722,37.103l160.228,207.73c11.109,14.411,27.51,20.182,37.323,13.156l0.116-0.101 c9.807-7.032,9.586-24.42-0.501-39.562L277.84,251.026z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M212.647,302.413l-38.279-49.634c-8.328-10.81-13.323-23.48-14.073-35.689 c-0.214-3.557-0.038-6.988,0.457-10.28c-20.506-2.321-41.472-14.152-58.391-32.555c-30.877,41.308-44.976,90.558-34.693,137.297 c19.973,90.772,124.179,137.619,232.762,104.647l-87.77-113.792L212.647,302.413z M113.191,229.792 c4.276-12.866,18.163-19.829,31.022-15.565c12.866,4.276,19.835,18.163,15.565,31.029c-4.276,12.866-18.17,19.828-31.023,15.564 C115.89,256.532,108.921,242.644,113.191,229.792z M160.125,342.619c-8.829,9.321-23.549,9.737-32.871,0.908 c-9.328-8.83-9.731-23.536-0.902-32.858c8.823-9.334,23.536-9.738,32.864-0.908C168.539,318.577,168.949,333.297,160.125,342.619z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M438.63,142.04c-38.711-57.984-124.224-80.801-210.512-54.591c-6.83,2.075-13.509,4.415-20.033,7.007 c13.181,22.635,18.173,47.433,13.642,68.611c3.295,0.586,6.606,1.514,9.898,2.857c11.349,4.636,21.755,13.434,29.304,24.779 l34.747,52.144h-0.003l87.029,130.644c12.503-9.763,23.909-20.478,33.861-32.032c11.617-13.484,15.641-55.196-38.181-53.039 c-57.391,2.296-65.338-67.999-6.458-73.196C445.119,208.765,460.186,174.318,438.63,142.04z M281.921,162.902 c-14.884,1.741-28.342-8.93-30.07-23.802c-1.734-14.884,8.924-28.342,23.808-30.07c14.878-1.728,28.342,8.931,30.07,23.802 C307.463,147.716,296.798,161.175,281.921,162.902z M393.474,176.714c-5.298,5.285-12.608,8.325-20.093,8.325 c-7.486,0-14.802-3.04-20.094-8.325c-5.291-5.298-8.324-12.613-8.324-20.093c0-7.493,3.033-14.808,8.324-20.106 c5.292-5.285,12.608-8.312,20.094-8.312c7.486,0,14.796,3.027,20.093,8.312c5.291,5.298,8.324,12.613,8.324,20.106 C401.798,164.101,398.765,171.416,393.474,176.714z"></path>
-              </svg>
-            </div>
-            <div class="text">theme</div>
-          </div>
-          <div class="config buttonContainer websiteThemeButton s3">
-            <button class="button light"    value="light" tabindex="0" role="button" type="button" id="selected">light</button>
-            <button class="button midnight" value="midnight" tabindex="0" role="button" type="button">midnight</button>
-            <button class="button dark"     value="dark" tabindex="0" role="button" type="button">dark</button>
           </div>
         </div>
       </div>
