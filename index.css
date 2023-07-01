@@ -357,7 +357,7 @@ text word letter.whitespace.bullet.ws-active::after {
 .error {
   color: var(--text-color-error);
 }
-.__ {
+.__ { /* use underline class for it and use underscore for caret */
   text-decoration-color: var(--text-color-primary);
   text-decoration-style: solid;
   text-decoration-line: underline;

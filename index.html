@@ -453,9 +453,7 @@
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
-      </div>
 
-      <div class="column c2">
         <div class="row" id="dynamicSettings">
           <div class="label">
             <div class="symbol">
@@ -473,6 +471,25 @@
           <div class="config buttonContainer dynamicSettingsButton s2">
             <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="button on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="column c2">
+        <div class="row" id="textUnderline">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconTextUnderline" width="256px" height="256px" viewBox="-2 0 20 20">
+                <g transform="translate(-4 -2)">
+                <line fill="none" stroke="var(--setting-icon-color)" opacity="1.0" x1="14" transform="translate(5 21)"         stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                <path fill="none" stroke="var(--setting-icon-color)" opacity="0.4"  d="M7,3v9a5,5,0,0,0,5,5h0a5,5,0,0,0,5-5V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+              </svg>
+            </div>
+            <div class="text">text underline</div>
+          </div>
+          <div class="config buttonContainer textUnderlineButton s2">
+            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
    
@@ -549,24 +566,7 @@
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
-
-        <div class="row" id="textUnderline">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconTextUnderline" width="256px" height="256px" viewBox="-2 0 20 20">
-                <g transform="translate(-4 -2)">
-                <line fill="none" stroke="var(--setting-icon-color)" opacity="1.0" x1="14" transform="translate(5 21)"         stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
-                <path fill="none" stroke="var(--setting-icon-color)" opacity="0.4"  d="M7,3v9a5,5,0,0,0,5,5h0a5,5,0,0,0,5-5V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-              </svg>
-            </div>
-            <div class="text">text underline</div>
-          </div>
-          <div class="config buttonContainer textUnderlineButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
-          </div>
-        </div>
-
+        
         <div class="row" id="textWhitespace">
           <div class="label">
             <div class="symbol"> <svg class="iconTextWhitespace"  stroke="var(--setting-icon-color)" stroke-width="2" width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80"> <path d="M21 21V3M3 21V3M6.5 12H17.5M17.5 15L17.5 9M6.5 15L6.5 9"></path></svg></div>

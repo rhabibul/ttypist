@@ -37,10 +37,6 @@ SettingsElement.tape.off.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.letter.addEventListener("click", updateTapeMode);
 SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
 
-// text scroll
-SettingsElement.textScroll.abrupt.addEventListener("click", updateTextScroll);
-SettingsElement.textScroll.smooth.addEventListener("click", updateTextScroll);
-
 // text highlight
 SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
 SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
@@ -470,15 +466,6 @@ function updateTapeMode(evt) {
 	
 	SettingsChangeInUI.changeTapeModeInUI(this.value);
 	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
-}
-
-// text scroll (s2)
-function updateTextScroll(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.text.scroll.abrupt && this.value === "abrupt") || (Config.text.scroll.smooth && this.value === "smooth") ) return;
-	
-	SettingsChangeInUI.changeTextScrollInUI(this.value);
-	SettingsChangeInConfig.changeTextScrollInConfig(this.value);
 }
 
 // text highlight (s3)

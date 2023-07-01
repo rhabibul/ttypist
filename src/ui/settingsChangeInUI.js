@@ -53,16 +53,6 @@ export function changeTextInputInUI(value) {
 	}
 }
 
-export function changeTextScrollInUI(value) {
-	if ( value === "smooth" ) {
-		SettingsElement.textScroll.abrupt.id = "";
-		SettingsElement.textScroll.smooth.id = "selected";
-	} else {
-		SettingsElement.textScroll.abrupt.id = "selected";
-		SettingsElement.textScroll.smooth.id = "";
-	}
-}
-
 export function changeTextHightlightInUI(value) {
 	if ( value === "word" ) {
 		SettingsElement.textHighlight.off.id = "";
@@ -340,6 +330,7 @@ export function changeTextWordCountInUI(value) {
 }
 
 export function changeTimerSecondsInUI(value) {
+	
 }
 
 

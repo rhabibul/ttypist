@@ -39,16 +39,6 @@ export function changeTextInputInConfig(value) {
 	}
 }
 
-export function changeTextScrollInConfig(value) {
-	if ( value === "smooth" ) {
-		Config.text.scroll.smooth = true;
-		Config.text.scroll.abrupt = false;
-	} else {
-		Config.text.scroll.smooth = false;
-		Config.text.scroll.abrupt = true;
-	}
-}
-
 export function changeTextHightlightInConfig(value) {
 	if ( value === "word" ) {
 		Config.text.highlight.off = false;
