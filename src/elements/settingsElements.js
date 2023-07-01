@@ -203,10 +203,6 @@ export const textInclude = {
 	digit: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.digit input[type='checkbox']#digit"),
 	punctuation: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.punctuation input[type='checkbox']#punctuation"),
 }
-export const textScroll = {
-	abrupt: document.querySelector("div.s2.config.buttonContainer.textScrollButton button.button.abrupt"),
-	smooth: document.querySelector("div.s2.config.buttonContainer.textScrollButton button.button.smooth"),
-}
 export const stats = {
 	live: {
 		speed: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.speed input[type='checkbox']#speed"),
