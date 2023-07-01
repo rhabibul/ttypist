@@ -2,10 +2,10 @@ export default {
   websitetheme: "light", // light | midnight | dark
   setting: {
     dynamic: true, // live setting changes without restarting test
-    // view: {
-    //   condense: true,
-    //   expand: false,
-    // },
+    view: {
+      condense: true,
+      expand: false,
+    },
   },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
@@ -67,14 +67,9 @@ export default {
       },
     }
   },
-  timer: {
-    off: false,
-    time: 60, // 15 | 30 | 60 | 120 | input
-    hide: false,
-  },
   caret: {
     off: true, // none
-    style: "line", // off | line | underline | box | block (change underline -> underscore)
+    style: "block", // off | line | underline | box | block (change underline -> underscore)
     color: "black",
   },
   pacecaret: {
@@ -143,6 +138,11 @@ export default {
       abrupt: true,
       smooth: false,
     },
+  },
+  timer: {
+    off: false,
+    time: 60, // 15 | 30 | 60 | 120 | input
+    hide: false,
   },
   stats: {
     live: {
