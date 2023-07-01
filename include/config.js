@@ -69,12 +69,12 @@ export default {
   },
   caret: {
     off: true, // none
-    style: "box", // off | line | underline | box | block (change underline -> underscore)
+    style: "line", // off | line | underline | box | block (change underline -> underscore)
     color: "black",
   },
   pacecaret: {
     off: true, // none
-    style: "line", // off | line | underline | box | block (change underline -> underscore)
+    style: "box", // off | line | underline | box | block (change underline -> underscore)
     color: "black",
     threshold: {
       off: true,
