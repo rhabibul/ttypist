@@ -125,16 +125,6 @@ SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimu
 SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
 SettingsElement.minimum.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputFoucsOut);
 
-// keyboard reaction
-SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
-
-// keyboard layout emulate
-SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
-SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
-
 // text word count
 SettingsElement.textWordCount.off.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.words10.addEventListener("click", updateTextWordCount);
@@ -144,51 +134,6 @@ SettingsElement.textWordCount.count.words100.addEventListener("click", updateTex
 SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountInputField);
 SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
-
-// text word count (s5)
-function updateTextWordCount(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.text.word.count === -1 && this.value === "off") || (Config.text.word.count === -2 && this.value === "custom") || (Config.text.word.count === 10 && this.value === "10") || (Config.text.word.count === 25 && this.value === "25") || (Config.text.word.count === 50 && this.value === "50") || (Config.text.word.count === 100 && this.value === "100") ) return;
-
-	if ( this.value === "custom" ) {
-		SettingsElement.textWordCount.count.customWordsInput.focus();
-	} else {
-		SettingsElement.textWordCount.count.customWordsInput.value = "";
-	}
-	
-	SettingsChangeInUI.changeTextWordCountInUI(this.value);
-	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
-
-	console.log("number of words:", Config.text.word.count);
-}
-// text word count input
-function updateTextWordCountInputField(evt) {
-	if ( !evt.isTrusted ) return;
-
-	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
-		SettingsChangeInUI.changeTextWordCountInUI("custom");
-		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
-	}
-	Config.text.word.count = Number(this.value);
-
-	console.log("number of words [input]:", Config.text.word.count);
-}
-// text word count input (focusout)
-function updateTextWordCountInputFieldOnFoucsOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// turn off custom button if no value is entered in words input field
-	if ( (this.value === "") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
-		SettingsChangeInUI.changeTextWordCountInUI("off");
-		SettingsChangeInConfig.changeTextWordCountInConfig("off");
-	}
-
-	// generate infinite words
-	if ( (SettingsElement.textWordCount.count.custom.id === "selected") && (SettingsElement.textWordCount.count.customWordsInput.value === "0") ) {
-		console.log("infinite words will be generated...");
-	}
-}
-
 
 // timer
 SettingsElement.timer.off.addEventListener("click", updateTimerSeconds);
@@ -200,66 +145,19 @@ SettingsElement.timer.time.custom.addEventListener("click", updateTimerSeconds);
 SettingsElement.timer.time.customSecondsInput.addEventListener("input", updateTimerSecondsInputField);
 SettingsElement.timer.time.customSecondsInput.addEventListener("focusout", updateTimerSecondsInputFieldOnFocusOut);
 
-// hide timer
+// timer visibility
 SettingsElement.timer.hidden.off.addEventListener("click", updateTimerVisibilityInUI);
 SettingsElement.timer.hidden.on.addEventListener("click", updateTimerVisibilityInUI);
 
-// timer
-function updateTimerSeconds(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.timer.time === -2 && this.value === "custom") || (Config.timer.time === -1 && this.value === "off") || (Config.timer.time === 15 && this.value === "15") || (Config.timer.time === 30 && this.value === "30") || (Config.timer.time === 60 && this.value === "60") || (Config.timer.time === 120 && this.value === "120") ) return;
+// keyboard reaction
+SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
 
-	if ( this.value === "custom" ) {
-		SettingsElement.timer.time.customSecondsInput.focus();
-	} else {
-		SettingsElement.timer.time.customSecondsInput.value = "";
-	}
-
-	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
-	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
-
-	console.log("number of seconds:", Config.timer.time);
-}
-
-// timer custom seconds input
-function updateTimerSecondsInputField(evt) {
-	if ( !evt.isTrusted ) return;
-
-	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
-		SettingsChangeInUI.changeTimerSecondsInUI("custom");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
-	}
-	Config.timer.time = Number(this.value);
-
-	console.log("number of seconds [input]:", Config.timer.time);
-}
-
-// timer custom seconds input (focusout)
-function updateTimerSecondsInputFieldOnFocusOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// turn off custom button if no value is entered in words input field
-	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
-		SettingsChangeInUI.changeTimerSecondsInUI("off");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
-	}
-
-	// timer never stops until users wants to it stop
-	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
-		console.log("infinite timer started...");
-	}
-}
-
-// hide timer
-function updateTimerVisibilityInUI(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.timer.hidden && this.value === "off") || (!Config.timer.hidden && this.value === "on") ) return;
-
-	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
-	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
-
-	console.log("timer visibility (off):", Config.timer.hidden);
-}
+// keyboard layout emulate
+SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
+SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
 // ###############################################################################
 
@@ -751,6 +649,109 @@ function updateMinimumBurstThresholdInputFoucsOut(evt) {
 		SettingsChangeInUI.changeMinimumBurstInUI("off");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
 	}
+}
+
+// text word count (s5)
+function updateTextWordCount(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.text.word.count === -1 && this.value === "off") || (Config.text.word.count === -2 && this.value === "custom") || (Config.text.word.count === 10 && this.value === "10") || (Config.text.word.count === 25 && this.value === "25") || (Config.text.word.count === 50 && this.value === "50") || (Config.text.word.count === 100 && this.value === "100") ) return;
+
+	if ( this.value === "custom" ) {
+		SettingsElement.textWordCount.count.customWordsInput.focus();
+	} else {
+		SettingsElement.textWordCount.count.customWordsInput.value = "";
+	}
+	
+	SettingsChangeInUI.changeTextWordCountInUI(this.value);
+	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
+
+	console.log("number of words:", Config.text.word.count);
+}
+
+// text word count input (s1)
+function updateTextWordCountInputField(evt) {
+	if ( !evt.isTrusted ) return;
+
+	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
+		SettingsChangeInUI.changeTextWordCountInUI("custom");
+		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
+	}
+	Config.text.word.count = Number(this.value);
+
+	console.log("number of words [input]:", Config.text.word.count);
+}
+
+// text word count input - focusout (s1)
+function updateTextWordCountInputFieldOnFoucsOut(evt) {
+	if ( !evt.isTrusted ) return;
+
+	// turn off custom button if no value is entered in words input field
+	if ( (this.value === "") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
+		SettingsChangeInUI.changeTextWordCountInUI("off");
+		SettingsChangeInConfig.changeTextWordCountInConfig("off");
+	}
+
+	// generate infinite words
+	if ( (SettingsElement.textWordCount.count.custom.id === "selected") && (SettingsElement.textWordCount.count.customWordsInput.value === "0") ) {
+		console.log("infinite words will be generated...");
+	}
+}
+
+// timer (s5)
+function updateTimerSeconds(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.timer.time === -2 && this.value === "custom") || (Config.timer.time === -1 && this.value === "off") || (Config.timer.time === 15 && this.value === "15") || (Config.timer.time === 30 && this.value === "30") || (Config.timer.time === 60 && this.value === "60") || (Config.timer.time === 120 && this.value === "120") ) return;
+
+	if ( this.value === "custom" ) {
+		SettingsElement.timer.time.customSecondsInput.focus();
+	} else {
+		SettingsElement.timer.time.customSecondsInput.value = "";
+	}
+
+	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
+	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
+
+	console.log("number of seconds:", Config.timer.time);
+}
+
+// timer custom seconds input s1
+function updateTimerSecondsInputField(evt) {
+	if ( !evt.isTrusted ) return;
+
+	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
+		SettingsChangeInUI.changeTimerSecondsInUI("custom");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
+	}
+	Config.timer.time = Number(this.value);
+
+	console.log("number of seconds [input]:", Config.timer.time);
+}
+
+// timer custom seconds input - focusout (s1)
+function updateTimerSecondsInputFieldOnFocusOut(evt) {
+	if ( !evt.isTrusted ) return;
+
+	// turn off custom button if no value is entered in words input field
+	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
+		SettingsChangeInUI.changeTimerSecondsInUI("off");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
+	}
+
+	// timer never stops until users wants to it stop
+	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
+		console.log("infinite timer started...");
+	}
+}
+
+// timer visibility (s2)
+function updateTimerVisibilityInUI(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.timer.hidden && this.value === "off") || (!Config.timer.hidden && this.value === "on") ) return;
+
+	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
+	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
+
+	console.log("timer visibility (off):", Config.timer.hidden);
 }
 
 // keyboard reaction (s4)
