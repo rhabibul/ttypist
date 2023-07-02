@@ -363,13 +363,26 @@ function updateWarnings(evt) {
 // ###############################################################################
 
 
-// website theme (s3)
-function updateWebsiteTheme(evt) {
+// keyboard reaction (s4)
+function updateKeyboardReaction(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.websitetheme ) return;
+	if ( (Config.keyboard.reaction.off && this.value === "off") || (Config.keyboard.reaction.static && this.value === "static") || (Config.keyboard.reaction.react && this.value === "react") || (Config.keyboard.reaction.next && this.value === "next") ) return;
 
-	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
-	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
+	SettingsChangeInUI.changeKeyboardReactionInUI(this.value);
+	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
+
+	console.log("keyboard reation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
+}
+
+// keyboard layout emulate (s2)
+function updateKeyboardLayoutEmulate(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.keyboard.layout.emulate && this.value === "on") || (!Config.keyboard.layout.emulate && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
+	SettingsChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
+
+	console.log("Emulate:", Config.keyboard.layout.emulate);
 }
 
 // dynamic settings (s2)
@@ -379,6 +392,15 @@ function updateDynamicSettings(evt) {
 
 	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
 	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+}
+
+// website theme (s3)
+function updateWebsiteTheme(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( this.value === Config.websitetheme ) return;
+
+	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
+	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
 }
 
 // text input (s2)
@@ -752,26 +774,4 @@ function updateTimerVisibilityInUI(evt) {
 	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
 	console.log("timer visibility (off):", Config.timer.hidden);
-}
-
-// keyboard reaction (s4)
-function updateKeyboardReaction(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.keyboard.reaction.off && this.value === "off") || (Config.keyboard.reaction.static && this.value === "static") || (Config.keyboard.reaction.react && this.value === "react") || (Config.keyboard.reaction.next && this.value === "next") ) return;
-
-	SettingsChangeInUI.changeKeyboardReactionInUI(this.value);
-	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
-
-	console.log("keyboard reation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
-}
-
-// keyboard layout emulate (s2)
-function updateKeyboardLayoutEmulate(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.keyboard.layout.emulate && this.value === "on") || (!Config.keyboard.layout.emulate && this.value === "off") ) return;
-
-	SettingsChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
-	SettingsChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
-
-	console.log("Emulate:", Config.keyboard.layout.emulate);
 }

@@ -1,6 +1,42 @@
 import Config from "../../include/config.js"
 import * as SettingsElement from "../elements/settingsElements.js";
 
+// keyboard reaction
+export function changeKeyboardReactionInUI(value) {
+	if ( value === "next" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "selected";
+	} else if ( value === "static" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "selected";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "";
+	} else if ( value === "react" ) {
+		SettingsElement.keyboardReaction.off.id = "";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "selected";
+		SettingsElement.keyboardReaction.next.id = "";
+	} else {
+		SettingsElement.keyboardReaction.off.id = "selected";
+		SettingsElement.keyboardReaction.static.id = "";
+		SettingsElement.keyboardReaction.react.id = "";
+		SettingsElement.keyboardReaction.next.id = "";
+	}
+}
+
+// emulate keyboard
+export function changeKeyboardLayoutEmulateInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.KeyboardLayoutEmulate.off.id = "";
+		SettingsElement.KeyboardLayoutEmulate.on.id = "selected";
+	}	else {
+		SettingsElement.KeyboardLayoutEmulate.off.id = "selected";
+		SettingsElement.KeyboardLayoutEmulate.on.id = "";
+	}
+}
+
 // dynamic setting
 export function changeDynamicSettingsInUI(value) {
 	if ( value === "off" ) {
@@ -225,6 +261,7 @@ export function changeErrorInUI(value) {
 	}
 }
 
+// forgive error
 export function changeForgiveErrorInUI(value) {
 	if ( value === "on" ) {
 		SettingsElement.error.forgive.off.id = "";
@@ -235,6 +272,7 @@ export function changeForgiveErrorInUI(value) {
 	}
 }
 
+// stop on error
 export function changeStopOnErrorInUI(value) {
 	if ( value === "letter" ) {
 		SettingsElement.error.stop.off.id = "";
@@ -251,16 +289,18 @@ export function changeStopOnErrorInUI(value) {
 	}
 }
 
+// opposite shift mode
 export function changeOppositeShiftModeInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.oppositeshift.off.id = "";
-		SettingsElement.oppositeshift.on.id = "selected";
+		SettingsElement.oppositeShift.off.id = "";
+		SettingsElement.oppositeShift.on.id = "selected";
 	} else {
-		SettingsElement.oppositeshift.off.id = "selected";
-		SettingsElement.oppositeshift.on.id = "";
+		SettingsElement.oppositeShift.off.id = "selected";
+		SettingsElement.oppositeShift.on.id = "";
 	}
 }
 
+// minimum speed
 export function changeMinimumSpeedInUI(value) {
 	if ( value === "on" ) {
 		SettingsElement.minimum.speed.off.id = "";
@@ -271,6 +311,7 @@ export function changeMinimumSpeedInUI(value) {
 	}
 }
 
+// minimum accuracy
 export function changeMinimumAccuracyInUI(value) {
 	if ( value === "on" ) {
 		SettingsElement.minimum.accuracy.off.id = "";
@@ -281,6 +322,7 @@ export function changeMinimumAccuracyInUI(value) {
 	}
 }
 
+// minimum burst
 export function changeMinimumBurstInUI(value) {
 	if ( value === "fixed" ) {
 		SettingsElement.minimum.burst.off.id = "";
@@ -399,42 +441,5 @@ export function changeTimerVisibilityInUI(value) {
 	} else {
 		SettingsElement.timer.hidden.off.id = "selected";
 		SettingsElement.timer.hidden.on.id = "";
-	}
-}
-
-
-// keyboard reaction
-export function changeKeyboardReactionInUI(value) {
-	if ( value === "next" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "selected";
-	} else if ( value === "static" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "selected";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "";
-	} else if ( value === "react" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "selected";
-		SettingsElement.keyboardReaction.next.id = "";
-	} else {
-		SettingsElement.keyboardReaction.off.id = "selected";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "";
-	}
-}
-
-// emulate keyboard
-export function changeKeyboardLayoutEmulateInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.KeyboardLayoutEmulate.off.id = "";
-		SettingsElement.KeyboardLayoutEmulate.on.id = "selected";
-	}	else {
-		SettingsElement.KeyboardLayoutEmulate.off.id = "selected";
-		SettingsElement.KeyboardLayoutEmulate.on.id = "";
 	}
 }
