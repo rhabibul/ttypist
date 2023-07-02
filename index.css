@@ -180,16 +180,11 @@
   --UbuntuMono: "Ubuntu Mono", monospace;
   --SyneMono: "Syne Mono", monospace;
 
-  --text-size: 19px;
-  --text-thickness: 450;
-  --text-font: var(--RobotoMono);
-  --text-color-primary: #001e2e;
-  --text-color-secondary: #9a9a9a;
-  /* --text-font-size: 19px; */
-  /* --text-font-weight: 440; */
-  /* --text-font-family: var(--RobotoMono);; */
-  /* --text-primary-color: #001e2e; */
-  /* --text-secondary-color: #9a9a9a; */
+  --text-font-size: 19px;
+  --text-font-weight: 440;
+  --text-font-family: var(--RobotoMono);;
+  --text-primary-color: #001e2e;
+  --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-color-error: red; /* normal letter error color */
@@ -282,14 +277,14 @@ text word letter {
   align-items: center;
   justify-content: center;
 
-  color: var(--text-color-primary);
+  color: var(--text-primary-color);
 
   /* line-height: 1em; */
   /* white-space: nowrap; */
   
-  font-family: var(--text-font);
-  font-size: var(--text-size);
-  font-weight: var(--text-thickness);
+  font-family: var(--text-font-family);
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
 
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -316,11 +311,11 @@ text word letter.whitespace.bullet::after {
   justify-content: center;
   transform: translateY(1px);
   opacity: 0.35;
-  background-color: var(--text-color-primary);
+  background-color: var(--text-primary-color);
 }
 text word letter.whitespace.bullet.correct::after {
   opacity: 0.35;
-  background-color: var(--text-color-secondary);
+  background-color: var(--text-secondary-color);
 }
 text word letter.whitespace.bullet.ws-active::after {
   opacity: 0.70;
@@ -346,7 +341,7 @@ text word letter.whitespace.bullet.ws-active::after {
   color: black;
 }
 .correct {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary-color);
 }
 .incorrect {
   color: var(--text-color-error);

@@ -58,7 +58,7 @@ export function registerkeydown(evt) {
 		word.activeletter.classList.add("correct");
 
 		if ( Config.text.underline ) {
-			word.activeletter.style["text-decoration-color"] = "var(--text-color-secondary)";
+			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
 		}
 
 		if ( word.activeletterindex < word.lastletterindex ) {
@@ -101,7 +101,7 @@ export function registerkeydown(evt) {
 
 			for ( const letter of text.activeword.children ) {
 				letter.classList.remove("correct");
-				letter.style["text-decoration-color"] = "var(--text-color-primary)";
+				letter.style["text-decoration-color"] = "var(--text-primary-color)";
 			}
 
 			if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -121,7 +121,7 @@ export function registerkeydown(evt) {
 				
 				for ( const letter of text.activeword.children ) {
 					letter.classList.remove("correct");
-					letter.style["text-decoration-color"] = "var(--text-color-primary)";
+					letter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 			}
 
@@ -136,14 +136,14 @@ export function registerkeydown(evt) {
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.removecaretfrom(word.activeletter);
 				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
@@ -159,7 +159,7 @@ export function registerkeydown(evt) {
 				}
 				word.activeletter.classList.remove("correct");
 				if ( Config.text.underline ) {
-					word.activeletter.style["text-decoration-color"] = "var(--text-color-primary)";
+					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.addcaretto(word.activeletter);
 			}

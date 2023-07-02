@@ -368,7 +368,7 @@ function updateTextFontSize(evt) {
 function updateTextFontWeight(evt) {
 	if ( !evt.isTrusted ) return;
 	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-thickness", `${this.value}`);
+	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
 }
 
 // text include
