@@ -69,21 +69,21 @@ export default {
   },
   caret: {
     off: true, // none
-    style: "underscore", // off | line | underscore | box | block (change underline -> underscore)
+    style: "underscore", // off | line | underscore | box | block
+    opacity: 1,
     color: "black",
   },
   pacecaret: {
     off: true, // none
-    style: "box", // off | line | underline | box | block (change underline -> underscore)
+    style: "box", // off | line | underscore | box | block
+    opacity: 0.5,
     color: "black",
     threshold: {
       off: true,
       last: false, // previous speed
       best: false, // personal best speed
       average: false, // average of last 10 speeds
-      custom: {
-        speed: 0, // provide custom speed (in wpm) to compete against
-      },
+      custom: 0, // provide custom speed (in wpm) to compete against
     },
   },
   text: {
