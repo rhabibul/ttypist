@@ -443,3 +443,37 @@ export function changeTimerVisibilityInUI(value) {
 		SettingsElement.timer.hidden.on.id = "";
 	}
 }
+
+export function changePaceCaretSpeedInUI(value) {
+	if ( value === "last" ) {
+		SettingsElement.pacecaret.speed.off.id = "";
+		SettingsElement.pacecaret.speed.last.id = "selected";
+		SettingsElement.pacecaret.speed.average.id = "";
+		SettingsElement.pacecaret.speed.best.id = "";
+		SettingsElement.pacecaret.speed.custom.id = "";
+	}	else if ( value === "average" ) {
+		SettingsElement.pacecaret.speed.off.id = "";
+		SettingsElement.pacecaret.speed.last.id = "";
+		SettingsElement.pacecaret.speed.average.id = "selected";
+		SettingsElement.pacecaret.speed.best.id = "";
+		SettingsElement.pacecaret.speed.custom.id = "";
+	} else if ( value === "best" ) {
+		SettingsElement.pacecaret.speed.off.id = "";
+		SettingsElement.pacecaret.speed.last.id = "";
+		SettingsElement.pacecaret.speed.average.id = "";
+		SettingsElement.pacecaret.speed.best.id = "selected";
+		SettingsElement.pacecaret.speed.custom.id = "";
+	} else if ( value === "custom" ) {
+		SettingsElement.pacecaret.speed.off.id = "";
+		SettingsElement.pacecaret.speed.last.id = "";
+		SettingsElement.pacecaret.speed.average.id = "";
+		SettingsElement.pacecaret.speed.best.id = "";
+		SettingsElement.pacecaret.speed.custom.id = "selected";
+	} else {
+		SettingsElement.pacecaret.speed.off.id = "selected";
+		SettingsElement.pacecaret.speed.last.id = "";
+		SettingsElement.pacecaret.speed.average.id = "";
+		SettingsElement.pacecaret.speed.best.id = "";
+		SettingsElement.pacecaret.speed.custom.id = "";
+	}
+}

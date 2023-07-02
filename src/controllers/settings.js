@@ -204,16 +204,21 @@ function updatePaceCaretColor(evt) {
 }
 
 // pacecaret speed
-SettingsElement.pacecaret.speed.off.addEventListener("click", fn);
-SettingsElement.pacecaret.speed.last.addEventListener("click", fn);
-SettingsElement.pacecaret.speed.average.addEventListener("click", fn);
-SettingsElement.pacecaret.speed.best.addEventListener("click", fn);
-SettingsElement.pacecaret.speed.custom.addEventListener("click", fn);
+SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.last.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.average.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.best.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaretSpeed);
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
 
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
 	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
+	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
+
+	console.log("pace caret speed:", Config.pacecaret.off, );
 }
 
 // primary text color
@@ -302,7 +307,7 @@ function updateTextFontWeight(evt) {
 	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
 }
 
-// text include
+// text include (s2)
 SettingsElement.textInclude.digit.addEventListener("click", fn);
 SettingsElement.textInclude.punctuation.addEventListener("click", fn);
 
@@ -321,7 +326,7 @@ function updateLiveStats(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// live stats calculation interval
+// live stats calculation interval (s3)
 SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.second.addEventListener("click", fn);

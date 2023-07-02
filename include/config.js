@@ -76,14 +76,16 @@ export default {
   pacecaret: {
     off: true, // none
     style: "off", // off | line | underscore | box | block
-    opacity: 0.5,
     color: "black",
-    threshold: {
-      off: true,
+    opacity: 0.5,
+    speed: {
       last: false, // previous speed
       best: false, // personal best speed
       average: false, // average of last 10 speeds
-      custom: 0, // provide custom speed (in wpm) to compete against
+      custom: {
+        off: true,
+        value: 0, // provide custom speed (in wpm) to compete against
+      }
     },
   },
   text: {

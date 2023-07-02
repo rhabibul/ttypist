@@ -92,7 +92,7 @@
 
   --text-font-size: 19px;
   --text-font-weight: 440;
-  --text-font-family: var(--RobotoMono);;
+  --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
   --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
@@ -103,7 +103,7 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: red;
+  --caret-color: deeppink;
   --caret-color-hidden: white; /* match invisible underscore caret color with background color of text */
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
@@ -215,15 +215,15 @@ text word letter.whitespace.bullet::after {
   align-items: center;
   justify-content: center;
   transform: translateY(1px);
-  opacity: 0.35;
+  opacity: 0.5;
   background-color: var(--text-primary-color);
 }
 text word letter.whitespace.bullet.correct::after {
-  opacity: 0.35;
+  opacity: 0.5;
   background-color: var(--text-secondary-color);
 }
 text word letter.whitespace.bullet.ws-active::after {
-  opacity: 0.70;
+  opacity: 0.8;
 }
 
 #selected {
