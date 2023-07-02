@@ -46,7 +46,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
 #underscore {
   /* text-decoration-color: var(--caret-color); */
   border-bottom-color: var(--caret-color);
-  animation-name: animate-unerline;
+  animation-name: animate-underscore;
 }
 .underscore {
   /* text-underline-offset: 4px; */
@@ -112,7 +112,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
 /* =================================== block  =================================== */
 #block {
   color: var(--caret-block-color);
-  background-color: var(--caret-block-backgroundcolor);
+  background-color: var(--caret-block-backgroundcolor);  
   animation-name: animate-block;
 }
 .block {
@@ -131,7 +131,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
   }
   51%,
   100% {
-    color: var(--textcolor-primary);
+    color: var(--text-primary-color);
     background-color: var(--caret-color-hidden);
   }
 }
