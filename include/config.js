@@ -69,7 +69,7 @@ export default {
   },
   caret: {
     off: true, // none
-    style: "line", // off | line | underline | box | block (change underline -> underscore)
+    style: "underscore", // off | line | underscore | box | block (change underline -> underscore)
     color: "black",
   },
   pacecaret: {

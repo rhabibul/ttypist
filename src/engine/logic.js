@@ -258,13 +258,13 @@ export function registerkeyup(evt) {
 
 export function removeunderline(word) {
 	for ( const letter of word.children ) {
-		letter.classList.remove("__");
+		letter.classList.remove("underline");
 	}
 }
 
 export function addunderline(word) {
 	for (const letter of word.children ) {	
-		letter.classList.add("__");
+		letter.classList.add("underline");
 	}
 }
 

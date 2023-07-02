@@ -42,13 +42,13 @@ box-shadow: offset-x | offset-y | blur-radius | color
   }
 }
 
-/* ================================= underline  ================================= */
-#underline {
+/* ================================= underscore  ================================= */
+#underscore {
   /* text-decoration-color: var(--caret-color); */
   border-bottom-color: var(--caret-color);
   animation-name: animate-unerline;
 }
-.underline {
+.underscore {
   /* text-underline-offset: 4px; */
   /* text-decoration-thickness: 2px; */
   /* text-decoration-style: solid; */
@@ -65,7 +65,7 @@ box-shadow: offset-x | offset-y | blur-radius | color
   animation-iteration-count: var(--caret-animation-iteration-count);
   animation-timing-function: var(--caret-animation-timing-function);
 }
-@keyframes animate-unerline {
+@keyframes animate-underscore {
   0%,
   50% {
     /* text-decoration-color: var(--caret-color); */
