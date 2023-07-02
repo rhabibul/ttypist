@@ -68,14 +68,14 @@ export default {
     }
   },
   caret: {
-    off: true, // none
+    off: false, // none
     style: "underscore", // off | line | underscore | box | block
     opacity: 1,
     color: "black",
   },
   pacecaret: {
     off: true, // none
-    style: "box", // off | line | underscore | box | block
+    style: "off", // off | line | underscore | box | block
     opacity: 0.5,
     color: "black",
     threshold: {
@@ -87,7 +87,7 @@ export default {
     },
   },
   text: {
-    underline: true, // underline the current word being typed
+    underline: false, // underline the current word being typed
     input: {
       hidden: true,
       visible: false,

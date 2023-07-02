@@ -1,5 +1,4 @@
-/* --------- Nunito --------- */
-@font-face {
+@font-face { /* Nunito */
   font-family: "Nunito";
   src: local("Nunito"), url("./static/fonts/Nunito.ttf") format("truetype");
   font-style: normal;
@@ -7,8 +6,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Mona Sans --------- */
-@font-face {
+@font-face { /* Mona Sans */
   font-family: "Mona Sans";
   src: local("Mona Sans"), url("./static/fonts/MonaSans.woff2") format("woff2-variations");
   font-style: normal;
@@ -16,8 +14,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Fira Code --------- */
-@font-face {
+@font-face { /* Fira Code */
   font-family: "Fira Code";
   src: local("Fira Code"), url("./static/fonts/FiraCode.ttf") format("truetype");
   font-style: normal;
@@ -25,8 +22,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Source Code Pro --------- */
-@font-face {
+@font-face { /* Source Code Pro */
   font-family: "Source Code Pro";
   src: local("Source Code Pro"), url("./static/fonts/SourceCodePro.ttf") format("truetype");
   font-style: normal;
@@ -34,8 +30,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Roboto Mono --------- */
-@font-face {
+@font-face { /* Roboto Mono */
   font-family: "Roboto Mono";
   src: local("Roboto Mono"), url("./static/fonts/RobotoMono.ttf") format("truetype");
   font-style: normal;
@@ -43,8 +38,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Courier Prime --------- */
-@font-face {
+@font-face { /* Courier Prime */
   font-family: "Courier Prime";
   src: local("Courier Prime"), url("./static/fonts/CourierPrime.ttf") format("truetype");
   font-style: normal;
@@ -52,8 +46,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Ubuntu Mono --------- */
-@font-face {
+@font-face { /* Ubuntu Mono */
   font-family: "Ubuntu Mono";
   src: local("Ubuntu Mono"), url("./static/fonts/UbuntuMono.ttf") format("truetype");
   font-style: normal;
@@ -61,8 +54,7 @@
   font-stretch: 75% 125%;
 }
 
-/* --------- Syne Mono --------- */
-@font-face {
+@font-face { /* Syne Mono */
   font-family: "Syne Mono";
   src: local("Syne Mono"), url("./static/fonts/SyneMono.ttf") format("truetype");
   font-style: normal;
@@ -111,8 +103,8 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: #000000;
-  --caret-color-hidden: var(--default-bg0_h); /* match invisible underscore caret color with background color of text */
+  --caret-color: red;
+  --caret-color-hidden: white; /* match invisible underscore caret color with background color of text */
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */

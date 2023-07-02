@@ -632,13 +632,13 @@ div.colorPickerContainer input[type="color"].colorSelectorInput::-o-color-swatch
 }
 div.colorPickerContainer input[type="color"].colorSelectorInput.primaryTextColorSelectorInput,
 div.colorPickerContainer input[type="color"].colorSelectorInput.primaryTextColorSelectorInput::after {
-	background-color: var(--text-color-primary);
-	border-left-color: var(--text-color-primary);
+	background-color: var(--text-primary-color);
+	border-left-color: var(--text-primary-color);
 }
 div.colorPickerContainer input[type="color"].colorSelectorInput.secondaryTextColorSelectorInput,
 div.colorPickerContainer input[type="color"].colorSelectorInput.secondaryTextColorSelectorInput::after {
-	background-color: var(--text-color-secondary);
-	border-left-color: var(--text-color-secondary);
+	background-color: var(--text-secondary-color);
+	border-left-color: var(--text-secondary-color);
 }
 div.colorPickerContainer input[type="color"].colorSelectorInput.caretColorSelectorInput,
 div.colorPickerContainer input[type="color"].colorSelectorInput.caretColorSelectorInput::after {
