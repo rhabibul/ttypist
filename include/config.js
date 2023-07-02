@@ -69,7 +69,7 @@ export default {
   },
   caret: {
     off: false, // none
-    style: "underscore", // off | line | underscore | box | block
+    style: "line", // off | line | underscore | box | block
     opacity: 1,
     color: "black",
   },
@@ -87,7 +87,7 @@ export default {
     },
   },
   text: {
-    underline: false, // underline the current word being typed
+    underline: true, // underline the current word
     input: {
       hidden: true,
       visible: false,
