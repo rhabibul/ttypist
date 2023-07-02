@@ -142,8 +142,8 @@ SettingsElement.textWordCount.count.words25.addEventListener("click", updateText
 SettingsElement.textWordCount.count.words50.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.words100.addEventListener("click", updateTextWordCount);
 SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountByTakingCustomInput);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateCustomTextWordCountInputFoucsOut);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountInputField);
+SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
 
 // text word count (s5)
 function updateTextWordCount(evt) {
@@ -159,10 +159,10 @@ function updateTextWordCount(evt) {
 	SettingsChangeInUI.changeTextWordCountInUI(this.value);
 	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
 
-	console.log("text word count:", Config.text.word.count);
+	console.log("number of words:", Config.text.word.count);
 }
-// text word count input focus in
-function updateTextWordCountByTakingCustomInput(evt) {
+// text word count input
+function updateTextWordCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
@@ -171,13 +171,13 @@ function updateTextWordCountByTakingCustomInput(evt) {
 	}
 	Config.text.word.count = Number(this.value);
 
-	console.log("number of words:", Config.text.word.count);
+	console.log("number of words [input]:", Config.text.word.count);
 }
-// text word count input focus out
-function updateCustomTextWordCountInputFoucsOut(evt) {
+// text word count input (focusout)
+function updateTextWordCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn off custom button if not value is entered in words input field
+	// turn off custom button if no value is entered in words input field
 	if ( (this.value === "") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
 		SettingsChangeInUI.changeTextWordCountInUI("off");
 		SettingsChangeInConfig.changeTextWordCountInConfig("off");
@@ -191,22 +191,23 @@ function updateCustomTextWordCountInputFoucsOut(evt) {
 
 
 // timer
-SettingsElement.timer.off.addEventListener("click", fn);
-SettingsElement.timer.time.seconds15.addEventListener("click", fn);
-SettingsElement.timer.time.seconds30.addEventListener("click", fn);
-SettingsElement.timer.time.seconds60.addEventListener("click", fn);
-SettingsElement.timer.time.seconds120.addEventListener("click", fn);
-SettingsElement.timer.time.custom.addEventListener("click", fn);
-SettingsElement.timer.time.customSecondsInput.addEventListener("input", fn);
-SettingsElement.timer.time.customSecondsInput.addEventListener("focusout", fn);
+SettingsElement.timer.off.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.seconds15.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.seconds30.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.seconds60.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.seconds120.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.custom.addEventListener("click", updateTimerSeconds);
+SettingsElement.timer.time.customSecondsInput.addEventListener("input", updateTimerSecondsInputField);
+SettingsElement.timer.time.customSecondsInput.addEventListener("focusout", updateTimerSecondsInputFieldOnFocusOut);
 
 // hide timer
-SettingsElement.timer.hide.off.addEventListener("click", fn);
-SettingsElement.timer.hide.on.addEventListener("click", fn);
+SettingsElement.timer.hidden.off.addEventListener("click", updateTimerVisibilityInUI);
+SettingsElement.timer.hidden.on.addEventListener("click", updateTimerVisibilityInUI);
 
-// timer (s5)
+// timer
 function updateTimerSeconds(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.timer.time === -2 && this.value === "custom") || (Config.timer.time === -1 && this.value === "off") || (Config.timer.time === 15 && this.value === "15") || (Config.timer.time === 30 && this.value === "30") || (Config.timer.time === 60 && this.value === "60") || (Config.timer.time === 120 && this.value === "120") ) return;
 
 	if ( this.value === "custom" ) {
 		SettingsElement.timer.time.customSecondsInput.focus();
@@ -217,15 +218,47 @@ function updateTimerSeconds(evt) {
 	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
 
-	console.log("timer seconds:", Config.timer.time);
+	console.log("number of seconds:", Config.timer.time);
 }
-// timer (s1) - custom seconds input box
-function updateTimerSecondsByTakingCustomInput(evt) {
+
+// timer custom seconds input
+function updateTimerSecondsInputField(evt) {
 	if ( !evt.isTrusted ) return;
+
+	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
+		SettingsChangeInUI.changeTimerSecondsInUI("custom");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
+	}
+	Config.timer.time = Number(this.value);
+
+	console.log("number of seconds [input]:", Config.timer.time);
 }
-// hide timer (s2)
-function updateTimerHide(evt) {
+
+// timer custom seconds input (focusout)
+function updateTimerSecondsInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
+
+	// turn off custom button if no value is entered in words input field
+	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
+		SettingsChangeInUI.changeTimerSecondsInUI("off");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
+	}
+
+	// timer never stops until users wants to it stop
+	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
+		console.log("infinite timer started...");
+	}
+}
+
+// hide timer
+function updateTimerVisibilityInUI(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.timer.hidden && this.value === "off") || (!Config.timer.hidden && this.value === "on") ) return;
+
+	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
+	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
+
+	console.log("timer visibility (off):", Config.timer.hidden);
 }
 
 // ###############################################################################

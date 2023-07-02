@@ -141,8 +141,8 @@ export default {
   },
   timer: {
     off: false,
-    time: 60, // 15 | 30 | 60 | 120 | input
-    hide: false,
+    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
+    hidden: false,
   },
   stats: {
     live: {

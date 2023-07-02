@@ -316,6 +316,15 @@ export function changeTimerSecondsInConfig(value) {
 	}
 }
 
+// timer visibility
+export function changeTimerVisibilityInConfig(value) {
+	if ( value === "on" ) {
+		Config.timer.hidden = false;
+	} else {
+		Config.timer.hidden = true;
+	}
+}
+
 // keyboard reaction
 export function changeKeyboardReactionInConfig(value) {
 	if ( value === "next" ) {

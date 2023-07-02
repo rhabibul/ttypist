@@ -329,8 +329,62 @@ export function changeTextWordCountInUI(value) {
 	}
 }
 
+// timer time
 export function changeTimerSecondsInUI(value) {
-	
+	if ( value === "custom" ) { // -2 (custom)
+		SettingsElement.timer.off.id = "";
+		SettingsElement.timer.time.seconds15.id = "";
+		SettingsElement.timer.time.seconds30.id = "";
+		SettingsElement.timer.time.seconds60.id = "";
+		SettingsElement.timer.time.seconds120.id = "";
+		SettingsElement.timer.time.custom.id = "selected";
+	} else if ( value === "off" ) { // -1 (off)
+		SettingsElement.timer.off.id = "selected";
+		SettingsElement.timer.time.seconds15.id = "";
+		SettingsElement.timer.time.seconds30.id = "";
+		SettingsElement.timer.time.seconds60.id = "";
+		SettingsElement.timer.time.seconds120.id = "";
+		SettingsElement.timer.time.custom.id = "";
+	} else if ( value === "15" ) {
+		SettingsElement.timer.off.id = "";
+		SettingsElement.timer.time.seconds15.id = "selected";
+		SettingsElement.timer.time.seconds30.id = "";
+		SettingsElement.timer.time.seconds60.id = "";
+		SettingsElement.timer.time.seconds120.id = "";
+		SettingsElement.timer.time.custom.id = "";
+	}	else if ( value === "30" ) {
+		SettingsElement.timer.off.id = "";
+		SettingsElement.timer.time.seconds15.id = "";
+		SettingsElement.timer.time.seconds30.id = "selected";
+		SettingsElement.timer.time.seconds60.id = "";
+		SettingsElement.timer.time.seconds120.id = "";
+		SettingsElement.timer.time.custom.id = "";
+	} else if ( value === "60" ) {
+		SettingsElement.timer.off.id = "";
+		SettingsElement.timer.time.seconds15.id = "";
+		SettingsElement.timer.time.seconds30.id = "";
+		SettingsElement.timer.time.seconds60.id = "selected";
+		SettingsElement.timer.time.seconds120.id = "";
+		SettingsElement.timer.time.custom.id = "";
+	} else if ( value === "120" ) {
+		SettingsElement.timer.off.id = "";
+		SettingsElement.timer.time.seconds15.id = "";
+		SettingsElement.timer.time.seconds30.id = "";
+		SettingsElement.timer.time.seconds60.id = "";
+		SettingsElement.timer.time.seconds120.id = "selected";
+		SettingsElement.timer.time.custom.id = "";
+	}
+}
+
+// timer visibility
+export function changeTimerVisibilityInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.timer.hidden.off.id = "";
+		SettingsElement.timer.hidden.on.id = "selected";
+	} else {
+		SettingsElement.timer.hidden.off.id = "selected";
+		SettingsElement.timer.hidden.on.id = "";
+	}
 }
 
 

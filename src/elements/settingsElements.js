@@ -151,7 +151,7 @@ export const timer = {
 		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.button.timerTimeCustomInputButton"),
 		customSecondsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
 	},
-	hide: {
+	hidden: {
 		off: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.off"),
 		on: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.on"),
 	},
