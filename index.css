@@ -187,8 +187,8 @@
   --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
-  --text-color-error: red; /* normal letter error color */
-  --text-color-error-extra: #a30d0d; /* extra inserted letter error color */
+  --text-error-color: red; /* normal letter error color */
+  --text-error-color--extra: #a30d0d; /* extra inserted letter error color */
   --text-whitespace-color: #b3b3b3; /* dot/bar whitespace color */
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
@@ -344,13 +344,13 @@ text word letter.whitespace.bullet.ws-active::after {
   color: var(--text-secondary-color);
 }
 .incorrect {
-  color: var(--text-color-error);
+  color: var(--text-error-color);
 }
 .extra {
-  color: var(--text-color-error-extra);
+  color: var(--text-error-color--extra);
 }
 .error {
-  color: var(--text-color-error);
+  color: var(--text-error-color);
 }
 .__ { /* use underline class for it and use underscore for caret */
   text-decoration-color: var(--text-color-primary);
