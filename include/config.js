@@ -25,7 +25,7 @@ export default {
        ctrl: true, // backspace + ctrl
        meta: false, // backspace + cmd/win
     },
-    allowedOnCorrect: true, // whether to allow caret to go back to previous word which was typed correctly
+    deleteOnCorrect: true, // whether to allow caret to go back to previous word which was typed correctly
   },
   confidence: {
     low: true, // use backspace key to delete previous words/letters

@@ -1,6 +1,41 @@
 import Config from "../../include/config.js"
 import * as SettingsElement from "../elements/settingsElements.js";
 
+// keyboard reaction
+export function changeKeyboardReactionInConfig(value) {
+	if ( value === "next" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = true;
+	} else if ( value === "static" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = true;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = false;
+	} else if ( value === "react" ) {
+		Config.keyboard.reaction.off = false;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = true;
+		Config.keyboard.reaction.next = false;
+	} else {
+		Config.keyboard.reaction.off = true;
+		Config.keyboard.reaction.static = false;
+		Config.keyboard.reaction.react = false;
+		Config.keyboard.reaction.next = false;
+	}
+}
+
+// keyboard emulate
+export function changeKeyboardLayoutEmulateInConfig(value) {
+	if ( value === "on" ) {
+		Config.keyboard.layout.emulate = true;
+	}	else {
+		Config.keyboard.layout.emulate = false;
+	}
+}
+
+// dynamic setting
 export function changeDynamicSettingsInConfig(value) {
 	if ( value === "off" ) {
 		Config.setting.dynamic = false;
@@ -9,10 +44,12 @@ export function changeDynamicSettingsInConfig(value) {
 	}
 }
 
+// website theme
 export function changeWebsiteThemeInConfig(value) {
 	Config.websitetheme = value;
 }
 
+// tape mode
 export function changeTapeModeInConfig(value) {
 	if ( value === "letter" ) {
 		Config.tape.off = false;
@@ -29,6 +66,7 @@ export function changeTapeModeInConfig(value) {
 	}
 }
 
+// text input
 export function changeTextInputInConfig(value) {
 	if ( value === "visible" ) {
 		Config.text.input.hidden = false;
@@ -39,6 +77,7 @@ export function changeTextInputInConfig(value) {
 	}
 }
 
+// text highlight
 export function changeTextHightlightInConfig(value) {
 	if ( value === "word" ) {
 		Config.text.highlight.off = false;
@@ -55,6 +94,7 @@ export function changeTextHightlightInConfig(value) {
 	}
 }
 
+// flip text highlight
 export function changeFlipTextHightlightInConfig(value) {
 	if ( value === "on" ) {
 		Config.text.highlight.flip = true;
@@ -63,6 +103,7 @@ export function changeFlipTextHightlightInConfig(value) {
 	}
 }
 
+// text underline
 export function changeTextUnderlineInConfig(value) {
  if ( value === "off" ) {
 	Config.text.underline = false;
@@ -71,6 +112,7 @@ export function changeTextUnderlineInConfig(value) {
  }
 }
 
+// text whitespace
 export function changeTextWhitespaceInConfig(value) {
 	if ( value === "bullet" ) {
 		Config.text.whitespace.off = false;
@@ -103,6 +145,7 @@ export function changeTextWhitespaceInConfig(value) {
 	}
 }
 
+// strict space
 export function changeStrictSpaceInConfig(value) {
 	if ( value === "off" ) {
 		Config.strictspace = false;
@@ -111,6 +154,7 @@ export function changeStrictSpaceInConfig(value) {
 	}
 }
 
+// quick end
 export function changeQuickEndInConfig(value) {
 	if ( value === "off" ) {
 		Config.quickend = false;
@@ -119,6 +163,7 @@ export function changeQuickEndInConfig(value) {
 	}
 }
 
+// test difficulty
 export function changeDifficultyInConfig(value) {
 	if ( value === "expert" ) {
 		Config.difficulty.ease = false;
@@ -135,6 +180,7 @@ export function changeDifficultyInConfig(value) {
 	}
 }
 
+// confidence
 export function changeConfidenceInConfig(value) {
 	if ( value === "high" ) {
 		Config.confidence.low = false;
@@ -151,6 +197,7 @@ export function changeConfidenceInConfig(value) {
 	}
 }
 
+// backspace key
 export function changeBackspaceKeyInConfig(value) {
 	if ( value === "on" ) {
 		Config.backspace.off = false;
@@ -159,14 +206,16 @@ export function changeBackspaceKeyInConfig(value) {
 	}
 }
 
-export function changeGoBackOnCorrectInConfig(value) {
+// delete on correct
+export function changeDeleteOnCorrectInConfig(value) {
 	if ( value === "off" ) {
-		Config.backspace.allowedOnCorrect = false;
+		Config.backspace.deleteOnCorrect = false;
 	} else {
-		Config.backspace.allowedOnCorrect = true;
+		Config.backspace.deleteOnCorrect = true;
 	}
 }
 
+// modifier key
 export function changeModifierKeyInConfig() {
 	// alt
 	if ( SettingsElement.modifier.alt.checked ) {
@@ -190,6 +239,7 @@ export function changeModifierKeyInConfig() {
 	}
 }
 
+// error
 export function changeErrorInConfig(value) {
 	if ( value === "skip" ) {
 		Config.error.off = false;
@@ -214,6 +264,7 @@ export function changeErrorInConfig(value) {
 	}
 }
 
+// forgive error
 export function changeForgiveErrorInConfig(value) {
 	if ( value === "on" ) {
 		Config.error.forgive = true;
@@ -222,6 +273,7 @@ export function changeForgiveErrorInConfig(value) {
 	}
 }
 
+// stop on error
 export function changeStopOnErrorInConfig(value) {
 	if ( value === "letter" ) {
 		Config.error.stop.off = false;
@@ -238,6 +290,7 @@ export function changeStopOnErrorInConfig(value) {
 	}
 }
 
+// opposite shift mode
 export function changeOppositeShiftModeInConfig(value) {
 	if ( value === "on" ) {
 		Config.oppositeshift = true;
@@ -246,6 +299,7 @@ export function changeOppositeShiftModeInConfig(value) {
 	}
 }
 
+// minimum speed
 export function changeMinimumSpeedInConfig(value) {
 	if ( value === "on" ) {
 		Config.minimum.speed.off = false;
@@ -254,6 +308,7 @@ export function changeMinimumSpeedInConfig(value) {
 	}
 }
 
+// minimum accuracy
 export function changeMinimumAccuracyInConfig(value) {
 	if ( value === "on" ) {
 		Config.minimum.accuracy.off = false;
@@ -262,6 +317,7 @@ export function changeMinimumAccuracyInConfig(value) {
 	}
 }
 
+// minimum burst
 export function changeMinimumBurstInConfig(value) {
 	if ( value === "fixed" ) {
 		Config.minimum.burst.off = false;
@@ -322,39 +378,5 @@ export function changeTimerVisibilityInConfig(value) {
 		Config.timer.hidden = false;
 	} else {
 		Config.timer.hidden = true;
-	}
-}
-
-// keyboard reaction
-export function changeKeyboardReactionInConfig(value) {
-	if ( value === "next" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = true;
-	} else if ( value === "static" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = true;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = false;
-	} else if ( value === "react" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = true;
-		Config.keyboard.reaction.next = false;
-	} else {
-		Config.keyboard.reaction.off = true;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = false;
-	}
-}
-
-// keyboard emulate
-export function changeKeyboardLayoutEmulateInConfig(value) {
-	if ( value === "on" ) {
-		Config.keyboard.layout.emulate = true;
-	}	else {
-		Config.keyboard.layout.emulate = false;
 	}
 }

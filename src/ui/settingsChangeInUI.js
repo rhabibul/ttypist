@@ -169,7 +169,7 @@ export function changeStrictSpaceInUI(value) {
 	}	
 }
 
-// quickend
+// quick end
 export function changeQuickEndInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.quickend.off.id = "selected";
@@ -228,11 +228,11 @@ export function changeBackspaceKeyInUI(value) {
 // delete on correct
 export function changeDeleteOnCorrectInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.goBackOnCorrect.off.id = "selected";
-		SettingsElement.goBackOnCorrect.on.id = "";
+		SettingsElement.deleteOnCorrect.off.id = "selected";
+		SettingsElement.deleteOnCorrect.on.id = "";
 	}	else {
-		SettingsElement.goBackOnCorrect.off.id = "";
-		SettingsElement.goBackOnCorrect.on.id = "selected";
+		SettingsElement.deleteOnCorrect.off.id = "";
+		SettingsElement.deleteOnCorrect.on.id = "selected";
 	}
 }
 

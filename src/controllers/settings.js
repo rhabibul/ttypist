@@ -78,7 +78,7 @@ SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
 SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
 SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
-// backspace not allowed on correct
+// delete on correct
 SettingsElement.deleteOnCorrect.off.addEventListener("click", updateDeleteOnCorrect);
 SettingsElement.deleteOnCorrect.on.addEventListener("click",  updateDeleteOnCorrect);
 
@@ -223,13 +223,13 @@ SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrim
 // primary text color (s2)
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
+	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
 	SettingsElement.textColor.primary.textInput.value = this.value;
 	Config.text.color.primary = this.value;
 }
 function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-color-primary", this.value);
+	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
 	Config.text.color.primary = this.value;
 }
 
@@ -241,11 +241,11 @@ SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSe
 function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
 	if ( !evt.isTrusted ) return;
 	SettingsElement.textColor.secondary.textInput.value = this.value;
-	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
+	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
 }
 function updateSecondaryTextColorTextInput(evt) { // text input (color)
 	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-color-secondary", this.value);
+	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
 }
 
 // details
@@ -292,7 +292,7 @@ SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateT
 function updateTextFontSize(evt) {
 	if ( !evt.isTrusted ) return;
 	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-size", `${this.value}px`);
+	document.querySelector(":root").style.setProperty("--text-font-size", `${this.value}px`);
 }
 
 // text font weight slider (s1)
@@ -505,10 +505,12 @@ function updateBackspaceKey(evt) {
 // deletion not allowed on correct (s2)
 function updateDeleteOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.backspace.allowedOnCorrect && this.value === "on") || (!Config.backspace.allowedOnCorrect && this.value === "off") ) return;
+	if ( (Config.backspace.deleteOnCorrect && this.value === "on") || (!Config.backspace.deleteOnCorrect && this.value === "off") ) return;
 	
 	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
 	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
+
+	console.log("delete on correct:", Config.backspace.deleteOnCorrect);
 }
 
 // modifier keys (s3)
