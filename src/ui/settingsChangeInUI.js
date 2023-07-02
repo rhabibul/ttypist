@@ -1,6 +1,7 @@
 import Config from "../../include/config.js"
 import * as SettingsElement from "../elements/settingsElements.js";
 
+// dynamic setting
 export function changeDynamicSettingsInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.setting.dynamic.off.id = "selected";
@@ -11,6 +12,7 @@ export function changeDynamicSettingsInUI(value) {
 	}
 }
 
+// website theme
 export function changeWebsiteThemeInUI(value) {
 	if ( value === "dark" ) {
 		SettingsElement.websiteTheme.light.id = "";
@@ -27,6 +29,7 @@ export function changeWebsiteThemeInUI(value) {
 	}
 }
 
+// tape mode
 export function changeTapeModeInUI(value) {
 	if ( value === "letter" ) {
 		SettingsElement.tape.off.id = "";
@@ -43,6 +46,7 @@ export function changeTapeModeInUI(value) {
 	}
 }
 
+// text input
 export function changeTextInputInUI(value) {
 	if ( value === "visible" ) {
 		SettingsElement.textInput.hidden.id = "";
@@ -53,6 +57,7 @@ export function changeTextInputInUI(value) {
 	}
 }
 
+// text highlight
 export function changeTextHightlightInUI(value) {
 	if ( value === "word" ) {
 		SettingsElement.textHighlight.off.id = "";
@@ -69,6 +74,7 @@ export function changeTextHightlightInUI(value) {
 	}
 }
 
+// flip text highlight
 export function changeFlipTextHightlightInUI(value) {
 
 	if ( value === "on" ) {
@@ -80,6 +86,7 @@ export function changeFlipTextHightlightInUI(value) {
 	}
 }
 
+// text underline
 export function changeTextUnderlineInUI(value) {
 	if ( value === "off" ) 	{
 		SettingsElement.textUnderline.off.id = "selected";
@@ -90,6 +97,7 @@ export function changeTextUnderlineInUI(value) {
 	}
 }
 
+// text whitespace
 export function changeTextWhitespaceInUI(value) {
 	if ( value === "bullet" ) {
 		SettingsElement.textWhitespace.off.id = "";
@@ -114,6 +122,7 @@ export function changeTextWhitespaceInUI(value) {
 	}
 }
 
+// strict space
 export function changeStrictSpaceInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.strictspace.off.id = "selected";
@@ -124,6 +133,7 @@ export function changeStrictSpaceInUI(value) {
 	}	
 }
 
+// quickend
 export function changeQuickEndInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.quickend.off.id = "selected";
@@ -134,6 +144,7 @@ export function changeQuickEndInUI(value) {
 	}
 }
 
+// test difficulty
 export function changeDifficultyInUI(value) {
 	if ( value === "expert" ) {
 		SettingsElement.difficulty.ease.id = "";
@@ -150,6 +161,7 @@ export function changeDifficultyInUI(value) {
 	}
 }
 
+// confidence
 export function changeConfidenceInUI(value) {
 	if ( value === "high" ) {
 		SettingsElement.confidence.low.id = "";
@@ -166,6 +178,7 @@ export function changeConfidenceInUI(value) {
 	}
 }
 
+// backspace key
 export function changeBackspaceKeyInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.backspace.off.id = "selected";
@@ -176,7 +189,8 @@ export function changeBackspaceKeyInUI(value) {
 	}
 }
 
-export function changeGoBackOnCorrectInUI(value) {
+// delete on correct
+export function changeDeleteOnCorrectInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.goBackOnCorrect.off.id = "selected";
 		SettingsElement.goBackOnCorrect.on.id = "";
@@ -186,6 +200,7 @@ export function changeGoBackOnCorrectInUI(value) {
 	}
 }
 
+// error
 export function changeErrorInUI(value) {
 	if ( value === "skip" ) {
 		SettingsElement.error.off.id = "";

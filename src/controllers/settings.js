@@ -79,8 +79,8 @@ SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
 SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
 // backspace not allowed on correct
-SettingsElement.goBackOnCorrect.off.addEventListener("click", updateGoBackOnCorrect);
-SettingsElement.goBackOnCorrect.on.addEventListener("click", updateGoBackOnCorrect);
+SettingsElement.deleteOnCorrect.off.addEventListener("click", updateDeleteOnCorrect);
+SettingsElement.deleteOnCorrect.on.addEventListener("click",  updateDeleteOnCorrect);
 
 // modifier keys
 SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
@@ -103,8 +103,8 @@ SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
 
 // opposite shift mode
-SettingsElement.oppositeshift.off.addEventListener("click", updateOppositeShiftMode);
-SettingsElement.oppositeshift.on.addEventListener("click", updateOppositeShiftMode);
+SettingsElement.oppositeShift.off.addEventListener("click", updateOppositeShiftMode);
+SettingsElement.oppositeShift.on.addEventListener("click", updateOppositeShiftMode);
 
 // minimum speed
 SettingsElement.minimum.speed.off.addEventListener("click", updateMinimumSpeed);
@@ -480,13 +480,13 @@ function updateBackspaceKey(evt) {
 	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
 }
 
-// backspace not allowed on correct (s2)
-function updateGoBackOnCorrect(evt) {
+// deletion not allowed on correct (s2)
+function updateDeleteOnCorrect(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.backspace.allowedOnCorrect && this.value === "on") || (!Config.backspace.allowedOnCorrect && this.value === "off") ) return;
 	
-	SettingsChangeInUI.changeGoBackOnCorrectInUI(this.value);
-	SettingsChangeInConfig.changeGoBackOnCorrectInConfig(this.value);
+	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
+	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
 }
 
 // modifier keys (s3)

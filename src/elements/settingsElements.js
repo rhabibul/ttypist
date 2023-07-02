@@ -16,7 +16,7 @@ export const tape = {
 		word: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.word"),
 	},
 }
-export const oppositeshift = {
+export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
 	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
 }
@@ -29,9 +29,9 @@ export const modifier = {
 	ctrl: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
 	meta: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
 }
-export const goBackOnCorrect = {
-	off: document.querySelector("div.s2.config.buttonContainer.goBackOnCorrectButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.goBackOnCorrectButton button.button.on"),
+export const deleteOnCorrect = {
+	off: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.on"),
 }
 export const confidence = {
 	low: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.low"),
