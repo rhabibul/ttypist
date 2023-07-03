@@ -92,16 +92,12 @@ export const caret = {
 	}
 }
 export const pacecaret = {
-	off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 	style: {
+		off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 		underline: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underline"),
 		line: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-line"),
 		box: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-box"),
 		block: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-block"),
-	},
-	color: {
-		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
-		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
 	},
 	speed: {
 		off: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.off"),
@@ -110,7 +106,11 @@ export const pacecaret = {
 		best: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.best"),
 		custom: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer button.s1.button.paceCaretSpeedCustomInputButton"),
 		paceCaretCustomSpeedInput: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer div.s1.custom.inputContainer input.inputBox.paceCaretSpeedThreshold"),
-	}
+	},
+	color: {
+		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
+		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
+	},
 }
 export const textInput = {
 	hidden: document.querySelector("div.s2.config.buttonContainer.textInputBoxButton button.button.hidden"),

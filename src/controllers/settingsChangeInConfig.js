@@ -387,30 +387,30 @@ export function changePaceCaretSpeedInConfig(value) {
 		Config.pacecaret.speed.last = true;
 		Config.pacecaret.speed.average = false;
 		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = false;
+		Config.pacecaret.speed.custom.off = true;
 	}	else if ( value === "average" ) {
 		Config.pacecaret.off = false;
 		Config.pacecaret.speed.last = false;
 		Config.pacecaret.speed.average = true;
 		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = false;
+		Config.pacecaret.speed.custom.off = true;
 	} else if ( value === "best" ) {
 		Config.pacecaret.off = false;
 		Config.pacecaret.speed.last = false;
 		Config.pacecaret.speed.average = false;
 		Config.pacecaret.speed.best = true;
-		Config.pacecaret.speed.custom.off = false;
+		Config.pacecaret.speed.custom.off = true;
 	} else if ( value === "custom" ) {
 		Config.pacecaret.off = false;
 		Config.pacecaret.speed.last = false;
 		Config.pacecaret.speed.average = false;
 		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = true;
+		Config.pacecaret.speed.custom.off = false;
 	} else {
 		Config.pacecaret.off = true;
 		Config.pacecaret.speed.last = false;
 		Config.pacecaret.speed.average = false;
 		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = false;
+		Config.pacecaret.speed.custom.off = true;
 	}	
 }

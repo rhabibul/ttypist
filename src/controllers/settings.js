@@ -214,12 +214,30 @@ SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("inpu
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (Config.pacecaret.speed.last && this.value === "last") || (Config.pacecaret.speed.average && this.value === "average") || (Config.pacecaret.speed.best && this.value === "best") || (Config.pacecaret.speed.off && this.value === "off") || (!Config.pacecaret.speed.custom.off && this.value === "custom") ) return;
 
 	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
 
-	// 🫵 start here..📌
-	console.log("pace caret speed:", Config.pacecaret.off,  );
+	console.log("pace caret speed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off, "(off)");
+}
+
+function updatePaceCaretSpeedInputField(evt) {
+	if ( !evt.isTrusted ) return;
+
+	// turn on "on" button active if not
+	// if ( SettingsElement.minimum.speed.off.id === "selected" ) {
+	// 	SettingsChangeInUI.changeMinimumSpeedInUI("on");
+	// 	SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
+	// }
+	// Config.minimum.speed.threshold = Number(this.value);
+
+	// console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+}
+
+function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
+	if ( !evt.isTrusted ) return;
+	
 }
 
 // primary text color
@@ -599,6 +617,7 @@ function updateMinimumSpeedThresholdInput(evt) {
 // minimum speed threshold input (focusout)
 function updateMinimumSpeedThresholdInputFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
+
 	if ( this.value === "" && SettingsElement.minimum.speed.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("off");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
@@ -730,7 +749,7 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 // timer (s5)
 function updateTimerSeconds(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.timer.time === -2 && this.value === "custom") || (Config.timer.time === -1 && this.value === "off") || (Config.timer.time === 15 && this.value === "15") || (Config.timer.time === 30 && this.value === "30") || (Config.timer.time === 60 && this.value === "60") || (Config.timer.time === 120 && this.value === "120") ) return;
+	if ( (Config.stats.timer.time === -2 && this.value === "custom") || (Config.stats.timer.time === -1 && this.value === "off") || (Config.stats.timer.time === 15 && this.value === "15") || (Config.stats.timer.time === 30 && this.value === "30") || (Config.stats.timer.time === 60 && this.value === "60") || (Config.stats.timer.time === 120 && this.value === "120") ) return;
 
 	if ( this.value === "custom" ) {
 		SettingsElement.timer.time.customSecondsInput.focus();
@@ -741,7 +760,7 @@ function updateTimerSeconds(evt) {
 	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
 
-	console.log("number of seconds:", Config.timer.time);
+	console.log("number of seconds:", Config.stats.timer.time);
 }
 
 // timer custom seconds input s1
@@ -752,9 +771,9 @@ function updateTimerSecondsInputField(evt) {
 		SettingsChangeInUI.changeTimerSecondsInUI("custom");
 		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	Config.timer.time = Number(this.value);
+	Config.stats.timer.time = Number(this.value);
 
-	console.log("number of seconds [input]:", Config.timer.time);
+	console.log("number of seconds [input]:", Config.stats.timer.time);
 }
 
 // timer custom seconds input - focusout (s1)
@@ -776,10 +795,10 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 // timer visibility (s2)
 function updateTimerVisibilityInUI(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.timer.hidden && this.value === "off") || (!Config.timer.hidden && this.value === "on") ) return;
+	if ( (Config.stats.timer.hidden && this.value === "off") || (!Config.stats.timer.hidden && this.value === "on") ) return;
 
 	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
 	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
-	console.log("timer visibility (off):", Config.timer.hidden);
+	console.log("timer visibility (off):", Config.stats.timer.hidden);
 }
