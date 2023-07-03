@@ -65,6 +65,73 @@
 
     <div class="setting">
       <div class="column c1">
+        <div class="row" id="timerTime">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconTestTimer" height="256px" width="256px" viewBox="0 0 512 512">
+                <path fill="var(--setting-icon-color)" opacity="0.7" d="M469.337,154.624c6.818,0,13.636-2.594,18.833-7.791c10.385-10.377,10.385-27.281,0-37.666l-34.133-34.133 c-10.385-10.377-27.29-10.377-37.666,0c-8.269,8.269-9.847,20.608-4.958,30.558l-13.85,13.85 c-30.148-25.037-66.995-42.274-107.426-48.538V51.2H306.7c9.685,0,17.57-7.876,17.57-17.562V17.57 C324.27,7.885,316.385,0,306.7,0H205.298c-9.685,0-17.562,7.885-17.562,17.57v16.068c0,9.685,7.876,17.562,17.562,17.562h16.572 v19.703c-40.431,6.263-77.286,23.501-107.426,48.538l-13.858-13.85c4.89-9.95,3.311-22.289-4.949-30.558 c-10.385-10.377-27.29-10.377-37.666,0l-34.133,34.133c-10.394,10.385-10.394,27.29,0,37.666 c5.188,5.197,12.006,7.791,18.833,7.791c6.025,0,11.981-2.15,16.888-6.195l14.694,14.694 c-25.242,36.011-40.115,79.795-40.115,127.01C34.137,412.476,133.661,512,256.003,512c122.334,0,221.867-99.524,221.867-221.867 c0-47.215-14.874-90.999-40.124-127.01l14.703-14.694C457.347,152.474,463.303,154.624,469.337,154.624z M238.937,51.2h34.133 v17.758c-0.324-0.026-0.623-0.017-0.939-0.034c-5.333-0.393-10.701-0.657-16.128-0.657c-5.436,0-10.795,0.265-16.128,0.657 c-0.324,0.017-0.623,0.009-0.939,0.034V51.2z M71.803,136.533l17.801-17.801l12.058,12.066 c-6.059,5.862-11.767,12.049-17.092,18.509L71.803,136.533z M443.737,290.133c0,51.592-20.924,98.372-54.716,132.343 c-0.119,0.119-0.154,0.282-0.273,0.41c-0.119,0.119-0.282,0.154-0.41,0.265c-33.963,33.801-80.751,54.716-132.335,54.716 c-51.593,0-98.372-20.915-132.344-54.716c-0.119-0.111-0.282-0.145-0.41-0.265c-0.119-0.128-0.154-0.29-0.265-0.41 C89.185,388.506,68.27,341.726,68.27,290.133c0-51.584,20.915-98.372,54.716-132.335c0.111-0.128,0.145-0.29,0.265-0.41 c0.128-0.119,0.29-0.154,0.41-0.265c33.971-33.801,80.751-54.724,132.344-54.724c51.584,0,98.372,20.924,132.335,54.724 c0.128,0.111,0.29,0.145,0.41,0.265c0.12,0.119,0.154,0.282,0.273,0.41C422.813,191.761,443.737,238.549,443.737,290.133z M427.429,149.308c-5.325-6.46-11.034-12.646-17.084-18.509l12.058-12.066l17.8,17.801L427.429,149.308z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.9" d="M401.066,281.604h25.165c-2.022-40.61-18.227-77.457-43.861-105.771l-17.758,17.758c-1.664,1.664-3.849,2.5-6.033,2.5 c-2.185,0-4.369-0.836-6.033-2.5c-3.337-3.336-3.337-8.73,0-12.066l17.758-17.758c-28.314-25.634-65.161-41.839-105.771-43.861 v25.165c0,4.71-3.823,8.533-8.533,8.533s-8.533-3.823-8.533-8.533v-25.165c-40.61,2.022-77.457,18.227-105.771,43.861 l17.758,17.758c3.337,3.337,3.337,8.73,0,12.066c-1.664,1.664-3.849,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5 l-17.758-17.758c-25.634,28.314-41.839,65.161-43.861,105.771h25.165c4.71,0,8.533,3.823,8.533,8.533 c0,4.71-3.823,8.533-8.533,8.533H85.768c2.022,40.61,18.227,77.457,43.861,105.771l17.758-17.758 c3.337-3.336,8.73-3.336,12.066,0c3.337,3.337,3.337,8.73,0,12.066l-17.758,17.758c28.314,25.626,65.161,41.839,105.771,43.861 v-25.165c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v25.165c40.61-2.022,77.457-18.236,105.771-43.861 l-17.758-17.758c-3.337-3.337-3.337-8.73,0-12.066c3.337-3.336,8.73-3.336,12.066,0l17.758,17.758 c25.634-28.314,41.839-65.161,43.861-105.771h-25.165c-4.71,0-8.533-3.823-8.533-8.533 C392.533,285.427,396.356,281.604,401.066,281.604z M256,324.066c-18.765,0-34.031-15.266-34.031-34.031 c0-15.804,10.871-29.005,25.498-32.819v-78.012c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v78.012 c14.626,3.814,25.498,17.015,25.498,32.819C290.031,308.8,274.765,324.066,256,324.066z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
+              </svg>
+            </div>
+            <div class="text">test timer</div>
+          </div>
+          <div class="config buttonContainer timerTimeButtonContainer s5-2 s7">
+            <div class="timerTimeButton s5">
+              <button class="button off"        value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="button seconds15"  value="15"  tabindex="0" role="button" type="button">15</button>
+              <button class="button seconds30"  value="30"  tabindex="0" role="button" type="button">30</button>
+              <button class="button seconds60"  value="60"  tabindex="0" role="button" type="button">60</button>
+              <button class="button seconds120" value="120" tabindex="0" role="button" type="button">120</button>
+            </div>
+            <div class="customInputContainer timerTimeCustomInputContainer s2">
+              <div class="inputContainer custom s1">
+                <input class="inputBox timerTime" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+              <button class="button timerTimeCustomInputButton s1" value="custom" tabindex="0" role="button" type="button">custom</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="timerTimeVisibility">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconHide" width="256px" height="256px" viewBox="0 0 24 24">
+                <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M15.7872 16.9085L6.85842 7.97974C5.54385 8.96489 4.48541 10.1167 3.81198 10.9343C3.42382 11.4056 3.22974 11.6412 3.22974 12C3.22974 12.3588 3.42382 12.5944 3.81198 13.0657C5.23207 14.7899 8.36428 18 12 18C13.3529 18 14.636 17.5555 15.7872 16.9085ZM9.57695 6.45563C10.3479 6.17115 11.1605 6 12 6C15.6357 6 18.768 9.21014 20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C19.7137 13.6416 19.0484 14.3833 18.2371 15.1157L9.57695 6.45563Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
+                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="1.2" d="M8 5L20 17"></path>
+              </svg>
+            </div>
+            <div class="text">hide timer</div>
+          </div>
+          <div class="config buttonContainer timerTimeVisibilityButton s2">
+            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
+          </div>
+        </div>
+        
+        <div class="row" id="caretStyle">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">caret</div>
+          </div>
+          <div class="config caret caretStyleButton s5">
+            <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
+            <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"><span class="shape-underscore"></span></button>
+            <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape-line" style="background-color: white;"></span></button>
+            <button class="caret-box"        value="box"        tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
+            <button class="caret-block"      value="block"      tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
+          </div>
+        </div>
+
         <div class="row" id="textInputBox">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
@@ -93,66 +160,6 @@
           </div>
         </div>
 
-        <div class="row" id="caretStyle">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret</div>
-          </div>
-          <div class="config caret caretStyleButton s5">
-            <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
-            <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"><span class="shape-underscore"></span></button>
-            <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape-line" style="background-color: white;"></span></button>
-            <button class="caret-box"        value="box"        tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
-            <button class="caret-block"      value="block"      tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
-          </div>
-        </div>
-
-        <div class="row" id="caretColor">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret color</div>
-          </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
-            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
-            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
-          </div>
-        </div>
-
-        <div class="row" id="textColors">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
-                <path opacity="0.6" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
-                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
-                <path opacity="1.0" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
-              </svg>
-            </div>
-            <div class="text">text color</div>
-          </div>
-          <div class="config buttonContainer textColors">
-            <div class="colorPickerContainer primaryTextColorInputContainer s1">
-              <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
-              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary">
-            </div>
-            <div class="colorPickerContainer secondaryTextColorInputContainer s1">
-              <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
-              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary">
-            </div>
-          </div>
-        </div>
-        
         <div class="row" id="highlightMode">
           <div class="label">
             <div class="symbol">
@@ -190,6 +197,29 @@
           <div class="config buttonContainer flipHightlightModeColorButton s2">
             <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
+          </div>
+        </div>
+
+        <div class="row" id="textColors">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
+                <path opacity="0.6" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
+                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
+                <path opacity="1.0" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
+              </svg>
+            </div>
+            <div class="text">text color</div>
+          </div>
+          <div class="config buttonContainer textColors">
+            <div class="colorPickerContainer primaryTextColorInputContainer s1">
+              <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
+              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary">
+            </div>
+            <div class="colorPickerContainer secondaryTextColorInputContainer s1">
+              <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
+              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary">
+            </div>
           </div>
         </div>
 
@@ -486,46 +516,88 @@
       </div>
 
       <div class="column c2">
-        <div class="row" id="websiteTheme">
+        <div class="row" id="caretColor">
           <div class="label">
             <div class="symbol">
-              <svg class="iconTheme" height="200px" width="200px" viewBox="0 0 512 512">
-                <path fill="var(--setting-icon-color)" d="M108.303,151.078c15.132,21.096,36.72,35.172,56.347,36.762l0.823,0.075l36.85-26.438l0.196-0.801 c4.774-19.103-1.646-44.071-16.773-65.155c-14.357-20.004-31.076-33.728-47.253-47.01c-11.037-9.056-22.458-18.434-33.117-29.78 C96.553,9.334,93.583,4.692,93.574,4.68L90.713,0l-2.4,2.826C77.173,15.981,72.721,39.694,76.076,67.873 C79.592,97.464,91.048,127.024,108.303,151.078z M116.517,116.056c12.018,13.598,17.63,4.692,10.4-9.17 c-9.079-17.388,0.098-18.012,5.682-12.601c5.566,5.392,12.541,17.476,18.548,14.014c3.611-2.081-0.268-9.568-5.38-20.913 c-2.932-6.496-0.4-16.24,14.701-3.236c5.515,5.544,10.747,11.523,15.618,18.309c10.564,14.707,15.565,32.428,13.121,46.329 l-31.55,22.642c-13.963-2.132-29.12-12.551-39.697-27.284c-4.049-5.651-7.761-11.768-11.078-18.201 c-0.356-0.921-0.763-1.904-1.236-2.946C100.379,111.402,104.5,102.472,116.517,116.056z"></path>
-                <path fill="var(--setting-icon-color)" d="M179.632,215.898c0.511,8.306,4.156,17.363,10.078,25.05l26.851,34.813l52.614-37.746l-24.376-36.579 c-5.38-8.085-12.793-14.43-20.5-17.576c-7.707-3.147-15.038-2.794-20.267,0.952l-16.994,12.197 C181.805,200.756,179.13,207.598,179.632,215.898z"></path>
-                <path fill="var(--setting-icon-color)" d="M277.84,251.026l-51.722,37.103l160.228,207.73c11.109,14.411,27.51,20.182,37.323,13.156l0.116-0.101 c9.807-7.032,9.586-24.42-0.501-39.562L277.84,251.026z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M212.647,302.413l-38.279-49.634c-8.328-10.81-13.323-23.48-14.073-35.689 c-0.214-3.557-0.038-6.988,0.457-10.28c-20.506-2.321-41.472-14.152-58.391-32.555c-30.877,41.308-44.976,90.558-34.693,137.297 c19.973,90.772,124.179,137.619,232.762,104.647l-87.77-113.792L212.647,302.413z M113.191,229.792 c4.276-12.866,18.163-19.829,31.022-15.565c12.866,4.276,19.835,18.163,15.565,31.029c-4.276,12.866-18.17,19.828-31.023,15.564 C115.89,256.532,108.921,242.644,113.191,229.792z M160.125,342.619c-8.829,9.321-23.549,9.737-32.871,0.908 c-9.328-8.83-9.731-23.536-0.902-32.858c8.823-9.334,23.536-9.738,32.864-0.908C168.539,318.577,168.949,333.297,160.125,342.619z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M438.63,142.04c-38.711-57.984-124.224-80.801-210.512-54.591c-6.83,2.075-13.509,4.415-20.033,7.007 c13.181,22.635,18.173,47.433,13.642,68.611c3.295,0.586,6.606,1.514,9.898,2.857c11.349,4.636,21.755,13.434,29.304,24.779 l34.747,52.144h-0.003l87.029,130.644c12.503-9.763,23.909-20.478,33.861-32.032c11.617-13.484,15.641-55.196-38.181-53.039 c-57.391,2.296-65.338-67.999-6.458-73.196C445.119,208.765,460.186,174.318,438.63,142.04z M281.921,162.902 c-14.884,1.741-28.342-8.93-30.07-23.802c-1.734-14.884,8.924-28.342,23.808-30.07c14.878-1.728,28.342,8.931,30.07,23.802 C307.463,147.716,296.798,161.175,281.921,162.902z M393.474,176.714c-5.298,5.285-12.608,8.325-20.093,8.325 c-7.486,0-14.802-3.04-20.094-8.325c-5.291-5.298-8.324-12.613-8.324-20.093c0-7.493,3.033-14.808,8.324-20.106 c5.292-5.285,12.608-8.312,20.094-8.312c7.486,0,14.796,3.027,20.093,8.312c5.291,5.298,8.324,12.613,8.324,20.106 C401.798,164.101,398.765,171.416,393.474,176.714z"></path>
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </div>
-            <div class="text">theme</div>
+            <div class="text">caret color</div>
           </div>
-          <div class="config buttonContainer websiteThemeButton s3">
-            <button class="button light"    value="light" tabindex="0" role="button" type="button" id="selected">light</button>
-            <button class="button midnight" value="midnight" tabindex="0" role="button" type="button">midnight</button>
-            <button class="button dark"     value="dark" tabindex="0" role="button" type="button">dark</button>
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 
-        <div class="row" id="dynamicSettings">
+        <div class="row" id="paceCaretStyle">
           <div class="label">
             <div class="symbol">
-              <svg class="iconDynamicSettings" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M21.23 7.61998H15.69C15.31 7.61998 15 7.30998 15 6.91998C15 6.53998 15.31 6.22998 15.69 6.22998H21.23C21.61 6.22998 21.92 6.53998 21.92 6.91998C21.92 7.30998 21.61 7.61998 21.23 7.61998Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M6.46008 7.62023H2.77008C2.39008 7.62023 2.08008 7.31023 2.08008 6.93023C2.08008 6.55023 2.39008 6.24023 2.77008 6.24023H6.46008C6.84008 6.24023 7.15008 6.55023 7.15008 6.93023C7.15008 7.31023 6.84008 7.62023 6.46008 7.62023Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M10.1505 10.84C12.3154 10.84 14.0705 9.08496 14.0705 6.92C14.0705 4.75504 12.3154 3 10.1505 3C7.98551 3 6.23047 4.75504 6.23047 6.92C6.23047 9.08496 7.98551 10.84 10.1505 10.84Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M21.2296 17.7701H17.5396C17.1596 17.7701 16.8496 17.4601 16.8496 17.0801C16.8496 16.7001 17.1596 16.3901 17.5396 16.3901H21.2296C21.6096 16.3901 21.9196 16.7001 21.9196 17.0801C21.9196 17.4601 21.6096 17.7701 21.2296 17.7701Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M8.31008 17.7701H2.77008C2.39008 17.7701 2.08008 17.4601 2.08008 17.0801C2.08008 16.7001 2.39008 16.3901 2.77008 16.3901H8.31008C8.69008 16.3901 9.00008 16.7001 9.00008 17.0801C9.00008 17.4601 8.69008 17.7701 8.31008 17.7701Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M13.8497 21.0002C16.0146 21.0002 17.7697 19.2451 17.7697 17.0802C17.7697 14.9152 16.0146 13.1602 13.8497 13.1602C11.6847 13.1602 9.92969 14.9152 9.92969 17.0802C9.92969 19.2451 11.6847 21.0002 13.8497 21.0002Z"></path>
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </div>
-            <div class="text">dynamic changes</div>
+            <div class="text">pace caret</div>
           </div>
-          <div class="config buttonContainer dynamicSettingsButton s2">
-            <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
-            <button class="button on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
+          <div class="config paceCaretStyleButton s5">
+              <button class="paceCaret-off"        value="off"        tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="paceCaret-underscore" value="underscore" tabindex="0" role="button" type="button"><span class="shape-underscore"></span></button>
+              <button class="paceCaret-line"       value="line"       tabindex="0" role="button" type="button"><span class="shape-line"></span></button>
+              <button class="paceCaret-box"        value="box"        tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
+              <button class="paceCaret-block"      value="block"      tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
           </div>
         </div>
 
+        <div class="row" id="paceCaretSpeed">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">pace caret speed</div>
+          </div>
+          <div class="config buttonContainer paceCaretSpeedButtonContainer s4-2 s6">
+            <div class="paceCaretSpeedButton s4">
+              <button class="button off"     value="off"     tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="button last"    value="last"    tabindex="0" role="button" type="button">last</button>
+              <button class="button average" value="average" tabindex="0" role="button" type="button">average</button>
+              <button class="button best"    value="best"    tabindex="0" role="button" type="button">best</button>
+            </div>
+            <div class="customInputContainer paceCaretSpeedCustomInputContainer s2">
+              <div class="inputContainer custom s1">
+                <input class="inputBox paceCaretSpeedThreshold" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+              <button value="custom" class="button paceCaretSpeedCustomInputButton s1" tabindex="0" role="button" type="button">custom</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="paceCaretColor">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">pace caret color</div>
+          </div>
+          <div class="config colorPickerContainer paceCaretColorInputContainer s1">
+            <input class="colorSelectorInput paceCaretColorSelectorInput" type="color" value="#808080">
+            <input class="colorTextInput paceCaretColorTextInput"         type="text" placeholder="#808080">
+          </div>
+        </div>
+        
         <div class="row" id="textFontFamily">
           <div class="label">
             <div class="symbol">
@@ -594,53 +666,6 @@
           <div class="config buttonContainer textFontWeightContainer range s1">
             <div class="textFontWeightInputContainer"><input class="textFontWeightInput" type="range" min="100" max="900" step="1" value="440"></div>
             <div class="text value">440</div>
-          </div>
-        </div>
-
-        <div class="row" id="timerTime">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconTestTimer" height="256px" width="256px" viewBox="0 0 512 512">
-                <path fill="var(--setting-icon-color)" opacity="0.7" d="M469.337,154.624c6.818,0,13.636-2.594,18.833-7.791c10.385-10.377,10.385-27.281,0-37.666l-34.133-34.133 c-10.385-10.377-27.29-10.377-37.666,0c-8.269,8.269-9.847,20.608-4.958,30.558l-13.85,13.85 c-30.148-25.037-66.995-42.274-107.426-48.538V51.2H306.7c9.685,0,17.57-7.876,17.57-17.562V17.57 C324.27,7.885,316.385,0,306.7,0H205.298c-9.685,0-17.562,7.885-17.562,17.57v16.068c0,9.685,7.876,17.562,17.562,17.562h16.572 v19.703c-40.431,6.263-77.286,23.501-107.426,48.538l-13.858-13.85c4.89-9.95,3.311-22.289-4.949-30.558 c-10.385-10.377-27.29-10.377-37.666,0l-34.133,34.133c-10.394,10.385-10.394,27.29,0,37.666 c5.188,5.197,12.006,7.791,18.833,7.791c6.025,0,11.981-2.15,16.888-6.195l14.694,14.694 c-25.242,36.011-40.115,79.795-40.115,127.01C34.137,412.476,133.661,512,256.003,512c122.334,0,221.867-99.524,221.867-221.867 c0-47.215-14.874-90.999-40.124-127.01l14.703-14.694C457.347,152.474,463.303,154.624,469.337,154.624z M238.937,51.2h34.133 v17.758c-0.324-0.026-0.623-0.017-0.939-0.034c-5.333-0.393-10.701-0.657-16.128-0.657c-5.436,0-10.795,0.265-16.128,0.657 c-0.324,0.017-0.623,0.009-0.939,0.034V51.2z M71.803,136.533l17.801-17.801l12.058,12.066 c-6.059,5.862-11.767,12.049-17.092,18.509L71.803,136.533z M443.737,290.133c0,51.592-20.924,98.372-54.716,132.343 c-0.119,0.119-0.154,0.282-0.273,0.41c-0.119,0.119-0.282,0.154-0.41,0.265c-33.963,33.801-80.751,54.716-132.335,54.716 c-51.593,0-98.372-20.915-132.344-54.716c-0.119-0.111-0.282-0.145-0.41-0.265c-0.119-0.128-0.154-0.29-0.265-0.41 C89.185,388.506,68.27,341.726,68.27,290.133c0-51.584,20.915-98.372,54.716-132.335c0.111-0.128,0.145-0.29,0.265-0.41 c0.128-0.119,0.29-0.154,0.41-0.265c33.971-33.801,80.751-54.724,132.344-54.724c51.584,0,98.372,20.924,132.335,54.724 c0.128,0.111,0.29,0.145,0.41,0.265c0.12,0.119,0.154,0.282,0.273,0.41C422.813,191.761,443.737,238.549,443.737,290.133z M427.429,149.308c-5.325-6.46-11.034-12.646-17.084-18.509l12.058-12.066l17.8,17.801L427.429,149.308z"></path>
-                <path fill="var(--setting-icon-color)" opacity="0.9" d="M401.066,281.604h25.165c-2.022-40.61-18.227-77.457-43.861-105.771l-17.758,17.758c-1.664,1.664-3.849,2.5-6.033,2.5 c-2.185,0-4.369-0.836-6.033-2.5c-3.337-3.336-3.337-8.73,0-12.066l17.758-17.758c-28.314-25.634-65.161-41.839-105.771-43.861 v25.165c0,4.71-3.823,8.533-8.533,8.533s-8.533-3.823-8.533-8.533v-25.165c-40.61,2.022-77.457,18.227-105.771,43.861 l17.758,17.758c3.337,3.337,3.337,8.73,0,12.066c-1.664,1.664-3.849,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5 l-17.758-17.758c-25.634,28.314-41.839,65.161-43.861,105.771h25.165c4.71,0,8.533,3.823,8.533,8.533 c0,4.71-3.823,8.533-8.533,8.533H85.768c2.022,40.61,18.227,77.457,43.861,105.771l17.758-17.758 c3.337-3.336,8.73-3.336,12.066,0c3.337,3.337,3.337,8.73,0,12.066l-17.758,17.758c28.314,25.626,65.161,41.839,105.771,43.861 v-25.165c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v25.165c40.61-2.022,77.457-18.236,105.771-43.861 l-17.758-17.758c-3.337-3.337-3.337-8.73,0-12.066c3.337-3.336,8.73-3.336,12.066,0l17.758,17.758 c25.634-28.314,41.839-65.161,43.861-105.771h-25.165c-4.71,0-8.533-3.823-8.533-8.533 C392.533,285.427,396.356,281.604,401.066,281.604z M256,324.066c-18.765,0-34.031-15.266-34.031-34.031 c0-15.804,10.871-29.005,25.498-32.819v-78.012c0-4.71,3.823-8.533,8.533-8.533s8.533,3.823,8.533,8.533v78.012 c14.626,3.814,25.498,17.015,25.498,32.819C290.031,308.8,274.765,324.066,256,324.066z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
-              </svg>
-            </div>
-            <div class="text">timer</div>
-          </div>
-          <div class="config buttonContainer timerTimeButtonContainer s5-2 s7">
-            <div class="timerTimeButton s5">
-              <button class="button off"        value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button seconds15"  value="15"  tabindex="0" role="button" type="button">15</button>
-              <button class="button seconds30"  value="30"  tabindex="0" role="button" type="button">30</button>
-              <button class="button seconds60"  value="60"  tabindex="0" role="button" type="button">60</button>
-              <button class="button seconds120" value="120" tabindex="0" role="button" type="button">120</button>
-            </div>
-            <div class="customInputContainer timerTimeCustomInputContainer s2">
-              <div class="inputContainer custom s1">
-                <input class="inputBox timerTime" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-              <button class="button timerTimeCustomInputButton s1" value="custom" tabindex="0" role="button" type="button">custom</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="timerTimeVisibility">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconHide" width="256px" height="256px" viewBox="0 0 24 24">
-                <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" d="M15.7872 16.9085L6.85842 7.97974C5.54385 8.96489 4.48541 10.1167 3.81198 10.9343C3.42382 11.4056 3.22974 11.6412 3.22974 12C3.22974 12.3588 3.42382 12.5944 3.81198 13.0657C5.23207 14.7899 8.36428 18 12 18C13.3529 18 14.636 17.5555 15.7872 16.9085ZM9.57695 6.45563C10.3479 6.17115 11.1605 6 12 6C15.6357 6 18.768 9.21014 20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C19.7137 13.6416 19.0484 14.3833 18.2371 15.1157L9.57695 6.45563Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="1.0" fill-rule="evenodd" clip-rule="evenodd" d="M15.9202 12.7988C15.9725 12.5407 16 12.2736 16 12C16 9.79086 14.2091 8 12 8C11.7264 8 11.4593 8.02746 11.2012 8.07977L15.9202 12.7988ZM8.66676 9.78799C8.24547 10.4216 8 11.1821 8 12C8 14.2091 9.79086 16 12 16C12.8179 16 13.5784 15.7545 14.212 15.3332L8.66676 9.78799Z"></path>
-                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="1.2" d="M8 5L20 17"></path>
-              </svg>
-            </div>
-            <div class="text">hide timer</div>
-          </div>
-          <div class="config buttonContainer timerTimeVisibilityButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
 
@@ -830,75 +855,10 @@
           </div>
         </div>
 
-        <div class="row" id="paceCaretStyle">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">pace caret</div>
-          </div>
-          <div class="config paceCaretStyleButton s5">
-              <button class="paceCaret-off"        value="off"        tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="paceCaret-underscore" value="underscore" tabindex="0" role="button" type="button"><span class="shape-underscore"></span></button>
-              <button class="paceCaret-line"       value="line"       tabindex="0" role="button" type="button"><span class="shape-line"></span></button>
-              <button class="paceCaret-box"        value="box"        tabindex="0" role="button" type="button"><span class="shape-box"></span></button>
-              <button class="paceCaret-block"      value="block"      tabindex="0" role="button" type="button"><span class="shape-block"></span></button>
-          </div>
-        </div>
-
-        <div class="row" id="paceCaretSpeed">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">pace caret speed</div>
-          </div>
-          <div class="config buttonContainer paceCaretSpeedButtonContainer s4-2 s6">
-            <div class="paceCaretSpeedButton s4">
-              <button class="button off"     value="off"     tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button last"    value="last"    tabindex="0" role="button" type="button">last</button>
-              <button class="button average" value="average" tabindex="0" role="button" type="button">average</button>
-              <button class="button best"    value="best"    tabindex="0" role="button" type="button">best</button>
-            </div>
-            <div class="customInputContainer paceCaretSpeedCustomInputContainer s2">
-              <div class="inputContainer custom s1">
-                <input class="inputBox paceCaretSpeedThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-              <button value="custom" class="button paceCaretSpeedCustomInputButton s1" tabindex="0" role="button" type="button">custom</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row" id="paceCaretColor">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">pace caret color</div>
-          </div>
-          <div class="config colorPickerContainer paceCaretColorInputContainer s1">
-            <input class="colorSelectorInput paceCaretColorSelectorInput" type="color" value="#808080">
-            <input class="colorTextInput paceCaretColorTextInput"         type="text" placeholder="#808080">
-          </div>
-        </div>
-
         <div class="row" id="useFloats">
           <div class="label">
             <div class="symbol iconUseFloats">00</div>
-            <div class="text">show decimal places</div>
+            <div class="text">show decimal digits</div>
           </div>
           <div class="config buttonContainer useFloatsButton s2">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
@@ -1090,6 +1050,46 @@
             <button class="button keystroke" tabindex="0" role="button" type="button" value="keystroke" id="selected">keystroke</button>
             <button class="button second"    tabindex="0" role="button" type="button" value="second">second</button>
           </div>      
+        </div>
+
+        <div class="row" id="websiteTheme">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconTheme" height="200px" width="200px" viewBox="0 0 512 512">
+                <path fill="var(--setting-icon-color)" d="M108.303,151.078c15.132,21.096,36.72,35.172,56.347,36.762l0.823,0.075l36.85-26.438l0.196-0.801 c4.774-19.103-1.646-44.071-16.773-65.155c-14.357-20.004-31.076-33.728-47.253-47.01c-11.037-9.056-22.458-18.434-33.117-29.78 C96.553,9.334,93.583,4.692,93.574,4.68L90.713,0l-2.4,2.826C77.173,15.981,72.721,39.694,76.076,67.873 C79.592,97.464,91.048,127.024,108.303,151.078z M116.517,116.056c12.018,13.598,17.63,4.692,10.4-9.17 c-9.079-17.388,0.098-18.012,5.682-12.601c5.566,5.392,12.541,17.476,18.548,14.014c3.611-2.081-0.268-9.568-5.38-20.913 c-2.932-6.496-0.4-16.24,14.701-3.236c5.515,5.544,10.747,11.523,15.618,18.309c10.564,14.707,15.565,32.428,13.121,46.329 l-31.55,22.642c-13.963-2.132-29.12-12.551-39.697-27.284c-4.049-5.651-7.761-11.768-11.078-18.201 c-0.356-0.921-0.763-1.904-1.236-2.946C100.379,111.402,104.5,102.472,116.517,116.056z"></path>
+                <path fill="var(--setting-icon-color)" d="M179.632,215.898c0.511,8.306,4.156,17.363,10.078,25.05l26.851,34.813l52.614-37.746l-24.376-36.579 c-5.38-8.085-12.793-14.43-20.5-17.576c-7.707-3.147-15.038-2.794-20.267,0.952l-16.994,12.197 C181.805,200.756,179.13,207.598,179.632,215.898z"></path>
+                <path fill="var(--setting-icon-color)" d="M277.84,251.026l-51.722,37.103l160.228,207.73c11.109,14.411,27.51,20.182,37.323,13.156l0.116-0.101 c9.807-7.032,9.586-24.42-0.501-39.562L277.84,251.026z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M212.647,302.413l-38.279-49.634c-8.328-10.81-13.323-23.48-14.073-35.689 c-0.214-3.557-0.038-6.988,0.457-10.28c-20.506-2.321-41.472-14.152-58.391-32.555c-30.877,41.308-44.976,90.558-34.693,137.297 c19.973,90.772,124.179,137.619,232.762,104.647l-87.77-113.792L212.647,302.413z M113.191,229.792 c4.276-12.866,18.163-19.829,31.022-15.565c12.866,4.276,19.835,18.163,15.565,31.029c-4.276,12.866-18.17,19.828-31.023,15.564 C115.89,256.532,108.921,242.644,113.191,229.792z M160.125,342.619c-8.829,9.321-23.549,9.737-32.871,0.908 c-9.328-8.83-9.731-23.536-0.902-32.858c8.823-9.334,23.536-9.738,32.864-0.908C168.539,318.577,168.949,333.297,160.125,342.619z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M438.63,142.04c-38.711-57.984-124.224-80.801-210.512-54.591c-6.83,2.075-13.509,4.415-20.033,7.007 c13.181,22.635,18.173,47.433,13.642,68.611c3.295,0.586,6.606,1.514,9.898,2.857c11.349,4.636,21.755,13.434,29.304,24.779 l34.747,52.144h-0.003l87.029,130.644c12.503-9.763,23.909-20.478,33.861-32.032c11.617-13.484,15.641-55.196-38.181-53.039 c-57.391,2.296-65.338-67.999-6.458-73.196C445.119,208.765,460.186,174.318,438.63,142.04z M281.921,162.902 c-14.884,1.741-28.342-8.93-30.07-23.802c-1.734-14.884,8.924-28.342,23.808-30.07c14.878-1.728,28.342,8.931,30.07,23.802 C307.463,147.716,296.798,161.175,281.921,162.902z M393.474,176.714c-5.298,5.285-12.608,8.325-20.093,8.325 c-7.486,0-14.802-3.04-20.094-8.325c-5.291-5.298-8.324-12.613-8.324-20.093c0-7.493,3.033-14.808,8.324-20.106 c5.292-5.285,12.608-8.312,20.094-8.312c7.486,0,14.796,3.027,20.093,8.312c5.291,5.298,8.324,12.613,8.324,20.106 C401.798,164.101,398.765,171.416,393.474,176.714z"></path>
+              </svg>
+            </div>
+            <div class="text">theme</div>
+          </div>
+          <div class="config buttonContainer websiteThemeButton s3">
+            <button class="button light"    value="light" tabindex="0" role="button" type="button" id="selected">light</button>
+            <button class="button midnight" value="midnight" tabindex="0" role="button" type="button">midnight</button>
+            <button class="button dark"     value="dark" tabindex="0" role="button" type="button">dark</button>
+          </div>
+        </div>
+
+        <div class="row" id="dynamicSettings">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconDynamicSettings" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M21.23 7.61998H15.69C15.31 7.61998 15 7.30998 15 6.91998C15 6.53998 15.31 6.22998 15.69 6.22998H21.23C21.61 6.22998 21.92 6.53998 21.92 6.91998C21.92 7.30998 21.61 7.61998 21.23 7.61998Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M6.46008 7.62023H2.77008C2.39008 7.62023 2.08008 7.31023 2.08008 6.93023C2.08008 6.55023 2.39008 6.24023 2.77008 6.24023H6.46008C6.84008 6.24023 7.15008 6.55023 7.15008 6.93023C7.15008 7.31023 6.84008 7.62023 6.46008 7.62023Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M10.1505 10.84C12.3154 10.84 14.0705 9.08496 14.0705 6.92C14.0705 4.75504 12.3154 3 10.1505 3C7.98551 3 6.23047 4.75504 6.23047 6.92C6.23047 9.08496 7.98551 10.84 10.1505 10.84Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M21.2296 17.7701H17.5396C17.1596 17.7701 16.8496 17.4601 16.8496 17.0801C16.8496 16.7001 17.1596 16.3901 17.5396 16.3901H21.2296C21.6096 16.3901 21.9196 16.7001 21.9196 17.0801C21.9196 17.4601 21.6096 17.7701 21.2296 17.7701Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M8.31008 17.7701H2.77008C2.39008 17.7701 2.08008 17.4601 2.08008 17.0801C2.08008 16.7001 2.39008 16.3901 2.77008 16.3901H8.31008C8.69008 16.3901 9.00008 16.7001 9.00008 17.0801C9.00008 17.4601 8.69008 17.7701 8.31008 17.7701Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M13.8497 21.0002C16.0146 21.0002 17.7697 19.2451 17.7697 17.0802C17.7697 14.9152 16.0146 13.1602 13.8497 13.1602C11.6847 13.1602 9.92969 14.9152 9.92969 17.0802C9.92969 19.2451 11.6847 21.0002 13.8497 21.0002Z"></path>
+              </svg>
+            </div>
+            <div class="text">dynamic changes</div>
+          </div>
+          <div class="config buttonContainer dynamicSettingsButton s2">
+            <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
+            <button class="button on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
+          </div>
         </div>
       </div>
     </div>

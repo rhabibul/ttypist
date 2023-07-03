@@ -19,6 +19,16 @@ function fn(evt) {
 	// console.log(evt.currentTarget);
 }
 
+// keyboard reaction
+SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
+SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
+
+// keyboard layout emulate
+SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
+SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
+
 // website theme
 SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
 SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
@@ -149,15 +159,14 @@ SettingsElement.timer.time.customSecondsInput.addEventListener("focusout", updat
 SettingsElement.timer.hidden.off.addEventListener("click", updateTimerVisibilityInUI);
 SettingsElement.timer.hidden.on.addEventListener("click", updateTimerVisibilityInUI);
 
-// keyboard reaction
-SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
-
-// keyboard layout emulate
-SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
-SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
+// pacecaret speed (s5)
+SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.last.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.average.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.best.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaretSpeed);
+SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
+SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
 
 // ###############################################################################
 
@@ -192,70 +201,6 @@ SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-}
-
-// pacecaret speed
-SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.last.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.average.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.best.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
-SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
-
-// pacecaret speed (s5)
-function updatePaceCaretSpeed(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.pacecaret.off && this.value === "off") || (Config.pacecaret.speed.last && this.value === "last") || (Config.pacecaret.speed.average && this.value === "average") || (Config.pacecaret.speed.best && this.value === "best") || (!Config.pacecaret.speed.custom.off && this.value === "custom") ) return;
-
-	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
-	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
-
-	if ( this.value === "custom" ) {
-		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.focus();
-	} else {
-		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.value = "";
-	}
-
-	console.log("pace caret speed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
-}
-
-function updatePaceCaretSpeedInputField(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// turn on "custom" button active if not active
-	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
-	}
-	Config.pacecaret.speed.custom.value = Number(this.value); // store custom pace caret speed entered by user in config
-
-	console.log("pace caret speed [input]:", Config.pacecaret.speed.custom.value);
-}
-
-function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
-	if ( !evt.isTrusted ) return;
-	
-	// turn off custom button if no value is entered in words input field
-	if ( (this.value === "") && (SettingsElement.pacecaret.speed.off.id === "selected") ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
-	}
-
-	// 0wpm is same as turning off pacecaret
-	if ( this.value === "0" ) {
-		setTimeout(() => {
-			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
-			this.value = "";
-		}, 400);
-	}
-
-	// if no users has not entered any value then turn off pace caret
-	if ( (this.value === "") && (SettingsElement.pacecaret.speed.custom.id === "selected") ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
-	}
 }
 
 // pacecaret color
@@ -828,4 +773,61 @@ function updateTimerVisibilityInUI(evt) {
 	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
 	console.log("timer visibility (off):", Config.stats.timer.hidden);
+}
+
+// pacecaret speed (s5)
+function updatePaceCaretSpeed(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.pacecaret.off && this.value === "off") || (Config.pacecaret.speed.last && this.value === "last") || (Config.pacecaret.speed.average && this.value === "average") || (Config.pacecaret.speed.best && this.value === "best") || (!Config.pacecaret.speed.custom.off && this.value === "custom") ) return;
+
+	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
+	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
+
+	if ( this.value === "custom" ) {
+		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.focus();
+	} else {
+		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.value = "";
+	}
+
+	console.log("pace caret speed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
+}
+
+// pacecaret speed input (s5)
+function updatePaceCaretSpeedInputField(evt) {
+	if ( !evt.isTrusted ) return;
+
+	// turn on "custom" button active if not active
+	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
+		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
+		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
+	}
+	Config.pacecaret.speed.custom.value = Number(this.value); // store custom pace caret speed entered by user in config
+
+	console.log("pace caret speed [input]:", Config.pacecaret.speed.custom.value);
+}
+
+// pacecaret speed input - focusout (s5)
+function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
+	if ( !evt.isTrusted ) return;
+	
+	// turn off custom button if no value is entered in words input field
+	if ( (this.value === "") && (SettingsElement.pacecaret.speed.off.id === "selected") ) {
+		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+	}
+
+	// 0wpm is same as turning off pacecaret
+	if ( this.value === "0" ) {
+		setTimeout(() => {
+			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+			this.value = "";
+		}, 400);
+	}
+
+	// if no users has not entered any value then turn off pace caret
+	if ( (this.value === "") && (SettingsElement.pacecaret.speed.custom.id === "selected") ) {
+		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+	}
 }
