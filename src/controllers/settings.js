@@ -163,7 +163,7 @@ SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboar
 
 // caret style
 SettingsElement.caret.off.addEventListener("click", fn);
-SettingsElement.caret.style.underline.addEventListener("click", fn);
+SettingsElement.caret.style.underscore.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
 SettingsElement.caret.style.box.addEventListener("click", fn);
 SettingsElement.caret.style.block.addEventListener("click", fn);
@@ -184,7 +184,7 @@ function updateCaretColor(evt) {
 
 // pacecaret style
 SettingsElement.pacecaret.style.off.addEventListener("click", fn);
-SettingsElement.pacecaret.style.underline.addEventListener("click", fn);
+SettingsElement.pacecaret.style.underscore.addEventListener("click", fn);
 SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);

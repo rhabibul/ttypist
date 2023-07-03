@@ -81,7 +81,7 @@ export const minimum = {
 export const caret = {
 	off: document.querySelector("div.s5.config.caretStyleButton button.caret-off"),
 	style: {
-		underline: document.querySelector("div.s5.config.caretStyleButton button.caret-underline"),
+		underscore: document.querySelector("div.s5.config.caretStyleButton button.caret-underscore"),
 		line: document.querySelector("div.s5.config.caretStyleButton button.caret-line"),
 		box: document.querySelector("div.s5.config.caretStyleButton button.caret-box"),
 		block: document.querySelector("div.s5.config.caretStyleButton button.caret-block"),
@@ -94,7 +94,7 @@ export const caret = {
 export const pacecaret = {
 	style: {
 		off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
-		underline: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underline"),
+		underscore: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underscore"),
 		line: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-line"),
 		box: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-box"),
 		block: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-block"),

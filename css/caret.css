@@ -149,12 +149,12 @@ div.paceCaretStyleButton {
 }
 
 button.caret-off,
-button.caret-underline,
+button.caret-underscore,
 button.caret-line,
 button.caret-box,
 button.caret-block,
 button.paceCaret-off,
-button.paceCaret-underline,
+button.paceCaret-underscore,
 button.paceCaret-line,
 button.paceCaret-box,
 button.paceCaret-block {
@@ -181,7 +181,7 @@ button.paceCaret-off {
   font-family: var(--RobotoMono);
   font-size: 0.8rem;
 }
-span.shape-underline {
+span.shape-underscore {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);
   border-bottom: 1px solid var(--setting-caret-color);
