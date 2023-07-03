@@ -74,10 +74,10 @@ export default {
     color: "black",
   },
   pacecaret: {
+    off: true, // pacecaret.off === speed.off
     style: "off", // off | underscore | line | box | block
     color: "black",
     opacity: 0.5,
-    off: true, // pacecaret.off === speed.off
     speed: {
       last: false, // previous speed
       best: false, // personal best speed
