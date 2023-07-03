@@ -141,12 +141,12 @@ export default {
       smooth: false,
     },
   },
-  timer: {
-    off: false,
-    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
-    hidden: false,
-  },
   stats: {
+    timer: {
+      off: false,
+      time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
+      hidden: false,
+    },
     live: {
       speed: false,    // live speed in wpm/cpm
       accuracy: false, // live accuracy

@@ -353,31 +353,31 @@ export function changeTextWordCountInConfig(value) {
 	}
 }
 
-// text word count
+// timer time
 export function changeTimerSecondsInConfig(value) {
   if ( value === "custom" ) {
-		Config.timer.time = -2; // -2 (custom)
+		Config.stats.timer.time = -2; // -2 (custom)
 	} else if ( value === "off" ) {
-		Config.timer.time = -1; // -1 (off)
+		Config.stats.timer.time = -1; // -1 (off)
 	} else if ( value === "infinite" ) {
-		Config.timer.time = 0; // 0 (infinite)
+		Config.stats.timer.time = 0; // 0 (infinite)
 	} else if ( value === "15" ) {
-		Config.timer.time = 15;
+		Config.stats.timer.time = 15;
 	} else if ( value === "30" ) {
-		Config.timer.time = 30;
+		Config.stats.timer.time = 30;
 	} else if ( value === "60" ) {
-		Config.timer.time = 60;
+		Config.stats.timer.time = 60;
 	} else if ( value === "120" ) {
-		Config.timer.time = 120;
+		Config.stats.timer.time = 120;
 	}
 }
 
 // timer visibility
 export function changeTimerVisibilityInConfig(value) {
 	if ( value === "on" ) {
-		Config.timer.hidden = false;
+		Config.stats.timer.hidden = false;
 	} else {
-		Config.timer.hidden = true;
+		Config.stats.timer.hidden = true;
 	}
 }
 

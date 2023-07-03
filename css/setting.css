@@ -261,8 +261,8 @@ div.config.buttonContainer.paceCaretSpeedButtonContainer.s4-2.s6 .paceCaretSpeed
 
 div.symbol.iconUseFloats {
 	color: var(--setting-icon-color);
-	font-size: 0.94rem;
-	font-weight: 650;
+	font-size: 0.88rem;
+	font-weight: 450;
 	font-family: var(--RobotoMono);
 }
 svg.iconTextFontFamily {
