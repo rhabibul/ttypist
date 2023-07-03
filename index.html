@@ -74,7 +74,7 @@
                 <path fill="var(--setting-icon-color)" opacity="1.0" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
               </svg>
             </div>
-            <div class="text">test timer</div>
+            <div class="text">timer</div>
           </div>
           <div class="config buttonContainer timerTimeButtonContainer s5-2 s7">
             <div class="timerTimeButton s5">
@@ -135,11 +135,23 @@
         <div class="row" id="textInputBox">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
-            <div class="text">text input box</div>
+            <div class="text">text input</div>
           </div>
           <div class="config buttonContainer textInputBoxButton s2">
             <button class="button hidden"  value="hidden" tabindex="0" role="button" type="button" id="selected">hidden</button>
             <button class="button visible" value="visible" tabindex="0" role="button" type="button">visible</button>
+          </div>
+        </div>
+
+        <div class="row" id="tapeMode">
+          <div class="label">
+            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
+            <div class="text">tape mode</div>
+          </div>
+          <div class="config buttonContainer tapeModeButton s3">
+            <button class="button off"    value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button letter" value="letter" tabindex="0" role="button" type="button">letter</button>
+            <button class="button word"   value="word" tabindex="0" role="button" type="button">word</button>
           </div>
         </div>
 
@@ -233,18 +245,6 @@
             <button class="button bullet" value="bullet" tabindex="0" role="button" type="button" data-code="8226" data-character="•" id="selected">bullet</button>
             <button class="button space"  value="space"  tabindex="0" role="button" type="button" data-code="160"  data-character="&nbsp;">space</button>
             <button class="button bar"    value="bar"    tabindex="0" role="button" type="button" data-code="9251" data-character="␣">bar</button>
-          </div>
-        </div>
-
-        <div class="row" id="tapeMode">
-          <div class="label">
-            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
-            <div class="text">tape mode</div>
-          </div>
-          <div class="config buttonContainer tapeModeButton s3">
-            <button class="button off"    value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="button letter" value="letter" tabindex="0" role="button" type="button">letter</button>
-            <button class="button word"   value="word" tabindex="0" role="button" type="button">word</button>
           </div>
         </div>
 
@@ -516,20 +516,51 @@
       </div>
 
       <div class="column c2">
-        <div class="row" id="caretColor">
+        <div class="row" id="textWordCount">
           <div class="label">
             <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00">
+                <rect   fill="var(--setting-icon-color)" opacity="0.1" stroke-width="0" width="26.00" height="26.00" x="-3" y="-3" rx="13"></rect>
+                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="7.25" x2="16" y2="7.25"></line>
+                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="12.75" x2="16" y2="12.75"></line>
+                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M7.75 4L6.75 16"> </path>
+                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M13.25 4L12.25 16"> </path>
               </svg>
             </div>
-            <div class="text">caret color</div>
+            <div class="text">number of words</div>
           </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
-            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
-            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
+          <div class="config buttonContainer textWordCountButtonContainer s5-2 s7">
+            <div class="textWordCountButton s5">
+              <button class="button off"      value="off" tabindex="0" role="button" type="button">off</button>
+              <button class="button words10"  value="10"  tabindex="0" role="button" type="button">10</button>
+              <button class="button words25"  value="25"  tabindex="0" role="button" type="button" id="selected">25</button>
+              <button class="button words50"  value="50"  tabindex="0" role="button" type="button">50</button>
+              <button class="button words100" value="100" tabindex="0" role="button" type="button">100</button>
+            </div>
+            <div class="customInputContainer textWordCountCustomInputContainer s2">
+              <div class="inputContainer custom s1">
+                <input class="inputBox textWordCount" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+              <button class="button textWordCountCustomInputButton s1" value="custom" tabindex="0" role="button" type="button">custom</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="textInclude">
+          <div class="label">
+            <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
+            <div class="text">include in text</div>
+          </div>
+          <div class="config buttonContainer textIncludeCheckboxButtonContainer s2">
+            <div class="textIncludeCheckboxButton digit">
+              <input id="digit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
+              <label for="digit">digit</label>
+            </div>
+            <div class="textIncludeCheckboxButton punctuation">
+              <input id="punctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
+              <label for="punctuation">punctuation</label>
+            </div>
           </div>
         </div>
 
@@ -578,6 +609,23 @@
               </div>
               <button value="custom" class="button paceCaretSpeedCustomInputButton s1" tabindex="0" role="button" type="button">custom</button>
             </div>
+          </div>
+        </div>
+
+        <div class="row" id="caretColor">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">caret color</div>
+          </div>
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 
@@ -666,54 +714,6 @@
           <div class="config buttonContainer textFontWeightContainer range s1">
             <div class="textFontWeightInputContainer"><input class="textFontWeightInput" type="range" min="100" max="900" step="1" value="440"></div>
             <div class="text value">440</div>
-          </div>
-        </div>
-
-        <div class="row" id="textWordCount">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00">
-                <rect   fill="var(--setting-icon-color)" opacity="0.1" stroke-width="0" width="26.00" height="26.00" x="-3" y="-3" rx="13"></rect>
-                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="7.25" x2="16" y2="7.25"></line>
-                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="12.75" x2="16" y2="12.75"></line>
-                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M7.75 4L6.75 16"> </path>
-                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M13.25 4L12.25 16"> </path>
-              </svg>
-            </div>
-            <div class="text">number of words</div>
-          </div>
-          <div class="config buttonContainer textWordCountButtonContainer s5-2 s7">
-            <div class="textWordCountButton s5">
-              <button class="button off"      value="off" tabindex="0" role="button" type="button">off</button>
-              <button class="button words10"  value="10"  tabindex="0" role="button" type="button">10</button>
-              <button class="button words25"  value="25"  tabindex="0" role="button" type="button" id="selected">25</button>
-              <button class="button words50"  value="50"  tabindex="0" role="button" type="button">50</button>
-              <button class="button words100" value="100" tabindex="0" role="button" type="button">100</button>
-            </div>
-            <div class="customInputContainer textWordCountCustomInputContainer s2">
-              <div class="inputContainer custom s1">
-                <input class="inputBox textWordCount" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-              <button class="button textWordCountCustomInputButton s1" value="custom" tabindex="0" role="button" type="button">custom</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="textInclude">
-          <div class="label">
-            <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
-            <div class="text">include in text</div>
-          </div>
-          <div class="config buttonContainer textIncludeCheckboxButtonContainer s2">
-            <div class="textIncludeCheckboxButton digit">
-              <input id="digit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
-              <label for="digit">digit</label>
-            </div>
-            <div class="textIncludeCheckboxButton punctuation">
-              <input id="punctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
-              <label for="punctuation">punctuation</label>
-            </div>
           </div>
         </div>
 

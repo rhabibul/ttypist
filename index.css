@@ -103,7 +103,7 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: deeppink;
+  --caret-color: black;
   --caret-color-hidden: white; /* match invisible underscore caret color with background color of text */
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
@@ -125,7 +125,7 @@
   --setting-button-height: 30px;
   --setting-button-backgroundcolor: #f6f8fa;
   --setting-button-roundness: 4px;
-  --setting-icon-color: rgb(133, 133, 133);
+  --setting-icon-color: black;
   --setting-buttons-container-width: 240px;
 	--setting-checkboxAndText-gap: 3px;
 
