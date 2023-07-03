@@ -183,7 +183,7 @@ function updateCaretColor(evt) {
 }
 
 // pacecaret style
-SettingsElement.pacecaret.off.addEventListener("click", fn);
+SettingsElement.pacecaret.style.off.addEventListener("click", fn);
 SettingsElement.pacecaret.style.underline.addEventListener("click", fn);
 SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
@@ -194,22 +194,14 @@ function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// pacecaret color
-SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
-SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
-
-// pacecaret color (s2)
-function updatePaceCaretColor(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // pacecaret speed
 SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
 SettingsElement.pacecaret.speed.last.addEventListener("click", updatePaceCaretSpeed);
 SettingsElement.pacecaret.speed.average.addEventListener("click", updatePaceCaretSpeed);
 SettingsElement.pacecaret.speed.best.addEventListener("click", updatePaceCaretSpeed);
 SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", fn);
+SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
+SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
 
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
@@ -225,19 +217,33 @@ function updatePaceCaretSpeed(evt) {
 function updatePaceCaretSpeedInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on "on" button active if not
-	// if ( SettingsElement.minimum.speed.off.id === "selected" ) {
-	// 	SettingsChangeInUI.changeMinimumSpeedInUI("on");
-	// 	SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
-	// }
-	// Config.minimum.speed.threshold = Number(this.value);
+	// turn on "custom" button active if not active
+	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
+		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
+		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
+	}
+	Config.pacecaret.speed.custom.value = Number(this.value); // store custom pace caret speed entered by user in config
 
-	// console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+	console.log("pace caret speed [input]:", Config.pacecaret.speed.custom.value);
 }
 
 function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 	
+	// turn off custom button if no value is entered in words input field
+	if ( (this.value === "") && (SettingsElement.pacecaret.speed.off.id === "selected") ) {
+		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+	}
+}
+
+// pacecaret color
+SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
+SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
+
+// pacecaret color (s2)
+function updatePaceCaretColor(evt) {
+	if ( !evt.isTrusted ) return;
 }
 
 // primary text color

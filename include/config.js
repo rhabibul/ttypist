@@ -69,12 +69,13 @@ export default {
   },
   caret: {
     off: false, // none
-    style: "line", // off | line | underscore | box | block
+    style: "line", // off | underscore | line | box | block
     opacity: 1,
     color: "black",
   },
   pacecaret: {
-    style: "off", // off | line | underscore | box | block
+    off: true, // this.off === speed.off 
+    style: "off", // off | underscore | line | box | block
     color: "black",
     opacity: 0.5,
     speed: {
