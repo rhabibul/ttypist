@@ -218,7 +218,8 @@ function updatePaceCaretSpeed(evt) {
 	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
 
-	console.log("pace caret speed:", Config.pacecaret.off, );
+	// 🫵 start here..📌
+	console.log("pace caret speed:", Config.pacecaret.off,  );
 }
 
 // primary text color
