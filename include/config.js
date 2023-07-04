@@ -47,24 +47,6 @@ export default {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-    burst: {
-      off: true,
-      threshold: 0,
-      option: {
-        fixed: false, // fixed the speed set by user for all words (short, medium, long)
-        flex: false, // reduce speed set by user for longer words
-      },
-    }
-  },
   text: {
     underline: true, // underline the current word
     input: {
@@ -117,6 +99,24 @@ export default {
       abrupt: true,
       smooth: false,
     },
+  },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+      option: {
+        fixed: false, // fixed the speed set by user for all words (short, medium, long)
+        flex: false, // reduce speed set by user for longer words
+      },
+    }
   },
   stats: {
     timer: {

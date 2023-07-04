@@ -356,7 +356,7 @@ function updateWarnings(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// ###############################################################################
+// ----------------------------####################----------------------------
 
 
 // keyboard reaction (s4)
@@ -367,7 +367,7 @@ function updateKeyboardReaction(evt) {
 	SettingsChangeInUI.changeKeyboardReactionInUI(this.value);
 	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
 
-	console.log("keyboard reation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
+	console.log("keyboardReation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
 }
 
 // keyboard layout emulate (s2)
@@ -378,7 +378,7 @@ function updateKeyboardLayoutEmulate(evt) {
 	SettingsChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
 	SettingsChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
 
-	console.log("Emulate:", Config.keyboard.layout.emulate);
+	console.log("keyboardLayoutEmulate:", !Config.keyboard.layout.emulate, Config.keyboard.layout.emulate);
 }
 
 // dynamic settings (s2)
@@ -388,6 +388,9 @@ function updateDynamicSettings(evt) {
 
 	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
 	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+
+	// debug
+	console.log("dynamicSettings:", !Config.setting.dynamic, Config.setting.dynamic);
 }
 
 // website theme (s3)
@@ -397,6 +400,9 @@ function updateWebsiteTheme(evt) {
 
 	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
 	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
+
+	// debug
+	console.log("websiteTheme:", Config.websitetheme);
 }
 
 // text input (s2)
@@ -406,6 +412,9 @@ function updateTextInput(evt) {
 
 	SettingsChangeInUI.changeTextInputInUI(this.value);
 	SettingsChangeInConfig.changeTextInputInConfig(this.value);
+
+	// debug
+	console.log("textInput:", Config.text.input.hidden, Config.text.input.visible);
 }
 
 // tape mode (s3)
@@ -415,6 +424,9 @@ function updateTapeMode(evt) {
 	
 	SettingsChangeInUI.changeTapeModeInUI(this.value);
 	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
+
+	// debug
+	console.log("tapeMode:", Config.tape.off, Config.tape.mode.letter, Config.tape.mode.word);
 }
 
 // text highlight (s3)
@@ -424,6 +436,9 @@ function updateTextHighlight(evt) {
 
 	SettingsChangeInUI.changeTextHightlightInUI(this.value);
 	SettingsChangeInConfig.changeTextHightlightInConfig(this.value)
+
+	// debug
+	console.log("textHighlight:", Config.text.highlight.off, Config.text.highlight.mode.letter, Config.text.highlight.mode.word);
 }
 
 // flip text highlight (s2)
@@ -433,6 +448,9 @@ function updateFlipTextHighlight(evt) {
 
 	SettingsChangeInUI.changeFlipTextHightlightInUI(this.value);
 	SettingsChangeInConfig.changeFlipTextHightlightInConfig(this.value);
+
+	// debug
+	console.log("flipTextHighlight:", !Config.text.highlight.flip, Config.text.highlight.flip);
 }
 
 // text underline (s2)
@@ -442,6 +460,9 @@ function updateTextUnderline(evt) {
 
 	SettingsChangeInUI.changeTextUnderlineInUI(this.value);
 	SettingsChangeInConfig.changeTextUnderlineInConfig(this.value);
+
+	// debug
+	console.log("textUnderline:", !Config.text.underline, Config.text.underline);
 }
 
 // text whitespace (s4)
