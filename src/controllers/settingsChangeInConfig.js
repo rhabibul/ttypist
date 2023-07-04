@@ -239,6 +239,36 @@ export function changeModifierKeyInConfig() {
 	}
 }
 
+export function changeWarningsInConfig() {
+	// capslock
+	if ( SettingsElement.warnings.capslock.checked ) {
+		Config.warnings.capslock = true;
+	} else {
+		Config.warnings.capslock = false;
+	}
+
+	// numlock
+	if ( SettingsElement.warnings.numlock.checked ) {
+		Config.warnings.numlock = true;
+	} else {
+		Config.warnings.numlock = false;
+	}
+	
+	// scrolllock
+	if ( SettingsElement.warnings.scrolllock.checked ) {
+		Config.warnings.scrolllock = true;
+	} else {
+		Config.warnings.scrolllock = false;
+	}
+
+	// focusout
+	if ( SettingsElement.warnings.focusout.checked ) {
+		Config.warnings.focusout = true;
+	} else {
+		Config.warnings.focusout = false;
+	}
+}
+
 // error
 export function changeErrorInConfig(value) {
 	if ( value === "skip" ) {

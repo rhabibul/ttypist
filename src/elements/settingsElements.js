@@ -227,7 +227,7 @@ export const warnings = {
 	capslock: document.querySelector("div.warningsCheckboxButton.capslock input[type='checkbox']#capslock"),
 	numlock: document.querySelector("div.warningsCheckboxButton.numlock input[type='checkbox']#numlock"),
 	scrolllock: document.querySelector("div.warningsCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
-	focus: document.querySelector("div.warningsCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
+	focusout: document.querySelector("div.warningsCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
 }
 export const keyboardReaction = {
 	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),

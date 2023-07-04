@@ -305,14 +305,19 @@ function updateUseFloats(evt) {
 }
 
 // warnings
-SettingsElement.warnings.capslock.addEventListener("click", fn);
-SettingsElement.warnings.numlock.addEventListener("click", fn);
-SettingsElement.warnings.scrolllock.addEventListener("click", fn);
-SettingsElement.warnings.focus.addEventListener("click", fn);
+SettingsElement.warnings.capslock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.numlock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.scrolllock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.focusout.addEventListener("click", updateWarnings);
 
 // warnings (s4)
 function updateWarnings(evt) {
 	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInConfig.changeWarningsInConfig();
+
+	// debug
+	console.log("warning:", Config.warnings.capslock, Config.warnings.numlock, Config.warnings.scrolllock, Config.warnings.focusout);
 }
 
 // ----------------------------####################----------------------------
@@ -511,6 +516,7 @@ function updateDeleteOnCorrect(evt) {
 // modifier keys (s3)
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
+	
 	SettingsChangeInConfig.changeModifierKeyInConfig();
 
 	// debug
