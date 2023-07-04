@@ -790,13 +790,13 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 // timer visibility (s2)
 function updateTimerVisibilityInUI(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.timer.hidden && this.value === "off") || (!Config.stats.timer.hidden && this.value === "on") ) return;
+	if ( (Config.stats.timer.hidden && this.value === "on") || (!Config.stats.timer.hidden && this.value === "off") ) return;
 
 	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
 	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
 	// debug
-	console.log("timer visibility (off):", Config.stats.timer.hidden);
+	console.log("timer.hidden:", Config.stats.timer.hidden);
 }
 
 // pacecaret speed (s5)

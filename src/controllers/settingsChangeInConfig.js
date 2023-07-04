@@ -451,9 +451,9 @@ export function changeTimerSecondsInConfig(value) {
 // timer visibility
 export function changeTimerVisibilityInConfig(value) {
 	if ( value === "on" ) {
-		Config.stats.timer.hidden = false;
-	} else {
 		Config.stats.timer.hidden = true;
+	} else {
+		Config.stats.timer.hidden = false;
 	}
 }
 
