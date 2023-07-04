@@ -355,7 +355,9 @@ export function changeTextWordCountInConfig(value) {
 
 // timer time
 export function changeTimerSecondsInConfig(value) {
-  if ( value === "custom" ) {
+	if ( value === "custom" ) {
+		// -2 will be the value for custom input when custom button is active but 
+		// value is not yet entered in input field
 		Config.stats.timer.time = -2; // -2 (custom)
 	} else if ( value === "off" ) {
 		Config.stats.timer.time = -1; // -1 (off)

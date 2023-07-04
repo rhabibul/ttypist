@@ -726,41 +726,43 @@ function updateTimerSeconds(evt) {
 	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
 
+	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.timer.time.customSecondsInput.focus();
 	} else {
 		SettingsElement.timer.time.customSecondsInput.value = "";
 	}
 
-	console.log("number of seconds:", Config.stats.timer.time);
+	console.log("numberOfSeconds:", Config.stats.timer.time);
 }
 
 // timer custom seconds input s1
 function updateTimerSecondsInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
+	// turn on custom button
 	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
 		SettingsChangeInUI.changeTimerSecondsInUI("custom");
 		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	Config.stats.timer.time = Number(this.value);
+	Config.stats.timer.time = Number(this.value); // update in config (overrides -2 initial value)
 
-	console.log("number of seconds [input]:", Config.stats.timer.time);
+	console.log("numberOfSeconds [input]:", Config.stats.timer.time);
 }
 
 // timer custom seconds input - focusout (s1)
 function updateTimerSecondsInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn off custom button if no value is entered in words input field
+	// no value entered in input field (turn off custom button)
 	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
 		SettingsChangeInUI.changeTimerSecondsInUI("off");
 		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
 	}
 
-	// timer never stops until users wants to it stop
+	// infinite timer (timer never stops until user stops it)
 	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
-		console.log("infinite timer started...");
+		console.log("infinite timer..");
 	}
 }
 
@@ -783,51 +785,48 @@ function updatePaceCaretSpeed(evt) {
 	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
 
+	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.focus();
 	} else {
 		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.value = "";
 	}
 
-	console.log("pace caret speed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
+	console.log("paceCaretSpeed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
 }
 
 // pacecaret speed input (s5)
 function updatePaceCaretSpeedInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on "custom" button active if not active
+	// turn on custom button
 	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
 		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
 		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
 	}
-	Config.pacecaret.speed.custom.value = Number(this.value); // store custom pace caret speed entered by user in config
+	Config.pacecaret.speed.custom.value = Number(this.value); // update in config
 
-	console.log("pace caret speed [input]:", Config.pacecaret.speed.custom.value);
+	console.log("paceCaretSpeed [input]:", Config.pacecaret.speed.custom.value);
 }
 
 // pacecaret speed input - focusout (s5)
 function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 	
-	// turn off custom button if no value is entered in words input field
-	if ( (this.value === "") && (SettingsElement.pacecaret.speed.off.id === "selected") ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
-	}
-
-	// 0wpm is same as turning off pacecaret
+	// 0wpm speed for pacecaret is not possible
 	if ( this.value === "0" ) {
 		setTimeout(() => {
 			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
 			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
 			this.value = "";
-		}, 400);
+		}, 300);
 	}
 
-	// if no users has not entered any value then turn off pace caret
+	// no value entered in input field (turn off custom button)
 	if ( (this.value === "") && (SettingsElement.pacecaret.speed.custom.id === "selected") ) {
 		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
 		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
 	}
+	
+	console.log("focusout - paceCaretSpeed [input]");
 }
