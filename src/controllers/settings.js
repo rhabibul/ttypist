@@ -496,6 +496,9 @@ function updateBackspaceKey(evt) {
 
 	SettingsChangeInUI.changeBackspaceKeyInUI(this.value);
 	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
+
+	// debug
+	console.log("backspace.off:", Config.backspace.off);
 }
 
 // deletion not allowed on correct (s2)
@@ -506,13 +509,17 @@ function updateDeleteOnCorrect(evt) {
 	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
 	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
 
-	console.log("delete on correct:", Config.backspace.deleteOnCorrect);
+	// debug
+	console.log("delete on correct:", !Config.backspace.deleteOnCorrect, Config.backspace.deleteOnCorrect);
 }
 
 // modifier keys (s3)
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 	SettingsChangeInConfig.changeModifierKeyInConfig();
+
+	// debug
+	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
 }
 
 // error (s4)
@@ -522,6 +529,9 @@ function updateError(evt) {
 
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
+
+	// debug
+	console.log("error:", Config.error.off, Config.error.insert, Config.error.skip, Config.error.replace);
 }
 
 // forgive error (s2)
@@ -532,7 +542,8 @@ function updateForgiveError(evt) {
 	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
-	console.log("forgive:", Config.error.forgive);
+	// debug
+	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
 }
 
 // stop on error (s3)
@@ -543,6 +554,7 @@ function updateStopOnError(evt) {
 	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
+	// debug
 	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
 }
 
@@ -554,7 +566,8 @@ function updateOppositeShiftMode(evt) {
 	SettingsChangeInUI.changeOppositeShiftModeInUI(this.value);
 	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
 
-	console.log("oppositeshift:", Config.oppositeshift);
+	// debug
+	console.log("oppositeShift:", Config.oppositeshift);
 }
 
 // minimum speed (s3)
@@ -565,12 +578,14 @@ function updateMinimumSpeed(evt) {
 	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
 	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
 
+	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
 		SettingsElement.minimum.speed.thresholdInput.focus();
 	} else {
 		SettingsElement.minimum.speed.thresholdInput.value = "";
 	}
 
+	// debug
 	console.log("minSpeed:", Config.minimum.speed.off);
 }
 
@@ -578,13 +593,14 @@ function updateMinimumSpeed(evt) {
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on "on" button active if not
+	// turn "on" button active if not
 	if ( SettingsElement.minimum.speed.off.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("on");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
 	}
-	Config.minimum.speed.threshold = Number(this.value);
+	Config.minimum.speed.threshold = Number(this.value); // update in config
 
+	// debug
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
 }
 
@@ -598,6 +614,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (minSpeedThreshold)");
 }
 
@@ -609,12 +626,14 @@ function updateMinimumAccuracy(evt) {
 	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
 	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
 
+	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
 		SettingsElement.minimum.accuracy.thresholdInput.focus();
 	} else {
 		SettingsElement.minimum.accuracy.thresholdInput.value = "";
 	}
 
+	// debug
 	console.log("minAccuracy:", Config.minimum.accuracy.off);
 }
 
@@ -627,8 +646,9 @@ function updateMinimumAccuracyThresholdInput(evt) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("on");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("on");
 	}
-	Config.minimum.accuracy.threshold = Number(this.value);
+	Config.minimum.accuracy.threshold = Number(this.value);  // update in config
 
+	// debug
 	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
 }
 
@@ -642,6 +662,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (minAccuracyThreshold)");
 }
 
@@ -653,12 +674,14 @@ function updateMinimumBurst(evt) {
 	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
 	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
 
+	// focus in input field when user clicks on flex or fixed buttons
 	if ( this.value === "fixed" || this.value === "flex" ) {
 		SettingsElement.minimum.burst.thresholdInput.focus();
 	} else {
 		SettingsElement.minimum.burst.thresholdInput.value = "";
 	}
 
+	// debug
 	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
 }
 
@@ -672,8 +695,9 @@ function updateMinimumBurstThresholdInput(evt) {
 		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
-	Config.minimum.burst.threshold = Number(this.value);
+	Config.minimum.burst.threshold = Number(this.value);  // update in config
 
+	// debug
 	console.log("minBurstThreshold [input]:", Config.minimum.burst.threshold);
 }
 
@@ -687,6 +711,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (minBurstThreshold)");
 }
 
@@ -698,13 +723,14 @@ function updateTextWordCount(evt) {
 	SettingsChangeInUI.changeTextWordCountInUI(this.value);
 	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
 
-	// focus to input field when custom button is clicked, otherwise clear input field
+	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.textWordCount.count.customWordsInput.focus();
 	} else {
 		SettingsElement.textWordCount.count.customWordsInput.value = "";
 	}
 
+	// debug
 	console.log("number of words:", Config.text.word.count);
 }
 
@@ -719,6 +745,7 @@ function updateTextWordCountInputField(evt) {
 	}
 	Config.text.word.count = Number(this.value); // update in config (i.e, override -2 initial value)
 
+	// debug
 	console.log("number of words [input]:", Config.text.word.count);
 }
 
@@ -737,10 +764,11 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 		console.log("infinite words mode..");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (numberOfWords)");
 }
 
-// timer (s5)
+// timer seconds (s5)
 function updateTimerSeconds(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.timer.time === -2 && this.value === "custom") || (Config.stats.timer.time === -1 && this.value === "off") || (Config.stats.timer.time === 15 && this.value === "15") || (Config.stats.timer.time === 30 && this.value === "30") || (Config.stats.timer.time === 60 && this.value === "60") || (Config.stats.timer.time === 120 && this.value === "120") ) return;
@@ -755,6 +783,7 @@ function updateTimerSeconds(evt) {
 		SettingsElement.timer.time.customSecondsInput.value = "";
 	}
 
+	// debug
 	console.log("numberOfSeconds:", Config.stats.timer.time);
 }
 
@@ -769,6 +798,7 @@ function updateTimerSecondsInputField(evt) {
 	}
 	Config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
 
+	// debug
 	console.log("numberOfSeconds [input]:", Config.stats.timer.time);
 }
 
@@ -787,6 +817,7 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 		console.log("infinite timer mode..");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (numberOfSeconds)");
 }
 
@@ -798,6 +829,7 @@ function updateTimerVisibilityInUI(evt) {
 	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
 	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
+	// debug
 	console.log("timer visibility (off):", Config.stats.timer.hidden);
 }
 
@@ -809,13 +841,14 @@ function updatePaceCaretSpeed(evt) {
 	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
 
-	// focus to input field when custom button is clicked, otherwise clear input field
+	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.focus();
 	} else {
 		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.value = "";
 	}
 
+	// debug
 	console.log("paceCaretSpeed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
 }
 
@@ -830,6 +863,7 @@ function updatePaceCaretSpeedInputField(evt) {
 	}
 	Config.pacecaret.speed.custom.value = Number(this.value); // update in config
 
+	// debug
 	console.log("paceCaretSpeed [input]:", Config.pacecaret.speed.custom.value);
 }
 
@@ -852,5 +886,6 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
 	}
 
+	// debug
 	console.log("INPUT FOCUS-OUT (paceCaretSpeed)");
 }
