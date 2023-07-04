@@ -3,6 +3,12 @@ export default {
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  caret: {
+    off: false, // none
+    style: "line", // off | underscore | line | box | block
+    opacity: 1,
+    color: "black",
+  },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -39,27 +45,6 @@ export default {
       off: true,
       letter: false, // stop before letter if wrongly typed
       word: false, // don't move to the next word until all mistakes are corrected
-    },
-  },
-  caret: {
-    off: false, // none
-    style: "box", // off | underscore | line | box | block
-    opacity: 1,
-    color: "black",
-  },
-  pacecaret: {
-    off: true, // pacecaret.off === speed.off
-    style: "off", // off | underscore | line | box | block
-    color: "black",
-    opacity: 0.5,
-    speed: {
-      last: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        value: 0, // provide custom speed (in wpm) to compete against
-      }
     },
   },
   minimum: {
@@ -106,9 +91,9 @@ export default {
     whitespace: {
       off: false, // nospace
       type: {
-        space: false, // 160, '&nbsp'
         bullet: true, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
+        space: false, // 160, '&nbsp'
       },
       code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'
@@ -172,6 +157,21 @@ export default {
     layout: {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
+    },
+  },
+  pacecaret: {
+    off: true, // pacecaret.off === speed.off
+    style: "off", // off | underscore | line | box | block
+    color: "black",
+    opacity: 0.5,
+    speed: {
+      last: false, // previous speed
+      best: false, // personal best speed
+      average: false, // average of last 10 speeds
+      custom: {
+        off: true,
+        value: 0, // provide custom speed (in wpm) to compete against
+      }
     },
   },
   websitetheme: "light", // light | midnight | dark

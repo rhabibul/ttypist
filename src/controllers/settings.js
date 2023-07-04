@@ -451,6 +451,9 @@ function updateTextWhitespace(evt) {
 
 	SettingsChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingsChangeInConfig.changeTextWhitespaceInConfig(this.value);
+
+	// debug
+	console.log("whitespace:", Config.text.whitespace.off, Config.text.whitespace.type.space, Config.text.whitespace.type.bullet, Config.text.whitespace.type.bar, Config.text.whitespace.character, Config.text.whitespace.code);
 }
 
 // strictspace (s2)
