@@ -168,6 +168,18 @@ SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaret
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
 SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
 
+// font size & weight sliders
+SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
+SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
+
+// primary text color
+SettingsElement.textColor.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
+SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
+
+// secondary text color
+SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
+SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
+
 // ###############################################################################
 
 // caret style
@@ -212,38 +224,6 @@ function updatePaceCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// primary text color
-SettingsElement.textColor.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
-SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
-
-// primary text color (s2)
-function updatePrimaryTextColorSelectorInput(evt) {
-	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColor.primary.textInput.value = this.value;
-	Config.text.color.primary = this.value;
-}
-function updatePrimaryTextColorTextInput(evt) {
-	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
-	Config.text.color.primary = this.value;
-}
-
-// secondary text color
-SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
-SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
-
-// secondary text color (s2)
-function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
-	if ( !evt.isTrusted ) return;
-	SettingsElement.textColor.secondary.textInput.value = this.value;
-	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
-}
-function updateSecondaryTextColorTextInput(evt) { // text input (color)
-	if ( !evt.isTrusted ) return;
-	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
-}
-
 // details
 SettingsElement.details.textFontFamily.addEventListener("click", fn);
 SettingsElement.details.textWordLength.addEventListener("click", fn);
@@ -275,36 +255,6 @@ function updateKeyboardLanguage(evt) {
 // details: keyboard layout (s1)
 function updateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
-}
-
-// font size & weight sliders
-SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
-SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
-
-// text font size slider (s1)
-function updateTextFontSize(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-font-size", `${this.value}px`);
-
-	Config.text.font.size = Number(this.value); // update in config
-	
-	// debug
-	console.log("textFontSize:", Config.text.font.size);
-}
-
-// text font weight slider (s1)
-function updateTextFontWeight(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
-
-	Config.text.font.weight = Number(this.value);
-
-	// debug
-	console.log("textFontWeight:", Config.text.font.weight);
 }
 
 // text include (s2)
@@ -933,4 +883,78 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 
 	// debug
 	console.log("INPUT FOCUS-OUT (paceCaretSpeed)");
+}
+
+// text font size slider (s1)
+function updateTextFontSize(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
+	document.querySelector(":root").style.setProperty("--text-font-size", `${this.value}px`);
+
+	Config.text.font.size = Number(this.value); // update in config
+	
+	// debug
+	console.log("textFontSize:", Config.text.font.size);
+}
+
+// text font weight slider (s1)
+function updateTextFontWeight(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
+	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
+
+	Config.text.font.weight = Number(this.value);
+
+	// debug
+	console.log("textFontWeight:", Config.text.font.weight);
+}
+
+// primary text color picker input field
+function updatePrimaryTextColorSelectorInput(evt) {
+	if ( !evt.isTrusted ) return;
+
+	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
+	SettingsElement.textColor.primary.textInput.value = this.value; // update in text input field for primary color
+	Config.text.color.primary = this.value; // update in config
+
+	// debug
+	console.log("textPrimaryColor [colorpicker]:", Config.text.color.primary);
+}
+
+// primary text color text input field
+function updatePrimaryTextColorTextInput(evt) {
+	if ( !evt.isTrusted ) return;
+
+	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
+	SettingsElement.textColor.secondary.selectorInput = this.value; // update in color picker input field for primary color
+	Config.text.color.primary = this.value; // update in config
+
+	// debug
+	console.log("textPrimaryColor [colortextinput]:", Config.text.color.primary);
+}
+
+// secondary text color picker input field
+function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
+	if ( !evt.isTrusted ) return;
+
+	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
+	SettingsElement.textColor.secondary.textInput.value = this.value;  // update in text input field for secondary color
+	Config.text.color.secondary = this.value; // update in config
+
+	// debug
+	console.log("textSecondaryColor [colorpicker]:", Config.text.color.secondary);
+}
+
+// secondary text color text input field
+function updateSecondaryTextColorTextInput(evt) { // text input (color)
+	if ( !evt.isTrusted ) return;
+
+	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
+	SettingsElement.textColor.secondary.selectorInput.value = this.value;
+	Config.text.color.secondary = this.value; // update in config
+
+	// debug
+	console.log("textSecondaryColor [colortextinput]:", Config.text.color.secondary);
 }
