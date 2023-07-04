@@ -180,7 +180,7 @@ SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrim
 SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
 SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
-// ###############################################################################
+// ----------------------------####################----------------------------
 
 // caret style
 SettingsElement.caret.off.addEventListener("click", fn);
