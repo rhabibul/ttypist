@@ -1,12 +1,8 @@
 export default {
-  websitetheme: "light", // light | midnight | dark
-  setting: {
-    dynamic: true, // live setting changes without restarting test
-    view: {
-      condense: true,
-      expand: false,
-    },
-  },
+  arrows: true, // implicitly enabled (mythical)
+  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
+  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -14,10 +10,6 @@ export default {
       word: false,
     }
   },
-  arrows: true, // implicitly enabled (mythical)
-  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
-  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
-  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   backspace: {
     off: false,
     modifier: {
@@ -49,27 +41,9 @@ export default {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-    burst: {
-      off: true,
-      threshold: 0,
-      option: {
-        fixed: false, // fixed the speed set by user for all words (short, medium, long)
-        flex: false, // reduce speed set by user for longer words
-      },
-    }
-  },
   caret: {
     off: false, // none
-    style: "line", // off | underscore | line | box | block
+    style: "box", // off | underscore | line | box | block
     opacity: 1,
     color: "black",
   },
@@ -87,6 +61,24 @@ export default {
         value: 0, // provide custom speed (in wpm) to compete against
       }
     },
+  },
+  minimum: {
+    speed: {
+      off: true,
+      threshold: 0,
+    },
+    accuracy: {
+      off: true,
+      threshold: 0,
+    },
+    burst: {
+      off: true,
+      threshold: 0,
+      option: {
+        fixed: false, // fixed the speed set by user for all words (short, medium, long)
+        flex: false, // reduce speed set by user for longer words
+      },
+    }
   },
   text: {
     underline: true, // underline the current word
@@ -180,6 +172,14 @@ export default {
     layout: {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
+    },
+  },
+  websitetheme: "light", // light | midnight | dark
+  setting: {
+    dynamic: true, // live setting changes without restarting test
+    view: {
+      condense: true,
+      expand: false,
     },
   },
 };

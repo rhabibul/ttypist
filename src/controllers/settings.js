@@ -460,6 +460,9 @@ function updateStrictSpace(evt) {
 
 	SettingsChangeInUI.changeStrictSpaceInUI(this.value);
 	SettingsChangeInConfig.changeStrictSpaceInConfig(this.value);
+
+	// debug
+	console.log("strictSpace:", !Config.strictspace, Config.strictspace);
 }
 
 // quickend (s2)
@@ -469,6 +472,9 @@ function updateQuickEnd(evt) {
 
 	SettingsChangeInUI.changeQuickEndInUI(this.value);
 	SettingsChangeInConfig.changeQuickEndInConfig(this.value);
+
+	// debug
+	console.log("quickEnd:", !Config.quickend, Config.quickend);
 }
 
 // difficulty (s3)
