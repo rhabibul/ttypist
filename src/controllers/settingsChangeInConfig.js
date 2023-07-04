@@ -490,3 +490,37 @@ export function changePaceCaretSpeedInConfig(value) {
 		Config.pacecaret.speed.custom.off = true;
 	}	
 }
+
+export function changeUseFloatsInConfig(value) {
+	if ( value === "on" ) {
+		Config.stats.usefloats = true;
+	} else {
+		Config.stats.usefloats = false;
+	}
+}
+
+export function changeSpeedUnitInConfig(value) {
+	if ( value === "cpm" ) {
+		SettingsElement.stats.unit.cpm.id = "selected";
+		SettingsElement.stats.unit.wpm.id = "";
+	} else {
+		SettingsElement.stats.unit.cpm.id = "";
+		SettingsElement.stats.unit.wpm.id = "selected";
+	}
+}
+
+export function changeLiveStatsCalcIntervalInConfig(value) {
+	if ( value === "word" ) {
+		Config.stats.calcInterval.word = true;
+		Config.stats.calcInterval.keystroke = false;
+		Config.stats.calcInterval.second = false;
+	} else if ( value === "second" ) {
+		Config.stats.calcInterval.word = false;
+		Config.stats.calcInterval.keystroke = false;
+		Config.stats.calcInterval.second = true;
+	} else {
+		Config.stats.calcInterval.word = false;
+		Config.stats.calcInterval.keystroke = true;
+		Config.stats.calcInterval.second = false;
+	}
+}

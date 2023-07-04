@@ -195,6 +195,18 @@ SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
 SettingsElement.textInclude.digit.addEventListener("click", updateTextInclude);
 SettingsElement.textInclude.punctuation.addEventListener("click", updateTextInclude);
 
+// show decimal places
+SettingsElement.stats.usefloats.off.addEventListener("click", updateUseFloats);
+SettingsElement.stats.usefloats.on.addEventListener("click", updateUseFloats);
+
+// speed unit
+SettingsElement.stats.unit.cpm.addEventListener("click", updateSpeedUnit);
+SettingsElement.stats.unit.wpm.addEventListener("click", updateSpeedUnit);
+
+// live stats interval
+SettingsElement.stats.calcInterval.word.addEventListener("click", updateLiveStatsCalcInterval);
+SettingsElement.stats.calcInterval.keystroke.addEventListener("click", updateLiveStatsCalcInterval);
+SettingsElement.stats.calcInterval.second.addEventListener("click", updateLiveStatsCalcInterval);
 
 // ----------------------------####################----------------------------
 
@@ -270,34 +282,6 @@ function updateKeyboardLanguage(evt) {
 }
 // details: keyboard layout (s1)
 function updateKeyboardLayout(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// live stats calculation interval (s3)
-SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
-SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
-SettingsElement.stats.calcInterval.second.addEventListener("click", fn);
-
-// live stats calculation interval (s3)
-function updateLiveStatsCalculationInterval(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// speed unit
-SettingsElement.stats.unit.cpm.addEventListener("click", fn);
-SettingsElement.stats.unit.wpm.addEventListener("click", fn);
-
-// speed unit (s2)
-function updateSpeedUnit(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// show decimal places
-SettingsElement.stats.usefloats.off.addEventListener("click", fn);
-SettingsElement.stats.usefloats.on.addEventListener("click", fn);
-
-// show decimal places (s2)
-function updateUseFloats(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -974,4 +958,40 @@ function updateTextInclude(evt) {
 
 	// debug
 	console.log("textInclude:", Config.text.include.digit, Config.text.include.punctuation);
+}
+
+// show decimal places (s2)
+function updateUseFloats(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.stats.usefloats && this.value === "on") || (!Config.stats.usefloats && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeUseFloatsInUI(this.value);
+	SettingsChangeInConfig.changeUseFloatsInConfig(this.value);
+
+	// debug
+	console.log("useFloats:", !Config.stats.usefloats, Config.stats.usefloats);
+}
+
+// speed unit (s2)
+function updateSpeedUnit(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.stats.unit.cpm && this.value === "cpm") || (Config.stats.unit.wpm && this.value === "wpm") ) return;
+
+	SettingsChangeInUI.changeSpeedUnitInUI(this.value);
+	SettingsChangeInConfig.changeSpeedUnitInConfig(this.value);
+
+	// debug
+	console.log("speedUnit:", Config.stats.unit.cpm, Config.stats.unit.wpm);
+}
+
+// live stats interval (s3)
+function updateLiveStatsCalcInterval(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.stats.calcInterval.word && this.value === "word") || (Config.stats.calcInterval.keystroke && this.value === "keystroke") || (Config.stats.calcInterval.second && this.value === "second") ) return;
+
+	SettingsChangeInUI.changeLiveStatsCalcIntervalInUI(this.value);
+	SettingsChangeInConfig.changeLiveStatsCalcIntervalInConfig(this.value);
+	
+	// debug
+	console.log("liveStatsInterval:", Config.stats.calcInterval.word, Config.stats.calcInterval.keystroke, Config.stats.calcInterval.second);
 }

@@ -477,3 +477,39 @@ export function changePaceCaretSpeedInUI(value) {
 		SettingsElement.pacecaret.speed.custom.id = "";
 	}
 }
+
+export function changeUseFloatsInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.stats.usefloats.off.id = "";
+		SettingsElement.stats.usefloats.on.id = "selected";
+	} else {
+		SettingsElement.stats.usefloats.off.id = "selected";
+		SettingsElement.stats.usefloats.on.id = "";
+	}
+}
+
+export function changeSpeedUnitInUI(value) {
+	if ( value === "cpm" ) {
+		Config.stats.unit.cpm = true;
+		Config.stats.unit.wpm = false;
+	} else {
+		Config.stats.unit.cpm = false;
+		Config.stats.unit.wpm = true;
+	}
+}
+
+export function changeLiveStatsCalcIntervalInUI(value) {
+	if ( value === "word" ) {
+		SettingsElement.stats.calcInterval.word.id = "selected";
+		SettingsElement.stats.calcInterval.keystroke.id = "";
+		SettingsElement.stats.calcInterval.second.id = "";
+	} else if ( value === "second" ) {
+		SettingsElement.stats.calcInterval.word.id = "";
+		SettingsElement.stats.calcInterval.keystroke.id = "";
+		SettingsElement.stats.calcInterval.second.id = "selected";
+	} else {
+		SettingsElement.stats.calcInterval.word.id = "";
+		SettingsElement.stats.calcInterval.keystroke.id = "selected";
+		SettingsElement.stats.calcInterval.second.id = "";
+	}
+}
