@@ -180,6 +180,22 @@ SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrim
 SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
 SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
+// warnings
+SettingsElement.warnings.capslock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.numlock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.scrolllock.addEventListener("click", updateWarnings);
+SettingsElement.warnings.focusout.addEventListener("click", updateWarnings);
+
+// live stats
+SettingsElement.stats.live.speed.addEventListener("click", updateLiveStats);
+SettingsElement.stats.live.accuracy.addEventListener("click", updateLiveStats);
+SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
+
+// text include (s2)
+SettingsElement.textInclude.digit.addEventListener("click", updateTextInclude);
+SettingsElement.textInclude.punctuation.addEventListener("click", updateTextInclude);
+
+
 // ----------------------------####################----------------------------
 
 // caret style
@@ -257,25 +273,6 @@ function updateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// text include (s2)
-SettingsElement.textInclude.digit.addEventListener("click", fn);
-SettingsElement.textInclude.punctuation.addEventListener("click", fn);
-
-// text include (s2)
-function updateTextInclude(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// live stats
-SettingsElement.stats.live.speed.addEventListener("click", fn);
-SettingsElement.stats.live.accuracy.addEventListener("click", fn);
-SettingsElement.stats.live.burst.addEventListener("click", fn);
-
-// live stats (s3)
-function updateLiveStats(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // live stats calculation interval (s3)
 SettingsElement.stats.calcInterval.word.addEventListener("click", fn);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", fn);
@@ -295,29 +292,13 @@ function updateSpeedUnit(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// show floats
+// show decimal places
 SettingsElement.stats.usefloats.off.addEventListener("click", fn);
 SettingsElement.stats.usefloats.on.addEventListener("click", fn);
 
-// show floats (s2)
+// show decimal places (s2)
 function updateUseFloats(evt) {
 	if ( !evt.isTrusted ) return;
-}
-
-// warnings
-SettingsElement.warnings.capslock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.numlock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.scrolllock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.focusout.addEventListener("click", updateWarnings);
-
-// warnings (s4)
-function updateWarnings(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInConfig.changeWarningsInConfig();
-
-	// debug
-	console.log("warning:", Config.warnings.capslock, Config.warnings.numlock, Config.warnings.scrolllock, Config.warnings.focusout);
 }
 
 // ----------------------------####################----------------------------
@@ -963,4 +944,34 @@ function updateSecondaryTextColorTextInput(evt) { // text input (color)
 
 	// debug
 	console.log("textSecondaryColor [colortextinput]:", Config.text.color.secondary);
+}
+
+// warnings (s4)
+function updateWarnings(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInConfig.changeWarningsInConfig();
+
+	// debug
+	console.log("warning:", Config.warnings.capslock, Config.warnings.numlock, Config.warnings.scrolllock, Config.warnings.focusout);
+}
+
+// live stats (s3)
+function updateLiveStats(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInConfig.changeLiveStatsInConfig();
+
+	// debug
+	console.log("liveStats:", Config.stats.live.speed, Config.stats.live.accuracy, Config.stats.live.burst);
+}
+
+// text include (s2)
+function updateTextInclude(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInConfig.changeTextIncludeInConfig();
+
+	// debug
+	console.log("textInclude:", Config.text.include.digit, Config.text.include.punctuation);
 }

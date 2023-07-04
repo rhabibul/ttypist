@@ -239,6 +239,7 @@ export function changeModifierKeyInConfig() {
 	}
 }
 
+// warnings
 export function changeWarningsInConfig() {
 	// capslock
 	if ( SettingsElement.warnings.capslock.checked ) {
@@ -266,6 +267,47 @@ export function changeWarningsInConfig() {
 		Config.warnings.focusout = true;
 	} else {
 		Config.warnings.focusout = false;
+	}
+}
+
+// live stats
+export function changeLiveStatsInConfig() {
+	// speed
+	if ( SettingsElement.stats.live.speed.checked ) {
+		Config.stats.live.speed = true;
+	} else {
+		Config.stats.live.speed = false;
+	}
+
+	// accuracy
+	if ( SettingsElement.stats.live.accuracy.checked ) {
+		Config.stats.live.accuracy = true;
+	} else {
+		Config.stats.live.accuracy = false;
+	}
+
+	// burst
+	if ( SettingsElement.stats.live.burst.checked ) {
+		Config.stats.live.burst = true;
+	} else {
+		Config.stats.live.burst = false;
+	}
+}
+
+// text include
+export function changeTextIncludeInConfig() {
+	// digit
+	if ( SettingsElement.textInclude.digit.checked ) {
+		Config.text.include.digit = true;
+	} else {
+		Config.text.include.digit = false;
+	}
+
+	// punctuation
+	if ( SettingsElement.textInclude.punctuation.checked ) {
+		Config.text.include.punctuation = true;
+	} else {
+		Config.text.include.punctuation = false;
 	}
 }
 
