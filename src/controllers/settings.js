@@ -573,6 +573,7 @@ function updateMinimumSpeed(evt) {
 
 	console.log("minSpeed:", Config.minimum.speed.off);
 }
+
 // minimum speed threashold input (s1)
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
@@ -586,14 +587,18 @@ function updateMinimumSpeedThresholdInput(evt) {
 
 	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
 }
+
 // minimum speed threshold input (focusout)
 function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
+	// no value entered in input field
 	if ( this.value === "" && SettingsElement.minimum.speed.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("off");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
 	}
+
+	console.log("INPUT FOCUS-OUT (minSpeedThreshold)");
 }
 
 // minimum accuracy (s3)
@@ -612,6 +617,7 @@ function updateMinimumAccuracy(evt) {
 
 	console.log("minAccuracy:", Config.minimum.accuracy.off);
 }
+
 // minimum accuracy threashold input (s1)
 function updateMinimumAccuracyThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
@@ -625,13 +631,18 @@ function updateMinimumAccuracyThresholdInput(evt) {
 
 	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
 }
+
 // minimum accuracy threshold input (focusout)
 function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
+
+	// no value entered in input field
 	if ( this.value === "" && SettingsElement.minimum.accuracy.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
 	}
+
+	console.log("INPUT FOCUS-OUT (minAccuracyThreshold)");
 }
 
 // minimum burst (s3)
@@ -650,26 +661,33 @@ function updateMinimumBurst(evt) {
 
 	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
 }
+
 // minimum burst threashold input (s1)
 function updateMinimumBurstThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on "fixed" button active if not
+	// turn on "fixed" button active if user starts entering value into input field
+	// without clicking on flex or fixed buttons first
 	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
 	Config.minimum.burst.threshold = Number(this.value);
 
-	console.log("minBurstThreshold:", Config.minimum.burst.threshold);
+	console.log("minBurstThreshold [input]:", Config.minimum.burst.threshold);
 }
+
 // minimum burst threshold input (focusout)
 function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
+
+	// no value entered in input field
 	if ( this.value === "" && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
 		SettingsChangeInUI.changeMinimumBurstInUI("off");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
 	}
+
+	console.log("INPUT FOCUS-OUT (minBurstThreshold)");
 }
 
 // text word count (s5)
@@ -680,6 +698,7 @@ function updateTextWordCount(evt) {
 	SettingsChangeInUI.changeTextWordCountInUI(this.value);
 	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
 
+	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.textWordCount.count.customWordsInput.focus();
 	} else {
@@ -693,11 +712,12 @@ function updateTextWordCount(evt) {
 function updateTextWordCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
+	// make custom button active if not
 	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
 		SettingsChangeInUI.changeTextWordCountInUI("custom");
 		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
 	}
-	Config.text.word.count = Number(this.value);
+	Config.text.word.count = Number(this.value); // update in config (i.e, override -2 initial value)
 
 	console.log("number of words [input]:", Config.text.word.count);
 }
@@ -706,16 +726,18 @@ function updateTextWordCountInputField(evt) {
 function updateTextWordCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn off custom button if no value is entered in words input field
+	// no value entered in input field (turn off custom button)
 	if ( (this.value === "") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
 		SettingsChangeInUI.changeTextWordCountInUI("off");
 		SettingsChangeInConfig.changeTextWordCountInConfig("off");
 	}
 
-	// generate infinite words
+	// infinite words mode
 	if ( (SettingsElement.textWordCount.count.custom.id === "selected") && (SettingsElement.textWordCount.count.customWordsInput.value === "0") ) {
-		console.log("infinite words will be generated...");
+		console.log("infinite words mode..");
 	}
+
+	console.log("INPUT FOCUS-OUT (numberOfWords)");
 }
 
 // timer (s5)
@@ -736,16 +758,16 @@ function updateTimerSeconds(evt) {
 	console.log("numberOfSeconds:", Config.stats.timer.time);
 }
 
-// timer custom seconds input s1
+// timer custom seconds input (s1)
 function updateTimerSecondsInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on custom button
+	// make custom button active if not
 	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
 		SettingsChangeInUI.changeTimerSecondsInUI("custom");
 		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	Config.stats.timer.time = Number(this.value); // update in config (overrides -2 initial value)
+	Config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
 
 	console.log("numberOfSeconds [input]:", Config.stats.timer.time);
 }
@@ -760,10 +782,12 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
 	}
 
-	// infinite timer (timer never stops until user stops it)
+	// infinite timer mode
 	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
-		console.log("infinite timer..");
+		console.log("infinite timer mode..");
 	}
+
+	console.log("INPUT FOCUS-OUT (numberOfSeconds)");
 }
 
 // timer visibility (s2)
@@ -799,7 +823,7 @@ function updatePaceCaretSpeed(evt) {
 function updatePaceCaretSpeedInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn on custom button
+	// make custom button active if not
 	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
 		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
 		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
@@ -827,6 +851,6 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
 		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
 	}
-	
-	console.log("focusout - paceCaretSpeed [input]");
+
+	console.log("INPUT FOCUS-OUT (paceCaretSpeed)");
 }
