@@ -478,6 +478,9 @@ function updateDifficulty(evt) {
 
 	SettingsChangeInUI.changeDifficultyInUI(this.value);
 	SettingsChangeInConfig.changeDifficultyInConfig(this.value)
+
+	// debug
+	console.log("difficulty:", Config.difficulty.ease, Config.difficulty.expert, Config.difficulty.master);
 }
 
 // confidence (s3)
@@ -487,6 +490,9 @@ function updateConfidence(evt) {
 
 	SettingsChangeInUI.changeConfidenceInUI(this.value);
 	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
+
+	// debug
+	console.log("confidence:", Config.confidence.low, Config.confidence.high, Config.confidence.peak);
 }
 
 // backspace key (s2)

@@ -199,11 +199,11 @@
           <div class="config buttonContainer textColors">
             <div class="colorPickerContainer primaryTextColorInputContainer s1">
               <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
-              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary">
+              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary color">
             </div>
             <div class="colorPickerContainer secondaryTextColorInputContainer s1">
               <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
-              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary">
+              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary color">
             </div>
           </div>
         </div>
@@ -564,6 +564,23 @@
           </div>
         </div>
 
+        <div class="row" id="caretColor">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">caret color</div>
+          </div>
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
+          </div>
+        </div>
+        
         <div class="row" id="paceCaretStyle">
           <div class="label">
             <div class="symbol">
@@ -609,23 +626,6 @@
               </div>
               <button value="custom" class="button paceCaretSpeedCustomInputButton s1" tabindex="0" role="button" type="button">custom</button>
             </div>
-          </div>
-        </div>
-
-        <div class="row" id="caretColor">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret color</div>
-          </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
-            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
-            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 

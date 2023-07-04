@@ -77,7 +77,7 @@
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-	color: #cecece;
+	color: #94bee67b;
 }
 
 :root {
@@ -123,7 +123,7 @@
   --setting-caret-border-color: hsla(212, 14%, 19%, 0.08);
   --setting-button-border-color: #dbdbdb;
   --setting-button-height: 30px;
-  --setting-button-backgroundcolor: #f6f8fa;
+  --setting-button-backgroundcolor: #eff7ff;
   --setting-button-roundness: 4px;
   --setting-icon-color: rgb(0, 71, 94);
   --setting-buttons-container-width: 240px;
