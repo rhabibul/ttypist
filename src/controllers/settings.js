@@ -277,25 +277,34 @@ function updateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// text font size slider
+// font size & weight sliders
 SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
-
-// text font weight slider
 SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
-
 
 // text font size slider (s1)
 function updateTextFontSize(evt) {
 	if ( !evt.isTrusted ) return;
+
 	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
 	document.querySelector(":root").style.setProperty("--text-font-size", `${this.value}px`);
+
+	Config.text.font.size = Number(this.value); // update in config
+	
+	// debug
+	console.log("textFontSize:", Config.text.font.size);
 }
 
 // text font weight slider (s1)
 function updateTextFontWeight(evt) {
 	if ( !evt.isTrusted ) return;
+
 	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
 	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
+
+	Config.text.font.weight = Number(this.value);
+
+	// debug
+	console.log("textFontWeight:", Config.text.font.weight);
 }
 
 // text include (s2)
