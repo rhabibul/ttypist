@@ -9,6 +9,21 @@ export default {
     opacity: 1,
     color: "black",
   },
+  pacecaret: {
+    off: true, // pacecaret.off === speed.off
+    style: "off", // off | underscore | line | box | block
+    color: "black",
+    opacity: 0.5,
+    speed: {
+      last: false, // previous speed
+      best: false, // personal best speed
+      average: false, // average of last 10 speeds
+      custom: {
+        off: true,
+        value: 0, // provide custom speed (in wpm) to compete against
+      }
+    },
+  },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -149,8 +164,8 @@ export default {
   keyboard: {
     off: false,
     reaction: {
-      static: false,
       react: false,
+      static: false,
       next: false,
     },
     language: "english",
@@ -158,19 +173,20 @@ export default {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
     },
-  },
-  pacecaret: {
-    off: true, // pacecaret.off === speed.off
-    style: "off", // off | underscore | line | box | block
-    color: "black",
-    opacity: 0.5,
-    speed: {
-      last: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        value: 0, // provide custom speed (in wpm) to compete against
+    section: {
+      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
+      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
+      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete      End        PageDown    •   7  8  9  +
+      RowC: true, // CapsLock A S D F G H J K L :; "' Enter             •                                      •   4  5  6  +
+      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
+      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
+      arrowpad: true,
+      controlpad: true,
+      numpad: true,
+      function: true,
+      alphanumeric: {
+        numrow: true,
+        alphabets: true,
       }
     },
   },
@@ -181,5 +197,17 @@ export default {
       condense: true,
       expand: false,
     },
+  },
+  guidedlesson: false, // learn touchtyping through guided lessons
+  oppositethumbforspace: false, // emulates opposite thumb by splitting space into two halvesk
+  customtext: false, // ascii text
+  practice: {
+    arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    brackets: false, // {[(<>)]}
+    numpad: false, // number pad's digits and symbols only
+    numrow: false, // number row's digits [0-9] only
+    specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+    alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
+    function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };

@@ -222,15 +222,6 @@ function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-// caret color
-SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
-SettingsElement.caret.color.textInput.addEventListener("input", fn);
-
-// caret color (s2)
-function updateCaretColor(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // pacecaret style
 SettingsElement.pacecaret.style.off.addEventListener("click", fn);
 SettingsElement.pacecaret.style.underscore.addEventListener("click", fn);
@@ -240,15 +231,6 @@ SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// pacecaret color
-SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
-SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
-
-// pacecaret color (s2)
-function updatePaceCaretColor(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
@@ -928,6 +910,24 @@ function updateSecondaryTextColorTextInput(evt) { // text input (color)
 
 	// debug
 	console.log("textSecondaryColor [colortextinput]:", Config.text.color.secondary);
+}
+
+// caret color
+SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
+SettingsElement.caret.color.textInput.addEventListener("input", fn);
+
+// caret color (s2)
+function updateCaretColor(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// pacecaret color
+SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
+SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
+
+// pacecaret color (s2)
+function updatePaceCaretColor(evt) {
+	if ( !evt.isTrusted ) return;
 }
 
 // warnings (s4)
