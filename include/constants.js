@@ -1,3 +1,5 @@
+export const css = document.querySelector(":root");
+
 export const notprintable = [
   'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
   'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',

@@ -3,6 +3,7 @@ import * as SettingsElement from "../elements/settingsElements.js";
 import * as SettingsChangeInConfig from "../controllers/settingsChangeInConfig.js";
 import * as SettingsChangeInUI from "../ui/settingsChangeInUI.js";
 import * as TestAreaElements from "../elements/testAreaElements.js";
+import { css } from "../../include/constants.js";
 
 TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
 
@@ -207,6 +208,14 @@ SettingsElement.stats.unit.wpm.addEventListener("click", updateSpeedUnit);
 SettingsElement.stats.calcInterval.word.addEventListener("click", updateLiveStatsCalcInterval);
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", updateLiveStatsCalcInterval);
 SettingsElement.stats.calcInterval.second.addEventListener("click", updateLiveStatsCalcInterval);
+
+// caret color
+SettingsElement.caret.color.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
+SettingsElement.caret.color.textInput.addEventListener("input", updateCaretColorTextInput);
+
+// pacecaret color
+SettingsElement.pacecaret.color.selectorInput.addEventListener("input", updatePaceCaretColorSelectorInput);
+SettingsElement.pacecaret.color.textInput.addEventListener("input", updatePaceCaretColorTextInput);
 
 // ----------------------------####################----------------------------
 
@@ -679,7 +688,7 @@ function updateTextWordCount(evt) {
 	}
 
 	// debug
-	console.log("number of words:", Config.text.word.count);
+	console.log("numberOfWords:", Config.text.word.count);
 }
 
 // text word count input (s1)
@@ -694,7 +703,7 @@ function updateTextWordCountInputField(evt) {
 	Config.text.word.count = Number(this.value); // update in config (i.e, override -2 initial value)
 
 	// debug
-	console.log("number of words [input]:", Config.text.word.count);
+	console.log("numberOfWords [input]:", Config.text.word.count);
 }
 
 // text word count input - focusout (s1)
@@ -842,92 +851,90 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 function updateTextFontSize(evt) {
 	if ( !evt.isTrusted ) return;
 
+	css.style.setProperty("--text-font-size", `${this.value}px`);
 	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-font-size", `${this.value}px`);
-
 	Config.text.font.size = Number(this.value); // update in config
-	
-	// debug
-	console.log("textFontSize:", Config.text.font.size);
 }
 
 // text font weight slider (s1)
 function updateTextFontWeight(evt) {
 	if ( !evt.isTrusted ) return;
 
+	css.style.setProperty("--text-font-weight", `${this.value}`);
 	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
-	document.querySelector(":root").style.setProperty("--text-font-weight", `${this.value}`);
-
-	Config.text.font.weight = Number(this.value);
-
-	// debug
-	console.log("textFontWeight:", Config.text.font.weight);
+	Config.text.font.weight = Number(this.value); // update in config
 }
 
 // primary text color picker input field
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
+	css.style.setProperty("--text-primary-color", this.value);
 	SettingsElement.textColor.primary.textInput.value = this.value; // update in text input field for primary color
 	Config.text.color.primary = this.value; // update in config
-
-	// debug
-	console.log("textPrimaryColor [colorpicker]:", Config.text.color.primary);
 }
 
 // primary text color text input field
 function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	document.querySelector(":root").style.setProperty("--text-primary-color", this.value);
+	css.style.setProperty("--text-primary-color", this.value);
 	SettingsElement.textColor.secondary.selectorInput = this.value; // update in color picker input field for primary color
 	Config.text.color.primary = this.value; // update in config
-
-	// debug
-	console.log("textPrimaryColor [colortextinput]:", Config.text.color.primary);
 }
 
 // secondary text color picker input field
 function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
 	if ( !evt.isTrusted ) return;
 
-	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
+	css.style.setProperty("--text-secondary-color", this.value);
 	SettingsElement.textColor.secondary.textInput.value = this.value;  // update in text input field for secondary color
 	Config.text.color.secondary = this.value; // update in config
-
-	// debug
-	console.log("textSecondaryColor [colorpicker]:", Config.text.color.secondary);
 }
 
 // secondary text color text input field
 function updateSecondaryTextColorTextInput(evt) { // text input (color)
 	if ( !evt.isTrusted ) return;
 
-	document.querySelector(":root").style.setProperty("--text-secondary-color", this.value);
+	css.style.setProperty("--text-secondary-color", this.value);
 	SettingsElement.textColor.secondary.selectorInput.value = this.value;
 	Config.text.color.secondary = this.value; // update in config
-
-	// debug
-	console.log("textSecondaryColor [colortextinput]:", Config.text.color.secondary);
 }
 
-// caret color
-SettingsElement.caret.color.selectorInput.addEventListener("input", fn);
-SettingsElement.caret.color.textInput.addEventListener("input", fn);
-
-// caret color (s2)
-function updateCaretColor(evt) {
+// caret color selector input field
+function updateCaretColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
+
+	css.style.setProperty("--caret-color", this.value);
+	SettingsElement.caret.color.textInput.value = this.value;
+	Config.caret.color = this.value; // update in config
 }
 
-// pacecaret color
-SettingsElement.pacecaret.color.selectorInput.addEventListener("input", fn);
-SettingsElement.pacecaret.color.textInput.addEventListener("input", fn);
-
-// pacecaret color (s2)
-function updatePaceCaretColor(evt) {
+// caret color text input field
+function updateCaretColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
+
+	css.style.setProperty("--caret-color", this.value);
+	SettingsElement.caret.color.selectorInput.value = this.value;
+	Config.caret.color = this.value; // update in config
+}
+
+// pacecaret color selector input field
+function updatePaceCaretColorSelectorInput(evt) {
+	if ( !evt.isTrusted ) return;
+
+	css.style.setProperty("--pace-caret-color", this.value);
+	SettingsElement.pacecaret.color.textInput.value = this.value;
+	Config.pacecaret.color = this.value; // update in config
+}
+
+// pacecaret color text input field
+function updatePaceCaretColorTextInput(evt) {
+	if ( !evt.isTrusted ) return;
+
+	css.style.setProperty("--pace-caret-color", this.value);
+	SettingsElement.pacecaret.color.selectorInput.value = this.value;
+	Config.pacecaret.color = this.value; // update in config
 }
 
 // warnings (s4)
