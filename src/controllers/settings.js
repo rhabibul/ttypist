@@ -217,19 +217,12 @@ SettingsElement.caret.color.textInput.addEventListener("input", updateCaretColor
 SettingsElement.pacecaret.color.selectorInput.addEventListener("input", updatePaceCaretColorSelectorInput);
 SettingsElement.pacecaret.color.textInput.addEventListener("input", updatePaceCaretColorTextInput);
 
-// ----------------------------####################----------------------------
-
 // caret style
 SettingsElement.caret.off.addEventListener("click", fn);
 SettingsElement.caret.style.underscore.addEventListener("click", fn);
 SettingsElement.caret.style.line.addEventListener("click", fn);
 SettingsElement.caret.style.box.addEventListener("click", fn);
 SettingsElement.caret.style.block.addEventListener("click", fn);
-
-// caret style (s5)
-function updateCaretStyle(evt) {
-	if ( !evt.isTrusted ) return;
-}
 
 // pacecaret style
 SettingsElement.pacecaret.style.off.addEventListener("click", fn);
@@ -238,11 +231,6 @@ SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 
-// pacecaret style (s5)
-function updatePaceCaretStyle(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
 // details
 SettingsElement.details.textFontFamily.addEventListener("click", fn);
 SettingsElement.details.textWordLength.addEventListener("click", fn);
@@ -250,6 +238,16 @@ SettingsElement.details.textWordType.addEventListener("click", fn);
 SettingsElement.details.textCapitalization.addEventListener("click", fn);
 SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
 SettingsElement.details.keyboardLayout.addEventListener("click", fn);
+
+// caret style (s5)
+function updateCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// pacecaret style (s5)
+function updatePaceCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+}
 
 // details: text font family (s1)
 function updateTextFontFamily(evt) {
@@ -275,9 +273,6 @@ function updateKeyboardLanguage(evt) {
 function updateKeyboardLayout(evt) {
 	if ( !evt.isTrusted ) return;
 }
-
-// ----------------------------####################----------------------------
-
 
 // keyboard reaction (s4)
 function updateKeyboardReaction(evt) {
