@@ -1,8 +1,25 @@
+/**
+ * NOTES
+ * 
+ * > html attribute query methods
+ *   		elem.attribute [for e.g, details.open]
+ *	 		elem.hasAttribute("attribute")
+ *	 		elem.removeAttribute("attribute")
+ *	 		elem.getAttribute("attribute")
+ *	 		elem.setAttribute("attribute", "value")
+ * 		  elem.toggleAttribute("attribute")
+**/
 import Config from "../include/config.js";
 import * as SettingsElement from "./elements/settingsElements.js";
 
-window.addEventListener("click", () => {
+window.document.addEventListener("click", (evt) => {
+	if ( !evt.isTrusted ) return;
+	// close all details tag if left opened
 
+});
+window.document.addEventListener("keydown", (evt) => {
+	if ( !evt.isTrusted ) return;
+	// close all details tag if left opened
 });
 
 

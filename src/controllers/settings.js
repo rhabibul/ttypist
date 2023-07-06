@@ -231,14 +231,6 @@ SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 
-// details
-SettingsElement.details.textFontFamily.addEventListener("click", fn);
-SettingsElement.details.textWordLength.addEventListener("click", fn);
-SettingsElement.details.textWordType.addEventListener("click", fn);
-SettingsElement.details.textCapitalization.addEventListener("click", fn);
-SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
-SettingsElement.details.keyboardLayout.addEventListener("click", fn);
-
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
@@ -249,10 +241,26 @@ function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
+
+// details
+SettingsElement.details.textFontFamily.addEventListener("click", updateTextFontFamily);
+SettingsElement.details.textWordLength.addEventListener("click", fn);
+SettingsElement.details.textWordType.addEventListener("click", fn);
+SettingsElement.details.textCapitalization.addEventListener("click", fn);
+SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
+SettingsElement.details.keyboardLayout.addEventListener("click", fn);
+
+setTimeout(() => {
+	SettingsElement.details.textFontFamily.removeAttribute("open");
+}, 1500);
+
 // details: text font family (s1)
 function updateTextFontFamily(evt) {
 	if ( !evt.isTrusted ) return;
+
+	console.log(evt.target);
 }
+
 // details: text word length (s1)
 function updateTextWordLength(evt) {
 	if ( !evt.isTrusted ) return;
