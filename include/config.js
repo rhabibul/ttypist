@@ -3,14 +3,16 @@ export const localconfig = {
 }
 
 export default {
-  setting: {
-    dynamic: true, // live setting changes without restarting test
-    view: {
-      condense: true,
-      expand: false,
+  website: {
+    theme: "light", // light | midnight | dark
+    setting: {
+      dynamic: true, // live setting changes without restarting test
+      view: {
+        condense: true,
+        expand: false,
+      },
     },
   },
-  websitetheme: "light", // light | midnight | dark
   arrows: true, // implicitly enabled (mythical)
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space

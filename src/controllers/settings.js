@@ -304,25 +304,25 @@ function updateKeyboardLayoutEmulate(evt) {
 // dynamic settings (s2)
 function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.setting.dynamic && this.value === "on") ||  (!Config.setting.dynamic && this.value === "off") ) return;
+	if ( (Config.website.setting.dynamic && this.value === "on") ||  (!Config.website.setting.dynamic && this.value === "off") ) return;
 
 	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
 	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
 
 	// debug
-	console.log("dynamicSettings:", !Config.setting.dynamic, Config.setting.dynamic);
+	console.log("dynamicSettings:", !Config.website.setting.dynamic, Config.website.setting.dynamic);
 }
 
 // website theme (s3)
 function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.websitetheme ) return;
+	if ( this.value === Config.website.theme ) return;
 
 	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
 	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
 
 	// debug
-	console.log("websiteTheme:", Config.websitetheme);
+	console.log("websiteTheme:", Config.website.theme);
 }
 
 // text input (s2)

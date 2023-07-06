@@ -38,15 +38,15 @@ export function changeKeyboardLayoutEmulateInConfig(value) {
 // dynamic setting
 export function changeDynamicSettingsInConfig(value) {
 	if ( value === "off" ) {
-		Config.setting.dynamic = false;
+		Config.website.setting.dynamic = false;
 	} else {
-		Config.setting.dynamic = true;
+		Config.website.setting.dynamic = true;
 	}
 }
 
 // website theme
 export function changeWebsiteThemeInConfig(value) {
-	Config.websitetheme = value;
+	Config.website.theme = value;
 }
 
 // tape mode
