@@ -250,10 +250,6 @@ SettingsElement.details.textCapitalization.addEventListener("click", fn);
 SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
 SettingsElement.details.keyboardLayout.addEventListener("click", fn);
 
-setTimeout(() => {
-	SettingsElement.details.textFontFamily.removeAttribute("open");
-}, 1500);
-
 // details: text font family (s1)
 function updateTextFontFamily(evt) {
 	if ( !evt.isTrusted ) return;
