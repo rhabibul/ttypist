@@ -419,28 +419,35 @@ details div.list {
 	box-shadow: 0 8px 24px rgba(140,149,159,0.2);
 	border-radius: 4px;
 	z-index: 999;
-
-	border: 1px dashed red;
 }
 details div.list div.item {
 	width: 100%;
 	height: 30px;
-	padding: 0px 16px 0px 12px;
 
 	font-size: 0.8rem;
 	font-family: var(--RobotoMono);
 	
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	border-bottom: 1px solid var(--setting-button-border-color);
 }
-details div.list div.item div.text,
+details div.list div.item div.text {
+	flex-basis: 80%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 12px;
+	/* border: 1px dashed blue; */
+}
 details div.list div.item div.symbol {
+	flex-basis: 20%;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	/* border: 1px dashed green; */
 }
 details div.list div.item:hover {
 	color: blue;
@@ -449,6 +456,7 @@ details div.list div.item:hover div.symbol {
 	visibility: visible;
 }
 details div.list div.item:hover div.symbol svg.tick {
+	height: 100%;
 	fill: #b8b8b8;
 }
 details div.list div.item:first-child {
@@ -459,15 +467,6 @@ details div.list div.item:last-child {
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-bottom: none;
-}
-details.textFontFamilyList div.list {
-	width: 100%;
-}
-details div.list div.item div.text {
-	border: 1px dashed blue;
-}
-details div.list div.item div.symbol {
-	border: 1px dashed green;
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.FiraCode {
 	font-size: 0.98rem;

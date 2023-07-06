@@ -241,43 +241,33 @@ function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
 
-
 // details
-SettingsElement.details.textFontFamily.addEventListener("click", updateTextFontFamily);
-SettingsElement.details.textWordLength.addEventListener("click", fn);
-SettingsElement.details.textWordType.addEventListener("click", fn);
-SettingsElement.details.textCapitalization.addEventListener("click", fn);
-SettingsElement.details.keyboardLanguage.addEventListener("click", fn);
-SettingsElement.details.keyboardLayout.addEventListener("click", fn);
+SettingsElement.details.textFontFamily.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+		Config.text.font.family = item.dataset.value;
+		css.style.setProperty("--text-font-family", Config.text.font.family);
 
-// details: text font family (s1)
-function updateTextFontFamily(evt) {
-	if ( !evt.isTrusted ) return;
+		Array.from(document.querySelectorAll("div.item.fontFamilyOfText svg.tick")).forEach((tick) => {
+			if (tick?.parentElement?.parentElement.classList === item.classList) {
+				tick?.parentElement.classList.remove("unmarked");
+				tick.classList.add("marked");
+			} else {
+				tick?.parentElement.classList.add("unmarked");
+				tick.classList.remove("marked");
+			}
+		});
 
-	console.log("target:", evt.target);
-	console.log("target.parentElement:", evt.target.parentElement);
-}
+		// debug
+		// console.log("fontFamily:", Config.text.font.family);
+	})
+});
+// SettingsElement.details.textWordLength
+// SettingsElement.details.textWordType
+// SettingsElement.details.textCapitalization
+// SettingsElement.details.keyboardLanguage
+// SettingsElement.details.keyboardLayout
 
-// details: text word length (s1)
-function updateTextWordLength(evt) {
-	if ( !evt.isTrusted ) return;
-}
-// details: text word type (s1)
-function updateTextWordType(evt) {
-	if ( !evt.isTrusted ) return;
-}
-// details: text capitalization (s1)
-function updateTextCapitalization(evt) {
-	if ( !evt.isTrusted ) return;
-}
-// details: keyboard langugae (s1)
-function updateKeyboardLanguage(evt) {
-	if ( !evt.isTrusted ) return;
-}
-// details: keyboard layout (s1)
-function updateKeyboardLayout(evt) {
-	if ( !evt.isTrusted ) return;
-}
 
 // keyboard reaction (s4)
 function updateKeyboardReaction(evt) {

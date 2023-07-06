@@ -1,3 +1,6 @@
+export const website = {
+	// put setting object & websitetheme (as theme) object here and make necessary changes
+}
 export const setting = {
 	dynamic: {
 		off: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.off"),
@@ -175,13 +178,13 @@ export const quickend = {
 	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.on"),
 }
-export const details = { // make all fields point to list container.. 🫵
-	textFontFamily: document.querySelector("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList"),
-	textWordType: document.querySelector("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList"),
-	textWordLength: document.querySelector("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList"),
-	textCapitalization: document.querySelector("div.s1.config.buttonContainer.details.textCapitalizationListContainer details.textCapitalizationList"),
-	keyboardLanguage: document.querySelector("div.s1.config.buttonContainer.details.UIKeyboardLanguageListContainer details.UIKeyboardLanguageList"),
-	keyboardLayout: document.querySelector("div.s1.config.buttonContainer.details.UIKeyboardLayoutListContainer details.UIKeyboardLayoutList"),
+export const details = {
+	textFontFamily: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList div.list > div.item.fontFamilyOfText")),
+	textWordType: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList div.list > div.item.fontFamilyOfText")),
+	textWordLength: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList div.list > div.item.fontFamilyOfText")),
+	textCapitalization: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.textCapitalizationListContainer details.textCapitalizationList div.list > div.item.fontFamilyOfText")),
+	keyboardLanguage: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLanguageListContainer details.UIKeyboardLanguageList div.list > div.item.fontFamilyOfText")),
+	keyboardLayout: Array.from(document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLayoutListContainer details.UIKeyboardLayoutList div.list > div.item.fontFamilyOfText")),
 }
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),

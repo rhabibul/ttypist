@@ -16,30 +16,30 @@
 import Config from "../include/config.js";
 import * as SettingsElement from "./elements/settingsElements.js";
 
+const details = document.querySelectorAll("details");
+
+const detailsLists = {
+	textFontFamily: document.querySelectorAll("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList div.list"),
+	textWordType: document.querySelectorAll("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList div.list"),
+	textWordLength: document.querySelectorAll("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList div.list"),
+	textCapitalization: document.querySelectorAll("div.s1.config.buttonContainer.details.textCapitalizationListContainer details.textCapitalizationList div.list"),
+	keyboardLanguage: document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLanguageListContainer details.UIKeyboardLanguageList div.list"),
+	keyboardLayout: document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLayoutListContainer details.UIKeyboardLayoutList div.list"),
+}
+
 window.document.addEventListener("click", (evt) => {
 	if ( !evt.isTrusted ) return;
-	// close all details tag if left opened
 
-	// use .removeAttribute() method to close all details tag
+	// close all details tag if left opened
+	// better approach will be to maintain a boolean array of size equal to the number
+	// of details tag that exists in the website
+	// whenever a details tag is opened, update it in the array
+	if ( !evt.target?.parentElement?.parentElement?.classList.contains("list") ) {
+		details[0].removeAttribute("open");
+	}
 });
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
-	// close all details tag if left opened
-	// how will you prevent from closing details tag if user is clicking inside its list
-	// keydown is ok i.e, if user hits escape then list will be closed but click has problem
-	// you need to select all the list and check if user has clicked on the list then
-	// don't close the details tag, if multiple details tag is left opened then
-	// all will remain opened if user is interacting with anyone of those details tag
-	// but if user hits esc button or clicks anywhere other than list sections of details
-	// tag then all opened details tag should be closed
-	// therefore you also need to have an iterable object containing all lists of all
-	// details tag
-	// you can use elem.parentElement property to get details tag, so you don't have to
-	// main two objects in memory to contain details tag and their lists separately
-
-	// its more convenient to have click listeners on details list instead of the details
-	// tag itself,
-	// so chaning the details object to contain list of details tag...
 });
 
 

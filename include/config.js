@@ -77,7 +77,7 @@ export default {
     },
   },
   text: {
-    underline: true, // underline the current word
+    underline: false, // underline the current word
     input: {
       hidden: true,
       visible: false,
