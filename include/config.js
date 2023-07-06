@@ -1,4 +1,16 @@
+export const localconfig = {
+  // local temporary stats & configs 
+}
+
 export default {
+  setting: {
+    dynamic: true, // live setting changes without restarting test
+    view: {
+      condense: true,
+      expand: false,
+    },
+  },
+  websitetheme: "light", // light | midnight | dark
   arrows: true, // implicitly enabled (mythical)
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
@@ -190,14 +202,6 @@ export default {
       }
     },
   },
-  websitetheme: "light", // light | midnight | dark
-  setting: {
-    dynamic: true, // live setting changes without restarting test
-    view: {
-      condense: true,
-      expand: false,
-    },
-  },
   guidedlesson: false, // learn touchtyping through guided lessons
   oppositethumbforspace: false, // emulates opposite thumb by splitting space into two halvesk
   customtext: false, // ascii text
@@ -211,7 +215,3 @@ export default {
     function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
   },
 };
-
-export const localconfig = {
-  // local temporary stats & configs 
-}

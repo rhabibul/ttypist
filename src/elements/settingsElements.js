@@ -175,7 +175,7 @@ export const quickend = {
 	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.on"),
 }
-export const details = {
+export const details = { // make all fields point to list container.. 🫵
 	textFontFamily: document.querySelector("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList"),
 	textWordType: document.querySelector("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList"),
 	textWordLength: document.querySelector("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList"),
