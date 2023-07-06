@@ -254,7 +254,8 @@ SettingsElement.details.keyboardLayout.addEventListener("click", fn);
 function updateTextFontFamily(evt) {
 	if ( !evt.isTrusted ) return;
 
-	console.log(evt.target);
+	console.log("target:", evt.target);
+	console.log("target.parentElement:", evt.target.parentElement);
 }
 
 // details: text word length (s1)

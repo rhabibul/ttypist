@@ -419,6 +419,8 @@ details div.list {
 	box-shadow: 0 8px 24px rgba(140,149,159,0.2);
 	border-radius: 4px;
 	z-index: 999;
+
+	border: 1px dashed red;
 }
 details div.list div.item {
 	width: 100%;
@@ -432,12 +434,10 @@ details div.list div.item {
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid var(--setting-button-border-color);
-	border: 1px solid black;
 }
 details div.list div.item div.text,
 details div.list div.item div.symbol {
 	height: 100%;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -462,6 +462,12 @@ details div.list div.item:last-child {
 }
 details.textFontFamilyList div.list {
 	width: 100%;
+}
+details div.list div.item div.text {
+	border: 1px dashed blue;
+}
+details div.list div.item div.symbol {
+	border: 1px dashed green;
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.FiraCode {
 	font-size: 0.98rem;
