@@ -218,11 +218,11 @@ SettingsElement.pacecaret.color.selectorInput.addEventListener("input", updatePa
 SettingsElement.pacecaret.color.textInput.addEventListener("input", updatePaceCaretColorTextInput);
 
 // caret style
-SettingsElement.caret.off.addEventListener("click", fn);
-SettingsElement.caret.style.underscore.addEventListener("click", fn);
-SettingsElement.caret.style.line.addEventListener("click", fn);
-SettingsElement.caret.style.box.addEventListener("click", fn);
-SettingsElement.caret.style.block.addEventListener("click", fn);
+SettingsElement.caret.off.addEventListener("click", updateCaretStyle);
+SettingsElement.caret.style.underscore.addEventListener("click", updateCaretStyle);
+SettingsElement.caret.style.line.addEventListener("click", updateCaretStyle);
+SettingsElement.caret.style.box.addEventListener("click", updateCaretStyle);
+SettingsElement.caret.style.block.addEventListener("click", updateCaretStyle);
 
 // pacecaret style
 SettingsElement.pacecaret.style.off.addEventListener("click", fn);
@@ -234,12 +234,17 @@ SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changeCaretStyleInUI(this.value);
+	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
 }
 
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 }
+
+const isOpen = [false, false, false, false, false, false];
 
 // details
 SettingsElement.details.textFontFamily.forEach((item) => {
@@ -259,7 +264,7 @@ SettingsElement.details.textFontFamily.forEach((item) => {
 		});
 
 		// debug
-		// console.log("fontFamily:", Config.text.font.family);
+		console.log("fontFamily:", Config.text.font.family);
 	})
 });
 // SettingsElement.details.textWordLength

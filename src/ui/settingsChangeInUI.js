@@ -513,3 +513,17 @@ export function changeLiveStatsCalcIntervalInUI(value) {
 		SettingsElement.stats.calcInterval.second.id = "";
 	}
 }
+
+export function changeCaretStyleInUI(value) {
+	if ( value === "off" ) {
+
+	} else if ( value === "underscore" ) {
+		
+	} else if ( value === "line" ) {
+
+	} else if ( value === "box" ) {
+
+	} else if ( value === "block" ) {
+		
+	}
+}

@@ -524,3 +524,7 @@ export function changeLiveStatsCalcIntervalInConfig(value) {
 		Config.stats.calcInterval.second = false;
 	}
 }
+
+export function changeCaretStyleInConfig(value) {
+	Config.caret.style = value;
+}
