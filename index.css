@@ -151,6 +151,11 @@ body {
   row-gap: 10px;
 
   color: #1f2328;
+
+  /** 
+   *        github: rgb(246, 248, 251)
+   *  drive.google: rgb(247, 249, 253)
+  **/
   background-color: rgb(247, 249, 253);
 }
 

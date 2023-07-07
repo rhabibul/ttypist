@@ -5,9 +5,8 @@ header {
 	display: flex;
 	justify-content: center;
 	
-	font-family: var(--MonaSans);
 	color: black;
-	border-bottom: 1px solid lightgray;
+	font-family: var(--MonaSans);
 }
 
 header .content {
