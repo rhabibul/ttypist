@@ -225,11 +225,11 @@ SettingsElement.caret.style.box.addEventListener("click", updateCaretStyle);
 SettingsElement.caret.style.block.addEventListener("click", updateCaretStyle);
 
 // pacecaret style
-SettingsElement.pacecaret.off.addEventListener("click", fn);
-SettingsElement.pacecaret.style.underscore.addEventListener("click", fn);
-SettingsElement.pacecaret.style.line.addEventListener("click", fn);
-SettingsElement.pacecaret.style.box.addEventListener("click", fn);
-SettingsElement.pacecaret.style.block.addEventListener("click", fn);
+SettingsElement.pacecaret.off.addEventListener("click", updatePaceCaretStyle);
+SettingsElement.pacecaret.style.underscore.addEventListener("click", updatePaceCaretStyle);
+SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretStyle);
+SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
+SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
 
 // caret style (s5)
 function updateCaretStyle(evt) {
@@ -247,6 +247,14 @@ function updateCaretStyle(evt) {
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
+	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
+
+	// change pacecaret styles in text..
+
+	// debug
+	console.log("pacecaret:", Config.pacecaret.style);
 }
 
 const isOpen = [false, false, false, false, false, false];

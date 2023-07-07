@@ -515,7 +515,7 @@ export function changeLiveStatsCalcIntervalInUI(value) {
 }
 
 function addColorsToCaretShape(shapeClicked, shape) {
-	if ( shapeClicked === shape.classList[1] ) { // captures the clicked caret shape
+	if ( shapeClicked === shape.classList[1] ) {
 		if ( shapeClicked === "shape-underscore" ) {
 			shape.style.borderBottomColor = "var(--selected-color)";
 		} else if ( (shapeClicked === "shape-line") || (shapeClicked === "shape-block") ) {
@@ -545,11 +545,11 @@ function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.caret.paceCaretStyleButton.s5 button > span.shape"));
 
 	if ( caretType === "caret" ) {
-		for ( const shape of caretShapes ) {
+		for ( const shape of caretShapes ) { // O(4)
 			addColorsToCaretShape(shapeClicked, shape);
 		}
 	} else if ( caretType === "pacecaret" ) {
-		for ( const shape of paceCaretShapes ) {
+		for ( const shape of paceCaretShapes ) { // O(4)
 			addColorsToCaretShape(shapeClicked, shape);
 		}
 	}
@@ -596,35 +596,35 @@ export function changeCaretStyleInUI(value) {
 
 export function changePaceCaretStyleInUI(value) {
 	if ( value === "off" ) {
-		changeCaretShapeColor("shape-off", "caret");
+		changeCaretShapeColor("shape-off", "pacecaret");
 		SettingsElement.pacecaret.off.id = "selected"
 		SettingsElement.pacecaret.style.underscore.id = ""
 		SettingsElement.pacecaret.style.line.id = ""
 		SettingsElement.pacecaret.style.box.id = ""
 		SettingsElement.pacecaret.style.block.id = ""
 	} else if ( value === "underscore" ) {
-		changeCaretShapeColor("shape-underscore", "caret");
+		changeCaretShapeColor("shape-underscore", "pacecaret");
 		SettingsElement.pacecaret.off.id = ""
 		SettingsElement.pacecaret.style.underscore.id = "selected"
 		SettingsElement.pacecaret.style.line.id = ""
 		SettingsElement.pacecaret.style.box.id = ""
 		SettingsElement.pacecaret.style.block.id = ""
 	} else if ( value === "line" ) {
-		changeCaretShapeColor("shape-line", "caret");
+		changeCaretShapeColor("shape-line", "pacecaret");
 		SettingsElement.pacecaret.off.id = ""
 		SettingsElement.pacecaret.style.underscore.id = ""
 		SettingsElement.pacecaret.style.line.id = "selected"
 		SettingsElement.pacecaret.style.box.id = ""
 		SettingsElement.pacecaret.style.block.id = ""
 	} else if ( value === "box" ) {
-		changeCaretShapeColor("shape-box", "caret");
+		changeCaretShapeColor("shape-box", "pacecaret");
 		SettingsElement.pacecaret.off.id = ""
 		SettingsElement.pacecaret.style.underscore.id = ""
 		SettingsElement.pacecaret.style.line.id = ""
 		SettingsElement.pacecaret.style.box.id = "selected"
 		SettingsElement.pacecaret.style.block.id = ""
 	} else if ( value === "block" ) {
-		changeCaretShapeColor("shape-block", "caret");
+		changeCaretShapeColor("shape-block", "pacecaret");
 		SettingsElement.pacecaret.off.id = ""
 		SettingsElement.pacecaret.style.underscore.id = ""
 		SettingsElement.pacecaret.style.line.id = ""

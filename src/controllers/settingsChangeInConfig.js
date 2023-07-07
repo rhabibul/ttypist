@@ -528,3 +528,7 @@ export function changeLiveStatsCalcIntervalInConfig(value) {
 export function changeCaretStyleInConfig(value) {
 	Config.caret.style = value;
 }
+
+export function changePaceCaretStyleInConfig(value) {
+	Config.pacecaret.style = value;
+}
