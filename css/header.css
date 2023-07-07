@@ -30,8 +30,8 @@ header .content .logo {
 	justify-content: space-evenly;
 }
 header .content .logo .symbol svg.iconSiteLogo {
-	width: 45px;
-	height: 45px;
+	width: 35px;
+	height: 35px;
 }
 header .content .logo .text {
 	font-size: 1.2rem;

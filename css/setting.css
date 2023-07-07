@@ -95,7 +95,13 @@ div.config button.button {
 	border-radius: var(--setting-button-roundness);
   border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
+
 }
+div.config button.button:hover {
+	background-color: #d8ebff;
+}
+
+
 
 div.label div.symbol svg {
 	display: flex;
@@ -796,5 +802,5 @@ div.utils {
 	justify-content: space-evenly;
 	
 	border-radius: 8px;
-	background-color: whitesmoke;
+	background-color: #eff7ff;
 }

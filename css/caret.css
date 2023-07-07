@@ -170,9 +170,21 @@ button.paceCaret-block {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--setting-caret-border-color);
+  border: 1px solid var(--setting-button-border-color);
   border-radius: calc(var(--setting-button-roundness) - 2px);
   background-color: var(--setting-button-backgroundcolor);
+}
+button.caret-off:hover,
+button.caret-underscore:hover,
+button.caret-line:hover,
+button.caret-box:hover,
+button.caret-block:hover,
+button.paceCaret-off:hover,
+button.paceCaret-underscore:hover,
+button.paceCaret-line:hover,
+button.paceCaret-box:hover,
+button.paceCaret-block :hover{
+	background-color: #d8ebff;
 }
 
 button.caret-off,
