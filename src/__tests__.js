@@ -45,10 +45,6 @@ for ( const details of allDetails ) {
 	// details.toggleAttribute("open");
 }
 
-// cyan
-// 		rgb(247, 249, 253)
-// 		rgb(242, 246, 252)
-// 	  rgb(238, 242, 252)
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
 

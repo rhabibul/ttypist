@@ -153,8 +153,12 @@ body {
   color: #1f2328;
 
   /** 
-   *        github: rgb(246, 248, 251)
-   *  drive.google: rgb(247, 249, 253)
+   *  github (gray):
+   *     rgb(246, 248, 251)
+   *  drive.google (cyan):
+   *     rgb(247, 249, 253)
+   *     rgb(242, 246, 252)
+   *     rgb(238, 242, 252)
   **/
   background-color: rgb(247, 249, 253);
 }
