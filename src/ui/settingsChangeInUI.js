@@ -540,9 +540,9 @@ function addColorsToCaretShape(shapeClicked, shape) {
 }
 
 function changeCaretShapeColor(shapeClicked, caretType = "caret") {
-	
+
 	const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
-	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.caret.paceCaretStyleButton.s5 button > span.shape"));
+	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.paceCaret.paceCaretStyleButton.s5 button > span.shape"));
 
 	if ( caretType === "caret" ) {
 		for ( const shape of caretShapes ) { // O(4)
