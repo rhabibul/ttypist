@@ -34,8 +34,8 @@ header .content .logo .symbol svg.iconSiteLogo {
 	height: 45px;
 }
 header .content .logo .text {
-	font-size: 1.6rem;
-	font-family: var(--SyneMono);
+	font-size: 1.2rem;
+	font-family: var(--CourierPrime);
 }
 
 header .content .profile {

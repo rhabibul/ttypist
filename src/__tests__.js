@@ -38,8 +38,17 @@ window.document.addEventListener("click", (evt) => {
 		details[0].removeAttribute("open");
 	}
 });
+
+const allDetails = document.getElementsByTagName("details");
+
+for ( const details of allDetails ) {
+	// details.toggleAttribute("open");
+}
+
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
+
+	
 });
 
 
