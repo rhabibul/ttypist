@@ -163,7 +163,7 @@ text {
   max-width: 800px;
 
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px 10px 20px 20px;
 
   display: flex; /* these keeps all the words in a single line */
   align-items: flex-start; /* determines how the items as a whole are aligned within the container */

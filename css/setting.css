@@ -465,7 +465,7 @@ details div.list div.item:hover div.symbol {
 }
 details div.list div.item:hover div.symbol svg.tick {
 	height: 100%;
-	fill: #aaaaaa;
+	fill: rgb(187, 255, 187);
 }
 details div.list div.item:first-child {
 	border-top-left-radius: 4px;
@@ -493,7 +493,7 @@ details.textFontFamilyList div.list div.item.fontFamilyOfText.CourierPrime {
 	font-family: var(--CourierPrime);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.UbuntuMono {
-	font-size: 0.97rem;
+	font-size: 0.96rem;
 	font-family: var(--UbuntuMono);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.SyneMono {
