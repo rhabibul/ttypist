@@ -456,14 +456,16 @@ details div.list div.item div.symbol {
 	/* border: 1px dashed green; */
 }
 details div.list div.item:hover {
-	color: blue;
+	font-weight: 550;
+	color: darkgreen;
+	background-color: rgb(230, 255, 230);
 }
 details div.list div.item:hover div.symbol {
 	visibility: visible;
 }
 details div.list div.item:hover div.symbol svg.tick {
 	height: 100%;
-	fill: #b8b8b8;
+	fill: #aaaaaa;
 }
 details div.list div.item:first-child {
 	border-top-left-radius: 4px;
@@ -475,27 +477,27 @@ details div.list div.item:last-child {
 	border-bottom: none;
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.FiraCode {
-	font-size: 0.98rem;
+	font-size: 0.89rem;
 	font-family: var(--FiraCode);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.SourceCodePro {
-	font-size: 0.99rem;
+	font-size: 0.92rem;
 	font-family: var(--SourceCodePro);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.RobotoMono {
-	font-size: 0.95rem;
+	font-size: 0.88rem;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.CourierPrime {
-	font-size: 1rem;
+	font-size: 0.95rem;
 	font-family: var(--CourierPrime);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.UbuntuMono {
-	font-size: 1.1rem;
+	font-size: 0.97rem;
 	font-family: var(--UbuntuMono);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.SyneMono {
-	font-size: 1.1rem;
+	font-size: 0.98rem;
 	font-family: var(--SyneMono);
 }
 
