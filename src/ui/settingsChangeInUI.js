@@ -514,16 +514,46 @@ export function changeLiveStatsCalcIntervalInUI(value) {
 	}
 }
 
-export function changeCaretStyleInUI(value) {
+
+function updateCaretShapeColor(caret, type="caret") {
+	const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
+	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.caret.paceCaretStyleButton.s5 button > span.shape"));
+
 	if ( value === "off" ) {
 
+	}
+}
+
+export function changeCaretStyleInUI(value) {
+	if ( value === "off" ) {
+		SettingsElement.caret.off.id = "selected"
+		SettingsElement.caret.style.underscore.id = ""
+		SettingsElement.caret.style.line.id = ""
+		SettingsElement.caret.style.box.id = ""
+		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "underscore" ) {
-		
+		SettingsElement.caret.off.id = ""
+		SettingsElement.caret.style.underscore.id = "selected"
+		SettingsElement.caret.style.line.id = ""
+		SettingsElement.caret.style.box.id = ""
+		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "line" ) {
-
+		SettingsElement.caret.off.id = ""
+		SettingsElement.caret.style.underscore.id = ""
+		SettingsElement.caret.style.line.id = "selected"
+		SettingsElement.caret.style.box.id = ""
+		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "box" ) {
-
+		SettingsElement.caret.off.id = ""
+		SettingsElement.caret.style.underscore.id = ""
+		SettingsElement.caret.style.line.id = ""
+		SettingsElement.caret.style.box.id = "selected"
+		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "block" ) {
-		
+		SettingsElement.caret.off.id = ""
+		SettingsElement.caret.style.underscore.id = ""
+		SettingsElement.caret.style.line.id = ""
+		SettingsElement.caret.style.box.id = ""
+		SettingsElement.caret.style.block.id = "selected"
 	}
 }

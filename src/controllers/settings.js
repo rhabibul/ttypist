@@ -231,12 +231,21 @@ SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);
 
+const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
+const paceCaretShapes = Array.from(document.querySelectorAll("div.config.paceCaret.paceCaretStyleButton.s5 button > span.shape"));
+
+console.log(caretShapes);
+console.log(paceCaretShapes);
+
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 
 	SettingsChangeInUI.changeCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
+
+	// debug
+	console.log(Config.caret.style);
 }
 
 // pacecaret style (s5)

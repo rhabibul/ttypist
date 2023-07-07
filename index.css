@@ -129,10 +129,14 @@
   --setting-buttons-container-width: 240px;
 	--setting-checkboxAndText-gap: 3px;
 
-  --active-fg: #017501;
-  --active-bg: #b0ffb0;
-  --inactive-fg: #484848;
-  --inactive-bg: #f3f3f3;
+  --active-color: #017501;
+  --active-background-color: #b0ffb0;
+  --inactive-color: #484848;
+  --inactive-background-color: #f3f3f3;
+  
+  --selected-color: white;
+  --selected-background-color: #444444;
+  
 }
 
 body {
@@ -230,9 +234,9 @@ text word letter.whitespace.bullet.ws-active::after {
 }
 
 #selected {
-	color: white;
-  border-color: #444444;
-	background-color: #444444;
+	color: var(--selected-color);
+  border-color: var(--selected-background-color);
+	background-color: var(--selected-background-color);
   font-weight: 500;
 }
 
