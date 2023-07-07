@@ -7,19 +7,6 @@ import { css } from "../../include/constants.js";
 
 TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
 
-function fn(evt) {
-	// avoid bots clicking, also later avoid double clicking of the selected button
-	if ( !evt.isTrusted ) return;
-	// if ( this.whateverValueIsClicked === config.theValueWhichIsInUse ) return;
-	
-	// console.log(evt);
-	console.log(this?.value);
-	// console.log(this.className);
-	// console.log(this?.checked, this.parentElement.className, this.id, this.dataset.value);
-	// console.log(evt.target);
-	// console.log(evt.currentTarget);
-}
-
 // keyboard reaction
 SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
 SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
@@ -231,32 +218,7 @@ SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretSt
 SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
 SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
 
-// caret style (s5)
-function updateCaretStyle(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changeCaretStyleInUI(this.value);
-	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
-
-	// change caret styles in text..
-
-	// debug
-	console.log("caret:", Config.caret.style);
-}
-
-// pacecaret style (s5)
-function updatePaceCaretStyle(evt) {
-	if ( !evt.isTrusted ) return;
-
-	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
-	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
-
-	// change pacecaret styles in text..
-
-	// debug
-	console.log("pacecaret:", Config.pacecaret.style);
-}
-
+// start here..
 const isOpen = [false, false, false, false, false, false];
 
 // details
@@ -1009,4 +971,30 @@ function updateLiveStatsCalcInterval(evt) {
 	
 	// debug
 	console.log("liveStatsInterval:", Config.stats.calcInterval.word, Config.stats.calcInterval.keystroke, Config.stats.calcInterval.second);
+}
+
+// caret style (s5)
+function updateCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changeCaretStyleInUI(this.value);
+	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
+
+	// change caret styles in text..
+
+	// debug
+	console.log("caret:", Config.caret.style);
+}
+
+// pacecaret style (s5)
+function updatePaceCaretStyle(evt) {
+	if ( !evt.isTrusted ) return;
+
+	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
+	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
+
+	// change pacecaret styles in text..
+
+	// debug
+	console.log("pacecaret:", Config.pacecaret.style);
 }
