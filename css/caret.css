@@ -177,7 +177,7 @@ button.paceCaret-block {
 
 button.caret-off,
 button.paceCaret-off {
-  flex-basis: 50%;
+  flex-basis: 49%;
   height: 100%;
   font-size: 1rem;
   display: flex;

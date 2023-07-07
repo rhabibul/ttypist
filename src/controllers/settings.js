@@ -225,17 +225,11 @@ SettingsElement.caret.style.box.addEventListener("click", updateCaretStyle);
 SettingsElement.caret.style.block.addEventListener("click", updateCaretStyle);
 
 // pacecaret style
-SettingsElement.pacecaret.style.off.addEventListener("click", fn);
+SettingsElement.pacecaret.off.addEventListener("click", fn);
 SettingsElement.pacecaret.style.underscore.addEventListener("click", fn);
 SettingsElement.pacecaret.style.line.addEventListener("click", fn);
 SettingsElement.pacecaret.style.box.addEventListener("click", fn);
 SettingsElement.pacecaret.style.block.addEventListener("click", fn);
-
-const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
-const paceCaretShapes = Array.from(document.querySelectorAll("div.config.paceCaret.paceCaretStyleButton.s5 button > span.shape"));
-
-console.log(caretShapes);
-console.log(paceCaretShapes);
 
 // caret style (s5)
 function updateCaretStyle(evt) {
@@ -244,8 +238,10 @@ function updateCaretStyle(evt) {
 	SettingsChangeInUI.changeCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
 
+	// change caret styles in text..
+
 	// debug
-	console.log(Config.caret.style);
+	console.log("caret:", Config.caret.style);
 }
 
 // pacecaret style (s5)

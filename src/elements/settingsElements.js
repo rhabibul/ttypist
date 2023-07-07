@@ -95,8 +95,8 @@ export const caret = {
 	}
 }
 export const pacecaret = {
+	off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 	style: {
-		off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 		underscore: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underscore"),
 		line: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-line"),
 		box: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-box"),

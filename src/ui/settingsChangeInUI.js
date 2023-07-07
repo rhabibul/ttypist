@@ -514,46 +514,121 @@ export function changeLiveStatsCalcIntervalInUI(value) {
 	}
 }
 
+function addColorsToCaretShape(shapeClicked, shape) {
+	if ( shapeClicked === shape.classList[1] ) { // captures the clicked caret shape
+		if ( shapeClicked === "shape-underscore" ) {
+			shape.style.borderBottomColor = "var(--selected-color)";
+		} else if ( (shapeClicked === "shape-line") || (shapeClicked === "shape-block") ) {
+			shape.style.backgroundColor = "var(--selected-color)";
+		} else if ( shapeClicked === "shape-box" ) {
+			shape.style.borderColor = "var(--selected-color)";
+		}
+	} else {
+		if ( (shapeClicked !== "shape-underscore") && (shape.classList[1] === "shape-underscore") ) {
+			shape.style.borderBottomColor = "var(--setting-caret-color)";
+		} 
+		if ( (shapeClicked !== "shape-line") && (shape.classList[1] === "shape-line") ) {
+			shape.style.backgroundColor = "var(--setting-caret-color)";
+		}
+		if ( (shapeClicked !== "shape-block") && (shape.classList[1] === "shape-block") ) {
+			shape.style.backgroundColor = "var(--setting-caret-color)";
+		}
+		if ( (shapeClicked !== "shape-box") && (shape.classList[1] === "shape-box") ) {
+			shape.style.borderColor = "var(--setting-caret-color)";
+		}
+	}
+}
 
-function updateCaretShapeColor(caret, type="caret") {
+function changeCaretShapeColor(shapeClicked, caretType = "caret") {
+	
 	const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
 	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.caret.paceCaretStyleButton.s5 button > span.shape"));
 
-	if ( value === "off" ) {
-
+	if ( caretType === "caret" ) {
+		for ( const shape of caretShapes ) {
+			addColorsToCaretShape(shapeClicked, shape);
+		}
+	} else if ( caretType === "pacecaret" ) {
+		for ( const shape of paceCaretShapes ) {
+			addColorsToCaretShape(shapeClicked, shape);
+		}
 	}
 }
 
 export function changeCaretStyleInUI(value) {
 	if ( value === "off" ) {
+		changeCaretShapeColor("shape-off", "caret");
 		SettingsElement.caret.off.id = "selected"
 		SettingsElement.caret.style.underscore.id = ""
 		SettingsElement.caret.style.line.id = ""
 		SettingsElement.caret.style.box.id = ""
 		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "underscore" ) {
+		changeCaretShapeColor("shape-underscore", "caret");
 		SettingsElement.caret.off.id = ""
 		SettingsElement.caret.style.underscore.id = "selected"
 		SettingsElement.caret.style.line.id = ""
 		SettingsElement.caret.style.box.id = ""
 		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "line" ) {
+		changeCaretShapeColor("shape-line", "caret");
 		SettingsElement.caret.off.id = ""
 		SettingsElement.caret.style.underscore.id = ""
 		SettingsElement.caret.style.line.id = "selected"
 		SettingsElement.caret.style.box.id = ""
 		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "box" ) {
+		changeCaretShapeColor("shape-box", "caret");
 		SettingsElement.caret.off.id = ""
 		SettingsElement.caret.style.underscore.id = ""
 		SettingsElement.caret.style.line.id = ""
 		SettingsElement.caret.style.box.id = "selected"
 		SettingsElement.caret.style.block.id = ""
 	} else if ( value === "block" ) {
+		changeCaretShapeColor("shape-block", "caret");
 		SettingsElement.caret.off.id = ""
 		SettingsElement.caret.style.underscore.id = ""
 		SettingsElement.caret.style.line.id = ""
 		SettingsElement.caret.style.box.id = ""
 		SettingsElement.caret.style.block.id = "selected"
+	}
+}
+
+export function changePaceCaretStyleInUI(value) {
+	if ( value === "off" ) {
+		changeCaretShapeColor("shape-off", "caret");
+		SettingsElement.pacecaret.off.id = "selected"
+		SettingsElement.pacecaret.style.underscore.id = ""
+		SettingsElement.pacecaret.style.line.id = ""
+		SettingsElement.pacecaret.style.box.id = ""
+		SettingsElement.pacecaret.style.block.id = ""
+	} else if ( value === "underscore" ) {
+		changeCaretShapeColor("shape-underscore", "caret");
+		SettingsElement.pacecaret.off.id = ""
+		SettingsElement.pacecaret.style.underscore.id = "selected"
+		SettingsElement.pacecaret.style.line.id = ""
+		SettingsElement.pacecaret.style.box.id = ""
+		SettingsElement.pacecaret.style.block.id = ""
+	} else if ( value === "line" ) {
+		changeCaretShapeColor("shape-line", "caret");
+		SettingsElement.pacecaret.off.id = ""
+		SettingsElement.pacecaret.style.underscore.id = ""
+		SettingsElement.pacecaret.style.line.id = "selected"
+		SettingsElement.pacecaret.style.box.id = ""
+		SettingsElement.pacecaret.style.block.id = ""
+	} else if ( value === "box" ) {
+		changeCaretShapeColor("shape-box", "caret");
+		SettingsElement.pacecaret.off.id = ""
+		SettingsElement.pacecaret.style.underscore.id = ""
+		SettingsElement.pacecaret.style.line.id = ""
+		SettingsElement.pacecaret.style.box.id = "selected"
+		SettingsElement.pacecaret.style.block.id = ""
+	} else if ( value === "block" ) {
+		changeCaretShapeColor("shape-block", "caret");
+		SettingsElement.pacecaret.off.id = ""
+		SettingsElement.pacecaret.style.underscore.id = ""
+		SettingsElement.pacecaret.style.line.id = ""
+		SettingsElement.pacecaret.style.box.id = ""
+		SettingsElement.pacecaret.style.block.id = "selected"
 	}
 }
