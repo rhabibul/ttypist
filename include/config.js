@@ -81,13 +81,13 @@ export default {
       hidden: true,
       visible: false,
     },
-    underline: false, // underline the current word
+    underline: true, // underline the current word
     whitespace: {
       off: false, // nospace
       type: {
-        bullet: false, // 8226, '•' (::after is used to draw bullet character)
+        bullet: true, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
-        space: true, // 160, '&nbsp'
+        space: false, // 160, '&nbsp'
       },
       code: 160, // 160 | 9251 | 8226
       character: "&nbsp;", // '&nbsp', '␣', '•'

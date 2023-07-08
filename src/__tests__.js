@@ -39,21 +39,15 @@ window.document.addEventListener("click", (evt) => {
 	}
 });
 
-const allDetails = document.getElementsByTagName("details");
-
-for ( const details of allDetails ) {
-	// details.toggleAttribute("open");
-}
-
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
 
 	// close all open details tag
 	if ( evt.key === "Escape" ) {
-		for ( const details of allDetails ) {
-			details.removeAttribute("open");
+		for ( const details of document.getElementsByTagName("details") ) {
+			if ( details.open ) details.removeAttribute("open");
 		}
-	}	
+	}
 });
 
 

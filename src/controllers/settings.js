@@ -218,37 +218,6 @@ SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretSt
 SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
 SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
 
-// start here..
-const isOpen = [false, false, false, false, false, false];
-
-// details
-SettingsElement.details.textFontFamily.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		Config.text.font.family = item.dataset.value;
-		css.style.setProperty("--text-font-family", Config.text.font.family);
-
-		Array.from(document.querySelectorAll("div.item.fontFamilyOfText svg.tick")).forEach((tick) => {
-			if (tick?.parentElement?.parentElement.classList === item.classList) {
-				tick?.parentElement.classList.remove("unmarked");
-				tick.classList.add("marked");
-			} else {
-				tick?.parentElement.classList.add("unmarked");
-				tick.classList.remove("marked");
-			}
-		});
-
-		// debug
-		console.log("fontFamily:", Config.text.font.family);
-	})
-});
-// SettingsElement.details.textWordLength
-// SettingsElement.details.textWordType
-// SettingsElement.details.textCapitalization
-// SettingsElement.details.keyboardLanguage
-// SettingsElement.details.keyboardLayout
-
-
 // keyboard reaction (s4)
 function updateKeyboardReaction(evt) {
 	if ( !evt.isTrusted ) return;
@@ -985,25 +954,17 @@ function updateLiveStatsCalcInterval(evt) {
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-
-	const previous_caret = Config.caret.style;
-	const allLetters = document.getElementsByTagName("letter");
+	
+	// change caret in text
+	for ( const letter of document.getElementsByTagName("letter") ) {
+		letter.classList.remove(Config.caret.style);
+		letter.classList.add(this.value);
+		if ( letter.id === Config.caret.style ) letter.id = this.value;
+	}
+	TestAreaElements.input.focus();	
 
 	SettingsChangeInUI.changeCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
-
-	for ( const letter of allLetters ) {
-		letter.classList.remove(previous_caret);
-		letter.classList.add(Config.caret.style);
-		if ( letter.id === previous_caret ) {
-			letter.id = Config.caret.style;
-		}
-	}
-
-	TestAreaElements.input.focus();	
-
-	// debug
-	console.log("caret:", Config.caret.style);
 }
 
 // pacecaret style (s5)
@@ -1018,3 +979,18 @@ function updatePaceCaretStyle(evt) {
 	// debug
 	console.log("pacecaret:", Config.pacecaret.style);
 }
+
+
+// const All_Details = document.querySelectorAll('details');
+
+// All_Details.forEach(deet=>{
+//   deet.addEventListener('toggle', toggleOpenOneOnly)
+// })
+
+// function toggleOpenOneOnly(e) {
+//   if (this.open) {
+//     All_Details.forEach(deet=>{
+//       if (deet!=this && deet.open) deet.open = false
+//     });
+//   }
+// }

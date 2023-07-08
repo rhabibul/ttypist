@@ -465,7 +465,7 @@ details div.list div.item:hover div.symbol {
 }
 details div.list div.item:hover div.symbol svg.tick {
 	height: 100%;
-	fill: rgb(187, 255, 187);
+	fill: rgb(255, 140, 140);
 }
 details div.list div.item:first-child {
 	border-top-left-radius: 4px;
