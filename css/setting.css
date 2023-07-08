@@ -500,6 +500,11 @@ details.textFontFamilyList div.list div.item.fontFamilyOfText.SyneMono {
 	font-size: 0.98rem;
 	font-family: var(--SyneMono);
 }
+details span.inf {
+	color: #727272;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
 
 div.config.modifierKeyCheckboxButtonContainer,
 div.config.textIncludeCheckboxButtonContainer,

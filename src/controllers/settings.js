@@ -346,6 +346,8 @@ function updateFlipTextHighlight(evt) {
 	css.style.setProperty("--text-primary-color", secondary);
 	css.style.setProperty("--text-secondary-color", primary);
 
+	TestAreaElements.input.focus();
+
 	// debug
 	console.log("flipTextHighlight:", !Config.text.highlight.flip, Config.text.highlight.flip);
 }
