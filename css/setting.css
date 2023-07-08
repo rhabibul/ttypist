@@ -793,16 +793,3 @@ div.config.buttonContainer.textFontWeightContainer.range div.text.value {
 	border-left: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
 }
-
-/* --------------------------- utils bar --------------------------- */
-div.utils {
-	height: 40px;
-	width: 800px;
-	
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	
-	border-radius: 8px;
-	background-color: #eff7ff;
-}

@@ -977,10 +977,21 @@ function updateLiveStatsCalcInterval(evt) {
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 
+	const previous_caret = Config.caret.style;
+	const allLetters = document.getElementsByTagName("letter");
+
 	SettingsChangeInUI.changeCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
 
-	// change caret styles in text..
+	for ( const letter of allLetters ) {
+		letter.classList.remove(previous_caret);
+		letter.classList.add(this.value);
+		if ( letter.id === previous_caret ) {
+			letter.id = this.value;
+		}
+	}
+
+	TestAreaElements.input.focus();	
 
 	// debug
 	console.log("caret:", Config.caret.style);
