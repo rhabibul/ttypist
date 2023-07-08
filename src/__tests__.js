@@ -39,18 +39,6 @@ window.document.addEventListener("click", (evt) => {
 	}
 });
 
-window.document.addEventListener("keydown", (evt) => {
-	if ( !evt.isTrusted ) return;
-
-	// close all open details tag
-	if ( evt.key === "Escape" ) {
-		for ( const details of document.getElementsByTagName("details") ) {
-			if ( details.open ) details.removeAttribute("open");
-		}
-	}
-});
-
-
 // // set css property value
 // document.querySelector(":root").computedStyleMap.setProperty("--variable", value);
 // // retrieve css property value

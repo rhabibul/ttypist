@@ -974,23 +974,24 @@ function updatePaceCaretStyle(evt) {
 	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
 
-	// change pacecaret styles in text..
-
 	// debug
 	console.log("pacecaret:", Config.pacecaret.style);
 }
 
+// when esc key is pressed then opened detail tag should be closed
+window.document.addEventListener("keydown", (evt) => {
+	if ( !evt.isTrusted ) return;
 
-// const All_Details = document.querySelectorAll('details');
+	if ( evt.key === "Escape" ) {
+		for ( const details of document.getElementsByTagName("details") ) {
+			if ( details.open ) details.removeAttribute("open");
+		}
+	}
+});
 
-// All_Details.forEach(deet=>{
-//   deet.addEventListener('toggle', toggleOpenOneOnly)
-// })
+// when a details tag is clicked then any other details which is open must be closed
+const details = document.querySelectorAll('details');
 
-// function toggleOpenOneOnly(e) {
-//   if (this.open) {
-//     All_Details.forEach(deet=>{
-//       if (deet!=this && deet.open) deet.open = false
-//     });
-//   }
-// }
+details.forEach((detail) => {
+
+});
