@@ -77,14 +77,20 @@ export default {
     },
   },
   text: {
-    underline: true, // underline the current word
     input: {
       hidden: true,
       visible: false,
     },
-    color: {
-      primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
-      secondary: "#9a9a9a", // past text, text which has been typed (default: less bright)
+    underline: false, // underline the current word
+    whitespace: {
+      off: false, // nospace
+      type: {
+        bullet: false, // 8226, '•' (::after is used to draw bullet character)
+        bar: false, // 9251, '␣'
+        space: true, // 160, '&nbsp'
+      },
+      code: 160, // 160 | 9251 | 8226
+      character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     highlight: { // by default, future text is brighter than the already typed text
       off: false,
@@ -94,20 +100,14 @@ export default {
       },
       flip: false, // flip highlight's primary and secondary color
     },
+    color: {
+      primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
+      secondary: "#9a9a9a", // past text, text which has been typed (default: less bright)
+    },
     font: {
       size: 1.2, // size of letter
       weight: 445, // thickness of letter
       family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
-    },
-    whitespace: {
-      off: false, // nospace
-      type: {
-        bullet: true, // 8226, '•' (::after is used to draw bullet character)
-        bar: false, // 9251, '␣'
-        space: false, // 160, '&nbsp'
-      },
-      code: 160, // 160 | 9251 | 8226
-      character: "&nbsp;", // '&nbsp', '␣', '•'
     },
     word: {
       count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100

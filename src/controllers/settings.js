@@ -339,6 +339,11 @@ function updateFlipTextHighlight(evt) {
 	SettingsChangeInUI.changeFlipTextHightlightInUI(this.value);
 	SettingsChangeInConfig.changeFlipTextHightlightInConfig(this.value);
 
+	const cs = window.getComputedStyle(document.querySelector(":root"));
+	let p = cs.getPropertyValue("--text-primary-color");
+	css.style.setProperty("--text-primary-color", cs.getPropertyValue("--text-secondary-color"));
+	css.style.setProperty("--text-secondary-color", p);
+
 	// debug
 	console.log("flipTextHighlight:", !Config.text.highlight.flip, Config.text.highlight.flip);
 }
@@ -985,9 +990,9 @@ function updateCaretStyle(evt) {
 
 	for ( const letter of allLetters ) {
 		letter.classList.remove(previous_caret);
-		letter.classList.add(this.value);
+		letter.classList.add(Config.caret.style);
 		if ( letter.id === previous_caret ) {
-			letter.id = this.value;
+			letter.id = Config.caret.style;
 		}
 	}
 
