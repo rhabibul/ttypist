@@ -339,10 +339,12 @@ function updateFlipTextHighlight(evt) {
 	SettingsChangeInUI.changeFlipTextHightlightInUI(this.value);
 	SettingsChangeInConfig.changeFlipTextHightlightInConfig(this.value);
 
-	const cs = window.getComputedStyle(document.querySelector(":root"));
-	let p = cs.getPropertyValue("--text-primary-color");
-	css.style.setProperty("--text-primary-color", cs.getPropertyValue("--text-secondary-color"));
-	css.style.setProperty("--text-secondary-color", p);
+	// flip primary & secondary colors
+	const computedStyles = window.getComputedStyle(document.querySelector(":root"));
+	let primary = computedStyles.getPropertyValue("--text-primary-color");
+	let secondary = computedStyles.getPropertyValue("--text-secondary-color");
+	css.style.setProperty("--text-primary-color", secondary);
+	css.style.setProperty("--text-secondary-color", primary);
 
 	// debug
 	console.log("flipTextHighlight:", !Config.text.highlight.flip, Config.text.highlight.flip);
