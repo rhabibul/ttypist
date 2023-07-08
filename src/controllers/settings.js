@@ -989,9 +989,11 @@ window.document.addEventListener("keydown", (evt) => {
 	}
 });
 
-// when a details tag is clicked then any other details which is open must be closed
-const details = document.querySelectorAll('details');
-
-details.forEach((detail) => {
-
+// when a details tag is clicked then other details tag must be closed
+SettingsElement.allDetails.forEach((details) => {
+	details.addEventListener("toggle", (evt) => {
+		for ( const detail of SettingsElement.allDetails ) {
+			console.log(detail.classList[0], detail.open);
+		}
+	});
 });

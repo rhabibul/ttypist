@@ -234,3 +234,4 @@ export const KeyboardLayoutEmulate = {
 	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
 }
+export const allDetails = document.querySelectorAll('details');
