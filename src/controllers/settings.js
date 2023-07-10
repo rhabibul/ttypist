@@ -517,6 +517,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.speed.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("off");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
+		this.value = "";
 	}
 
 	// debug
@@ -565,6 +566,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.accuracy.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
+		this.value = "";
 	}
 
 	// debug
@@ -583,7 +585,7 @@ function updateMinimumBurst(evt) {
 	if ( this.value === "fixed" || this.value === "flex" ) {
 		SettingsElement.minimum.burst.thresholdInput.focus();
 	} else {
-		SettingsElement.minimum.burst.thresholdInput.value = "";
+		if ( this.value === "off" ) SettingsElement.minimum.burst.thresholdInput.value = "";
 	}
 
 	// debug
@@ -614,6 +616,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
 		SettingsChangeInUI.changeMinimumBurstInUI("off");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+		this.value = "";
 	}
 
 	// debug
