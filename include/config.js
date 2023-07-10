@@ -183,7 +183,7 @@ export default {
       static: false,
       next: false,
     },
-    language: "english",
+    language: "English",
     layout: {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,

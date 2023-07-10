@@ -1151,5 +1151,36 @@ allDetails.textCapitalization.items.forEach((item) => {
 		tickMarkCorrectOption(evt, "textCapitalization");
 		
 		TestAreaElements.input.focus();
+
+		// debug
+		console.log(Config.text.capitalize.off, Config.text.capitalize.firstletter, Config.text.capitalize.allfirstletters, Config.text.capitalize.randomized, Config.text.capitalize.jumbled);
+	});
+});
+
+// details: keyboardLanguage
+allDetails.keyboardLanguage.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		Config.keyboard.language = evt.currentTarget.dataset.value; // update in config
+		allDetails.keyboardLanguage.inUseTextBox.textContent = Config.keyboard.language; // update in ui
+		tickMarkCorrectOption(evt, "keyboardLanguage");
+		
+		// debug
+		console.log(Config.keyboard.language);
+	});
+});
+
+// details: keyboardLayout
+allDetails.keyboardLayout.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		Config.keyboard.layout.map = evt.currentTarget.dataset.value; // update in config
+		allDetails.keyboardLayout.inUseTextBox.textContent = Config.keyboard.layout.map; // update in ui
+		tickMarkCorrectOption(evt, "keyboardLayout");
+		
+		// debug
+		console.log(Config.keyboard.layout.map);
 	});
 });

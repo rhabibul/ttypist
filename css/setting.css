@@ -24,11 +24,11 @@ input[type=number]::-webkit-outer-spin-button {
 	fill: green;
 }
 div.setting {
-	width: 900px;
+	width: 920px;
 	display: flex;
 	/* flex-direction: column; */
 	/* align-items: center; */
-	justify-content: space-between;
+	justify-content: center;
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
 	background-color: white;
@@ -43,8 +43,11 @@ div.setting div.column.c2 {
 	justify-content: flex-start;
 	align-items: flex-start;
 }
+:root {
+	--setting-separator-line-border-color: #a9a9a9;
+}
 div.setting div.column.c2 {
-	border-left: 1px dashed #b2b2b2;
+	border-left: 1px dashed var(--setting-separator-line-border-color);
 }
 div.setting div.column div.row {
 	height: 40px;
@@ -52,7 +55,7 @@ div.setting div.column div.row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: 1px dashed #b2b2b2;
+	border-bottom: 1px dashed var(--setting-separator-line-border-color);
 }
 div.setting div.column.c1 div.row:last-child,
 div.setting div.column.c2 div.row:last-child {
