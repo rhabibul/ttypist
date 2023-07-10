@@ -514,7 +514,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( this.value === "" && SettingsElement.minimum.speed.on.id === "selected" ) {
+	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.speed.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumSpeedInUI("off");
 		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
 	}
@@ -562,7 +562,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( this.value === "" && SettingsElement.minimum.accuracy.on.id === "selected" ) {
+	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.accuracy.on.id === "selected" ) {
 		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
 		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
 	}
@@ -611,7 +611,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( this.value === "" && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
+	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
 		SettingsChangeInUI.changeMinimumBurstInUI("off");
 		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
 	}
@@ -987,8 +987,6 @@ det.forEach((detail) => {
 		if ( !evt.isTrusted ) return;
 		det.forEach((dt) => { if ( detail !== dt ) dt.removeAttribute("open"); });
 		detclick = true;
-
-		// update in config & ui
 	});
 });
 
@@ -1008,6 +1006,10 @@ window.document.addEventListener("keydown", (evt) => {
 // debug [details tag]
 det.forEach((detail) => {
 	detail.addEventListener("toggle", (evt) => {
-		console.log(detail.classList[0], detail.open);
+		if ( !evt.isTrusted ) return;
+		console.log("details:", detail.classList[0], detail.open);
 	});
 });
+
+// grab all div.list items into one container & their associated summary tags,
+// add click listeners and take necessary actions (ui & config)
