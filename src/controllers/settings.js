@@ -978,40 +978,36 @@ function updatePaceCaretStyle(evt) {
 	console.log("pacecaret:", Config.pacecaret.style);
 }
 
-const alldetails = document.querySelectorAll("details");
+const det = document.querySelectorAll("details");
 
-// when a details tag is clicked then other details tag must be closed
-document.querySelectorAll("details").forEach((detail) => {
+// on esc, close all details
+window.document.addEventListener("keydown", (evt) => {
+	if ( !evt.isTrusted ) return;
+
+	if ( evt.key === "Escape" ) { }
+});
+
+// on click, close all [details]
+det.forEach((detail) => {
+	detail.addEventListener("click", (evt) => {
+		console.log("click");
+	});
+});
+
+// on click, close all [window]
+window.document.addEventListener("click", (evt) => {
+	console.log("click [window]");
+});
+
+// on toggle, update open/close state
+det.forEach((detail) => {
 	detail.addEventListener("toggle", (evt) => {
 		if ( SettingsElement.details[detail.classList[0]][0] ) {
 			SettingsElement.details[detail.classList[0]][0] = false;
 		} else {
 			SettingsElement.details[detail.classList[0]][0] = true;
 		}
-
-		alldetails.forEach((d) => {
-			if ( detail != d && d.open ) {
-				d.removeAttribute("open");
-			}
-		});
+		console.log("toggle");
 	});
 });
 
-// when esc key is pressed then opened detail tag should be closed
-window.document.addEventListener("keydown", (evt) => {
-	if ( !evt.isTrusted ) return;
-
-	if ( evt.key === "Escape" ) {
-
-	}
-});
-
-let s = "";
-window.document.addEventListener("click", (evt) => {
-	console.log(evt.target);
-	// for ( const [_, [i, o]] of Object.entries(SettingsElement.details) ) {
-	// 	s += i + " ";
-	// }
-	// console.log(s);
-	// s = "";
-});

@@ -198,15 +198,11 @@ export default {
       controlpad: true,
       numpad: true,
       function: true,
-      alphanumeric: {
-        numrow: true,
-        alphabets: true,
-      }
     },
   },
   guidedlesson: false, // learn touchtyping through guided lessons
-  oppositethumbforspace: false, // emulates opposite thumb by splitting space into two halvesk
   customtext: false, // ascii text
+  oppositethumbforspace: false, // emulates opposite thumb by splitting space into two halvesk
   practice: {
     arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     brackets: false, // {[(<>)]}
