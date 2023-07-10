@@ -978,36 +978,36 @@ function updatePaceCaretStyle(evt) {
 	console.log("pacecaret:", Config.pacecaret.style);
 }
 
+var detclick = false;
 const det = document.querySelectorAll("details");
+
+// details tag: on click, close all
+det.forEach((detail) => {
+	detail.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+		det.forEach((dt) => { if ( detail !== dt ) dt.removeAttribute("open"); });
+		detclick = true;
+
+		// update in config & ui
+	});
+});
+
+// window: on click, close all
+window.document.addEventListener("click", (evt) => {
+	if ( !evt.isTrusted ) return;
+	if ( !detclick ) { det.forEach((dt) => { dt.removeAttribute("open"); }); }
+	detclick = false; // put at last (order matters)
+});
 
 // on esc, close all details
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
-
-	if ( evt.key === "Escape" ) { }
+	if ( evt.key === "Escape" ) { det.forEach((dt) => { dt.removeAttribute("open"); }); }
 });
 
-// on click, close all [details]
-det.forEach((detail) => {
-	detail.addEventListener("click", (evt) => {
-		console.log("click");
-	});
-});
-
-// on click, close all [window]
-window.document.addEventListener("click", (evt) => {
-	console.log("click [window]");
-});
-
-// on toggle, update open/close state
+// debug [details tag]
 det.forEach((detail) => {
 	detail.addEventListener("toggle", (evt) => {
-		if ( SettingsElement.details[detail.classList[0]][0] ) {
-			SettingsElement.details[detail.classList[0]][0] = false;
-		} else {
-			SettingsElement.details[detail.classList[0]][0] = true;
-		}
-		console.log("toggle");
+		console.log(detail.classList[0], detail.open);
 	});
 });
-
