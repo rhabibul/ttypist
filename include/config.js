@@ -206,10 +206,11 @@ export default {
   practice: {
     arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     brackets: false, // {[(<>)]}
-    numpad: false, // number pad's digits and symbols only
-    numrow: false, // number row's digits [0-9] only
-    specials: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-    alphanumeric: false, // ascii characters [a-z, A-Z] and digits [0-9]
-    function: false,      // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+    numpad: false, // number pad's digits [0-9] and symbols
+    numrow: false, // number row's digits [0-9]
+    ascii: {
+      symbol: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+      alphabets: false, // ascii characters [a-z, A-Z]
+    },
   },
 };
