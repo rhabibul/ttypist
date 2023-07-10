@@ -1032,29 +1032,29 @@ const allDetails = {
 		inUseTextBox: document.querySelector("details.textFontFamilyList summary div.text.value.in-use"),
 	},
 	textWordLength: {
-		items: [],
-		SVGs: [],
-		inUseTextBox: "#",
+		items: Array.from(document.querySelectorAll("details.textWordLengthList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.textWordLengthList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.textWordLengthList summary div.text.value.in-use"),
 	},
 	textWordType: {
-		items: [],
-		SVGs: [],
-		inUseTextBox: "#",
+		items: Array.from(document.querySelectorAll("details.textWordTypeList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.textWordTypeList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.textWordTypeList summary div.text.value.in-use"),
 	},
 	textCapitalization: {
-		items: [],
-		SVGs: [],
-		inUseTextBox: "#",
+		items: Array.from(document.querySelectorAll("details.textCapitalizationList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.textCapitalizationList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.textCapitalizationList summary div.text.value.in-use"),
 	},
 	keyboardLanguage: {
-		items: [],
-		SVGs: [],
-		inUseTextBox: "#",
+		items: Array.from(document.querySelectorAll("details.UIKeyboardLanguageList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.UIKeyboardLanguageList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.UIKeyboardLanguageList summary div.text.value.in-use"),
 	},
 	keyboardLayout: {
-		items: [],
-		SVGs: [],
-		inUseTextBox: "#",
+		items: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.UIKeyboardLayoutList summary div.text.value.in-use"),
 	},
 }
 
@@ -1064,7 +1064,6 @@ function tickMarkCorrectOption(evt, detail) {
 		if ( svg?.parentElement?.parentElement.dataset.value === evt.currentTarget.dataset.value ) {
 			svg.parentElement.classList.remove("unmarked");
 			svg.classList.add("marked")
-			svg.style.fill = 'green';
 		} else {
 			svg.parentElement.classList.add("unmarked");
 			svg.classList.remove("marked")
@@ -1072,7 +1071,7 @@ function tickMarkCorrectOption(evt, detail) {
 	}	
 }
 
-// details: text font family
+// details: textFontFamily
 allDetails.textFontFamily.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
@@ -1086,5 +1085,28 @@ allDetails.textFontFamily.items.forEach((item) => {
 	});
 });
 
-// details: length of words
-allDetails.textWordLengthList
+// details: lengthOfWords
+allDetails.textWordLength.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		Config.text.word.length = evt.currentTarget.dataset.value; // update in config
+		allDetails.textWordLength.inUseTextBox.textContent = Config.text.word.length; // update in ui
+		tickMarkCorrectOption(evt, "textWordLength");
+		
+		TestAreaElements.input.focus();
+	});
+});
+
+// details: typeOfWords
+allDetails.textWordType.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		Config.text.word.type = evt.currentTarget.dataset.value; // update in config
+		allDetails.textWordType.inUseTextBox.textContent = Config.text.word.type; // update in ui
+		tickMarkCorrectOption(evt, "textWordType");
+		
+		TestAreaElements.input.focus();
+	});
+});

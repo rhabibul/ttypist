@@ -33,7 +33,7 @@ div.setting {
 	font-size: 0.8rem;
 	background-color: white;
 	border-radius: 10px;
-	padding: 8px;
+	padding: 15px 0px;
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
@@ -469,6 +469,9 @@ details div.list div.item:hover div.symbol {
 details div.list div.item:hover div.symbol svg.tick {
 	height: 100%;
 	fill: rgb(255, 140, 140);
+}
+details div.list div.item:hover div.symbol svg.tick.marked {
+	fill: darkgreen;
 }
 details div.list div.item:first-child {
 	border-top-left-radius: 4px;
