@@ -218,6 +218,24 @@ SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretSt
 SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
 SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
 
+// disable button
+function disableButton(button) {
+	button.id = "";
+	button.style.cursor = "not-allowed";
+	if ( !button.hasAttribute("disabled") ) {
+		button.toggleAttribute("disabled");
+	}
+}
+
+// enable button
+function enableButton(button, selected = false) {
+	if ( selected ) button.id = "selected";
+	button.style.cursor = "pointer";
+	if ( button.hasAttribute("disabled") ) {
+		button.removeAttribute("disabled");
+	}
+}
+
 // keyboard reaction (s4)
 function updateKeyboardReaction(evt) {
 	if ( !evt.isTrusted ) return;
@@ -402,6 +420,7 @@ function updateConfidence(evt) {
 
 	// going back to low or high confidence from peak confidence
 	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
+		
 		SettingsChangeInUI.changeBackspaceKeyInUI("on");
 		SettingsChangeInConfig.changeBackspaceKeyInConfig("on");
 
@@ -431,8 +450,10 @@ function updateBackspaceKey(evt) {
 		SettingsChangeInConfig.changeConfidenceInConfig("peak");
 
 		// no concept of deleting on correct if backspace is disabled
-		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
-		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+		if ( Config.backspace.deleteOnCorrect ) {
+			SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
+			SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+		}
 	} else {
 		// on confidence low backspacing is set to default value of low
 		SettingsChangeInUI.changeConfidenceInUI("low");

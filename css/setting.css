@@ -104,7 +104,17 @@ div.config button.button {
 div.config button.button:hover {
 	background-color: #d8ebff;
 }
-
+/* visually make disabled buttons look dull */
+div.config button.button:disabled {
+	font-weight: 550;
+	color: white;
+	background-color: rgb(255, 221, 221);
+}
+div.config button.button:disabled:hover {
+	font-weight: 550;
+	color: white;
+	background-color: rgb(255, 221, 221);
+}
 
 
 div.label div.symbol svg {
