@@ -1116,40 +1116,39 @@ allDetails.textCapitalization.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
 
-		let tmp = evt.currentTarget.dataset.value; // update in config
-		if ( tmp === "off" ) {
+		if ( evt.currentTarget.dataset.value === "none" ) {
 			Config.text.capitalize.off = true;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( tmp === "randomized" ) {
+		} else if ( evt.currentTarget.dataset.value === "randomized" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = true;
 			Config.text.capitalize.jumbled = false;
-		} else if ( tmp === "firstletter" ) {
+		} else if ( evt.currentTarget.dataset.value === "first letter" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = true;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( tmp === "allfirstletters" ) {
+		} else if ( evt.currentTarget.dataset.value === "all first letters" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = true;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( tmp === "jumbled" ) {
+		} else if ( evt.currentTarget.dataset.value === "jumbled" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = true;
 		}
-		allDetails.textWordType.inUseTextBox.textContent = Config.text.word.type; // update in ui
-		tickMarkCorrectOption(evt, "textWordType");
+		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.value; // update in ui
+		tickMarkCorrectOption(evt, "textCapitalization");
 		
 		TestAreaElements.input.focus();
 	});
