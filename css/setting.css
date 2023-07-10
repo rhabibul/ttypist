@@ -3,7 +3,6 @@ input[type="number"] {
 	caret-color: red;
 	font-family: var(--RobotoMono);
 }
-
 input[type="color"] {
 	cursor: pointer;
 }
@@ -101,7 +100,6 @@ div.config button.button {
 	border-radius: var(--setting-button-roundness);
   border: 1px solid var(--setting-button-border-color);
 	background-color: var(--setting-button-backgroundcolor);
-
 }
 div.config button.button:hover {
 	background-color: #d8ebff;

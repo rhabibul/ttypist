@@ -389,6 +389,29 @@ function updateConfidence(evt) {
 	SettingsChangeInUI.changeConfidenceInUI(this.value);
 	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
 
+	// dependencies
+	if ( this.value === "peak" ) {
+		// at peak confidence backspacing is not allowed, so backspace is disabled
+		SettingsChangeInUI.changeBackspaceKeyInUI("off");
+		SettingsChangeInConfig.changeBackspaceKeyInConfig("off");
+
+		// at peak confidence backspace is disabled, so user cannot delete at all
+		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
+		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+	}
+
+	// going back to low or high confidence from peak confidence
+	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
+		SettingsChangeInUI.changeBackspaceKeyInUI("on");
+		SettingsChangeInConfig.changeBackspaceKeyInConfig("on");
+
+		if ( this.value === "high" ) {
+			// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
+			SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
+			SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+		}
+	}
+
 	// debug
 	console.log("confidence:", Config.confidence.low, Config.confidence.high, Config.confidence.peak);
 }
@@ -400,6 +423,21 @@ function updateBackspaceKey(evt) {
 
 	SettingsChangeInUI.changeBackspaceKeyInUI(this.value);
 	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
+
+	// dependencies
+	if ( this.value === "off" ) {
+		// backspace off means confidence is at peak
+		SettingsChangeInUI.changeConfidenceInUI("peak");
+		SettingsChangeInConfig.changeConfidenceInConfig("peak");
+
+		// no concept of deleting on correct if backspace is disabled
+		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
+		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+	} else {
+		// on confidence low backspacing is set to default value of low
+		SettingsChangeInUI.changeConfidenceInUI("low");
+		SettingsChangeInConfig.changeConfidenceInConfig("low");
+	}
 
 	// debug
 	console.log("backspace.off:", Config.backspace.off);
@@ -1020,10 +1058,6 @@ det.forEach((detail) => {
 		console.log("details:", detail.classList[0], detail.open);
 	});
 });
-
-const textFontFamilyInUse = document.querySelector("details.textFontFamilyList summary div.text.value.in-use");
-const textFontFamilyOptions = document.querySelectorAll("details.textFontFamilyList div.list > *");
-const textFontFamilyAllSVG = document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick");
 
 const allDetails = {
 	textFontFamily: {

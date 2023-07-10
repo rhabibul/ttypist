@@ -291,7 +291,7 @@
         <div class="row" id="deleteOnCorrect">
           <div class="label">
             <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
-            <div class="text">deleteOnCorrect</div>
+            <div class="text">delete on correct</div>
           </div>
           <div class="config buttonContainer deleteOnCorrectButton s2">
             <button class="button off" value="off" tabindex="0" role="button" type="button">off</button>
@@ -317,22 +317,6 @@
               <input id="meta" tabindex="0" type="checkbox" name="modifierKeyCheckboxButton" data-value="meta">
               <label for="meta">meta</label>
             </div>
-          </div>
-        </div>
-
-        <div class="row" id="oppositeShiftMode">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconOppositeShiftMode" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" opacity="0.5" d="M15.2929 10.2929C14.9024 10.6834 14.9024 11.3166 15.2929 11.7071C15.6834 12.0976 16.3166 12.0976 16.7071 11.7071L20.7071 7.70711C20.8306 7.58361 20.9151 7.43586 20.9604 7.27919C20.9779 7.2191 20.9895 7.1577 20.9954 7.09585C20.9976 7.07319 20.999 7.05048 20.9996 7.02774C21.0002 7.00709 21.0001 6.98642 20.9994 6.96578C20.9905 6.6971 20.8755 6.45528 20.695 6.28079L16.7071 2.29289C16.3166 1.90237 15.6834 1.90237 15.2929 2.29289C14.9024 2.68342 14.9024 3.31658 15.2929 3.70711L17.5856 5.99981L3.99999 5.99999C3.4477 5.99999 2.99999 6.44772 3 7C3.00001 7.55228 3.44773 7.99999 4.00001 7.99999L17.586 7.99981L15.2929 10.2929Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M20 16L6.41423 16L8.70712 13.7071C9.09764 13.3166 9.09764 12.6834 8.70712 12.2929C8.3166 11.9024 7.68343 11.9024 7.29291 12.2929L3.29291 16.2929C2.90238 16.6834 2.90238 17.3166 3.29291 17.7071L7.29291 21.7071C7.68343 22.0976 8.3166 22.0976 8.70712 21.7071C9.09764 21.3166 9.09764 20.6834 8.70712 20.2929L6.41423 18L20 18C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16Z"></path>
-              </svg>
-            </div>
-            <div class="text">opposite shift</div>
-          </div>
-          <div class="config buttonContainer oppositeShiftButton s2">
-            <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
 
@@ -455,6 +439,22 @@
             <button class="button off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="button letter" value="letter" tabindex="0" role="button" type="button">letter</button>
             <button class="button word"   value="word"   tabindex="0" role="button" type="button">word</button>
+          </div>
+        </div>
+
+        <div class="row" id="oppositeShiftMode">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconOppositeShiftMode" width="256px" height="256px" viewBox="0 0 24 24">
+                <path fill="var(--setting-icon-color)" opacity="0.5" d="M15.2929 10.2929C14.9024 10.6834 14.9024 11.3166 15.2929 11.7071C15.6834 12.0976 16.3166 12.0976 16.7071 11.7071L20.7071 7.70711C20.8306 7.58361 20.9151 7.43586 20.9604 7.27919C20.9779 7.2191 20.9895 7.1577 20.9954 7.09585C20.9976 7.07319 20.999 7.05048 20.9996 7.02774C21.0002 7.00709 21.0001 6.98642 20.9994 6.96578C20.9905 6.6971 20.8755 6.45528 20.695 6.28079L16.7071 2.29289C16.3166 1.90237 15.6834 1.90237 15.2929 2.29289C14.9024 2.68342 14.9024 3.31658 15.2929 3.70711L17.5856 5.99981L3.99999 5.99999C3.4477 5.99999 2.99999 6.44772 3 7C3.00001 7.55228 3.44773 7.99999 4.00001 7.99999L17.586 7.99981L15.2929 10.2929Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M20 16L6.41423 16L8.70712 13.7071C9.09764 13.3166 9.09764 12.6834 8.70712 12.2929C8.3166 11.9024 7.68343 11.9024 7.29291 12.2929L3.29291 16.2929C2.90238 16.6834 2.90238 17.3166 3.29291 17.7071L7.29291 21.7071C7.68343 22.0976 8.3166 22.0976 8.70712 21.7071C9.09764 21.3166 9.09764 20.6834 8.70712 20.2929L6.41423 18L20 18C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16Z"></path>
+              </svg>
+            </div>
+            <div class="text">opposite shift</div>
+          </div>
+          <div class="config buttonContainer oppositeShiftButton s2">
+            <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
 
