@@ -957,6 +957,9 @@ function updateLiveStatsCalcInterval(evt) {
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (this.value === "off" && Config.caret.style === "off") || (this.value === "underscore" && Config.caret.style === "underscore") || (this.value === "line" && Config.caret.style === "line") || (this.value === "box" && Config.caret.style === "box") || (this.value === "block" && Config.caret.style === "block") ) return;
+
+	console.log(this.value);
 	
 	// change caret in text
 	for ( const letter of document.getElementsByTagName("letter") ) {
@@ -968,11 +971,15 @@ function updateCaretStyle(evt) {
 
 	SettingsChangeInUI.changeCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
+
+	// debug
+	console.log("caret:", Config.caret.style);
 }
 
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
+	if ( (this.value === "off" && Config.pacecaret.style === "off") || (this.value === "underscore" && Config.pacecaret.style === "underscore") || (this.value === "line" && Config.pacecaret.style === "line") || (this.value === "box" && Config.pacecaret.style === "box") || (this.value === "block" && Config.pacecaret.style === "block") ) return;
 
 	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
@@ -1006,7 +1013,7 @@ window.document.addEventListener("keydown", (evt) => {
 	if ( evt.key === "Escape" ) { det.forEach((dt) => { dt.removeAttribute("open"); }); }
 });
 
-// debug [details tag]
+// debugging
 det.forEach((detail) => {
 	detail.addEventListener("toggle", (evt) => {
 		if ( !evt.isTrusted ) return;
@@ -1014,5 +1021,70 @@ det.forEach((detail) => {
 	});
 });
 
-// grab all div.list items into one container & their associated summary tags,
-// add click listeners and take necessary actions (ui & config)
+const textFontFamilyInUse = document.querySelector("details.textFontFamilyList summary div.text.value.in-use");
+const textFontFamilyOptions = document.querySelectorAll("details.textFontFamilyList div.list > *");
+const textFontFamilyAllSVG = document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick");
+
+const allDetails = {
+	textFontFamily: {
+		items: Array.from(document.querySelectorAll("details.textFontFamilyList div.list > *")),
+		SVGs: Array.from(document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick")),
+		inUseTextBox: document.querySelector("details.textFontFamilyList summary div.text.value.in-use"),
+	},
+	textWordLength: {
+		items: [],
+		SVGs: [],
+		inUseTextBox: "#",
+	},
+	textWordType: {
+		items: [],
+		SVGs: [],
+		inUseTextBox: "#",
+	},
+	textCapitalization: {
+		items: [],
+		SVGs: [],
+		inUseTextBox: "#",
+	},
+	keyboardLanguage: {
+		items: [],
+		SVGs: [],
+		inUseTextBox: "#",
+	},
+	keyboardLayout: {
+		items: [],
+		SVGs: [],
+		inUseTextBox: "#",
+	},
+}
+
+// put tick mark on select item
+function tickMarkCorrectOption(evt, detail) {
+	for ( const svg of allDetails[detail].SVGs ) {
+		if ( svg?.parentElement?.parentElement.dataset.value === evt.currentTarget.dataset.value ) {
+			svg.parentElement.classList.remove("unmarked");
+			svg.classList.add("marked")
+			svg.style.fill = 'green';
+		} else {
+			svg.parentElement.classList.add("unmarked");
+			svg.classList.remove("marked")
+		}
+	}	
+}
+
+// details: text font family
+allDetails.textFontFamily.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		Config.text.font.family = evt.currentTarget.dataset.value; // update in config
+		allDetails.textFontFamily.inUseTextBox.textContent = Config.text.font.family; // update in ui
+		css.style.setProperty("--text-font-family", Config.text.font.family);
+		tickMarkCorrectOption(evt, "textFontFamily");
+		
+		TestAreaElements.input.focus();
+	});
+});
+
+// details: length of words
+allDetails.textWordLengthList
