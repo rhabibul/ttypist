@@ -234,4 +234,12 @@ export const KeyboardLayoutEmulate = {
 	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
 }
-export const allDetails = document.querySelectorAll('details');
+
+export const details = {
+	textFontFamilyList: [false, document.querySelector("details.textFontFamilyList")],
+	textWordTypeList: [false, document.querySelector("details.textWordTypeList")],
+	textWordLengthList: [false, document.querySelector("details.textWordLengthList")],
+	textCapitalizationList: [false, document.querySelector("details.textCapitalizationList")],
+	UIKeyboardLanguageList: [false, document.querySelector("details.UIKeyboardLanguageList")],
+	UIKeyboardLayoutList: [false, document.querySelector("details.UIKeyboardLayoutList")],
+};

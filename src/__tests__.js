@@ -16,29 +16,6 @@
 import Config from "../include/config.js";
 import * as SettingsElement from "./elements/settingsElements.js";
 
-const details = document.querySelectorAll("details");
-
-const detailsLists = {
-	textFontFamily: document.querySelectorAll("div.s1.config.buttonContainer.details.textFontFamilyListContainer details.textFontFamilyList div.list"),
-	textWordType: document.querySelectorAll("div.s1.config.buttonContainer.details.textWordTypeListContainer details.textWordTypeList div.list"),
-	textWordLength: document.querySelectorAll("div.s1.config.buttonContainer.details.textWordLengthListContainer details.textWordLengthList div.list"),
-	textCapitalization: document.querySelectorAll("div.s1.config.buttonContainer.details.textCapitalizationListContainer details.textCapitalizationList div.list"),
-	keyboardLanguage: document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLanguageListContainer details.UIKeyboardLanguageList div.list"),
-	keyboardLayout: document.querySelectorAll("div.s1.config.buttonContainer.details.UIKeyboardLayoutListContainer details.UIKeyboardLayoutList div.list"),
-}
-
-window.document.addEventListener("click", (evt) => {
-	if ( !evt.isTrusted ) return;
-
-	// close all details tag if left opened
-	// better approach will be to maintain a boolean array of size equal to the number
-	// of details tag that exists in the website
-	// whenever a details tag is opened, update it in the array
-	if ( !evt.target?.parentElement?.parentElement?.classList.contains("list") ) {
-		details[0].removeAttribute("open");
-	}
-});
-
 // // set css property value
 // document.querySelector(":root").computedStyleMap.setProperty("--variable", value);
 // // retrieve css property value
@@ -65,15 +42,15 @@ checkbox.addEventListener('change', function() {
 // });
 
 
-window.addEventListener('load', (evt) => {
-	if ( localStorage.getItem('Config') === null ) {
-		window.localStorage.setItem('Config', JSON.stringify(Config));
-	} else {
-		// 1. parse local config object from localStorage
-		// 2. load the parsed local config object to main config object
-		// 3. make necessary ui changes according to local config object
-	}
-});
+// window.addEventListener('load', (evt) => {
+// 	if ( localStorage.getItem('Config') === null ) {
+// 		window.localStorage.setItem('Config', JSON.stringify(Config));
+// 	} else {
+// 		// 1. parse local config object from localStorage
+// 		// 2. load the parsed local config object to main config object
+// 		// 3. make necessary ui changes according to local config object
+// 	}
+// });
 
 window.addEventListener("offline", (evt) => { 
 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]

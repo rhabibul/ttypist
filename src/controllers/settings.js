@@ -978,22 +978,40 @@ function updatePaceCaretStyle(evt) {
 	console.log("pacecaret:", Config.pacecaret.style);
 }
 
+const alldetails = document.querySelectorAll("details");
+
+// when a details tag is clicked then other details tag must be closed
+document.querySelectorAll("details").forEach((detail) => {
+	detail.addEventListener("toggle", (evt) => {
+		if ( SettingsElement.details[detail.classList[0]][0] ) {
+			SettingsElement.details[detail.classList[0]][0] = false;
+		} else {
+			SettingsElement.details[detail.classList[0]][0] = true;
+		}
+
+		alldetails.forEach((d) => {
+			if ( detail != d && d.open ) {
+				d.removeAttribute("open");
+			}
+		});
+	});
+});
+
 // when esc key is pressed then opened detail tag should be closed
 window.document.addEventListener("keydown", (evt) => {
 	if ( !evt.isTrusted ) return;
 
 	if ( evt.key === "Escape" ) {
-		for ( const details of document.getElementsByTagName("details") ) {
-			if ( details.open ) details.removeAttribute("open");
-		}
+
 	}
 });
 
-// when a details tag is clicked then other details tag must be closed
-SettingsElement.allDetails.forEach((details) => {
-	details.addEventListener("toggle", (evt) => {
-		for ( const detail of SettingsElement.allDetails ) {
-			console.log(detail.classList[0], detail.open);
-		}
-	});
+let s = "";
+window.document.addEventListener("click", (evt) => {
+	console.log(evt.target);
+	// for ( const [_, [i, o]] of Object.entries(SettingsElement.details) ) {
+	// 	s += i + " ";
+	// }
+	// console.log(s);
+	// s = "";
 });
