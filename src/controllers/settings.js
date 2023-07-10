@@ -1110,3 +1110,47 @@ allDetails.textWordType.items.forEach((item) => {
 		TestAreaElements.input.focus();
 	});
 });
+
+// details: typeOfWords
+allDetails.textCapitalization.items.forEach((item) => {
+	item.addEventListener("click", (evt) => {
+		if ( !evt.isTrusted ) return;
+
+		let tmp = evt.currentTarget.dataset.value; // update in config
+		if ( tmp === "off" ) {
+			Config.text.capitalize.off = true;
+			Config.text.capitalize.firstletter = false;
+			Config.text.capitalize.allfirstletters = false;
+			Config.text.capitalize.randomized = false;
+			Config.text.capitalize.jumbled = false;
+		} else if ( tmp === "randomized" ) {
+			Config.text.capitalize.off = false;
+			Config.text.capitalize.firstletter = false;
+			Config.text.capitalize.allfirstletters = false;
+			Config.text.capitalize.randomized = true;
+			Config.text.capitalize.jumbled = false;
+		} else if ( tmp === "firstletter" ) {
+			Config.text.capitalize.off = false;
+			Config.text.capitalize.firstletter = true;
+			Config.text.capitalize.allfirstletters = false;
+			Config.text.capitalize.randomized = false;
+			Config.text.capitalize.jumbled = false;
+		} else if ( tmp === "allfirstletters" ) {
+			Config.text.capitalize.off = false;
+			Config.text.capitalize.firstletter = false;
+			Config.text.capitalize.allfirstletters = true;
+			Config.text.capitalize.randomized = false;
+			Config.text.capitalize.jumbled = false;
+		} else if ( tmp === "jumbled" ) {
+			Config.text.capitalize.off = false;
+			Config.text.capitalize.firstletter = false;
+			Config.text.capitalize.allfirstletters = false;
+			Config.text.capitalize.randomized = false;
+			Config.text.capitalize.jumbled = true;
+		}
+		allDetails.textWordType.inUseTextBox.textContent = Config.text.word.type; // update in ui
+		tickMarkCorrectOption(evt, "textWordType");
+		
+		TestAreaElements.input.focus();
+	});
+});

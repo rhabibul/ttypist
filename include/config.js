@@ -119,7 +119,8 @@ export default {
       punctuation: false, // .?",-';:()[]{}/...
     },
     capitalize: {
-      random: false, // randomly capitalize the first letter of all words in the text
+      off: true,
+      randomized: false, // randomly capitalize the first letter of all words in the text
       firstletter: false, // capitalize only the first letter of first word in the text
       allfirstletters: false, // capitalize all the first letters of all words in the text
       jumbled: false, // randomly capitalize the letters of a word
