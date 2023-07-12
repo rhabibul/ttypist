@@ -407,28 +407,28 @@ function updateConfidence(evt) {
 	SettingsChangeInUI.changeConfidenceInUI(this.value);
 	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
 
-	// dependencies
+	// at peak confidence backspacing is not allowed, so backspace is disabled
 	if ( this.value === "peak" ) {
-		// at peak confidence backspacing is not allowed, so backspace is disabled
 		SettingsChangeInUI.changeBackspaceKeyInUI("off");
 		SettingsChangeInConfig.changeBackspaceKeyInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
-		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
-		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
-	}
-
-	// going back to low or high confidence from peak confidence
-	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
-		
-		SettingsChangeInUI.changeBackspaceKeyInUI("on");
-		SettingsChangeInConfig.changeBackspaceKeyInConfig("on");
-
-		if ( this.value === "high" ) {
-			// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
+		if ( Config.backspace.deleteOnCorrect ) {
 			SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
 			SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
 		}
+	}
+
+	// going back to low or high confidence from peak confidence (and backspace is disabled)
+	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
+		SettingsChangeInUI.changeBackspaceKeyInUI("on");
+		SettingsChangeInConfig.changeBackspaceKeyInConfig("on");
+	}
+
+	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
+	if ( (this.value === "high") && Config.backspace.deleteOnCorrect ) {
+		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
+		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
 	}
 
 	// debug
@@ -472,6 +472,11 @@ function updateDeleteOnCorrect(evt) {
 	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
 	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
 
+	if ( Config.confidence.high || Config.confidence.peak ) {
+		SettingsChangeInUI.changeConfidenceInUI("low");
+		SettingsChangeInConfig.changeConfidenceInConfig("low");
+	}
+	
 	// debug
 	console.log("delete on correct:", !Config.backspace.deleteOnCorrect, Config.backspace.deleteOnCorrect);
 }
