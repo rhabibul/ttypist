@@ -530,11 +530,28 @@ function updateStopOnError(evt) {
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
 	if ( this.value === "letter" ) {
+		// stop caret before wrongly typed letter so insert, skip, replace, forgive not possible
+		if ( !Config.error.off ) {
+			SettingsChangeInUI.changeErrorInUI("off");
+			SettingsChangeInConfig.changeErrorInConfig("off");
 
+			if ( Config.error.forgive ) {
+				SettingsChangeInUI.changeForgiveErrorInUI("off");
+				SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+			}
+		}
 	} else if ( this.value === "word" ) {
-		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word only last letter of current word)])
-	} else {
+		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
+		if ( Config.backspace.off ) {
+			SettingsChangeInUI.changeBackspaceKeyInUI("on");
+			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+		}
 
+	} else {
+		if ( Config.error.off ) {
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
 	}
 
 	// debug
