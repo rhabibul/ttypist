@@ -16,6 +16,18 @@
 import Config from "../include/config.js";
 import * as SettingsElement from "./elements/settingsElements.js";
 
+
+// // pacecaret with dispatching keydown/keyup events (experimental)
+// const l = document.getElementsByTagName("letter");
+// let curr = l[0];
+// let i = 0;
+// setInterval(() => {
+//   curr.id = "";
+//   ++i;
+//   curr = l[i];
+//   curr.id = Config.caret.style;
+// }, 250);
+
 // // set css property value
 // document.querySelector(":root").computedStyleMap.setProperty("--variable", value);
 // // retrieve css property value

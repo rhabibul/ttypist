@@ -69,7 +69,7 @@ export default {
     insert: true, // insert incorrect letter before to be typed letter
     skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
-    forgive: false, // insert errors, but forgive them (delete) as soon as user types correct letter
+    forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
     stop: {
       off: true,
       letter: false, // stop before letter if wrongly typed

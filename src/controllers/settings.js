@@ -472,9 +472,15 @@ function updateDeleteOnCorrect(evt) {
 	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
 	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
 
-	if ( Config.confidence.high || Config.confidence.peak ) {
+	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
+	if ( Config.backspace.deleteOnCorrect && (Config.confidence.high || Config.confidence.peak) ) {
 		SettingsChangeInUI.changeConfidenceInUI("low");
 		SettingsChangeInConfig.changeConfidenceInConfig("low");
+
+		if ( Config.backspace.off ) {
+			SettingsChangeInUI.changeBackspaceKeyInUI("on");
+			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+		}
 	}
 	
 	// debug
