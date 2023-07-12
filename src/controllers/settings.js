@@ -529,6 +529,14 @@ function updateStopOnError(evt) {
 	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
+	if ( this.value === "letter" ) {
+
+	} else if ( this.value === "word" ) {
+		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word only last letter of current word)])
+	} else {
+
+	}
+
 	// debug
 	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
 }

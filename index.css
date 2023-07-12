@@ -91,8 +91,7 @@
   --SyneMono: "Syne Mono", monospace;
 
   --text-font-size: 19px;
-  /* --text-font-weight: 440; */
-  --text-font-weight: 400;
+  --text-font-weight: 440;
   --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
   --text-secondary-color: #9a9a9a;
