@@ -103,7 +103,7 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: black;
+  --caret-color: red;
   --caret-color-hidden: white; /* match invisible underscore caret color with background color of text */
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
@@ -174,7 +174,6 @@ text {
   align-content: flex-start; /* determines the spacing between lines */
   justify-content: flex-start;
   flex-wrap: wrap;
-  row-gap: 2px;
 
   background-color: var(--caret-color-hidden);
 
@@ -232,12 +231,12 @@ text word letter.whitespace.bullet::after {
   align-items: center;
   justify-content: center;
   transform: translateY(1px);
-  opacity: 0.4;
   background-color: var(--text-primary-color);
+  opacity: 0.4;
 }
 text word letter.whitespace.bullet.correct::after {
-  opacity: 0.4;
   background-color: var(--text-secondary-color);
+  opacity: 0.4;
 }
 text word letter.whitespace.bullet.ws-active::after {
   opacity: 0.8;
