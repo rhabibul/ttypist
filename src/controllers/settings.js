@@ -505,6 +505,12 @@ function updateError(evt) {
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
 
+	// stopping before a letter is not possible in insert, skip, replace, forgive
+	if ( Config.error.stop.letter	) {
+		SettingsChangeInUI.changeStopOnErrorInUI("off");
+		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+	}
+
 	// debug
 	console.log("error:", Config.error.off, Config.error.insert, Config.error.skip, Config.error.replace);
 }
@@ -530,7 +536,7 @@ function updateStopOnError(evt) {
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
 	if ( this.value === "letter" ) {
-		// stop caret before wrongly typed letter so insert, skip, replace, forgive not possible
+		// stop caret before before letter so insert, skip, replace, forgive is not possible
 		if ( !Config.error.off ) {
 			SettingsChangeInUI.changeErrorInUI("off");
 			SettingsChangeInConfig.changeErrorInConfig("off");
