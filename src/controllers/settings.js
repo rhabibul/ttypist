@@ -553,10 +553,14 @@ function updateStopOnError(evt) {
 			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 
-	} else {
+	} else { // off
 		if ( Config.error.off ) {
 			SettingsChangeInUI.changeErrorInUI("insert");
 			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
+		if ( !Config.error.forgive ) {
+			SettingsChangeInUI.changeForgiveErrorInUI("on");
+			SettingsChangeInConfig.changeForgiveErrorInConfig("on");
 		}
 	}
 
