@@ -767,9 +767,19 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
-		SettingsChangeInUI.changeTextWordCountInUI("off");
-		SettingsChangeInConfig.changeTextWordCountInConfig("off");
+	if ( (this.value === "" || this.value === "0") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
+		
+		// 0 word is not possible
+		if ( this.value === "0" ) {
+			setTimeout(() => {
+				SettingsChangeInUI.changeTextWordCountInUI("off");
+				SettingsChangeInConfig.changeTextWordCountInConfig("off");
+				this.value = "";
+			}, 250);
+		} else {
+			SettingsChangeInUI.changeTextWordCountInUI("off");
+			SettingsChangeInConfig.changeTextWordCountInConfig("off");
+		}
 	}
 
 	// infinite words mode
