@@ -690,7 +690,7 @@ function updateMinimumBurst(evt) {
 	if ( this.value === "fixed" || this.value === "flex" ) {
 		SettingsElement.minimum.burst.thresholdInput.focus();
 	} else {
-		if ( this.value === "off" ) SettingsElement.minimum.burst.thresholdInput.value = "";
+		SettingsElement.minimum.burst.thresholdInput.value = "";
 	}
 
 	// debug
