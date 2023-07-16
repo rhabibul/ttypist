@@ -532,3 +532,11 @@ export function changeCaretStyleInConfig(value) {
 export function changePaceCaretStyleInConfig(value) {
 	Config.pacecaret.style = value;
 }
+
+export function changeBlindModeInConfig(value) {
+	if ( value === "on" ) {
+		Config.blind = true;
+	} else {
+		Config.blind = false;
+	}
+}

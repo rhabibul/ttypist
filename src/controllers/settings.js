@@ -507,7 +507,13 @@ console.log(SettingsElement.blindMode);
 // blind mode
 function updateBlindMode(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( ) return;
+	if ( (Config.blind && this.value === "on") || (!Config.blind && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeBlindModeInUI(this.value);
+	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
+	
+	// debug
+	console.log("blindMode:", !Config.blind, Config.blind);
 }
 
 // error (s4)

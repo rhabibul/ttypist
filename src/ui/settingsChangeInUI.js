@@ -632,3 +632,13 @@ export function changePaceCaretStyleInUI(value) {
 		SettingsElement.pacecaret.style.block.id = "selected"
 	}
 }
+
+export function changeBlindModeInUI(value) {
+	if ( value === "on" ) {
+		SettingsElement.blindMode.off.id = "";
+		SettingsElement.blindMode.on.id = "selected";
+	} else {
+		SettingsElement.blindMode.off.id = "selected";
+		SettingsElement.blindMode.on.id = "";
+	}
+}
