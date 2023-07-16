@@ -100,6 +100,11 @@ SettingsElement.error.stop.off.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
 
+
+// forgive error
+SettingsElement.blindMode.off.addEventListener("click", updateBlindMode);
+SettingsElement.blindMode.on.addEventListener("click", updateBlindMode);
+
 // opposite shift mode
 SettingsElement.oppositeShift.off.addEventListener("click", updateOppositeShiftMode);
 SettingsElement.oppositeShift.on.addEventListener("click", updateOppositeShiftMode);
@@ -497,6 +502,14 @@ function updateModifierKey(evt) {
 	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
 }
 
+console.log(SettingsElement.blindMode);
+
+// blind mode
+function updateBlindMode(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( ) return;
+}
+
 // error (s4)
 function updateError(evt) {
 	if ( !evt.isTrusted ) return;
@@ -536,7 +549,7 @@ function updateStopOnError(evt) {
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
 
 	if ( this.value === "letter" ) {
-		// stop caret before before letter so insert, skip, replace, forgive is not possible
+		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
 		if ( !Config.error.off ) {
 			SettingsChangeInUI.changeErrorInUI("off");
 			SettingsChangeInConfig.changeErrorInConfig("off");

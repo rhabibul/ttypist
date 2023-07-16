@@ -13,10 +13,6 @@ export default {
       },
     },
   },
-  arrows: true, // implicitly enabled (mythical)
-  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
-  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
-  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   caret: {
     off: false, // none
     style: "line", // off | underscore | line | box | block
@@ -45,6 +41,23 @@ export default {
       word: false,
     }
   },
+  arrows: true, // implicitly enabled (mythical)
+  oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
+  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
+  blind: false, // no errors or incorrect words are highlighted
+  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
+  error: {
+    off: false, // (blind mode) no errors or incorrect words are highlighted
+    insert: true, // insert incorrect letter before to be typed letter
+    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
+    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
+    forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
+    stop: {
+      off: true,
+      letter: false, // stop before letter if wrongly typed
+      word: false, // don't move to the next word until all mistakes are corrected
+    },
+  },
   backspace: {
     off: false,
     modifier: {
@@ -63,18 +76,6 @@ export default {
     ease: true, // classic typing experience, mistakes can be corrected or left behind
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
-  },
-  error: {
-    off: false, // (blind mode) no errors or incorrect words are highlighted
-    insert: true, // insert incorrect letter before to be typed letter
-    skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
-    replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
-    forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
-    stop: {
-      off: true,
-      letter: false, // stop before letter if wrongly typed
-      word: false, // don't move to the next word until all mistakes are corrected
-    },
   },
   text: {
     input: {
