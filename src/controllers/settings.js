@@ -511,6 +511,14 @@ function updateBlindMode(evt) {
 
 	SettingsChangeInUI.changeBlindModeInUI(this.value);
 	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
+
+	if ( Config.blind && !Config.error.off ) {
+		SettingsChangeInUI.changeErrorInUI("off");
+		SettingsChangeInConfig.changeErrorInConfig("off");
+	} else if ( !Config.blind && Config.error.off ) {
+		SettingsChangeInUI.changeErrorInUI("insert");
+		SettingsChangeInConfig.changeErrorInConfig("insert");
+	}
 	
 	// debug
 	console.log("blindMode:", !Config.blind, Config.blind);
