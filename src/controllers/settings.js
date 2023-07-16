@@ -883,20 +883,20 @@ function updatePaceCaretSpeedInputField(evt) {
 // pacecaret speed input - focusout (s5)
 function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
-	
-	// 0wpm speed for pacecaret is not possible
-	if ( this.value === "0" ) {
-		setTimeout(() => {
-			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
-			this.value = "";
-		}, 300);
-	}
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "") && (SettingsElement.pacecaret.speed.custom.id === "selected") ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+	if ( (this.value === "" || this.value === "0") && !Config.pacecaret.speed.custom.off) {
+
+		if ( this.value === "0" ) { // 0wpm speed for pacecaret is not possible
+			setTimeout(() => {
+				SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+				SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+				this.value = "";
+			}, 250);
+		} else {
+			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
+			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+		}
 	}
 
 	// debug
