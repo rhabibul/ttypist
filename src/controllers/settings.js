@@ -1300,32 +1300,34 @@ allDetails.textWordType.items.forEach((item) => {
 allDetails.textCapitalization.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		const value = evt.currentTarget.dataset.value;
+		if ( (value === "none" && Config.text.capitalize.off ) || (value === "randomized" && Config.text.capitalize.randomized) || (value === "first letter" && Config.text.capitalize.firstletter) || (value === "all first letters" && Config.text.capitalize.allfirstletters) || (value === "jumbled" && Config.text.capitalize.jumbled) ) return;
 
-		if ( evt.currentTarget.dataset.value === "none" ) {
+		if ( value === "none" ) {
 			Config.text.capitalize.off = true;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( evt.currentTarget.dataset.value === "randomized" ) {
+		} else if ( value === "randomized" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = true;
 			Config.text.capitalize.jumbled = false;
-		} else if ( evt.currentTarget.dataset.value === "first letter" ) {
+		} else if ( value === "first letter" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = true;
 			Config.text.capitalize.allfirstletters = false;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( evt.currentTarget.dataset.value === "all first letters" ) {
+		} else if ( value === "all first letters" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = true;
 			Config.text.capitalize.randomized = false;
 			Config.text.capitalize.jumbled = false;
-		} else if ( evt.currentTarget.dataset.value === "jumbled" ) {
+		} else if ( value === "jumbled" ) {
 			Config.text.capitalize.off = false;
 			Config.text.capitalize.firstletter = false;
 			Config.text.capitalize.allfirstletters = false;
@@ -1335,10 +1337,10 @@ allDetails.textCapitalization.items.forEach((item) => {
 		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.value; // update in ui
 		tickMarkCorrectOption(evt, "textCapitalization");
 		
-		TestAreaElements.input.focus();
+		// TestAreaElements.input.focus();
 
 		// debug
-		console.log(Config.text.capitalize.off, Config.text.capitalize.firstletter, Config.text.capitalize.allfirstletters, Config.text.capitalize.randomized, Config.text.capitalize.jumbled);
+		console.log("capitalize:", Config.text.capitalize.off, Config.text.capitalize.firstletter, Config.text.capitalize.allfirstletters, Config.text.capitalize.randomized, Config.text.capitalize.jumbled);
 	});
 });
 
@@ -1361,6 +1363,7 @@ allDetails.keyboardLanguage.items.forEach((item) => {
 allDetails.keyboardLayout.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		if ( evt.currentTarget.dataset.value === Config.keyboard.layout.map ) return;
 
 		Config.keyboard.layout.map = evt.currentTarget.dataset.value; // update in config
 		allDetails.keyboardLayout.inUseTextBox.textContent = Config.keyboard.layout.map; // update in ui
