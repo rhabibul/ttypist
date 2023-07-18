@@ -1283,12 +1283,16 @@ allDetails.textWordLength.items.forEach((item) => {
 allDetails.textWordType.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		if ( evt.currentTarget.dataset.value === Config.text.word.type ) return;
 
 		Config.text.word.type = evt.currentTarget.dataset.value; // update in config
 		allDetails.textWordType.inUseTextBox.textContent = Config.text.word.type; // update in ui
 		tickMarkCorrectOption(evt, "textWordType");
 		
 		TestAreaElements.input.focus();
+
+		// debug
+		console.log("word-type:", Config.text.word.type);
 	});
 });
 
