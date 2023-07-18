@@ -502,8 +502,6 @@ function updateModifierKey(evt) {
 	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
 }
 
-console.log(SettingsElement.blindMode);
-
 // blind mode
 function updateBlindMode(evt) {
 	if ( !evt.isTrusted ) return;
@@ -576,8 +574,7 @@ function updateForgiveError(evt) {
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
 	// error insertion is required in order to forgive them, so enable error insertion
-	if ( !Config.error.insert ) {
-		console.log("Hey");
+	if ( !Config.error.insert && Config.error.forgive ) {
 		SettingsChangeInUI.changeErrorInUI("insert");
 		SettingsChangeInConfig.changeErrorInConfig("insert");
 	}
