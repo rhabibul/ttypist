@@ -548,9 +548,8 @@ function updateError(evt) {
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
 
-	// strict space
 	if ( Config.error.insert ) {
-		// insert should enforce strict space because space will be hit incorrectly like other characters
+		// insert will enforce strict space because space can be hit incorrectly like other character
 		SettingsChangeInUI.changeStrictSpaceInUI("on");
 		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 	}
@@ -573,10 +572,19 @@ function updateForgiveError(evt) {
 	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
-	// error insertion is required in order to forgive them, so enable error insertion
-	if ( !Config.error.insert && Config.error.forgive ) {
-		SettingsChangeInUI.changeErrorInUI("insert");
-		SettingsChangeInConfig.changeErrorInConfig("insert");
+	// insertion of errors is necessary in order to forgive them, so enable error insertion
+	if ( Config.error.forgive ) {
+		// enable error insertion
+		if ( !Config.error.insert ) {
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
+
+		// enable strict space because forgive enables insert and insert requires strict space
+		if ( !Config.strictspace ) {
+			SettingsChangeInUI.changeStrictSpaceInUI("on");
+			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+		}
 	}
 
 	// debug
