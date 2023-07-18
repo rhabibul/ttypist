@@ -512,12 +512,30 @@ function updateBlindMode(evt) {
 	SettingsChangeInUI.changeBlindModeInUI(this.value);
 	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
 
+	// in blind mode insert, skip, replace, forgive and stop on error is not possible
 	if ( Config.blind && !Config.error.off ) {
+		// disable insert, skip, replace
 		SettingsChangeInUI.changeErrorInUI("off");
 		SettingsChangeInConfig.changeErrorInConfig("off");
-	} else if ( !Config.blind && Config.error.off ) {
+		
+		// disable forgive error
+		SettingsChangeInUI.changeForgiveErrorInUI("off");
+		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+
+		// disable stop on error
+		SettingsChangeInUI.changeStopOnErrorInUI("off");
+		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+	}
+
+	// when blind mode is disabled (enable default behaviours)
+	if ( !Config.blind && Config.error.off ) {
+		// enable insert
 		SettingsChangeInUI.changeErrorInUI("insert");
 		SettingsChangeInConfig.changeErrorInConfig("insert");
+
+		// enable forgive error
+		SettingsChangeInUI.changeForgiveErrorInUI("off");
+		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
 	}
 	
 	// debug
@@ -531,6 +549,13 @@ function updateError(evt) {
 
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
+
+	// strict space
+	if ( Config.error.insert ) {
+		// insert should enforce strict space because space will be hit incorrectly like other characters
+		SettingsChangeInUI.changeStrictSpaceInUI("on");
+		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+	}
 
 	// stopping before a letter is not possible in insert, skip, replace, forgive
 	if ( Config.error.stop.letter	) {
@@ -549,6 +574,13 @@ function updateForgiveError(evt) {
 
 	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
+
+	// error insertion is required in order to forgive them, so enable error insertion
+	if ( !Config.error.insert ) {
+		console.log("Hey");
+		SettingsChangeInUI.changeErrorInUI("insert");
+		SettingsChangeInConfig.changeErrorInConfig("insert");
+	}
 
 	// debug
 	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
