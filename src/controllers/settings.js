@@ -1136,9 +1136,7 @@ function updateLiveStatsCalcInterval(evt) {
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (this.value === "off" && Config.caret.style === "off") || (this.value === "underscore" && Config.caret.style === "underscore") || (this.value === "line" && Config.caret.style === "line") || (this.value === "box" && Config.caret.style === "box") || (this.value === "block" && Config.caret.style === "block") ) return;
-
-	console.log(this.value);
+	if ( this.value === Config.caret.style ) return;
 	
 	// change caret in text
 	for ( const letter of document.getElementsByTagName("letter") ) {
@@ -1158,7 +1156,7 @@ function updateCaretStyle(evt) {
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (this.value === "off" && Config.pacecaret.style === "off") || (this.value === "underscore" && Config.pacecaret.style === "underscore") || (this.value === "line" && Config.pacecaret.style === "line") || (this.value === "box" && Config.pacecaret.style === "box") || (this.value === "block" && Config.pacecaret.style === "block") ) return;
+	if ( this.value === Config.pacecaret.style ) return;
 
 	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
 	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
@@ -1250,6 +1248,7 @@ function tickMarkCorrectOption(evt, detail) {
 allDetails.textFontFamily.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		if ( evt.currentTarget.dataset.value === Config.text.font.family ) return;
 
 		Config.text.font.family = evt.currentTarget.dataset.value; // update in config
 		allDetails.textFontFamily.inUseTextBox.textContent = Config.text.font.family; // update in ui
@@ -1257,6 +1256,9 @@ allDetails.textFontFamily.items.forEach((item) => {
 		tickMarkCorrectOption(evt, "textFontFamily");
 		
 		TestAreaElements.input.focus();
+
+		// debug
+		console.log("font-family:", Config.text.font.family);
 	});
 });
 
@@ -1264,12 +1266,16 @@ allDetails.textFontFamily.items.forEach((item) => {
 allDetails.textWordLength.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		if ( evt.currentTarget.dataset.value === Config.text.word.length ) return;
 
 		Config.text.word.length = evt.currentTarget.dataset.value; // update in config
 		allDetails.textWordLength.inUseTextBox.textContent = Config.text.word.length; // update in ui
 		tickMarkCorrectOption(evt, "textWordLength");
 		
 		TestAreaElements.input.focus();
+
+		// debug
+		console.log("word-length:", Config.text.word.length);
 	});
 });
 
@@ -1336,6 +1342,7 @@ allDetails.textCapitalization.items.forEach((item) => {
 allDetails.keyboardLanguage.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
+		if ( evt.currentTarget.dataset.value === Config.keyboard.language ) return;
 
 		Config.keyboard.language = evt.currentTarget.dataset.value; // update in config
 		allDetails.keyboardLanguage.inUseTextBox.textContent = Config.keyboard.language; // update in ui
