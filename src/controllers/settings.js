@@ -606,7 +606,7 @@ function updateStopOnError(evt) {
 		}
 	} else if ( Config.error.stop.word ) {
 		if ( Config.backspace.off ) {
-			// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
+			// enable backspace (delete, insert, replace is possible, [skip (is possible but not to next word, on last letter of current word)])
 			SettingsChangeInUI.changeBackspaceKeyInUI("on");
 			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
