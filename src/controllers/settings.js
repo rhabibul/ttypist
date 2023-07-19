@@ -502,6 +502,104 @@ function updateModifierKey(evt) {
 	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
 }
 
+// error (s4)
+function updateError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.off && this.value === "off") || (Config.error.insert && this.value === "insert") || (Config.error.skip && this.value === "skip") || (Config.error.replace && this.value === "replace") ) return;
+
+	SettingsChangeInUI.changeErrorInUI(this.value);
+	SettingsChangeInConfig.changeErrorInConfig(this.value);
+
+	if ( Config.error.insert ) {
+		// insert will enforce strict space because space can be hit incorrectly like other character
+		SettingsChangeInUI.changeStrictSpaceInUI("on");
+		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+	}
+
+	// forgive error is not possible in skip & replace
+	if ( (Config.error.skip || Config.error.replace) && Config.error.forgive ) {
+		// it is possible to enable/disable forgive error in error insert, but not in
+		// error skip/replace so forgive error should be disabled
+		SettingsChangeInUI.changeForgiveErrorInUI("off");
+		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+	}
+	
+	// stopping before a letter is not possible in insert, skip, replace, forgive
+	if ( Config.error.stop.letter	) {
+		SettingsChangeInUI.changeStopOnErrorInUI("off");
+		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+	}
+
+	// debug
+	console.log("error:", Config.error.off, Config.error.insert, Config.error.skip, Config.error.replace);
+}
+
+// forgive error (s2)
+function updateForgiveError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
+
+	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
+	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
+
+	// insertion of errors is necessary in order to forgive them
+	if ( Config.error.forgive ) {
+		// erorr forgive require error insert, so disable error skip/replace and enable insert
+		if ( !Config.error.insert ) {
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
+		// error insert requires strictspace, so enable strictspace
+		if ( !Config.strictspace ) {
+			SettingsChangeInUI.changeStrictSpaceInUI("on");
+			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+		}
+	}
+	
+	// debug
+	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
+}
+
+// stop on error (s3)
+function updateStopOnError(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
+
+	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
+	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
+
+	if ( this.value === "letter" ) {
+		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
+		if ( !Config.error.off ) {
+			SettingsChangeInUI.changeErrorInUI("off");
+			SettingsChangeInConfig.changeErrorInConfig("off");
+
+			if ( Config.error.forgive ) {
+				SettingsChangeInUI.changeForgiveErrorInUI("off");
+				SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+			}
+		}
+	} else if ( this.value === "word" ) {
+		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
+		if ( Config.backspace.off ) {
+			SettingsChangeInUI.changeBackspaceKeyInUI("on");
+			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+		}
+	} else {
+		if ( Config.error.off ) { // default
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
+		if ( !Config.error.forgive ) { // default
+			SettingsChangeInUI.changeForgiveErrorInUI("on");
+			SettingsChangeInConfig.changeForgiveErrorInConfig("on");
+		}
+	}
+
+	// debug
+	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
+}
+
 // blind mode
 function updateBlindMode(evt) {
 	if ( !evt.isTrusted ) return;
@@ -536,108 +634,6 @@ function updateBlindMode(evt) {
 	
 	// debug
 	console.log("blindMode:", !Config.blind, Config.blind);
-}
-
-// error (s4)
-function updateError(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.error.off && this.value === "off") || (Config.error.insert && this.value === "insert") || (Config.error.skip && this.value === "skip") || (Config.error.replace && this.value === "replace") ) return;
-
-	SettingsChangeInUI.changeErrorInUI(this.value);
-	SettingsChangeInConfig.changeErrorInConfig(this.value);
-
-	if ( Config.error.insert ) {
-		// insert will enforce strict space because space can be hit incorrectly like other character
-		SettingsChangeInUI.changeStrictSpaceInUI("on");
-		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
-
-		// now user can enable forgive error if they want to (won't be enabling it implicitly)
-	}
-
-	// forgive error is not possible in skip & replace
-	if ( (Config.error.skip || Config.error.replace) && Config.error.forgive ) {
-		SettingsChangeInUI.changeForgiveErrorInUI("off");
-		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
-	}
-	
-	// stopping before a letter is not possible in insert, skip, replace, forgive
-	if ( Config.error.stop.letter	) {
-		SettingsChangeInUI.changeStopOnErrorInUI("off");
-		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
-	}
-
-	// debug
-	console.log("error:", Config.error.off, Config.error.insert, Config.error.skip, Config.error.replace);
-}
-
-// forgive error (s2)
-function updateForgiveError(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
-
-	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
-	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
-
-	// insertion of errors is necessary in order to forgive them, so enable error insertion
-	if ( Config.error.forgive ) {
-		// enable error insertion
-		if ( !Config.error.insert ) {
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");
-		}
-
-		// enable strict space because forgive enables insert and insert requires strict space
-		if ( !Config.strictspace ) {
-			SettingsChangeInUI.changeStrictSpaceInUI("on");
-			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
-		}
-	} else {
-		// when forgive error is disbaled
-	}
-
-	// debug
-	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
-}
-
-// stop on error (s3)
-function updateStopOnError(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
-
-	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
-	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
-
-	if ( this.value === "letter" ) {
-		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
-		if ( !Config.error.off ) {
-			SettingsChangeInUI.changeErrorInUI("off");
-			SettingsChangeInConfig.changeErrorInConfig("off");
-
-			if ( Config.error.forgive ) {
-				SettingsChangeInUI.changeForgiveErrorInUI("off");
-				SettingsChangeInConfig.changeForgiveErrorInConfig("off");
-			}
-		}
-	} else if ( this.value === "word" ) {
-		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
-		if ( Config.backspace.off ) {
-			SettingsChangeInUI.changeBackspaceKeyInUI("on");
-			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
-		}
-
-	} else { // off
-		if ( Config.error.off ) {
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");
-		}
-		if ( !Config.error.forgive ) {
-			SettingsChangeInUI.changeForgiveErrorInUI("on");
-			SettingsChangeInConfig.changeForgiveErrorInConfig("on");
-		}
-	}
-
-	// debug
-	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
 }
 
 // opposite shift mode (s2)
