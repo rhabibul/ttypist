@@ -510,12 +510,12 @@ function updateBlindMode(evt) {
 	SettingsChangeInUI.changeBlindModeInUI(this.value);
 	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
 
-	// in blind mode insert, skip, replace, forgive and stop on error is not possible
+	// no error handling in blind mode
 	if ( Config.blind && !Config.error.off ) {
-		// disable insert, skip, replace
+		// disable insert, skip, replace, forgive
 		SettingsChangeInUI.changeErrorInUI("off");
 		SettingsChangeInConfig.changeErrorInConfig("off");
-		
+
 		// disable forgive error
 		SettingsChangeInUI.changeForgiveErrorInUI("off");
 		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
@@ -525,13 +525,11 @@ function updateBlindMode(evt) {
 		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
 	}
 
-	// when blind mode is disabled (enable default behaviours)
+	// when blind mode is disabled then enable the defaults
 	if ( !Config.blind && Config.error.off ) {
-		// enable insert
+		// enable insert & forgive error
 		SettingsChangeInUI.changeErrorInUI("insert");
 		SettingsChangeInConfig.changeErrorInConfig("insert");
-
-		// enable forgive error
 		SettingsChangeInUI.changeForgiveErrorInUI("off");
 		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
 	}
@@ -552,8 +550,16 @@ function updateError(evt) {
 		// insert will enforce strict space because space can be hit incorrectly like other character
 		SettingsChangeInUI.changeStrictSpaceInUI("on");
 		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+
+		// now user can enable forgive error if they want to (won't be enabling it implicitly)
 	}
 
+	// forgive error is not possible in skip & replace
+	if ( (Config.error.skip || Config.error.replace) && Config.error.forgive ) {
+		SettingsChangeInUI.changeForgiveErrorInUI("off");
+		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+	}
+	
 	// stopping before a letter is not possible in insert, skip, replace, forgive
 	if ( Config.error.stop.letter	) {
 		SettingsChangeInUI.changeStopOnErrorInUI("off");
@@ -585,6 +591,8 @@ function updateForgiveError(evt) {
 			SettingsChangeInUI.changeStrictSpaceInUI("on");
 			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 		}
+	} else {
+		// when forgive error is disbaled
 	}
 
 	// debug
