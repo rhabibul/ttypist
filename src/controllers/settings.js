@@ -553,16 +553,25 @@ function updateForgiveError(evt) {
 	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
-	// insertion of errors is necessary in order to forgive them
-	if ( Config.error.forgive ) {
-		if ( !Config.error.insert ) { // erorr forgive require error insert, so disable error skip/replace and enable insert
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");
-		}
-		if ( Config.blind ) { // disable blind mode
-			SettingsChangeInUI.changeBlindModeInUI("off");
-			SettingsChangeInConfig.changeBlindModeInConfig("off");
-		}
+	// error forgive require error insert, so disable error skip/replace and enable
+	// insert, i.e, insertion of errors is necessary in order to forgive them
+	if ( Config.error.forgive && !Config.error.insert ) {
+		SettingsChangeInUI.changeErrorInUI("insert");
+		SettingsChangeInConfig.changeErrorInConfig("insert");		
+	}
+
+	if ( Config.error.forgive && Config.blind ) { // disable blind mode
+		SettingsChangeInUI.changeBlindModeInUI("off");
+		SettingsChangeInConfig.changeBlindModeInConfig("off");
+	}
+
+	// when forgive error is enabled then caret should not be allowed to go to next
+	// word on hitting space because it will violate the rule of forgive error
+	if ( (Config.error.forgive && Config.error.insert) && !Config.strictspace ) {
+		// strictspace("off") forces insert mode to move caret to next word, which should
+		// be avoided
+		SettingsChangeInUI.changeStrictSpaceInUI("on");
+		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 	}
 	
 	// debug
@@ -595,8 +604,7 @@ function updateStopOnError(evt) {
 			}
 		}
 	} else if ( Config.error.stop.word ) {
-		if ( Config.backspace.off ) {
-			// enable backspace (delete, insert, replace is possible, [skip (is possible but not to next word, on last letter of current word)])
+		if ( Config.backspace.off ) {			
 			SettingsChangeInUI.changeBackspaceKeyInUI("on");
 			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
