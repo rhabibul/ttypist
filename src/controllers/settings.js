@@ -512,7 +512,7 @@ function updateError(evt) {
 
 	// error insert, skip, replace, forgive is disabled, enable stop on letter
 	if ( Config.error.off ) {
-		if ( !Config.error.stop.letter ) { // disbale stop on error
+		if ( !Config.error.stop.letter ) { // disble stop on error
 			SettingsChangeInUI.changeStopOnErrorInUI("letter");
 			SettingsChangeInConfig.changeStopOnErrorInConfig("letter");
 		}
@@ -527,16 +527,10 @@ function updateError(evt) {
 		}
 	}
 		
-	// disable error.stop.letter on error insert, skip, replace
+	// disable stop on letter when in insert, skip, replace modes
 	if ( !Config.error.off && Config.error.stop.letter	) {
 		SettingsChangeInUI.changeStopOnErrorInUI("off");
 		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
-	}
-
-	// insert will enforce strict space because space can be hit incorrectly like other character
-	if ( Config.error.insert ) {
-		SettingsChangeInUI.changeStrictSpaceInUI("on");
-		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 	}
 
 	// forgive error is not possible in skip & replace
@@ -564,10 +558,6 @@ function updateForgiveError(evt) {
 		if ( !Config.error.insert ) { // erorr forgive require error insert, so disable error skip/replace and enable insert
 			SettingsChangeInUI.changeErrorInUI("insert");
 			SettingsChangeInConfig.changeErrorInConfig("insert");
-		}
-		if ( !Config.strictspace ) { // error insert requires strictspace, so enable strictspace
-			SettingsChangeInUI.changeStrictSpaceInUI("on");
-			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 		}
 		if ( Config.blind ) { // disable blind mode
 			SettingsChangeInUI.changeBlindModeInUI("off");
@@ -615,13 +605,9 @@ function updateStopOnError(evt) {
 			SettingsChangeInConfig.changeErrorInConfig("insert");			
 		}
 	} else {
-		if ( Config.error.off ) { // default
+		if ( Config.error.off ) { // set to default
 			SettingsChangeInUI.changeErrorInUI("insert");
 			SettingsChangeInConfig.changeErrorInConfig("insert");
-		}
-		if ( !Config.error.forgive ) { // default
-			SettingsChangeInUI.changeForgiveErrorInUI("on");
-			SettingsChangeInConfig.changeForgiveErrorInConfig("on");
 		}
 	}
 
