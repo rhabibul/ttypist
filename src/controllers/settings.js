@@ -510,6 +510,21 @@ function updateError(evt) {
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
 
+	// go blind..
+	if ( Config.error.off && Config.error.forgive && Config.error.stop.off ) { }
+
+	if ( Config.error.off ) {
+		// error insert, skip, replace, forgive is disabled so just stop before letter if any error occurs
+		SettingsChangeInUI.changeStopOnErrorInUI("letter");
+		SettingsChangeInConfig.changeStopOnErrorInConfig("letter");
+	}
+		
+	// insert, skip, replace is selected so disable stop before letter on error if it is enabled
+	if ( !Config.error.off && Config.error.stop.letter	) {
+		SettingsChangeInUI.changeStopOnErrorInUI("off");
+		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+	}
+
 	if ( Config.error.insert ) {
 		// insert will enforce strict space because space can be hit incorrectly like other character
 		SettingsChangeInUI.changeStrictSpaceInUI("on");
@@ -522,12 +537,6 @@ function updateError(evt) {
 		// error skip/replace so forgive error should be disabled
 		SettingsChangeInUI.changeForgiveErrorInUI("off");
 		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
-	}
-	
-	// stopping before a letter is not possible in insert, skip, replace, forgive
-	if ( Config.error.stop.letter	) {
-		SettingsChangeInUI.changeStopOnErrorInUI("off");
-		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
 	}
 
 	// debug
