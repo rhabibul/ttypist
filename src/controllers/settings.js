@@ -510,23 +510,31 @@ function updateError(evt) {
 	SettingsChangeInUI.changeErrorInUI(this.value);
 	SettingsChangeInConfig.changeErrorInConfig(this.value);
 
-	// go blind..
-	if ( Config.error.off && Config.error.forgive && Config.error.stop.off ) { }
-
+	// error insert, skip, replace, forgive is disabled, enable stop on letter
 	if ( Config.error.off ) {
-		// error insert, skip, replace, forgive is disabled so just stop before letter if any error occurs
-		SettingsChangeInUI.changeStopOnErrorInUI("letter");
-		SettingsChangeInConfig.changeStopOnErrorInConfig("letter");
+		if ( !Config.error.stop.letter ) { // disbale stop on error
+			SettingsChangeInUI.changeStopOnErrorInUI("letter");
+			SettingsChangeInConfig.changeStopOnErrorInConfig("letter");
+		}
+		if ( Config.error.forgive ) { // disable forgive error
+			SettingsChangeInUI.changeForgiveErrorInUI("off");
+			SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+		}
+	} else { // either insert or skip or replace is selected
+		if ( Config.blind ) { // disable blind mode
+			SettingsChangeInUI.changeBlindModeInUI("off");
+			SettingsChangeInConfig.changeBlindModeInConfig("off");
+		}
 	}
 		
-	// insert, skip, replace is selected so disable stop before letter on error if it is enabled
+	// disable error.stop.letter on error insert, skip, replace
 	if ( !Config.error.off && Config.error.stop.letter	) {
 		SettingsChangeInUI.changeStopOnErrorInUI("off");
 		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
 	}
 
+	// insert will enforce strict space because space can be hit incorrectly like other character
 	if ( Config.error.insert ) {
-		// insert will enforce strict space because space can be hit incorrectly like other character
 		SettingsChangeInUI.changeStrictSpaceInUI("on");
 		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
 	}
@@ -547,21 +555,23 @@ function updateError(evt) {
 function updateForgiveError(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
-
+	
 	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
 
 	// insertion of errors is necessary in order to forgive them
 	if ( Config.error.forgive ) {
-		// erorr forgive require error insert, so disable error skip/replace and enable insert
-		if ( !Config.error.insert ) {
+		if ( !Config.error.insert ) { // erorr forgive require error insert, so disable error skip/replace and enable insert
 			SettingsChangeInUI.changeErrorInUI("insert");
 			SettingsChangeInConfig.changeErrorInConfig("insert");
 		}
-		// error insert requires strictspace, so enable strictspace
-		if ( !Config.strictspace ) {
+		if ( !Config.strictspace ) { // error insert requires strictspace, so enable strictspace
 			SettingsChangeInUI.changeStrictSpaceInUI("on");
 			SettingsChangeInConfig.changeStrictSpaceInConfig("on");
+		}
+		if ( Config.blind ) { // disable blind mode
+			SettingsChangeInUI.changeBlindModeInUI("off");
+			SettingsChangeInConfig.changeBlindModeInConfig("off");
 		}
 	}
 	
@@ -576,8 +586,14 @@ function updateStopOnError(evt) {
 
 	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
 	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
+	
+	// disable blind mode
+	if ( (Config.error.stop.letter || Config.error.stop.word) && Config.blind ) {
+		SettingsChangeInUI.changeBlindModeInUI("off");
+		SettingsChangeInConfig.changeBlindModeInConfig("off");
+	}
 
-	if ( this.value === "letter" ) {
+	if ( Config.error.stop.letter ) {
 		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
 		if ( !Config.error.off ) {
 			SettingsChangeInUI.changeErrorInUI("off");
@@ -588,11 +604,15 @@ function updateStopOnError(evt) {
 				SettingsChangeInConfig.changeForgiveErrorInConfig("off");
 			}
 		}
-	} else if ( this.value === "word" ) {
-		// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
+	} else if ( Config.error.stop.word ) {
 		if ( Config.backspace.off ) {
+			// enable backspace (delete, insert, replace is possible, [skip (also possible but not to next word, on last letter of current word)])
 			SettingsChangeInUI.changeBackspaceKeyInUI("on");
 			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+		}
+		if ( Config.error.off ) {
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");			
 		}
 	} else {
 		if ( Config.error.off ) { // default
@@ -617,28 +637,25 @@ function updateBlindMode(evt) {
 	SettingsChangeInUI.changeBlindModeInUI(this.value);
 	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
 
-	// no error handling in blind mode
-	if ( Config.blind && !Config.error.off ) {
-		// disable insert, skip, replace, forgive
-		SettingsChangeInUI.changeErrorInUI("off");
-		SettingsChangeInConfig.changeErrorInConfig("off");
-
-		// disable forgive error
-		SettingsChangeInUI.changeForgiveErrorInUI("off");
-		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
-
-		// disable stop on error
-		SettingsChangeInUI.changeStopOnErrorInUI("off");
-		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
-	}
-
-	// when blind mode is disabled then enable the defaults
-	if ( !Config.blind && Config.error.off ) {
-		// enable insert & forgive error
-		SettingsChangeInUI.changeErrorInUI("insert");
-		SettingsChangeInConfig.changeErrorInConfig("insert");
-		SettingsChangeInUI.changeForgiveErrorInUI("off");
-		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+	// no error handling in blind mode, so disable insert, skip, replace, forgive
+	if ( Config.blind ) {
+		if ( !Config.error.off ) { // disbale insert, skip, replace
+			SettingsChangeInUI.changeErrorInUI("off");
+			SettingsChangeInConfig.changeErrorInConfig("off");
+		}
+		if ( Config.error.forgive ) { // disable forgive error
+			SettingsChangeInUI.changeForgiveErrorInUI("off");
+			SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+		}
+		if ( !Config.error.stop.off ) { // disable stop on error
+			SettingsChangeInUI.changeStopOnErrorInUI("off");
+			SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+		}
+	} else {
+		if ( Config.error.off ) { // default
+			SettingsChangeInUI.changeErrorInUI("insert");
+			SettingsChangeInConfig.changeErrorInConfig("insert");
+		}
 	}
 	
 	// debug
