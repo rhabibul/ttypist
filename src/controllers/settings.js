@@ -564,15 +564,6 @@ function updateForgiveError(evt) {
 		SettingsChangeInUI.changeBlindModeInUI("off");
 		SettingsChangeInConfig.changeBlindModeInConfig("off");
 	}
-
-	// when forgive error is enabled then caret should not be allowed to go to next
-	// word on hitting space because it will violate the rule of forgive error
-	if ( (Config.error.forgive && Config.error.insert) && !Config.strictspace ) {
-		// strictspace("off") forces insert mode to move caret to next word, which should
-		// be avoided
-		SettingsChangeInUI.changeStrictSpaceInUI("on");
-		SettingsChangeInConfig.changeStrictSpaceInConfig("on");
-	}
 	
 	// debug
 	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
