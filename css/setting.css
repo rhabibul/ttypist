@@ -1,3 +1,6 @@
+:root {
+	--setting-separator-line-border-color: #a9a9a9;
+}
 input[type="text"],
 input[type="number"] {
 	caret-color: red;
@@ -41,9 +44,6 @@ div.setting div.column.c2 {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-}
-:root {
-	--setting-separator-line-border-color: #a9a9a9;
 }
 div.setting div.column.c2 {
 	border-left: 1px dashed var(--setting-separator-line-border-color);
@@ -224,7 +224,6 @@ div.config.buttonContainer.s3 > .button,
 div.config.buttonContainer.minimumBurstButtonContainer.s3-1.s4 div.minimumBurstButton.s3 > .button {
 	flex-basis: 32%;
 }
-
 div.config.buttonContainer.s3.liveStatusIntervalButton > .button.word {
 	flex-basis: 23%;
 }
@@ -243,6 +242,7 @@ div.config.buttonContainer.s5-2.s7 div.timerTimeButton.s5 > .button.seconds120,
 div.config.buttonContainer.s5-2.s7 div.textWordCountButton.s5 > .button.off,
 div.config.buttonContainer.s5-2.s7 div.textWordCountButton.s5 > .button.words100,
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.off,
+div.config.buttonContainer.textWordLengthButton.s4 > .button.off,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.off,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.off {
 	flex-basis: 20%;
@@ -258,12 +258,19 @@ div.config.buttonContainer.textWhitespaceButton.s4 > .button.space,
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.react {
 	flex-basis: 25%;
 }
+div.config.buttonContainer.textWordLengthButton.s4 > .button.short {
+	flex-basis: 24%;
+}
 div.config.buttonContainer.keyboardReactionButton.s4 > .button.next {
 	flex-basis: 23%;
+}
+div.config.buttonContainer.textWordLengthButton.s4 > .button.long {
+	flex-basis: 21%;
 }
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.insert {
 	flex-basis: 25%;
 }
+div.config.buttonContainer.textWordLengthButton.s4 > .button.medium,
 div.config.buttonContainer.textWhitespaceButton.s4 > .button.bullet,
 div.config.buttonContainer.extraLetterErrorButton.s4 > .button.replace {
 	flex-basis: 29%;
