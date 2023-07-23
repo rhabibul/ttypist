@@ -252,6 +252,11 @@ function updateTextWordLength(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (this.value === "off" && config.text.word.length === "off") && (this.value === "short" && config.text.word.length === "short") && (this.value === "medium" && config.text.word.length === "medium") && (this.value === "long" && config.text.word.length === "long") ) return;
 
+	SettingChangeInUI.changeTextWordLengthInUI(this.value);
+	SettingChangeInConfig.changeTextWordLengthInConfig(this.value);
+
+	// debug
+	console.log("word length:", config.text.word.average_length.off, config.text.word.average_length.short, config.text.word.average_length.medium, config.text.word.average_length.long);
 }
 
 // keyboard reaction (s4)
@@ -262,6 +267,7 @@ function updateKeyboardReaction(evt) {
 	SettingChangeInUI.changeKeyboardReactionInUI(this.value);
 	SettingChangeInConfig.changeKeyboardReactionInConfig(this.value);
 
+	// debug
 	console.log("keyboardReation:", config.keyboard.reaction.off, config.keyboard.reaction.static, config.keyboard.reaction.react, config.keyboard.reaction.next);
 }
 
@@ -273,73 +279,74 @@ function updateKeyboardLayoutEmulate(evt) {
 	SettingChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
 	SettingChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
 
+	// debug
 	console.log("keyboardLayoutEmulate:", !config.keyboard.layout.emulate, config.keyboard.layout.emulate);
 }
 
 // dynamic settings (s2)
 function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.website.setting.dynamic && this.value === "on") ||  (!Config.website.setting.dynamic && this.value === "off") ) return;
+	if ( (config.website.setting.dynamic && this.value === "on") ||  (!config.website.setting.dynamic && this.value === "off") ) return;
 
 	SettingChangeInUI.changeDynamicSettingsInUI(this.value);
 	SettingChangeInConfig.changeDynamicSettingsInConfig(this.value);
 
 	// debug
-	console.log("dynamicSettings:", !Config.website.setting.dynamic, Config.website.setting.dynamic);
+	console.log("dynamicSettings:", !config.website.setting.dynamic, config.website.setting.dynamic);
 }
 
 // website theme (s3)
 function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.website.theme ) return;
+	if ( this.value === config.website.theme ) return;
 
 	SettingChangeInUI.changeWebsiteThemeInUI(this.value);
 	SettingChangeInConfig.changeWebsiteThemeInConfig(this.value);
 
 	// debug
-	console.log("websiteTheme:", Config.website.theme);
+	console.log("websiteTheme:", config.website.theme);
 }
 
 // text input (s2)
 function updateTextInput(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.input.hidden && this.value === "hidden") || (Config.text.input.visible && this.value === "visible") ) return;
+	if ( (config.text.input.hidden && this.value === "hidden") || (config.text.input.visible && this.value === "visible") ) return;
 
 	SettingChangeInUI.changeTextInputInUI(this.value);
 	SettingChangeInConfig.changeTextInputInConfig(this.value);
 
 	// debug
-	console.log("textInput:", Config.text.input.hidden, Config.text.input.visible);
+	console.log("textInput:", config.text.input.hidden, config.text.input.visible);
 }
 
 // tape mode (s3)
 function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.tape.off && this.value === "off") || (Config.tape.mode.letter && this.value === "letter") || (Config.tape.mode.word && this.value === "word") ) return;
+	if ( (config.tape.off && this.value === "off") || (config.tape.mode.letter && this.value === "letter") || (config.tape.mode.word && this.value === "word") ) return;
 	
 	SettingChangeInUI.changeTapeModeInUI(this.value);
 	SettingChangeInConfig.changeTapeModeInConfig(this.value);
 
 	// debug
-	console.log("tapeMode:", Config.tape.off, Config.tape.mode.letter, Config.tape.mode.word);
+	console.log("tapeMode:", config.tape.off, config.tape.mode.letter, config.tape.mode.word);
 }
 
 // text highlight (s3)
 function updateTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.highlight.off && this.value === "off") || (Config.text.highlight.mode.letter && this.value === "letter") || (Config.text.highlight.mode.word && this.value === "word")) return;
+	if ( (config.text.highlight.off && this.value === "off") || (config.text.highlight.mode.letter && this.value === "letter") || (config.text.highlight.mode.word && this.value === "word")) return;
 
 	SettingChangeInUI.changeTextHightlightInUI(this.value);
 	SettingChangeInConfig.changeTextHightlightInConfig(this.value)
 
 	// debug
-	console.log("textHighlight:", Config.text.highlight.off, Config.text.highlight.mode.letter, Config.text.highlight.mode.word);
+	console.log("textHighlight:", config.text.highlight.off, config.text.highlight.mode.letter, config.text.highlight.mode.word);
 }
 
 // flip text highlight (s2)
 function updateFlipTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.highlight.flip && this.value === "on") || (!Config.text.highlight.flip && this.value === "off") ) return;
+	if ( (config.text.highlight.flip && this.value === "on") || (!config.text.highlight.flip && this.value === "off") ) return;
 
 	SettingChangeInUI.changeFlipTextHightlightInUI(this.value);
 	SettingChangeInConfig.changeFlipTextHightlightInConfig(this.value);
@@ -354,31 +361,31 @@ function updateFlipTextHighlight(evt) {
 	TestAreaElements.input.focus();
 
 	// debug
-	console.log("flipTextHighlight:", !Config.text.highlight.flip, Config.text.highlight.flip);
+	console.log("flipTextHighlight:", !config.text.highlight.flip, config.text.highlight.flip);
 }
 
 // text underline (s2)
 function updateTextUnderline(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.underline && this.value === "on") || (!Config.text.underline && this.value === "off") ) return;
+	if ( (config.text.underline && this.value === "on") || (!config.text.underline && this.value === "off") ) return;
 
 	SettingChangeInUI.changeTextUnderlineInUI(this.value);
 	SettingChangeInConfig.changeTextUnderlineInConfig(this.value);
 
 	// debug
-	console.log("textUnderline:", !Config.text.underline, Config.text.underline);
+	console.log("textUnderline:", !config.text.underline, config.text.underline);
 }
 
 // text whitespace (s4)
 function updateTextWhitespace(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.whitespace.off && this.value === "off") || (Config.text.whitespace.type.bullet && this.value === "bullet") || (Config.text.whitespace.type.space && this.value === "space") || (Config.text.whitespace.type.bar && this.value === "bar") ) return;
+	if ( (config.text.whitespace.off && this.value === "off") || (config.text.whitespace.type.bullet && this.value === "bullet") || (config.text.whitespace.type.space && this.value === "space") || (config.text.whitespace.type.bar && this.value === "bar") ) return;
 
 	SettingChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingChangeInConfig.changeTextWhitespaceInConfig(this.value);
 
 	// debug
-	console.log("whitespace:", Config.text.whitespace.off, Config.text.whitespace.type.space, Config.text.whitespace.type.bullet, Config.text.whitespace.type.bar, Config.text.whitespace.character, Config.text.whitespace.code);
+	console.log("whitespace:", config.text.whitespace.off, config.text.whitespace.type.space, config.text.whitespace.type.bullet, config.text.whitespace.type.bar, config.text.whitespace.character, config.text.whitespace.code);
 }
 
 // strictspace (s2)

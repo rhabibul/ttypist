@@ -1,4 +1,4 @@
-import Config from "../../include/config.js"
+import { config } from "../../include/config.js"
 import * as SettingsElement from "../elements/setting-element.js";
 
 // keyboard reaction
@@ -538,5 +538,29 @@ export function changeBlindModeInConfig(value) {
 		Config.blind = true;
 	} else {
 		Config.blind = false;
+	}
+}
+
+export function changeTextWordLengthInConfig(value) {
+	if ( value === "short" ) {
+		config.text.word.average_length.off = false;
+		config.text.word.average_length.short = true;
+		config.text.word.average_length.medium = false;
+		config.text.word.average_length.long = false;
+	} else if ( value === "medium" ) {
+		config.text.word.average_length.off = false;
+		config.text.word.average_length.short = false;
+		config.text.word.average_length.medium = true;
+		config.text.word.average_length.long = false;
+	} else if ( value === "long" ) {
+		config.text.word.average_length.off = false;
+		config.text.word.average_length.short = false;
+		config.text.word.average_length.medium = false;
+		config.text.word.average_length.long = true;
+	} else if ( value === "off" ) {
+		config.text.word.average_length.off = true;
+		config.text.word.average_length.short = false;
+		config.text.word.average_length.medium = false;
+		config.text.word.average_length.long = false;
 	}
 }

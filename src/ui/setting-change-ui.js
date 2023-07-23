@@ -642,3 +642,27 @@ export function changeBlindModeInUI(value) {
 		SettingsElement.blindMode.on.id = "";
 	}
 }
+
+export function changeTextWordLengthInUI(value) {
+	if ( value === "short" ) {
+		SettingsElement.textWordLength.off.id = "";
+		SettingsElement.textWordLength.short.id = "selected";
+		SettingsElement.textWordLength.medium.id = "";
+		SettingsElement.textWordLength.long.id = "";
+	} else if ( value === "medium" ) {
+		SettingsElement.textWordLength.off.id = "";
+		SettingsElement.textWordLength.short.id = "";
+		SettingsElement.textWordLength.medium.id = "selected";
+		SettingsElement.textWordLength.long.id = "";
+	} else if ( value === "long" ) {
+		SettingsElement.textWordLength.off.id = "";
+		SettingsElement.textWordLength.short.id = "";
+		SettingsElement.textWordLength.medium.id = "";
+		SettingsElement.textWordLength.long.id = "selected";
+	} else if ( value === "off" ) {
+		SettingsElement.textWordLength.off.id = "selected";
+		SettingsElement.textWordLength.short.id = "";
+		SettingsElement.textWordLength.medium.id = "";
+		SettingsElement.textWordLength.long.id = "";
+	}
+}
