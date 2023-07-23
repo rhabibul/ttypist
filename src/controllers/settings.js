@@ -391,43 +391,43 @@ function updateTextWhitespace(evt) {
 // strictspace (s2)
 function updateStrictSpace(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.strictspace && this.value === "on") || (!Config.strictspace && this.value === "off")) return;
+	if ( (config.strictspace && this.value === "on") || (!config.strictspace && this.value === "off")) return;
 
 	SettingChangeInUI.changeStrictSpaceInUI(this.value);
 	SettingChangeInConfig.changeStrictSpaceInConfig(this.value);
 
 	// debug
-	console.log("strictSpace:", !Config.strictspace, Config.strictspace);
+	console.log("strictSpace:", !config.strictspace, config.strictspace);
 }
 
 // quickend (s2)
 function updateQuickEnd(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.quickend && this.value === "on") || (!Config.quickend && this.value === "off")) return;
+	if ( (config.quickend && this.value === "on") || (!config.quickend && this.value === "off")) return;
 
 	SettingChangeInUI.changeQuickEndInUI(this.value);
 	SettingChangeInConfig.changeQuickEndInConfig(this.value);
 
 	// debug
-	console.log("quickEnd:", !Config.quickend, Config.quickend);
+	console.log("quickEnd:", !config.quickend, config.quickend);
 }
 
 // difficulty (s3)
 function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.difficulty.ease && this.value === "ease") || (Config.difficulty.expert && this.value === "expert") || (Config.difficulty.master && this.value === "master") ) return;
+	if ( (config.difficulty.ease && this.value === "ease") || (config.difficulty.expert && this.value === "expert") || (config.difficulty.master && this.value === "master") ) return;
 
 	SettingChangeInUI.changeDifficultyInUI(this.value);
 	SettingChangeInConfig.changeDifficultyInConfig(this.value)
 
 	// debug
-	console.log("difficulty:", Config.difficulty.ease, Config.difficulty.expert, Config.difficulty.master);
+	console.log("difficulty:", config.difficulty.ease, config.difficulty.expert, config.difficulty.master);
 }
 
 // confidence (s3)
 function updateConfidence(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.confidence.low && this.value === "low") || (Config.confidence.high && this.value === "high") || (Config.confidence.peak && this.value === "peak") ) return;
+	if ( (config.confidence.low && this.value === "low") || (config.confidence.high && this.value === "high") || (config.confidence.peak && this.value === "peak") ) return;
 
 	SettingChangeInUI.changeConfidenceInUI(this.value);
 	SettingChangeInConfig.changeConfidenceInConfig(this.value);
@@ -438,32 +438,32 @@ function updateConfidence(evt) {
 		SettingChangeInConfig.changeBackspaceKeyInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
-		if ( Config.backspace.allowedOnCorrectWord ) {
+		if ( config.backspace.allowedOnCorrectWord ) {
 			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
 			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	}
 
 	// going back to low or high confidence from peak confidence (and backspace is disabled)
-	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
+	if ( ((this.value === "low") || (this.value === "high")) && config.backspace.off ) {
 		SettingChangeInUI.changeBackspaceKeyInUI("on");
 		SettingChangeInConfig.changeBackspaceKeyInConfig("on");
 	}
 
 	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
-	if ( (this.value === "high") && Config.backspace.allowedOnCorrectWord ) {
+	if ( (this.value === "high") && config.backspace.allowedOnCorrectWord ) {
 		SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
 		SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 	}
 
 	// debug
-	console.log("confidence:", Config.confidence.low, Config.confidence.high, Config.confidence.peak);
+	console.log("confidence:", config.confidence.low, config.confidence.high, config.confidence.peak);
 }
 
 // backspace key (s2)
 function updateBackspaceKey(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.backspace.off && this.value === "off") || (!Config.backspace.off && this.value === "on") ) return;
+	if ( (config.backspace.off && this.value === "off") || (!config.backspace.off && this.value === "on") ) return;
 
 	SettingChangeInUI.changeBackspaceKeyInUI(this.value);
 	SettingChangeInConfig.changeBackspaceKeyInConfig(this.value);
@@ -475,7 +475,7 @@ function updateBackspaceKey(evt) {
 		SettingChangeInConfig.changeConfidenceInConfig("peak");
 
 		// no concept of deleting on correct if backspace is disabled
-		if ( Config.backspace.allowedOnCorrectWord ) {
+		if ( config.backspace.allowedOnCorrectWord ) {
 			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
 			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
@@ -486,30 +486,30 @@ function updateBackspaceKey(evt) {
 	}
 
 	// debug
-	console.log("backspace.off:", Config.backspace.off);
+	console.log("backspace.off:", !config.backspace.off, config.backspace.off);
 }
 
 // deletion not allowed on correct (s2)
 function updateBackspaceAllowedOnCorrectWord(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.backspace.allowedOnCorrectWord && this.value === "on") || (!Config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
+	if ( (config.backspace.allowedOnCorrectWord && this.value === "on") || (!config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
 	
 	SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI(this.value);
 	SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
 
 	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
-	if ( Config.backspace.allowedOnCorrectWord && (Config.confidence.high || Config.confidence.peak) ) {
+	if ( config.backspace.allowedOnCorrectWord && (config.confidence.high || config.confidence.peak) ) {
 		SettingChangeInUI.changeConfidenceInUI("low");
 		SettingChangeInConfig.changeConfidenceInConfig("low");
 
-		if ( Config.backspace.off ) {
+		if ( config.backspace.off ) {
 			SettingChangeInUI.changeBackspaceKeyInUI("on");
 			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 	}
 	
 	// debug
-	console.log("delete on correct:", !Config.backspace.allowedOnCorrectWord, Config.backspace.allowedOnCorrectWord);
+	console.log("delete on correct:", !config.backspace.allowedOnCorrectWord, config.backspace.allowedOnCorrectWord);
 }
 
 // modifier keys (s3)
@@ -519,42 +519,42 @@ function updateModifierKey(evt) {
 	SettingChangeInConfig.changeModifierKeyInConfig();
 
 	// debug
-	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
+	console.log("modifier:", config.backspace.modifier.alt, config.backspace.modifier.ctrl, config.backspace.modifier.meta);
 }
 
 // error (s4)
 function updateError(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.error.off && this.value === "off") || (Config.error.insert && this.value === "insert") || (Config.error.skip && this.value === "skip") || (Config.error.replace && this.value === "replace") ) return;
+	if ( (config.error.off && this.value === "off") || (config.error.insert && this.value === "insert") || (config.error.skip && this.value === "skip") || (config.error.replace && this.value === "replace") ) return;
 
 	SettingChangeInUI.changeErrorInUI(this.value);
 	SettingChangeInConfig.changeErrorInConfig(this.value);
 
 	// error insert, skip, replace, forgive is disabled, enable stop on letter
-	if ( Config.error.off ) {
-		if ( !Config.error.stop.letter ) { // disble stop on error
+	if ( config.error.off ) {
+		if ( !config.error.stop.letter ) { // disble stop on error
 			SettingChangeInUI.changeStopOnErrorInUI("letter");
 			SettingChangeInConfig.changeStopOnErrorInConfig("letter");
 		}
-		if ( Config.error.forgive ) { // disable forgive error
+		if ( config.error.forgive ) { // disable forgive error
 			SettingChangeInUI.changeForgiveErrorInUI("off");
 			SettingChangeInConfig.changeForgiveErrorInConfig("off");
 		}
-	} else { // either insert or skip or replace is selected
-		if ( Config.blind ) { // disable blind mode
+	} else { // either insert/skip/replace is selected
+		if ( config.blind ) { // disable blind mode
 			SettingChangeInUI.changeBlindModeInUI("off");
 			SettingChangeInConfig.changeBlindModeInConfig("off");
 		}
 	}
 		
 	// disable stop on letter when in insert, skip, replace modes
-	if ( !Config.error.off && Config.error.stop.letter	) {
+	if ( !config.error.off && config.error.stop.letter	) {
 		SettingChangeInUI.changeStopOnErrorInUI("off");
 		SettingChangeInConfig.changeStopOnErrorInConfig("off");
 	}
 
 	// forgive error is not possible in skip & replace
-	if ( (Config.error.skip || Config.error.replace) && Config.error.forgive ) {
+	if ( (config.error.skip || config.error.replace) && config.error.forgive ) {
 		// it is possible to enable/disable forgive error in error insert, but not in
 		// error skip/replace so forgive error should be disabled
 		SettingChangeInUI.changeForgiveErrorInUI("off");
@@ -562,109 +562,109 @@ function updateError(evt) {
 	}
 
 	// debug
-	console.log("error:", Config.error.off, Config.error.insert, Config.error.skip, Config.error.replace);
+	console.log("error:", config.error.off, config.error.insert, config.error.skip, config.error.replace);
 }
 
 // forgive error (s2)
 function updateForgiveError(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
+	if ( (config.error.forgive && this.value === "on") || (!config.error.forgive && this.value === "off") ) return;
 	
 	SettingChangeInUI.changeForgiveErrorInUI(this.value);
 	SettingChangeInConfig.changeForgiveErrorInConfig(this.value);
 
 	// error forgive require error insert, so disable error skip/replace and enable
 	// insert, i.e, insertion of errors is necessary in order to forgive them
-	if ( Config.error.forgive && !Config.error.insert ) {
+	if ( config.error.forgive && !config.error.insert ) {
 		SettingChangeInUI.changeErrorInUI("insert");
 		SettingChangeInConfig.changeErrorInConfig("insert");		
 	}
 
-	if ( Config.error.forgive && Config.blind ) { // disable blind mode
+	if ( config.error.forgive && config.blind ) { // disable blind mode
 		SettingChangeInUI.changeBlindModeInUI("off");
 		SettingChangeInConfig.changeBlindModeInConfig("off");
 	}
 	
 	// debug
-	console.log("forgiveError:", !Config.error.forgive, Config.error.forgive);
+	console.log("forgiveError:", !config.error.forgive, config.error.forgive);
 }
 
 // stop on error (s3)
 function updateStopOnError(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
+	if ( (config.error.stop.off && this.value === "off") || (config.error.stop.letter && this.value === "letter") || (config.error.stop.word && this.value === "word") ) return;
 
 	SettingChangeInUI.changeStopOnErrorInUI(this.value);
 	SettingChangeInConfig.changeStopOnErrorInConfig(this.value);
 	
 	// disable blind mode
-	if ( (Config.error.stop.letter || Config.error.stop.word) && Config.blind ) {
+	if ( (config.error.stop.letter || config.error.stop.word) && config.blind ) {
 		SettingChangeInUI.changeBlindModeInUI("off");
 		SettingChangeInConfig.changeBlindModeInConfig("off");
 	}
 
-	if ( Config.error.stop.letter ) {
+	if ( config.error.stop.letter ) {
 		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
-		if ( !Config.error.off ) {
+		if ( !config.error.off ) {
 			SettingChangeInUI.changeErrorInUI("off");
 			SettingChangeInConfig.changeErrorInConfig("off");
 
-			if ( Config.error.forgive ) {
+			if ( config.error.forgive ) {
 				SettingChangeInUI.changeForgiveErrorInUI("off");
 				SettingChangeInConfig.changeForgiveErrorInConfig("off");
 			}
 		}
-	} else if ( Config.error.stop.word ) {
-		if ( Config.backspace.off ) {			
+	} else if ( config.error.stop.word ) {
+		if ( config.backspace.off ) {			
 			SettingChangeInUI.changeBackspaceKeyInUI("on");
 			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
-		if ( Config.error.off ) {
+		if ( config.error.off ) {
 			SettingChangeInUI.changeErrorInUI("insert");
 			SettingChangeInConfig.changeErrorInConfig("insert");			
 		}
 	} else {
-		if ( Config.error.off ) { // set to default
+		if ( !config.error.insert ) { // set to default
 			SettingChangeInUI.changeErrorInUI("insert");
 			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
 
 	// debug
-	console.log("stopOnError:", Config.error.stop.off, Config.error.stop.letter, Config.error.stop.word);
+	console.log("stopOnError:", config.error.stop.off, config.error.stop.letter, config.error.stop.word);
 }
 
 // blind mode
 function updateBlindMode(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.blind && this.value === "on") || (!Config.blind && this.value === "off") ) return;
+	if ( (config.blind && this.value === "on") || (!config.blind && this.value === "off") ) return;
 
 	SettingChangeInUI.changeBlindModeInUI(this.value);
 	SettingChangeInConfig.changeBlindModeInConfig(this.value);
 
 	// no error handling in blind mode, so disable insert, skip, replace, forgive
-	if ( Config.blind ) {
-		if ( !Config.error.off ) { // disbale insert, skip, replace
+	if ( config.blind ) {
+		if ( !config.error.off ) { // disbale insert, skip, replace
 			SettingChangeInUI.changeErrorInUI("off");
 			SettingChangeInConfig.changeErrorInConfig("off");
 		}
-		if ( Config.error.forgive ) { // disable forgive error
+		if ( config.error.forgive ) { // disable forgive error
 			SettingChangeInUI.changeForgiveErrorInUI("off");
 			SettingChangeInConfig.changeForgiveErrorInConfig("off");
 		}
-		if ( !Config.error.stop.off ) { // disable stop on error
+		if ( !config.error.stop.off ) { // disable stop on error
 			SettingChangeInUI.changeStopOnErrorInUI("off");
 			SettingChangeInConfig.changeStopOnErrorInConfig("off");
 		}
 	} else {
-		if ( Config.error.off ) { // default
+		if ( !config.error.insert ) { // set to default
 			SettingChangeInUI.changeErrorInUI("insert");
 			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
 	
 	// debug
-	console.log("blindMode:", !Config.blind, Config.blind);
+	console.log("blindMode:", !config.blind, config.blind);
 }
 
 // opposite shift mode (s2)
