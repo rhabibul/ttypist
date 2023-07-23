@@ -2,7 +2,7 @@ export const localconfig = {
   // local temporary stats & configs 
 }
 
-export default {
+export const config = {
   website: {
     theme: "light", // light | midnight | dark
     setting: {
@@ -41,17 +41,18 @@ export default {
       word: false,
     }
   },
+  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
   arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
+  oppositethumbforspace: false, // emulates opposite thumb by splitting space bar into two parts
   blind: false, // no errors or incorrect words are highlighted
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   error: {
-    off: false, // (blind mode) no errors or incorrect words are highlighted
+    off: false, // caret stops on error
+    forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
     insert: true, // insert incorrect letter before to be typed letter
     skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
     replace: false, // replace to be typed letter with incorrectly typed letter & move caret forward
-    forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
     stop: {
       off: true,
       letter: false, // stop before letter if wrongly typed
@@ -65,7 +66,7 @@ export default {
        ctrl: true, // backspace + ctrl
        meta: false, // backspace + cmd/win
     },
-    deleteOnCorrect: true, // whether to allow caret to go back to previous word which was typed correctly
+    allowedOnCorrectWord: false, // whether to allow caret to go back to previous word which was typed correctly
   },
   confidence: {
     low: true, // use backspace key to delete previous words/letters
@@ -119,12 +120,12 @@ export default {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
-    capitalize: {
+    capitalization: { // rnd, fl, afl, jml
       off: true,
-      randomized: false, // randomly capitalize the first letter of all words in the text
-      firstletter: false, // capitalize only the first letter of first word in the text
-      allfirstletters: false, // capitalize all the first letters of all words in the text
-      jumbled: false, // randomly capitalize the letters of a word
+      first: false, // capitalize only the 1st letter of 1st word in text
+      everyfirst: false, // capitalize the 1st letter of every word in text
+      randomly: false, // randomly capitalize only 1st letter of every word in text
+      untidy: false, // randomly capitalize any letter of any word in text
     },
     scroll: {
       abrupt: true,
@@ -204,7 +205,6 @@ export default {
   },
   guidedlesson: false, // learn touchtyping through guided lessons
   customtext: false, // ascii text
-  oppositethumbforspace: false, // emulates opposite thumb by splitting space into two halvesk
   practice: {
     arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
     brackets: false, // {[(<>)]}

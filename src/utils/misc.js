@@ -1,7 +1,7 @@
 import Config from "../../include/config.js";
 import * as TestAreaElements from "../elements/testAreaElements.js";
-import w3k from "../../static/texts/words/w3k.js";
-// import w1k from "../../static/texts/words/w1k.js";
+// import w3k from "../../static/texts/words/w3k.js";
+import w1k from "../../static/texts/words/w1k.js";
 // import rootword from "../../static/texts/words/root-words.js";
 
 export function isspace(letter) {
@@ -36,8 +36,8 @@ export function randomwords() {
   let words = new Array(Config.text.word.count);
   for (let i = 0; i < Config.text.word.count; ++i) {
     // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
-    // words[i] = w1k[Math.floor(Math.random() * w1k.length)];
-    words[i] = w3k[Math.floor(Math.random() * w3k.length)];
+    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }

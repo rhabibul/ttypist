@@ -501,7 +501,7 @@ details.textFontFamilyList div.list div.item.fontFamilyOfText.SourceCodePro {
 	font-family: var(--SourceCodePro);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.RobotoMono {
-	font-size: 0.88rem;
+	font-size: 0.9rem;
 	font-family: var(--RobotoMono);
 }
 details.textFontFamilyList div.list div.item.fontFamilyOfText.CourierPrime {

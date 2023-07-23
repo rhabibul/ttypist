@@ -6,7 +6,7 @@ import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret.js";
 import * as TestAreaElement from "./elements/testAreaElements.js";
 
-import { time, typedchar, mInput, user } from "../include/statsTrackingObjects.js";
+import { time, typedchar, mInput, user } from "../include/trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";
 
 export const text = new Text();

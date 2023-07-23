@@ -206,12 +206,12 @@ export function changeBackspaceKeyInConfig(value) {
 	}
 }
 
-// delete on correct
-export function changeDeleteOnCorrectInConfig(value) {
+// delete correct word
+export function changeBackspaceAllowedOnCorrectWordInConfig(value) {
 	if ( value === "off" ) {
-		Config.backspace.deleteOnCorrect = false;
+		Config.backspace.allowedOnCorrectWord = false;
 	} else {
-		Config.backspace.deleteOnCorrect = true;
+		Config.backspace.allowedOnCorrectWord = true;
 	}
 }
 
@@ -409,7 +409,7 @@ export function changeMinimumBurstInConfig(value) {
 // text word count
 export function changeTextWordCountInConfig(value) {
   if ( value === "custom" ) {
-		// -2 will be the value for custom input when custom button is active but value 
+		// -2 will be the value for custom input when custom button is clicked but value 
 		// is not yet entered in input field
 		Config.text.word.count = -2; // -2 (custom)
 	} else if ( value === "off" ) {

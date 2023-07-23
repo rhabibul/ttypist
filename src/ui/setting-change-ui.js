@@ -225,14 +225,14 @@ export function changeBackspaceKeyInUI(value) {
 	}
 }
 
-// delete on correct
-export function changeDeleteOnCorrectInUI(value) {
+// delete correct word
+export function changeBackspaceAllowedOnCorrectWordInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.deleteOnCorrect.off.id = "selected";
-		SettingsElement.deleteOnCorrect.on.id = "";
+		SettingsElement.backspaceAllowedOnCorrect.off.id = "selected";
+		SettingsElement.backspaceAllowedOnCorrect.on.id = "";
 	}	else {
-		SettingsElement.deleteOnCorrect.off.id = "";
-		SettingsElement.deleteOnCorrect.on.id = "selected";
+		SettingsElement.backspaceAllowedOnCorrect.off.id = "";
+		SettingsElement.backspaceAllowedOnCorrect.on.id = "selected";
 	}
 }
 

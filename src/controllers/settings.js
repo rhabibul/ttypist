@@ -1,9 +1,11 @@
-import Config from "../../include/config.js"
+import Config from "../../include/config.js";
+import * as Misc from "../utils/misc.js";
 import * as SettingsElement from "../elements/settingsElements.js";
 import * as SettingsChangeInConfig from "../controllers/settingsChangeInConfig.js";
 import * as SettingsChangeInUI from "../ui/settingsChangeInUI.js";
 import * as TestAreaElements from "../elements/testAreaElements.js";
 import { css } from "../../include/constants.js";
+import { text, Test } from "../main.js";
 
 TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
 
@@ -77,8 +79,8 @@ SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
 SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
 
 // delete on correct
-SettingsElement.deleteOnCorrect.off.addEventListener("click", updateDeleteOnCorrect);
-SettingsElement.deleteOnCorrect.on.addEventListener("click",  updateDeleteOnCorrect);
+SettingsElement.backspaceAllowedOnCorrect.off.addEventListener("click", updateBackspaceAllowedOnCorrectWord);
+SettingsElement.backspaceAllowedOnCorrect.on.addEventListener("click",  updateBackspaceAllowedOnCorrectWord);
 
 // modifier keys
 SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
@@ -99,7 +101,6 @@ SettingsElement.error.forgive.on.addEventListener("click", updateForgiveError);
 SettingsElement.error.stop.off.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
 SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
-
 
 // forgive error
 SettingsElement.blindMode.off.addEventListener("click", updateBlindMode);
@@ -418,9 +419,9 @@ function updateConfidence(evt) {
 		SettingsChangeInConfig.changeBackspaceKeyInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
-		if ( Config.backspace.deleteOnCorrect ) {
-			SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
-			SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+		if ( Config.backspace.allowedOnCorrectWord ) {
+			SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	}
 
@@ -431,9 +432,9 @@ function updateConfidence(evt) {
 	}
 
 	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
-	if ( (this.value === "high") && Config.backspace.deleteOnCorrect ) {
-		SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
-		SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+	if ( (this.value === "high") && Config.backspace.allowedOnCorrectWord ) {
+		SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+		SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 	}
 
 	// debug
@@ -455,9 +456,9 @@ function updateBackspaceKey(evt) {
 		SettingsChangeInConfig.changeConfidenceInConfig("peak");
 
 		// no concept of deleting on correct if backspace is disabled
-		if ( Config.backspace.deleteOnCorrect ) {
-			SettingsChangeInUI.changeDeleteOnCorrectInUI("off");
-			SettingsChangeInConfig.changeDeleteOnCorrectInConfig("off");
+		if ( Config.backspace.allowedOnCorrectWord ) {
+			SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	} else {
 		// on confidence low backspacing is set to default value of low
@@ -470,15 +471,15 @@ function updateBackspaceKey(evt) {
 }
 
 // deletion not allowed on correct (s2)
-function updateDeleteOnCorrect(evt) {
+function updateBackspaceAllowedOnCorrectWord(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.backspace.deleteOnCorrect && this.value === "on") || (!Config.backspace.deleteOnCorrect && this.value === "off") ) return;
+	if ( (Config.backspace.allowedOnCorrectWord && this.value === "on") || (!Config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
 	
-	SettingsChangeInUI.changeDeleteOnCorrectInUI(this.value);
-	SettingsChangeInConfig.changeDeleteOnCorrectInConfig(this.value);
+	SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI(this.value);
+	SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
 
 	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
-	if ( Config.backspace.deleteOnCorrect && (Config.confidence.high || Config.confidence.peak) ) {
+	if ( Config.backspace.allowedOnCorrectWord && (Config.confidence.high || Config.confidence.peak) ) {
 		SettingsChangeInUI.changeConfidenceInUI("low");
 		SettingsChangeInConfig.changeConfidenceInConfig("low");
 
@@ -489,7 +490,7 @@ function updateDeleteOnCorrect(evt) {
 	}
 	
 	// debug
-	console.log("delete on correct:", !Config.backspace.deleteOnCorrect, Config.backspace.deleteOnCorrect);
+	console.log("delete on correct:", !Config.backspace.allowedOnCorrectWord, Config.backspace.allowedOnCorrectWord);
 }
 
 // modifier keys (s3)
@@ -815,11 +816,22 @@ function updateTextWordCount(evt) {
 	SettingsChangeInUI.changeTextWordCountInUI(this.value);
 	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
 
+	// if words mode is disabled then enable default timer mode
+	if ( this.value === "off" ) {
+		SettingsChangeInUI.changeTimerSecondsInUI("60");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("60");
+		return;
+	} else { // words mode is enabled so disable timer mode
+		SettingsChangeInUI.changeTimerSecondsInUI("off");
+		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
+	}
+
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
 		SettingsElement.textWordCount.count.customWordsInput.focus();
 	} else {
-		SettingsElement.textWordCount.count.customWordsInput.value = "";
+		SettingsElement.textWordCount.count.customWordsInput.value = ""; // clear input field
+		Test.restart();
 	}
 
 	// debug
@@ -835,7 +847,9 @@ function updateTextWordCountInputField(evt) {
 		SettingsChangeInUI.changeTextWordCountInUI("custom");
 		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
 	}
-	Config.text.word.count = Number(this.value); // update in config (i.e, override -2 initial value)
+
+	 // update in config (i.e, override -2 initial value)
+	Config.text.word.count = Number(this.value);
 
 	// debug
 	console.log("numberOfWords [input]:", Config.text.word.count);
@@ -848,8 +862,7 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 	// no value entered in input field (turn off custom button)
 	if ( (this.value === "" || this.value === "0") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
 		
-		// 0 word is not possible
-		if ( this.value === "0" ) {
+		if ( this.value === "0" ) { // 0 word is not possible
 			setTimeout(() => {
 				SettingsChangeInUI.changeTextWordCountInUI("off");
 				SettingsChangeInConfig.changeTextWordCountInConfig("off");
@@ -861,10 +874,18 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 		}
 	}
 
-	// infinite words mode
-	if ( (SettingsElement.textWordCount.count.custom.id === "selected") && (SettingsElement.textWordCount.count.customWordsInput.value === "0") ) {
-		console.log("infinite words mode..");
+	if ( this.value === "" ) { // set to default
+		SettingsChangeInUI.changeTextWordCountInUI("25");
+		SettingsChangeInConfig.changeTextWordCountInConfig("25");
 	}
+
+	// currently more than 150 words is not allowed in custom input field
+	if ( Config.text.word.count > 150 ) {
+		SettingsChangeInUI.changeTextWordCountInUI("100");
+		SettingsChangeInConfig.changeTextWordCountInConfig("100");
+	}
+
+	Test.restart();
 
 	// debug
 	console.log("INPUT FOCUS-OUT (numberOfWords)");
@@ -877,6 +898,17 @@ function updateTimerSeconds(evt) {
 
 	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
+
+		// if timer mode is disabled then enable default words mode
+		if ( this.value === "off" ) {
+			SettingsChangeInUI.changeTextWordCountInUI("25");
+			SettingsChangeInConfig.changeTextWordCountInConfig("25");
+			Test.restart();
+			return;
+		} else { // timer mode is enabled so disable words mode
+			SettingsChangeInUI.changeTextWordCountInUI("off");
+			SettingsChangeInConfig.changeTextWordCountInConfig("off");
+		}	
 
 	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
