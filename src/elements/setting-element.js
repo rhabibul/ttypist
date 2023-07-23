@@ -1,5 +1,5 @@
 export const website = {
-	// put setting object & websitetheme (as theme) object here and make necessary changes
+	
 }
 export const setting = {
 	dynamic: {
