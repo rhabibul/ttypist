@@ -1,10 +1,28 @@
-import Config from "../../include/config.js";
+import { config } from "../../include/config.js";
 import * as SettingsElement from "../elements/setting-element.js";
-import * as SettingsChangeInConfig from "./setting-change-config.js";
-import * as SettingsChangeInUI from "../ui/setting-change-ui.js";
+import * as SettingChangeInConfig from "./setting-change-config.js";
+import * as SettingChangeInUI from "../ui/setting-change-ui.js";
 import * as TestAreaElements from "../elements/test-element.js";
 import { css } from "../../include/constants.js";
 import { text, Test } from "../main.js";
+
+// disable button
+function disableButton(button) {
+	button.id = "";
+	button.style.cursor = "not-allowed";
+	if ( !button.hasAttribute("disabled") ) {
+		button.toggleAttribute("disabled");
+	}
+}
+
+// enable button
+function enableButton(button, selected = false) {
+	if ( selected ) button.id = "selected";
+	button.style.cursor = "pointer";
+	if ( button.hasAttribute("disabled") ) {
+		button.removeAttribute("disabled");
+	}
+}
 
 TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
 
@@ -223,44 +241,39 @@ SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretSt
 SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
 SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
 
-// disable button
-function disableButton(button) {
-	button.id = "";
-	button.style.cursor = "not-allowed";
-	if ( !button.hasAttribute("disabled") ) {
-		button.toggleAttribute("disabled");
-	}
-}
+// text word length
+SettingsElement.textWordLength.off.addEventListener("click", updateTextWordLength);
+SettingsElement.textWordLength.short.addEventListener("click", updateTextWordLength);
+SettingsElement.textWordLength.medium.addEventListener("click", updateTextWordLength);
+SettingsElement.textWordLength.long.addEventListener("click", updateTextWordLength);
 
-// enable button
-function enableButton(button, selected = false) {
-	if ( selected ) button.id = "selected";
-	button.style.cursor = "pointer";
-	if ( button.hasAttribute("disabled") ) {
-		button.removeAttribute("disabled");
-	}
+// text word length
+function updateTextWordLength(evt) {
+	if ( !evt.isTrusted ) return;
+	if ( (this.value === "off" && config.text.word.length === "off") && (this.value === "short" && config.text.word.length === "short") && (this.value === "medium" && config.text.word.length === "medium") && (this.value === "long" && config.text.word.length === "long") ) return;
+
 }
 
 // keyboard reaction (s4)
 function updateKeyboardReaction(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.keyboard.reaction.off && this.value === "off") || (Config.keyboard.reaction.static && this.value === "static") || (Config.keyboard.reaction.react && this.value === "react") || (Config.keyboard.reaction.next && this.value === "next") ) return;
+	if ( (config.keyboard.reaction.off && this.value === "off") || (config.keyboard.reaction.static && this.value === "static") || (config.keyboard.reaction.react && this.value === "react") || (config.keyboard.reaction.next && this.value === "next") ) return;
 
-	SettingsChangeInUI.changeKeyboardReactionInUI(this.value);
-	SettingsChangeInConfig.changeKeyboardReactionInConfig(this.value);
+	SettingChangeInUI.changeKeyboardReactionInUI(this.value);
+	SettingChangeInConfig.changeKeyboardReactionInConfig(this.value);
 
-	console.log("keyboardReation:", Config.keyboard.reaction.off, Config.keyboard.reaction.static, Config.keyboard.reaction.react, Config.keyboard.reaction.next);
+	console.log("keyboardReation:", config.keyboard.reaction.off, config.keyboard.reaction.static, config.keyboard.reaction.react, config.keyboard.reaction.next);
 }
 
 // keyboard layout emulate (s2)
 function updateKeyboardLayoutEmulate(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.keyboard.layout.emulate && this.value === "on") || (!Config.keyboard.layout.emulate && this.value === "off") ) return;
+	if ( (config.keyboard.layout.emulate && this.value === "on") || (!config.keyboard.layout.emulate && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
-	SettingsChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
+	SettingChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
+	SettingChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
 
-	console.log("keyboardLayoutEmulate:", !Config.keyboard.layout.emulate, Config.keyboard.layout.emulate);
+	console.log("keyboardLayoutEmulate:", !config.keyboard.layout.emulate, config.keyboard.layout.emulate);
 }
 
 // dynamic settings (s2)
@@ -268,8 +281,8 @@ function updateDynamicSettings(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.website.setting.dynamic && this.value === "on") ||  (!Config.website.setting.dynamic && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeDynamicSettingsInUI(this.value);
-	SettingsChangeInConfig.changeDynamicSettingsInConfig(this.value);
+	SettingChangeInUI.changeDynamicSettingsInUI(this.value);
+	SettingChangeInConfig.changeDynamicSettingsInConfig(this.value);
 
 	// debug
 	console.log("dynamicSettings:", !Config.website.setting.dynamic, Config.website.setting.dynamic);
@@ -280,8 +293,8 @@ function updateWebsiteTheme(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === Config.website.theme ) return;
 
-	SettingsChangeInUI.changeWebsiteThemeInUI(this.value);
-	SettingsChangeInConfig.changeWebsiteThemeInConfig(this.value);
+	SettingChangeInUI.changeWebsiteThemeInUI(this.value);
+	SettingChangeInConfig.changeWebsiteThemeInConfig(this.value);
 
 	// debug
 	console.log("websiteTheme:", Config.website.theme);
@@ -292,8 +305,8 @@ function updateTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.input.hidden && this.value === "hidden") || (Config.text.input.visible && this.value === "visible") ) return;
 
-	SettingsChangeInUI.changeTextInputInUI(this.value);
-	SettingsChangeInConfig.changeTextInputInConfig(this.value);
+	SettingChangeInUI.changeTextInputInUI(this.value);
+	SettingChangeInConfig.changeTextInputInConfig(this.value);
 
 	// debug
 	console.log("textInput:", Config.text.input.hidden, Config.text.input.visible);
@@ -304,8 +317,8 @@ function updateTapeMode(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.tape.off && this.value === "off") || (Config.tape.mode.letter && this.value === "letter") || (Config.tape.mode.word && this.value === "word") ) return;
 	
-	SettingsChangeInUI.changeTapeModeInUI(this.value);
-	SettingsChangeInConfig.changeTapeModeInConfig(this.value);
+	SettingChangeInUI.changeTapeModeInUI(this.value);
+	SettingChangeInConfig.changeTapeModeInConfig(this.value);
 
 	// debug
 	console.log("tapeMode:", Config.tape.off, Config.tape.mode.letter, Config.tape.mode.word);
@@ -316,8 +329,8 @@ function updateTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.highlight.off && this.value === "off") || (Config.text.highlight.mode.letter && this.value === "letter") || (Config.text.highlight.mode.word && this.value === "word")) return;
 
-	SettingsChangeInUI.changeTextHightlightInUI(this.value);
-	SettingsChangeInConfig.changeTextHightlightInConfig(this.value)
+	SettingChangeInUI.changeTextHightlightInUI(this.value);
+	SettingChangeInConfig.changeTextHightlightInConfig(this.value)
 
 	// debug
 	console.log("textHighlight:", Config.text.highlight.off, Config.text.highlight.mode.letter, Config.text.highlight.mode.word);
@@ -328,8 +341,8 @@ function updateFlipTextHighlight(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.highlight.flip && this.value === "on") || (!Config.text.highlight.flip && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeFlipTextHightlightInUI(this.value);
-	SettingsChangeInConfig.changeFlipTextHightlightInConfig(this.value);
+	SettingChangeInUI.changeFlipTextHightlightInUI(this.value);
+	SettingChangeInConfig.changeFlipTextHightlightInConfig(this.value);
 
 	// flip primary & secondary colors
 	const computedStyles = window.getComputedStyle(document.querySelector(":root"));
@@ -349,8 +362,8 @@ function updateTextUnderline(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.underline && this.value === "on") || (!Config.text.underline && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeTextUnderlineInUI(this.value);
-	SettingsChangeInConfig.changeTextUnderlineInConfig(this.value);
+	SettingChangeInUI.changeTextUnderlineInUI(this.value);
+	SettingChangeInConfig.changeTextUnderlineInConfig(this.value);
 
 	// debug
 	console.log("textUnderline:", !Config.text.underline, Config.text.underline);
@@ -361,8 +374,8 @@ function updateTextWhitespace(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.whitespace.off && this.value === "off") || (Config.text.whitespace.type.bullet && this.value === "bullet") || (Config.text.whitespace.type.space && this.value === "space") || (Config.text.whitespace.type.bar && this.value === "bar") ) return;
 
-	SettingsChangeInUI.changeTextWhitespaceInUI(this.value);
-	SettingsChangeInConfig.changeTextWhitespaceInConfig(this.value);
+	SettingChangeInUI.changeTextWhitespaceInUI(this.value);
+	SettingChangeInConfig.changeTextWhitespaceInConfig(this.value);
 
 	// debug
 	console.log("whitespace:", Config.text.whitespace.off, Config.text.whitespace.type.space, Config.text.whitespace.type.bullet, Config.text.whitespace.type.bar, Config.text.whitespace.character, Config.text.whitespace.code);
@@ -373,8 +386,8 @@ function updateStrictSpace(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.strictspace && this.value === "on") || (!Config.strictspace && this.value === "off")) return;
 
-	SettingsChangeInUI.changeStrictSpaceInUI(this.value);
-	SettingsChangeInConfig.changeStrictSpaceInConfig(this.value);
+	SettingChangeInUI.changeStrictSpaceInUI(this.value);
+	SettingChangeInConfig.changeStrictSpaceInConfig(this.value);
 
 	// debug
 	console.log("strictSpace:", !Config.strictspace, Config.strictspace);
@@ -385,8 +398,8 @@ function updateQuickEnd(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.quickend && this.value === "on") || (!Config.quickend && this.value === "off")) return;
 
-	SettingsChangeInUI.changeQuickEndInUI(this.value);
-	SettingsChangeInConfig.changeQuickEndInConfig(this.value);
+	SettingChangeInUI.changeQuickEndInUI(this.value);
+	SettingChangeInConfig.changeQuickEndInConfig(this.value);
 
 	// debug
 	console.log("quickEnd:", !Config.quickend, Config.quickend);
@@ -397,8 +410,8 @@ function updateDifficulty(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.difficulty.ease && this.value === "ease") || (Config.difficulty.expert && this.value === "expert") || (Config.difficulty.master && this.value === "master") ) return;
 
-	SettingsChangeInUI.changeDifficultyInUI(this.value);
-	SettingsChangeInConfig.changeDifficultyInConfig(this.value)
+	SettingChangeInUI.changeDifficultyInUI(this.value);
+	SettingChangeInConfig.changeDifficultyInConfig(this.value)
 
 	// debug
 	console.log("difficulty:", Config.difficulty.ease, Config.difficulty.expert, Config.difficulty.master);
@@ -409,31 +422,31 @@ function updateConfidence(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.confidence.low && this.value === "low") || (Config.confidence.high && this.value === "high") || (Config.confidence.peak && this.value === "peak") ) return;
 
-	SettingsChangeInUI.changeConfidenceInUI(this.value);
-	SettingsChangeInConfig.changeConfidenceInConfig(this.value);
+	SettingChangeInUI.changeConfidenceInUI(this.value);
+	SettingChangeInConfig.changeConfidenceInConfig(this.value);
 
 	// at peak confidence backspacing is not allowed, so backspace is disabled
 	if ( this.value === "peak" ) {
-		SettingsChangeInUI.changeBackspaceKeyInUI("off");
-		SettingsChangeInConfig.changeBackspaceKeyInConfig("off");
+		SettingChangeInUI.changeBackspaceKeyInUI("off");
+		SettingChangeInConfig.changeBackspaceKeyInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
 		if ( Config.backspace.allowedOnCorrectWord ) {
-			SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
-			SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	}
 
 	// going back to low or high confidence from peak confidence (and backspace is disabled)
 	if ( ((this.value === "low") || (this.value === "high")) && Config.backspace.off ) {
-		SettingsChangeInUI.changeBackspaceKeyInUI("on");
-		SettingsChangeInConfig.changeBackspaceKeyInConfig("on");
+		SettingChangeInUI.changeBackspaceKeyInUI("on");
+		SettingChangeInConfig.changeBackspaceKeyInConfig("on");
 	}
 
 	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
 	if ( (this.value === "high") && Config.backspace.allowedOnCorrectWord ) {
-		SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
-		SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+		SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+		SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 	}
 
 	// debug
@@ -445,24 +458,24 @@ function updateBackspaceKey(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.backspace.off && this.value === "off") || (!Config.backspace.off && this.value === "on") ) return;
 
-	SettingsChangeInUI.changeBackspaceKeyInUI(this.value);
-	SettingsChangeInConfig.changeBackspaceKeyInConfig(this.value);
+	SettingChangeInUI.changeBackspaceKeyInUI(this.value);
+	SettingChangeInConfig.changeBackspaceKeyInConfig(this.value);
 
 	// dependencies
 	if ( this.value === "off" ) {
 		// backspace off means confidence is at peak
-		SettingsChangeInUI.changeConfidenceInUI("peak");
-		SettingsChangeInConfig.changeConfidenceInConfig("peak");
+		SettingChangeInUI.changeConfidenceInUI("peak");
+		SettingChangeInConfig.changeConfidenceInConfig("peak");
 
 		// no concept of deleting on correct if backspace is disabled
 		if ( Config.backspace.allowedOnCorrectWord ) {
-			SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
-			SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	} else {
 		// on confidence low backspacing is set to default value of low
-		SettingsChangeInUI.changeConfidenceInUI("low");
-		SettingsChangeInConfig.changeConfidenceInConfig("low");
+		SettingChangeInUI.changeConfidenceInUI("low");
+		SettingChangeInConfig.changeConfidenceInConfig("low");
 	}
 
 	// debug
@@ -474,17 +487,17 @@ function updateBackspaceAllowedOnCorrectWord(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.backspace.allowedOnCorrectWord && this.value === "on") || (!Config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
 	
-	SettingsChangeInUI.changeBackspaceAllowedOnCorrectWordInUI(this.value);
-	SettingsChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
+	SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI(this.value);
+	SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
 
 	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
 	if ( Config.backspace.allowedOnCorrectWord && (Config.confidence.high || Config.confidence.peak) ) {
-		SettingsChangeInUI.changeConfidenceInUI("low");
-		SettingsChangeInConfig.changeConfidenceInConfig("low");
+		SettingChangeInUI.changeConfidenceInUI("low");
+		SettingChangeInConfig.changeConfidenceInConfig("low");
 
 		if ( Config.backspace.off ) {
-			SettingsChangeInUI.changeBackspaceKeyInUI("on");
-			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+			SettingChangeInUI.changeBackspaceKeyInUI("on");
+			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 	}
 	
@@ -496,7 +509,7 @@ function updateBackspaceAllowedOnCorrectWord(evt) {
 function updateModifierKey(evt) {
 	if ( !evt.isTrusted ) return;
 	
-	SettingsChangeInConfig.changeModifierKeyInConfig();
+	SettingChangeInConfig.changeModifierKeyInConfig();
 
 	// debug
 	console.log("modifier:", Config.backspace.modifier.alt, Config.backspace.modifier.ctrl, Config.backspace.modifier.meta);
@@ -507,38 +520,38 @@ function updateError(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.error.off && this.value === "off") || (Config.error.insert && this.value === "insert") || (Config.error.skip && this.value === "skip") || (Config.error.replace && this.value === "replace") ) return;
 
-	SettingsChangeInUI.changeErrorInUI(this.value);
-	SettingsChangeInConfig.changeErrorInConfig(this.value);
+	SettingChangeInUI.changeErrorInUI(this.value);
+	SettingChangeInConfig.changeErrorInConfig(this.value);
 
 	// error insert, skip, replace, forgive is disabled, enable stop on letter
 	if ( Config.error.off ) {
 		if ( !Config.error.stop.letter ) { // disble stop on error
-			SettingsChangeInUI.changeStopOnErrorInUI("letter");
-			SettingsChangeInConfig.changeStopOnErrorInConfig("letter");
+			SettingChangeInUI.changeStopOnErrorInUI("letter");
+			SettingChangeInConfig.changeStopOnErrorInConfig("letter");
 		}
 		if ( Config.error.forgive ) { // disable forgive error
-			SettingsChangeInUI.changeForgiveErrorInUI("off");
-			SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+			SettingChangeInUI.changeForgiveErrorInUI("off");
+			SettingChangeInConfig.changeForgiveErrorInConfig("off");
 		}
 	} else { // either insert or skip or replace is selected
 		if ( Config.blind ) { // disable blind mode
-			SettingsChangeInUI.changeBlindModeInUI("off");
-			SettingsChangeInConfig.changeBlindModeInConfig("off");
+			SettingChangeInUI.changeBlindModeInUI("off");
+			SettingChangeInConfig.changeBlindModeInConfig("off");
 		}
 	}
 		
 	// disable stop on letter when in insert, skip, replace modes
 	if ( !Config.error.off && Config.error.stop.letter	) {
-		SettingsChangeInUI.changeStopOnErrorInUI("off");
-		SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+		SettingChangeInUI.changeStopOnErrorInUI("off");
+		SettingChangeInConfig.changeStopOnErrorInConfig("off");
 	}
 
 	// forgive error is not possible in skip & replace
 	if ( (Config.error.skip || Config.error.replace) && Config.error.forgive ) {
 		// it is possible to enable/disable forgive error in error insert, but not in
 		// error skip/replace so forgive error should be disabled
-		SettingsChangeInUI.changeForgiveErrorInUI("off");
-		SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+		SettingChangeInUI.changeForgiveErrorInUI("off");
+		SettingChangeInConfig.changeForgiveErrorInConfig("off");
 	}
 
 	// debug
@@ -550,19 +563,19 @@ function updateForgiveError(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.error.forgive && this.value === "on") || (!Config.error.forgive && this.value === "off") ) return;
 	
-	SettingsChangeInUI.changeForgiveErrorInUI(this.value);
-	SettingsChangeInConfig.changeForgiveErrorInConfig(this.value);
+	SettingChangeInUI.changeForgiveErrorInUI(this.value);
+	SettingChangeInConfig.changeForgiveErrorInConfig(this.value);
 
 	// error forgive require error insert, so disable error skip/replace and enable
 	// insert, i.e, insertion of errors is necessary in order to forgive them
 	if ( Config.error.forgive && !Config.error.insert ) {
-		SettingsChangeInUI.changeErrorInUI("insert");
-		SettingsChangeInConfig.changeErrorInConfig("insert");		
+		SettingChangeInUI.changeErrorInUI("insert");
+		SettingChangeInConfig.changeErrorInConfig("insert");		
 	}
 
 	if ( Config.error.forgive && Config.blind ) { // disable blind mode
-		SettingsChangeInUI.changeBlindModeInUI("off");
-		SettingsChangeInConfig.changeBlindModeInConfig("off");
+		SettingChangeInUI.changeBlindModeInUI("off");
+		SettingChangeInConfig.changeBlindModeInConfig("off");
 	}
 	
 	// debug
@@ -574,39 +587,39 @@ function updateStopOnError(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.error.stop.off && this.value === "off") || (Config.error.stop.letter && this.value === "letter") || (Config.error.stop.word && this.value === "word") ) return;
 
-	SettingsChangeInUI.changeStopOnErrorInUI(this.value);
-	SettingsChangeInConfig.changeStopOnErrorInConfig(this.value);
+	SettingChangeInUI.changeStopOnErrorInUI(this.value);
+	SettingChangeInConfig.changeStopOnErrorInConfig(this.value);
 	
 	// disable blind mode
 	if ( (Config.error.stop.letter || Config.error.stop.word) && Config.blind ) {
-		SettingsChangeInUI.changeBlindModeInUI("off");
-		SettingsChangeInConfig.changeBlindModeInConfig("off");
+		SettingChangeInUI.changeBlindModeInUI("off");
+		SettingChangeInConfig.changeBlindModeInConfig("off");
 	}
 
 	if ( Config.error.stop.letter ) {
 		// caret will be stopped before letter so insert, skip, replace, forgive is not possible
 		if ( !Config.error.off ) {
-			SettingsChangeInUI.changeErrorInUI("off");
-			SettingsChangeInConfig.changeErrorInConfig("off");
+			SettingChangeInUI.changeErrorInUI("off");
+			SettingChangeInConfig.changeErrorInConfig("off");
 
 			if ( Config.error.forgive ) {
-				SettingsChangeInUI.changeForgiveErrorInUI("off");
-				SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+				SettingChangeInUI.changeForgiveErrorInUI("off");
+				SettingChangeInConfig.changeForgiveErrorInConfig("off");
 			}
 		}
 	} else if ( Config.error.stop.word ) {
 		if ( Config.backspace.off ) {			
-			SettingsChangeInUI.changeBackspaceKeyInUI("on");
-			SettingsChangeInConfig.changeBackspaceKeyInConfig("on");	
+			SettingChangeInUI.changeBackspaceKeyInUI("on");
+			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 		if ( Config.error.off ) {
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");			
+			SettingChangeInUI.changeErrorInUI("insert");
+			SettingChangeInConfig.changeErrorInConfig("insert");			
 		}
 	} else {
 		if ( Config.error.off ) { // set to default
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");
+			SettingChangeInUI.changeErrorInUI("insert");
+			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
 
@@ -619,27 +632,27 @@ function updateBlindMode(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.blind && this.value === "on") || (!Config.blind && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeBlindModeInUI(this.value);
-	SettingsChangeInConfig.changeBlindModeInConfig(this.value);
+	SettingChangeInUI.changeBlindModeInUI(this.value);
+	SettingChangeInConfig.changeBlindModeInConfig(this.value);
 
 	// no error handling in blind mode, so disable insert, skip, replace, forgive
 	if ( Config.blind ) {
 		if ( !Config.error.off ) { // disbale insert, skip, replace
-			SettingsChangeInUI.changeErrorInUI("off");
-			SettingsChangeInConfig.changeErrorInConfig("off");
+			SettingChangeInUI.changeErrorInUI("off");
+			SettingChangeInConfig.changeErrorInConfig("off");
 		}
 		if ( Config.error.forgive ) { // disable forgive error
-			SettingsChangeInUI.changeForgiveErrorInUI("off");
-			SettingsChangeInConfig.changeForgiveErrorInConfig("off");
+			SettingChangeInUI.changeForgiveErrorInUI("off");
+			SettingChangeInConfig.changeForgiveErrorInConfig("off");
 		}
 		if ( !Config.error.stop.off ) { // disable stop on error
-			SettingsChangeInUI.changeStopOnErrorInUI("off");
-			SettingsChangeInConfig.changeStopOnErrorInConfig("off");
+			SettingChangeInUI.changeStopOnErrorInUI("off");
+			SettingChangeInConfig.changeStopOnErrorInConfig("off");
 		}
 	} else {
 		if ( Config.error.off ) { // default
-			SettingsChangeInUI.changeErrorInUI("insert");
-			SettingsChangeInConfig.changeErrorInConfig("insert");
+			SettingChangeInUI.changeErrorInUI("insert");
+			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
 	
@@ -652,8 +665,8 @@ function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.oppositeshift && this.value === "on") || (!Config.oppositeshift && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeOppositeShiftModeInUI(this.value);
-	SettingsChangeInConfig.changeOppositeShiftModeInConfig(this.value);
+	SettingChangeInUI.changeOppositeShiftModeInUI(this.value);
+	SettingChangeInConfig.changeOppositeShiftModeInConfig(this.value);
 
 	// debug
 	console.log("oppositeShift:", Config.oppositeshift);
@@ -664,8 +677,8 @@ function updateMinimumSpeed(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.minimum.speed.off && this.value === "off") || (!Config.minimum.speed.off && this.value === "on") ) return;
 
-	SettingsChangeInUI.changeMinimumSpeedInUI(this.value);
-	SettingsChangeInConfig.changeMinimumSpeedInConfig(this.value);
+	SettingChangeInUI.changeMinimumSpeedInUI(this.value);
+	SettingChangeInConfig.changeMinimumSpeedInConfig(this.value);
 
 	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
@@ -684,8 +697,8 @@ function updateMinimumSpeedThresholdInput(evt) {
 
 	// turn "on" button active if not
 	if ( SettingsElement.minimum.speed.off.id === "selected" ) {
-		SettingsChangeInUI.changeMinimumSpeedInUI("on");
-		SettingsChangeInConfig.changeMinimumSpeedInConfig("on");
+		SettingChangeInUI.changeMinimumSpeedInUI("on");
+		SettingChangeInConfig.changeMinimumSpeedInConfig("on");
 	}
 	Config.minimum.speed.threshold = Number(this.value); // update in config
 
@@ -699,8 +712,8 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 
 	// no value entered in input field
 	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.speed.on.id === "selected" ) {
-		SettingsChangeInUI.changeMinimumSpeedInUI("off");
-		SettingsChangeInConfig.changeMinimumSpeedInConfig("off");
+		SettingChangeInUI.changeMinimumSpeedInUI("off");
+		SettingChangeInConfig.changeMinimumSpeedInConfig("off");
 		this.value = "";
 	}
 
@@ -713,8 +726,8 @@ function updateMinimumAccuracy(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.minimum.accuracy.off && this.value === "off") || (!Config.minimum.accuracy.off && this.value === "on") ) return;
 
-	SettingsChangeInUI.changeMinimumAccuracyInUI(this.value);
-	SettingsChangeInConfig.changeMinimumAccuracyInConfig(this.value);
+	SettingChangeInUI.changeMinimumAccuracyInUI(this.value);
+	SettingChangeInConfig.changeMinimumAccuracyInConfig(this.value);
 
 	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
@@ -733,8 +746,8 @@ function updateMinimumAccuracyThresholdInput(evt) {
 	
 	// turn on "on" button active if not
 	if ( SettingsElement.minimum.accuracy.off.id === "selected" ) {
-		SettingsChangeInUI.changeMinimumAccuracyInUI("on");
-		SettingsChangeInConfig.changeMinimumAccuracyInConfig("on");
+		SettingChangeInUI.changeMinimumAccuracyInUI("on");
+		SettingChangeInConfig.changeMinimumAccuracyInConfig("on");
 	}
 	Config.minimum.accuracy.threshold = Number(this.value);  // update in config
 
@@ -748,8 +761,8 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 
 	// no value entered in input field
 	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.accuracy.on.id === "selected" ) {
-		SettingsChangeInUI.changeMinimumAccuracyInUI("off");
-		SettingsChangeInConfig.changeMinimumAccuracyInConfig("off");
+		SettingChangeInUI.changeMinimumAccuracyInUI("off");
+		SettingChangeInConfig.changeMinimumAccuracyInConfig("off");
 		this.value = "";
 	}
 
@@ -762,8 +775,8 @@ function updateMinimumBurst(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.minimum.burst.off && this.value === "off") || (Config.minimum.burst.option.fixed && this.value === "fixed") || (Config.minimum.burst.option.flex && this.value === "flex") ) return;
 
-	SettingsChangeInUI.changeMinimumBurstInUI(this.value);
-	SettingsChangeInConfig.changeMinimumBurstInConfig(this.value);
+	SettingChangeInUI.changeMinimumBurstInUI(this.value);
+	SettingChangeInConfig.changeMinimumBurstInConfig(this.value);
 
 	// focus in input field when user clicks on flex or fixed buttons
 	if ( this.value === "fixed" || this.value === "flex" ) {
@@ -783,8 +796,8 @@ function updateMinimumBurstThresholdInput(evt) {
 	// turn on "fixed" button active if user starts entering value into input field
 	// without clicking on flex or fixed buttons first
 	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
-		SettingsChangeInUI.changeMinimumBurstInUI("fixed");
-		SettingsChangeInConfig.changeMinimumBurstInConfig("fixed");
+		SettingChangeInUI.changeMinimumBurstInUI("fixed");
+		SettingChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
 	Config.minimum.burst.threshold = Number(this.value);  // update in config
 
@@ -798,8 +811,8 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 
 	// no value entered in input field
 	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
-		SettingsChangeInUI.changeMinimumBurstInUI("off");
-		SettingsChangeInConfig.changeMinimumBurstInConfig("off");
+		SettingChangeInUI.changeMinimumBurstInUI("off");
+		SettingChangeInConfig.changeMinimumBurstInConfig("off");
 		this.value = "";
 	}
 
@@ -812,17 +825,17 @@ function updateTextWordCount(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.text.word.count === -1 && this.value === "off") || (Config.text.word.count === -2 && this.value === "custom") || (Config.text.word.count === 10 && this.value === "10") || (Config.text.word.count === 25 && this.value === "25") || (Config.text.word.count === 50 && this.value === "50") || (Config.text.word.count === 100 && this.value === "100") ) return;
 
-	SettingsChangeInUI.changeTextWordCountInUI(this.value);
-	SettingsChangeInConfig.changeTextWordCountInConfig(this.value);
+	SettingChangeInUI.changeTextWordCountInUI(this.value);
+	SettingChangeInConfig.changeTextWordCountInConfig(this.value);
 
 	// if words mode is disabled then enable default timer mode
 	if ( this.value === "off" ) {
-		SettingsChangeInUI.changeTimerSecondsInUI("60");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("60");
+		SettingChangeInUI.changeTimerSecondsInUI("60");
+		SettingChangeInConfig.changeTimerSecondsInConfig("60");
 		return;
 	} else { // words mode is enabled so disable timer mode
-		SettingsChangeInUI.changeTimerSecondsInUI("off");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
+		SettingChangeInUI.changeTimerSecondsInUI("off");
+		SettingChangeInConfig.changeTimerSecondsInConfig("off");
 	}
 
 	// focus in input field when custom button is clicked, otherwise clear input field
@@ -843,8 +856,8 @@ function updateTextWordCountInputField(evt) {
 
 	// make custom button active if not
 	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
-		SettingsChangeInUI.changeTextWordCountInUI("custom");
-		SettingsChangeInConfig.changeTextWordCountInConfig("custom");
+		SettingChangeInUI.changeTextWordCountInUI("custom");
+		SettingChangeInConfig.changeTextWordCountInConfig("custom");
 	}
 
 	 // update in config (i.e, override -2 initial value)
@@ -863,25 +876,25 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 		
 		if ( this.value === "0" ) { // 0 word is not possible
 			setTimeout(() => {
-				SettingsChangeInUI.changeTextWordCountInUI("off");
-				SettingsChangeInConfig.changeTextWordCountInConfig("off");
+				SettingChangeInUI.changeTextWordCountInUI("off");
+				SettingChangeInConfig.changeTextWordCountInConfig("off");
 				this.value = "";
 			}, 250);
 		} else {
-			SettingsChangeInUI.changeTextWordCountInUI("off");
-			SettingsChangeInConfig.changeTextWordCountInConfig("off");
+			SettingChangeInUI.changeTextWordCountInUI("off");
+			SettingChangeInConfig.changeTextWordCountInConfig("off");
 		}
 	}
 
 	if ( this.value === "" ) { // set to default
-		SettingsChangeInUI.changeTextWordCountInUI("25");
-		SettingsChangeInConfig.changeTextWordCountInConfig("25");
+		SettingChangeInUI.changeTextWordCountInUI("25");
+		SettingChangeInConfig.changeTextWordCountInConfig("25");
 	}
 
 	// currently more than 150 words is not allowed in custom input field
 	if ( Config.text.word.count > 150 ) {
-		SettingsChangeInUI.changeTextWordCountInUI("100");
-		SettingsChangeInConfig.changeTextWordCountInConfig("100");
+		SettingChangeInUI.changeTextWordCountInUI("100");
+		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
 
 	Test.restart();
@@ -895,18 +908,18 @@ function updateTimerSeconds(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.timer.time === -2 && this.value === "custom") || (Config.stats.timer.time === -1 && this.value === "off") || (Config.stats.timer.time === 15 && this.value === "15") || (Config.stats.timer.time === 30 && this.value === "30") || (Config.stats.timer.time === 60 && this.value === "60") || (Config.stats.timer.time === 120 && this.value === "120") ) return;
 
-	SettingsChangeInUI.changeTimerSecondsInUI(this.value);
-	SettingsChangeInConfig.changeTimerSecondsInConfig(this.value);
+	SettingChangeInUI.changeTimerSecondsInUI(this.value);
+	SettingChangeInConfig.changeTimerSecondsInConfig(this.value);
 
 		// if timer mode is disabled then enable default words mode
 		if ( this.value === "off" ) {
-			SettingsChangeInUI.changeTextWordCountInUI("25");
-			SettingsChangeInConfig.changeTextWordCountInConfig("25");
+			SettingChangeInUI.changeTextWordCountInUI("25");
+			SettingChangeInConfig.changeTextWordCountInConfig("25");
 			Test.restart();
 			return;
 		} else { // timer mode is enabled so disable words mode
-			SettingsChangeInUI.changeTextWordCountInUI("off");
-			SettingsChangeInConfig.changeTextWordCountInConfig("off");
+			SettingChangeInUI.changeTextWordCountInUI("off");
+			SettingChangeInConfig.changeTextWordCountInConfig("off");
 		}	
 
 	// focus to input field when custom button is clicked, otherwise clear input field
@@ -926,8 +939,8 @@ function updateTimerSecondsInputField(evt) {
 
 	// make custom button active if not
 	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
-		SettingsChangeInUI.changeTimerSecondsInUI("custom");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("custom");
+		SettingChangeInUI.changeTimerSecondsInUI("custom");
+		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
 	Config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
 
@@ -941,8 +954,8 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 
 	// no value entered in input field (turn off custom button)
 	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
-		SettingsChangeInUI.changeTimerSecondsInUI("off");
-		SettingsChangeInConfig.changeTimerSecondsInConfig("off");
+		SettingChangeInUI.changeTimerSecondsInUI("off");
+		SettingChangeInConfig.changeTimerSecondsInConfig("off");
 	}
 
 	// infinite timer mode
@@ -959,8 +972,8 @@ function updateTimerVisibilityInUI(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.timer.hidden && this.value === "on") || (!Config.stats.timer.hidden && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeTimerVisibilityInUI(this.value);
-	SettingsChangeInConfig.changeTimerVisibilityInConfig(this.value);
+	SettingChangeInUI.changeTimerVisibilityInUI(this.value);
+	SettingChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
 	// debug
 	console.log("timer.hidden:", Config.stats.timer.hidden);
@@ -971,8 +984,8 @@ function updatePaceCaretSpeed(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.pacecaret.off && this.value === "off") || (Config.pacecaret.speed.last && this.value === "last") || (Config.pacecaret.speed.average && this.value === "average") || (Config.pacecaret.speed.best && this.value === "best") || (!Config.pacecaret.speed.custom.off && this.value === "custom") ) return;
 
-	SettingsChangeInUI.changePaceCaretSpeedInUI(this.value);
-	SettingsChangeInConfig.changePaceCaretSpeedInConfig(this.value);
+	SettingChangeInUI.changePaceCaretSpeedInUI(this.value);
+	SettingChangeInConfig.changePaceCaretSpeedInConfig(this.value);
 
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
@@ -991,8 +1004,8 @@ function updatePaceCaretSpeedInputField(evt) {
 
 	// make custom button active if not
 	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
-		SettingsChangeInUI.changePaceCaretSpeedInUI("custom");
-		SettingsChangeInConfig.changePaceCaretSpeedInConfig("custom");
+		SettingChangeInUI.changePaceCaretSpeedInUI("custom");
+		SettingChangeInConfig.changePaceCaretSpeedInConfig("custom");
 	}
 	Config.pacecaret.speed.custom.value = Number(this.value); // update in config
 
@@ -1009,13 +1022,13 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 
 		if ( this.value === "0" ) { // 0wpm speed for pacecaret is not possible
 			setTimeout(() => {
-				SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-				SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+				SettingChangeInUI.changePaceCaretSpeedInUI("off");
+				SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
 				this.value = "";
 			}, 250);
 		} else {
-			SettingsChangeInUI.changePaceCaretSpeedInUI("off");
-			SettingsChangeInConfig.changePaceCaretSpeedInConfig("off");
+			SettingChangeInUI.changePaceCaretSpeedInUI("off");
+			SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
 		}
 	}
 
@@ -1117,7 +1130,7 @@ function updatePaceCaretColorTextInput(evt) {
 function updateWarnings(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingsChangeInConfig.changeWarningsInConfig();
+	SettingChangeInConfig.changeWarningsInConfig();
 
 	// debug
 	console.log("warning:", Config.warnings.capslock, Config.warnings.numlock, Config.warnings.scrolllock, Config.warnings.focusout);
@@ -1127,7 +1140,7 @@ function updateWarnings(evt) {
 function updateLiveStats(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingsChangeInConfig.changeLiveStatsInConfig();
+	SettingChangeInConfig.changeLiveStatsInConfig();
 
 	// debug
 	console.log("liveStats:", Config.stats.live.speed, Config.stats.live.accuracy, Config.stats.live.burst);
@@ -1137,7 +1150,7 @@ function updateLiveStats(evt) {
 function updateTextInclude(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingsChangeInConfig.changeTextIncludeInConfig();
+	SettingChangeInConfig.changeTextIncludeInConfig();
 
 	// debug
 	console.log("textInclude:", Config.text.include.digit, Config.text.include.punctuation);
@@ -1148,8 +1161,8 @@ function updateUseFloats(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.usefloats && this.value === "on") || (!Config.stats.usefloats && this.value === "off") ) return;
 
-	SettingsChangeInUI.changeUseFloatsInUI(this.value);
-	SettingsChangeInConfig.changeUseFloatsInConfig(this.value);
+	SettingChangeInUI.changeUseFloatsInUI(this.value);
+	SettingChangeInConfig.changeUseFloatsInConfig(this.value);
 
 	// debug
 	console.log("useFloats:", !Config.stats.usefloats, Config.stats.usefloats);
@@ -1160,8 +1173,8 @@ function updateSpeedUnit(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.unit.cpm && this.value === "cpm") || (Config.stats.unit.wpm && this.value === "wpm") ) return;
 
-	SettingsChangeInUI.changeSpeedUnitInUI(this.value);
-	SettingsChangeInConfig.changeSpeedUnitInConfig(this.value);
+	SettingChangeInUI.changeSpeedUnitInUI(this.value);
+	SettingChangeInConfig.changeSpeedUnitInConfig(this.value);
 
 	// debug
 	console.log("speedUnit:", Config.stats.unit.cpm, Config.stats.unit.wpm);
@@ -1172,8 +1185,8 @@ function updateLiveStatsCalcInterval(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (Config.stats.calcInterval.word && this.value === "word") || (Config.stats.calcInterval.keystroke && this.value === "keystroke") || (Config.stats.calcInterval.second && this.value === "second") ) return;
 
-	SettingsChangeInUI.changeLiveStatsCalcIntervalInUI(this.value);
-	SettingsChangeInConfig.changeLiveStatsCalcIntervalInConfig(this.value);
+	SettingChangeInUI.changeLiveStatsCalcIntervalInUI(this.value);
+	SettingChangeInConfig.changeLiveStatsCalcIntervalInConfig(this.value);
 	
 	// debug
 	console.log("liveStatsInterval:", Config.stats.calcInterval.word, Config.stats.calcInterval.keystroke, Config.stats.calcInterval.second);
@@ -1192,8 +1205,8 @@ function updateCaretStyle(evt) {
 	}
 	TestAreaElements.input.focus();	
 
-	SettingsChangeInUI.changeCaretStyleInUI(this.value);
-	SettingsChangeInConfig.changeCaretStyleInConfig(this.value);
+	SettingChangeInUI.changeCaretStyleInUI(this.value);
+	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
 
 	// debug
 	console.log("caret:", Config.caret.style);
@@ -1204,8 +1217,8 @@ function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === Config.pacecaret.style ) return;
 
-	SettingsChangeInUI.changePaceCaretStyleInUI(this.value);
-	SettingsChangeInConfig.changePaceCaretStyleInConfig(this.value);
+	SettingChangeInUI.changePaceCaretStyleInUI(this.value);
+	SettingChangeInConfig.changePaceCaretStyleInConfig(this.value);
 
 	// debug
 	console.log("pacecaret:", Config.pacecaret.style);
@@ -1249,11 +1262,6 @@ const allDetails = {
 		items: Array.from(document.querySelectorAll("details.textFontFamilyList div.list > *")),
 		SVGs: Array.from(document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick")),
 		inUseTextBox: document.querySelector("details.textFontFamilyList summary div.text.value.in-use"),
-	},
-	textWordLength: {
-		items: Array.from(document.querySelectorAll("details.textWordLengthList div.list > *")),
-		SVGs: Array.from(document.querySelectorAll("details.textWordLengthList div.list div.item div.symbol svg.tick")),
-		inUseTextBox: document.querySelector("details.textWordLengthList summary div.text.value.in-use"),
 	},
 	textWordType: {
 		items: Array.from(document.querySelectorAll("details.textWordTypeList div.list > *")),
@@ -1305,23 +1313,6 @@ allDetails.textFontFamily.items.forEach((item) => {
 
 		// debug
 		console.log("font-family:", Config.text.font.family);
-	});
-});
-
-// details: lengthOfWords
-allDetails.textWordLength.items.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === Config.text.word.length ) return;
-
-		Config.text.word.length = evt.currentTarget.dataset.value; // update in config
-		allDetails.textWordLength.inUseTextBox.textContent = Config.text.word.length; // update in ui
-		tickMarkCorrectOption(evt, "textWordLength");
-		
-		TestAreaElements.input.focus();
-
-		// debug
-		console.log("word-length:", Config.text.word.length);
 	});
 });
 

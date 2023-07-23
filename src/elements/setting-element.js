@@ -236,3 +236,9 @@ export const blindMode = {
 	off: document.querySelector("div.s2.config.buttonContainer.blindModeButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.blindModeButton button.button.on"),
 }
+export const textWordLength = {
+	off: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.off"),
+	short: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.short"),
+	medium: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.medium"),
+	long: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.long"),
+}
