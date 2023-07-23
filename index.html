@@ -759,31 +759,11 @@
             </div>
             <div class="text value">length of words</div>
           </div>
-          <div class="config buttonContainer details textWordLengthListContainer s1">
-            <details class="textWordLengthList">
-              <summary>
-                <div class="text value in-use">mixed</div>
-                <div class="symbol"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
-              </summary>
-              <div class="list">
-                <div class="item wordLengthOfText short" data-value="short">
-                  <div class="text value">short (1..4)</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
-                </div>
-                <div class="item wordLengthOfText medium" data-value="medium">
-                  <div class="text value">medium (5..13)</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
-                </div>
-                <div class="item wordLengthOfText long" data-value="long">
-                  <div class="text value">long (13..<span class="inf">&infin;</span>)</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
-                </div>
-                <div class="item wordLengthOfText mixed" data-value="mixed">
-                  <div class="text value">mixed [1..<span class="inf">&infin;</span>]</div>
-                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"> </path></svg></div>
-                </div>
-              </div>
-            </details>
+          <div class="config buttonContainer textWordLengthButton s4">
+            <button class="button off"    value="off"    tabindex="0" role="button" type="button">off</button>
+            <button class="button short"  value="short"  tabindex="0" role="button" type="button">short</button>
+            <button class="button medium" value="medium" tabindex="0" role="button" type="button" id="selected">medium</button>
+            <button class="button long"   value="long"   tabindex="0" role="button" type="button">long</button>
           </div>
         </div>
         
@@ -870,25 +850,25 @@
                 <div class="symbol downarrow"><svg class="iconDropDownArrow" width="16" height="16" viewBox="0 0 16 16"> <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg></div>
               </summary>
               <div class="list">
-                <div class="item capitalizationOfText off" data-value="none">
+                <div class="item capitalizationOfText off" data-value="off" data-text="none">
                   <div class="text value">none</div>
-                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                  <div class="symbol"><svg class="tick marked" height="16" viewBox="0 0 16 16" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item capitalizationOfText firstletter" data-value="first letter">
-                  <div class="text value">first letter</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                <div class="item capitalizationOfText first" data-value="first" data-text="only first letter">
+                  <div class="text value">only first letter</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item capitalizationOfText allfirstletters" data-value="all first letters">
+                <div class="item capitalizationOfText everyfirst" data-value="everyfirst" data-text="every first letter">
                   <div class="text value">every first letter</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item capitalizationOfText randomized" data-value="randomized">
-                  <div class="text value">randomly</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                <div class="item capitalizationOfText randomly" data-value="randomly" data-text="first letter randomly">
+                  <div class="text value">first letter randomly</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
-                <div class="item capitalizationOfText jumbled" data-value="jumbled">
-                  <div class="text value">untidy</div>
-                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"> <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
+                <div class="item capitalizationOfText untidy" data-value="untidy" data-text="any letter randomly">
+                  <div class="text value">any letter randomly</div>
+                  <div class="symbol unmarked"><svg class="tick" height="16" viewBox="0 0 16 16" width="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg></div>
                 </div>
               </div>
             </details>

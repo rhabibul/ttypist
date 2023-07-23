@@ -1,6 +1,4 @@
-export const website = {
-	
-}
+export const website = { }
 export const setting = {
 	dynamic: {
 		off: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.off"),

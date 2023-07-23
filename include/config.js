@@ -122,10 +122,10 @@ export const config = {
     },
     capitalization: {
       off: true,
-      first: false, // capitalize only the 1st letter of 1st word in text
-      everyfirst: false, // capitalize the 1st letter of every word in text
-      randomly: false, // randomly capitalize only 1st letter of every word in text
-      untidy: false, // randomly capitalize any letter of any word in text
+      first: false, // capitalize only the first letter of first word in text
+      everyfirst: false, // capitalize the first letter of every word in text
+      randomly: false, // capitalize only first letter of every word in text randomly
+      untidy: false, // capitalize any letter of any word in text randomly
     },
     scroll: {
       abrupt: true,

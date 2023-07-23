@@ -1,5 +1,4 @@
 import Config from "../../include/config.js";
-import * as Misc from "../utils/misc.js";
 import * as SettingsElement from "../elements/setting-element.js";
 import * as SettingsChangeInConfig from "./setting-change-config.js";
 import * as SettingsChangeInUI from "../ui/setting-change-ui.js";
@@ -1348,40 +1347,40 @@ allDetails.textCapitalization.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
 		const value = evt.currentTarget.dataset.value;
-		if ( (value === "none" && Config.text.capitalize.off ) || (value === "randomized" && Config.text.capitalize.randomized) || (value === "first letter" && Config.text.capitalize.firstletter) || (value === "all first letters" && Config.text.capitalize.allfirstletters) || (value === "jumbled" && Config.text.capitalize.jumbled) ) return;
+		if ( (value === "off" && Config.text.capitalize.off ) || (value === "randomly" && Config.text.capitalize.randomly) || (value === "first" && Config.text.capitalize.first) || (value === "everyfirst" && Config.text.capitalize.everyfirst) || (value === "untidy" && Config.text.capitalize.untidy) ) return;
 
 		if ( value === "none" ) {
 			Config.text.capitalize.off = true;
-			Config.text.capitalize.firstletter = false;
-			Config.text.capitalize.allfirstletters = false;
-			Config.text.capitalize.randomized = false;
-			Config.text.capitalize.jumbled = false;
+			Config.text.capitalize.first = false;
+			Config.text.capitalize.everyfirst = false;
+			Config.text.capitalize.randomly = false;
+			Config.text.capitalize.untidy = false;
 		} else if ( value === "randomized" ) {
-			Config.text.capitalize.off = false;
-			Config.text.capitalize.firstletter = false;
-			Config.text.capitalize.allfirstletters = false;
-			Config.text.capitalize.randomized = true;
-			Config.text.capitalize.jumbled = false;
+			Config.text.capitalize.off = true;
+			Config.text.capitalize.first = false;
+			Config.text.capitalize.everyfirst = false;
+			Config.text.capitalize.randomly = false;
+			Config.text.capitalize.untidy = false;
 		} else if ( value === "first letter" ) {
-			Config.text.capitalize.off = false;
-			Config.text.capitalize.firstletter = true;
-			Config.text.capitalize.allfirstletters = false;
-			Config.text.capitalize.randomized = false;
-			Config.text.capitalize.jumbled = false;
+			Config.text.capitalize.off = true;
+			Config.text.capitalize.first = false;
+			Config.text.capitalize.everyfirst = false;
+			Config.text.capitalize.randomly = false;
+			Config.text.capitalize.untidy = false;
 		} else if ( value === "all first letters" ) {
-			Config.text.capitalize.off = false;
-			Config.text.capitalize.firstletter = false;
-			Config.text.capitalize.allfirstletters = true;
-			Config.text.capitalize.randomized = false;
-			Config.text.capitalize.jumbled = false;
+			Config.text.capitalize.off = true;
+			Config.text.capitalize.first = false;
+			Config.text.capitalize.everyfirst = false;
+			Config.text.capitalize.randomly = false;
+			Config.text.capitalize.untidy = false;
 		} else if ( value === "jumbled" ) {
-			Config.text.capitalize.off = false;
-			Config.text.capitalize.firstletter = false;
-			Config.text.capitalize.allfirstletters = false;
-			Config.text.capitalize.randomized = false;
-			Config.text.capitalize.jumbled = true;
+			Config.text.capitalize.off = true;
+			Config.text.capitalize.first = false;
+			Config.text.capitalize.everyfirst = false;
+			Config.text.capitalize.randomly = false;
+			Config.text.capitalize.untidy = false;
 		}
-		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.value; // update in ui
+		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.text; // update in ui
 		tickMarkCorrectOption(evt, "textCapitalization");
 		
 		// TestAreaElements.input.focus();
