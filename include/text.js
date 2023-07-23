@@ -1,5 +1,5 @@
 import Config from "../include/config.js";
-import * as TestAreaElements from "../src/elements/testAreaElements.js";
+import * as TestAreaElements from "../src/elements/test-element.js";
 import { addunderline, removeunderline } from "../src/engine/logic.js";
 
 export default class Text {

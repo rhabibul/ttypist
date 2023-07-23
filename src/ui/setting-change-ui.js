@@ -1,5 +1,5 @@
 import Config from "../../include/config.js"
-import * as SettingsElement from "../elements/settingsElements.js";
+import * as SettingsElement from "../elements/setting-element.js";
 
 // keyboard reaction
 export function changeKeyboardReactionInUI(value) {

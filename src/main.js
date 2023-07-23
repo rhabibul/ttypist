@@ -4,7 +4,7 @@ import Word from "../include/word.js";
 
 import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret.js";
-import * as TestAreaElement from "./elements/testAreaElements.js";
+import * as TestAreaElement from "./elements/test-element.js";
 
 import { time, typedchar, mInput, user } from "../include/trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";

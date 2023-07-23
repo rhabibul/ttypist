@@ -1,9 +1,9 @@
 import Config from "../../include/config.js";
 import * as Misc from "../utils/misc.js";
-import * as SettingsElement from "../elements/settingsElements.js";
-import * as SettingsChangeInConfig from "../controllers/settingsChangeInConfig.js";
-import * as SettingsChangeInUI from "../ui/settingsChangeInUI.js";
-import * as TestAreaElements from "../elements/testAreaElements.js";
+import * as SettingsElement from "../elements/setting-element.js";
+import * as SettingsChangeInConfig from "./setting-change-config.js";
+import * as SettingsChangeInUI from "../ui/setting-change-ui.js";
+import * as TestAreaElements from "../elements/test-element.js";
 import { css } from "../../include/constants.js";
 import { text, Test } from "../main.js";
 

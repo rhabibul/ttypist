@@ -1,6 +1,6 @@
 import Config from "../../include/config.js";
 import * as CaretController from "../controllers/caret.js";
-import * as TestAreaElements from "../elements/testAreaElements.js";
+import * as TestAreaElements from "../elements/test-element.js";
 import * as Misc from "../utils/misc.js";
 import { time, typedchar, mInput, user } from "../../include/trackers.js";
 import { Test, text, word } from "../main.js";

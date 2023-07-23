@@ -120,7 +120,7 @@ export const config = {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
-    capitalization: { // rnd, fl, afl, jml
+    capitalization: {
       off: true,
       first: false, // capitalize only the 1st letter of 1st word in text
       everyfirst: false, // capitalize the 1st letter of every word in text
