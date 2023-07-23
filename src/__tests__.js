@@ -13,8 +13,8 @@
  *	 		element.setAttribute("attribute", "value")
  * 		  element.toggleAttribute("attribute")
 **/
-import Config from "../include/config.js";
-import * as SettingsElement from "./elements/settingsElements.js";
+// import { config } from "../include/config.js";
+// import * as SettingsElement from "./elements/settingsElements.js";
 
 
 // // pacecaret with dispatching keydown/keyup events (experimental)
@@ -64,14 +64,14 @@ checkbox.addEventListener('change', function() {
 // 	}
 // });
 
-window.addEventListener("offline", (evt) => { 
-	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
-	console.log("You are currently offline.");
-});
-window.addEventListener("online", (evt) => {
-	// Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]
-	console.log("Your Internet connection was restored.");
-})
+// window.addEventListener("offline", (evt) => { 
+// 	// Tooltip UI: [Icon] You are currently offline. [Refresh Link (in blue)] [cross button]
+// 	console.log("You are currently offline.");
+// });
+// window.addEventListener("online", (evt) => {
+// 	// Tooltip UI: [Icon] Your Internet connection was restored.  [cross button]
+// 	console.log("Your Internet connection was restored.");
+// })
 
 // const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 // 	'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'

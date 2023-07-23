@@ -1,7 +1,7 @@
-import Config from "../../include/config.js";
+import { config } from "../../include/config.js";
 
 export function addcaretto(letter) {
-	letter.setAttribute("id", Config.caret.style);
+	letter.setAttribute("id", config.caret.style);
 }
 
 export function removecaretfrom(letter) {

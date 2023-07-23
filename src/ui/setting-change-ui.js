@@ -1,4 +1,4 @@
-import Config from "../../include/config.js"
+import { config } from "../../include/config.js"
 import * as SettingsElement from "../elements/setting-element.js";
 
 // keyboard reaction
@@ -490,11 +490,11 @@ export function changeUseFloatsInUI(value) {
 
 export function changeSpeedUnitInUI(value) {
 	if ( value === "cpm" ) {
-		Config.stats.unit.cpm = true;
-		Config.stats.unit.wpm = false;
+		SettingsElement.stats.unit.cpm.id = "selected";
+		SettingsElement.stats.unit.wpm.id = "";
 	} else {
-		Config.stats.unit.cpm = false;
-		Config.stats.unit.wpm = true;
+		SettingsElement.stats.unit.cpm.id = "";
+		SettingsElement.stats.unit.wpm.id = "selected";
 	}
 }
 

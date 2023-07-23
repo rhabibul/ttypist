@@ -1,4 +1,4 @@
-import Config from "../include/config.js";
+import { config } from "../include/config.js";
 import * as TestAreaElements from "../src/elements/test-element.js";
 import { addunderline, removeunderline } from "../src/engine/logic.js";
 
@@ -27,7 +27,7 @@ export default class Text {
     	TestAreaElements.text.insertAdjacentElement("beforeend", word);
     }
     
-    if ( Config.text.underline ) {
+    if ( config.text.underline ) {
       addunderline(this.#words[this.#wordindex]);
     }
   }

@@ -4,214 +4,214 @@ import * as SettingsElement from "../elements/setting-element.js";
 // keyboard reaction
 export function changeKeyboardReactionInConfig(value) {
 	if ( value === "next" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = true;
+		config.keyboard.reaction.off = false;
+		config.keyboard.reaction.static = false;
+		config.keyboard.reaction.react = false;
+		config.keyboard.reaction.next = true;
 	} else if ( value === "static" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = true;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = false;
+		config.keyboard.reaction.off = false;
+		config.keyboard.reaction.static = true;
+		config.keyboard.reaction.react = false;
+		config.keyboard.reaction.next = false;
 	} else if ( value === "react" ) {
-		Config.keyboard.reaction.off = false;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = true;
-		Config.keyboard.reaction.next = false;
+		config.keyboard.reaction.off = false;
+		config.keyboard.reaction.static = false;
+		config.keyboard.reaction.react = true;
+		config.keyboard.reaction.next = false;
 	} else {
-		Config.keyboard.reaction.off = true;
-		Config.keyboard.reaction.static = false;
-		Config.keyboard.reaction.react = false;
-		Config.keyboard.reaction.next = false;
+		config.keyboard.reaction.off = true;
+		config.keyboard.reaction.static = false;
+		config.keyboard.reaction.react = false;
+		config.keyboard.reaction.next = false;
 	}
 }
 
 // keyboard emulate
 export function changeKeyboardLayoutEmulateInConfig(value) {
 	if ( value === "on" ) {
-		Config.keyboard.layout.emulate = true;
+		config.keyboard.layout.emulate = true;
 	}	else {
-		Config.keyboard.layout.emulate = false;
+		config.keyboard.layout.emulate = false;
 	}
 }
 
 // dynamic setting
 export function changeDynamicSettingsInConfig(value) {
 	if ( value === "off" ) {
-		Config.website.setting.dynamic = false;
+		config.website.setting.dynamic = false;
 	} else {
-		Config.website.setting.dynamic = true;
+		config.website.setting.dynamic = true;
 	}
 }
 
 // website theme
 export function changeWebsiteThemeInConfig(value) {
-	Config.website.theme = value;
+	config.website.theme = value;
 }
 
 // tape mode
 export function changeTapeModeInConfig(value) {
 	if ( value === "letter" ) {
-		Config.tape.off = false;
-		Config.tape.mode.letter = true;
-		Config.tape.mode.word = false;
+		config.tape.off = false;
+		config.tape.mode.letter = true;
+		config.tape.mode.word = false;
 	} else if ( value === "word" ) {
-		Config.tape.off = false;
-		Config.tape.mode.letter = false;
-		Config.tape.mode.word = true;
+		config.tape.off = false;
+		config.tape.mode.letter = false;
+		config.tape.mode.word = true;
 	} else {
-		Config.tape.off = true;
-		Config.tape.mode.letter = false;
-		Config.tape.mode.word = false;
+		config.tape.off = true;
+		config.tape.mode.letter = false;
+		config.tape.mode.word = false;
 	}
 }
 
 // text input
 export function changeTextInputInConfig(value) {
 	if ( value === "visible" ) {
-		Config.text.input.hidden = false;
-		Config.text.input.visible = true;
+		config.text.input.hidden = false;
+		config.text.input.visible = true;
 	} else {
-		Config.text.input.hidden = true;
-		Config.text.input.visible = false;
+		config.text.input.hidden = true;
+		config.text.input.visible = false;
 	}
 }
 
 // text highlight
 export function changeTextHightlightInConfig(value) {
 	if ( value === "word" ) {
-		Config.text.highlight.off = false;
-		Config.text.highlight.mode.letter = false;
-		Config.text.highlight.mode.word = true;
+		config.text.highlight.off = false;
+		config.text.highlight.mode.letter = false;
+		config.text.highlight.mode.word = true;
 	}	else if ( value === "letter" ) {
-		Config.text.highlight.off = false;
-		Config.text.highlight.mode.letter = true;
-		Config.text.highlight.mode.word = false;
+		config.text.highlight.off = false;
+		config.text.highlight.mode.letter = true;
+		config.text.highlight.mode.word = false;
 	} else {
-		Config.text.highlight.off = true;
-		Config.text.highlight.mode.letter = false;
-		Config.text.highlight.mode.word = false;
+		config.text.highlight.off = true;
+		config.text.highlight.mode.letter = false;
+		config.text.highlight.mode.word = false;
 	}
 }
 
 // flip text highlight
 export function changeFlipTextHightlightInConfig(value) {
 	if ( value === "on" ) {
-		Config.text.highlight.flip = true;
+		config.text.highlight.flip = true;
 	} else {
-		Config.text.highlight.flip = false;
+		config.text.highlight.flip = false;
 	}
 }
 
 // text underline
 export function changeTextUnderlineInConfig(value) {
- if ( value === "off" ) {
-	Config.text.underline = false;
- } else {
-	 Config.text.underline = true;
- }
+	if ( value === "off" ) {
+		config.text.underline = false;
+	} else {
+		config.text.underline = true;
+	}
 }
 
 // text whitespace
 export function changeTextWhitespaceInConfig(value) {
 	if ( value === "bullet" ) {
-		Config.text.whitespace.off = false;
-		Config.text.whitespace.type.bullet = true;
-		Config.text.whitespace.type.space = false;
-		Config.text.whitespace.type.bar = false;
-		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bullet.dataset.code);
-		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bullet.dataset.character);
+		config.text.whitespace.off = false;
+		config.text.whitespace.type.bullet = true;
+		config.text.whitespace.type.space = false;
+		config.text.whitespace.type.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bullet.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bullet.dataset.character);
 	} else if ( value === "bar" ) {
-		Config.text.whitespace.off = false;
-		Config.text.whitespace.type.bullet = false;
-		Config.text.whitespace.type.space = false;
-		Config.text.whitespace.type.bar = true;
-		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bar.dataset.code);
-		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bar.dataset.character);
+		config.text.whitespace.off = false;
+		config.text.whitespace.type.bullet = false;
+		config.text.whitespace.type.space = false;
+		config.text.whitespace.type.bar = true;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bar.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bar.dataset.character);
 	} else if ( value === "space" ) {
-		Config.text.whitespace.off = false;
-		Config.text.whitespace.type.bullet = false;
-		Config.text.whitespace.type.space = true;
-		Config.text.whitespace.type.bar = false;
-		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.space.dataset.code);
-		Config.text.whitespace.character = String(SettingsElement.textWhitespace.type.space.dataset.character);
+		config.text.whitespace.off = false;
+		config.text.whitespace.type.bullet = false;
+		config.text.whitespace.type.space = true;
+		config.text.whitespace.type.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.space.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.space.dataset.character);
 	} else {
-		Config.text.whitespace.off = true;
-		Config.text.whitespace.type.bullet = false;
-		Config.text.whitespace.type.space = false;
-		Config.text.whitespace.type.bar = false;
-		Config.text.whitespace.code = Number(SettingsElement.textWhitespace.off.dataset.code);
-		Config.text.whitespace.character = String(SettingsElement.textWhitespace.off.dataset.character);
+		config.text.whitespace.off = true;
+		config.text.whitespace.type.bullet = false;
+		config.text.whitespace.type.space = false;
+		config.text.whitespace.type.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespace.off.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespace.off.dataset.character);
 	}
 }
 
 // strict space
 export function changeStrictSpaceInConfig(value) {
 	if ( value === "off" ) {
-		Config.strictspace = false;
+		config.strictspace = false;
 	} else {
-		Config.strictspace = true;
+		config.strictspace = true;
 	}
 }
 
 // quick end
 export function changeQuickEndInConfig(value) {
 	if ( value === "off" ) {
-		Config.quickend = false;
+		config.quickend = false;
 	} else {
-		Config.quickend = true;
+		config.quickend = true;
 	}
 }
 
 // test difficulty
 export function changeDifficultyInConfig(value) {
 	if ( value === "expert" ) {
-		Config.difficulty.ease = false;
-		Config.difficulty.expert = true;
-		Config.difficulty.master = false;
+		config.difficulty.ease = false;
+		config.difficulty.expert = true;
+		config.difficulty.master = false;
 	} else if ( value === "master" ) {
-		Config.difficulty.ease = false;
-		Config.difficulty.expert = false;
-		Config.difficulty.master = true;
+		config.difficulty.ease = false;
+		config.difficulty.expert = false;
+		config.difficulty.master = true;
 	} else {
-		Config.difficulty.ease = true;
-		Config.difficulty.expert = false;
-		Config.difficulty.master = false;
+		config.difficulty.ease = true;
+		config.difficulty.expert = false;
+		config.difficulty.master = false;
 	}
 }
 
 // confidence
 export function changeConfidenceInConfig(value) {
 	if ( value === "high" ) {
-		Config.confidence.low = false;
-		Config.confidence.high = true;
-		Config.confidence.peak = false;
+		config.confidence.low = false;
+		config.confidence.high = true;
+		config.confidence.peak = false;
 	}	else if ( value === "peak" ) {
-		Config.confidence.low = false;
-		Config.confidence.high = false;
-		Config.confidence.peak = true;
+		config.confidence.low = false;
+		config.confidence.high = false;
+		config.confidence.peak = true;
 	} else {
-		Config.confidence.low = true;
-		Config.confidence.high = false;
-		Config.confidence.peak = false;
+		config.confidence.low = true;
+		config.confidence.high = false;
+		config.confidence.peak = false;
 	}
 }
 
 // backspace key
 export function changeBackspaceKeyInConfig(value) {
 	if ( value === "on" ) {
-		Config.backspace.off = false;
+		config.backspace.off = false;
 	} else {
-		Config.backspace.off = true;
+		config.backspace.off = true;
 	}
 }
 
 // delete correct word
 export function changeBackspaceAllowedOnCorrectWordInConfig(value) {
 	if ( value === "off" ) {
-		Config.backspace.allowedOnCorrectWord = false;
+		config.backspace.allowedOnCorrectWord = false;
 	} else {
-		Config.backspace.allowedOnCorrectWord = true;
+		config.backspace.allowedOnCorrectWord = true;
 	}
 }
 
@@ -219,23 +219,23 @@ export function changeBackspaceAllowedOnCorrectWordInConfig(value) {
 export function changeModifierKeyInConfig() {
 	// alt
 	if ( SettingsElement.modifier.alt.checked ) {
-		Config.backspace.modifier.alt = true;
+		config.backspace.modifier.alt = true;
 	} else {
-		Config.backspace.modifier.alt = false;
+		config.backspace.modifier.alt = false;
 	}
 
 	// ctrl
 	if ( SettingsElement.modifier.ctrl.checked ) {
-		Config.backspace.modifier.ctrl = true;
+		config.backspace.modifier.ctrl = true;
 	} else {
-		Config.backspace.modifier.ctrl = false;
+		config.backspace.modifier.ctrl = false;
 	}
 
 	// meta
 	if ( SettingsElement.modifier.meta.checked ) {
-		Config.backspace.modifier.meta = true;
+		config.backspace.modifier.meta = true;
 	} else {
-		Config.backspace.modifier.meta = false;
+		config.backspace.modifier.meta = false;
 	}
 }
 
@@ -243,30 +243,30 @@ export function changeModifierKeyInConfig() {
 export function changeWarningsInConfig() {
 	// capslock
 	if ( SettingsElement.warnings.capslock.checked ) {
-		Config.warnings.capslock = true;
+		config.warnings.capslock = true;
 	} else {
-		Config.warnings.capslock = false;
+		config.warnings.capslock = false;
 	}
 
 	// numlock
 	if ( SettingsElement.warnings.numlock.checked ) {
-		Config.warnings.numlock = true;
+		config.warnings.numlock = true;
 	} else {
-		Config.warnings.numlock = false;
+		config.warnings.numlock = false;
 	}
 	
 	// scrolllock
 	if ( SettingsElement.warnings.scrolllock.checked ) {
-		Config.warnings.scrolllock = true;
+		config.warnings.scrolllock = true;
 	} else {
-		Config.warnings.scrolllock = false;
+		config.warnings.scrolllock = false;
 	}
 
 	// focusout
 	if ( SettingsElement.warnings.focusout.checked ) {
-		Config.warnings.focusout = true;
+		config.warnings.focusout = true;
 	} else {
-		Config.warnings.focusout = false;
+		config.warnings.focusout = false;
 	}
 }
 
@@ -274,23 +274,23 @@ export function changeWarningsInConfig() {
 export function changeLiveStatsInConfig() {
 	// speed
 	if ( SettingsElement.stats.live.speed.checked ) {
-		Config.stats.live.speed = true;
+		config.stats.live.speed = true;
 	} else {
-		Config.stats.live.speed = false;
+		config.stats.live.speed = false;
 	}
 
 	// accuracy
 	if ( SettingsElement.stats.live.accuracy.checked ) {
-		Config.stats.live.accuracy = true;
+		config.stats.live.accuracy = true;
 	} else {
-		Config.stats.live.accuracy = false;
+		config.stats.live.accuracy = false;
 	}
 
 	// burst
 	if ( SettingsElement.stats.live.burst.checked ) {
-		Config.stats.live.burst = true;
+		config.stats.live.burst = true;
 	} else {
-		Config.stats.live.burst = false;
+		config.stats.live.burst = false;
 	}
 }
 
@@ -298,111 +298,111 @@ export function changeLiveStatsInConfig() {
 export function changeTextIncludeInConfig() {
 	// digit
 	if ( SettingsElement.textInclude.digit.checked ) {
-		Config.text.include.digit = true;
+		config.text.include.digit = true;
 	} else {
-		Config.text.include.digit = false;
+		config.text.include.digit = false;
 	}
 
 	// punctuation
 	if ( SettingsElement.textInclude.punctuation.checked ) {
-		Config.text.include.punctuation = true;
+		config.text.include.punctuation = true;
 	} else {
-		Config.text.include.punctuation = false;
+		config.text.include.punctuation = false;
 	}
 }
 
 // error
 export function changeErrorInConfig(value) {
 	if ( value === "skip" ) {
-		Config.error.off = false;
-		Config.error.insert = false;
-		Config.error.skip = true;
-		Config.error.replace = false;
+		config.error.off = false;
+		config.error.insert = false;
+		config.error.skip = true;
+		config.error.replace = false;
 	}	else if ( value === "replace" ) {
-		Config.error.off = false;
-		Config.error.insert = false;
-		Config.error.skip = false;
-		Config.error.replace = true;
+		config.error.off = false;
+		config.error.insert = false;
+		config.error.skip = false;
+		config.error.replace = true;
 	} else if ( value === "insert" ) {
-		Config.error.off = false;
-		Config.error.insert = true;
-		Config.error.skip = false;
-		Config.error.replace = false;
+		config.error.off = false;
+		config.error.insert = true;
+		config.error.skip = false;
+		config.error.replace = false;
 	} else {
-		Config.error.off = true;
-		Config.error.insert = false;
-		Config.error.skip = false;
-		Config.error.replace = false;
+		config.error.off = true;
+		config.error.insert = false;
+		config.error.skip = false;
+		config.error.replace = false;
 	}
 }
 
 // forgive error
 export function changeForgiveErrorInConfig(value) {
 	if ( value === "on" ) {
-		Config.error.forgive = true;
+		config.error.forgive = true;
 	} else {
-		Config.error.forgive = false;
+		config.error.forgive = false;
 	}
 }
 
 // stop on error
 export function changeStopOnErrorInConfig(value) {
 	if ( value === "letter" ) {
-		Config.error.stop.off = false;
-		Config.error.stop.letter = true;
-		Config.error.stop.word = false;
+		config.error.stop.off = false;
+		config.error.stop.letter = true;
+		config.error.stop.word = false;
 	} else if ( value === "word" ) {
-		Config.error.stop.off = false;
-		Config.error.stop.letter = false;
-		Config.error.stop.word = true;
+		config.error.stop.off = false;
+		config.error.stop.letter = false;
+		config.error.stop.word = true;
 	} else {
-		Config.error.stop.off = true;
-		Config.error.stop.letter = false;
-		Config.error.stop.word = false;
+		config.error.stop.off = true;
+		config.error.stop.letter = false;
+		config.error.stop.word = false;
 	}
 }
 
 // opposite shift mode
 export function changeOppositeShiftModeInConfig(value) {
 	if ( value === "on" ) {
-		Config.oppositeshift = true;
+		config.oppositeshift = true;
 	} else {
-		Config.oppositeshift = false;
+		config.oppositeshift = false;
 	}
 }
 
 // minimum speed
 export function changeMinimumSpeedInConfig(value) {
 	if ( value === "on" ) {
-		Config.minimum.speed.off = false;
+		config.minimum.speed.off = false;
 	} else {
-		Config.minimum.speed.off = true;
+		config.minimum.speed.off = true;
 	}
 }
 
 // minimum accuracy
 export function changeMinimumAccuracyInConfig(value) {
 	if ( value === "on" ) {
-		Config.minimum.accuracy.off = false;
+		config.minimum.accuracy.off = false;
 	} else {
-		Config.minimum.accuracy.off = true;
+		config.minimum.accuracy.off = true;
 	}
 }
 
 // minimum burst
 export function changeMinimumBurstInConfig(value) {
 	if ( value === "fixed" ) {
-		Config.minimum.burst.off = false;
-		Config.minimum.burst.option.fixed = true;
-		Config.minimum.burst.option.flex = false;
+		config.minimum.burst.off = false;
+		config.minimum.burst.option.fixed = true;
+		config.minimum.burst.option.flex = false;
 	} else if ( value === "flex" ) {
-		Config.minimum.burst.off = false;
-		Config.minimum.burst.option.fixed = false;
-		Config.minimum.burst.option.flex = true;
+		config.minimum.burst.off = false;
+		config.minimum.burst.option.fixed = false;
+		config.minimum.burst.option.flex = true;
 	} else {
-		Config.minimum.burst.off = true;
-		Config.minimum.burst.option.fixed = false;
-		Config.minimum.burst.option.flex = false;
+		config.minimum.burst.off = true;
+		config.minimum.burst.option.fixed = false;
+		config.minimum.burst.option.flex = false;
 	}
 }
 
@@ -411,19 +411,19 @@ export function changeTextWordCountInConfig(value) {
   if ( value === "custom" ) {
 		// -2 will be the value for custom input when custom button is clicked but value 
 		// is not yet entered in input field
-		Config.text.word.count = -2; // -2 (custom)
+		config.text.word.count = -2; // -2 (custom)
 	} else if ( value === "off" ) {
-		Config.text.word.count = -1; // -1 (off)
+		config.text.word.count = -1; // -1 (off)
 	} else if ( value === "infinite" ) {
-		Config.text.word.count = 0; // 0 (infinite)
+		config.text.word.count = 0; // 0 (infinite)
 	} else if ( value === "10" ) {
-		Config.text.word.count = 10;
+		config.text.word.count = 10;
 	} else if ( value === "25" ) {
-		Config.text.word.count = 25;
+		config.text.word.count = 25;
 	} else if ( value === "50" ) {
-		Config.text.word.count = 50;
+		config.text.word.count = 50;
 	} else if ( value === "100" ) {
-		Config.text.word.count = 100;
+		config.text.word.count = 100;
 	}
 }
 
@@ -432,112 +432,112 @@ export function changeTimerSecondsInConfig(value) {
 	if ( value === "custom" ) {
 		// -2 will be the value for custom input when custom button is active but value 
 		// is not yet entered in input field
-		Config.stats.timer.time = -2; // -2 (custom)
+		config.stats.timer.time = -2; // -2 (custom)
 	} else if ( value === "off" ) {
-		Config.stats.timer.time = -1; // -1 (off)
+		config.stats.timer.time = -1; // -1 (off)
 	} else if ( value === "infinite" ) {
-		Config.stats.timer.time = 0; // 0 (infinite)
+		config.stats.timer.time = 0; // 0 (infinite)
 	} else if ( value === "15" ) {
-		Config.stats.timer.time = 15;
+		config.stats.timer.time = 15;
 	} else if ( value === "30" ) {
-		Config.stats.timer.time = 30;
+		config.stats.timer.time = 30;
 	} else if ( value === "60" ) {
-		Config.stats.timer.time = 60;
+		config.stats.timer.time = 60;
 	} else if ( value === "120" ) {
-		Config.stats.timer.time = 120;
+		config.stats.timer.time = 120;
 	}
 }
 
 // timer visibility
 export function changeTimerVisibilityInConfig(value) {
 	if ( value === "on" ) {
-		Config.stats.timer.hidden = true;
+		config.stats.timer.hidden = true;
 	} else {
-		Config.stats.timer.hidden = false;
+		config.stats.timer.hidden = false;
 	}
 }
 
 export function changePaceCaretSpeedInConfig(value) {
 	if ( value === "last" ) {
-		Config.pacecaret.off = false;
-		Config.pacecaret.speed.last = true;
-		Config.pacecaret.speed.average = false;
-		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = true;
+		config.pacecaret.off = false;
+		config.pacecaret.speed.last = true;
+		config.pacecaret.speed.average = false;
+		config.pacecaret.speed.best = false;
+		config.pacecaret.speed.custom.off = true;
 	}	else if ( value === "average" ) {
-		Config.pacecaret.off = false;
-		Config.pacecaret.speed.last = false;
-		Config.pacecaret.speed.average = true;
-		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = true;
+		config.pacecaret.off = false;
+		config.pacecaret.speed.last = false;
+		config.pacecaret.speed.average = true;
+		config.pacecaret.speed.best = false;
+		config.pacecaret.speed.custom.off = true;
 	} else if ( value === "best" ) {
-		Config.pacecaret.off = false;
-		Config.pacecaret.speed.last = false;
-		Config.pacecaret.speed.average = false;
-		Config.pacecaret.speed.best = true;
-		Config.pacecaret.speed.custom.off = true;
+		config.pacecaret.off = false;
+		config.pacecaret.speed.last = false;
+		config.pacecaret.speed.average = false;
+		config.pacecaret.speed.best = true;
+		config.pacecaret.speed.custom.off = true;
 	} else if ( value === "custom" ) {
-		Config.pacecaret.off = false;
-		Config.pacecaret.speed.last = false;
-		Config.pacecaret.speed.average = false;
-		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = false;
+		config.pacecaret.off = false;
+		config.pacecaret.speed.last = false;
+		config.pacecaret.speed.average = false;
+		config.pacecaret.speed.best = false;
+		config.pacecaret.speed.custom.off = false;
 	} else {
-		Config.pacecaret.off = true;
-		Config.pacecaret.speed.last = false;
-		Config.pacecaret.speed.average = false;
-		Config.pacecaret.speed.best = false;
-		Config.pacecaret.speed.custom.off = true;
+		config.pacecaret.off = true;
+		config.pacecaret.speed.last = false;
+		config.pacecaret.speed.average = false;
+		config.pacecaret.speed.best = false;
+		config.pacecaret.speed.custom.off = true;
 	}	
 }
 
 export function changeUseFloatsInConfig(value) {
 	if ( value === "on" ) {
-		Config.stats.usefloats = true;
+		config.stats.usefloats = true;
 	} else {
-		Config.stats.usefloats = false;
+		config.stats.usefloats = false;
 	}
 }
 
 export function changeSpeedUnitInConfig(value) {
 	if ( value === "cpm" ) {
-		SettingsElement.stats.unit.cpm.id = "selected";
-		SettingsElement.stats.unit.wpm.id = "";
+		config.stats.unit.cpm = true;
+		config.stats.unit.wpm = false;
 	} else {
-		SettingsElement.stats.unit.cpm.id = "";
-		SettingsElement.stats.unit.wpm.id = "selected";
+		config.stats.unit.cpm = false;
+		config.stats.unit.wpm = true;
 	}
 }
 
 export function changeLiveStatsCalcIntervalInConfig(value) {
 	if ( value === "word" ) {
-		Config.stats.calcInterval.word = true;
-		Config.stats.calcInterval.keystroke = false;
-		Config.stats.calcInterval.second = false;
+		config.stats.calcInterval.word = true;
+		config.stats.calcInterval.keystroke = false;
+		config.stats.calcInterval.second = false;
 	} else if ( value === "second" ) {
-		Config.stats.calcInterval.word = false;
-		Config.stats.calcInterval.keystroke = false;
-		Config.stats.calcInterval.second = true;
+		config.stats.calcInterval.word = false;
+		config.stats.calcInterval.keystroke = false;
+		config.stats.calcInterval.second = true;
 	} else {
-		Config.stats.calcInterval.word = false;
-		Config.stats.calcInterval.keystroke = true;
-		Config.stats.calcInterval.second = false;
+		config.stats.calcInterval.word = false;
+		config.stats.calcInterval.keystroke = true;
+		config.stats.calcInterval.second = false;
 	}
 }
 
 export function changeCaretStyleInConfig(value) {
-	Config.caret.style = value;
+	config.caret.style = value;
 }
 
 export function changePaceCaretStyleInConfig(value) {
-	Config.pacecaret.style = value;
+	config.pacecaret.style = value;
 }
 
 export function changeBlindModeInConfig(value) {
 	if ( value === "on" ) {
-		Config.blind = true;
+		config.blind = true;
 	} else {
-		Config.blind = false;
+		config.blind = false;
 	}
 }
 

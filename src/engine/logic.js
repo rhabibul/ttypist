@@ -1,4 +1,4 @@
-import Config from "../../include/config.js";
+import { config } from "../../include/config.js";
 import * as CaretController from "../controllers/caret.js";
 import * as TestAreaElements from "../elements/test-element.js";
 import * as Misc from "../utils/misc.js";
@@ -30,7 +30,7 @@ export function registerkeydown(evt) {
 
 		word.activeletter.classList.add("correct");
 		
-		if ( !Config.text.highlight.flip ) {
+		if ( !config.text.highlight.flip ) {
 			word.activeletter.classList.remove("ws-active");
 		} else {
 			word.activeletter.classList.add("ws-active");
@@ -40,14 +40,14 @@ export function registerkeydown(evt) {
 		
 		CaretController.removecaretfrom(word.activeletter);
 
-		if ( Config.text.underline && (text.activewordindex > 0) ) {
+		if ( config.text.underline && (text.activewordindex > 0) ) {
 			removeunderline(text.prevword);
 			text.incrementwordindex();
 		}
 
 		word.loadword(text.nextword, { nextword: true });
 		
-		if ( Config.text.underline ) {
+		if ( config.text.underline ) {
 			addunderline(word.me());
 		}
 		CaretController.addcaretto(word.activeletter);
@@ -57,7 +57,7 @@ export function registerkeydown(evt) {
 		CaretController.removecaretfrom(word.activeletter);
 		word.activeletter.classList.add("correct");
 
-		if ( Config.text.underline ) {
+		if ( config.text.underline ) {
 			word.activeletter.style["text-decoration-color"] = "var(--text-secondary-color)";
 		}
 
@@ -73,7 +73,7 @@ export function registerkeydown(evt) {
 					CaretController.addcaretto(word.activeletter);
 				}	
 
-				if ( !Config.text.highlight.flip ) { 
+				if ( !config.text.highlight.flip ) { 
 					word.activeletter.classList.add("ws-active");
 				}
 
@@ -135,14 +135,14 @@ export function registerkeydown(evt) {
 			if ( word.activeletterindex > 0 ) {
 
 				word.activeletter.classList.remove("correct");
-				if ( Config.text.underline ) {
+				if ( config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.removecaretfrom(word.activeletter);
 				CaretController.addcaretto(word.prevletter);
 
 				word.activeletter.classList.remove("correct");
-				if ( Config.text.underline ) {
+				if ( config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				
@@ -152,27 +152,27 @@ export function registerkeydown(evt) {
 				removeunderline(text.activeword);
 				word.loadword(text.prevword, { prevword: true });
 				
-				if ( Config.text.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
+				if ( config.text.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
 					text.decrementwordindex();
 					addunderline(text.activeword);
 					text.incrementwordindex();
 				}
 				word.activeletter.classList.remove("correct");
-				if ( Config.text.underline ) {
+				if ( config.text.underline ) {
 					word.activeletter.style["text-decoration-color"] = "var(--text-primary-color)";
 				}
 				CaretController.addcaretto(word.activeletter);
 			}
 		}
 	} else { // error handling
-		if ( Config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
+		if ( config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
 			CaretController.removecaretfrom(word.activeletter);
 			removeunderline(word.me());
 
 			word.loadword(text.nextword, { nextword: true });
 			word.loadword(text.nextword, { nextword: true });
 			
-			if ( Config.text.underline ) {
+			if ( config.text.underline ) {
 				addunderline(text.activeword);
 			}
 			CaretController.addcaretto(word.activeletter);	

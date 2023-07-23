@@ -1,4 +1,4 @@
-import Config from "../../include/config.js";
+import { config } from "../../include/config.js";
 import * as TestAreaElements from "../elements/test-element.js";
 // import w3k from "../../static/texts/words/w3k.js";
 import w1k from "../../static/texts/words/w1k.js";
@@ -33,8 +33,8 @@ export function totalchar() {
 export function randomwords() {
   // modify the string here with all config options like capitalizations of letters
   // word type, word length, word count etc
-  let words = new Array(Config.text.word.count);
-  for (let i = 0; i < Config.text.word.count; ++i) {
+  let words = new Array(config.text.word.count);
+  for (let i = 0; i < config.text.word.count; ++i) {
     // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
     words[i] = w1k[Math.floor(Math.random() * w1k.length)];
     // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
@@ -54,28 +54,28 @@ export function wordelements(s) {
     for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
       letter.textContent = s[i][j];
-      letter.classList.add(Config.caret.style);
+      letter.classList.add(config.caret.style);
       word.appendChild(letter);
     }
 
     wordarray.push(word);
 
-    if ( !Config.endwithspace && (i === s.length - 1) ) return wordarray;
+    if ( config.quickend && (i === s.length - 1) ) return wordarray;
 
     // create a word which will only contain a letter with whitespace in it
     word = document.createElement("word");
     letter = document.createElement("letter");    
 
-    letter.classList.add(Config.caret.style);
+    letter.classList.add(config.caret.style);
     letter.classList.add("whitespace");
     
-    if ( Config.text.whitespace.type.bullet ) {
+    if ( config.text.whitespace.type.bullet ) {
       letter.classList.add("bullet");
       letter.innerHTML = "&nbsp;";
-    } else if ( Config.text.whitespace.type.bar ) {
+    } else if ( config.text.whitespace.type.bar ) {
       letter.classList.add("bar");
       letter.innerHTML = "␣";
-    } else if ( Config.text.whitespace.type.space ) {
+    } else if ( config.text.whitespace.type.space ) {
       letter.classList.add("space");
       letter.innerHTML = "&nbsp;";
     } else {
@@ -103,8 +103,8 @@ export function autotyper(wpm, till = -1) {
 	}
 	id = setInterval(() => {
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
-		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", {key: s[i]}));
-		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keyup", {key: s[i]}));
+		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", { key: s[i] }));
+		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keyup",   { key: s[i] }));
 		++i;
 		if ( i == s.length ) clearInterval(id);
 	}, interval);

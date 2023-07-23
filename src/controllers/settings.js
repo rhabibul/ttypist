@@ -250,7 +250,7 @@ SettingsElement.textWordLength.long.addEventListener("click", updateTextWordLeng
 // text word length
 function updateTextWordLength(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (this.value === "off" && config.text.word.length === "off") && (this.value === "short" && config.text.word.length === "short") && (this.value === "medium" && config.text.word.length === "medium") && (this.value === "long" && config.text.word.length === "long") ) return;
+	if ( (this.value === "off" && config.text.word.length === "off") || (this.value === "short" && config.text.word.length === "short") || (this.value === "medium" && config.text.word.length === "medium") || (this.value === "long" && config.text.word.length === "long") ) return;
 
 	SettingChangeInUI.changeTextWordLengthInUI(this.value);
 	SettingChangeInConfig.changeTextWordLengthInConfig(this.value);
@@ -670,19 +670,19 @@ function updateBlindMode(evt) {
 // opposite shift mode (s2)
 function updateOppositeShiftMode(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.oppositeshift && this.value === "on") || (!Config.oppositeshift && this.value === "off") ) return;
+	if ( (config.oppositeshift && this.value === "on") || (!config.oppositeshift && this.value === "off") ) return;
 
 	SettingChangeInUI.changeOppositeShiftModeInUI(this.value);
 	SettingChangeInConfig.changeOppositeShiftModeInConfig(this.value);
 
 	// debug
-	console.log("oppositeShift:", Config.oppositeshift);
+	console.log("oppositeShift:", config.oppositeshift);
 }
 
 // minimum speed (s3)
 function updateMinimumSpeed(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.minimum.speed.off && this.value === "off") || (!Config.minimum.speed.off && this.value === "on") ) return;
+	if ( (config.minimum.speed.off && this.value === "off") || (!config.minimum.speed.off && this.value === "on") ) return;
 
 	SettingChangeInUI.changeMinimumSpeedInUI(this.value);
 	SettingChangeInConfig.changeMinimumSpeedInConfig(this.value);
@@ -695,7 +695,7 @@ function updateMinimumSpeed(evt) {
 	}
 
 	// debug
-	console.log("minSpeed:", Config.minimum.speed.off);
+	console.log("minSpeed:", config.minimum.speed.off);
 }
 
 // minimum speed threashold input (s1)
@@ -707,10 +707,10 @@ function updateMinimumSpeedThresholdInput(evt) {
 		SettingChangeInUI.changeMinimumSpeedInUI("on");
 		SettingChangeInConfig.changeMinimumSpeedInConfig("on");
 	}
-	Config.minimum.speed.threshold = Number(this.value); // update in config
+	config.minimum.speed.threshold = Number(this.value); // update in config
 
 	// debug
-	console.log("minSpeedThreshold:", Config.minimum.speed.threshold);
+	console.log("minSpeedThreshold:", config.minimum.speed.threshold);
 }
 
 // minimum speed threshold input (focusout)
@@ -731,7 +731,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 // minimum accuracy (s3)
 function updateMinimumAccuracy(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.minimum.accuracy.off && this.value === "off") || (!Config.minimum.accuracy.off && this.value === "on") ) return;
+	if ( (config.minimum.accuracy.off && this.value === "off") || (!config.minimum.accuracy.off && this.value === "on") ) return;
 
 	SettingChangeInUI.changeMinimumAccuracyInUI(this.value);
 	SettingChangeInConfig.changeMinimumAccuracyInConfig(this.value);
@@ -744,7 +744,7 @@ function updateMinimumAccuracy(evt) {
 	}
 
 	// debug
-	console.log("minAccuracy:", Config.minimum.accuracy.off);
+	console.log("minAccuracy:", config.minimum.accuracy.off);
 }
 
 // minimum accuracy threashold input (s1)
@@ -756,10 +756,10 @@ function updateMinimumAccuracyThresholdInput(evt) {
 		SettingChangeInUI.changeMinimumAccuracyInUI("on");
 		SettingChangeInConfig.changeMinimumAccuracyInConfig("on");
 	}
-	Config.minimum.accuracy.threshold = Number(this.value);  // update in config
+	config.minimum.accuracy.threshold = Number(this.value); // update in config
 
 	// debug
-	console.log("minAccuracyThreshold:", Config.minimum.accuracy.threshold);
+	console.log("minAccuracyThreshold:", config.minimum.accuracy.threshold);
 }
 
 // minimum accuracy threshold input (focusout)
@@ -780,7 +780,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 // minimum burst (s3)
 function updateMinimumBurst(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.minimum.burst.off && this.value === "off") || (Config.minimum.burst.option.fixed && this.value === "fixed") || (Config.minimum.burst.option.flex && this.value === "flex") ) return;
+	if ( (config.minimum.burst.off && this.value === "off") || (config.minimum.burst.option.fixed && this.value === "fixed") || (config.minimum.burst.option.flex && this.value === "flex") ) return;
 
 	SettingChangeInUI.changeMinimumBurstInUI(this.value);
 	SettingChangeInConfig.changeMinimumBurstInConfig(this.value);
@@ -793,7 +793,7 @@ function updateMinimumBurst(evt) {
 	}
 
 	// debug
-	console.log("minBurst:", Config.minimum.burst.off, Config.minimum.burst.option.fixed, Config.minimum.burst.option.flex);
+	console.log("minBurst:", config.minimum.burst.off, config.minimum.burst.option.fixed, config.minimum.burst.option.flex);
 }
 
 // minimum burst threashold input (s1)
@@ -806,10 +806,10 @@ function updateMinimumBurstThresholdInput(evt) {
 		SettingChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
-	Config.minimum.burst.threshold = Number(this.value);  // update in config
+	config.minimum.burst.threshold = Number(this.value);  // update in config
 
 	// debug
-	console.log("minBurstThreshold [input]:", Config.minimum.burst.threshold);
+	console.log("minBurstThreshold [input]:", config.minimum.burst.threshold);
 }
 
 // minimum burst threshold input (focusout)
@@ -830,7 +830,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 // text word count (s5)
 function updateTextWordCount(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.text.word.count === -1 && this.value === "off") || (Config.text.word.count === -2 && this.value === "custom") || (Config.text.word.count === 10 && this.value === "10") || (Config.text.word.count === 25 && this.value === "25") || (Config.text.word.count === 50 && this.value === "50") || (Config.text.word.count === 100 && this.value === "100") ) return;
+	if ( (config.text.word.count === -1 && this.value === "off") || (config.text.word.count === -2 && this.value === "custom") || (config.text.word.count === 10 && this.value === "10") || (config.text.word.count === 25 && this.value === "25") || (config.text.word.count === 50 && this.value === "50") || (config.text.word.count === 100 && this.value === "100") ) return;
 
 	SettingChangeInUI.changeTextWordCountInUI(this.value);
 	SettingChangeInConfig.changeTextWordCountInConfig(this.value);
@@ -854,7 +854,7 @@ function updateTextWordCount(evt) {
 	}
 
 	// debug
-	console.log("numberOfWords:", Config.text.word.count);
+	console.log("numberOfWords:", config.text.word.count);
 }
 
 // text word count input (s1)
@@ -868,10 +868,10 @@ function updateTextWordCountInputField(evt) {
 	}
 
 	 // update in config (i.e, override -2 initial value)
-	Config.text.word.count = Number(this.value);
+	config.text.word.count = Number(this.value);
 
 	// debug
-	console.log("numberOfWords [input]:", Config.text.word.count);
+	console.log("numberOfWords [input]:", config.text.word.count);
 }
 
 // text word count input - focusout (s1)
@@ -899,7 +899,7 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 	}
 
 	// currently more than 150 words is not allowed in custom input field
-	if ( Config.text.word.count > 150 ) {
+	if ( config.text.word.count > 150 ) {
 		SettingChangeInUI.changeTextWordCountInUI("100");
 		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
@@ -913,7 +913,7 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 // timer seconds (s5)
 function updateTimerSeconds(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.timer.time === -2 && this.value === "custom") || (Config.stats.timer.time === -1 && this.value === "off") || (Config.stats.timer.time === 15 && this.value === "15") || (Config.stats.timer.time === 30 && this.value === "30") || (Config.stats.timer.time === 60 && this.value === "60") || (Config.stats.timer.time === 120 && this.value === "120") ) return;
+	if ( (config.stats.timer.time === -2 && this.value === "custom") || (config.stats.timer.time === -1 && this.value === "off") || (config.stats.timer.time === 15 && this.value === "15") || (config.stats.timer.time === 30 && this.value === "30") || (config.stats.timer.time === 60 && this.value === "60") || (config.stats.timer.time === 120 && this.value === "120") ) return;
 
 	SettingChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingChangeInConfig.changeTimerSecondsInConfig(this.value);
@@ -937,7 +937,7 @@ function updateTimerSeconds(evt) {
 	}
 
 	// debug
-	console.log("numberOfSeconds:", Config.stats.timer.time);
+	console.log("numberOfSeconds:", config.stats.timer.time);
 }
 
 // timer custom seconds input (s1)
@@ -949,10 +949,10 @@ function updateTimerSecondsInputField(evt) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	Config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
+	config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
 
 	// debug
-	console.log("numberOfSeconds [input]:", Config.stats.timer.time);
+	console.log("numberOfSeconds [input]:", config.stats.timer.time);
 }
 
 // timer custom seconds input - focusout (s1)
@@ -977,19 +977,19 @@ function updateTimerSecondsInputFieldOnFocusOut(evt) {
 // timer visibility (s2)
 function updateTimerVisibilityInUI(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.timer.hidden && this.value === "on") || (!Config.stats.timer.hidden && this.value === "off") ) return;
+	if ( (config.stats.timer.hidden && this.value === "on") || (!config.stats.timer.hidden && this.value === "off") ) return;
 
 	SettingChangeInUI.changeTimerVisibilityInUI(this.value);
 	SettingChangeInConfig.changeTimerVisibilityInConfig(this.value);
 
 	// debug
-	console.log("timer.hidden:", Config.stats.timer.hidden);
+	console.log("timer.hidden:", config.stats.timer.hidden);
 }
 
 // pacecaret speed (s5)
 function updatePaceCaretSpeed(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.pacecaret.off && this.value === "off") || (Config.pacecaret.speed.last && this.value === "last") || (Config.pacecaret.speed.average && this.value === "average") || (Config.pacecaret.speed.best && this.value === "best") || (!Config.pacecaret.speed.custom.off && this.value === "custom") ) return;
+	if ( (config.pacecaret.off && this.value === "off") || (config.pacecaret.speed.last && this.value === "last") || (config.pacecaret.speed.average && this.value === "average") || (config.pacecaret.speed.best && this.value === "best") || (!config.pacecaret.speed.custom.off && this.value === "custom") ) return;
 
 	SettingChangeInUI.changePaceCaretSpeedInUI(this.value);
 	SettingChangeInConfig.changePaceCaretSpeedInConfig(this.value);
@@ -1002,7 +1002,7 @@ function updatePaceCaretSpeed(evt) {
 	}
 
 	// debug
-	console.log("paceCaretSpeed:", Config.pacecaret.off, Config.pacecaret.speed.last, Config.pacecaret.speed.average, Config.pacecaret.speed.best, Config.pacecaret.speed.custom.off);
+	console.log("paceCaretSpeed:", config.pacecaret.off, config.pacecaret.speed.last, config.pacecaret.speed.average, config.pacecaret.speed.best, config.pacecaret.speed.custom.off);
 }
 
 // pacecaret speed input (s5)
@@ -1014,10 +1014,10 @@ function updatePaceCaretSpeedInputField(evt) {
 		SettingChangeInUI.changePaceCaretSpeedInUI("custom");
 		SettingChangeInConfig.changePaceCaretSpeedInConfig("custom");
 	}
-	Config.pacecaret.speed.custom.value = Number(this.value); // update in config
+	config.pacecaret.speed.custom.value = Number(this.value); // update in config
 
 	// debug
-	console.log("paceCaretSpeed [input]:", Config.pacecaret.speed.custom.value);
+	console.log("paceCaretSpeed [input]:", config.pacecaret.speed.custom.value);
 }
 
 // pacecaret speed input - focusout (s5)
@@ -1025,7 +1025,7 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "" || this.value === "0") && !Config.pacecaret.speed.custom.off) {
+	if ( (this.value === "" || this.value === "0") && !config.pacecaret.speed.custom.off) {
 
 		if ( this.value === "0" ) { // 0wpm speed for pacecaret is not possible
 			setTimeout(() => {
@@ -1049,7 +1049,7 @@ function updateTextFontSize(evt) {
 
 	css.style.setProperty("--text-font-size", `${this.value}px`);
 	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
-	Config.text.font.size = Number(this.value); // update in config
+	config.text.font.size = Number(this.value); // update in config
 }
 
 // text font weight slider (s1)
@@ -1058,7 +1058,7 @@ function updateTextFontWeight(evt) {
 
 	css.style.setProperty("--text-font-weight", `${this.value}`);
 	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
-	Config.text.font.weight = Number(this.value); // update in config
+	config.text.font.weight = Number(this.value); // update in config
 }
 
 // primary text color picker input field
@@ -1067,7 +1067,7 @@ function updatePrimaryTextColorSelectorInput(evt) {
 
 	css.style.setProperty("--text-primary-color", this.value);
 	SettingsElement.textColor.primary.textInput.value = this.value; // update in text input field for primary color
-	Config.text.color.primary = this.value; // update in config
+	config.text.color.primary = this.value; // update in config
 }
 
 // primary text color text input field
@@ -1076,7 +1076,7 @@ function updatePrimaryTextColorTextInput(evt) {
 
 	css.style.setProperty("--text-primary-color", this.value);
 	SettingsElement.textColor.secondary.selectorInput = this.value; // update in color picker input field for primary color
-	Config.text.color.primary = this.value; // update in config
+	config.text.color.primary = this.value; // update in config
 }
 
 // secondary text color picker input field
@@ -1085,7 +1085,7 @@ function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
 
 	css.style.setProperty("--text-secondary-color", this.value);
 	SettingsElement.textColor.secondary.textInput.value = this.value;  // update in text input field for secondary color
-	Config.text.color.secondary = this.value; // update in config
+	config.text.color.secondary = this.value; // update in config
 }
 
 // secondary text color text input field
@@ -1094,7 +1094,7 @@ function updateSecondaryTextColorTextInput(evt) { // text input (color)
 
 	css.style.setProperty("--text-secondary-color", this.value);
 	SettingsElement.textColor.secondary.selectorInput.value = this.value;
-	Config.text.color.secondary = this.value; // update in config
+	config.text.color.secondary = this.value; // update in config
 }
 
 // caret color selector input field
@@ -1103,7 +1103,7 @@ function updateCaretColorSelectorInput(evt) {
 
 	css.style.setProperty("--caret-color", this.value);
 	SettingsElement.caret.color.textInput.value = this.value;
-	Config.caret.color = this.value; // update in config
+	config.caret.color = this.value; // update in config
 }
 
 // caret color text input field
@@ -1112,7 +1112,7 @@ function updateCaretColorTextInput(evt) {
 
 	css.style.setProperty("--caret-color", this.value);
 	SettingsElement.caret.color.selectorInput.value = this.value;
-	Config.caret.color = this.value; // update in config
+	config.caret.color = this.value; // update in config
 }
 
 // pacecaret color selector input field
@@ -1121,7 +1121,7 @@ function updatePaceCaretColorSelectorInput(evt) {
 
 	css.style.setProperty("--pace-caret-color", this.value);
 	SettingsElement.pacecaret.color.textInput.value = this.value;
-	Config.pacecaret.color = this.value; // update in config
+	config.pacecaret.color = this.value; // update in config
 }
 
 // pacecaret color text input field
@@ -1130,7 +1130,7 @@ function updatePaceCaretColorTextInput(evt) {
 
 	css.style.setProperty("--pace-caret-color", this.value);
 	SettingsElement.pacecaret.color.selectorInput.value = this.value;
-	Config.pacecaret.color = this.value; // update in config
+	config.pacecaret.color = this.value; // update in config
 }
 
 // warnings (s4)
@@ -1140,7 +1140,7 @@ function updateWarnings(evt) {
 	SettingChangeInConfig.changeWarningsInConfig();
 
 	// debug
-	console.log("warning:", Config.warnings.capslock, Config.warnings.numlock, Config.warnings.scrolllock, Config.warnings.focusout);
+	console.log("warning:", config.warnings.capslock, config.warnings.numlock, config.warnings.scrolllock, config.warnings.focusout);
 }
 
 // live stats (s3)
@@ -1150,7 +1150,7 @@ function updateLiveStats(evt) {
 	SettingChangeInConfig.changeLiveStatsInConfig();
 
 	// debug
-	console.log("liveStats:", Config.stats.live.speed, Config.stats.live.accuracy, Config.stats.live.burst);
+	console.log("liveStats:", config.stats.live.speed, config.stats.live.accuracy, config.stats.live.burst);
 }
 
 // text include (s2)
@@ -1160,55 +1160,55 @@ function updateTextInclude(evt) {
 	SettingChangeInConfig.changeTextIncludeInConfig();
 
 	// debug
-	console.log("textInclude:", Config.text.include.digit, Config.text.include.punctuation);
+	console.log("textInclude:", config.text.include.digit, config.text.include.punctuation);
 }
 
 // show decimal places (s2)
 function updateUseFloats(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.usefloats && this.value === "on") || (!Config.stats.usefloats && this.value === "off") ) return;
+	if ( (config.stats.usefloats && this.value === "on") || (!config.stats.usefloats && this.value === "off") ) return;
 
 	SettingChangeInUI.changeUseFloatsInUI(this.value);
 	SettingChangeInConfig.changeUseFloatsInConfig(this.value);
 
 	// debug
-	console.log("useFloats:", !Config.stats.usefloats, Config.stats.usefloats);
+	console.log("useFloats:", !config.stats.usefloats, config.stats.usefloats);
 }
 
 // speed unit (s2)
 function updateSpeedUnit(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.unit.cpm && this.value === "cpm") || (Config.stats.unit.wpm && this.value === "wpm") ) return;
+	if ( (config.stats.unit.cpm && this.value === "cpm") || (config.stats.unit.wpm && this.value === "wpm") ) return;
 
 	SettingChangeInUI.changeSpeedUnitInUI(this.value);
 	SettingChangeInConfig.changeSpeedUnitInConfig(this.value);
 
 	// debug
-	console.log("speedUnit:", Config.stats.unit.cpm, Config.stats.unit.wpm);
+	console.log("speedUnit:", config.stats.unit.cpm, config.stats.unit.wpm);
 }
 
 // live stats interval (s3)
 function updateLiveStatsCalcInterval(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (Config.stats.calcInterval.word && this.value === "word") || (Config.stats.calcInterval.keystroke && this.value === "keystroke") || (Config.stats.calcInterval.second && this.value === "second") ) return;
+	if ( (config.stats.calcInterval.word && this.value === "word") || (config.stats.calcInterval.keystroke && this.value === "keystroke") || (config.stats.calcInterval.second && this.value === "second") ) return;
 
 	SettingChangeInUI.changeLiveStatsCalcIntervalInUI(this.value);
 	SettingChangeInConfig.changeLiveStatsCalcIntervalInConfig(this.value);
 	
 	// debug
-	console.log("liveStatsInterval:", Config.stats.calcInterval.word, Config.stats.calcInterval.keystroke, Config.stats.calcInterval.second);
+	console.log("liveStatsInterval:", config.stats.calcInterval.word, config.stats.calcInterval.keystroke, config.stats.calcInterval.second);
 }
 
 // caret style (s5)
 function updateCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.caret.style ) return;
+	if ( this.value === config.caret.style ) return;
 	
 	// change caret in text
 	for ( const letter of document.getElementsByTagName("letter") ) {
-		letter.classList.remove(Config.caret.style);
+		letter.classList.remove(config.caret.style);
 		letter.classList.add(this.value);
-		if ( letter.id === Config.caret.style ) letter.id = this.value;
+		if ( letter.id === config.caret.style ) letter.id = this.value;
 	}
 	TestAreaElements.input.focus();	
 
@@ -1216,19 +1216,19 @@ function updateCaretStyle(evt) {
 	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
 
 	// debug
-	console.log("caret:", Config.caret.style);
+	console.log("caret:", config.caret.style);
 }
 
 // pacecaret style (s5)
 function updatePaceCaretStyle(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === Config.pacecaret.style ) return;
+	if ( this.value === config.pacecaret.style ) return;
 
 	SettingChangeInUI.changePaceCaretStyleInUI(this.value);
 	SettingChangeInConfig.changePaceCaretStyleInConfig(this.value);
 
 	// debug
-	console.log("pacecaret:", Config.pacecaret.style);
+	console.log("pacecaret:", config.pacecaret.style);
 }
 
 var detclick = false;
@@ -1247,7 +1247,7 @@ det.forEach((detail) => {
 window.document.addEventListener("click", (evt) => {
 	if ( !evt.isTrusted ) return;
 	if ( !detclick ) { det.forEach((dt) => { dt.removeAttribute("open"); }); }
-	detclick = false; // put at last (order matters)
+	detclick = false; // put at last (order matter)
 });
 
 // on esc, close all details
@@ -1309,17 +1309,17 @@ function tickMarkCorrectOption(evt, detail) {
 allDetails.textFontFamily.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === Config.text.font.family ) return;
+		if ( evt.currentTarget.dataset.value === config.text.font.family ) return;
 
-		Config.text.font.family = evt.currentTarget.dataset.value; // update in config
-		allDetails.textFontFamily.inUseTextBox.textContent = Config.text.font.family; // update in ui
-		css.style.setProperty("--text-font-family", Config.text.font.family);
+		config.text.font.family = evt.currentTarget.dataset.value; // update in config
+		allDetails.textFontFamily.inUseTextBox.textContent = config.text.font.family; // update in ui
+		css.style.setProperty("--text-font-family", config.text.font.family);
 		tickMarkCorrectOption(evt, "textFontFamily");
 		
 		TestAreaElements.input.focus();
 
 		// debug
-		console.log("font-family:", Config.text.font.family);
+		console.log("font-family:", config.text.font.family);
 	});
 });
 
@@ -1327,16 +1327,16 @@ allDetails.textFontFamily.items.forEach((item) => {
 allDetails.textWordType.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === Config.text.word.type ) return;
+		if ( evt.currentTarget.dataset.value === config.text.word.type ) return;
 
-		Config.text.word.type = evt.currentTarget.dataset.value; // update in config
-		allDetails.textWordType.inUseTextBox.textContent = Config.text.word.type; // update in ui
+		config.text.word.type = evt.currentTarget.dataset.value; // update in config
+		allDetails.textWordType.inUseTextBox.textContent = config.text.word.type; // update in ui
 		tickMarkCorrectOption(evt, "textWordType");
 		
 		TestAreaElements.input.focus();
 
 		// debug
-		console.log("word-type:", Config.text.word.type);
+		console.log("word-type:", config.text.word.type);
 	});
 });
 
@@ -1345,38 +1345,38 @@ allDetails.textCapitalization.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
 		const value = evt.currentTarget.dataset.value;
-		if ( (value === "off" && Config.text.capitalize.off ) || (value === "randomly" && Config.text.capitalize.randomly) || (value === "first" && Config.text.capitalize.first) || (value === "everyfirst" && Config.text.capitalize.everyfirst) || (value === "untidy" && Config.text.capitalize.untidy) ) return;
+		if ( (value === "off" && config.text.capitalize.off ) || (value === "randomly" && config.text.capitalize.randomly) || (value === "first" && config.text.capitalize.first) || (value === "everyfirst" && config.text.capitalize.everyfirst) || (value === "untidy" && config.text.capitalize.untidy) ) return;
 
 		if ( value === "none" ) {
-			Config.text.capitalize.off = true;
-			Config.text.capitalize.first = false;
-			Config.text.capitalize.everyfirst = false;
-			Config.text.capitalize.randomly = false;
-			Config.text.capitalize.untidy = false;
+			config.text.capitalization.off = true;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
 		} else if ( value === "randomized" ) {
-			Config.text.capitalize.off = true;
-			Config.text.capitalize.first = false;
-			Config.text.capitalize.everyfirst = false;
-			Config.text.capitalize.randomly = false;
-			Config.text.capitalize.untidy = false;
+			config.text.capitalization.off = true;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
 		} else if ( value === "first letter" ) {
-			Config.text.capitalize.off = true;
-			Config.text.capitalize.first = false;
-			Config.text.capitalize.everyfirst = false;
-			Config.text.capitalize.randomly = false;
-			Config.text.capitalize.untidy = false;
+			config.text.capitalization.off = true;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
 		} else if ( value === "all first letters" ) {
-			Config.text.capitalize.off = true;
-			Config.text.capitalize.first = false;
-			Config.text.capitalize.everyfirst = false;
-			Config.text.capitalize.randomly = false;
-			Config.text.capitalize.untidy = false;
+			config.text.capitalization.off = true;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
 		} else if ( value === "jumbled" ) {
-			Config.text.capitalize.off = true;
-			Config.text.capitalize.first = false;
-			Config.text.capitalize.everyfirst = false;
-			Config.text.capitalize.randomly = false;
-			Config.text.capitalize.untidy = false;
+			config.text.capitalization.off = true;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
 		}
 		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.text; // update in ui
 		tickMarkCorrectOption(evt, "textCapitalization");
@@ -1384,7 +1384,7 @@ allDetails.textCapitalization.items.forEach((item) => {
 		// TestAreaElements.input.focus();
 
 		// debug
-		console.log("capitalize:", Config.text.capitalize.off, Config.text.capitalize.firstletter, Config.text.capitalize.allfirstletters, Config.text.capitalize.randomized, Config.text.capitalize.jumbled);
+		console.log("capitalize:", config.text.capitalization.off, config.text.capitalization.firstletter, config.text.capitalization.allfirstletters, config.text.capitalization.randomized, config.text.capitalization.jumbled);
 	});
 });
 
@@ -1392,14 +1392,14 @@ allDetails.textCapitalization.items.forEach((item) => {
 allDetails.keyboardLanguage.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === Config.keyboard.language ) return;
+		if ( evt.currentTarget.dataset.value === config.keyboard.language ) return;
 
-		Config.keyboard.language = evt.currentTarget.dataset.value; // update in config
-		allDetails.keyboardLanguage.inUseTextBox.textContent = Config.keyboard.language; // update in ui
+		config.keyboard.language = evt.currentTarget.dataset.value; // update in config
+		allDetails.keyboardLanguage.inUseTextBox.textContent = config.keyboard.language; // update in ui
 		tickMarkCorrectOption(evt, "keyboardLanguage");
 		
 		// debug
-		console.log(Config.keyboard.language);
+		console.log(config.keyboard.language);
 	});
 });
 
@@ -1407,13 +1407,13 @@ allDetails.keyboardLanguage.items.forEach((item) => {
 allDetails.keyboardLayout.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === Config.keyboard.layout.map ) return;
+		if ( evt.currentTarget.dataset.value === config.keyboard.layout.map ) return;
 
-		Config.keyboard.layout.map = evt.currentTarget.dataset.value; // update in config
-		allDetails.keyboardLayout.inUseTextBox.textContent = Config.keyboard.layout.map; // update in ui
+		config.keyboard.layout.map = evt.currentTarget.dataset.value; // update in config
+		allDetails.keyboardLayout.inUseTextBox.textContent = config.keyboard.layout.map; // update in ui
 		tickMarkCorrectOption(evt, "keyboardLayout");
 		
 		// debug
-		console.log(Config.keyboard.layout.map);
+		console.log(config.keyboard.layout.map);
 	});
 });

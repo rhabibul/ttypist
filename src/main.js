@@ -1,4 +1,4 @@
-import Config from "../include/config.js";
+import { config } from "../include/config.js";
 import Text from "../include/text.js";
 import Word from "../include/word.js";
 
