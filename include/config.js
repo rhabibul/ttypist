@@ -1,39 +1,4 @@
-export const localconfig = {
-  // local temporary stats & configs 
-}
-
 export const config = {
-  website: {
-    theme: "light", // light | midnight | dark
-    setting: {
-      dynamic: true, // live setting changes without restarting test
-      view: {
-        condense: true,
-        expand: false,
-      },
-    },
-  },
-  caret: {
-    off: false, // none
-    style: "line", // off | underscore | line | box | block
-    opacity: 1,
-    color: "black",
-  },
-  pacecaret: {
-    off: true, // pacecaret.off === speed.off
-    style: "off", // off | underscore | line | box | block
-    color: "black",
-    opacity: 0.5,
-    speed: {
-      last: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        value: 0, // provide custom speed (in wpm) to compete against
-      }
-    },
-  },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -41,7 +6,7 @@ export const config = {
       word: false,
     }
   },
-  quickend: true, // end test as soon as last letter of last word is typed otherwise confirm with space
+  quickend: true, // if disabled then confirm end of test with a space
   arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   oppositethumbforspace: false, // emulates opposite thumb by splitting space bar into two parts
@@ -80,8 +45,8 @@ export const config = {
   },
   text: {
     input: {
-      hidden: true,
-      visible: false,
+      hidden: true, // hide input box below text
+      visible: false, // show input box below text
     },
     underline: true, // underline the current word
     whitespace: {
@@ -135,6 +100,27 @@ export const config = {
     scroll: {
       abrupt: true,
       smooth: false,
+    },
+  },
+  caret: {
+    off: false, // none
+    style: "line", // off | underscore | line | box | block
+    opacity: 1,
+    color: "black",
+  },
+  pacecaret: {
+    off: true, // pacecaret.off === speed.off
+    style: "off", // off | underscore | line | box | block
+    color: "black",
+    opacity: 0.5,
+    speed: {
+      last: false, // previous speed
+      best: false, // personal best speed
+      average: false, // average of last 10 speeds
+      custom: {
+        off: true,
+        value: 0, // provide custom speed (in wpm) to compete against
+      }
     },
   },
   minimum: {
@@ -220,4 +206,18 @@ export const config = {
       alphabets: false, // ascii characters [a-z, A-Z]
     },
   },
+  website: {
+    theme: "light", // light | midnight | dark
+    setting: {
+      dynamic: true, // live setting changes without restarting test
+      view: {
+        condense: true,
+        expand: false,
+      },
+    },
+  },
 };
+
+export const localconfig = {
+  // local temporary stats & configs 
+}
