@@ -38,22 +38,6 @@
   font-stretch: 75% 125%;
 }
 
-@font-face { /* Courier Prime */
-  font-family: "Courier Prime";
-  src: local("Courier Prime"), url("./static/fonts/CourierPrime.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
-@font-face { /* Ubuntu Mono */
-  font-family: "Ubuntu Mono";
-  src: local("Ubuntu Mono"), url("./static/fonts/UbuntuMono.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 100 1000;
-  font-stretch: 75% 125%;
-}
-
 @font-face { /* Syne Mono */
   font-family: "Syne Mono";
   src: local("Syne Mono"), url("./static/fonts/SyneMono.ttf") format("truetype");

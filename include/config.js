@@ -31,7 +31,7 @@ export const config = {
        ctrl: true, // backspace + ctrl
        meta: false, // backspace + cmd/win
     },
-    allowedOnCorrectWord: false, // whether to allow caret to go back to previous word which was typed correctly
+    allowedOnCorrectWord: true, // deletion of correctly typed previous word
   },
   confidence: {
     low: true, // use backspace key to delete previous words/letters
