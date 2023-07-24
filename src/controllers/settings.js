@@ -1345,7 +1345,7 @@ allDetails.textCapitalization.items.forEach((item) => {
 	item.addEventListener("click", (evt) => {
 		if ( !evt.isTrusted ) return;
 		const value = evt.currentTarget.dataset.value;
-		if ( (value === "off" && config.text.capitalize.off ) || (value === "randomly" && config.text.capitalize.randomly) || (value === "first" && config.text.capitalize.first) || (value === "everyfirst" && config.text.capitalize.everyfirst) || (value === "untidy" && config.text.capitalize.untidy) ) return;
+		if ( (value === "off" && config.text.capitalization.off ) || (value === "randomly" && config.text.capitalization.randomly) || (value === "first" && config.text.capitalization.first) || (value === "everyfirst" && config.text.capitalization.everyfirst) || (value === "untidy" && config.text.capitalization.untidy) ) return;
 
 		if ( value === "none" ) {
 			config.text.capitalization.off = true;
@@ -1353,30 +1353,30 @@ allDetails.textCapitalization.items.forEach((item) => {
 			config.text.capitalization.everyfirst = false;
 			config.text.capitalization.randomly = false;
 			config.text.capitalization.untidy = false;
-		} else if ( value === "randomized" ) {
-			config.text.capitalization.off = true;
-			config.text.capitalization.first = false;
+		} else if ( value === "first" ) {
+			config.text.capitalization.off = false;
+			config.text.capitalization.first = true;
 			config.text.capitalization.everyfirst = false;
 			config.text.capitalization.randomly = false;
 			config.text.capitalization.untidy = false;
-		} else if ( value === "first letter" ) {
-			config.text.capitalization.off = true;
+		} else if ( value === "everyfirst" ) {
+			config.text.capitalization.off = false;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = true;
+			config.text.capitalization.randomly = false;
+			config.text.capitalization.untidy = false;
+		} else if ( value === "randomly" ) {
+			config.text.capitalization.off = false;
+			config.text.capitalization.first = false;
+			config.text.capitalization.everyfirst = false;
+			config.text.capitalization.randomly = true;
+			config.text.capitalization.untidy = false;
+		} else if ( value === "untidy" ) {
+			config.text.capitalization.off = false;
 			config.text.capitalization.first = false;
 			config.text.capitalization.everyfirst = false;
 			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "all first letters" ) {
-			config.text.capitalization.off = true;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "jumbled" ) {
-			config.text.capitalization.off = true;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
+			config.text.capitalization.untidy = true;
 		}
 		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.text; // update in ui
 		tickMarkCorrectOption(evt, "textCapitalization");
@@ -1384,7 +1384,7 @@ allDetails.textCapitalization.items.forEach((item) => {
 		// TestAreaElements.input.focus();
 
 		// debug
-		console.log("capitalize:", config.text.capitalization.off, config.text.capitalization.firstletter, config.text.capitalization.allfirstletters, config.text.capitalization.randomized, config.text.capitalization.jumbled);
+		console.log("capitalize:", config.text.capitalization.off, config.text.capitalization.first, config.text.capitalization.everyfirst, config.text.capitalization.randomly, config.text.capitalization.untidy);
 	});
 });
 
