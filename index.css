@@ -74,7 +74,7 @@
   --UbuntuMono: "Ubuntu Mono", monospace;
   --SyneMono: "Syne Mono", monospace;
 
-  --text-font-size: 19px;
+  --text-font-size: 20px; /* size: (16px, 32px, 48px) */
   --text-font-weight: 440;
   --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
@@ -92,7 +92,7 @@
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
   --caret-width-box: 1px; /* box caret width */
-  --caret-width-line: -1px; /* line caret width (1px, 1.5px, 2px) */
+  --caret-width-line: -1px; /* line caret width (1px, 2px, 3px) */
   --caret-width-underline: 2px; /* underline caret width */
   --caret-block-color: whitesmoke; /* text color under block caret */
   --caret-block-backgroundcolor: black; /* block caret of color */
