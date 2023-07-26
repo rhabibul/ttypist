@@ -250,7 +250,7 @@ SettingsElement.textWordLength.long.addEventListener("click", updateTextWordLeng
 // text word length
 function updateTextWordLength(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (this.value === "off" && config.text.word.length === "off") || (this.value === "short" && config.text.word.length === "short") || (this.value === "medium" && config.text.word.length === "medium") || (this.value === "long" && config.text.word.length === "long") ) return;
+	if ( (this.value === "off" && config.text.word.average_length.off) || (this.value === "short" && config.text.word.average_length.short) || (this.value === "medium" && config.text.word.average_length.medium) || (this.value === "long" && config.text.word.average_length.long) ) return;
 
 	SettingChangeInUI.changeTextWordLengthInUI(this.value);
 	SettingChangeInConfig.changeTextWordLengthInConfig(this.value);

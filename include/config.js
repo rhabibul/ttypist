@@ -9,7 +9,7 @@ export const config = {
   quickend: true, // if disabled then confirm end of test with a space
   arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositethumbforspace: false, // emulates opposite thumb by splitting space bar into two parts
+  oppositeThumbForSpace: false, // emulates opposite thumb by splitting space bar into two parts
   blind: false, // no errors or incorrect words are highlighted
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   error: {
