@@ -4,7 +4,7 @@ import Word from "../include/word.js";
 
 import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret.js";
-import * as TestAreaElement from "./elements/test-element.js";
+import * as TypingAreaElements from "./elements/typing-area-element.js";
 
 import { time, typedchar, mInput, user } from "../include/trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";
@@ -14,11 +14,11 @@ export const word = new Word();
 
 export const Test = {
 	init() {		
-		TestAreaElement.input.addEventListener("keydown", registerkeydown);
-		TestAreaElement.input.addEventListener("keypress", registerkeypress);
-		TestAreaElement.input.addEventListener("beforeinput", registerbeforeinput);
-		TestAreaElement.input.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
-		TestAreaElement.input.addEventListener("keyup", registerkeyup);
+		TypingAreaElements.input.addEventListener("keydown", registerkeydown);
+		TypingAreaElements.input.addEventListener("keypress", registerkeypress);
+		TypingAreaElements.input.addEventListener("beforeinput", registerbeforeinput);
+		TypingAreaElements.input.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
+		TypingAreaElements.input.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
 		user.istyping = false;
@@ -29,8 +29,8 @@ export const Test = {
 		text.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addcaretto(word.activeletter);
-		TestAreaElement.input.value = "";
-		TestAreaElement.input.focus();
+		TypingAreaElements.input.value = "";
+		TypingAreaElements.input.focus();
 	}
 }
 

@@ -2,9 +2,9 @@ import { config } from "../../include/config.js";
 import * as SettingsElement from "../elements/setting-element.js";
 import * as SettingChangeInConfig from "./setting-change-config.js";
 import * as SettingChangeInUI from "../ui/setting-change-ui.js";
-import * as TestAreaElements from "../elements/test-element.js";
+import * as TypingAreaElements from "../elements/typing-area-element.js";
 import { css } from "../../include/constants.js";
-import { text, Test } from "../main.js";
+import { Test } from "../main.js";
 
 // disable button
 function disableButton(button) {
@@ -24,7 +24,7 @@ function enableButton(button, selected = false) {
 	}
 }
 
-TestAreaElements.text.addEventListener("click", () => { TestAreaElements.input.focus() });
+TypingAreaElements.text.addEventListener("click", () => { TypingAreaElements.input.focus() });
 
 // keyboard reaction
 SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
@@ -358,7 +358,7 @@ function updateFlipTextHighlight(evt) {
 	css.style.setProperty("--text-primary-color", secondary);
 	css.style.setProperty("--text-secondary-color", primary);
 
-	TestAreaElements.input.focus();
+	TypingAreaElements.input.focus();
 
 	// debug
 	console.log("flipTextHighlight:", !config.text.highlight.flip, config.text.highlight.flip);
@@ -1210,7 +1210,7 @@ function updateCaretStyle(evt) {
 		letter.classList.add(this.value);
 		if ( letter.id === config.caret.style ) letter.id = this.value;
 	}
-	TestAreaElements.input.focus();	
+	TypingAreaElements.input.focus();	
 
 	SettingChangeInUI.changeCaretStyleInUI(this.value);
 	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
@@ -1316,7 +1316,7 @@ allDetails.textFontFamily.items.forEach((item) => {
 		css.style.setProperty("--text-font-family", config.text.font.family);
 		tickMarkCorrectOption(evt, "textFontFamily");
 		
-		TestAreaElements.input.focus();
+		TypingAreaElements.input.focus();
 
 		// debug
 		console.log("font-family:", config.text.font.family);
@@ -1333,7 +1333,7 @@ allDetails.textWordType.items.forEach((item) => {
 		allDetails.textWordType.inUseTextBox.textContent = config.text.word.type; // update in ui
 		tickMarkCorrectOption(evt, "textWordType");
 		
-		TestAreaElements.input.focus();
+		TypingAreaElements.input.focus();
 
 		// debug
 		console.log("word-type:", config.text.word.type);
@@ -1381,7 +1381,7 @@ allDetails.textCapitalization.items.forEach((item) => {
 		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.text; // update in ui
 		tickMarkCorrectOption(evt, "textCapitalization");
 		
-		// TestAreaElements.input.focus();
+		// TypingAreaElements.input.focus();
 
 		// debug
 		console.log("capitalize:", config.text.capitalization.off, config.text.capitalization.first, config.text.capitalization.everyfirst, config.text.capitalization.randomly, config.text.capitalization.untidy);

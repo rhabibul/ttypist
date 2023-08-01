@@ -1,5 +1,5 @@
 import { config } from "../../include/config.js";
-import * as TestAreaElements from "../elements/test-element.js";
+import * as TypingAreaElements from "../elements/typing-area-element.js";
 // import w3k from "../../static/texts/words/w3k.js";
 import w1k from "../../static/texts/words/w1k.js";
 // import rootword from "../../static/texts/words/root-words.js";
@@ -103,8 +103,8 @@ export function autotyper(wpm, till = -1) {
 	}
 	id = setInterval(() => {
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
-		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", { key: s[i] }));
-		TestAreaElements.input.dispatchEvent(new KeyboardEvent("keyup",   { key: s[i] }));
+		TypingAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", { key: s[i] }));
+		TypingAreaElements.input.dispatchEvent(new KeyboardEvent("keyup",   { key: s[i] }));
 		++i;
 		if ( i == s.length ) clearInterval(id);
 	}, interval);

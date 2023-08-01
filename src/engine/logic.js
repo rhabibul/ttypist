@@ -1,6 +1,6 @@
 import { config } from "../../include/config.js";
 import * as CaretController from "../controllers/caret.js";
-import * as TestAreaElements from "../elements/test-element.js";
+import * as TypingAreaElements from "../elements/typing-area-element.js";
 import * as Misc from "../utils/misc.js";
 import { time, typedchar, mInput, user } from "../../include/trackers.js";
 import { Test, text, word } from "../main.js";
@@ -196,7 +196,7 @@ export function registerinput(evt) {
 
 	if ( mInput.keydownUnidentified ) {
 		
-		TestAreaElements.input.focus();
+		TypingAreaElements.input.focus();
 
 		if ( !Config.user.istyping ) {
 			time.begin = performance.now();
@@ -207,7 +207,7 @@ export function registerinput(evt) {
 
 		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
 
-			TestAreaElements.input.value = "";
+			TypingAreaElements.input.value = "";
 			
 			CaretController.removecaretfrom(word.activeletter);
 			word.loadword(text.nextword, { nextword: true });
@@ -244,12 +244,12 @@ export function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
-		TestAreaElements.input.value = "";
+		TypingAreaElements.input.value = "";
 		wasSpace = false;
 	}
 
 	if ( user.hastypedallwords ) {
-		TestAreaElements.input.blur();
+		TypingAreaElements.input.blur();
 		CaretController.removecaretfrom(word.activeletter);
 		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
 		Test.restart();

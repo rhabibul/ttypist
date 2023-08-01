@@ -34,6 +34,8 @@
     </header>
     
     <div class="testAreaContainer">
+      <div class="statsBarContainer"></div>
+
       <div class="testTextContainer">
         <text>
           <word>
@@ -53,6 +55,7 @@
           </word>
         </text>
       </div>
+      
       <div class="testTextInputBoxContainer">
         <input id="textInput" type="text" placeholder="Type the above text here." tabindex="0" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff">
       </div>
@@ -118,66 +121,6 @@
           </div>
         </div>
 
-        <div class="row" id="textColors">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
-                <path opacity="0.6" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
-                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
-                <path opacity="1.0" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
-              </svg>
-            </div>
-            <div class="text">text color</div>
-          </div>
-          <div class="config buttonContainer textColors">
-            <div class="colorPickerContainer primaryTextColorInputContainer s1">
-              <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
-              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary color">
-            </div>
-            <div class="colorPickerContainer secondaryTextColorInputContainer s1">
-              <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
-              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary color">
-            </div>
-          </div>
-        </div>
-                
-        <div class="row" id="caretStyle">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret</div>
-          </div>
-          <div class="config caret caretStyleButton s5">
-            <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
-            <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"              ><span class="shape shape-underscore"></span></button>
-            <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape shape-line" style="background-color: var(--selected-color)"></span></button>
-            <button class="caret-box"        value="box"        tabindex="0" role="button" type="button"              ><span class="shape shape-box"></span></button>
-            <button class="caret-block"      value="block"      tabindex="0" role="button" type="button"              ><span class="shape shape-block"></span></button>
-          </div>
-        </div>
-
-        <div class="row" id="caretColor">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">caret color</div>
-          </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
-            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
-            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
-          </div>
-        </div>
-
         <div class="row" id="highlightMode">
           <div class="label">
             <div class="symbol">
@@ -221,7 +164,7 @@
         <div class="row" id="modifierKeys">
           <div class="label">
             <div class="symbol"><svg class="iconBackspaceKey" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
-            <div class="text">modifier keys</div>
+            <div class="text">modifiers</div>
           </div>
           <div class="config buttonContainer modifierKeyCheckboxButtonContainer s3">
             <div class="modifierKeyCheckboxButton alt">
@@ -587,7 +530,68 @@
           </div>
         </div>
       </div>
+      
       <div class="column c2">
+        <div class="row" id="caretStyle">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">caret</div>
+          </div>
+          <div class="config caret caretStyleButton s5">
+            <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
+            <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"              ><span class="shape shape-underscore"></span></button>
+            <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape shape-line" style="background-color: var(--selected-color)"></span></button>
+            <button class="caret-box"        value="box"        tabindex="0" role="button" type="button"              ><span class="shape shape-box"></span></button>
+            <button class="caret-block"      value="block"      tabindex="0" role="button" type="button"              ><span class="shape shape-block"></span></button>
+          </div>
+        </div>
+
+        <div class="row" id="caretColor">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="text">caret color</div>
+          </div>
+          <div class="config colorPickerContainer caretColorInputContainer s1">
+            <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
+            <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
+          </div>
+        </div>
+
+        <div class="row" id="textColors">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
+                <path opacity="0.6" d="M29,27H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h26c0.6,0,1-0.4,1-1S29.6,27,29,27z"></path>
+                <path opacity="0.8" d="M6.4,16.7C6.4,16.7,6.4,16.7,6.4,16.7l7,7c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l6.9-6.9c0,0,0,0,0,0l1.5-1.5 c0.4-0.4,0.4-1,0-1.4l-8.9-9c0,0,0,0,0,0l-2.5-2.5c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l1.8,1.8l-7.7,7.7c-0.4,0.4-0.4,1,0,1.4 L6.4,16.7z M13.6,7L14,7.5c0,0,0,0,0,0l7,7L20.6,15H7.5l-1-1L13.6,7z"> </path>
+                <path opacity="1.0" d="M25,24c1.7,0,3-1.3,3-3c0-1.4-1.8-3.2-2.3-3.7c-0.4-0.4-1-0.4-1.4,0C23.8,17.8,22,19.6,22,21C22,22.7,23.3,24,25,24z"></path>
+              </svg>
+            </div>
+            <div class="text">text color</div>
+          </div>
+          <div class="config buttonContainer textColors">
+            <div class="colorPickerContainer primaryTextColorInputContainer s1">
+              <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
+              <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary color">
+            </div>
+            <div class="colorPickerContainer secondaryTextColorInputContainer s1">
+              <input class="colorSelectorInput secondaryTextColorSelectorInput" type="color" value="#9a9a9a">
+              <input class="colorTextInput secondaryTextColorTextInput"         type="text"  placeholder="secondary color">
+            </div>
+          </div>
+        </div>
+
         <div class="row" id="timerTime">
           <div class="label">
             <div class="symbol">
