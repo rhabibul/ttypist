@@ -372,6 +372,79 @@
           </div>
         </div>
 
+        <div class="row" id="minimumSpeed">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
+                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
+                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
+              </svg>
+            </div>
+            <div class="text">minimum speed</div>
+          </div>
+          <div class="config buttonContainer minimumSpeedButtonContainer s2-1 s3">
+            <div class="minimumSpeedButton s2">
+              <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
+            </div>
+            <div class="customInputContainer minimumSpeedCustomInputContainer s1">
+              <div class="inputContainer custom">
+                <input class="inputBox speedThreshold" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="minimumAccuracy">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
+                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
+                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
+              </svg>
+            </div>
+            <div class="text">minimum accuracy</div>
+          </div>
+          <div class="config buttonContainer minimumAccuracyButtonContainer s2-1 s3">
+            <div class="minimumAccuracyButton s2">
+              <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
+            </div>
+            <div class="customInputContainer minimumAccuracyCustomInputContainer s1">
+              <div class="inputContainer custom">
+                <input class="inputBox accuracyThreshold" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="minimumBurst">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
+                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
+                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
+              </svg>
+            </div>
+            <div class="text">minimum burst</div>
+          </div>
+          <div class="config buttonContainer minimumBurstButtonContainer s3-1 s4">
+            <div class="minimumBurstButton s3">
+              <button class="button off"   value="off"   tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="button fixed" value="fixed" tabindex="0" role="button" type="button">fixed</button>
+              <button class="button flex"  value="flex"  tabindex="0" role="button" type="button">flex</button>
+            </div>
+            <div class="customInputContainer minimumBurstCustomInputContainer s1">
+              <div class="inputContainer custom">
+                <input class="inputBox burstThreshold" type="number" min="0" tabindex="0" placeholder="60">
+                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row" id="UIKeyboardReaction">
           <div class="label">
             <div class="symbol"><svg class="iconKeyboard" fill="var(--setting-icon-color)" opacity="1" width="256px" height="256px" viewBox="0 0 1920 1920"> <path d="M1524.706 1242.412c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.94Zm-338.824 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.299-56.47-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h451.764Zm-677.647 0c31.172 0 56.47 25.299 56.47 56.47v112.942c0 31.171-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.299-56.471-56.47v-112.942c0-31.171 25.298-56.47 56.47-56.47h112.941Zm1016.47-338.824c31.173 0 56.471 25.3 56.471 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.941c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm-338.823 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm-677.647 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47h-112.94c-31.173 0-56.471-25.298-56.471-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.941Zm338.824 0c31.172 0 56.47 25.3 56.47 56.47V1073c0 31.172-25.298 56.47-56.47 56.47H734.118c-31.172 0-56.47-25.298-56.47-56.47V960.059c0-31.172 25.298-56.47 56.47-56.47h112.94Zm903.53-338.823h-729.262c14.908-86.965 65.958-113.506 133.384-147.163 89.336-44.611 200.583-100.291 200.583-304.602h-112.941c0 134.513-57.939 163.426-138.24 203.633-80.301 40.094-177.544 90.24-196.518 248.132H169.412C76.009 564.765 0 640.775 0 734.176v903.53c0 93.402 76.01 169.412 169.412 169.412h1581.176c93.403 0 169.412-76.01 169.412-169.412v-903.53c0-93.402-76.01-169.411-169.412-169.411Z" fill-rule="evenodd"></path></svg></div>
@@ -463,70 +536,6 @@
           <div class="config buttonContainer UIKeyboardLayoutEmulateButton s2">
             <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
-          </div>
-        </div>
-
-        <div class="row" id="warnings">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
-              </svg>
-            </div>
-            <div class="text">warnings</div>
-          </div>
-          <div class="config buttonContainer warningsCheckboxButtonContainer s4">
-            <div class="warningsCheckboxButtonContainer-1 s2">
-              <div class="warningsCheckboxButton capslock">
-                <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="capslock">capslock</label>
-              </div>
-              <div class="warningsCheckboxButton numlock">
-                <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
-                <label for="numlock">numlock</label>
-              </div>
-            </div>
-            <div class="warningsCheckboxButtonContainer-2 s2">
-              <div class="warningsCheckboxButton scrolllock">
-                <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
-                <label for="scrolllock">scrolllock</label>
-              </div>
-              <div class="warningsCheckboxButton outoffocus">
-                <input id="outoffocus" data-value="outoffocus" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
-                <label for="outoffocus">focusout</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="liveStatus">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
-                <rect   fill="none" width="48" height="48" fill="none"></rect>
-                <circle fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
-              </svg>
-            </div>
-            <div class="text">live stats</div>
-          </div>
-          <div class="config buttonContainer liveStatusCheckboxButtonContainer s3">
-            <div class="liveStatusCheckboxButton speed" data-value="speed">
-              <input tabindex="0" type="checkbox" id="speed" name="liveStatusCheckboxButton">
-              <label for="speed">speed</label>
-            </div>
-            <div class="liveStatusCheckboxButton accuracy" data-value="accuracy">
-              <input tabindex="0" type="checkbox" id="accuracy" name="liveStatusCheckboxButton">
-              <label for="accuracy">accuracy</label>
-            </div>
-            <div class="liveStatusCheckboxButton burst" data-value="burst">
-              <input tabindex="0" type="checkbox" id="burst" name="liveStatusCheckboxButton">
-              <label for="burst">burst</label>
-            </div>
           </div>
         </div>
       </div>
@@ -933,79 +942,6 @@
           </div>
         </div>
 
-        <div class="row" id="minimumSpeed">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum speed</div>
-          </div>
-          <div class="config buttonContainer minimumSpeedButtonContainer s2-1 s3">
-            <div class="minimumSpeedButton s2">
-              <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
-            </div>
-            <div class="customInputContainer minimumSpeedCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox speedThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="minimumAccuracy">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum accuracy</div>
-          </div>
-          <div class="config buttonContainer minimumAccuracyButtonContainer s2-1 s3">
-            <div class="minimumAccuracyButton s2">
-              <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
-            </div>
-            <div class="customInputContainer minimumAccuracyCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox accuracyThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="minimumBurst">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum burst</div>
-          </div>
-          <div class="config buttonContainer minimumBurstButtonContainer s3-1 s4">
-            <div class="minimumBurstButton s3">
-              <button class="button off"   value="off"   tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button fixed" value="fixed" tabindex="0" role="button" type="button">fixed</button>
-              <button class="button flex"  value="flex"  tabindex="0" role="button" type="button">flex</button>
-            </div>
-            <div class="customInputContainer minimumBurstCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox burstThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="row" id="websiteTheme">
           <div class="label">
             <div class="symbol">
@@ -1082,6 +1018,70 @@
           <div class="config buttonContainer speedUnitButton s2">
             <button class="button cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
             <button class="button wpm" tabindex="0" role="button" type="button" value="wpm" id="selected">wpm</button>
+          </div>
+        </div>
+        
+        <div class="row" id="warnings">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
+                <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
+                <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
+              </svg>
+            </div>
+            <div class="text">warnings</div>
+          </div>
+          <div class="config buttonContainer warningsCheckboxButtonContainer s4">
+            <div class="warningsCheckboxButtonContainer-1 s2">
+              <div class="warningsCheckboxButton capslock">
+                <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="capslock">capslock</label>
+              </div>
+              <div class="warningsCheckboxButton numlock">
+                <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
+                <label for="numlock">numlock</label>
+              </div>
+            </div>
+            <div class="warningsCheckboxButtonContainer-2 s2">
+              <div class="warningsCheckboxButton scrolllock">
+                <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningsCheckboxButton">
+                <label for="scrolllock">scrolllock</label>
+              </div>
+              <div class="warningsCheckboxButton outoffocus">
+                <input id="outoffocus" data-value="outoffocus" tabindex="0" type="checkbox" name="warningsCheckboxButton" checked>
+                <label for="outoffocus">focusout</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="liveStatus">
+          <div class="label">
+            <div class="symbol">
+              <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
+                <rect   fill="none" width="48" height="48" fill="none"></rect>
+                <circle fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
+                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
+                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
+              </svg>
+            </div>
+            <div class="text">live stats</div>
+          </div>
+          <div class="config buttonContainer liveStatusCheckboxButtonContainer s3">
+            <div class="liveStatusCheckboxButton speed" data-value="speed">
+              <input tabindex="0" type="checkbox" id="speed" name="liveStatusCheckboxButton">
+              <label for="speed">speed</label>
+            </div>
+            <div class="liveStatusCheckboxButton accuracy" data-value="accuracy">
+              <input tabindex="0" type="checkbox" id="accuracy" name="liveStatusCheckboxButton">
+              <label for="accuracy">accuracy</label>
+            </div>
+            <div class="liveStatusCheckboxButton burst" data-value="burst">
+              <input tabindex="0" type="checkbox" id="burst" name="liveStatusCheckboxButton">
+              <label for="burst">burst</label>
+            </div>
           </div>
         </div>
       </div>
