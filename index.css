@@ -87,7 +87,7 @@
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
-  --caret-color: red;
+  --caret-color: black;
   --caret-color-hidden: white; /* match invisible underscore caret color with background color of text */
   --pace-caret-color: #6b6b6b;
   --caret-offset-box: -1px; /* box caret offset */
@@ -191,7 +191,7 @@ text word letter {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-input[type="text"]#textInput {
+input[type="text"]#textField {
   margin: 0px;
   padding: 0px;
   width: 0px;

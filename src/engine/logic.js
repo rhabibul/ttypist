@@ -198,9 +198,9 @@ export function registerinput(evt) {
 		
 		TypingAreaElements.input.focus();
 
-		if ( !Config.user.istyping ) {
+		if ( !config.user.istyping ) {
 			time.begin = performance.now();
-			Config.user.istyping = true;
+			config.user.istyping = true;
 		}
 
 		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];

@@ -1,4 +1,18 @@
+export const UIConfig = {
+  color: {
+    primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
+    secondary: "#9a9a9a", // past text, text which has been typed (default: less bright)
+  },
+  font: {
+    size: 1.2, // size of letter
+    weight: 445, // thickness of letter
+    family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
+  },
+  theme: "light", // light | midnight | dark
+}
+
 export const config = {
+  dynamic_settings: true,
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -44,11 +58,11 @@ export const config = {
     master: false, // fails the test if user press a single incorrect key
   },
   text: {
+    underline: true, // underline the current word
     input: {
       hidden: true, // hide input box below text
       visible: false, // show input box below text
     },
-    underline: true, // underline the current word
     whitespace: {
       off: false, // nospace
       type: {
@@ -194,6 +208,9 @@ export const config = {
       function: true,
     },
   },
+};
+
+export const localconfig = {
   guidedlesson: false, // learn touchtyping through guided lessons
   customtext: false, // ascii text
   practice: {
@@ -206,18 +223,4 @@ export const config = {
       alphabets: false, // ascii characters [a-z, A-Z]
     },
   },
-  website: {
-    theme: "light", // light | midnight | dark
-    setting: {
-      dynamic: true, // live setting changes without restarting test
-      view: {
-        condense: true,
-        expand: false,
-      },
-    },
-  },
-};
-
-export const localconfig = {
-  // local temporary stats & configs 
 }
