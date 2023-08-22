@@ -2,17 +2,16 @@ import { config } from "../include/config.js";
 import * as TypingAreaElements from "../src/elements/typing-area-element.js";
 import { addunderline, removeunderline } from "../src/engine/logic.js";
 
-export class Text {
-  #rawText;
-  #wordElements;
-  #wordIndex;
-
-  constructor() {
-    this.#rawText = "";
-    this.#wordElements = [];
-    this.#wordIndex = 0;  
-  }
-}
+// export class Text {
+//   #rawText;
+//   #wordElements;
+//   #wordIndex;
+//   constructor() {
+//     this.#rawText = "";
+//     this.#wordElements = [];
+//     this.#wordIndex = 0;  
+//   }
+// }
 
 export default class Text {
   #text; // stores whole text as array of strings

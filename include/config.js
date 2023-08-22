@@ -1,16 +1,3 @@
-export const UIConfig = {
-  color: {
-    primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
-    secondary: "#9a9a9a", // past text, text which has been typed (default: less bright)
-  },
-  font: {
-    size: 1.2, // size of letter
-    weight: 445, // thickness of letter
-    family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
-  },
-  theme: "light", // light | midnight | dark
-}
-
 export const config = {
   dynamic_settings: true,
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
@@ -20,14 +7,13 @@ export const config = {
       word: false,
     }
   },
-  quickend: true, // if disabled then confirm end of test with a space
   arrows: true, // implicitly enabled (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
-  oppositeThumbForSpace: false, // emulates opposite thumb by splitting space bar into two parts
-  blind: false, // no errors or incorrect words are highlighted
+  quickend: true, // if disabled then confirm end of test with a space
+  goblind: false, // no errors or incorrect words are highlighted
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   error: {
-    off: false, // caret stops on error
+    off: false, // if errors are disabled caret stops on error
     forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter
     insert: true, // insert incorrect letter before to be typed letter
     skip: false, // marks current letter as error and moves caret on to the next letter (strictspace is turned off)
@@ -38,6 +24,7 @@ export const config = {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
+  delcorrect: true,
   backspace: {
     off: false,
     modifier: {
@@ -56,6 +43,24 @@ export const config = {
     ease: true, // classic typing experience, mistakes can be corrected or left behind
     expert: false, // fails the test if user submit an incorrect word, current word can be edited
     master: false, // fails the test if user press a single incorrect key
+  },
+  caret: {
+    off: false, // none
+    style: "line", // off | underscore | line | box | block
+    color: "black",
+  },
+  pacecaret: {
+    off: true,
+    style: "off", // off | underscore | line | box | block
+    speed: {
+      previous: false, // previous speed
+      best: false, // personal best speed
+      average: false, // average of last 10 speeds
+      custom: {
+        off: true,
+        value: 0, // provide custom speed (in wpm) to compete against
+      }
+    },
   },
   text: {
     underline: true, // underline the current word
@@ -79,7 +84,7 @@ export const config = {
         letter: true,
         word: false,
       },
-      flip: false, // flip highlight's primary and secondary color
+      isflipped: false, // flip primary & secondary highlights
     },
     color: {
       primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
@@ -90,53 +95,113 @@ export const config = {
       weight: 445, // thickness of letter
       family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
     },
-    word: {
-      count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
-      type: "dictionary words", // dictionary | gibberish | quote | story | algorithm
-      average_length: {
-        off: true,
-        short: false, // short(<6)
-        medium: false, // medium(>=6, <11)
-        long: false, // long(>=11, inf)
-      }
+  },
+  keyboard: {
+    off: true,
+    language: "English",
+    layout: {
+      map: "qwerty", // qwerty | dvorak | colemak | workman
+      emulate: false,
     },
-    include: {
-      digit: false, // include numbers along with words
-      punctuation: false, // .?",-';:()[]{}/...
+    reaction: {
+      react: false,
+      static: false,
+      next: false,
     },
-    capitalization: {
+    section: {
+      arrowpad: true,
+      controlpad: true,
+      numpad: true,
+      function: true,
+      alphanumeric: true,
+    },
+    rows_visible: {
+      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12        •  PrintScreen ScrollLock PauseBreak
+      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace  •  Insert      Home       PageUp      •   NL /  *  -
+      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                  •  Delete      End        PageDown    •   7  8  9  +
+      RowC: true, // CapsLock A S D F G H J K L :; "' Enter            •                                     •   4  5  6  +
+      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                •              ArrowUp                •   1  2  3  Enter
+      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn       •  ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
+    }
+  },
+}
+
+export const UIConfig = {
+  theme: "light", // light | midnight | dark
+  accent_color: "",
+  warnings: {
+    capslock: false, // capslock key is left turned on
+    numlock: false, // numlock key is left turned on
+    scrolllock: false, // scolllock key is left turned on
+    focusout: true, // warning out of focus while taking test (typing)
+  },
+}
+
+export const TextConfig = {
+  include: {
+    digit: false, // include numbers along with words
+    punctuation: false, // .?",-';:()[]{}/...
+  },
+  capitalization: {
+    off: true,
+    first: false, // capitalize only the first letter of first word in text
+    everyfirst: false, // capitalize the first letter of every word in text
+    randomly: false, // capitalize only first letter of every word in text randomly
+    untidy: false, // capitalize any letter of any word in text randomly
+  },
+  scroll: {
+    abrupt: true,
+    smooth: false,
+  },
+  word: {
+    count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
+    type: "dictionary words", // dictionary | gibberish | quote | story | algorithm
+    length: {
       off: true,
-      first: false, // capitalize only the first letter of first word in text
-      everyfirst: false, // capitalize the first letter of every word in text
-      randomly: false, // capitalize only first letter of every word in text randomly
-      untidy: false, // capitalize any letter of any word in text randomly
-    },
-    scroll: {
-      abrupt: true,
-      smooth: false,
+      short: false, // short(<6)
+      medium: false, // medium(>=6, <11)
+      long: false, // long(>=11, inf)
+    }
+  },
+}
+
+export const StatsConfig = {
+  usefloats: false, // display floating point number
+  timer: {
+    off: false,
+    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
+    hidden: false,
+  },
+  live: {
+    speed: false,    // live speed in wpm/cpm
+    accuracy: false, // live accuracy
+    burst: false,    // live burst, speed of last word typed
+  },
+  calcInterval: { // calculation interval for speed, accuracy, burst
+    word: false, // calculate after every word
+    keystroke: true, // calculate after each keystroke
+    second: false, // calculate after every one second
+  },
+  unit: {
+    cpm: false, // characters per minute
+    wpm: true, // words per minute
+  },
+}
+
+export const LearnerConfig = {
+  guidedlessons: false, // learn touchtyping through guided lessons
+  customtext: false, // ascii text
+  practice: {
+    arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+    brackets: false, // {[(<>)]}
+    numpad: false, // number pad's digits [0-9] and symbols
+    numrow: false, // number row's digits [0-9]
+    ascii: {
+      symbol: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+      alphabets: false, // ascii characters [a-z, A-Z]
     },
   },
-  caret: {
-    off: false, // none
-    style: "line", // off | underscore | line | box | block
-    opacity: 1,
-    color: "black",
-  },
-  pacecaret: {
-    off: true, // pacecaret.off === speed.off
-    style: "off", // off | underscore | line | box | block
-    color: "black",
-    opacity: 0.5,
-    speed: {
-      last: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        value: 0, // provide custom speed (in wpm) to compete against
-      }
-    },
-  },
+  oppositeThumbForSpace: false, // emulates opposite thumb by splitting space bar into two parts
   minimum: {
     speed: {
       off: true,
@@ -150,77 +215,9 @@ export const config = {
       off: true,
       threshold: 0,
       option: {
-        fixed: false, // fixed the speed set by user for all words (short, medium, long)
+        fixed: false, // fix the speed set by user for all words (short, medium, long)
         flex: false, // reduce speed set by user for longer words
       },
     }
-  },
-  stats: {
-    timer: {
-      off: false,
-      time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
-      hidden: false,
-    },
-    live: {
-      speed: false,    // live speed in wpm/cpm
-      accuracy: false, // live accuracy
-      burst: false,    // live burst, speed of last word typed
-    },
-    calcInterval: { // calculation interval for speed, accuracy, burst
-      word: false, // calculate after every word
-      keystroke: true, // calculate after each keystroke
-      second: false, // calculate after every one second
-    },
-    unit: {
-      cpm: false, // characters per minute
-      wpm: true, // words per minute
-    },
-    usefloats: false, // display floating point number
-  },
-  warnings: {
-    capslock: false, // capslock key is left turned on
-    numlock: false, // numlock key is left turned on
-    scrolllock: false, // scolllock key is left turned on
-    focusout: true, // warning out of focus while taking test (typing)
-  },
-  keyboard: {
-    off: false,
-    reaction: {
-      react: false,
-      static: false,
-      next: false,
-    },
-    language: "English",
-    layout: {
-      map: "qwerty", // qwerty | dvorak | colemak | workman
-      emulate: false,
-    },
-    section: {
-      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12         •   PrintScreen ScrollLock PauseBreak
-      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace   •   Insert      Home       PageUp      •   NL /  *  -
-      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                   •   Delete      End        PageDown    •   7  8  9  +
-      RowC: true, // CapsLock A S D F G H J K L :; "' Enter             •                                      •   4  5  6  +
-      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                 •               ArrowUp                •   1  2  3  Enter
-      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn        •   ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
-      arrowpad: true,
-      controlpad: true,
-      numpad: true,
-      function: true,
-    },
-  },
-};
-
-export const localconfig = {
-  guidedlesson: false, // learn touchtyping through guided lessons
-  customtext: false, // ascii text
-  practice: {
-    arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    brackets: false, // {[(<>)]}
-    numpad: false, // number pad's digits [0-9] and symbols
-    numrow: false, // number row's digits [0-9]
-    ascii: {
-      symbol: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-      alphabets: false, // ascii characters [a-z, A-Z]
-    },
   },
 }

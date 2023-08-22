@@ -30,7 +30,7 @@ export function registerkeydown(evt) {
 
 		word.activeletter.classList.add("correct");
 		
-		if ( !config.text.highlight.flip ) {
+		if ( !config.text.highlight.isflipped ) {
 			word.activeletter.classList.remove("ws-active");
 		} else {
 			word.activeletter.classList.add("ws-active");
@@ -73,7 +73,7 @@ export function registerkeydown(evt) {
 					CaretController.addcaretto(word.activeletter);
 				}	
 
-				if ( !config.text.highlight.flip ) { 
+				if ( !config.text.highlight.isflipped ) { 
 					word.activeletter.classList.add("ws-active");
 				}
 

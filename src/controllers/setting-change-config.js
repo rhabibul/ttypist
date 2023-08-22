@@ -543,24 +543,24 @@ export function changeBlindModeInConfig(value) {
 
 export function changeTextWordLengthInConfig(value) {
 	if ( value === "short" ) {
-		config.text.word.average_length.off = false;
-		config.text.word.average_length.short = true;
-		config.text.word.average_length.medium = false;
-		config.text.word.average_length.long = false;
+		config.text.word.length.off = false;
+		config.text.word.length.short = true;
+		config.text.word.length.medium = false;
+		config.text.word.length.long = false;
 	} else if ( value === "medium" ) {
-		config.text.word.average_length.off = false;
-		config.text.word.average_length.short = false;
-		config.text.word.average_length.medium = true;
-		config.text.word.average_length.long = false;
+		config.text.word.length.off = false;
+		config.text.word.length.short = false;
+		config.text.word.length.medium = true;
+		config.text.word.length.long = false;
 	} else if ( value === "long" ) {
-		config.text.word.average_length.off = false;
-		config.text.word.average_length.short = false;
-		config.text.word.average_length.medium = false;
-		config.text.word.average_length.long = true;
+		config.text.word.length.off = false;
+		config.text.word.length.short = false;
+		config.text.word.length.medium = false;
+		config.text.word.length.long = true;
 	} else if ( value === "off" ) {
-		config.text.word.average_length.off = true;
-		config.text.word.average_length.short = false;
-		config.text.word.average_length.medium = false;
-		config.text.word.average_length.long = false;
+		config.text.word.length.off = true;
+		config.text.word.length.short = false;
+		config.text.word.length.medium = false;
+		config.text.word.length.long = false;
 	}
 }
