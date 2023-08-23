@@ -1,6 +1,9 @@
 export const config = {
-  theme: "light", // light | midnight | dark | +accent_color
-  dynamic_settings: true,
+  theme: "light", // light | midnight | dark
+  setting: {
+    dynamic: true,
+    view: "condensed", // condensed | expanded
+  },
   tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
     off: true,
     mode: {
@@ -8,7 +11,7 @@ export const config = {
       word: false,
     }
   },
-  arrows: true, // implicitly enabled (mythical)
+  arrows: true, // move caret using arrow keys (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   quickend: true, // if disabled then confirm end of test with a space
   goblind: false, // no errors or incorrect words are highlighted
@@ -59,11 +62,6 @@ export const config = {
         value: 0, // provide custom speed (in wpm) to compete against
       }
     },
-  },
-  timer: {
-    off: false,
-    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
-    hidden: false,
   },
   text: {
     underline: true, // underline the current word
@@ -147,7 +145,16 @@ export const config = {
   },
 }
 
+export const UIConfig = {
+
+}
+
 export const StatsConfig = {
+  timer: {
+    off: false,
+    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
+    hidden: false,
+  },
   usefloats: false, // display floating point number
   unit: {
     cpm: false, // characters per minute

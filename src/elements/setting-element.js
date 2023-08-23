@@ -1,17 +1,10 @@
-export const website = { }
-export const setting = {
-	dynamic: {
-		off: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.dynamicSettingsButton button.button.on"),
-	},
-}
 export const websiteTheme = {
 	light: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.light"),
 	midnight: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.midnight"),
 	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
 }
-export const tape = {
-	off: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.off"),
+export const tapeMode = {
+	off: document.querySelector("#tapeModeSettingButton button.off"),
 	mode: {
 		letter: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.letter"),
 		word: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.word"),
@@ -21,16 +14,16 @@ export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
 	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
 }
-export const backspace = {
-	off: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.on"),
-}
 export const modifier = {
 	alt: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.alt input[type='checkbox']#alt"),
 	ctrl: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
 	meta: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
 }
-export const backspaceAllowedOnCorrect = {
+export const del = {
+	off: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.off"),
+	on: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.on"),
+}
+export const delcorrect = {
 	off: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.on"),
 }

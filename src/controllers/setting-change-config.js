@@ -535,9 +535,9 @@ export function changePaceCaretStyleInConfig(value) {
 
 export function changeBlindModeInConfig(value) {
 	if ( value === "on" ) {
-		config.blind = true;
+		config.goblind = true;
 	} else {
-		config.blind = false;
+		config.goblind = false;
 	}
 }
 
