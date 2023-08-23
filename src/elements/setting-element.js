@@ -1,8 +1,8 @@
 export const tapeMode = {
-	off: document.querySelector("#tapeModeSettingButtonsContainer button.off"),
+	off: document.querySelector("div.container#tapeMode button.off"),
 	mode: {
-		letter: document.querySelector("#tapeModeSettingButtonsContainer button.letter"),
-		word: document.querySelector("#tapeModeSettingButtonsContainer button.word"),
+		letter: document.querySelector("div.container#tapeMode button.letter"),
+		word: document.querySelector("div.container#tapeMode button.word"),
 	},
 }
 export const textInputField = {

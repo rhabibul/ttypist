@@ -28,13 +28,13 @@ export const config = {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
+  deletion: true, // backspace key
+  delcorrect: true, // deletion of correct words
   modifier: {
     alt: true, // backspace + alt
     ctrl: true, // backspace + ctrl
     meta: false, // backspace + cmd/win
   },
-  delete: true, // backspace key
-  delcorrect: true, // deletion of correctly typed previous word
   confidence: {
     low: true, // use backspace key to delete previous words/letters
     high: false, // only current word can be edited with bs, cannot go to prev word whether it is correct or incorrect

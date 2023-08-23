@@ -191,7 +191,7 @@ text word letter {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-input[type="text"]#textField {
+input[type="text"]#textInputField {
   margin: 0px;
   padding: 0px;
   width: 0px;
