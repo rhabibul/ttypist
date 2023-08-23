@@ -1,14 +1,13 @@
-export const websiteTheme = {
-	light: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.light"),
-	midnight: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.midnight"),
-	dark: document.querySelector("div.s3.config.buttonContainer.websiteThemeButton button.button.dark"),
-}
 export const tapeMode = {
-	off: document.querySelector("#tapeModeSettingButton button.off"),
+	off: document.querySelector("#tapeModeSettingButtonsContainer button.off"),
 	mode: {
-		letter: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.letter"),
-		word: document.querySelector("div.s3.config.buttonContainer.tapeModeButton button.button.word"),
+		letter: document.querySelector("#tapeModeSettingButtonsContainer button.letter"),
+		word: document.querySelector("#tapeModeSettingButtonsContainer button.word"),
 	},
+}
+export const textInputField = {
+	hidden: document.querySelector("div.container#textInputField button.hidden"),
+	visible: document.querySelector("div.container#textInputField button.visible"),
 }
 export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
@@ -105,10 +104,6 @@ export const pacecaret = {
 		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
 	},
-}
-export const textInput = {
-	hidden: document.querySelector("div.s2.config.buttonContainer.textInputBoxButton button.button.hidden"),
-	visible: document.querySelector("div.s2.config.buttonContainer.textInputBoxButton button.button.visible"),
 }
 export const textHighlight = {
 	off: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.off"),
