@@ -37,8 +37,8 @@
     <div class="statsBar"></div>
     <div class="typingAreaContainer"></div>
 
-    <div class="testAreaContainer">
-      <div class="testTextContainer">
+    <div class="typingAreaContainer">
+      <div class="textContainer">
         <text>
           <word>
             <letter>h</letter>
@@ -70,30 +70,30 @@
 
     <div class="setting">
       <div class="column c1">
-        <div class="row tapeModeConfig">
+        <div class="row tapeModeConfigContainer">
           <div class="label">
             <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
             <div class="text">tape mode</div>
           </div>
-          <div id="tapeMode" class="container config buttonContainer tapeModeButton s3">
+          <div id="tapeMode" class="s3 configButtonContainer config buttonContainer tapeModeButton">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
             <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
           </div>
         </div>
 
-        <div class="row textInputFieldConfig">
+        <div class="row textInputFieldConfigContainer">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
             <div class="text">text input</div>
           </div>
-          <div id="textInputField" class="container config buttonContainer textInputBoxButton s2">
+          <div id="textInputField" class="s2 configButtonContainer config buttonContainer textInputBoxButton">
             <button class="hidden"  value="hidden"  tabindex="0" role="button" type="button" id="selected">hidden</button>
             <button class="visible" value="visible" tabindex="0" role="button" type="button">visible</button>
           </div>
         </div>
 
-        <div class="row" id="textUnderline">
+        <div class="row textUnderlineConfigContainer">
           <div class="label">
             <div class="symbol">
               <svg class="iconTextUnderline" width="256px" height="256px" viewBox="-2 0 20 20">
@@ -104,18 +104,18 @@
             </div>
             <div class="text">underline text</div>
           </div>
-          <div class="config buttonContainer textUnderlineButton s2">
-            <button class="button off" tabindex="0" role="button" type="button" value="off">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
+          <div id="textUnderline" class="s2 configButtonContainer config buttonContainer textUnderlineButton">
+            <button class="off" tabindex="0" role="button" type="button" value="off">off</button>
+            <button class="on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
         </div>
         
-        <div class="row" id="textWhitespace">
+        <div class="row textWhitespaceConfigContainer">
           <div class="label">
             <div class="symbol"><svg class="iconTextWhitespace"  stroke="var(--setting-icon-color)" stroke-width="2" width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80"> <path d="M21 21V3M3 21V3M6.5 12H17.5M17.5 15L17.5 9M6.5 15L6.5 9"></path></svg></div>
             <div class="text">text whitespace</div>
           </div>
-          <div class="config buttonContainer textWhitespaceButton s4">
+          <div id="textWhitespace" class="s4 configButtonContainer config buttonContainer textWhitespaceButton">
             <button class="button off"    value="off"    tabindex="0" role="button" type="button" data-code="-1"   data-character="">off</button>
             <button class="button space"  value="space"  tabindex="0" role="button" type="button" data-code="160"  data-character="&nbsp;">space</button>
             <button class="button bullet" value="bullet" tabindex="0" role="button" type="button" data-code="8226" data-character="•" id="selected">bullet</button>
@@ -123,7 +123,7 @@
           </div>
         </div>
 
-        <div class="row" id="highlightMode">
+        <div class="row textHighlightConfigContainer">
           <div class="label">
             <div class="symbol">
               <svg class="iconHighlightMode" height="256px" width="256px" viewBox="0 0 512 512" fill="none">
@@ -139,14 +139,14 @@
             </div>
             <div class="text">highlight</div>
           </div>
-          <div class="config buttonContainer highlightModeButton s3">
+          <div id="textHighlight" class="s3 configButtonContainer config buttonContainer highlightModeButton">
             <button class="button off"    value="off"    tabindex="0" role="button" type="button">off</button>
             <button class="button letter" value="letter" tabindex="0" role="button" type="button" id="selected">letter</button>
             <button class="button word"   value="word"   tabindex="0" role="button" type="button">word</button>
           </div>
         </div>
 
-        <div class="row" id="flipHighlightModeColor">
+        <div class="row flipTextHighlightConfigContainer">
           <div class="label">
             <div class="symbol">
               <svg class="iconFlipHighlightModeColor" fill="var(--setting-icon-color)" stroke="var(--setting-icon-color)" stroke-width="30" height="256px" width="256px" viewBox="-92.22 -92.22 696.80 696.80">
@@ -157,7 +157,7 @@
             </div>
             <div class="text">flip highlight</div>
           </div>
-          <div class="config buttonContainer flipHightlightModeColorButton s2">
+          <div id="flipTextHighlight" class="s2 configButtonContainer config buttonContainer flipHightlightModeColorButton">
             <button class="button off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="button on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
@@ -184,23 +184,23 @@
           </div>
         </div>
 
-        <div class="row deletion">
+        <div class="row deletionConfigContainer">
           <div class="label">
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">deletion</div>
           </div>
-          <div class="config buttonContainer backspaceKeyButton s2">
+          <div id="deletion" class="container config buttonContainer backspaceKeyButton s2">
             <button class="off"value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on" value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
         </div>
 
-        <div class="row delcorrect">
+        <div class="row delCorrectConfigContainer">
           <div class="label">
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">delcorrect</div>
           </div>
-          <div class="config buttonContainer deleteOnCorrectButton s2">
+          <div id="delcorrect" class="container config buttonContainer deleteOnCorrectButton s2">
             <button class="off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
