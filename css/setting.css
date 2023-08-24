@@ -136,9 +136,9 @@ div.config.buttonContainer {
   user-select: none;
 }
 
-div.setting div.column div.row#minimumSpeed,
-div.setting div.column div.row#minimumAccuracy,
-div.setting div.column div.row#minimumBurst,
+div.setting div.column div.row.minimumSpeedConfigContainer,
+div.setting div.column div.row.minimumAccuracyConfigContainer,
+div.setting div.column div.row.minimumBurstConfigContainer,
 div.setting div.column div.row#timerTime,
 div.setting div.column div.row#paceCaretSpeed,
 div.setting div.column div.row#textWordCount {
