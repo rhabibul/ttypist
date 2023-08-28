@@ -75,7 +75,7 @@
             <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
             <div class="text">tape mode</div>
           </div>
-          <div id="tapeMode" class="s3 configButtonContainer config buttonContainer tapeModeButton">
+          <div id="tapeModeConfig" class="s3 configButtonContainer config buttonContainer tapeModeButton">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
             <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
@@ -87,7 +87,7 @@
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
             <div class="text">text input</div>
           </div>
-          <div id="textInputField" class="s2 configButtonContainer config buttonContainer textInputBoxButton">
+          <div id="textInputFieldConfig" class="s2 configButtonContainer config buttonContainer textInputBoxButton">
             <button class="hidden"  value="hidden"  tabindex="0" role="button" type="button" id="selected">hidden</button>
             <button class="visible" value="visible" tabindex="0" role="button" type="button">visible</button>
           </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="text">underline text</div>
           </div>
-          <div id="textUnderline" class="s2 configButtonContainer config buttonContainer textUnderlineButton">
+          <div id="textUnderlineConfig" class="s2 configButtonContainer config buttonContainer textUnderlineButton">
             <button class="off" tabindex="0" role="button" type="button" value="off">off</button>
             <button class="on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
@@ -115,7 +115,7 @@
             <div class="symbol"><svg class="iconTextWhitespace"  stroke="var(--setting-icon-color)" stroke-width="2" width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80"> <path d="M21 21V3M3 21V3M6.5 12H17.5M17.5 15L17.5 9M6.5 15L6.5 9"></path></svg></div>
             <div class="text">text whitespace</div>
           </div>
-          <div id="textWhitespace" class="s4 configButtonContainer config buttonContainer textWhitespaceButton">
+          <div id="textWhitespaceConfig" class="s4 configButtonContainer config buttonContainer textWhitespaceButton">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" data-code="-1"   data-character="">off</button>
             <button class="space"  value="space"  tabindex="0" role="button" type="button" data-code="160"  data-character="&nbsp;">space</button>
             <button class="bullet" value="bullet" tabindex="0" role="button" type="button" data-code="8226" data-character="•" id="selected">bullet</button>
@@ -139,7 +139,7 @@
             </div>
             <div class="text">highlight</div>
           </div>
-          <div id="textHighlight" class="s3 configButtonContainer config buttonContainer highlightModeButton">
+          <div id="textHighlightConfig" class="s3 configButtonContainer config buttonContainer highlightModeButton">
             <button class="off"    value="off"    tabindex="0" role="button" type="button">off</button>
             <button class="letter" value="letter" tabindex="0" role="button" type="button" id="selected">letter</button>
             <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
@@ -157,7 +157,7 @@
             </div>
             <div class="text">flip highlight</div>
           </div>
-          <div id="flipTextHighlight" class="s2 configButtonContainer config buttonContainer flipHightlightModeColorButton">
+          <div id="flipTextHighlightConfig" class="s2 configButtonContainer config buttonContainer flipHightlightModeColorButton">
             <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
@@ -168,7 +168,7 @@
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">modifier keys</div>
           </div>
-          <div id="modifierKey" class="s3 configButtonContainer config buttonContainer modifierKeyCheckboxButtonContainer">
+          <div id="modifierKeyConfig" class="s3 configButtonContainer config buttonContainer modifierKeyCheckboxButtonContainer">
             <div class="modifierKeyCheckboxButton alt">
               <input id="alt" tabindex="0" type="checkbox" name="modifierKeyCheckboxButton" checked>
               <label for="alt">alt</label>
@@ -189,7 +189,7 @@
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">deletion</div>
           </div>
-          <div id="deletion" class="s2 configButtonContainer config buttonContainer backspaceKeyButton">
+          <div id="textDeletionConfig" class="s2 configButtonContainer config buttonContainer backspaceKeyButton">
             <button class="off"value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on" value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
@@ -200,7 +200,7 @@
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">delcorrect</div>
           </div>
-          <div id="delcorrect" class="s2 configButtonContainer config buttonContainer deleteOnCorrectButton">
+          <div id="deletionOfCorrectWordConfig" class="s2 configButtonContainer config buttonContainer deleteOnCorrectButton">
             <button class="off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
@@ -211,7 +211,7 @@
             <div class="symbol"><svg class="iconDeletion" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"> <path d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"></path></svg></div>
             <div class="text">confidence</div>
           </div>
-          <div id="confidence" class="s3 configButtonContainer config buttonContainer confidenceButton">
+          <div id="userConfidenceConfig" class="s3 configButtonContainer config buttonContainer confidenceButton">
             <button class="low"  value="low"  tabindex="0" role="button" type="button" id="selected">low</button>
             <button class="high" value="high" tabindex="0" role="button" type="button">high</button>
             <button class="peak" value="peak" tabindex="0" role="button" type="button">peak</button>
@@ -235,7 +235,7 @@
             </div>
             <div class="text">test difficulty</div>
           </div>
-          <div id="difficulty" class="s3 configButtonContainer config buttonContainer testDifficultyButton">
+          <div id="testDifficultyConfig" class="s3 configButtonContainer config buttonContainer testDifficultyButton">
             <button class="ease"   value="ease"   tabindex="0" role="button" type="button" id="selected">ease</button>
             <button class="expert" value="expert" tabindex="0" role="button" type="button">expert</button>
             <button class="master" value="master" tabindex="0" role="button" type="button">master</button>
@@ -247,7 +247,7 @@
             <div class="symbol"><svg class="iconStrictSpace" width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none"><path d="M5 12H19" stroke="var(--setting-icon-color)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
             <div class="text">strict space</div>
           </div>
-          <div id="strictSpace" class="s2 configButtonContainer config buttonContainer strictSpaceButton">
+          <div id="strictSpaceConfig" class="s2 configButtonContainer config buttonContainer strictSpaceButton">
             <button class="off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
@@ -258,7 +258,7 @@
             <div class="symbol"><svg class="iconErrorHandling" width="256px" height="256px" viewBox="0 0 60 60" fill="none"> <path fill="var(--setting-icon-color)" opacity="0.8" fill-rule="evenodd" transform="translate(-350 -690)" d="M390.774,690a3.994,3.994,0,0,1,2.824,1.17l15.231,15.23A4,4,0,0,1,410,709.233v21.534a4,4,0,0,1-1.172,2.831L393.6,748.828A3.989,3.989,0,0,1,390.774,750H369.225a3.989,3.989,0,0,1-2.824-1.171l-15.23-15.23A3.994,3.994,0,0,1,350,730.767V709.233a4,4,0,0,1,1.173-2.832l15.23-15.23a3.994,3.994,0,0,1,2.824-1.17h21.549ZM395,729.951A3.406,3.406,0,0,1,395,734.77l-0.22.22a3.42,3.42,0,0,1-4.833,0l-8.764-8.755a1.71,1.71,0,0,0-2.417,0l-8.741,8.746a3.417,3.417,0,0,1-4.836,0l-0.194-.193a3.408,3.408,0,0,1,.017-4.842l8.834-8.735a1.7,1.7,0,0,0,0-2.43l-8.831-8.725a3.409,3.409,0,0,1-.018-4.844l0.193-.193a3.411,3.411,0,0,1,2.418-1c0.944,0,3.255,1.835,3.872,2.455l7.286,7.287a1.708,1.708,0,0,0,2.417,0l8.764-8.748a3.417,3.417,0,0,1,4.831,0L395,705.243a3.406,3.406,0,0,1,0,4.818l-8.727,8.737a1.7,1.7,0,0,0,0,2.407Z"></path></svg></div>
             <div class="text">extra errors</div>
           </div>
-          <div id="error" class="s4 configButtonContainer config buttonContainer extraLetterErrorButton">
+          <div id="errorHandlingConfig" class="s4 configButtonContainer config buttonContainer extraLetterErrorButton">
             <button class="off"     value="off"     tabindex="0" role="button" type="button">off</button>
             <button class="insert"  value="insert"  tabindex="0" role="button" type="button" id="selected">insert</button>
             <button class="skip"    value="skip"    tabindex="0" role="button" type="button">skip</button>
@@ -283,7 +283,7 @@
             </div>
             <div class="text">forgive extra errors</div>
           </div>
-          <div id="forgiveError" class="s2 configButtonContainer config buttonContainer forgiveExtraLetterErrorButton">
+          <div id="forgiveErrorConfig" class="s2 configButtonContainer config buttonContainer forgiveExtraLetterErrorButton">
             <button class="off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
@@ -317,7 +317,7 @@
             </div>
             <div class="text">stop on error</div>
           </div>
-          <div id="stopOnError" class="s3 configButtonContainer config buttonContainer stopOnErrorButton">
+          <div id="stopOnErrorConfig" class="s3 configButtonContainer config buttonContainer stopOnErrorButton">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
             <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
@@ -336,7 +336,7 @@
             </div>
             <div class="text">blind mode</div>
           </div>
-          <div id="goBlind" class="s2 configButtonContainer config buttonContainer blindModeButton">
+          <div id="goBlindConfig" class="s2 configButtonContainer config buttonContainer blindModeButton">
             <button class="off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
             <button class="on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
@@ -352,7 +352,7 @@
             </div>
             <div class="text">quick end</div>
           </div>
-          <div id="quickEnd" class="s2 configButtonContainer config buttonContainer quickEndButton">
+          <div id="quickEndConfig" class="s2 configButtonContainer config buttonContainer quickEndButton">
             <button class="off" value="off" tabindex="0" role="button" type="button">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button" id="selected">on</button>
           </div>
@@ -368,7 +368,7 @@
             </div>
             <div class="text">opposite shift</div>
           </div>
-          <div id="oppositeShift" class="s2 configButtonContainer config buttonContainer oppositeShiftButton">
+          <div id="useOppositeShiftConfig" class="s2 configButtonContainer config buttonContainer oppositeShiftButton">
             <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
@@ -384,7 +384,7 @@
             </div>
             <div class="text">minimum speed</div>
           </div>
-          <div id="minimumSpeed" class="s2-1 s3 configButtonContainer config buttonContainer minimumSpeedButtonContainer">
+          <div id="minimumSpeedConfig" class="s2-1 s3 configButtonContainer config buttonContainer minimumSpeedButtonContainer">
             <div class="minimumSpeedButton s2">
               <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
               <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
@@ -408,7 +408,7 @@
             </div>
             <div class="text">minimum accuracy</div>
           </div>
-          <div id="minimumAccuracy" class="s2-1 s3 configButtonContainer config buttonContainer minimumAccuracyButtonContainer">
+          <div id="minimumAccuracyConfig" class="s2-1 s3 configButtonContainer config buttonContainer minimumAccuracyButtonContainer">
             <div class="minimumAccuracyButton s2">
               <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
               <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
@@ -432,7 +432,7 @@
             </div>
             <div class="text">minimum burst</div>
           </div>
-          <div id="minimumBurst" class="s3-1 s4 configButtonContainer config buttonContainer minimumBurstButtonContainer">
+          <div id="minimumBurstConfig" class="s3-1 s4 configButtonContainer config buttonContainer minimumBurstButtonContainer">
             <div class="minimumBurstButton s3">
               <button class="off"   value="off"   tabindex="0" role="button" type="button" id="selected">off</button>
               <button class="fixed" value="fixed" tabindex="0" role="button" type="button">fixed</button>
@@ -506,7 +506,7 @@
       </div>
       
       <div class="column c2">
-        <div class="row" id="caretStyle">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
@@ -517,7 +517,7 @@
             </div>
             <div class="text">caret</div>
           </div>
-          <div class="config caret caretStyleButton s5">
+          <div id="caretStyleConfig" class="s5 configButtonContainer config caret caretStyleButton s5">
             <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
             <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"              ><span class="shape shape-underscore"></span></button>
             <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape shape-line" style="background-color: var(--selected-color)"></span></button>
