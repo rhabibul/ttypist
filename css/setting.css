@@ -234,13 +234,13 @@ div.configButtonContainer.s3.liveStatusIntervalButton > button.second {
 	flex-basis: 33%;
 }
 div.configButtonContainer.extraLetterErrorButton.s4 > button.skip,
-div.configButtonContainer.textWhitespaceButton.s4 > button.bar,
+div.configButtonContainer#textWhitespaceConfig.s4 > button.bar,
 div.configButtonContainer.paceCaretSpeedButtonContainer.s4-2.s6 div.paceCaretSpeedButton.s4 > button.off,
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button.off,
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button.seconds120,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.off,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.words100,
-div.configButtonContainer.textWhitespaceButton.s4 > button.off,
+div.configButtonContainer#textWhitespaceConfig.s4 > button.off,
 div.configButtonContainer.textWordLengthButton.s4 > button.off,
 div.configButtonContainer.extraLetterErrorButton.s4 > button.off,
 div.configButtonContainer.keyboardReactionButton.s4 > button.off {
@@ -253,7 +253,7 @@ div.configButtonContainer.websiteThemeButton.s3 > button.dark,
 div.configButtonContainer.keyboardReactionButton.s4 > button.static {
 	flex-basis: 27%;
 }
-div.configButtonContainer.textWhitespaceButton.s4 > button.space,
+div.configButtonContainer#textWhitespaceConfig.s4 > button.space,
 div.configButtonContainer.keyboardReactionButton.s4 > button.react {
 	flex-basis: 25%;
 }
@@ -270,7 +270,7 @@ div.configButtonContainer.extraLetterErrorButton.s4 > button.insert {
 	flex-basis: 25%;
 }
 div.configButtonContainer.textWordLengthButton.s4 > button.medium,
-div.configButtonContainer.textWhitespaceButton.s4 > button.bullet,
+div.configButtonContainer#textWhitespaceConfig.s4 > button.bullet,
 div.configButtonContainer.extraLetterErrorButton.s4 > button.replace {
 	flex-basis: 29%;
 }
@@ -528,9 +528,9 @@ details span.inf {
 	font-weight: 400;
 }
 
-div.config.modifierKeyCheckboxButtonContainer,
-div.config.textIncludeCheckboxButtonContainer,
-div.config.liveStatusCheckboxButtonContainer {
+div.configButtonContainer#modifierKeyConfig,
+div.configButtonContainer.textIncludeCheckboxButtonContainer,
+div.configButtonContainer.liveStatusCheckboxButtonContainer {
 	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
@@ -539,18 +539,18 @@ div.config.liveStatusCheckboxButtonContainer {
 	border-radius: var(--setting-button-roundness);
 	border: 1px solid var(--setting-button-border-color);
 }
-div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton,
-div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
-div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
+div.configButtonContainer#modifierKeyConfig  div.modifierKeyCheckboxButton,
+div.configButtonContainer.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
+div.configButtonContainer.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	column-gap: var(--setting-checkboxAndText-gap);
 }
-div.config.modifierKeyCheckboxButtonContainer  div.modifierKeyCheckboxButton label,
-div.config.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton label,
-div.config.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton  label {
+div.configButtonContainer#modifierKeyConfig  div.modifierKeyCheckboxButton label,
+div.configButtonContainer.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton label,
+div.configButtonContainer.liveStatusCheckboxButtonContainer   div.liveStatusCheckboxButton  label {
 	height: 100%;
 	display: flex;
 	align-items: center;
