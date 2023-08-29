@@ -26,6 +26,23 @@ function enableButton(button, selected = false) {
 
 TypingAreaElements.text.addEventListener("click", () => { TypingAreaElements.input.focus() });
 
+// tape mode
+SettingsElement.tapeModeConfig.off.addEventListener("click", updateTapeModeConfig);
+SettingsElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
+SettingsElement.tapeModeConfig.mode.word.addEventListener("click", updateTapeModeConfig);
+
+// text input field
+SettingsElement.textInputFieldConfig.hidden.addEventListener("click", updateTextInputFieldConfig);
+SettingsElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
+
+// text underline
+SettingsElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
+SettingsElement.textUnderlineConfig.on.addEventListener("click", updateTextUnderlineConfig);
+
+
+// -------------------------------------------------------------------------------
+
+
 // keyboard reaction
 SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
 SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
@@ -36,24 +53,6 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
-// website theme
-SettingsElement.websiteTheme.light.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.midnight.addEventListener("click", updateWebsiteTheme);
-SettingsElement.websiteTheme.dark.addEventListener("click", updateWebsiteTheme);
-
-// dynamic settings
-SettingsElement.setting.dynamic.off.addEventListener("click", updateDynamicSettings);
-SettingsElement.setting.dynamic.on.addEventListener("click", updateDynamicSettings);
-
-// text input
-SettingsElement.textInput.hidden.addEventListener("click", updateTextInput);
-SettingsElement.textInput.visible.addEventListener("click", updateTextInput);
-
-// tape mode
-SettingsElement.tape.off.addEventListener("click", updateTapeMode);
-SettingsElement.tape.mode.letter.addEventListener("click", updateTapeMode);
-SettingsElement.tape.mode.word.addEventListener("click", updateTapeMode);
-
 // text highlight
 SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
 SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
@@ -62,10 +61,6 @@ SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHigh
 // flip text highlight
 SettingsElement.textHighlight.flip.off.addEventListener("click", updateFlipTextHighlight);
 SettingsElement.textHighlight.flip.on.addEventListener("click", updateFlipTextHighlight);
-
-// text underline
-SettingsElement.textUnderline.off.addEventListener("click", updateTextUnderline);
-SettingsElement.textUnderline.on.addEventListener("click", updateTextUnderline);
 
 // text whitespace
 SettingsElement.textWhitespace.off.addEventListener("click", updateTextWhitespace);
@@ -308,7 +303,7 @@ function updateWebsiteTheme(evt) {
 }
 
 // text input (s2)
-function updateTextInput(evt) {
+function updateTextInputFieldConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.input.hidden && this.value === "hidden") || (config.text.input.visible && this.value === "visible") ) return;
 
@@ -320,7 +315,7 @@ function updateTextInput(evt) {
 }
 
 // tape mode (s3)
-function updateTapeMode(evt) {
+function updateTapeModeConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.tape.off && this.value === "off") || (config.tape.mode.letter && this.value === "letter") || (config.tape.mode.word && this.value === "word") ) return;
 	
@@ -365,7 +360,7 @@ function updateFlipTextHighlight(evt) {
 }
 
 // text underline (s2)
-function updateTextUnderline(evt) {
+function updateTextUnderlineConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.underline && this.value === "on") || (!config.text.underline && this.value === "off") ) return;
 

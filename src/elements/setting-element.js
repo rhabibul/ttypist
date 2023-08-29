@@ -1,14 +1,28 @@
-export const tapeMode = {
-	off: document.querySelector("div.container#tapeMode button.off"),
+function pf(value) {
+	console.log(value);
+}
+export const tapeModeConfig = {
+	off: document.querySelector("div.configButtonContainer#tapeModeConfig button.off"),
 	mode: {
-		letter: document.querySelector("div.container#tapeMode button.letter"),
-		word: document.querySelector("div.container#tapeMode button.word"),
+		letter: document.querySelector("div.configButtonContainer#tapeModeConfig button.letter"),
+		word: document.querySelector("div.configButtonContainer#tapeModeConfig button.word"),
 	},
 }
-export const textInputField = {
-	hidden: document.querySelector("div.container#textInputField button.hidden"),
-	visible: document.querySelector("div.container#textInputField button.visible"),
+export const textInputFieldConfig = {
+	hidden: document.querySelector("div.configButtonContainer#textInputFieldConfig button.hidden"),
+	visible: document.querySelector("div.configButtonContainer#textInputFieldConfig button.visible"),
 }
+export const textUnderlineConfig = {
+	off: document.querySelector("div.configButtonContainer#textUnderlineConfig button.off"),
+	on: document.querySelector("div.configButtonContainer#textUnderlineConfig button.on"),
+}
+
+
+
+// -------------------------------------------------------------------------------
+
+
+
 export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
 	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
@@ -115,10 +129,6 @@ export const textHighlight = {
 		off: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.off"),
 		on: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.on"),
 	}
-}
-export const textUnderline = {
-	off: document.querySelector("div.s2.config.buttonContainer.textUnderlineButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.textUnderlineButton button.button.on"),
 }
 export const textColor = {
 	primary: {
