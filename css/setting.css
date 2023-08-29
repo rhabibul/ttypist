@@ -124,8 +124,7 @@ div.configButtonContainer button {
 div.configButtonContainer button:hover {
 	background-color: #d8ebff;
 }
-/* visually make disabled buttons look dull */
-div.configButtonContainer button:disabled {
+div.configButtonContainer button:disabled { /* visually make disabled buttons look dull */
 	font-weight: 550;
 	color: white;
 	background-color: rgb(255, 221, 221);
@@ -136,9 +135,9 @@ div.configButtonContainer button:disabled:hover {
 	background-color: rgb(255, 221, 221);
 }
 
-div.row.minspeed,
-div.row.minacc,
-div.row.minburst,
+div.column.c1 div.row.minspeed,
+div.column.c1 div.row.minacc,
+div.column.c1 div.row.minburst,
 div.column.c2 div.row.timerseconds,
 div.column.c2 div.row.pacecaretspeed,
 div.row.textcolor,
@@ -527,7 +526,7 @@ details span.inf {
 }
 
 div.configButtonContainer#modifierKeyConfig,
-div.configButtonContainer.textIncludeCheckboxButtonContainer,
+div.configButtonContainer#includeSpecialsInTextConfig,
 div.configButtonContainer#liveStatsConfig {
 	height: var(--setting-button-height);
 	display: flex;
@@ -537,18 +536,18 @@ div.configButtonContainer#liveStatsConfig {
 	border-radius: var(--setting-button-roundness);
 	border: 1px solid var(--setting-button-border-color);
 }
-div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton,
-div.configButtonContainer.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton,
-div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton {
+div.configButtonContainer#modifierKeyConfig           div.modifierKeyCheckboxButton,
+div.configButtonContainer#includeSpecialsInTextConfig div.includeSpecialsInTextCheckboxButton,
+div.configButtonContainer#liveStatsConfig             div.liveStatsCheckboxButton {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	column-gap: var(--setting-checkboxAndText-gap);
 }
-div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton label,
-div.configButtonContainer.textIncludeCheckboxButtonContainer  div.textIncludeCheckboxButton label,
-div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton  label {
+div.configButtonContainer#modifierKeyConfig           div.modifierKeyCheckboxButton label,
+div.configButtonContainer#includeSpecialsInTextConfig div.includeSpecialsInTextCheckboxButton label,
+div.configButtonContainer#liveStatsConfig             div.liveStatsCheckboxButton   label {
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -563,8 +562,8 @@ div.configButtonContainer#keyWarningConfig {
 	row-gap: 3px;
 	border-radius: var(--setting-button-roundness);
 }
-div.configButtonContainer#keyWarningConfig div.warningsCheckboxButtonContainer-1.s2,
-div.configButtonContainer#keyWarningConfig div.warningsCheckboxButtonContainer-2.s2 {
+div.configButtonContainer#keyWarningConfig div.warningCheckboxButtonContainer-1.s2,
+div.configButtonContainer#keyWarningConfig div.warningCheckboxButtonContainer-2.s2 {
 	height: var(--setting-button-height);
 	width: 100%;
 	display: flex;
@@ -574,7 +573,7 @@ div.configButtonContainer#keyWarningConfig div.warningsCheckboxButtonContainer-2
 	border: 1px solid var(--setting-button-border-color);
 	border-radius: var(--setting-button-roundness);
 }
-div.warningsCheckboxButton {
+div.warningCheckboxButton {
 	flex-basis: 50%;
 	height: 100%;
 
@@ -583,14 +582,14 @@ div.warningsCheckboxButton {
 	justify-content: flex-start;
 	column-gap: 3px;
 }
-div.warningsCheckboxButton label {
+div.warningCheckboxButton label {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-div.warningsCheckboxButton.capslock,
-div.warningsCheckboxButton.scrolllock {
+div.warningCheckboxButton.capslock,
+div.warningCheckboxButton.scrolllock {
 	padding-left: 13px;
 }
 
