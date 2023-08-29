@@ -87,7 +87,7 @@ export const config = {
     capitalization: "off", // off | first | everyfirst | randomly | untidy
     whitespace: {
       off: false, // nospace
-      type: {
+      style: {
         bullet: true, // 8226, '•' (::after is used to draw bullet character)
         bar: false, // 9251, '␣'
         space: false, // 160, '&nbsp'

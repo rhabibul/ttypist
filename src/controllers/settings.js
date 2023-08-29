@@ -27,18 +27,24 @@ function enableButton(button, selected = false) {
 TypingAreaElements.text.addEventListener("click", () => { TypingAreaElements.input.focus() });
 
 // tape mode
-SettingsElement.tapeModeConfig.off.addEventListener("click", updateTapeModeConfig);
+SettingsElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
 SettingsElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
-SettingsElement.tapeModeConfig.mode.word.addEventListener("click", updateTapeModeConfig);
+SettingsElement.tapeModeConfig.mode.word.addEventListener("click",   updateTapeModeConfig);
 
 // text input field
-SettingsElement.textInputFieldConfig.hidden.addEventListener("click", updateTextInputFieldConfig);
+SettingsElement.textInputFieldConfig.hidden.addEventListener("click",  updateTextInputFieldConfig);
 SettingsElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
 
 // text underline
 SettingsElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
-SettingsElement.textUnderlineConfig.on.addEventListener("click", updateTextUnderlineConfig);
+SettingsElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
 
+
+// text whitespace
+SettingsElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
+SettingsElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
+SettingsElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
+SettingsElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
 
 // -------------------------------------------------------------------------------
 
@@ -61,12 +67,6 @@ SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHigh
 // flip text highlight
 SettingsElement.textHighlight.flip.off.addEventListener("click", updateFlipTextHighlight);
 SettingsElement.textHighlight.flip.on.addEventListener("click", updateFlipTextHighlight);
-
-// text whitespace
-SettingsElement.textWhitespace.off.addEventListener("click", updateTextWhitespace);
-SettingsElement.textWhitespace.type.bullet.addEventListener("click", updateTextWhitespace);
-SettingsElement.textWhitespace.type.space.addEventListener("click", updateTextWhitespace);
-SettingsElement.textWhitespace.type.bar.addEventListener("click", updateTextWhitespace);
 
 // quickend
 SettingsElement.strictspace.off.addEventListener("click", updateStrictSpace);
@@ -372,7 +372,7 @@ function updateTextUnderlineConfig(evt) {
 }
 
 // text whitespace (s4)
-function updateTextWhitespace(evt) {
+function updateTextWhitespaceConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.whitespace.off && this.value === "off") || (config.text.whitespace.type.bullet && this.value === "bullet") || (config.text.whitespace.type.space && this.value === "space") || (config.text.whitespace.type.bar && this.value === "bar") ) return;
 

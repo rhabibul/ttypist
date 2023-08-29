@@ -16,6 +16,14 @@ export const textUnderlineConfig = {
 	off: document.querySelector("div.configButtonContainer#textUnderlineConfig button.off"),
 	on: document.querySelector("div.configButtonContainer#textUnderlineConfig button.on"),
 }
+export const textWhitespaceConfig = {
+	off: document.querySelector("div.configButtonContainer#textWhitespaceConfig button.off"),
+	style: {
+		bullet: document.querySelector("div.configButtonContainer#textWhitespaceConfig button.bullet"),
+		space: document.querySelector("div.configButtonContainer#textWhitespaceConfig button.space"),
+		bar: document.querySelector("div.configButtonContainer#textWhitespaceConfig button.bar"),
+	}
+}
 
 
 
@@ -181,14 +189,6 @@ export const textFontSize = {
 export const textFontWeight = {
 	fontWeightInput: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.textFontWeightInputContainer input[type='range'].textFontWeightInput"),
 	fontWeightDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.text.value")
-}
-export const textWhitespace = {
-	off: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.off"),
-	type: {
-		bullet: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.bullet"),
-		space: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.space"),
-		bar: document.querySelector("div.s4.config.buttonContainer.textWhitespaceButton button.button.bar"),
-	}
 }
 export const textInclude = {
 	digit: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.digit input[type='checkbox']#digit"),
