@@ -11,6 +11,7 @@ export const config = {
       word: false,
     }
   },
+  time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
   arrows: true, // move caret using arrow keys (mythical)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   quickend: true, // if disabled then confirm end of test with a space
@@ -71,7 +72,7 @@ export const config = {
     },
     word: {
       count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
-      type: "dictionary words", // dictionary | gibberish | quote | story | algorithm
+      type: "dictionary", // dictionary | gibberish | quote | story | algorithm
       length: {
         off: true, // random
         short: false, // short(<6)
@@ -132,7 +133,7 @@ export const config = {
   },
   keyboard: {
     off: true,
-    language: "English",
+    language: "english", // english | hindi | bengali | russian
     layout: {
       map: "qwerty", // qwerty | dvorak | colemak | workman
       emulate: false,
@@ -145,16 +146,7 @@ export const config = {
   },
 }
 
-export const UIConfig = {
-
-}
-
 export const StatsConfig = {
-  timer: {
-    off: false,
-    time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
-    hidden: false,
-  },
   usefloats: false, // display floating point number
   unit: {
     cpm: false, // characters per minute
@@ -194,22 +186,20 @@ export const LearnerConfig = {
   },
 }
 
-export const MiscConfig = {
-  keyboard: {
-    section: {
-      arrowpad: true,
-      controlpad: true,
-      numpad: true,
-      function: true,
-      alphanumeric: true,
-    },
-    rows_visible: {
-      RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12        •  PrintScreen ScrollLock PauseBreak
-      RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace  •  Insert      Home       PageUp      •   NL /  *  -
-      RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                  •  Delete      End        PageDown    •   7  8  9  +
-      RowC: true, // CapsLock A S D F G H J K L :; "' Enter            •                                     •   4  5  6  +
-      RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                •              ArrowUp                •   1  2  3  Enter
-      RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn       •  ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
-    }
+export const KeyboardConfig = {
+  section: {
+    arrowpad: true,
+    controlpad: true,
+    numpad: true,
+    function: true,
+    alphanumeric: true,
   },
+  rows_visible: {
+    RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12        •  PrintScreen ScrollLock PauseBreak
+    RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace  •  Insert      Home       PageUp      •   NL /  *  -
+    RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                  •  Delete      End        PageDown    •   7  8  9  +
+    RowC: true, // CapsLock A S D F G H J K L :; "' Enter            •                                     •   4  5  6  +
+    RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                •              ArrowUp                •   1  2  3  Enter
+    RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn       •  ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
+  }
 }
