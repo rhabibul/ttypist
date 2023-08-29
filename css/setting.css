@@ -144,7 +144,7 @@ div.setting div.column div.row.pacecaret,
 div.setting div.column div.row.textwordcount {
 	height: 80px;
 }
-div.minimumSpeedButtonContainer.s2-1.s3,
+div#minimumSpeedConfig.s2-1.s3,
 div.minimumAccuracyButtonContainer.s2-1.s3,
 div.minimumBurstButtonContainer.s3-1.s4,
 div.textWordCountButtonContainer.s5-2.s7,
@@ -155,7 +155,7 @@ div.paceCaretSpeedButtonContainer.s4-2.s6 {
 	flex-direction: column;
 	row-gap: 3px;
 }
-div.minimumSpeedButtonContainer.s2-1.s3 > *,
+div#minimumSpeedConfig.s2-1.s3 > *,
 div.minimumAccuracyButtonContainer.s2-1.s3 > *,
 div.minimumBurstButtonContainer.s3-1.s4 > *,
 div.textWordCountButtonContainer.s5-2.s7 > *,
@@ -216,7 +216,7 @@ div.inputContainer.custom div.symbol svg.iconEditPen {
 }
 
 div.configButtonContainer.s2 > button,
-div.configButtonContainer.minimumSpeedButtonContainer.s2-1.s3 div.minimumSpeedButton.s2 > button,
+div.configButtonContainer#minimumSpeedConfig.s2-1.s3 div.minimumSpeedButton.s2 > button,
 div.configButtonContainer.minimumAccuracyButtonContainer.s2-1.s3 div.minimumAccuracyButton.s2 > button {
 	flex-basis: 49%;
 }
@@ -233,7 +233,7 @@ div.configButtonContainer.s3.liveStatusIntervalButton > button.keystroke {
 div.configButtonContainer.s3.liveStatusIntervalButton > button.second {
 	flex-basis: 33%;
 }
-div.configButtonContainer.extraLetterErrorButton.s4 > button.skip,
+div.configButtonContainer#errorHandlingConfig.s4 > button.skip,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.bar,
 div.configButtonContainer.paceCaretSpeedButtonContainer.s4-2.s6 div.paceCaretSpeedButton.s4 > button.off,
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button.off,
@@ -242,7 +242,7 @@ div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.off,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.words100,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.off,
 div.configButtonContainer.textWordLengthButton.s4 > button.off,
-div.configButtonContainer.extraLetterErrorButton.s4 > button.off,
+div.configButtonContainer#errorHandlingConfig.s4 > button.off,
 div.configButtonContainer.keyboardReactionButton.s4 > button.off {
 	flex-basis: 20%;
 }
@@ -266,12 +266,12 @@ div.configButtonContainer.keyboardReactionButton.s4 > button.next {
 div.configButtonContainer.textWordLengthButton.s4 > button.long {
 	flex-basis: 21%;
 }
-div.configButtonContainer.extraLetterErrorButton.s4 > button.insert {
+div.configButtonContainer#errorHandlingConfig.s4 > button.insert {
 	flex-basis: 25%;
 }
 div.configButtonContainer.textWordLengthButton.s4 > button.medium,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.bullet,
-div.configButtonContainer.extraLetterErrorButton.s4 > button.replace {
+div.configButtonContainer#errorHandlingConfig.s4 > button.replace {
 	flex-basis: 29%;
 }
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button,
