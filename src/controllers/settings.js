@@ -39,14 +39,39 @@ SettingsElement.textInputFieldConfig.visible.addEventListener("click", updateTex
 SettingsElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
 SettingsElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
 
-
 // text whitespace
 SettingsElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
 SettingsElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
 SettingsElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
 SettingsElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
 
+// text highlight
+SettingsElement.textHighlightConfig.off.addEventListener("click", updateTextHighlightConfig);
+SettingsElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
+SettingsElement.textHighlightConfig.mode.word.addEventListener("click", updateTextHighlightConfig);
+
+// flip text highlight
+SettingsElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
+SettingsElement.flipTextHighlightConfig.on.addEventListener("click", updateFlipTextHighlightConfig);
+
+// modifier keys
+SettingsElement.modifierKeyConfig.alt.addEventListener("click", updateModifierKeyConfig);
+SettingsElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
+SettingsElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
+
+// delete text
+SettingsElement.deletionConfig.off.addEventListener("click", updateDeletionConfig);
+SettingsElement.deletionConfig.on.addEventListener("click", updateDeletionConfig);
+
+// delete correct text
+SettingsElement.delcorrectConfig.off.addEventListener("click", updateDelCorrectConfig);
+SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDelCorrectConfig);
+
+
 // -------------------------------------------------------------------------------
+
+
+
 
 
 // keyboard reaction
@@ -58,15 +83,6 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 // keyboard layout emulate
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
-
-// text highlight
-SettingsElement.textHighlight.off.addEventListener("click", updateTextHighlight);
-SettingsElement.textHighlight.mode.letter.addEventListener("click", updateTextHighlight);
-SettingsElement.textHighlight.mode.word.addEventListener("click", updateTextHighlight);
-
-// flip text highlight
-SettingsElement.textHighlight.flip.off.addEventListener("click", updateFlipTextHighlight);
-SettingsElement.textHighlight.flip.on.addEventListener("click", updateFlipTextHighlight);
 
 // quickend
 SettingsElement.strictspace.off.addEventListener("click", updateStrictSpace);
@@ -85,19 +101,6 @@ SettingsElement.difficulty.master.addEventListener("click", updateDifficulty);
 SettingsElement.confidence.low.addEventListener("click", updateConfidence);
 SettingsElement.confidence.high.addEventListener("click", updateConfidence);
 SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
-
-// backspace key
-SettingsElement.backspace.off.addEventListener("click", updateBackspaceKey);
-SettingsElement.backspace.on.addEventListener("click", updateBackspaceKey);
-
-// delete on correct
-SettingsElement.backspaceAllowedOnCorrect.off.addEventListener("click", updateBackspaceAllowedOnCorrectWord);
-SettingsElement.backspaceAllowedOnCorrect.on.addEventListener("click",  updateBackspaceAllowedOnCorrectWord);
-
-// modifier keys
-SettingsElement.modifier.alt.addEventListener("click", updateModifierKey);
-SettingsElement.modifier.ctrl.addEventListener("click", updateModifierKey);
-SettingsElement.modifier.meta.addEventListener("click", updateModifierKey);
 
 // error
 SettingsElement.error.off.addEventListener("click", updateError);
@@ -327,7 +330,7 @@ function updateTapeModeConfig(evt) {
 }
 
 // text highlight (s3)
-function updateTextHighlight(evt) {
+function updateTextHighlightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.highlight.off && this.value === "off") || (config.text.highlight.mode.letter && this.value === "letter") || (config.text.highlight.mode.word && this.value === "word")) return;
 
@@ -339,7 +342,7 @@ function updateTextHighlight(evt) {
 }
 
 // flip text highlight (s2)
-function updateFlipTextHighlight(evt) {
+function updateFlipTextHighlightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.highlight.flip && this.value === "on") || (!config.text.highlight.flip && this.value === "off") ) return;
 
@@ -456,7 +459,7 @@ function updateConfidence(evt) {
 }
 
 // backspace key (s2)
-function updateBackspaceKey(evt) {
+function updateDeletionConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.backspace.off && this.value === "off") || (!config.backspace.off && this.value === "on") ) return;
 
@@ -485,7 +488,7 @@ function updateBackspaceKey(evt) {
 }
 
 // deletion not allowed on correct (s2)
-function updateBackspaceAllowedOnCorrectWord(evt) {
+function updateDelCorrectConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.backspace.allowedOnCorrectWord && this.value === "on") || (!config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
 	
@@ -508,7 +511,7 @@ function updateBackspaceAllowedOnCorrectWord(evt) {
 }
 
 // modifier keys (s3)
-function updateModifierKey(evt) {
+function updateModifierKeyConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	
 	SettingChangeInConfig.changeModifierKeyInConfig();

@@ -1,6 +1,3 @@
-function pf(value) {
-	console.log(value);
-}
 export const tapeModeConfig = {
 	off: document.querySelector("div.configButtonContainer#tapeModeConfig button.off"),
 	mode: {
@@ -24,7 +21,30 @@ export const textWhitespaceConfig = {
 		bar: document.querySelector("div.configButtonContainer#textWhitespaceConfig button.bar"),
 	}
 }
-
+export const textHighlightConfig = {
+	off: document.querySelector("div.configButtonContainer#textHighlightConfig button.off"),
+	mode: {
+		letter: document.querySelector("div.configButtonContainer#textHighlightConfig button.letter"),
+		word: document.querySelector("div.configButtonContainer#textHighlightConfig button.word"),
+	}
+}
+export const flipTextHighlightConfig = {
+	off: document.querySelector("div.configButtonContainer#flipTextHighlightConfig button.off"),
+	on: document.querySelector("div.configButtonContainer#flipTextHighlightConfig button.on"),
+}
+export const modifierKeyConfig = {
+	alt: document.querySelector("div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton.alt input[type='checkbox']#alt"),
+	ctrl: document.querySelector("div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
+	meta: document.querySelector("div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
+}
+export const deletionConfig = {
+	off: document.querySelector("div.configButtonContainer#textDeletionConfig button.off"),
+	on: document.querySelector("div.configButtonContainer#textDeletionConfig button.on"),
+}
+export const delcorrectConfig = {
+	off: document.querySelector("div.configButtonContainer#deletionOfCorrectWordConfig button.off"),
+	on: document.querySelector("div.configButtonContainer#deletionOfCorrectWordConfig button.on"),
+}
 
 
 // -------------------------------------------------------------------------------
@@ -34,19 +54,6 @@ export const textWhitespaceConfig = {
 export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
 	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
-}
-export const modifier = {
-	alt: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.alt input[type='checkbox']#alt"),
-	ctrl: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
-	meta: document.querySelector("div.s3.config.buttonContainer.modifierKeyCheckboxButtonContainer div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
-}
-export const del = {
-	off: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.backspaceKeyButton button.button.on"),
-}
-export const delcorrect = {
-	off: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.deleteOnCorrectButton button.button.on"),
 }
 export const confidence = {
 	low: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.low"),
@@ -126,17 +133,6 @@ export const pacecaret = {
 		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
 	},
-}
-export const textHighlight = {
-	off: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.off"),
-	mode: {
-		letter: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.letter"),
-		word: document.querySelector("div.s3.config.buttonContainer.highlightModeButton button.button.word"),
-	},
-	flip: {
-		off: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.flipHightlightModeColorButton button.button.on"),
-	}
 }
 export const textColor = {
 	primary: {

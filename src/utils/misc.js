@@ -69,13 +69,13 @@ export function wordelements(s) {
     letter.classList.add(config.caret.style);
     letter.classList.add("whitespace");
     
-    if ( config.text.whitespace.type.bullet ) {
+    if ( config.text.whitespace.style.bullet ) {
       letter.classList.add("bullet");
       letter.innerHTML = "&nbsp;";
-    } else if ( config.text.whitespace.type.bar ) {
+    } else if ( config.text.whitespace.style.bar ) {
       letter.classList.add("bar");
       letter.innerHTML = "␣";
-    } else if ( config.text.whitespace.type.space ) {
+    } else if ( config.text.whitespace.style.space ) {
       letter.classList.add("space");
       letter.innerHTML = "&nbsp;";
     } else {
