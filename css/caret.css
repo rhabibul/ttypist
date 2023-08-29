@@ -138,8 +138,8 @@ box-shadow: offset-x | offset-y | blur-radius | color
 
 /* ============================================================================ */
 
-div.caretStyleButton,
-div.paceCaretStyleButton {
+div.configButtonContainer#caretStyleConfig,
+div.configButtonContainer#paceCaretStyleConfig {
   height: var(--setting-button-height);
   width: var(--setting-buttons-container-width);
 
@@ -155,16 +155,16 @@ div.paceCaretStyleButton {
   user-select: none;
 }
 
-button.caret-off,
-button.caret-underscore,
-button.caret-line,
-button.caret-box,
-button.caret-block,
-button.paceCaret-off,
-button.paceCaret-underscore,
-button.paceCaret-line,
-button.paceCaret-box,
-button.paceCaret-block {
+button.offCaret,
+button.underscoreCaret,
+button.lineCaret,
+button.boxCaret,
+button.blockCaret,
+button.offPaceCaret,
+button.underscorePaceCaret,
+button.linePaceCaret,
+button.boxPaceCaret,
+button.blockPaceCaret {
   width: 20px;  
   height: var(--setting-button-height);
   display: flex;
@@ -174,21 +174,21 @@ button.paceCaret-block {
   border-radius: calc(var(--setting-button-roundness) - 2px);
   background-color: var(--setting-button-backgroundcolor);
 }
-button.caret-off:hover,
-button.caret-underscore:hover,
-button.caret-line:hover,
-button.caret-box:hover,
-button.caret-block:hover,
-button.paceCaret-off:hover,
-button.paceCaret-underscore:hover,
-button.paceCaret-line:hover,
-button.paceCaret-box:hover,
-button.paceCaret-block :hover{
+button.offCaret:hover,
+button.underscoreCaret:hover,
+button.lineCaret:hover,
+button.boxCaret:hover,
+button.blockCaret:hover,
+button.offPaceCaret:hover,
+button.underscorePaceCaret:hover,
+button.linePaceCaret:hover,
+button.boxPaceCaret:hover,
+button.blockPaceCaret :hover{
 	background-color: #d8ebff;
 }
 
-button.caret-off,
-button.paceCaret-off {
+button.offCaret,
+button.offPaceCaret {
   flex-basis: 49%;
   height: 100%;
   font-size: 1rem;
@@ -200,22 +200,22 @@ button.paceCaret-off {
   font-family: var(--RobotoMono);
   font-size: 0.8rem;
 }
-span.shape-underscore {
+span.underscoreCaretShape {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);
   border-bottom: 1px solid var(--setting-caret-color);
 }
-span.shape-line {
+span.lineCaretShape {
   width: 1px;
   height: var(--setting-caret-height);
   background-color: var(--setting-caret-color);
 }
-span.shape-box {
+span.boxCaretShape {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);
   border: 1px solid var(--setting-caret-color);
 }
-span.shape-block {
+span.blockCaretShape {
   width: var(--setting-caret-width);
   height: var(--setting-caret-height);
   background-color: var(--setting-caret-color);

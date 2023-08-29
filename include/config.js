@@ -144,62 +144,30 @@ export const config = {
       next: false,
     },
   },
-}
-
-export const StatsConfig = {
-  usefloats: false, // display floating point number
-  unit: {
-    cpm: false, // characters per minute
-    wpm: true, // words per minute
+  stats: {
+    unit: {
+      cpm: false, // characters per minute
+      wpm: true, // words per minute
+    },
+    usefloats: false, // display floating point number
+    live: {
+      speed: false,    // live speed in wpm/cpm
+      accuracy: false, // live accuracy
+      burst: false,    // live burst, speed of last word typed
+    },
+    liveCalcInterval: {
+      word: false, // calculate stats after every word
+      keystroke: true, // calculate stats after each keystroke
+      second: false, // calculate stats after every one second
+    },
   },
-  live: {
-    speed: false,    // live speed in wpm/cpm
-    accuracy: false, // live accuracy
-    burst: false,    // live burst, speed of last word typed
-  },
-  calcInterval: { // calculation interval for speed, accuracy, burst
-    word: false, // calculate after every word
-    keystroke: true, // calculate after each keystroke
-    second: false, // calculate after every one second
-  },
-  warn: {
+  warning: {
     capslock: false, // capslock key is left turned on
     numlock: false, // numlock key is left turned on
     scrolllock: false, // scolllock key is left turned on
     focusout: true, // warning out of focus while taking test (typing)
   },
-}
-
-export const LearnerConfig = {
   guidedlessons: false, // learn touchtyping through guided lessons
-  customtext: false, // ascii text
-  oppositeThumbForSpace: false, // emulates opposite thumb by splitting space bar into two parts
-  practice: {
-    arrows: false, // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
-    brackets: false, // {[(<>)]}
-    numpad: false, // number pad's digits [0-9] and symbols
-    numrow: false, // number row's digits [0-9]
-    ascii: {
-      symbol: false, // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
-      alphabets: false, // ascii characters [a-z, A-Z]
-    },
-  },
-}
-
-export const KeyboardConfig = {
-  section: {
-    arrowpad: true,
-    controlpad: true,
-    numpad: true,
-    function: true,
-    alphanumeric: true,
-  },
-  rows_visible: {
-    RowK: true, // Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12        •  PrintScreen ScrollLock PauseBreak
-    RowE: true, // ~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- += Backspace  •  Insert      Home       PageUp      •   NL /  *  -
-    RowD: true, // Tab Q W E R T Y U I O P {[ }] |\                  •  Delete      End        PageDown    •   7  8  9  +
-    RowC: true, // CapsLock A S D F G H J K L :; "' Enter            •                                     •   4  5  6  +
-    RowB: true, // Shift Z X C V B N M <, >. ?/ Shift                •              ArrowUp                •   1  2  3  Enter
-    RowA: true, // Ctrl Alt Meta SPACE Alt-Gr Meta Alt Ctrl Fn       •  ArrowLeft   ArrowDown  ArrowUP     •   0  0  .  Enter
-  }
+  customtext: false, // ascii text only
+  oppositethumbforspace: false, // emulates opposite thumb by splitting space bar into two parts
 }
