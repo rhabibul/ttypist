@@ -579,11 +579,11 @@
           </div>
           <div id="timerSecondsCountConfig" class="s5-2 s7 configButtonContainer config buttonContainer timerTimeButtonContainer">
             <div class="timerTimeButton s5">
-              <button class="button off"        value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="button seconds15"  value="15"  tabindex="0" role="button" type="button">15</button>
-              <button class="button seconds30"  value="30"  tabindex="0" role="button" type="button">30</button>
-              <button class="button seconds60"  value="60"  tabindex="0" role="button" type="button">60</button>
-              <button class="button seconds120" value="120" tabindex="0" role="button" type="button">120</button>
+              <button class="off"        value="off" tabindex="0" role="button" type="button" id="selected">off</button>
+              <button class="seconds15"  value="15"  tabindex="0" role="button" type="button">15</button>
+              <button class="seconds30"  value="30"  tabindex="0" role="button" type="button">30</button>
+              <button class="seconds60"  value="60"  tabindex="0" role="button" type="button">60</button>
+              <button class="seconds120" value="120" tabindex="0" role="button" type="button">120</button>
             </div>
             <div class="customInputContainer timerTimeCustomInputContainer s2">
               <div class="inputContainer custom s1">
@@ -608,8 +608,8 @@
             <div class="text">hide timer</div>
           </div>
           <div id="timerSecondsCountVisibilityConfig" class="s2 configButtonContainer config buttonContainer timerTimeVisibilityButton">
-            <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
-            <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
+            <button class="off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
+            <button class="on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
         </div>
 
@@ -628,11 +628,11 @@
           </div>
           <div id="textWordCountConfig" class="s5-2 s7 configButtonContainer config buttonContainer textWordCountButtonContainer">
             <div class="textWordCountButton s5">
-              <button class="button off"      value="off" tabindex="0" role="button" type="button">off</button>
-              <button class="button words10"  value="10"  tabindex="0" role="button" type="button">10</button>
-              <button class="button words25"  value="25"  tabindex="0" role="button" type="button" id="selected">25</button>
-              <button class="button words50"  value="50"  tabindex="0" role="button" type="button">50</button>
-              <button class="button words100" value="100" tabindex="0" role="button" type="button">100</button>
+              <button class="off"      value="off" tabindex="0" role="button" type="button">off</button>
+              <button class="words10"  value="10"  tabindex="0" role="button" type="button">10</button>
+              <button class="words25"  value="25"  tabindex="0" role="button" type="button" id="selected">25</button>
+              <button class="words50"  value="50"  tabindex="0" role="button" type="button">50</button>
+              <button class="words100" value="100" tabindex="0" role="button" type="button">100</button>
             </div>
             <div class="customInputContainer textWordCountCustomInputContainer s2">
               <div class="inputContainer custom s1">
@@ -661,7 +661,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row wordtype">
           <div class="label">
             <div class="symbol">
               <svg class="iconTextFontFamily" width="256px" height="256px" viewBox="-0.16 0 20.32 20.32" fill="var(--setting-icon-color)">
@@ -710,7 +710,7 @@
           </div>
         </div>
 
-        <div class="row" id="textWordLength">
+        <div class="row lengthOfWord">
           <div class="label">
             <div class="symbol">
               <svg class="iconTextWordLength" viewBox="0 0 512 512" width="256px" height="256px">
@@ -734,15 +734,15 @@
             </div>
             <div class="text value">length of words</div>
           </div>
-          <div class="config buttonContainer textWordLengthButton s4">
-            <button class="button off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="button short"  value="short"  tabindex="0" role="button" type="button">short</button>
-            <button class="button medium" value="medium" tabindex="0" role="button" type="button">medium</button>
-            <button class="button long"   value="long"   tabindex="0" role="button" type="button">long</button>
+          <div id="lengthOfWordConfig"  class="s4 configButtonContainer config buttonContainer textWordLengthButton">
+            <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="short"  value="short"  tabindex="0" role="button" type="button">short</button>
+            <button class="medium" value="medium" tabindex="0" role="button" type="button">medium</button>
+            <button class="long"   value="long"   tabindex="0" role="button" type="button">long</button>
           </div>
         </div>
 
-        <div class="row" id="textFontFamily">
+        <div class="row textfontfamily">
           <div class="label">
             <div class="symbol">
               <svg class="iconTextFontFamily" width="256px" height="256px" viewBox="-0.16 0 20.32 20.32" fill="var(--setting-icon-color)">
@@ -755,7 +755,7 @@
             </div>
             <div class="text">font family</div>
           </div>
-          <div class="config buttonContainer details textFontFamilyListContainer s1">
+          <div id="textFontFamilyConfig" class="s1 configButtonContainer config buttonContainer details textFontFamilyListContainer">
             <details class="textFontFamilyList">
               <summary>
                 <div class="text value in-use">roboto mono</div>
@@ -783,23 +783,23 @@
           </div>
         </div>
 
-        <div class="row" id="textFontSize">
+        <div class="row textfontsize">
           <div class="label">
             <div class="symbol"> <svg class="iconTextFontSize" width="64px" height="64px" viewBox="-180 -180 1560.00 1560.00" fill="var(--setting-icon-color)"> <path d="M991.699,0L783.398,209.399h139.452V990.6H783.398L991.699,1200 L1200,990.601h-139.38V209.399H1200L991.699,0z M5.933,207.642L0,420.703h74.048c0-146.136,0.1-145.972,186.841-145.972V862.5 c0,73.264-0.037,73.141-102.539,71.338v58.521h379.468v-58.521c-102.335,0-102.539-0.179-102.539-71.338V274.731 c186.839,0,187.354,0.041,187.354,145.972h73.535l-5.347-213.062L5.933,207.642L5.933,207.642z"></path></svg></div>
             <div class="text">font size</div>
           </div>
-          <div class="config buttonContainer textFontSizeContainer range s1">
+          <div id="textFontSizeConfig" class="s1 configButtonContainer config buttonContainer textFontSizeContainer range">
             <div class="textFontSizeInputContainer"><input class="textFontSizeInput" type="range" min="16" max="48" step="1" value="19"></div>
             <div class="text value">20</div>
           </div>
         </div>
 
-        <div class="row" id="textFontWeight">
+        <div class="row textfontweight">
           <div class="label">
             <div class="symbol"> <svg class="iconTextFontWeight" fill="var(--setting-icon-color)" width="64px" height="64px" viewBox="0 0 24.00 24.00" stroke="var(--setting-icon-color)" stroke-width="0.96"> <path d="M16,5V4H13v9h1a1,1,0,0,1,0,2H10a1,1,0,0,1,0-2h1V4H8V5A1,1,0,0,1,6,5V3A1,1,0,0,1,7,2H17a1,1,0,0,1,1,1V5a1,1,0,0,1-2,0Zm3.707,9.293a1,1,0,0,0-1.414,1.414L19.586,17H4.414l1.293-1.293a1,1,0,0,0-1.414-1.414l-3,3a1,1,0,0,0,0,1.414l3,3a1,1,0,1,0,1.414-1.414L4.414,19H19.586l-1.293,1.293a1,1,0,1,0,1.414,1.414l3-3a1,1,0,0,0,0-1.414Z"></path></svg></div>
             <div class="text">font weight</div>
           </div>
-          <div class="config buttonContainer textFontWeightContainer range s1">
+          <div id="textFontWeightConfig" class="configButtonContainer config buttonContainer textFontWeightContainer range s1">
             <div class="textFontWeightInputContainer"><input class="textFontWeightInput" type="range" min="100" max="900" step="10" value="440"></div>
             <div class="text value">440</div>
           </div>
