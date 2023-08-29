@@ -33,10 +33,10 @@
       </div>
     </header>
     
-    <div class="leftSideBar utilsBar"></div>
-    <div class="statsBar"></div>
-    <div class="typingAreaContainer"></div>
-
+    <main>
+      <!-- typing area -->
+    </main>
+    
     <div class="typingAreaContainer">
       <div class="textContainer">
         <text>
@@ -75,7 +75,7 @@
             <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
             <div class="text">tape mode</div>
           </div>
-          <div id="tapeModeConfig" class="s3 configButtonContainer config buttonContainer tapeModeButton">
+          <div id="tapeModeConfig" class="s3 configButtonContainer">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
             <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
@@ -87,7 +87,7 @@
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
             <div class="text">text input</div>
           </div>
-          <div id="textInputFieldConfig" class="s2 configButtonContainer config buttonContainer textInputBoxButton">
+          <div id="textInputFieldConfig" class="s2 configButtonContainer">
             <button class="hidden"  value="hidden"  tabindex="0" role="button" type="button" id="selected">hidden</button>
             <button class="visible" value="visible" tabindex="0" role="button" type="button">visible</button>
           </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="text">underline text</div>
           </div>
-          <div id="textUnderlineConfig" class="s2 configButtonContainer config buttonContainer textUnderlineButton">
+          <div id="textUnderlineConfig" class="s2 configButtonContainer">
             <button class="off" tabindex="0" role="button" type="button" value="off">off</button>
             <button class="on"  tabindex="0" role="button" type="button" value="on" id="selected">on</button>
           </div>
@@ -486,7 +486,7 @@
           </div>
         </div>
 
-        <div class="row textcolor">
+        <div id="exef" class="row textcolor">
           <div class="label">
             <div class="symbol">
               <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
@@ -497,7 +497,7 @@
             </div>
             <div class="text">text color</div>
           </div>
-          <div id="textColorConfig" class="s1 configButtonContainer config buttonContainer textColors">
+          <div id="textColorConfig" class="s1 configButtonContainer">
             <div class="colorPickerContainer primaryTextColorInputContainer s1">
               <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
               <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary color">
@@ -549,7 +549,7 @@
                 <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M13.25 4L12.25 16"> </path>
               </svg>
             </div>
-            <div class="text">number of words</div>
+            <div class="text">words count</div>
           </div>
           <div id="textWordCountConfig" class="s5-2 s7 configButtonContainer config buttonContainer textWordCountButtonContainer">
             <div class="textWordCountButton s5">
@@ -572,7 +572,7 @@
         <div class="row includespecials">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
-            <div class="text">include in text</div>
+            <div class="text">include specials</div>
           </div>
           <div id="includeSpecialsInTextConfig" class="s2 configButtonContainer config buttonContainer textIncludeCheckboxButtonContainer">
             <div class="textIncludeCheckboxButton digit">
@@ -597,7 +597,7 @@
                 <path d="M7,15H17M6,21H3m14,0h4" fill="none" stroke="var(--setting-icon-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"></path>
               </svg>
             </div>
-            <div class="text">words to generate</div>
+            <div class="text">type of words</div>
           </div>
           <div  id="textWordTypeConfig" class="s1 configButtonContainer config buttonContainer details textWordTypeListContainer">
             <details class="textWordTypeList">
