@@ -127,5 +127,6 @@ export function binaryof(value) {
 }
 
 export function storeConfigInLocalStorage() {
-  window.localStorage.setItem('Config', JSON.stringify(Config));
+  window.localStorage.setItem('config', JSON.stringify(config));
 }
+
