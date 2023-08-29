@@ -517,7 +517,7 @@
             </div>
             <div class="text">caret</div>
           </div>
-          <div id="caretStyleConfig" class="s5 configButtonContainer config caret caretStyleButton s5">
+          <div id="caretStyleConfig" class="s5 configButtonContainer config caret caretStyleButton">
             <button class="caret-off"        value="off"        tabindex="0" role="button" type="button">off</button>
             <button class="caret-underscore" value="underscore" tabindex="0" role="button" type="button"              ><span class="shape shape-underscore"></span></button>
             <button class="caret-line"       value="line"       tabindex="0" role="button" type="button" id="selected"><span class="shape shape-line" style="background-color: var(--selected-color)"></span></button>
@@ -526,7 +526,7 @@
           </div>
         </div>
 
-        <div class="row" id="caretColor">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
@@ -537,13 +537,13 @@
             </div>
             <div class="text">caret color</div>
           </div>
-          <div class="config colorPickerContainer caretColorInputContainer s1">
+          <div id="caretColorConfig" class="s1 configButtonContainer config colorPickerContainer caretColorInputContainer">
             <input class="colorSelectorInput caretColorSelectorInput" type="color" value="#000000">
             <input class="colorTextInput caretColorTextInput"         type="text" placeholder="#000000">
           </div>
         </div>
 
-        <div class="row" id="textColors">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconFillColor" fill="var(--setting-icon-color)" height="64px" width="64px" viewBox="0 0 32 32">
@@ -554,7 +554,7 @@
             </div>
             <div class="text">text color</div>
           </div>
-          <div class="config buttonContainer textColors">
+          <div id="textColorConfig" class="s1 configButtonContainer config buttonContainer textColors">
             <div class="colorPickerContainer primaryTextColorInputContainer s1">
               <input class="colorSelectorInput primaryTextColorSelectorInput" type="color" value="#001e2e">
               <input class="colorTextInput primaryTextColorTextInput"         type="text" placeholder="primary color">
@@ -566,7 +566,7 @@
           </div>
         </div>
 
-        <div class="row" id="timerTime">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconTestTimer" height="256px" width="256px" viewBox="0 0 512 512">
@@ -577,7 +577,7 @@
             </div>
             <div class="text">timer</div>
           </div>
-          <div class="config buttonContainer timerTimeButtonContainer s5-2 s7">
+          <div id="timerSecondsCountConfig" class="s5-2 s7 configButtonContainer config buttonContainer timerTimeButtonContainer">
             <div class="timerTimeButton s5">
               <button class="button off"        value="off" tabindex="0" role="button" type="button" id="selected">off</button>
               <button class="button seconds15"  value="15"  tabindex="0" role="button" type="button">15</button>
@@ -595,7 +595,7 @@
           </div>
         </div>
 
-        <div class="row" id="timerTimeVisibility">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconHide" width="256px" height="256px" viewBox="0 0 24 24">
@@ -607,13 +607,13 @@
             </div>
             <div class="text">hide timer</div>
           </div>
-          <div class="config buttonContainer timerTimeVisibilityButton s2">
+          <div id="timerSecondsCountVisibilityConfig" class="s2 configButtonContainer config buttonContainer timerTimeVisibilityButton">
             <button class="button off" tabindex="0" role="button" type="button" value="off" id="selected">off</button>
             <button class="button on"  tabindex="0" role="button" type="button" value="on">on</button>
           </div>
         </div>
 
-        <div class="row" id="textWordCount">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00">
@@ -626,7 +626,7 @@
             </div>
             <div class="text">number of words</div>
           </div>
-          <div class="config buttonContainer textWordCountButtonContainer s5-2 s7">
+          <div id="textWordCountConfig" class="s5-2 s7 configButtonContainer config buttonContainer textWordCountButtonContainer">
             <div class="textWordCountButton s5">
               <button class="button off"      value="off" tabindex="0" role="button" type="button">off</button>
               <button class="button words10"  value="10"  tabindex="0" role="button" type="button">10</button>
@@ -644,12 +644,12 @@
           </div>
         </div>
 
-        <div class="row" id="textInclude">
+        <div class="row">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
             <div class="text">include in text</div>
           </div>
-          <div class="config buttonContainer textIncludeCheckboxButtonContainer s2">
+          <div id="includeSpecialsInTextConfig" class="s2 configButtonContainer config buttonContainer textIncludeCheckboxButtonContainer">
             <div class="textIncludeCheckboxButton digit">
               <input id="digit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="digit">digit</label>
@@ -661,7 +661,7 @@
           </div>
         </div>
 
-        <div class="row" id="textWordType">
+        <div class="row">
           <div class="label">
             <div class="symbol">
               <svg class="iconTextFontFamily" width="256px" height="256px" viewBox="-0.16 0 20.32 20.32" fill="var(--setting-icon-color)">
@@ -674,7 +674,7 @@
             </div>
             <div class="text">words to generate</div>
           </div>
-          <div class="config buttonContainer details textWordTypeListContainer s1">
+          <div  id="textWordTypeConfig" class="s1 configButtonContainer config buttonContainer details textWordTypeListContainer">
             <details class="textWordTypeList">
               <summary>
                 <div class="text value in-use">dictionary words</div>

@@ -118,7 +118,7 @@
   --inactive-background-color: #f3f3f3;
   
   --selected-color: white;
-  --selected-background-color: #4b2802;
+  --selected-background-color: rgb(38, 38, 38);
 }
 
 body {
