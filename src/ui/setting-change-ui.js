@@ -4,81 +4,53 @@ import * as SettingsElement from "../elements/setting-element.js";
 // keyboard reaction
 export function changeKeyboardReactionInUI(value) {
 	if ( value === "next" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "selected";
+		SettingsElement.UIKeyboardReactionConfig.off.id = "";
+		SettingsElement.UIKeyboardReactionConfig.static.id = "";
+		SettingsElement.UIKeyboardReactionConfig.react.id = "";
+		SettingsElement.UIKeyboardReactionConfig.next.id = "selected";
 	} else if ( value === "static" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "selected";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "";
+		SettingsElement.UIKeyboardReactionConfig.off.id = "";
+		SettingsElement.UIKeyboardReactionConfig.static.id = "selected";
+		SettingsElement.UIKeyboardReactionConfig.react.id = "";
+		SettingsElement.UIKeyboardReactionConfig.next.id = "";
 	} else if ( value === "react" ) {
-		SettingsElement.keyboardReaction.off.id = "";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "selected";
-		SettingsElement.keyboardReaction.next.id = "";
+		SettingsElement.UIKeyboardReactionConfig.off.id = "";
+		SettingsElement.UIKeyboardReactionConfig.static.id = "";
+		SettingsElement.UIKeyboardReactionConfig.react.id = "selected";
+		SettingsElement.UIKeyboardReactionConfig.next.id = "";
 	} else {
-		SettingsElement.keyboardReaction.off.id = "selected";
-		SettingsElement.keyboardReaction.static.id = "";
-		SettingsElement.keyboardReaction.react.id = "";
-		SettingsElement.keyboardReaction.next.id = "";
+		SettingsElement.UIKeyboardReactionConfig.off.id = "selected";
+		SettingsElement.UIKeyboardReactionConfig.static.id = "";
+		SettingsElement.UIKeyboardReactionConfig.react.id = "";
+		SettingsElement.UIKeyboardReactionConfig.next.id = "";
 	}
 }
 
 // emulate keyboard
 export function changeKeyboardLayoutEmulateInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.KeyboardLayoutEmulate.off.id = "";
-		SettingsElement.KeyboardLayoutEmulate.on.id = "selected";
+		SettingsElement.UIKeyboardLayoutEmulateConfig.off.id = "";
+		SettingsElement.UIKeyboardLayoutEmulateConfig.on.id = "selected";
 	}	else {
-		SettingsElement.KeyboardLayoutEmulate.off.id = "selected";
-		SettingsElement.KeyboardLayoutEmulate.on.id = "";
-	}
-}
-
-// dynamic setting
-export function changeDynamicSettingsInUI(value) {
-	if ( value === "off" ) {
-		SettingsElement.setting.dynamic.off.id = "selected";
-		SettingsElement.setting.dynamic.on.id = "";
-	}	else {
-		SettingsElement.setting.dynamic.off.id = "";
-		SettingsElement.setting.dynamic.on.id = "selected";
-	}
-}
-
-// website theme
-export function changeWebsiteThemeInUI(value) {
-	if ( value === "dark" ) {
-		SettingsElement.websiteTheme.light.id = "";
-		SettingsElement.websiteTheme.midnight.id = "";
-		SettingsElement.websiteTheme.dark.id = "selected";
-	} else if ( value === "midnight" ) {
-		SettingsElement.websiteTheme.light.id = "";
-		SettingsElement.websiteTheme.midnight.id = "selected";
-		SettingsElement.websiteTheme.dark.id = "";
-	} else {
-		SettingsElement.websiteTheme.light.id = "selected";
-		SettingsElement.websiteTheme.midnight.id = "";
-		SettingsElement.websiteTheme.dark.id = "";
+		SettingsElement.UIKeyboardLayoutEmulateConfig.off.id = "selected";
+		SettingsElement.UIKeyboardLayoutEmulateConfig.on.id = "";
 	}
 }
 
 // tape mode
 export function changeTapeModeInUI(value) {
 	if ( value === "letter" ) {
-		SettingsElement.tape.off.id = "";
-		SettingsElement.tape.mode.letter.id = "selected";
-		SettingsElement.tape.mode.word.id = "";
+		SettingsElement.tapeModeConfig.off.id = "";
+		SettingsElement.tapeModeConfig.mode.letter.id = "selected";
+		SettingsElement.tapeModeConfig.mode.word.id = "";
 	} else if ( value === "word" ) {
-		SettingsElement.tape.off.id = "";
-		SettingsElement.tape.mode.letter.id = "";
-		SettingsElement.tape.mode.word.id = "selected";
+		SettingsElement.tapeModeConfig.off.id = "";
+		SettingsElement.tapeModeConfig.mode.letter.id = "";
+		SettingsElement.tapeModeConfig.mode.word.id = "selected";
 	} else {
-		SettingsElement.tape.off.id = "selected";
-		SettingsElement.tape.mode.letter.id = "";
-		SettingsElement.tape.mode.word.id = "";
+		SettingsElement.tapeModeConfig.off.id = "selected";
+		SettingsElement.tapeModeConfig.mode.letter.id = "";
+		SettingsElement.tapeModeConfig.mode.word.id = "";
 	}
 }
 

@@ -109,8 +109,8 @@ SettingsElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOp
 SettingsElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
 
 // minimum speed
-SettingsElement.minimumThresholdConfig.speed.off.addEventListener("click", updateMinimumThresholdSpeedConfig);
-SettingsElement.minimumThresholdConfig.speed.on.addEventListener("click",  updateMinimumThresholdSpeedConfig);
+SettingsElement.minimumThresholdConfig.speed.off.addEventListener("click", updateMinimumSpeedThresholdConfig);
+SettingsElement.minimumThresholdConfig.speed.on.addEventListener("click",  updateMinimumSpeedThresholdConfig);
 SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("input",    updateMinimumSpeedThresholdInput);
 SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("focusout", updateMinimumSpeedThresholdInputOnFoucsOut);
 
@@ -163,8 +163,8 @@ SettingsElement.textWordsCountConfig.words25.addEventListener("click", updateTex
 SettingsElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
 SettingsElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
 SettingsElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordCountInputField);
-SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
+SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
+SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
 
 // text word length
 SettingsElement.lengthOfWordsInTextConfig.off.addEventListener("click", updateLengthOfWordsInTextConfig);
@@ -248,7 +248,7 @@ function updateUIKeyboardReactionConfig(evt) {
 }
 
 // keyboard layout emulate (s2)
-function updateKeyboardLayoutEmulate(evt) {
+function updateUIKeyboardLayoutEmulateConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.keyboard.layout.emulate && this.value === "on") || (!config.keyboard.layout.emulate && this.value === "off") ) return;
 
@@ -257,30 +257,6 @@ function updateKeyboardLayoutEmulate(evt) {
 
 	// debug
 	console.log("keyboardLayoutEmulate:", !config.keyboard.layout.emulate, config.keyboard.layout.emulate);
-}
-
-// dynamic settings (s2)
-function updateDynamicSettings(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.website.setting.dynamic && this.value === "on") ||  (!config.website.setting.dynamic && this.value === "off") ) return;
-
-	SettingChangeInUI.changeDynamicSettingsInUI(this.value);
-	SettingChangeInConfig.changeDynamicSettingsInConfig(this.value);
-
-	// debug
-	console.log("dynamicSettings:", !config.website.setting.dynamic, config.website.setting.dynamic);
-}
-
-// website theme (s3)
-function updateWebsiteTheme(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( this.value === config.website.theme ) return;
-
-	SettingChangeInUI.changeWebsiteThemeInUI(this.value);
-	SettingChangeInConfig.changeWebsiteThemeInConfig(this.value);
-
-	// debug
-	console.log("websiteTheme:", config.website.theme);
 }
 
 // text input (s2)
@@ -656,7 +632,7 @@ function updateUseOppositeShiftConfig(evt) {
 }
 
 // minimum speed (s3)
-function updateMinimumSpeed(evt) {
+function updateMinimumSpeedThresholdConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.minimum.speed.off && this.value === "off") || (!config.minimum.speed.off && this.value === "on") ) return;
 
@@ -705,7 +681,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 }
 
 // minimum accuracy (s3)
-function updateMinimumAccuracy(evt) {
+function updateMinimumAccuracyThresholdConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.minimum.accuracy.off && this.value === "off") || (!config.minimum.accuracy.off && this.value === "on") ) return;
 
@@ -754,7 +730,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 }
 
 // minimum burst (s3)
-function updateMinimumBurst(evt) {
+function updateMinimumBurstThresholdConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.minimum.burst.off && this.value === "off") || (config.minimum.burst.option.fixed && this.value === "fixed") || (config.minimum.burst.option.flex && this.value === "flex") ) return;
 
@@ -804,7 +780,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 }
 
 // text word count (s5)
-function updateTextWordCount(evt) {
+function updateTextWordsCountConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.word.count === -1 && this.value === "off") || (config.text.word.count === -2 && this.value === "custom") || (config.text.word.count === 10 && this.value === "10") || (config.text.word.count === 25 && this.value === "25") || (config.text.word.count === 50 && this.value === "50") || (config.text.word.count === 100 && this.value === "100") ) return;
 
@@ -834,7 +810,7 @@ function updateTextWordCount(evt) {
 }
 
 // text word count input (s1)
-function updateTextWordCountInputField(evt) {
+function updateTextWordsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
@@ -851,7 +827,7 @@ function updateTextWordCountInputField(evt) {
 }
 
 // text word count input - focusout (s1)
-function updateTextWordCountInputFieldOnFoucsOut(evt) {
+function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
@@ -917,7 +893,7 @@ function updateTimerSecondsCountConfig(evt) {
 }
 
 // timer custom seconds input (s1)
-function updateTimerSecondsCountConfigInputField(evt) {
+function updateTimerSecondsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
@@ -932,7 +908,7 @@ function updateTimerSecondsCountConfigInputField(evt) {
 }
 
 // timer custom seconds input - focusout (s1)
-function updateTimerSecondsCountConfigInputFieldOnFocusOut(evt) {
+function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
@@ -950,20 +926,8 @@ function updateTimerSecondsCountConfigInputFieldOnFocusOut(evt) {
 	console.log("INPUT FOCUS-OUT (numberOfSeconds)");
 }
 
-// timer visibility (s2)
-function updateTimerVisibilityInUI(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.stats.timer.hidden && this.value === "on") || (!config.stats.timer.hidden && this.value === "off") ) return;
-
-	SettingChangeInUI.changeTimerVisibilityInUI(this.value);
-	SettingChangeInConfig.changeTimerVisibilityInConfig(this.value);
-
-	// debug
-	console.log("timer.hidden:", config.stats.timer.hidden);
-}
-
 // pacecaret speed (s5)
-function updatePaceCaretSpeed(evt) {
+function updatePaceCaretSpeedConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.pacecaret.off && this.value === "off") || (config.pacecaret.speed.last && this.value === "last") || (config.pacecaret.speed.average && this.value === "average") || (config.pacecaret.speed.best && this.value === "best") || (!config.pacecaret.speed.custom.off && this.value === "custom") ) return;
 
