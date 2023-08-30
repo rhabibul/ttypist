@@ -114,10 +114,38 @@ export const caretStyleConfig = {
 		box: document.querySelector("div.configButtonContainer#caretStyleConfig button.boxCaret"),
 		block: document.querySelector("div.configButtonContainer#caretStyleConfig button.blockCaret"),
 	},
-	color: {
-		selectorInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='color'].colorSelectorInput.caretColorSelectorInput"),
-		textInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='text'].colorTextInput.caretColorTextInput"),
+}
+export const caretColorConfig = {
+	selectorInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='color'].colorSelectorInput.caretColorSelectorInput"),
+	textInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='text'].colorTextInput.caretColorTextInput"),
+}
+export const textColorConfig = {
+	primary: {
+		selectorInput: document.querySelector("div.configButtonContainer#textColorConfig div.primaryTextColorInputContainer input[type='color'].colorSelectorInput.primaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.configButtonContainer#textColorConfig div.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
+	},
+	secondary: {
+		selectorInput: document.querySelector("div.configButtonContainer#textColorConfig div.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
+		textInput: document.querySelector("div.configButtonContainer#textColorConfig div.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
 	}
+}
+export const timerSecondsCountConfig = {
+	off: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.off"),
+ 	seconds15: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds15"),
+ 	seconds30: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds30"),
+ 	seconds60: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds60"),
+ 	seconds120: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds120"),
+ 	customSecondsButton: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.timerTimeCustomInputButton"),
+ 	customSecondsInput: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
+}
+export const textWordsCountConfig = {
+	off: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.off"),
+	words10: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.words10"),
+	words25: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.words25"),
+	words50: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.words50"),
+	words100: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.words100"),
+	customWordsCountButton: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s2.customInputContainer.textWordsCountCustomInputContainer button.s1.textWordsCountCustomInputButton"),
+	customWordsCountInput: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s2.customInputContainer.textWordsCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordsCount"),
 }
 
 
@@ -149,42 +177,7 @@ export const pacecaret = {
 		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
 	},
 }
-export const textColor = {
-	primary: {
-		selectorInput: document.querySelector("div.s1.colorPickerContainer.primaryTextColorInputContainer input[type='color'].colorSelectorInput.primaryTextColorSelectorInput"),
-		textInput: document.querySelector("div.s1.colorPickerContainer.primaryTextColorInputContainer input[type='text'].colorTextInput.primaryTextColorTextInput"),
-	},
-	secondary: {
-		selectorInput: document.querySelector("div.s1.colorPickerContainer.secondaryTextColorInputContainer input[type='color'].colorSelectorInput.secondaryTextColorSelectorInput"),
-		textInput: document.querySelector("div.s1.colorPickerContainer.secondaryTextColorInputContainer input[type='text'].colorTextInput.secondaryTextColorTextInput"),
-	}
-}
-export const timer = {
-	off: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.off"),
-	time: {
-		seconds15: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds15"),
-		seconds30: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds30"),
-		seconds60: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds60"),
-		seconds120: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer button.button.seconds120"),
-		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.button.timerTimeCustomInputButton"),
-		customSecondsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.timerTimeButtonContainer div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
-	},
-	hidden: {
-		off: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.timerTimeVisibilityButton button.button.on"),
-	},
-}
-export const textWordCount = {
-	off: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.off"),
-	count: {
-		words10: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words10"),
-		words25: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words25"),
-		words50: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words50"),
-		words100: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s5.textWordCountButton button.button.words100"),
-		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer button.s1.button.textWordCountCustomInputButton"),
-		customWordsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordCount"),
-	},
-}
+
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
 	fontSizeDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.text.value")

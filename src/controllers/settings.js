@@ -127,6 +127,45 @@ SettingsElement.minimumThresholdConfig.burst.option.flex.addEventListener("click
 SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("input",    updateMinimumBurstThresholdInput);
 SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputOnFoucsOut);
 
+// caret style
+SettingsElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
+SettingsElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
+SettingsElement.caretStyleConfig.style.line.addEventListener("click", updateCaretStyleConfig);
+SettingsElement.caretStyleConfig.style.box.addEventListener("click", updateCaretStyleConfig);
+SettingsElement.caretStyleConfig.style.block.addEventListener("click", updateCaretStyleConfig);
+
+// caret color
+SettingsElement.caretColorConfig.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
+SettingsElement.caretColorConfig.textInput.addEventListener("input", updateCaretColorTextInput);
+
+// primary text color
+SettingsElement.textColorConfig.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
+SettingsElement.textColorConfig.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
+
+// secondary text color
+SettingsElement.textColorConfig.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
+SettingsElement.textColorConfig.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
+
+// timer seconds count
+SettingsElement.timerSecondsCountConfig.off.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.seconds15.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.customSecondsButton.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.customSecondsInput.addEventListener("input", updateTimerSecondsCountInputField);
+SettingsElement.timerSecondsCountConfig.customSecondsInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
+
+// text word count
+SettingsElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.words10.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.words25.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
+SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordCountInputField);
+SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
+
 
 // 🫵 ❤️❤️❤️ 🫵
 // -------------------------------------------------------------------------------
@@ -144,29 +183,6 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
-// text word count
-SettingsElement.textWordCount.off.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.words10.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.words25.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.words50.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.words100.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.custom.addEventListener("click", updateTextWordCount);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("input", updateTextWordCountInputField);
-SettingsElement.textWordCount.count.customWordsInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
-
-// timer
-SettingsElement.timer.off.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.seconds15.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.seconds30.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.seconds60.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.seconds120.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.custom.addEventListener("click", updateTimerSeconds);
-SettingsElement.timer.time.customSecondsInput.addEventListener("input", updateTimerSecondsInputField);
-SettingsElement.timer.time.customSecondsInput.addEventListener("focusout", updateTimerSecondsInputFieldOnFocusOut);
-
-// timer visibility
-SettingsElement.timer.hidden.off.addEventListener("click", updateTimerVisibilityInUI);
-SettingsElement.timer.hidden.on.addEventListener("click", updateTimerVisibilityInUI);
 
 // pacecaret speed (s5)
 SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
@@ -181,13 +197,6 @@ SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focu
 SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
 SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
 
-// primary text color
-SettingsElement.textColor.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
-SettingsElement.textColor.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
-
-// secondary text color
-SettingsElement.textColor.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
-SettingsElement.textColor.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
 // warnings
 SettingsElement.warnings.capslock.addEventListener("click", updateWarnings);
@@ -217,20 +226,9 @@ SettingsElement.stats.calcInterval.word.addEventListener("click", updateLiveStat
 SettingsElement.stats.calcInterval.keystroke.addEventListener("click", updateLiveStatsCalcInterval);
 SettingsElement.stats.calcInterval.second.addEventListener("click", updateLiveStatsCalcInterval);
 
-// caret color
-SettingsElement.caret.color.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
-SettingsElement.caret.color.textInput.addEventListener("input", updateCaretColorTextInput);
-
 // pacecaret color
 SettingsElement.pacecaret.color.selectorInput.addEventListener("input", updatePaceCaretColorSelectorInput);
 SettingsElement.pacecaret.color.textInput.addEventListener("input", updatePaceCaretColorTextInput);
-
-// caret style
-SettingsElement.caret.off.addEventListener("click", updateCaretStyle);
-SettingsElement.caret.style.underscore.addEventListener("click", updateCaretStyle);
-SettingsElement.caret.style.line.addEventListener("click", updateCaretStyle);
-SettingsElement.caret.style.box.addEventListener("click", updateCaretStyle);
-SettingsElement.caret.style.block.addEventListener("click", updateCaretStyle);
 
 // pacecaret style
 SettingsElement.pacecaret.off.addEventListener("click", updatePaceCaretStyle);
@@ -909,7 +907,7 @@ function updateTextWordCountInputFieldOnFoucsOut(evt) {
 }
 
 // timer seconds (s5)
-function updateTimerSeconds(evt) {
+function updateTimerSecondsCountConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.stats.timer.time === -2 && this.value === "custom") || (config.stats.timer.time === -1 && this.value === "off") || (config.stats.timer.time === 15 && this.value === "15") || (config.stats.timer.time === 30 && this.value === "30") || (config.stats.timer.time === 60 && this.value === "60") || (config.stats.timer.time === 120 && this.value === "120") ) return;
 
@@ -939,7 +937,7 @@ function updateTimerSeconds(evt) {
 }
 
 // timer custom seconds input (s1)
-function updateTimerSecondsInputField(evt) {
+function updateTimerSecondsCountConfigInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
@@ -954,7 +952,7 @@ function updateTimerSecondsInputField(evt) {
 }
 
 // timer custom seconds input - focusout (s1)
-function updateTimerSecondsInputFieldOnFocusOut(evt) {
+function updateTimerSecondsCountConfigInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
@@ -1198,7 +1196,7 @@ function updateLiveStatsCalcInterval(evt) {
 }
 
 // caret style (s5)
-function updateCaretStyle(evt) {
+function updateCaretStyleConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === config.caret.style ) return;
 	

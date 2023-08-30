@@ -148,7 +148,7 @@ div.column.c2 div.row.textwordcount {
 div#minimumSpeedConfig.s2-1.s3,
 div#minimumAccuracyConfig.s2-1.s3,
 div#minimumBurstConfig.s3-1.s4,
-div#textWordCountConfig.s5-2.s7,
+div#textWordsCountConfig.s5-2.s7,
 div#timerSecondsCountConfig.s5-2.s7,
 div#paceCaretSpeed.s4-2.s6 {
 	width: var(--setting-buttons-container-width);
@@ -159,7 +159,7 @@ div#paceCaretSpeed.s4-2.s6 {
 div#minimumSpeedConfig.s2-1.s3 > *,
 div#minimumAccuracyConfig.s2-1.s3 > *,
 div#minimumBurstConfig.s3-1.s4 > *,
-div#textWordCountConfig.s5-2.s7 > *,
+div#textWordsCountConfig.s5-2.s7 > *,
 div#timerSecondsCountConfig.s5-2.s7 > *,
 div#paceCaretSpeed.s4-2.s6  > * {
 	width: 100%;
@@ -167,7 +167,7 @@ div#paceCaretSpeed.s4-2.s6  > * {
 	justify-content: space-between;
 }
 
-div.customInputContainer button.button.s1 {
+div.customInputContainer button {
 	width: 95px;
 }
 div.inputContainer.custom {
