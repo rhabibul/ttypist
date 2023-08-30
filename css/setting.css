@@ -76,7 +76,7 @@ div.label div.text {
 	color: rgb(0, 58, 77);
 	font-size: 0.85rem;
 	font-weight: 550;
-	font-family: var(--FiraCode);
+	font-family: var(--SyneMono);
 }
 div.label div.symbol {
 	width: 30px;
