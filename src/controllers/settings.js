@@ -46,16 +46,16 @@ SettingsElement.textWhitespaceConfig.style.space.addEventListener("click",  upda
 SettingsElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
 
 // text highlight
-SettingsElement.textHighlightConfig.off.addEventListener("click", updateTextHighlightConfig);
+SettingsElement.textHighlightConfig.off.addEventListener("click",         updateTextHighlightConfig);
 SettingsElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
-SettingsElement.textHighlightConfig.mode.word.addEventListener("click", updateTextHighlightConfig);
+SettingsElement.textHighlightConfig.mode.word.addEventListener("click",   updateTextHighlightConfig);
 
 // flip text highlight
 SettingsElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
-SettingsElement.flipTextHighlightConfig.on.addEventListener("click", updateFlipTextHighlightConfig);
+SettingsElement.flipTextHighlightConfig.on.addEventListener("click",  updateFlipTextHighlightConfig);
 
 // modifier keys
-SettingsElement.modifierKeyConfig.alt.addEventListener("click", updateModifierKeyConfig);
+SettingsElement.modifierKeyConfig.alt.addEventListener("click",  updateModifierKeyConfig);
 SettingsElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
 SettingsElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
 
@@ -68,12 +68,12 @@ SettingsElement.delcorrectConfig.off.addEventListener("click", updateDelCorrectC
 SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDelCorrectConfig);
 
 // confidence
-SettingsElement.userConfidenceConfig.low.addEventListener("click", updateUserConfidenceConfig);
+SettingsElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
 SettingsElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
 SettingsElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
 
 // difficulty
-SettingsElement.testDifficultyConfig.ease.addEventListener("click", updateTestDifficultyConfig);
+SettingsElement.testDifficultyConfig.ease.addEventListener("click",   updateTestDifficultyConfig);
 SettingsElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
 SettingsElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
 
@@ -92,9 +92,9 @@ SettingsElement.errorHandlingConfig.forgive.off.addEventListener("click", update
 SettingsElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
 
 // stop on error
-SettingsElement.errorHandlingConfig.stop.off.addEventListener("click", updateStopOnErrorConfig);
+SettingsElement.errorHandlingConfig.stop.off.addEventListener("click",    updateStopOnErrorConfig);
 SettingsElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
-SettingsElement.errorHandlingConfig.stop.word.addEventListener("click", updateStopOnErrorConfig);
+SettingsElement.errorHandlingConfig.stop.word.addEventListener("click",   updateStopOnErrorConfig);
 
 // go blind
 SettingsElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
@@ -102,7 +102,30 @@ SettingsElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig)
 
 // quickend
 SettingsElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
-SettingsElement.quickEndConfig.on.addEventListener("click", updateQuickEndConfig);
+SettingsElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfig);
+
+// use opposite shift mode
+SettingsElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
+SettingsElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
+
+// minimum speed
+SettingsElement.minimumThresholdConfig.speed.off.addEventListener("click", updateMinimumThresholdSpeedConfig);
+SettingsElement.minimumThresholdConfig.speed.on.addEventListener("click",  updateMinimumThresholdSpeedConfig);
+SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("input",    updateMinimumSpeedThresholdInput);
+SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("focusout", updateMinimumSpeedThresholdInputOnFoucsOut);
+
+// minimum accuracy
+SettingsElement.minimumThresholdConfig.accuracy.off.addEventListener("click", updateMinimumAccuracyThresholdConfig);
+SettingsElement.minimumThresholdConfig.accuracy.on.addEventListener("click",  updateMinimumAccuracyThresholdConfig);
+SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.addEventListener("input",    updateMinimumAccuracyThresholdInput);
+SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.addEventListener("focusout", updateMinimumAccuracyThresholdInputOnFoucsOut);
+
+// minimum burst
+SettingsElement.minimumThresholdConfig.burst.off.addEventListener("click",          updateMinimumBurstThresholdConfig);
+SettingsElement.minimumThresholdConfig.burst.option.fixed.addEventListener("click", updateMinimumBurstThresholdConfig);
+SettingsElement.minimumThresholdConfig.burst.option.flex.addEventListener("click",  updateMinimumBurstThresholdConfig);
+SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("input",    updateMinimumBurstThresholdInput);
+SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputOnFoucsOut);
 
 
 // 🫵 ❤️❤️❤️ 🫵
@@ -120,29 +143,6 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 // keyboard layout emulate
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
-
-// opposite shift mode
-SettingsElement.oppositeShift.off.addEventListener("click", updateOppositeShiftMode);
-SettingsElement.oppositeShift.on.addEventListener("click", updateOppositeShiftMode);
-
-// minimum speed
-SettingsElement.minimum.speed.off.addEventListener("click", updateMinimumSpeed);
-SettingsElement.minimum.speed.on.addEventListener("click", updateMinimumSpeed);
-SettingsElement.minimum.speed.thresholdInput.addEventListener("input", updateMinimumSpeedThresholdInput);
-SettingsElement.minimum.speed.thresholdInput.addEventListener("focusout", updateMinimumSpeedThresholdInputOnFoucsOut);
-
-// minimum accuracy
-SettingsElement.minimum.accuracy.off.addEventListener("click", updateMinimumAccuracy);
-SettingsElement.minimum.accuracy.on.addEventListener("click", updateMinimumAccuracy);
-SettingsElement.minimum.accuracy.thresholdInput.addEventListener("input", updateMinimumAccuracyThresholdInput);
-SettingsElement.minimum.accuracy.thresholdInput.addEventListener("focusout", updateMinimumAccuracyThresholdInputOnFoucsOut);
-
-// minimum burst
-SettingsElement.minimum.burst.off.addEventListener("click", updateMinimumBurst);
-SettingsElement.minimum.burst.option.fixed.addEventListener("click", updateMinimumBurst);
-SettingsElement.minimum.burst.option.flex.addEventListener("click", updateMinimumBurst);
-SettingsElement.minimum.burst.thresholdInput.addEventListener("input", updateMinimumBurstThresholdInput);
-SettingsElement.minimum.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputOnFoucsOut);
 
 // text word count
 SettingsElement.textWordCount.off.addEventListener("click", updateTextWordCount);
@@ -666,7 +666,7 @@ function updateGoBlindConfig(evt) {
 }
 
 // opposite shift mode (s2)
-function updateOppositeShiftMode(evt) {
+function updateUseOppositeShiftConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.oppositeshift && this.value === "on") || (!config.oppositeshift && this.value === "off") ) return;
 

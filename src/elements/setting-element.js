@@ -86,6 +86,40 @@ export const useOppositeShiftConfig = {
 	off: document.querySelector("div.configButtonContainer#useOppositeShiftConfig button.off"),
 	on:  document.querySelector("div.configButtonContainer#useOppositeShiftConfig button.on"),
 }
+export const minimumThresholdConfig = {
+	speed: {
+		off: document.querySelector("div.configButtonContainer#minimumSpeedConfig div.s2.minimumSpeedButton button.off"),
+		on: document.querySelector("div.configButtonContainer#minimumSpeedConfig div.s2.minimumSpeedButton button.on"),
+		thresholdInput: document.querySelector("div.configButtonContainer#minimumSpeedConfig div.customInputContainer.minimumSpeedCustomInputContainer div.custom.inputContainer input.inputBox.speedThreshold"),
+	},
+	accuracy: {
+		off: document.querySelector("div.configButtonContainer#minimumAccuracyConfig div.s2.minimumAccuracyButton button.off"),
+		on: document.querySelector("div.configButtonContainer#minimumAccuracyConfig div.s2.minimumAccuracyButton button.on"),
+		thresholdInput: document.querySelector("div.configButtonContainer#minimumAccuracyConfig div.s1.customInputContainer.minimumAccuracyCustomInputContainer div.custom.inputContainer input.inputBox.accuracyThreshold"),
+	},
+	burst: {
+		off: document.querySelector("div.configButtonContainer#minimumBurstConfig div.s3.minimumBurstButton button.off"),
+		option: {
+			fixed: document.querySelector("div.configButtonContainer#minimumBurstConfig div.s3.minimumBurstButton button.fixed"),
+			flex: document.querySelector("div.configButtonContainer#minimumBurstConfig div.s3.minimumBurstButton button.flex"),
+		},
+		thresholdInput: document.querySelector("div.configButtonContainer#minimumBurstConfig div.s1.customInputContainer.minimumBurstCustomInputContainer div.custom.inputContainer input.inputBox.burstThreshold"),
+	}
+}
+export const caretStyleConfig = {
+	off: document.querySelector("div.configButtonContainer#caretStyleConfig button.offCaret"),
+	style: {
+		underscore: document.querySelector("div.configButtonContainer#caretStyleConfig button.underscoreCaret"),
+		line: document.querySelector("div.configButtonContainer#caretStyleConfig button.lineCaret"),
+		box: document.querySelector("div.configButtonContainer#caretStyleConfig button.boxCaret"),
+		block: document.querySelector("div.configButtonContainer#caretStyleConfig button.blockCaret"),
+	},
+	color: {
+		selectorInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='color'].colorSelectorInput.caretColorSelectorInput"),
+		textInput: document.querySelector("div.configButtonContainer#caretColorConfig input[type='text'].colorTextInput.caretColorTextInput"),
+	}
+}
+
 
 // 🫵 ❤️❤️❤️ 🫵
 // -------------------------------------------------------------------------------
@@ -93,39 +127,7 @@ export const useOppositeShiftConfig = {
 
 
 
-export const minimum = {
-	speed: {
-		off: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s2.minimumSpeedButton button.button.off"),
-		on: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s2.minimumSpeedButton button.button.on"),
-		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s1.customInputContainer.minimumSpeedCustomInputContainer div.custom.inputContainer input.inputBox.speedThreshold"),
-	},
-	accuracy: {
-		off: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s2.minimumAccuracyButton button.button.off"),
-		on: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s2.minimumAccuracyButton button.button.on"),
-		thresholdInput: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumAccuracyButtonContainer div.s1.customInputContainer.minimumAccuracyCustomInputContainer div.custom.inputContainer input.inputBox.accuracyThreshold"),
-	},
-	burst: {
-		off: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.off"),
-		option: {
-			fixed: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.fixed"),
-			flex: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s3.minimumBurstButton button.button.flex"),
-		},
-		thresholdInput: document.querySelector("div.s3-1.s4.config.buttonContainer.minimumBurstButtonContainer div.s1.customInputContainer.minimumBurstCustomInputContainer div.custom.inputContainer input.inputBox.burstThreshold"),
-	}
-}
-export const caret = {
-	off: document.querySelector("div.s5.config.caretStyleButton button.caret-off"),
-	style: {
-		underscore: document.querySelector("div.s5.config.caretStyleButton button.caret-underscore"),
-		line: document.querySelector("div.s5.config.caretStyleButton button.caret-line"),
-		box: document.querySelector("div.s5.config.caretStyleButton button.caret-box"),
-		block: document.querySelector("div.s5.config.caretStyleButton button.caret-block"),
-	},
-	color: {
-		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.caretColorInputContainer input[type='color'].colorSelectorInput.caretColorSelectorInput"),
-		textInput: document.querySelector("div.s1.config.colorPickerContainer.caretColorInputContainer input[type='text'].colorTextInput.caretColorTextInput"),
-	}
-}
+
 export const pacecaret = {
 	off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
 	style: {
