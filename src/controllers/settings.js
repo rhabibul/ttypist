@@ -213,22 +213,15 @@ SettingsElement.stats.live.speed.addEventListener("click", updateLiveStats);
 SettingsElement.stats.live.accuracy.addEventListener("click", updateLiveStats);
 SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
 
-// 🫵 ❤️❤️❤️ 🫵
-// -------------------------------------------------------------------------------
-// 🫵 ❤️❤️❤️ 🫵
-
-
-
 // keyboard reaction
-SettingsElement.keyboardReaction.off.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.static.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.react.addEventListener("click", updateKeyboardReaction);
-SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardReaction);
+SettingsElement.UIKeyboardReactionConfig.off.addEventListener("click", updateUIKeyboardReactionConfig);
+SettingsElement.UIKeyboardReactionConfig.static.addEventListener("click", updateUIKeyboardReactionConfig);
+SettingsElement.UIKeyboardReactionConfig.react.addEventListener("click", updateUIKeyboardReactionConfig);
+SettingsElement.UIKeyboardReactionConfig.next.addEventListener("click", updateUIKeyboardReactionConfig);
 
 // keyboard layout emulate
-SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
-SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
-
+SettingsElement.UIKeyboardLayoutEmulateConfig.off.addEventListener("click", updateUIKeyboardLayoutEmulateConfig);
+SettingsElement.UIKeyboardLayoutEmulateConfig.on.addEventListener("click", updateUIKeyboardLayoutEmulateConfig);
 
 // text word length
 function updateLengthOfWordsInTextConfig(evt) {
@@ -243,7 +236,7 @@ function updateLengthOfWordsInTextConfig(evt) {
 }
 
 // keyboard reaction (s4)
-function updateKeyboardReaction(evt) {
+function updateUIKeyboardReactionConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.keyboard.reaction.off && this.value === "off") || (config.keyboard.reaction.static && this.value === "static") || (config.keyboard.reaction.react && this.value === "react") || (config.keyboard.reaction.next && this.value === "next") ) return;
 

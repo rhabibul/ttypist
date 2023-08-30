@@ -199,13 +199,13 @@ export const stats = {
 		wpm: document.querySelector("div.configButtonContainer#typingSpeedMeasurementUnitConfig button.wpm"),
 	},
 }
-export const keyboardReaction = {
-	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),
-	static: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.static"),
-	react: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.react"),
-	next: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.next"),
+export const UIKeyboardReactionConfig = {
+	off: document.querySelector("div.configButtonContainer#UIKeyboardReaction button.off"),
+	static: document.querySelector("div.configButtonContainer#UIKeyboardReaction button.static"),
+	react: document.querySelector("div.configButtonContainer#UIKeyboardReaction button.react"),
+	next: document.querySelector("div.configButtonContainer#UIKeyboardReaction button.next"),
 }
-export const KeyboardLayoutEmulate = {
-	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
+export const UIKeyboardLayoutEmulateConfig = {
+	off: document.querySelector("div.configButtonContainer#UIKeyboardLayoutEmulateConfig button.off"),
+	on: document.querySelector("div.configButtonContainer#UIKeyboardLayoutEmulateConfig button.on"),
 }
