@@ -150,7 +150,7 @@ div#minimumAccuracyConfig.s2-1.s3,
 div#minimumBurstConfig.s3-1.s4,
 div#textWordsCountConfig.s5-2.s7,
 div#timerSecondsCountConfig.s5-2.s7,
-div#paceCaretSpeed.s4-2.s6 {
+div#paceCaretSpeedConfig.s4-2.s6 {
 	width: var(--setting-buttons-container-width);
 	display: flex;
 	flex-direction: column;
@@ -161,7 +161,7 @@ div#minimumAccuracyConfig.s2-1.s3 > *,
 div#minimumBurstConfig.s3-1.s4 > *,
 div#textWordsCountConfig.s5-2.s7 > *,
 div#timerSecondsCountConfig.s5-2.s7 > *,
-div#paceCaretSpeed.s4-2.s6  > * {
+div#paceCaretSpeedConfig.s4-2.s6  > * {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -236,13 +236,13 @@ div.configButtonContainer.s3.liveStatusIntervalButton > button.second {
 }
 div.configButtonContainer#errorHandlingConfig.s4 > button.skip,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.bar,
-div.configButtonContainer#paceCaretSpeed.s4-2.s6 div.paceCaretSpeedButton.s4 > button.off,
+div.configButtonContainer#paceCaretSpeedConfig.s4-2.s6 div.paceCaretSpeedConfigButton.s4 > button.off,
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button.off,
 div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button.seconds120,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.off,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button.words100,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.off,
-div.configButtonContainer#lengthOfWordConfig.s4 > button.off,
+div.configButtonContainer#lengthOfWordsInTextConfig.s4 > button.off,
 div.configButtonContainer#errorHandlingConfig.s4 > button.off,
 div.configButtonContainer#UIKeyboardReaction.s4 > button.off {
 	flex-basis: 20%;
@@ -254,19 +254,19 @@ div.configButtonContainer#textWhitespaceConfig.s4 > button.space,
 div.configButtonContainer#UIKeyboardReaction.s4 > button.react {
 	flex-basis: 25%;
 }
-div.configButtonContainer#lengthOfWordConfig.s4 > button.short {
+div.configButtonContainer#lengthOfWordsInTextConfig.s4 > button.short {
 	flex-basis: 24%;
 }
 div.configButtonContainer#UIKeyboardReaction.s4 > button.next {
 	flex-basis: 23%;
 }
-div.configButtonContainer#lengthOfWordConfig.s4 > button.long {
+div.configButtonContainer#lengthOfWordsInTextConfig.s4 > button.long {
 	flex-basis: 21%;
 }
 div.configButtonContainer#errorHandlingConfig.s4 > button.insert {
 	flex-basis: 25%;
 }
-div.configButtonContainer#lengthOfWordConfig.s4 > button.medium,
+div.configButtonContainer#lengthOfWordsInTextConfig.s4 > button.medium,
 div.configButtonContainer#textWhitespaceConfig.s4 > button.bullet,
 div.configButtonContainer#errorHandlingConfig.s4 > button.replace {
 	flex-basis: 29%;
@@ -275,20 +275,14 @@ div.configButtonContainer.s5-2.s7 div.timerTimeButton.s5 > button,
 div.configButtonContainer.s5-2.s7 div.textWordCountButton.s5 > button {
 	flex-basis: 18%;
 }
-div.configButtonContainer#paceCaretSpeed.s4-2.s6 .paceCaretSpeedButton.s4 > button.last,
-div.configButtonContainer#paceCaretSpeed.s4-2.s6 .paceCaretSpeedButton.s4 > button.best {
+div.configButtonContainer#paceCaretSpeedConfig div.paceCaretSpeedConfigButton button.last,
+div.configButtonContainer#paceCaretSpeedConfig div.paceCaretSpeedConfigButton button.best {
 	flex-basis: 22%;
 }
-div.configButtonContainer#paceCaretSpeed.s4-2.s6 .paceCaretSpeedButton.s4 > button.average {
+div.configButtonContainer#paceCaretSpeedConfig div.paceCaretSpeedConfigButton button.average {
 	flex-basis: 31%;
 }
 
-div.symbol.iconUseFloats {
-	color: var(--setting-icon-color);
-	font-size: 0.88rem;
-	font-weight: 450;
-	font-family: var(--RobotoMono);
-}
 svg.iconTextFontFamily {
 	width: 14px;
 	height: 14px;
@@ -788,8 +782,8 @@ input[type="range"]::-ms-thumb {
   background-color: #303030;
   cursor: pointer;
 }
-div.configButtonContainer.textFontSizeContainer.range,
-div.configButtonContainer.textFontWeightContainer.range {
+div.configButtonContainer#textFontSizeConfig,
+div.configButtonContainer#textFontWeightConfig {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -797,16 +791,16 @@ div.configButtonContainer.textFontWeightContainer.range {
 	border-radius: var(--setting-button-roundness);
 	background-color: var(--setting-button-backgroundcolor);
 }
-div.configButtonContainer.textFontSizeContainer.range div.textFontSizeInputContainer,
-div.configButtonContainer.textFontWeightContainer.range div.textFontWeightInputContainer {
+div.configButtonContainer#textFontSizeConfig div.textFontSizeInputContainer,
+div.configButtonContainer#textFontWeightConfig div.textFontWeightInputContainer {
 	width: 200px;
 	height: var(--setting-button-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-div.configButtonContainer.textFontSizeContainer.range div.text.value,
-div.configButtonContainer.textFontWeightContainer.range div.text.value {
+div.configButtonContainer#textFontSizeConfig div.text.value,
+div.configButtonContainer#textFontWeightConfig div.text.value {
 	width: 40px;
 	font-size: 0.85rem;
 	font-family: var(--RobotoMono);

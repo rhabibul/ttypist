@@ -582,7 +582,7 @@
             </div>
             <div class="text value">length of words</div>
           </div>
-          <div id="lengthOfWordConfig"  class="s4 configButtonContainer">
+          <div id="lengthOfWordsInTextConfig" class="s4 configButtonContainer">
             <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
             <button class="short"  value="short"  tabindex="0" role="button" type="button">short</button>
             <button class="medium" value="medium" tabindex="0" role="button" type="button">medium</button>
@@ -596,12 +596,12 @@
             <div class="text">include specials</div>
           </div>
           <div id="includeSpecialsInTextConfig" class="s2 configButtonContainer">
-            <div class="includeSpecialsInTextCheckboxButton digit">
-              <input id="digit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
+            <div class="includeSpecialsInTextCheckboxButton includeDigitInText">
+              <input id="includeDigit" data-value="digit" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="digit">digit</label>
             </div>
-            <div class="includeSpecialsInTextCheckboxButton punctuation">
-              <input id="punctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
+            <div class="includeSpecialsInTextCheckboxButton includePunctuationInText">
+              <input id="includePunctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="punctuation">punctuation</label>
             </div>
           </div>
@@ -653,7 +653,7 @@
             <div class="symbol"> <svg class="iconTextFontSize" width="64px" height="64px" viewBox="-180 -180 1560.00 1560.00" fill="var(--setting-icon-color)"> <path d="M991.699,0L783.398,209.399h139.452V990.6H783.398L991.699,1200 L1200,990.601h-139.38V209.399H1200L991.699,0z M5.933,207.642L0,420.703h74.048c0-146.136,0.1-145.972,186.841-145.972V862.5 c0,73.264-0.037,73.141-102.539,71.338v58.521h379.468v-58.521c-102.335,0-102.539-0.179-102.539-71.338V274.731 c186.839,0,187.354,0.041,187.354,145.972h73.535l-5.347-213.062L5.933,207.642L5.933,207.642z"></path></svg></div>
             <div class="text">text size</div>
           </div>
-          <div id="textFontSizeConfig" class="s1 configButtonContainer config buttonContainer textFontSizeContainer range">
+          <div id="textFontSizeConfig" class="s1 configButtonContainer">
             <div class="textFontSizeInputContainer"><input class="textFontSizeInput" type="range" min="16" max="48" step="1" value="19"></div>
             <div class="text value">20</div>
           </div>
@@ -664,7 +664,7 @@
             <div class="symbol"><svg class="iconTextFontWeight" fill="var(--setting-icon-color)" width="64px" height="64px" viewBox="0 0 24.00 24.00" stroke="var(--setting-icon-color)" stroke-width="0.96"> <path d="M16,5V4H13v9h1a1,1,0,0,1,0,2H10a1,1,0,0,1,0-2h1V4H8V5A1,1,0,0,1,6,5V3A1,1,0,0,1,7,2H17a1,1,0,0,1,1,1V5a1,1,0,0,1-2,0Zm3.707,9.293a1,1,0,0,0-1.414,1.414L19.586,17H4.414l1.293-1.293a1,1,0,0,0-1.414-1.414l-3,3a1,1,0,0,0,0,1.414l3,3a1,1,0,1,0,1.414-1.414L4.414,19H19.586l-1.293,1.293a1,1,0,1,0,1.414,1.414l3-3a1,1,0,0,0,0-1.414Z"></path></svg></div>
             <div class="text">text thickness</div>
           </div>
-          <div id="textFontWeightConfig" class="configButtonContainer config buttonContainer textFontWeightContainer range s1">
+          <div id="textFontWeightConfig" class="s1 configButtonContainer config buttonContainer textFontWeightContainer range s1">
             <div class="textFontWeightInputContainer"><input class="textFontWeightInput" type="range" min="100" max="900" step="10" value="440"></div>
             <div class="text value">440</div>
           </div>
@@ -701,8 +701,8 @@
             </div>
             <div class="text">pace caret speed</div>
           </div>
-          <div id="paceCaretSpeed" class="s4-2 s6 configButtonContainer">
-            <div class="paceCaretSpeedButton s4">
+          <div id="paceCaretSpeedConfig" class="s4-2 s6 configButtonContainer">
+            <div class="paceCaretSpeedConfigButton s4">
               <button class="off"     value="off"     tabindex="0" role="button" type="button" id="selected">off</button>
               <button class="last"    value="last"    tabindex="0" role="button" type="button">last</button>
               <button class="average" value="average" tabindex="0" role="button" type="button">average</button>
@@ -718,7 +718,7 @@
           </div>
         </div>
         
-        <div class="row typingspeed">
+        <div class="row typingspeedunit">
           <div class="label">
             <div class="symbol"><svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
             <div class="text">typing speed unit</div>

@@ -147,74 +147,57 @@ export const textWordsCountConfig = {
 	customWordsCountButton: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s2.customInputContainer.textWordsCountCustomInputContainer button.s1.textWordsCountCustomInputButton"),
 	customWordsCountInput: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s2.customInputContainer.textWordsCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordsCount"),
 }
-
-
-// 🫵 ❤️❤️❤️ 🫵
-// -------------------------------------------------------------------------------
-// 🫵 ❤️❤️❤️ 🫵
-
-
-
-
-export const pacecaret = {
-	off: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-off"),
+export const lengthOfWordsInTextConfig = {
+	off: document.querySelector("div.configButtonContainer#lengthOfWordsInTextConfig button.off"),
+	short: document.querySelector("div.configButtonContainer#lengthOfWordsInTextConfig button.short"),
+	medium: document.querySelector("div.configButtonContainer#lengthOfWordsInTextConfig button.medium"),
+	long: document.querySelector("div.configButtonContainer#lengthOfWordsInTextConfig button.long"),
+}
+export const includeSpecialsInTextConfig = {
+	digit: document.querySelector("div.configButtonContainer#includeSpecialsInTextConfig div.includeSpecialsInTextCheckboxButton.includeDigitInText input[type='checkbox']#includeDigit"),
+	punctuation: document.querySelector("div.configButtonContainer#includeSpecialsInTextConfig div.includeSpecialsInTextCheckboxButton.includePunctuationInText input[type='checkbox']#includePunctuation"),
+}
+export const textFontSizeConfig = {
+	fontSizeInput: document.querySelector("div.configButtonContainer#textFontSizeConfig div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
+	fontSizeDisplayBox: document.querySelector("div.configButtonContainer#textFontSizeConfig div.text.value")
+}
+export const textFontWeightConfig = {
+	fontWeightInput:      document.querySelector("div.configButtonContainer#textFontWeightConfig div.textFontWeightInputContainer input[type='range'].textFontWeightInput"),
+	fontWeightDisplayBox: document.querySelector("div.configButtonContainer#textFontWeightConfig div.text.value")
+}
+export const paceCaretStyleConfig = {
+	off: document.querySelector("div.configButtonContainer#paceCaretStyleConfig button.offPaceCaret"),
 	style: {
-		underscore: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-underscore"),
-		line: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-line"),
-		box: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-box"),
-		block: document.querySelector("div.s5.config.paceCaretStyleButton button.paceCaret-block"),
-	},
-	speed: {
-		off: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.off"),
-		last: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.last"),
-		average: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.average"),
-		best: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s4.paceCaretSpeedButton button.button.best"),
-		custom: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer button.s1.button.paceCaretSpeedCustomInputButton"),
-		paceCaretCustomSpeedInput: document.querySelector("div.s4-2.s6.config.buttonContainer.paceCaretSpeedButtonContainer div.s2.customInputContainer.paceCaretSpeedCustomInputContainer div.s1.custom.inputContainer input.inputBox.paceCaretSpeedThreshold"),
-	},
-	color: {
-		selectorInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='color'].colorSelectorInput.paceCaretColorSelectorInput"),
-		textInput: document.querySelector("div.s1.config.colorPickerContainer.paceCaretColorInputContainer input[type='text'].colorTextInput.paceCaretColorTextInput"),
+		underscore: document.querySelector("div.configButtonContainer#paceCaretStyleConfig button.underscorePaceCaret"),
+		line: document.querySelector("div.configButtonContainer#paceCaretStyleConfig button.linePaceCaret"),
+		box: document.querySelector("div.configButtonContainer#paceCaretStyleConfig button.boxPaceCaret"),
+		block: document.querySelector("div.configButtonContainer#paceCaretStyleConfig button.blockPaceCaret"),
 	},
 }
-
-export const textFontSize = {
-	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
-	fontSizeDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.text.value")
+export const paceCaretSpeedConfig = {
+	off: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s4.paceCaretSpeedConfigButton button.off"),
+	last: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s4.paceCaretSpeedConfigButton button.last"),
+	average: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s4.paceCaretSpeedConfigButton button.average"),
+	best: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s4.paceCaretSpeedConfigButton button.best"),
+	paceCaretCustomSpeedButton: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s2.customInputContainer.paceCaretSpeedCustomInputContainer button.s1.paceCaretSpeedCustomInputButton"),
+	paceCaretCustomSpeedInput: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s2.customInputContainer.paceCaretSpeedCustomInputContainer div.s1.custom.inputContainer input.inputBox.paceCaretSpeedThreshold"),
 }
-export const textFontWeight = {
-	fontWeightInput: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.textFontWeightInputContainer input[type='range'].textFontWeightInput"),
-	fontWeightDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontWeightContainer.range div.text.value")
-}
-export const textInclude = {
-	digit: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.digit input[type='checkbox']#digit"),
-	punctuation: document.querySelector("div.s2.config.buttonContainer.textIncludeCheckboxButtonContainer div.textIncludeCheckboxButton.punctuation input[type='checkbox']#punctuation"),
+export const warning = {
+	capslock: document.querySelector("div.warningCheckboxButton.capslock input[type='checkbox']#capslock"),
+	numlock: document.querySelector("div.warningCheckboxButton.numlock input[type='checkbox']#numlock"),
+	scrolllock: document.querySelector("div.warningCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
+	focusout: document.querySelector("div.warningCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
 }
 export const stats = {
 	live: {
-		speed: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.speed input[type='checkbox']#speed"),
-		accuracy: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.accuracy input[type='checkbox']#accuracy"),
-		burst: document.querySelector("div.s3.config.buttonContainer.liveStatusCheckboxButtonContainer div.liveStatusCheckboxButton.burst input[type='checkbox']#burst"),
-	},
-	calcInterval: {
-		word: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.word"),
-		keystroke: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.keystroke"),
-		second: document.querySelector("div.s3.config.buttonContainer.liveStatusIntervalButton button.button.second"),
+		speed: document.querySelector("div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton.speed input[type='checkbox']#speed"),
+		accuracy: document.querySelector("div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton.accuracy input[type='checkbox']#accuracy"),
+		burst: document.querySelector("div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton.burst input[type='checkbox']#burst"),
 	},
 	unit: {
-		cpm: document.querySelector("div.s2.config.buttonContainer.speedUnitButton button.button.cpm"),
-		wpm: document.querySelector("div.s2.config.buttonContainer.speedUnitButton button.button.wpm"),
+		cpm: document.querySelector("div.configButtonContainer#typingSpeedMeasurementUnitConfig button.cpm"),
+		wpm: document.querySelector("div.configButtonContainer#typingSpeedMeasurementUnitConfig button.wpm"),
 	},
-	usefloats: {
-		off: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.useFloatsButton button.button.on"),
-	},
-}
-export const warnings = {
-	capslock: document.querySelector("div.warningsCheckboxButton.capslock input[type='checkbox']#capslock"),
-	numlock: document.querySelector("div.warningsCheckboxButton.numlock input[type='checkbox']#numlock"),
-	scrolllock: document.querySelector("div.warningsCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
-	focusout: document.querySelector("div.warningsCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
 }
 export const keyboardReaction = {
 	off: document.querySelector("div.s4.config.buttonContainer.keyboardReactionButton button.button.off"),
@@ -225,10 +208,4 @@ export const keyboardReaction = {
 export const KeyboardLayoutEmulate = {
 	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
-}
-export const textWordLength = {
-	off: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.off"),
-	short: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.short"),
-	medium: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.medium"),
-	long: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.long"),
 }

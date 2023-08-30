@@ -166,6 +166,52 @@ SettingsElement.textWordsCountConfig.customWordsCountButton.addEventListener("cl
 SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordCountInputField);
 SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordCountInputFieldOnFoucsOut);
 
+// text word length
+SettingsElement.lengthOfWordsInTextConfig.off.addEventListener("click", updateLengthOfWordsInTextConfig);
+SettingsElement.lengthOfWordsInTextConfig.short.addEventListener("click", updateLengthOfWordsInTextConfig);
+SettingsElement.lengthOfWordsInTextConfig.medium.addEventListener("click", updateLengthOfWordsInTextConfig);
+SettingsElement.lengthOfWordsInTextConfig.long.addEventListener("click", updateLengthOfWordsInTextConfig);
+
+// font size slider
+SettingsElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
+
+// font weight slider
+SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
+
+// pacecaret speed (s5)
+SettingsElement.paceCaretSpeedConfig.off.addEventListener("click", updatePaceCaretSpeedConfig);
+SettingsElement.paceCaretSpeedConfig.last.addEventListener("click", updatePaceCaretSpeedConfig);
+SettingsElement.paceCaretSpeedConfig.average.addEventListener("click", updatePaceCaretSpeedConfig);
+SettingsElement.paceCaretSpeedConfig.best.addEventListener("click", updatePaceCaretSpeedConfig);
+SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.addEventListener("click", updatePaceCaretSpeedConfig);
+SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
+SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
+
+// pacecaret style
+SettingsElement.paceCaretStyleConfig.off.addEventListener("click", updatePaceCaretStyleConfig);
+SettingsElement.paceCaretStyleConfig.style.underscore.addEventListener("click", updatePaceCaretStyleConfig);
+SettingsElement.paceCaretStyleConfig.style.line.addEventListener("click", updatePaceCaretStyleConfig);
+SettingsElement.paceCaretStyleConfig.style.box.addEventListener("click", updatePaceCaretStyleConfig);
+SettingsElement.paceCaretStyleConfig.style.block.addEventListener("click", updatePaceCaretStyleConfig);
+
+// include specials in text (digit, punctuation)
+SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
+SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
+
+// typing speed measurement unit
+SettingsElement.stats.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
+SettingsElement.stats.unit.wpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
+
+// warnings
+SettingsElement.warning.capslock.addEventListener("click", updateWarnings);
+SettingsElement.warning.numlock.addEventListener("click", updateWarnings);
+SettingsElement.warning.scrolllock.addEventListener("click", updateWarnings);
+SettingsElement.warning.focusout.addEventListener("click", updateWarnings);
+
+// live stats
+SettingsElement.stats.live.speed.addEventListener("click", updateLiveStats);
+SettingsElement.stats.live.accuracy.addEventListener("click", updateLiveStats);
+SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
 
 // 🫵 ❤️❤️❤️ 🫵
 // -------------------------------------------------------------------------------
@@ -184,67 +230,8 @@ SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboa
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
 
-// pacecaret speed (s5)
-SettingsElement.pacecaret.speed.off.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.last.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.average.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.best.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.custom.addEventListener("click", updatePaceCaretSpeed);
-SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
-SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
-
-// font size & weight sliders
-SettingsElement.textFontSize.fontSizeInput.addEventListener("input", updateTextFontSize);
-SettingsElement.textFontWeight.fontWeightInput.addEventListener("input", updateTextFontWeight);
-
-
-// warnings
-SettingsElement.warnings.capslock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.numlock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.scrolllock.addEventListener("click", updateWarnings);
-SettingsElement.warnings.focusout.addEventListener("click", updateWarnings);
-
-// live stats
-SettingsElement.stats.live.speed.addEventListener("click", updateLiveStats);
-SettingsElement.stats.live.accuracy.addEventListener("click", updateLiveStats);
-SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
-
-// text include (s2)
-SettingsElement.textInclude.digit.addEventListener("click", updateTextInclude);
-SettingsElement.textInclude.punctuation.addEventListener("click", updateTextInclude);
-
-// show decimal places
-SettingsElement.stats.usefloats.off.addEventListener("click", updateUseFloats);
-SettingsElement.stats.usefloats.on.addEventListener("click", updateUseFloats);
-
-// speed unit
-SettingsElement.stats.unit.cpm.addEventListener("click", updateSpeedUnit);
-SettingsElement.stats.unit.wpm.addEventListener("click", updateSpeedUnit);
-
-// live stats interval
-SettingsElement.stats.calcInterval.word.addEventListener("click", updateLiveStatsCalcInterval);
-SettingsElement.stats.calcInterval.keystroke.addEventListener("click", updateLiveStatsCalcInterval);
-SettingsElement.stats.calcInterval.second.addEventListener("click", updateLiveStatsCalcInterval);
-
-// pacecaret color
-SettingsElement.pacecaret.color.selectorInput.addEventListener("input", updatePaceCaretColorSelectorInput);
-SettingsElement.pacecaret.color.textInput.addEventListener("input", updatePaceCaretColorTextInput);
-
-// pacecaret style
-SettingsElement.pacecaret.off.addEventListener("click", updatePaceCaretStyle);
-SettingsElement.pacecaret.style.underscore.addEventListener("click", updatePaceCaretStyle);
-SettingsElement.pacecaret.style.line.addEventListener("click", updatePaceCaretStyle);
-SettingsElement.pacecaret.style.box.addEventListener("click", updatePaceCaretStyle);
-SettingsElement.pacecaret.style.block.addEventListener("click", updatePaceCaretStyle);
-
 // text word length
-SettingsElement.textWordLength.off.addEventListener("click", updateTextWordLength);
-SettingsElement.textWordLength.short.addEventListener("click", updateTextWordLength);
-SettingsElement.textWordLength.medium.addEventListener("click", updateTextWordLength);
-SettingsElement.textWordLength.long.addEventListener("click", updateTextWordLength);
-
-// text word length
-function updateTextWordLength(evt) {
+function updateLengthOfWordsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (this.value === "off" && config.text.word.length.off) || (this.value === "short" && config.text.word.length.short) || (this.value === "medium" && config.text.word.length.medium) || (this.value === "long" && config.text.word.length.long) ) return;
 
@@ -1040,7 +1027,7 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 }
 
 // text font size slider (s1)
-function updateTextFontSize(evt) {
+function updateTextFontSizeConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--text-font-size", `${this.value}px`);
@@ -1049,7 +1036,7 @@ function updateTextFontSize(evt) {
 }
 
 // text font weight slider (s1)
-function updateTextFontWeight(evt) {
+function updateTextFontWeightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--text-font-weight", `${this.value}`);
@@ -1150,7 +1137,7 @@ function updateLiveStats(evt) {
 }
 
 // text include (s2)
-function updateTextInclude(evt) {
+function updateIncludeSpecialsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
 	SettingChangeInConfig.changeTextIncludeInConfig();
@@ -1172,7 +1159,7 @@ function updateUseFloats(evt) {
 }
 
 // speed unit (s2)
-function updateSpeedUnit(evt) {
+function updateTypingSpeedMeasurementUnitConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.stats.unit.cpm && this.value === "cpm") || (config.stats.unit.wpm && this.value === "wpm") ) return;
 
@@ -1216,7 +1203,7 @@ function updateCaretStyleConfig(evt) {
 }
 
 // pacecaret style (s5)
-function updatePaceCaretStyle(evt) {
+function updatePaceCaretStyleConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === config.pacecaret.style ) return;
 
