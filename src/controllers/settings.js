@@ -67,6 +67,20 @@ SettingsElement.deletionConfig.on.addEventListener("click", updateDeletionConfig
 SettingsElement.delcorrectConfig.off.addEventListener("click", updateDelCorrectConfig);
 SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDelCorrectConfig);
 
+// confidence
+SettingsElement.userConfidenceConfig.low.addEventListener("click", updateUserConfidenceConfig);
+SettingsElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
+SettingsElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
+
+// difficulty
+SettingsElement.testDifficultyConfig.ease.addEventListener("click", updateTestDifficultyConfig);
+SettingsElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
+SettingsElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
+
+// strict space
+SettingsElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
+SettingsElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
+
 
 // -------------------------------------------------------------------------------
 
@@ -85,22 +99,8 @@ SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboa
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
 
 // quickend
-SettingsElement.strictspace.off.addEventListener("click", updateStrictSpace);
-SettingsElement.strictspace.on.addEventListener("click", updateStrictSpace);
-
-// quickend
 SettingsElement.quickend.off.addEventListener("click", updateQuickEnd);
 SettingsElement.quickend.on.addEventListener("click", updateQuickEnd);
-
-// difficulty
-SettingsElement.difficulty.ease.addEventListener("click", updateDifficulty);
-SettingsElement.difficulty.expert.addEventListener("click", updateDifficulty);
-SettingsElement.difficulty.master.addEventListener("click", updateDifficulty);
-
-// confidence
-SettingsElement.confidence.low.addEventListener("click", updateConfidence);
-SettingsElement.confidence.high.addEventListener("click", updateConfidence);
-SettingsElement.confidence.peak.addEventListener("click", updateConfidence);
 
 // error
 SettingsElement.error.off.addEventListener("click", updateError);
@@ -387,7 +387,7 @@ function updateTextWhitespaceConfig(evt) {
 }
 
 // strictspace (s2)
-function updateStrictSpace(evt) {
+function updateStrictSpaceConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.strictspace && this.value === "on") || (!config.strictspace && this.value === "off")) return;
 
@@ -411,7 +411,7 @@ function updateQuickEnd(evt) {
 }
 
 // difficulty (s3)
-function updateDifficulty(evt) {
+function updateTestDifficultyConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.difficulty.ease && this.value === "ease") || (config.difficulty.expert && this.value === "expert") || (config.difficulty.master && this.value === "master") ) return;
 
@@ -423,7 +423,7 @@ function updateDifficulty(evt) {
 }
 
 // confidence (s3)
-function updateConfidence(evt) {
+function updateUserConfidenceConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.confidence.low && this.value === "low") || (config.confidence.high && this.value === "high") || (config.confidence.peak && this.value === "peak") ) return;
 

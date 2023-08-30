@@ -45,40 +45,46 @@ export const delcorrectConfig = {
 	off: document.querySelector("div.configButtonContainer#deletionOfCorrectWordConfig button.off"),
 	on: document.querySelector("div.configButtonContainer#deletionOfCorrectWordConfig button.on"),
 }
+export const userConfidenceConfig = {
+	low: document.querySelector ("div.configButtonContainer#userConfidenceConfig button.low"),
+	high: document.querySelector("div.configButtonContainer#userConfidenceConfig button.high"),
+	peak: document.querySelector("div.configButtonContainer#userConfidenceConfig button.peak"),
+}
+export const testDifficultyConfig = {
+	ease: document.querySelector  ("div.configButtonContainer#testDifficultyConfig button.ease"),
+	expert: document.querySelector("div.configButtonContainer#testDifficultyConfig button.expert"),
+	master: document.querySelector("div.configButtonContainer#testDifficultyConfig button.master"),
+}
+export const strictSpaceConfig = {
+	off: document.querySelector("div.configButtonContainer#strictSpaceConfig button.off"),
+	on: document.querySelector ("div.configButtonContainer#strictSpaceConfig button.on"),
+}
+export const errorHandlingConfig = {
+	off:     document.querySelector("div.configButtonContainer#errorHandlingConfig button.off"),
+	insert:  document.querySelector("div.configButtonContainer#errorHandlingConfig button.insert"),
+	skip:    document.querySelector("div.configButtonContainer#errorHandlingConfig button.skip"),
+	replace: document.querySelector("div.configButtonContainer#errorHandlingConfig button.replace"),
+	forgive: {
+		off: document.querySelector("div.configButtonContainer#forgiveErrorConfig button.off"),
+		on:  document.querySelector("div.configButtonContainer#forgiveErrorConfig button.on"),
+	},
+	stop: {
+		off:    document.querySelector("div.configButtonContainer#stopOnErrorConfig button.off"),
+		letter: document.querySelector("div.configButtonContainer#stopOnErrorConfig button.letter"),
+		word:   document.querySelector("div.configButtonContainer#stopOnErrorConfig button.word"),
+	}
+}
 
 
+// 🫵
 // -------------------------------------------------------------------------------
+// 🫵
 
 
 
 export const oppositeShift = {
 	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
 	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
-}
-export const confidence = {
-	low: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.low"),
-	high: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.high"),
-	peak: document.querySelector("div.s3.config.buttonContainer.confidenceButton button.button.peak"),
-}
-export const difficulty = {
-	ease: document.querySelector("div.s3.config.buttonContainer.testDifficultyButton button.button.ease"),
-	expert: document.querySelector("div.s3.config.buttonContainer.testDifficultyButton button.button.expert"),
-	master: document.querySelector("div.s3.config.buttonContainer.testDifficultyButton button.button.master"),
-}
-export const error = {
-	off: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.off"),
-	insert: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.insert"),
-	skip: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.skip"),
-	replace: document.querySelector("div.s4.config.buttonContainer.extraLetterErrorButton button.button.replace"),
-	forgive: {
-		off: document.querySelector("div.s2.config.buttonContainer.forgiveExtraLetterErrorButton button.button.off"),
-		on: document.querySelector("div.s2.config.buttonContainer.forgiveExtraLetterErrorButton button.button.on"),
-	},
-	stop: {
-		off: document.querySelector("div.s3.config.buttonContainer.stopOnErrorButton button.button.off"),
-		letter: document.querySelector("div.s3.config.buttonContainer.stopOnErrorButton button.button.letter"),
-		word: document.querySelector("div.s3.config.buttonContainer.stopOnErrorButton button.button.word"),
-	}
 }
 export const minimum = {
 	speed: {
@@ -169,10 +175,6 @@ export const textWordCount = {
 		custom: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer button.s1.button.textWordCountCustomInputButton"),
 		customWordsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordCount"),
 	},
-}
-export const strictspace = {
-	off: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.strictSpaceButton button.button.on"),
 }
 export const quickend = {
 	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
