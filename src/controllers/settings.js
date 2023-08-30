@@ -81,10 +81,33 @@ SettingsElement.testDifficultyConfig.master.addEventListener("click", updateTest
 SettingsElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
 SettingsElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
 
+// error handling
+SettingsElement.errorHandlingConfig.off.addEventListener("click",      updateErrorHandlingConfig);
+SettingsElement.errorHandlingConfig.insert.addEventListener("click",   updateErrorHandlingConfig);
+SettingsElement.errorHandlingConfig.skip.addEventListener("click",     updateErrorHandlingConfig);
+SettingsElement.errorHandlingConfig.replace.addEventListener ("click", updateErrorHandlingConfig);
 
+// forgive extra error
+SettingsElement.errorHandlingConfig.forgive.off.addEventListener("click", updateForgiveErrorConfig);
+SettingsElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
+
+// stop on error
+SettingsElement.errorHandlingConfig.stop.off.addEventListener("click", updateStopOnErrorConfig);
+SettingsElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
+SettingsElement.errorHandlingConfig.stop.word.addEventListener("click", updateStopOnErrorConfig);
+
+// go blind
+SettingsElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
+SettingsElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig);
+
+// quickend
+SettingsElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
+SettingsElement.quickEndConfig.on.addEventListener("click", updateQuickEndConfig);
+
+
+// 🫵 ❤️❤️❤️ 🫵
 // -------------------------------------------------------------------------------
-
-
+// 🫵 ❤️❤️❤️ 🫵
 
 
 
@@ -97,29 +120,6 @@ SettingsElement.keyboardReaction.next.addEventListener("click", updateKeyboardRe
 // keyboard layout emulate
 SettingsElement.KeyboardLayoutEmulate.off.addEventListener("click", updateKeyboardLayoutEmulate);
 SettingsElement.KeyboardLayoutEmulate.on.addEventListener("click", updateKeyboardLayoutEmulate);
-
-// quickend
-SettingsElement.quickend.off.addEventListener("click", updateQuickEnd);
-SettingsElement.quickend.on.addEventListener("click", updateQuickEnd);
-
-// error
-SettingsElement.error.off.addEventListener("click", updateError);
-SettingsElement.error.insert.addEventListener("click", updateError);
-SettingsElement.error.skip.addEventListener("click", updateError);
-SettingsElement.error.replace.addEventListener("click", updateError);
-
-// forgive error
-SettingsElement.error.forgive.off.addEventListener("click", updateForgiveError);
-SettingsElement.error.forgive.on.addEventListener("click", updateForgiveError);
-
-// stop on error
-SettingsElement.error.stop.off.addEventListener("click", updateStopOnError);
-SettingsElement.error.stop.letter.addEventListener("click", updateStopOnError);
-SettingsElement.error.stop.word.addEventListener("click", updateStopOnError);
-
-// forgive error
-SettingsElement.blindMode.off.addEventListener("click", updateBlindMode);
-SettingsElement.blindMode.on.addEventListener("click", updateBlindMode);
 
 // opposite shift mode
 SettingsElement.oppositeShift.off.addEventListener("click", updateOppositeShiftMode);
@@ -399,7 +399,7 @@ function updateStrictSpaceConfig(evt) {
 }
 
 // quickend (s2)
-function updateQuickEnd(evt) {
+function updateQuickEndConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.quickend && this.value === "on") || (!config.quickend && this.value === "off")) return;
 
@@ -521,7 +521,7 @@ function updateModifierKeyConfig(evt) {
 }
 
 // error (s4)
-function updateError(evt) {
+function updateErrorHandlingConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.error.off && this.value === "off") || (config.error.insert && this.value === "insert") || (config.error.skip && this.value === "skip") || (config.error.replace && this.value === "replace") ) return;
 
@@ -564,7 +564,7 @@ function updateError(evt) {
 }
 
 // forgive error (s2)
-function updateForgiveError(evt) {
+function updateForgiveErrorConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.error.forgive && this.value === "on") || (!config.error.forgive && this.value === "off") ) return;
 	
@@ -588,7 +588,7 @@ function updateForgiveError(evt) {
 }
 
 // stop on error (s3)
-function updateStopOnError(evt) {
+function updateStopOnErrorConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.error.stop.off && this.value === "off") || (config.error.stop.letter && this.value === "letter") || (config.error.stop.word && this.value === "word") ) return;
 
@@ -633,7 +633,7 @@ function updateStopOnError(evt) {
 }
 
 // blind mode
-function updateBlindMode(evt) {
+function updateGoBlindConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.blind && this.value === "on") || (!config.blind && this.value === "off") ) return;
 

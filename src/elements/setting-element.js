@@ -74,18 +74,25 @@ export const errorHandlingConfig = {
 		word:   document.querySelector("div.configButtonContainer#stopOnErrorConfig button.word"),
 	}
 }
-
-
-// 🫵
-// -------------------------------------------------------------------------------
-// 🫵
-
-
-
-export const oppositeShift = {
-	off: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.off"),
-	on: document.querySelector("div.s2.buttonContainer.oppositeShiftButton button.button.on"),
+export const goBlindConfig = {
+	off: document.querySelector("div.configButtonContainer#goBlindConfig button.off"),
+	on: document.querySelector ("div.configButtonContainer#goBlindConfig button.on"),
 }
+export const quickEndConfig = {
+	off: document.querySelector("div.configButtonContainer#quickEndConfig button.off"),
+	on:  document.querySelector("div.configButtonContainer#quickEndConfig button.on"),
+}
+export const useOppositeShiftConfig = {
+	off: document.querySelector("div.configButtonContainer#useOppositeShiftConfig button.off"),
+	on:  document.querySelector("div.configButtonContainer#useOppositeShiftConfig button.on"),
+}
+
+// 🫵 ❤️❤️❤️ 🫵
+// -------------------------------------------------------------------------------
+// 🫵 ❤️❤️❤️ 🫵
+
+
+
 export const minimum = {
 	speed: {
 		off: document.querySelector("div.s2-1.s3.config.buttonContainer.minimumSpeedButtonContainer div.s2.minimumSpeedButton button.button.off"),
@@ -176,10 +183,6 @@ export const textWordCount = {
 		customWordsInput: document.querySelector("div.s5-2.s7.config.buttonContainer.textWordCountButtonContainer div.s2.customInputContainer.textWordCountCustomInputContainer div.s1.custom.inputContainer input.inputBox.textWordCount"),
 	},
 }
-export const quickend = {
-	off: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.quickEndButton button.button.on"),
-}
 export const textFontSize = {
 	fontSizeInput: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.textFontSizeInputContainer input[type='range'].textFontSizeInput"),
 	fontSizeDisplayBox: document.querySelector("div.s1.config.buttonContainer.textFontSizeContainer.range div.text.value")
@@ -227,10 +230,6 @@ export const keyboardReaction = {
 export const KeyboardLayoutEmulate = {
 	off: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.off"),
 	on: document.querySelector("div.s2.config.buttonContainer.UIKeyboardLayoutEmulateButton button.button.on"),
-}
-export const blindMode = {
-	off: document.querySelector("div.s2.config.buttonContainer.blindModeButton button.button.off"),
-	on: document.querySelector("div.s2.config.buttonContainer.blindModeButton button.button.on"),
 }
 export const textWordLength = {
 	off: document.querySelector("div.s4.config.buttonContainer.textWordLengthButton button.button.off"),
