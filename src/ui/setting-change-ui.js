@@ -488,24 +488,24 @@ export function changeLiveStatsCalcIntervalInUI(value) {
 
 function addColorsToCaretShape(shapeClicked, shape) {
 	if ( shapeClicked === shape.classList[1] ) {
-		if ( shapeClicked === "shape-underscore" ) {
+		if ( shapeClicked === "underscoreCaretShape" ) {
 			shape.style.borderBottomColor = "var(--selected-color)";
-		} else if ( (shapeClicked === "shape-line") || (shapeClicked === "shape-block") ) {
+		} else if ( (shapeClicked === "lineCaretShape") || (shapeClicked === "blockCaretShape") ) {
 			shape.style.backgroundColor = "var(--selected-color)";
-		} else if ( shapeClicked === "shape-box" ) {
+		} else if ( shapeClicked === "boxCaretShape" ) {
 			shape.style.borderColor = "var(--selected-color)";
 		}
 	} else {
-		if ( (shapeClicked !== "shape-underscore") && (shape.classList[1] === "shape-underscore") ) {
+		if ( (shapeClicked !== "underscoreCaretShape") && (shape.classList[1] === "underscoreCaretShape") ) {
 			shape.style.borderBottomColor = "var(--setting-caret-color)";
 		} 
-		if ( (shapeClicked !== "shape-line") && (shape.classList[1] === "shape-line") ) {
+		if ( (shapeClicked !== "lineCaretShape") && (shape.classList[1] === "lineCaretShape") ) {
 			shape.style.backgroundColor = "var(--setting-caret-color)";
 		}
-		if ( (shapeClicked !== "shape-block") && (shape.classList[1] === "shape-block") ) {
+		if ( (shapeClicked !== "blockCaretShape") && (shape.classList[1] === "blockCaretShape") ) {
 			shape.style.backgroundColor = "var(--setting-caret-color)";
 		}
-		if ( (shapeClicked !== "shape-box") && (shape.classList[1] === "shape-box") ) {
+		if ( (shapeClicked !== "boxCaretShape") && (shape.classList[1] === "boxCaretShape") ) {
 			shape.style.borderColor = "var(--setting-caret-color)";
 		}
 	}
@@ -513,15 +513,15 @@ function addColorsToCaretShape(shapeClicked, shape) {
 
 function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 
-	const caretShapes = Array.from(document.querySelectorAll("div.config.caret.caretStyleButton.s5 button > span.shape"));
-	const paceCaretShapes = Array.from(document.querySelectorAll("div.config.paceCaret.paceCaretStyleButton.s5 button > span.shape"));
-
+	
 	if ( caretType === "caret" ) {
-		for ( const shape of caretShapes ) { // O(4)
+		const caretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#CaretStyleConfig button > span.shape"));
+		for ( const shape of caretShapes ) {
 			addColorsToCaretShape(shapeClicked, shape);
 		}
 	} else if ( caretType === "pacecaret" ) {
-		for ( const shape of paceCaretShapes ) { // O(4)
+		const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#PaceCaretStyleConfig button > span.shape"));
+		for ( const shape of paceCaretShapes ) {
 			addColorsToCaretShape(shapeClicked, shape);
 		}
 	}
@@ -530,111 +530,111 @@ function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 export function changeCaretStyleInUI(value) {
 	if ( value === "off" ) {
 		changeCaretShapeColor("shape-off", "caret");
-		SettingsElement.caret.off.id = "selected"
-		SettingsElement.caret.style.underscore.id = ""
-		SettingsElement.caret.style.line.id = ""
-		SettingsElement.caret.style.box.id = ""
-		SettingsElement.caret.style.block.id = ""
+		SettingsElement.caretStyleConfig.off.id = "selected"
+		SettingsElement.caretStyleConfig.style.underscore.id = ""
+		SettingsElement.caretStyleConfig.style.line.id = ""
+		SettingsElement.caretStyleConfig.style.box.id = ""
+		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "underscore" ) {
 		changeCaretShapeColor("shape-underscore", "caret");
-		SettingsElement.caret.off.id = ""
-		SettingsElement.caret.style.underscore.id = "selected"
-		SettingsElement.caret.style.line.id = ""
-		SettingsElement.caret.style.box.id = ""
-		SettingsElement.caret.style.block.id = ""
+		SettingsElement.caretStyleConfig.off.id = ""
+		SettingsElement.caretStyleConfig.style.underscore.id = "selected"
+		SettingsElement.caretStyleConfig.style.line.id = ""
+		SettingsElement.caretStyleConfig.style.box.id = ""
+		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "line" ) {
 		changeCaretShapeColor("shape-line", "caret");
-		SettingsElement.caret.off.id = ""
-		SettingsElement.caret.style.underscore.id = ""
-		SettingsElement.caret.style.line.id = "selected"
-		SettingsElement.caret.style.box.id = ""
-		SettingsElement.caret.style.block.id = ""
+		SettingsElement.caretStyleConfig.off.id = ""
+		SettingsElement.caretStyleConfig.style.underscore.id = ""
+		SettingsElement.caretStyleConfig.style.line.id = "selected"
+		SettingsElement.caretStyleConfig.style.box.id = ""
+		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "box" ) {
 		changeCaretShapeColor("shape-box", "caret");
-		SettingsElement.caret.off.id = ""
-		SettingsElement.caret.style.underscore.id = ""
-		SettingsElement.caret.style.line.id = ""
-		SettingsElement.caret.style.box.id = "selected"
-		SettingsElement.caret.style.block.id = ""
+		SettingsElement.caretStyleConfig.off.id = ""
+		SettingsElement.caretStyleConfig.style.underscore.id = ""
+		SettingsElement.caretStyleConfig.style.line.id = ""
+		SettingsElement.caretStyleConfig.style.box.id = "selected"
+		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "block" ) {
 		changeCaretShapeColor("shape-block", "caret");
-		SettingsElement.caret.off.id = ""
-		SettingsElement.caret.style.underscore.id = ""
-		SettingsElement.caret.style.line.id = ""
-		SettingsElement.caret.style.box.id = ""
-		SettingsElement.caret.style.block.id = "selected"
+		SettingsElement.caretStyleConfig.off.id = ""
+		SettingsElement.caretStyleConfig.style.underscore.id = ""
+		SettingsElement.caretStyleConfig.style.line.id = ""
+		SettingsElement.caretStyleConfig.style.box.id = ""
+		SettingsElement.caretStyleConfig.style.block.id = "selected"
 	}
 }
 
 export function changePaceCaretStyleInUI(value) {
 	if ( value === "off" ) {
 		changeCaretShapeColor("shape-off", "pacecaret");
-		SettingsElement.pacecaret.off.id = "selected"
-		SettingsElement.pacecaret.style.underscore.id = ""
-		SettingsElement.pacecaret.style.line.id = ""
-		SettingsElement.pacecaret.style.box.id = ""
-		SettingsElement.pacecaret.style.block.id = ""
+		SettingsElement.paceCaretStyleConfig.off.id = "selected"
+		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
+		SettingsElement.paceCaretStyleConfig.style.line.id = ""
+		SettingsElement.paceCaretStyleConfig.style.box.id = ""
+		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "underscore" ) {
 		changeCaretShapeColor("shape-underscore", "pacecaret");
-		SettingsElement.pacecaret.off.id = ""
-		SettingsElement.pacecaret.style.underscore.id = "selected"
-		SettingsElement.pacecaret.style.line.id = ""
-		SettingsElement.pacecaret.style.box.id = ""
-		SettingsElement.pacecaret.style.block.id = ""
+		SettingsElement.paceCaretStyleConfig.off.id = ""
+		SettingsElement.paceCaretStyleConfig.style.underscore.id = "selected"
+		SettingsElement.paceCaretStyleConfig.style.line.id = ""
+		SettingsElement.paceCaretStyleConfig.style.box.id = ""
+		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "line" ) {
 		changeCaretShapeColor("shape-line", "pacecaret");
-		SettingsElement.pacecaret.off.id = ""
-		SettingsElement.pacecaret.style.underscore.id = ""
-		SettingsElement.pacecaret.style.line.id = "selected"
-		SettingsElement.pacecaret.style.box.id = ""
-		SettingsElement.pacecaret.style.block.id = ""
+		SettingsElement.paceCaretStyleConfig.off.id = ""
+		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
+		SettingsElement.paceCaretStyleConfig.style.line.id = "selected"
+		SettingsElement.paceCaretStyleConfig.style.box.id = ""
+		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "box" ) {
 		changeCaretShapeColor("shape-box", "pacecaret");
-		SettingsElement.pacecaret.off.id = ""
-		SettingsElement.pacecaret.style.underscore.id = ""
-		SettingsElement.pacecaret.style.line.id = ""
-		SettingsElement.pacecaret.style.box.id = "selected"
-		SettingsElement.pacecaret.style.block.id = ""
+		SettingsElement.paceCaretStyleConfig.off.id = ""
+		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
+		SettingsElement.paceCaretStyleConfig.style.line.id = ""
+		SettingsElement.paceCaretStyleConfig.style.box.id = "selected"
+		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "block" ) {
 		changeCaretShapeColor("shape-block", "pacecaret");
-		SettingsElement.pacecaret.off.id = ""
-		SettingsElement.pacecaret.style.underscore.id = ""
-		SettingsElement.pacecaret.style.line.id = ""
-		SettingsElement.pacecaret.style.box.id = ""
-		SettingsElement.pacecaret.style.block.id = "selected"
+		SettingsElement.paceCaretStyleConfig.off.id = ""
+		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
+		SettingsElement.paceCaretStyleConfig.style.line.id = ""
+		SettingsElement.paceCaretStyleConfig.style.box.id = ""
+		SettingsElement.paceCaretStyleConfig.style.block.id = "selected"
 	}
 }
 
 export function changeBlindModeInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.blindMode.off.id = "";
-		SettingsElement.blindMode.on.id = "selected";
+		SettingsElement.goBlindConfig.off.id = "";
+		SettingsElement.goBlindConfig.on.id = "selected";
 	} else {
-		SettingsElement.blindMode.off.id = "selected";
-		SettingsElement.blindMode.on.id = "";
+		SettingsElement.goBlindConfig.off.id = "selected";
+		SettingsElement.goBlindConfig.on.id = "";
 	}
 }
 
 export function changeTextWordLengthInUI(value) {
 	if ( value === "short" ) {
-		SettingsElement.textWordLength.off.id = "";
-		SettingsElement.textWordLength.short.id = "selected";
-		SettingsElement.textWordLength.medium.id = "";
-		SettingsElement.textWordLength.long.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.short.id = "selected";
+		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
 	} else if ( value === "medium" ) {
-		SettingsElement.textWordLength.off.id = "";
-		SettingsElement.textWordLength.short.id = "";
-		SettingsElement.textWordLength.medium.id = "selected";
-		SettingsElement.textWordLength.long.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.medium.id = "selected";
+		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
 	} else if ( value === "long" ) {
-		SettingsElement.textWordLength.off.id = "";
-		SettingsElement.textWordLength.short.id = "";
-		SettingsElement.textWordLength.medium.id = "";
-		SettingsElement.textWordLength.long.id = "selected";
+		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.long.id = "selected";
 	} else if ( value === "off" ) {
-		SettingsElement.textWordLength.off.id = "selected";
-		SettingsElement.textWordLength.short.id = "";
-		SettingsElement.textWordLength.medium.id = "";
-		SettingsElement.textWordLength.long.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.off.id = "selected";
+		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
+		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
 	}
 }
