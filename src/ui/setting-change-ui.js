@@ -450,7 +450,8 @@ export function changeSpeedUnitInUI(value) {
 }
 
 function addColorsToCaretShape(shapeClicked, shape) {
-	if ( shapeClicked === shape.classList[1] ) { // for caret
+	if ( shapeClicked === shape.classList[1] ) {
+		// make caret active which is clicked
 		if ( shapeClicked === "underscoreCaretShape" ) {
 			shape.style.borderBottomColor = "var(--selected-color)";
 		} else if ( (shapeClicked === "lineCaretShape") || (shapeClicked === "blockCaretShape") ) {
@@ -458,7 +459,8 @@ function addColorsToCaretShape(shapeClicked, shape) {
 		} else if ( shapeClicked === "boxCaretShape" ) {
 			shape.style.borderColor = "var(--selected-color)";
 		}
-	} else { // for pace caret
+	} else {
+		// make all those carets inactive which are not clicked
 		if ( (shapeClicked !== "underscoreCaretShape") && (shape.classList[1] === "underscoreCaretShape") ) {
 			shape.style.borderBottomColor = "var(--setting-caret-color)";
 		} 
