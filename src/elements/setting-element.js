@@ -37,7 +37,7 @@ export const modifierKeyConfig = {
 	ctrl: document.querySelector("div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton.ctrl input[type='checkbox']#ctrl"),
 	meta: document.querySelector("div.configButtonContainer#modifierKeyConfig div.modifierKeyCheckboxButton.meta input[type='checkbox']#meta"),
 }
-export const deletionConfig = {
+export const deleteConfig = {
 	off: document.querySelector("div.configButtonContainer#textDeletionConfig button.off"),
 	on: document.querySelector("div.configButtonContainer#textDeletionConfig button.on"),
 }

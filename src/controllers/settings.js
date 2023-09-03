@@ -60,12 +60,12 @@ SettingsElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierK
 SettingsElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
 
 // delete text
-SettingsElement.deletionConfig.off.addEventListener("click", updateDeletionConfig);
-SettingsElement.deletionConfig.on.addEventListener("click", updateDeletionConfig);
+SettingsElement.deleteConfig.off.addEventListener("click", updateTextDeletionConfig);
+SettingsElement.deleteConfig.on.addEventListener("click", updateTextDeletionConfig);
 
 // delete correct text
-SettingsElement.delcorrectConfig.off.addEventListener("click", updateDelCorrectConfig);
-SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDelCorrectConfig);
+SettingsElement.delcorrectConfig.off.addEventListener("click", updateDeletePreviousCorrectWordConfig);
+SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDeletePreviousCorrectWordConfig);
 
 // confidence
 SettingsElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
@@ -152,9 +152,9 @@ SettingsElement.timerSecondsCountConfig.seconds15.addEventListener("click", upda
 SettingsElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
 SettingsElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
 SettingsElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.customSecondsButton.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.customSecondsInput.addEventListener("input", updateTimerSecondsCountInputField);
-SettingsElement.timerSecondsCountConfig.customSecondsInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
+SettingsElement.timerSecondsCountConfig.customSecondsCountButton.addEventListener("click", updateTimerSecondsCountConfig);
+SettingsElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("input", updateTimerSecondsCountInputField);
+SettingsElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
 
 // text word count
 SettingsElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
@@ -199,19 +199,19 @@ SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", upda
 SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
 
 // typing speed measurement unit
-SettingsElement.stats.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
-SettingsElement.stats.unit.wpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
+SettingsElement.statsConfig.unit.wpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
+SettingsElement.statsConfig.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
 
 // warnings
-SettingsElement.warning.capslock.addEventListener("click", updateWarnings);
-SettingsElement.warning.numlock.addEventListener("click", updateWarnings);
-SettingsElement.warning.scrolllock.addEventListener("click", updateWarnings);
-SettingsElement.warning.focusout.addEventListener("click", updateWarnings);
+SettingsElement.warningConfig.capslock.addEventListener("click", updateWarnings);
+SettingsElement.warningConfig.numlock.addEventListener("click", updateWarnings);
+SettingsElement.warningConfig.scrolllock.addEventListener("click", updateWarnings);
+SettingsElement.warningConfig.focusout.addEventListener("click", updateWarnings);
 
 // live stats
-SettingsElement.stats.live.speed.addEventListener("click", updateLiveStats);
-SettingsElement.stats.live.accuracy.addEventListener("click", updateLiveStats);
-SettingsElement.stats.live.burst.addEventListener("click", updateLiveStats);
+SettingsElement.statsConfig.live.speed.addEventListener("click", updateLiveStats);
+SettingsElement.statsConfig.live.accuracy.addEventListener("click", updateLiveStats);
+SettingsElement.statsConfig.live.burst.addEventListener("click", updateLiveStats);
 
 // keyboard reaction
 SettingsElement.UIKeyboardReactionConfig.off.addEventListener("click", updateUIKeyboardReactionConfig);
@@ -387,49 +387,49 @@ function updateUserConfidenceConfig(evt) {
 	// at peak confidence backspacing is not allowed, so backspace is disabled
 	if ( this.value === "peak" ) {
 		SettingChangeInUI.changeTextDeletionInUI("off");
-		SettingChangeInConfig.changeBackspaceKeyInConfig("off");
+		SettingChangeInConfig.changeTextDeletionInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
-		if ( config.backspace.allowedOnCorrectWord ) {
-			SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
-			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+		if ( config.delcorrect ) {
+			SettingChangeInUI.changeDeletePreviousCorrectWordInUI("off");
+			SettingChangeInConfig.changeDeletePreviousCorrectWordInConfig("off");
 		}
 	}
 
 	// going back to low or high confidence from peak confidence (and backspace is disabled)
 	if ( ((this.value === "low") || (this.value === "high")) && config.backspace.off ) {
 		SettingChangeInUI.changeTextDeletionInUI("on");
-		SettingChangeInConfig.changeBackspaceKeyInConfig("on");
+		SettingChangeInConfig.changeTextDeletionInConfig("on");
 	}
 
 	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
-	if ( (this.value === "high") && config.backspace.allowedOnCorrectWord ) {
-		SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
-		SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+	if ( (this.value === "high") && config.delcorrect ) {
+		SettingChangeInUI.changeDeletePreviousCorrectWordInUI("off");
+		SettingChangeInConfig.changeDeletePreviousCorrectWordInConfig("off");
 	}
 
 	// debug
 	console.log("confidence:", config.confidence.low, config.confidence.high, config.confidence.peak);
 }
 
-// backspace key (s2)
-function updateDeletionConfig(evt) {
+// text deletion
+function updateTextDeletionConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.backspace.off && this.value === "off") || (!config.backspace.off && this.value === "on") ) return;
+	if ( (config.delete && this.value === "off") || (!config.delete && this.value === "on") ) return;
 
 	SettingChangeInUI.changeTextDeletionInUI(this.value);
-	SettingChangeInConfig.changeBackspaceKeyInConfig(this.value);
+	SettingChangeInConfig.changeTextDeletionInConfig(this.value);
 
 	// dependencies
 	if ( this.value === "off" ) {
-		// backspace off means confidence is at peak
+		// delete off means confidence is at peak
 		SettingChangeInUI.changeConfidenceInUI("peak");
 		SettingChangeInConfig.changeConfidenceInConfig("peak");
 
 		// no concept of deleting on correct if backspace is disabled
-		if ( config.backspace.allowedOnCorrectWord ) {
-			SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
-			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
+		if ( config.delcorrect ) {
+			SettingChangeInUI.changeDeletePreviousCorrectWordInUI("off");
+			SettingChangeInConfig.changeDeletePreviousCorrectWordInConfig("off");
 		}
 	} else {
 		// on confidence low backspacing is set to default value of low
@@ -442,26 +442,26 @@ function updateDeletionConfig(evt) {
 }
 
 // deletion not allowed on correct (s2)
-function updateDelCorrectConfig(evt) {
+function updateDeletePreviousCorrectWordConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.backspace.allowedOnCorrectWord && this.value === "on") || (!config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
+	if ( (config.delcorrect && this.value === "on") || (!config.delcorrect && this.value === "off") ) return;
 	
-	SettingChangeInUI.changeDeleteCorrectPreviousWordInUI(this.value);
-	SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
+	SettingChangeInUI.changeDeletePreviousCorrectWordInUI(this.value);
+	SettingChangeInConfig.changeDeletePreviousCorrectWordInConfig(this.value);
 
 	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
-	if ( config.backspace.allowedOnCorrectWord && (config.confidence.high || config.confidence.peak) ) {
+	if ( config.delcorrect && (config.confidence.high || config.confidence.peak) ) {
 		SettingChangeInUI.changeConfidenceInUI("low");
 		SettingChangeInConfig.changeConfidenceInConfig("low");
 
 		if ( config.backspace.off ) {
 			SettingChangeInUI.changeTextDeletionInUI("on");
-			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
+			SettingChangeInConfig.changeTextDeletionInConfig("on");	
 		}
 	}
 	
 	// debug
-	console.log("delete on correct:", !config.backspace.allowedOnCorrectWord, config.backspace.allowedOnCorrectWord);
+	console.log("delete on correct:", !config.delcorrect, config.delcorrect);
 }
 
 // modifier keys (s3)
@@ -569,7 +569,7 @@ function updateStopOnErrorConfig(evt) {
 	} else if ( config.error.stop.word ) {
 		if ( config.backspace.off ) {			
 			SettingChangeInUI.changeTextDeletionInUI("on");
-			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
+			SettingChangeInConfig.changeTextDeletionInConfig("on");	
 		}
 		if ( config.error.off ) {
 			SettingChangeInUI.changeErrorInUI("insert");

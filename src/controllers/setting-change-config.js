@@ -197,21 +197,21 @@ export function changeConfidenceInConfig(value) {
 	}
 }
 
-// backspace key
-export function changeBackspaceKeyInConfig(value) {
+// text deletion
+export function changeTextDeletionInConfig(value) {
 	if ( value === "on" ) {
-		config.backspace.off = false;
+		config.delete = false;
 	} else {
-		config.backspace.off = true;
+		config.delete = true;
 	}
 }
 
-// delete correct word
-export function changeBackspaceAllowedOnCorrectWordInConfig(value) {
+// delete previous correct word
+export function changeDeletePreviousCorrectWordInConfig(value) {
 	if ( value === "off" ) {
-		config.backspace.allowedOnCorrectWord = false;
+		config.delcorrect = false;
 	} else {
-		config.backspace.allowedOnCorrectWord = true;
+		config.delcorrect = false;
 	}
 }
 

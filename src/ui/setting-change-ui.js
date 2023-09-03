@@ -57,28 +57,28 @@ export function changeTapeModeInUI(value) {
 // text input
 export function changeTextInputInUI(value) {
 	if ( value === "visible" ) {
-		SettingsElement.textInput.hidden.id = "";
-		SettingsElement.textInput.visible.id = "selected";
+		SettingsElement.textInputFieldConfig.hidden.id = "";
+		SettingsElement.textInputFieldConfig.visible.id = "selected";
 	} else {
-		SettingsElement.textInput.hidden.id = "selected";
-		SettingsElement.textInput.visible.id = "";
+		SettingsElement.textInputFieldConfig.hidden.id = "selected";
+		SettingsElement.textInputFieldConfig.visible.id = "";
 	}
 }
 
 // text highlight
 export function changeTextHightlightInUI(value) {
 	if ( value === "word" ) {
-		SettingsElement.textHighlight.off.id = "";
-		SettingsElement.textHighlight.mode.letter.id = "";
-		SettingsElement.textHighlight.mode.word.id = "selected";
+		SettingsElement.textHighlightConfig.off.id = "";
+		SettingsElement.textHighlightConfig.mode.letter.id = "";
+		SettingsElement.textHighlightConfig.mode.word.id = "selected";
 	} else if ( value === "letter" ) {		
-		SettingsElement.textHighlight.off.id = "";
-		SettingsElement.textHighlight.mode.letter.id = "selected";
-		SettingsElement.textHighlight.mode.word.id = "";
+		SettingsElement.textHighlightConfig.off.id = "";
+		SettingsElement.textHighlightConfig.mode.letter.id = "selected";
+		SettingsElement.textHighlightConfig.mode.word.id = "";
 	} else {
-		SettingsElement.textHighlight.off.id = "selected";
-		SettingsElement.textHighlight.mode.letter.id = "";
-		SettingsElement.textHighlight.mode.word.id = "";
+		SettingsElement.textHighlightConfig.off.id = "selected";
+		SettingsElement.textHighlightConfig.mode.letter.id = "";
+		SettingsElement.textHighlightConfig.mode.word.id = "";
 	}
 }
 
@@ -86,119 +86,119 @@ export function changeTextHightlightInUI(value) {
 export function changeFlipTextHightlightInUI(value) {
 
 	if ( value === "on" ) {
-		SettingsElement.textHighlight.flip.off.id = "";
-		SettingsElement.textHighlight.flip.on.id = "selected";
+		SettingsElement.flipTextHighlightConfig.off.id = "";
+		SettingsElement.flipTextHighlightConfig.on.id = "selected";
 	} else {
-		SettingsElement.textHighlight.flip.off.id = "selected";
-		SettingsElement.textHighlight.flip.on.id = "";
+		SettingsElement.flipTextHighlightConfig.off.id = "selected";
+		SettingsElement.flipTextHighlightConfig.on.id = "";
 	}
 }
 
 // text underline
 export function changeTextUnderlineInUI(value) {
 	if ( value === "off" ) 	{
-		SettingsElement.textUnderline.off.id = "selected";
-		SettingsElement.textUnderline.on.id = "";
+		SettingsElement.textUnderlineConfig.off.id = "selected";
+		SettingsElement.textUnderlineConfig.on.id = "";
 	} else {
-		SettingsElement.textUnderline.off.id = "";
-		SettingsElement.textUnderline.on.id = "selected";
+		SettingsElement.textUnderlineConfig.off.id = "";
+		SettingsElement.textUnderlineConfig.on.id = "selected";
 	}
 }
 
 // text whitespace
 export function changeTextWhitespaceInUI(value) {
 	if ( value === "bullet" ) {
-		SettingsElement.textWhitespace.off.id = "";
-		SettingsElement.textWhitespace.type.bullet.id = "selected";
-		SettingsElement.textWhitespace.type.space.id = "";
-		SettingsElement.textWhitespace.type.bar.id = "";
+		SettingsElement.textWhitespaceConfig.off.id = "";
+		SettingsElement.textWhitespaceConfig.style.bullet.id = "selected";
+		SettingsElement.textWhitespaceConfig.style.space.id = "";
+		SettingsElement.textWhitespaceConfig.style.bar.id = "";
 	} else if ( value === "bar" ) {
-		SettingsElement.textWhitespace.off.id = "";
-		SettingsElement.textWhitespace.type.bullet.id = "";
-		SettingsElement.textWhitespace.type.space.id = "";
-		SettingsElement.textWhitespace.type.bar.id = "selected";
+		SettingsElement.textWhitespaceConfig.off.id = "";
+		SettingsElement.textWhitespaceConfig.style.bullet.id = "";
+		SettingsElement.textWhitespaceConfig.style.space.id = "";
+		SettingsElement.textWhitespaceConfig.style.bar.id = "selected";
 	} else if ( value === "space" ) {
-		SettingsElement.textWhitespace.off.id = "";
-		SettingsElement.textWhitespace.type.bullet.id = "";
-		SettingsElement.textWhitespace.type.space.id = "selected";
-		SettingsElement.textWhitespace.type.bar.id = "";
+		SettingsElement.textWhitespaceConfig.off.id = "";
+		SettingsElement.textWhitespaceConfig.style.bullet.id = "";
+		SettingsElement.textWhitespaceConfig.style.space.id = "selected";
+		SettingsElement.textWhitespaceConfig.style.bar.id = "";
 	} else {
-		SettingsElement.textWhitespace.off.id = "selected";
-		SettingsElement.textWhitespace.type.bullet.id = "";
-		SettingsElement.textWhitespace.type.space.id = "";
-		SettingsElement.textWhitespace.type.bar.id = "";
+		SettingsElement.textWhitespaceConfig.off.id = "selected";
+		SettingsElement.textWhitespaceConfig.style.bullet.id = "";
+		SettingsElement.textWhitespaceConfig.style.space.id = "";
+		SettingsElement.textWhitespaceConfig.style.bar.id = "";
 	}
 }
 
 // strict space
 export function changeStrictSpaceInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.strictspace.off.id = "selected";
-		SettingsElement.strictspace.on.id = "";
+		SettingsElement.strictSpaceConfig.off.id = "selected";
+		SettingsElement.strictSpaceConfig.on.id = "";
 	} else {
-		SettingsElement.strictspace.off.id = "";
-		SettingsElement.strictspace.on.id = "selected";
+		SettingsElement.strictSpaceConfig.off.id = "";
+		SettingsElement.strictSpaceConfig.on.id = "selected";
 	}	
 }
 
 // quick end
 export function changeQuickEndInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.quickend.off.id = "selected";
-		SettingsElement.quickend.on.id = "";
+		SettingsElement.quickEndConfig.off.id = "selected";
+		SettingsElement.quickEndConfig.on.id = "";
 	} else {
-		SettingsElement.quickend.off.id = "";
-		SettingsElement.quickend.on.id = "selected";
+		SettingsElement.quickEndConfig.off.id = "";
+		SettingsElement.quickEndConfig.on.id = "selected";
 	}
 }
 
 // test difficulty
 export function changeDifficultyInUI(value) {
 	if ( value === "expert" ) {
-		SettingsElement.difficulty.ease.id = "";
-		SettingsElement.difficulty.expert.id = "selected";
-		SettingsElement.difficulty.master.id = "";
+		SettingsElement.testDifficultyConfig.ease.id = "";
+		SettingsElement.testDifficultyConfig.expert.id = "selected";
+		SettingsElement.testDifficultyConfig.master.id = "";
 	} else if ( value === "master" ) {
-		SettingsElement.difficulty.ease.id = "";
-		SettingsElement.difficulty.expert.id = "";
-		SettingsElement.difficulty.master.id = "selected";
+		SettingsElement.testDifficultyConfig.ease.id = "";
+		SettingsElement.testDifficultyConfig.expert.id = "";
+		SettingsElement.testDifficultyConfig.master.id = "selected";
 	} else {
-		SettingsElement.difficulty.ease.id = "selected";
-		SettingsElement.difficulty.expert.id = "";
-		SettingsElement.difficulty.master.id = "";
+		SettingsElement.testDifficultyConfig.ease.id = "selected";
+		SettingsElement.testDifficultyConfig.expert.id = "";
+		SettingsElement.testDifficultyConfig.master.id = "";
 	}
 }
 
 // confidence
 export function changeConfidenceInUI(value) {
 	if ( value === "high" ) {
-		SettingsElement.confidence.low.id = "";
-		SettingsElement.confidence.high.id = "selected";
-		SettingsElement.confidence.peak.id = "";
+		SettingsElement.userConfidenceConfig.low.id = "";
+		SettingsElement.userConfidenceConfig.high.id = "selected";
+		SettingsElement.userConfidenceConfig.peak.id = "";
 	}	else if ( value === "peak" ) {
-		SettingsElement.confidence.low.id = "";
-		SettingsElement.confidence.high.id = "";
-		SettingsElement.confidence.peak.id = "selected";
+		SettingsElement.userConfidenceConfig.low.id = "";
+		SettingsElement.userConfidenceConfig.high.id = "";
+		SettingsElement.userConfidenceConfig.peak.id = "selected";
 	} else {
-		SettingsElement.confidence.low.id = "selected";
-		SettingsElement.confidence.high.id = "";
-		SettingsElement.confidence.peak.id = "";
+		SettingsElement.userConfidenceConfig.low.id = "selected";
+		SettingsElement.userConfidenceConfig.high.id = "";
+		SettingsElement.userConfidenceConfig.peak.id = "";
 	}
 }
 
 // delete text (backspace)
 export function changeTextDeletionInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.deletionConfig.off.id = "selected";
-		SettingsElement.deletionConfig.on.id = "";
+		SettingsElement.deleteConfig.off.id = "selected";
+		SettingsElement.deleteConfig.on.id = "";
 	}	else {
-		SettingsElement.deletionConfig.off.id = "";
-		SettingsElement.deletionConfig.on.id = "selected";
+		SettingsElement.deleteConfig.off.id = "";
+		SettingsElement.deleteConfig.on.id = "selected";
 	}
 }
 
 // delete correct previous word
-export function changeDeleteCorrectPreviousWordInUI(value) {
+export function changeDeletePreviousCorrectWordInUI(value) {
 	if ( value === "off" ) {
 		SettingsElement.delcorrectConfig.off.id = "selected";
 		SettingsElement.delcorrectConfig.on.id = "";

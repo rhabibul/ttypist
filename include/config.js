@@ -29,7 +29,7 @@ export const config = {
       word: false, // don't move to the next word until all mistakes are corrected
     },
   },
-  deletion: true, // backspace key
+  delete: true, // backspace key
   delcorrect: true, // deletion of correct words
   modifier: {
     alt: true, // backspace + alt
