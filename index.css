@@ -75,7 +75,7 @@
   --SyneMono: "Syne Mono", monospace;
 
   --text-font-size: 20px; /* size: (16px, 32px, 48px) */
-  --text-font-weight: 440;
+  --text-font-weight: 400;
   --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
   --text-secondary-color: #9a9a9a;
@@ -108,7 +108,7 @@
   --setting-button-height: 30px;
   --setting-button-backgroundcolor: rgb(238, 242, 252);
   --setting-button-roundness: 4px;
-  --setting-icon-color: rgb(0, 71, 94);
+  --setting-icon-color: rgb(53, 53, 53);
   --setting-buttons-container-width: 240px;
 	--setting-checkboxAndText-gap: 3px;
 

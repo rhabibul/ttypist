@@ -1004,39 +1004,35 @@ function updateTextFontWeightConfig(evt) {
 	config.text.font.weight = Number(this.value); // update in config
 }
 
-// primary text color picker input field
+// primary text color (selector)
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-
 	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColor.primary.textInput.value = this.value; // update in text input field for primary color
+	SettingsElement.textColorConfig.primary.textInput.value = this.value; // update in text input field for primary color
 	config.text.color.primary = this.value; // update in config
 }
 
-// primary text color text input field
-function updatePrimaryTextColorTextInput(evt) {
+// secondary text color (selector)
+function updateSecondaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-
-	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColor.secondary.selectorInput = this.value; // update in color picker input field for primary color
-	config.text.color.primary = this.value; // update in config
-}
-
-// secondary text color picker input field
-function updateSecondaryTextColorSelectorInput(evt) { // selector input (color)
-	if ( !evt.isTrusted ) return;
-
 	css.style.setProperty("--text-secondary-color", this.value);
-	SettingsElement.textColor.secondary.textInput.value = this.value;  // update in text input field for secondary color
+	SettingsElement.textColorConfig.secondary.textInput.value = this.value;  // update in text input field for secondary color
 	config.text.color.secondary = this.value; // update in config
 }
 
-// secondary text color text input field
-function updateSecondaryTextColorTextInput(evt) { // text input (color)
+// primary text color (text input)
+function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
+	css.style.setProperty("--text-primary-color", this.value);
+	SettingsElement.textColorConfig.primary.selectorInput = this.value; // update in color picker input field for primary color
+	config.text.color.primary = this.value; // update in config
+}
 
+// secondary text color (text input)
+function updateSecondaryTextColorTextInput(evt) {
+	if ( !evt.isTrusted ) return;
 	css.style.setProperty("--text-secondary-color", this.value);
-	SettingsElement.textColor.secondary.selectorInput.value = this.value;
+	SettingsElement.textColorConfig.secondary.selectorInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
@@ -1045,7 +1041,7 @@ function updateCaretColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--caret-color", this.value);
-	SettingsElement.caret.color.textInput.value = this.value;
+	SettingsElement.caretColorConfig.textInput.value = this.value;
 	config.caret.color = this.value; // update in config
 }
 
@@ -1054,26 +1050,8 @@ function updateCaretColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--caret-color", this.value);
-	SettingsElement.caret.color.selectorInput.value = this.value;
+	SettingsElement.caretColorConfig.selectorInput.value = this.value;
 	config.caret.color = this.value; // update in config
-}
-
-// pacecaret color selector input field
-function updatePaceCaretColorSelectorInput(evt) {
-	if ( !evt.isTrusted ) return;
-
-	css.style.setProperty("--pace-caret-color", this.value);
-	SettingsElement.pacecaret.color.textInput.value = this.value;
-	config.pacecaret.color = this.value; // update in config
-}
-
-// pacecaret color text input field
-function updatePaceCaretColorTextInput(evt) {
-	if ( !evt.isTrusted ) return;
-
-	css.style.setProperty("--pace-caret-color", this.value);
-	SettingsElement.pacecaret.color.selectorInput.value = this.value;
-	config.pacecaret.color = this.value; // update in config
 }
 
 // warnings (s4)
@@ -1083,7 +1061,7 @@ function updateWarnings(evt) {
 	SettingChangeInConfig.changeWarningsInConfig();
 
 	// debug
-	console.log("warning:", config.warnings.capslock, config.warnings.numlock, config.warnings.scrolllock, config.warnings.focusout);
+	console.log("warning:", config.warning.capslock, config.warning.numlock, config.warning.scrolllock, config.warning.focusout);
 }
 
 // live stats (s3)
