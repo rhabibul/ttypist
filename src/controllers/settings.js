@@ -397,7 +397,7 @@ function updateUserConfidenceConfig(evt) {
 	}
 
 	// going back to low or high confidence from peak confidence (and backspace is disabled)
-	if ( ((this.value === "low") || (this.value === "high")) && config.backspace.off ) {
+	if ( ((this.value === "low") || (this.value === "high")) && !config.delete ) {
 		SettingChangeInUI.changeTextDeletionInUI("on");
 		SettingChangeInConfig.changeTextDeletionInConfig("on");
 	}
@@ -415,7 +415,7 @@ function updateUserConfidenceConfig(evt) {
 // text deletion
 function updateTextDeletionConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.delete && this.value === "off") || (!config.delete && this.value === "on") ) return;
+	if ( (!config.delete && this.value === "off") || (config.delete && this.value === "on") ) return;
 
 	SettingChangeInUI.changeTextDeletionInUI(this.value);
 	SettingChangeInConfig.changeTextDeletionInConfig(this.value);
@@ -438,11 +438,12 @@ function updateTextDeletionConfig(evt) {
 	}
 
 	// debug
-	console.log("backspace.off:", !config.backspace.off, config.backspace.off);
+	console.log("delete:", !config.delete, config.delete);
 }
 
 // deletion not allowed on correct (s2)
 function updateDeletePreviousCorrectWordConfig(evt) {
+	console.log(this.value);
 	if ( !evt.isTrusted ) return;
 	if ( (config.delcorrect && this.value === "on") || (!config.delcorrect && this.value === "off") ) return;
 	
@@ -454,14 +455,14 @@ function updateDeletePreviousCorrectWordConfig(evt) {
 		SettingChangeInUI.changeConfidenceInUI("low");
 		SettingChangeInConfig.changeConfidenceInConfig("low");
 
-		if ( config.backspace.off ) {
+		if ( !config.delete ) {
 			SettingChangeInUI.changeTextDeletionInUI("on");
 			SettingChangeInConfig.changeTextDeletionInConfig("on");	
 		}
 	}
 	
 	// debug
-	console.log("delete on correct:", !config.delcorrect, config.delcorrect);
+	console.log("delcorrect:", !config.delcorrect, config.delcorrect);
 }
 
 // modifier keys (s3)
@@ -567,7 +568,7 @@ function updateStopOnErrorConfig(evt) {
 			}
 		}
 	} else if ( config.error.stop.word ) {
-		if ( config.backspace.off ) {			
+		if ( !config.delete ) {			
 			SettingChangeInUI.changeTextDeletionInUI("on");
 			SettingChangeInConfig.changeTextDeletionInConfig("on");	
 		}
@@ -589,7 +590,7 @@ function updateStopOnErrorConfig(evt) {
 // blind mode
 function updateGoBlindConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.blind && this.value === "on") || (!config.blind && this.value === "off") ) return;
+	if ( (config.goblind && this.value === "on") || (!config.goblind && this.value === "off") ) return;
 
 	SettingChangeInUI.changeBlindModeInUI(this.value);
 	SettingChangeInConfig.changeBlindModeInConfig(this.value);
@@ -616,7 +617,7 @@ function updateGoBlindConfig(evt) {
 	}
 	
 	// debug
-	console.log("blindMode:", !config.blind, config.blind);
+	console.log("blindMode:", !config.goblind, config.goblind);
 }
 
 // opposite shift mode (s2)
@@ -628,7 +629,7 @@ function updateUseOppositeShiftConfig(evt) {
 	SettingChangeInConfig.changeOppositeShiftModeInConfig(this.value);
 
 	// debug
-	console.log("oppositeShift:", config.oppositeshift);
+	console.log("oppositeShift:", !config.oppositeshift, config.oppositeshift);
 }
 
 // minimum speed (s3)
@@ -641,24 +642,25 @@ function updateMinimumSpeedThresholdConfig(evt) {
 
 	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
-		SettingsElement.minimum.speed.thresholdInput.focus();
+		SettingsElement.minimumThresholdConfig.speed.thresholdInput.focus();
 	} else {
-		SettingsElement.minimum.speed.thresholdInput.value = "";
+		SettingsElement.minimumThresholdConfig.speed.thresholdInput.value = "";
 	}
 
 	// debug
-	console.log("minSpeed:", config.minimum.speed.off);
+	console.log("minspeed:", config.minimum.speed.off, !config.minimum.speed.off);
 }
 
 // minimum speed threashold input (s1)
 function updateMinimumSpeedThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// turn "on" button active if not
-	if ( SettingsElement.minimum.speed.off.id === "selected" ) {
+	// if off button is selected then unselect it
+	if ( SettingsElement.minimumThresholdConfig.speed.off.id === "selected" ) {
 		SettingChangeInUI.changeMinimumSpeedInUI("on");
 		SettingChangeInConfig.changeMinimumSpeedInConfig("on");
 	}
+
 	config.minimum.speed.threshold = Number(this.value); // update in config
 
 	// debug
@@ -670,7 +672,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.speed.on.id === "selected" ) {
+	if ( (this.value === "" || this.value === "0") && SettingsElement.minimumThresholdConfig.speed.on.id === "selected" ) {
 		SettingChangeInUI.changeMinimumSpeedInUI("off");
 		SettingChangeInConfig.changeMinimumSpeedInConfig("off");
 		this.value = "";
@@ -690,24 +692,25 @@ function updateMinimumAccuracyThresholdConfig(evt) {
 
 	// focus in input field when user clicks on "on" button
 	if ( this.value === "on" ) {
-		SettingsElement.minimum.accuracy.thresholdInput.focus();
+		SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.focus();
 	} else {
-		SettingsElement.minimum.accuracy.thresholdInput.value = "";
+		SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.value = "";
 	}
 
 	// debug
-	console.log("minAccuracy:", config.minimum.accuracy.off);
+	console.log("minacc:", config.minimum.accuracy.off, !config.minimum.accuracy.off);
 }
 
 // minimum accuracy threashold input (s1)
 function updateMinimumAccuracyThresholdInput(evt) {
 	if ( !evt.isTrusted ) return;
 	
-	// turn on "on" button active if not
-	if ( SettingsElement.minimum.accuracy.off.id === "selected" ) {
+	// if off button is selected then unselect it
+	if ( SettingsElement.minimumThresholdConfig.accuracy.off.id === "selected" ) {
 		SettingChangeInUI.changeMinimumAccuracyInUI("on");
 		SettingChangeInConfig.changeMinimumAccuracyInConfig("on");
 	}
+
 	config.minimum.accuracy.threshold = Number(this.value); // update in config
 
 	// debug
@@ -719,7 +722,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && SettingsElement.minimum.accuracy.on.id === "selected" ) {
+	if ( (this.value === "" || this.value === "0") && SettingsElement.minimumThresholdConfig.accuracy.on.id === "selected" ) {
 		SettingChangeInUI.changeMinimumAccuracyInUI("off");
 		SettingChangeInConfig.changeMinimumAccuracyInConfig("off");
 		this.value = "";

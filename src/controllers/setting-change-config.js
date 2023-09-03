@@ -200,9 +200,9 @@ export function changeConfidenceInConfig(value) {
 // text deletion
 export function changeTextDeletionInConfig(value) {
 	if ( value === "on" ) {
-		config.delete = false;
-	} else {
 		config.delete = true;
+	} else {
+		config.delete = false;
 	}
 }
 
