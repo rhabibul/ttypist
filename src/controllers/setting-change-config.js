@@ -211,7 +211,7 @@ export function changeDeletePreviousCorrectWordInConfig(value) {
 	if ( value === "off" ) {
 		config.delcorrect = false;
 	} else {
-		config.delcorrect = false;
+		config.delcorrect = true;
 	}
 }
 
@@ -236,61 +236,6 @@ export function changeModifierKeyInConfig() {
 		config.modifier.meta = true;
 	} else {
 		config.modifier.meta = false;
-	}
-}
-
-// warnings
-export function changeWarningsInConfig() {
-	// capslock
-	if ( SettingsElement.warnings.capslock.checked ) {
-		config.warnings.capslock = true;
-	} else {
-		config.warnings.capslock = false;
-	}
-
-	// numlock
-	if ( SettingsElement.warnings.numlock.checked ) {
-		config.warnings.numlock = true;
-	} else {
-		config.warnings.numlock = false;
-	}
-	
-	// scrolllock
-	if ( SettingsElement.warnings.scrolllock.checked ) {
-		config.warnings.scrolllock = true;
-	} else {
-		config.warnings.scrolllock = false;
-	}
-
-	// focusout
-	if ( SettingsElement.warnings.focusout.checked ) {
-		config.warnings.focusout = true;
-	} else {
-		config.warnings.focusout = false;
-	}
-}
-
-// live stats
-export function changeLiveStatsInConfig() {
-	// speed
-	if ( SettingsElement.stats.live.speed.checked ) {
-		config.stats.live.speed = true;
-	} else {
-		config.stats.live.speed = false;
-	}
-
-	// accuracy
-	if ( SettingsElement.stats.live.accuracy.checked ) {
-		config.stats.live.accuracy = true;
-	} else {
-		config.stats.live.accuracy = false;
-	}
-
-	// burst
-	if ( SettingsElement.stats.live.burst.checked ) {
-		config.stats.live.burst = true;
-	} else {
-		config.stats.live.burst = false;
 	}
 }
 

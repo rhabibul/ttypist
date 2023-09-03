@@ -178,7 +178,7 @@ SettingsElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updat
 // font weight slider
 SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
 
-// pacecaret speed (s5)
+// pacecaret speed
 SettingsElement.paceCaretSpeedConfig.off.addEventListener("click", updatePaceCaretSpeedConfig);
 SettingsElement.paceCaretSpeedConfig.last.addEventListener("click", updatePaceCaretSpeedConfig);
 SettingsElement.paceCaretSpeedConfig.average.addEventListener("click", updatePaceCaretSpeedConfig);
@@ -203,10 +203,10 @@ SettingsElement.statsConfig.unit.wpm.addEventListener("click", updateTypingSpeed
 SettingsElement.statsConfig.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
 
 // warnings
-SettingsElement.warningConfig.capslock.addEventListener("click", updateWarnings);
-SettingsElement.warningConfig.numlock.addEventListener("click", updateWarnings);
-SettingsElement.warningConfig.scrolllock.addEventListener("click", updateWarnings);
-SettingsElement.warningConfig.focusout.addEventListener("click", updateWarnings);
+SettingsElement.warningConfig.capslock.addEventListener("click", updateWarningConfig);
+SettingsElement.warningConfig.numlock.addEventListener("click", updateWarningConfig);
+SettingsElement.warningConfig.scrolllock.addEventListener("click", updateWarningConfig);
+SettingsElement.warningConfig.focusout.addEventListener("click", updateWarningConfig);
 
 // live stats
 SettingsElement.statsConfig.live.speed.addEventListener("click", updateLiveStats);
@@ -247,7 +247,7 @@ function updateUIKeyboardReactionConfig(evt) {
 	console.log("keyboardReation:", config.keyboard.reaction.off, config.keyboard.reaction.static, config.keyboard.reaction.react, config.keyboard.reaction.next);
 }
 
-// keyboard layout emulate (s2)
+// keyboard layout emulate
 function updateUIKeyboardLayoutEmulateConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.keyboard.layout.emulate && this.value === "on") || (!config.keyboard.layout.emulate && this.value === "off") ) return;
@@ -259,7 +259,7 @@ function updateUIKeyboardLayoutEmulateConfig(evt) {
 	console.log("keyboardLayoutEmulate:", !config.keyboard.layout.emulate, config.keyboard.layout.emulate);
 }
 
-// text input (s2)
+// text input
 function updateTextInputFieldConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.input.hidden && this.value === "hidden") || (config.text.input.visible && this.value === "visible") ) return;
@@ -295,7 +295,7 @@ function updateTextHighlightConfig(evt) {
 	console.log("textHighlight:", config.text.highlight.off, config.text.highlight.mode.letter, config.text.highlight.mode.word);
 }
 
-// flip text highlight (s2)
+// flip text highlight
 function updateFlipTextHighlightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.highlight.flip && this.value === "on") || (!config.text.highlight.flip && this.value === "off") ) return;
@@ -316,7 +316,7 @@ function updateFlipTextHighlightConfig(evt) {
 	console.log("flipTextHighlight:", !config.text.highlight.flip, config.text.highlight.flip);
 }
 
-// text underline (s2)
+// text underline
 function updateTextUnderlineConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.underline && this.value === "on") || (!config.text.underline && this.value === "off") ) return;
@@ -340,7 +340,7 @@ function updateTextWhitespaceConfig(evt) {
 	console.log("whitespace:", config.text.whitespace.off, config.text.whitespace.style.space, config.text.whitespace.style.bullet, config.text.whitespace.style.bar, config.text.whitespace.character, config.text.whitespace.code);
 }
 
-// strictspace (s2)
+// strictspace
 function updateStrictSpaceConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.strictspace && this.value === "on") || (!config.strictspace && this.value === "off")) return;
@@ -441,9 +441,8 @@ function updateTextDeletionConfig(evt) {
 	console.log("delete:", !config.delete, config.delete);
 }
 
-// deletion not allowed on correct (s2)
+// deletion not allowed on correct
 function updateDeletePreviousCorrectWordConfig(evt) {
-	console.log(this.value);
 	if ( !evt.isTrusted ) return;
 	if ( (config.delcorrect && this.value === "on") || (!config.delcorrect && this.value === "off") ) return;
 	
@@ -518,7 +517,7 @@ function updateErrorHandlingConfig(evt) {
 	console.log("error:", config.error.off, config.error.insert, config.error.skip, config.error.replace);
 }
 
-// forgive error (s2)
+// forgive error
 function updateForgiveErrorConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.error.forgive && this.value === "on") || (!config.error.forgive && this.value === "off") ) return;
@@ -782,7 +781,7 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 	console.log("FOCUS-OUT (minburst)");
 }
 
-// text word count (s5)
+// text word count
 function updateTextWordsCountConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.text.word.count === -1 && this.value === "off") || (config.text.word.count === -2 && this.value === "custom") || (config.text.word.count === 10 && this.value === "10") || (config.text.word.count === 25 && this.value === "25") || (config.text.word.count === 50 && this.value === "50") || (config.text.word.count === 100 && this.value === "100") ) return;
@@ -851,7 +850,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	console.log("FOCUS-OUT (numberOfWords)");
 }
 
-// timer seconds (s5)
+// timer seconds
 function updateTimerSecondsCountConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.time === -2 && this.value === "custom") || (config.time === -1 && this.value === "off") || (config.time === 15 && this.value === "15") || (config.time === 30 && this.value === "30") || (config.time === 60 && this.value === "60") || (config.time === 120 && this.value === "120") ) return;
@@ -920,7 +919,7 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	console.log("FOCUS-OUT (numberOfSeconds)");
 }
 
-// pacecaret speed (s5)
+// pacecaret speed
 function updatePaceCaretSpeedConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.pacecaret.off && this.value === "off") || (config.pacecaret.speed.last && this.value === "last") || (config.pacecaret.speed.average && this.value === "average") || (config.pacecaret.speed.best && this.value === "best") || (!config.pacecaret.speed.custom.off && this.value === "custom") ) return;
@@ -939,7 +938,7 @@ function updatePaceCaretSpeedConfig(evt) {
 	console.log("paceCaretSpeed:", config.pacecaret.off, config.pacecaret.speed.last, config.pacecaret.speed.average, config.pacecaret.speed.best, config.pacecaret.speed.custom.off);
 }
 
-// pacecaret speed input (s5)
+// pacecaret speed input
 function updatePaceCaretSpeedInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
@@ -954,7 +953,7 @@ function updatePaceCaretSpeedInputField(evt) {
 	console.log("paceCaretSpeed [input]:", config.pacecaret.speed.custom.value);
 }
 
-// pacecaret speed input - focusout (s5)
+// pacecaret speed input (focusout)
 function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
@@ -1037,11 +1036,37 @@ function updateCaretColorTextInput(evt) {
 	config.caret.color = this.value; // update in config
 }
 
-// warnings (s4)
-function updateWarnings(evt) {
+// warning
+function updateWarningConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingChangeInConfig.changeWarningsInConfig();
+	// capslock
+	if ( SettingsElement.warningConfig.capslock.checked ) {
+		config.warning.capslock = true;
+	} else {
+		config.warning.capslock = false;
+	}
+
+	// numlock
+	if ( SettingsElement.warningConfig.numlock.checked ) {
+		config.warning.numlock = true;
+	} else {
+		config.warning.numlock = false;
+	}
+	
+	// scrolllock
+	if ( SettingsElement.warningConfig.scrolllock.checked ) {
+		config.warning.scrolllock = true;
+	} else {
+		config.warning.scrolllock = false;
+	}
+
+	// focusout
+	if ( SettingsElement.warningConfig.focusout.checked ) {
+		config.warning.focusout = true;
+	} else {
+		config.warning.focusout = false;
+	}
 
 	// debug
 	console.log("warning:", config.warning.capslock, config.warning.numlock, config.warning.scrolllock, config.warning.focusout);
@@ -1051,13 +1076,32 @@ function updateWarnings(evt) {
 function updateLiveStats(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingChangeInConfig.changeLiveStatsInConfig();
+	// speed
+	if ( SettingsElement.statsConfig.live.speed.checked ) {
+		config.stats.live.speed = true;
+	} else {
+		config.stats.live.speed = false;
+	}
+
+	// accuracy
+	if ( SettingsElement.statsConfig.live.accuracy.checked ) {
+		config.stats.live.accuracy = true;
+	} else {
+		config.stats.live.accuracy = false;
+	}
+
+	// burst
+	if ( SettingsElement.statsConfig.live.burst.checked ) {
+		config.stats.live.burst = true;
+	} else {
+		config.stats.live.burst = false;
+	}
 
 	// debug
 	console.log("liveStats:", config.stats.live.speed, config.stats.live.accuracy, config.stats.live.burst);
 }
 
-// text include (s2)
+// text include
 function updateIncludeSpecialsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
@@ -1067,7 +1111,7 @@ function updateIncludeSpecialsInTextConfig(evt) {
 	console.log("textInclude:", config.text.include.digit, config.text.include.punctuation);
 }
 
-// speed unit (s2)
+// typing speed measurement unit
 function updateTypingSpeedMeasurementUnitConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.stats.unit.cpm && this.value === "cpm") || (config.stats.unit.wpm && this.value === "wpm") ) return;
@@ -1079,7 +1123,7 @@ function updateTypingSpeedMeasurementUnitConfig(evt) {
 	console.log("speedUnit:", config.stats.unit.cpm, config.stats.unit.wpm);
 }
 
-// caret style (s5)
+// caret style
 function updateCaretStyleConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === config.caret.style ) return;
@@ -1099,7 +1143,7 @@ function updateCaretStyleConfig(evt) {
 	console.log("caret:", config.caret.style);
 }
 
-// pacecaret style (s5)
+// pacecaret style
 function updatePaceCaretStyleConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( this.value === config.pacecaret.style ) return;
