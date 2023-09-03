@@ -868,7 +868,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 // timer seconds (s5)
 function updateTimerSecondsCountConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.stats.timer.time === -2 && this.value === "custom") || (config.stats.timer.time === -1 && this.value === "off") || (config.stats.timer.time === 15 && this.value === "15") || (config.stats.timer.time === 30 && this.value === "30") || (config.stats.timer.time === 60 && this.value === "60") || (config.stats.timer.time === 120 && this.value === "120") ) return;
+	if ( (config.time === -2 && this.value === "custom") || (config.time === -1 && this.value === "off") || (config.time === 15 && this.value === "15") || (config.time === 30 && this.value === "30") || (config.time === 60 && this.value === "60") || (config.time === 120 && this.value === "120") ) return;
 
 	SettingChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingChangeInConfig.changeTimerSecondsInConfig(this.value);
@@ -886,13 +886,13 @@ function updateTimerSecondsCountConfig(evt) {
 
 	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		SettingsElement.timer.time.customSecondsInput.focus();
+		SettingsElement.timerSecondsCountConfig.customSecondsCountInput.focus();
 	} else {
-		SettingsElement.timer.time.customSecondsInput.value = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value = "";
 	}
 
 	// debug
-	console.log("numberOfSeconds:", config.stats.timer.time);
+	console.log("numberOfSeconds:", config.time);
 }
 
 // timer custom seconds input (s1)
@@ -900,14 +900,14 @@ function updateTimerSecondsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
-	if ( SettingsElement.timer.time.custom.id !== "selected" ) {
+	if ( SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	config.stats.timer.time = Number(this.value); // update in config (i.e, override -2 initial value)
+	config.time = Number(this.value); // update in config (i.e, override -2 initial value)
 
 	// debug
-	console.log("numberOfSeconds [input]:", config.stats.timer.time);
+	console.log("numberOfSeconds [input]:", config.time);
 }
 
 // timer custom seconds input - focusout (s1)
@@ -915,18 +915,22 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "") && (SettingsElement.timer.time.custom.id === "selected") ) {
+	if ( (this.value === "") && (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") ) {
 		SettingChangeInUI.changeTimerSecondsInUI("off");
 		SettingChangeInConfig.changeTimerSecondsInConfig("off");
 	}
 
-	// infinite timer mode
-	if ( (SettingsElement.timer.time.custom.id === "selected") && (SettingsElement.timer.time.customSecondsInput.value === "0") ) {
-		console.log("infinite timer mode..");
+	// 0 seconds not allowed
+	if ( (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && (SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") ) {
+		setTimeout(() => {
+			SettingChangeInUI.changeTimerSecondsInUI("off");
+			SettingChangeInConfig.changeTimerSecondsInConfig("off");
+			this.value = "";
+		}, 250);
 	}
 
 	// debug
-	console.log("INPUT FOCUS-OUT (numberOfSeconds)");
+	console.log("FOCUS-OUT (numberOfSeconds)");
 }
 
 // pacecaret speed (s5)

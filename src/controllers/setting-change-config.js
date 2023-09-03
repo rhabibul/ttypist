@@ -432,28 +432,19 @@ export function changeTimerSecondsInConfig(value) {
 	if ( value === "custom" ) {
 		// -2 will be the value for custom input when custom button is active but value 
 		// is not yet entered in input field
-		config.stats.timer.time = -2; // -2 (custom)
+		config.time = -2; // -2 (custom)
 	} else if ( value === "off" ) {
-		config.stats.timer.time = -1; // -1 (off)
+		config.time = -1; // -1 (off)
 	} else if ( value === "infinite" ) {
-		config.stats.timer.time = 0; // 0 (infinite)
+		config.time = 0; // 0 (infinite)
 	} else if ( value === "15" ) {
-		config.stats.timer.time = 15;
+		config.time = 15;
 	} else if ( value === "30" ) {
-		config.stats.timer.time = 30;
+		config.time = 30;
 	} else if ( value === "60" ) {
-		config.stats.timer.time = 60;
+		config.time = 60;
 	} else if ( value === "120" ) {
-		config.stats.timer.time = 120;
-	}
-}
-
-// timer visibility
-export function changeTimerVisibilityInConfig(value) {
-	if ( value === "on" ) {
-		config.stats.timer.hidden = true;
-	} else {
-		config.stats.timer.hidden = false;
+		config.time = 120;
 	}
 }
 
