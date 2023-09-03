@@ -1213,21 +1213,6 @@ const allDetails = {
 		SVGs: Array.from(document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick")),
 		inUseTextBox: document.querySelector("details.textFontFamilyList summary div.text.value.in-use"),
 	},
-	textWordType: {
-		items: Array.from(document.querySelectorAll("details.textWordTypeList div.list > *")),
-		SVGs: Array.from(document.querySelectorAll("details.textWordTypeList div.list div.item div.symbol svg.tick")),
-		inUseTextBox: document.querySelector("details.textWordTypeList summary div.text.value.in-use"),
-	},
-	textCapitalization: {
-		items: Array.from(document.querySelectorAll("details.textCapitalizationList div.list > *")),
-		SVGs: Array.from(document.querySelectorAll("details.textCapitalizationList div.list div.item div.symbol svg.tick")),
-		inUseTextBox: document.querySelector("details.textCapitalizationList summary div.text.value.in-use"),
-	},
-	keyboardLanguage: {
-		items: Array.from(document.querySelectorAll("details.UIKeyboardLanguageList div.list > *")),
-		SVGs: Array.from(document.querySelectorAll("details.UIKeyboardLanguageList div.list div.item div.symbol svg.tick")),
-		inUseTextBox: document.querySelector("details.UIKeyboardLanguageList summary div.text.value.in-use"),
-	},
 	keyboardLayout: {
 		items: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list > *")),
 		SVGs: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list div.item div.symbol svg.tick")),
@@ -1263,86 +1248,6 @@ allDetails.textFontFamily.items.forEach((item) => {
 
 		// debug
 		console.log("font-family:", config.text.font.family);
-	});
-});
-
-// details: typeOfWords
-allDetails.textWordType.items.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === config.text.word.type ) return;
-
-		config.text.word.type = evt.currentTarget.dataset.value; // update in config
-		allDetails.textWordType.inUseTextBox.textContent = config.text.word.type; // update in ui
-		tickMarkCorrectOption(evt, "textWordType");
-		
-		TypingAreaElements.input.focus();
-
-		// debug
-		console.log("word-type:", config.text.word.type);
-	});
-});
-
-// details: typeOfWords
-allDetails.textCapitalization.items.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		const value = evt.currentTarget.dataset.value;
-		if ( (value === "off" && config.text.capitalization.off ) || (value === "randomly" && config.text.capitalization.randomly) || (value === "first" && config.text.capitalization.first) || (value === "everyfirst" && config.text.capitalization.everyfirst) || (value === "untidy" && config.text.capitalization.untidy) ) return;
-
-		if ( value === "none" ) {
-			config.text.capitalization.off = true;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "first" ) {
-			config.text.capitalization.off = false;
-			config.text.capitalization.first = true;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "everyfirst" ) {
-			config.text.capitalization.off = false;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = true;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "randomly" ) {
-			config.text.capitalization.off = false;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = true;
-			config.text.capitalization.untidy = false;
-		} else if ( value === "untidy" ) {
-			config.text.capitalization.off = false;
-			config.text.capitalization.first = false;
-			config.text.capitalization.everyfirst = false;
-			config.text.capitalization.randomly = false;
-			config.text.capitalization.untidy = true;
-		}
-		allDetails.textCapitalization.inUseTextBox.textContent = evt.currentTarget.dataset.text; // update in ui
-		tickMarkCorrectOption(evt, "textCapitalization");
-		
-		// TypingAreaElements.input.focus();
-
-		// debug
-		console.log("capitalize:", config.text.capitalization.off, config.text.capitalization.first, config.text.capitalization.everyfirst, config.text.capitalization.randomly, config.text.capitalization.untidy);
-	});
-});
-
-// details: keyboardLanguage
-allDetails.keyboardLanguage.items.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === config.keyboard.language ) return;
-
-		config.keyboard.language = evt.currentTarget.dataset.value; // update in config
-		allDetails.keyboardLanguage.inUseTextBox.textContent = config.keyboard.language; // update in ui
-		tickMarkCorrectOption(evt, "keyboardLanguage");
-		
-		// debug
-		console.log(config.keyboard.language);
 	});
 });
 
