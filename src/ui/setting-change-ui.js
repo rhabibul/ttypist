@@ -450,7 +450,7 @@ export function changeSpeedUnitInUI(value) {
 }
 
 function addColorsToCaretShape(shapeClicked, shape) {
-	if ( shapeClicked === shape.classList[1] ) {
+	if ( shapeClicked === shape.classList[1] ) { // for caret
 		if ( shapeClicked === "underscoreCaretShape" ) {
 			shape.style.borderBottomColor = "var(--selected-color)";
 		} else if ( (shapeClicked === "lineCaretShape") || (shapeClicked === "blockCaretShape") ) {
@@ -458,7 +458,7 @@ function addColorsToCaretShape(shapeClicked, shape) {
 		} else if ( shapeClicked === "boxCaretShape" ) {
 			shape.style.borderColor = "var(--selected-color)";
 		}
-	} else {
+	} else { // for pace caret
 		if ( (shapeClicked !== "underscoreCaretShape") && (shape.classList[1] === "underscoreCaretShape") ) {
 			shape.style.borderBottomColor = "var(--setting-caret-color)";
 		} 
@@ -476,9 +476,9 @@ function addColorsToCaretShape(shapeClicked, shape) {
 
 function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 
-	const caretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#CaretStyleConfig button > span.shape"));
-	const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#PaceCaretStyleConfig button > span.shape"));
-	
+	const caretShapes = Array.from(document.querySelectorAll("div#caretStyleConfig button > span.shape"));
+	const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#paceCaretStyleConfig button > span.shape"));
+
 	if ( caretType === "caret" ) {
 		for ( const shape of caretShapes ) {
 			addColorsToCaretShape(shapeClicked, shape);
