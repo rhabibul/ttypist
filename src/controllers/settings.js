@@ -349,10 +349,10 @@ function updateStrictSpaceConfig(evt) {
 	SettingChangeInConfig.changeStrictSpaceInConfig(this.value);
 
 	// debug
-	console.log("strictSpace:", !config.strictspace, config.strictspace);
+	console.log("strictspace:", !config.strictspace, config.strictspace);
 }
 
-// quickend (s2)
+// quickend
 function updateQuickEndConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.quickend && this.value === "on") || (!config.quickend && this.value === "off")) return;
@@ -361,10 +361,10 @@ function updateQuickEndConfig(evt) {
 	SettingChangeInConfig.changeQuickEndInConfig(this.value);
 
 	// debug
-	console.log("quickEnd:", !config.quickend, config.quickend);
+	console.log("quickend:", !config.quickend, config.quickend);
 }
 
-// difficulty (s3)
+// difficulty
 function updateTestDifficultyConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.difficulty.ease && this.value === "ease") || (config.difficulty.expert && this.value === "expert") || (config.difficulty.master && this.value === "master") ) return;
@@ -620,7 +620,7 @@ function updateGoBlindConfig(evt) {
 	console.log("blindMode:", !config.goblind, config.goblind);
 }
 
-// opposite shift mode (s2)
+// opposite shift mode
 function updateUseOppositeShiftConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.oppositeshift && this.value === "on") || (!config.oppositeshift && this.value === "off") ) return;
@@ -632,7 +632,7 @@ function updateUseOppositeShiftConfig(evt) {
 	console.log("oppositeShift:", !config.oppositeshift, config.oppositeshift);
 }
 
-// minimum speed (s3)
+// minimum speed
 function updateMinimumSpeedThresholdConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.minimum.speed.off && this.value === "off") || (!config.minimum.speed.off && this.value === "on") ) return;
@@ -986,21 +986,21 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 	console.log("INPUT FOCUS-OUT (paceCaretSpeed)");
 }
 
-// text font size slider (s1)
+// text font size slider
 function updateTextFontSizeConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--text-font-size", `${this.value}px`);
-	SettingsElement.textFontSize.fontSizeDisplayBox.textContent = this.value;
+	SettingsElement.textFontSizeConfig.fontSizeDisplayBox.textContent = this.value;
 	config.text.font.size = Number(this.value); // update in config
 }
 
-// text font weight slider (s1)
+// text font weight slider
 function updateTextFontWeightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
 	css.style.setProperty("--text-font-weight", `${this.value}`);
-	SettingsElement.textFontWeight.fontWeightDisplayBox.textContent = this.value;
+	SettingsElement.textFontWeightConfig.fontWeightDisplayBox.textContent = this.value;
 	config.text.font.weight = Number(this.value); // update in config
 }
 
