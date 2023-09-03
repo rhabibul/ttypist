@@ -331,13 +331,13 @@ function updateTextUnderlineConfig(evt) {
 // text whitespace (s4)
 function updateTextWhitespaceConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.text.whitespace.off && this.value === "off") || (config.text.whitespace.type.bullet && this.value === "bullet") || (config.text.whitespace.type.space && this.value === "space") || (config.text.whitespace.type.bar && this.value === "bar") ) return;
+	if ( (config.text.whitespace.off && this.value === "off") || (config.text.whitespace.style.bullet && this.value === "bullet") || (config.text.whitespace.style.space && this.value === "space") || (config.text.whitespace.style.bar && this.value === "bar") ) return;
 
 	SettingChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingChangeInConfig.changeTextWhitespaceInConfig(this.value);
 
 	// debug
-	console.log("whitespace:", config.text.whitespace.off, config.text.whitespace.type.space, config.text.whitespace.type.bullet, config.text.whitespace.type.bar, config.text.whitespace.character, config.text.whitespace.code);
+	console.log("whitespace:", config.text.whitespace.off, config.text.whitespace.style.space, config.text.whitespace.style.bullet, config.text.whitespace.style.bar, config.text.whitespace.character, config.text.whitespace.code);
 }
 
 // strictspace (s2)
@@ -471,7 +471,7 @@ function updateModifierKeyConfig(evt) {
 	SettingChangeInConfig.changeModifierKeyInConfig();
 
 	// debug
-	console.log("modifier:", config.backspace.modifier.alt, config.backspace.modifier.ctrl, config.backspace.modifier.meta);
+	console.log("modifier:", config.modifier.alt, config.modifier.ctrl, config.modifier.meta);
 }
 
 // error (s4)

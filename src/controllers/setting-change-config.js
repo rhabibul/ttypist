@@ -116,32 +116,32 @@ export function changeTextUnderlineInConfig(value) {
 export function changeTextWhitespaceInConfig(value) {
 	if ( value === "bullet" ) {
 		config.text.whitespace.off = false;
-		config.text.whitespace.type.bullet = true;
-		config.text.whitespace.type.space = false;
-		config.text.whitespace.type.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bullet.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bullet.dataset.character);
+		config.text.whitespace.style.bullet = true;
+		config.text.whitespace.style.space = false;
+		config.text.whitespace.style.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.bullet.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.bullet.dataset.character);
 	} else if ( value === "bar" ) {
 		config.text.whitespace.off = false;
-		config.text.whitespace.type.bullet = false;
-		config.text.whitespace.type.space = false;
-		config.text.whitespace.type.bar = true;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.bar.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.bar.dataset.character);
+		config.text.whitespace.style.bullet = false;
+		config.text.whitespace.style.space = false;
+		config.text.whitespace.style.bar = true;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.bar.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.bar.dataset.character);
 	} else if ( value === "space" ) {
 		config.text.whitespace.off = false;
-		config.text.whitespace.type.bullet = false;
-		config.text.whitespace.type.space = true;
-		config.text.whitespace.type.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespace.type.space.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespace.type.space.dataset.character);
+		config.text.whitespace.style.bullet = false;
+		config.text.whitespace.style.space = true;
+		config.text.whitespace.style.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.space.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.space.dataset.character);
 	} else {
 		config.text.whitespace.off = true;
-		config.text.whitespace.type.bullet = false;
-		config.text.whitespace.type.space = false;
-		config.text.whitespace.type.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespace.off.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespace.off.dataset.character);
+		config.text.whitespace.style.bullet = false;
+		config.text.whitespace.style.space = false;
+		config.text.whitespace.style.bar = false;
+		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.off.dataset.code);
+		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.off.dataset.character);
 	}
 }
 
@@ -218,24 +218,24 @@ export function changeDeletePreviousCorrectWordInConfig(value) {
 // modifier key
 export function changeModifierKeyInConfig() {
 	// alt
-	if ( SettingsElement.modifier.alt.checked ) {
-		config.backspace.modifier.alt = true;
+	if ( SettingsElement.modifierKeyConfig.alt.checked ) {
+		config.modifier.alt = true;
 	} else {
-		config.backspace.modifier.alt = false;
+		config.modifier.alt = false;
 	}
 
 	// ctrl
-	if ( SettingsElement.modifier.ctrl.checked ) {
-		config.backspace.modifier.ctrl = true;
+	if ( SettingsElement.modifierKeyConfig.ctrl.checked ) {
+		config.modifier.ctrl = true;
 	} else {
-		config.backspace.modifier.ctrl = false;
+		config.modifier.ctrl = false;
 	}
 
 	// meta
-	if ( SettingsElement.modifier.meta.checked ) {
-		config.backspace.modifier.meta = true;
+	if ( SettingsElement.modifierKeyConfig.meta.checked ) {
+		config.modifier.meta = true;
 	} else {
-		config.backspace.modifier.meta = false;
+		config.modifier.meta = false;
 	}
 }
 
