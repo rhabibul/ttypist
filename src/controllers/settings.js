@@ -802,9 +802,9 @@ function updateTextWordsCountConfig(evt) {
 
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		SettingsElement.textWordCount.count.customWordsInput.focus();
+		SettingsElement.textWordsCountConfig.customWordsCountInput.focus();
 	} else {
-		SettingsElement.textWordCount.count.customWordsInput.value = ""; // clear input field
+		SettingsElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
 		Test.restart();
 	}
 
@@ -817,7 +817,7 @@ function updateTextWordsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
-	if ( SettingsElement.textWordCount.count.custom.id !== "selected" ) {
+	if ( SettingsElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTextWordCountInUI("custom");
 		SettingChangeInConfig.changeTextWordCountInConfig("custom");
 	}
@@ -829,32 +829,18 @@ function updateTextWordsCountInputField(evt) {
 	console.log("numberOfWords [input]:", config.text.word.count);
 }
 
-// text word count input - focusout (s1)
+// text word count input (focus out)
 function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "" || this.value === "0") && (SettingsElement.textWordCount.count.custom.id === "selected") ) {
-		
-		if ( this.value === "0" ) { // 0 word is not possible
-			setTimeout(() => {
-				SettingChangeInUI.changeTextWordCountInUI("off");
-				SettingChangeInConfig.changeTextWordCountInConfig("off");
-				this.value = "";
-			}, 250);
-		} else {
-			SettingChangeInUI.changeTextWordCountInUI("off");
-			SettingChangeInConfig.changeTextWordCountInConfig("off");
-		}
-	}
-
-	if ( this.value === "" ) { // set to default
+	if ( (this.value === "" || this.value === "0") && (SettingsElement.textWordsCountConfig.customWordsCountButton.id === "selected") ) {
 		SettingChangeInUI.changeTextWordCountInUI("25");
 		SettingChangeInConfig.changeTextWordCountInConfig("25");
+		this.value = "";
 	}
 
-	// currently more than 150 words is not allowed in custom input field
-	if ( config.text.word.count > 150 ) {
+	if ( config.text.word.count > 150 ) { // limit 150 words
 		SettingChangeInUI.changeTextWordCountInUI("100");
 		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
@@ -862,7 +848,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	Test.restart();
 
 	// debug
-	console.log("INPUT FOCUS-OUT (numberOfWords)");
+	console.log("FOCUS-OUT (numberOfWords)");
 }
 
 // timer seconds (s5)
@@ -895,11 +881,16 @@ function updateTimerSecondsCountConfig(evt) {
 	console.log("numberOfSeconds:", config.time);
 }
 
-// timer custom seconds input (s1)
+// timer custom input
 function updateTimerSecondsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	// make custom button active if not
+	if ( SettingsElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
+		SettingChangeInUI.changeTextWordCountInUI("off");
+		SettingChangeInConfig.changeTextWordCountInConfig("off");
+	}
+	
+	// make custom input button active if not
 	if ( SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
@@ -910,23 +901,19 @@ function updateTimerSecondsCountInputField(evt) {
 	console.log("numberOfSeconds [input]:", config.time);
 }
 
-// timer custom seconds input - focusout (s1)
+// timer custom input (focus out)
 function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
-
-	// no value entered in input field (turn off custom button)
-	if ( (this.value === "") && (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") ) {
+	
+	// 0 or no value is entered in input field
+	if ( (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && ((SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") || (this.value === "")) ) {
+		this.value = "";
 		SettingChangeInUI.changeTimerSecondsInUI("off");
 		SettingChangeInConfig.changeTimerSecondsInConfig("off");
-	}
 
-	// 0 seconds not allowed
-	if ( (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && (SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") ) {
-		setTimeout(() => {
-			SettingChangeInUI.changeTimerSecondsInUI("off");
-			SettingChangeInConfig.changeTimerSecondsInConfig("off");
-			this.value = "";
-		}, 250);
+		// turn on words mode
+		SettingChangeInUI.changeTextWordCountInUI("25");
+		SettingChangeInConfig.changeTextWordCountInConfig("25");
 	}
 
 	// debug
