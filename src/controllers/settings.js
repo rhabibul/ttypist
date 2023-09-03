@@ -386,25 +386,25 @@ function updateUserConfidenceConfig(evt) {
 
 	// at peak confidence backspacing is not allowed, so backspace is disabled
 	if ( this.value === "peak" ) {
-		SettingChangeInUI.changeBackspaceKeyInUI("off");
+		SettingChangeInUI.changeTextDeletionInUI("off");
 		SettingChangeInConfig.changeBackspaceKeyInConfig("off");
 
 		// at peak confidence backspace is disabled, so user cannot delete at all
 		if ( config.backspace.allowedOnCorrectWord ) {
-			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
 			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	}
 
 	// going back to low or high confidence from peak confidence (and backspace is disabled)
 	if ( ((this.value === "low") || (this.value === "high")) && config.backspace.off ) {
-		SettingChangeInUI.changeBackspaceKeyInUI("on");
+		SettingChangeInUI.changeTextDeletionInUI("on");
 		SettingChangeInConfig.changeBackspaceKeyInConfig("on");
 	}
 
 	// confidence high prevents user to delete previous word regardless of it was typed correctly or incorrectly
 	if ( (this.value === "high") && config.backspace.allowedOnCorrectWord ) {
-		SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+		SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
 		SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 	}
 
@@ -417,7 +417,7 @@ function updateDeletionConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.backspace.off && this.value === "off") || (!config.backspace.off && this.value === "on") ) return;
 
-	SettingChangeInUI.changeBackspaceKeyInUI(this.value);
+	SettingChangeInUI.changeTextDeletionInUI(this.value);
 	SettingChangeInConfig.changeBackspaceKeyInConfig(this.value);
 
 	// dependencies
@@ -428,7 +428,7 @@ function updateDeletionConfig(evt) {
 
 		// no concept of deleting on correct if backspace is disabled
 		if ( config.backspace.allowedOnCorrectWord ) {
-			SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI("off");
+			SettingChangeInUI.changeDeleteCorrectPreviousWordInUI("off");
 			SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig("off");
 		}
 	} else {
@@ -446,7 +446,7 @@ function updateDelCorrectConfig(evt) {
 	if ( !evt.isTrusted ) return;
 	if ( (config.backspace.allowedOnCorrectWord && this.value === "on") || (!config.backspace.allowedOnCorrectWord && this.value === "off") ) return;
 	
-	SettingChangeInUI.changeBackspaceAllowedOnCorrectWordInUI(this.value);
+	SettingChangeInUI.changeDeleteCorrectPreviousWordInUI(this.value);
 	SettingChangeInConfig.changeBackspaceAllowedOnCorrectWordInConfig(this.value);
 
 	// when deletion of correct words is enabled then disable high/peak confidence mode and enable backspace if its disabled
@@ -455,7 +455,7 @@ function updateDelCorrectConfig(evt) {
 		SettingChangeInConfig.changeConfidenceInConfig("low");
 
 		if ( config.backspace.off ) {
-			SettingChangeInUI.changeBackspaceKeyInUI("on");
+			SettingChangeInUI.changeTextDeletionInUI("on");
 			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 	}
@@ -568,7 +568,7 @@ function updateStopOnErrorConfig(evt) {
 		}
 	} else if ( config.error.stop.word ) {
 		if ( config.backspace.off ) {			
-			SettingChangeInUI.changeBackspaceKeyInUI("on");
+			SettingChangeInUI.changeTextDeletionInUI("on");
 			SettingChangeInConfig.changeBackspaceKeyInConfig("on");	
 		}
 		if ( config.error.off ) {

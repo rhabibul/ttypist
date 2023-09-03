@@ -135,8 +135,8 @@ export const timerSecondsCountConfig = {
  	seconds30: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds30"),
  	seconds60: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds60"),
  	seconds120: document.querySelector("div.configButtonContainer#timerSecondsCountConfig button.seconds120"),
- 	customSecondsButton: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.timerTimeCustomInputButton"),
- 	customSecondsInput: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
+ 	customSecondsCountButton: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer button.s1.timerTimeCustomInputButton"),
+ 	customSecondsCountInput: document.querySelector("div.configButtonContainer#timerSecondsCountConfig div.s2.customInputContainer.timerTimeCustomInputContainer div.s1.custom.inputContainer input.inputBox.timerTime"),
 }
 export const textWordsCountConfig = {
 	off: document.querySelector("div.configButtonContainer#textWordsCountConfig div.s5.textWordCountButton button.off"),
@@ -182,13 +182,13 @@ export const paceCaretSpeedConfig = {
 	paceCaretCustomSpeedButton: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s2.customInputContainer.paceCaretSpeedCustomInputContainer button.s1.paceCaretSpeedCustomInputButton"),
 	paceCaretCustomSpeedInput: document.querySelector("div.configButtonContainer#paceCaretSpeedConfig div.s2.customInputContainer.paceCaretSpeedCustomInputContainer div.s1.custom.inputContainer input.inputBox.paceCaretSpeedThreshold"),
 }
-export const warning = {
+export const warningConfig = {
 	capslock: document.querySelector("div.warningCheckboxButton.capslock input[type='checkbox']#capslock"),
 	numlock: document.querySelector("div.warningCheckboxButton.numlock input[type='checkbox']#numlock"),
 	scrolllock: document.querySelector("div.warningCheckboxButton.scrolllock input[type='checkbox']#scrolllock"),
 	focusout: document.querySelector("div.warningCheckboxButton.outoffocus input[type='checkbox']#outoffocus"),
 }
-export const stats = {
+export const statsConfig = {
 	live: {
 		speed: document.querySelector("div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton.speed input[type='checkbox']#speed"),
 		accuracy: document.querySelector("div.configButtonContainer#liveStatsConfig div.liveStatsCheckboxButton.accuracy input[type='checkbox']#accuracy"),

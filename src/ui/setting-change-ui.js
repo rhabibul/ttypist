@@ -186,303 +186,266 @@ export function changeConfidenceInUI(value) {
 	}
 }
 
-// backspace key
-export function changeBackspaceKeyInUI(value) {
+// delete text (backspace)
+export function changeTextDeletionInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.backspace.off.id = "selected";
-		SettingsElement.backspace.on.id = "";
+		SettingsElement.deletionConfig.off.id = "selected";
+		SettingsElement.deletionConfig.on.id = "";
 	}	else {
-		SettingsElement.backspace.off.id = "";
-		SettingsElement.backspace.on.id = "selected";
+		SettingsElement.deletionConfig.off.id = "";
+		SettingsElement.deletionConfig.on.id = "selected";
 	}
 }
 
-// delete correct word
-export function changeBackspaceAllowedOnCorrectWordInUI(value) {
+// delete correct previous word
+export function changeDeleteCorrectPreviousWordInUI(value) {
 	if ( value === "off" ) {
-		SettingsElement.backspaceAllowedOnCorrect.off.id = "selected";
-		SettingsElement.backspaceAllowedOnCorrect.on.id = "";
+		SettingsElement.delcorrectConfig.off.id = "selected";
+		SettingsElement.delcorrectConfig.on.id = "";
 	}	else {
-		SettingsElement.backspaceAllowedOnCorrect.off.id = "";
-		SettingsElement.backspaceAllowedOnCorrect.on.id = "selected";
+		SettingsElement.delcorrectConfig.off.id = "";
+		SettingsElement.delcorrectConfig.on.id = "selected";
 	}
 }
 
 // error
 export function changeErrorInUI(value) {
 	if ( value === "skip" ) {
-		SettingsElement.error.off.id = "";
-		SettingsElement.error.insert.id = "";
-		SettingsElement.error.skip.id = "selected";
-		SettingsElement.error.replace.id = "";
+		SettingsElement.errorHandlingConfig.off.id = "";
+		SettingsElement.errorHandlingConfig.insert.id = "";
+		SettingsElement.errorHandlingConfig.skip.id = "selected";
+		SettingsElement.errorHandlingConfig.replace.id = "";
 	} else if ( value === "replace" ) {
-		SettingsElement.error.off.id = "";
-		SettingsElement.error.insert.id = "";
-		SettingsElement.error.skip.id = "";
-		SettingsElement.error.replace.id = "selected";
+		SettingsElement.errorHandlingConfig.off.id = "";
+		SettingsElement.errorHandlingConfig.insert.id = "";
+		SettingsElement.errorHandlingConfig.skip.id = "";
+		SettingsElement.errorHandlingConfig.replace.id = "selected";
 	} else if ( value === "insert" ) {
-		SettingsElement.error.off.id = "";
-		SettingsElement.error.insert.id = "selected";
-		SettingsElement.error.skip.id = "";
-		SettingsElement.error.replace.id = "";
+		SettingsElement.errorHandlingConfig.off.id = "";
+		SettingsElement.errorHandlingConfig.insert.id = "selected";
+		SettingsElement.errorHandlingConfig.skip.id = "";
+		SettingsElement.errorHandlingConfig.replace.id = "";
 	} else {
-		SettingsElement.error.off.id = "selected";
-		SettingsElement.error.insert.id = "";
-		SettingsElement.error.skip.id = "";
-		SettingsElement.error.replace.id = "";
+		SettingsElement.errorHandlingConfig.off.id = "selected";
+		SettingsElement.errorHandlingConfig.insert.id = "";
+		SettingsElement.errorHandlingConfig.skip.id = "";
+		SettingsElement.errorHandlingConfig.replace.id = "";
 	}
 }
 
 // forgive error
 export function changeForgiveErrorInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.error.forgive.off.id = "";
-		SettingsElement.error.forgive.on.id = "selected";
+		SettingsElement.errorHandlingConfig.forgive.off.id = "";
+		SettingsElement.errorHandlingConfig.forgive.on.id = "selected";
 	} else {
-		SettingsElement.error.forgive.off.id = "selected";
-		SettingsElement.error.forgive.on.id = "";
+		SettingsElement.errorHandlingConfig.forgive.off.id = "selected";
+		SettingsElement.errorHandlingConfig.forgive.on.id = "";
 	}
 }
 
 // stop on error
 export function changeStopOnErrorInUI(value) {
 	if ( value === "letter" ) {
-		SettingsElement.error.stop.off.id = "";
-		SettingsElement.error.stop.letter.id = "selected";
-		SettingsElement.error.stop.word.id = "";
+		SettingsElement.errorHandlingConfig.stop.off.id = "";
+		SettingsElement.errorHandlingConfig.stop.letter.id = "selected";
+		SettingsElement.errorHandlingConfig.stop.word.id = "";
 	} else if ( value === "word" ) {
-		SettingsElement.error.stop.off.id = "";
-		SettingsElement.error.stop.letter.id = "";
-		SettingsElement.error.stop.word.id = "selected";
+		SettingsElement.errorHandlingConfig.stop.off.id = "";
+		SettingsElement.errorHandlingConfig.stop.letter.id = "";
+		SettingsElement.errorHandlingConfig.stop.word.id = "selected";
 	} else {
-		SettingsElement.error.stop.off.id = "selected";
-		SettingsElement.error.stop.letter.id = "";
-		SettingsElement.error.stop.word.id = "";
+		SettingsElement.errorHandlingConfig.stop.off.id = "selected";
+		SettingsElement.errorHandlingConfig.stop.letter.id = "";
+		SettingsElement.errorHandlingConfig.stop.word.id = "";
 	}
 }
 
 // opposite shift mode
 export function changeOppositeShiftModeInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.oppositeShift.off.id = "";
-		SettingsElement.oppositeShift.on.id = "selected";
+		SettingsElement.useOppositeShiftConfig.off.id = "";
+		SettingsElement.useOppositeShiftConfig.on.id = "selected";
 	} else {
-		SettingsElement.oppositeShift.off.id = "selected";
-		SettingsElement.oppositeShift.on.id = "";
+		SettingsElement.useOppositeShiftConfig.off.id = "selected";
+		SettingsElement.useOppositeShiftConfig.on.id = "";
 	}
 }
 
 // minimum speed
 export function changeMinimumSpeedInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.minimum.speed.off.id = "";
-		SettingsElement.minimum.speed.on.id = "selected";
+		SettingsElement.minimumThresholdConfig.speed.off.id = "";
+		SettingsElement.minimumThresholdConfig.speed.on.id = "selected";
 	} else {
-		SettingsElement.minimum.speed.off.id = "selected";
-		SettingsElement.minimum.speed.on.id = "";
+		SettingsElement.minimumThresholdConfig.speed.off.id = "selected";
+		SettingsElement.minimumThresholdConfig.speed.on.id = "";
 	}
 }
 
 // minimum accuracy
 export function changeMinimumAccuracyInUI(value) {
 	if ( value === "on" ) {
-		SettingsElement.minimum.accuracy.off.id = "";
-		SettingsElement.minimum.accuracy.on.id = "selected";
+		SettingsElement.minimumThresholdConfig.accuracy.off.id = "";
+		SettingsElement.minimumThresholdConfig.accuracy.on.id = "selected";
 	} else {
-		SettingsElement.minimum.accuracy.off.id = "selected";
-		SettingsElement.minimum.accuracy.on.id = "";
+		SettingsElement.minimumThresholdConfig.accuracy.off.id = "selected";
+		SettingsElement.minimumThresholdConfig.accuracy.on.id = "";
 	}
 }
 
 // minimum burst
 export function changeMinimumBurstInUI(value) {
 	if ( value === "fixed" ) {
-		SettingsElement.minimum.burst.off.id = "";
-		SettingsElement.minimum.burst.option.fixed.id = "selected";
-		SettingsElement.minimum.burst.option.flex.id = "";
+		SettingsElement.minimumThresholdConfig.burst.off.id = "";
+		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "selected";
+		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "";
 	} else if ( value === "flex") {
-		SettingsElement.minimum.burst.off.id = "";
-		SettingsElement.minimum.burst.option.fixed.id = "";
-		SettingsElement.minimum.burst.option.flex.id = "selected";
+		SettingsElement.minimumThresholdConfig.burst.off.id = "";
+		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "";
+		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "selected";
 	} else {
-		SettingsElement.minimum.burst.off.id = "selected";
-		SettingsElement.minimum.burst.option.fixed.id = "";
-		SettingsElement.minimum.burst.option.flex.id = "";
+		SettingsElement.minimumThresholdConfig.burst.off.id = "selected";
+		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "";
+		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "";
 	}
 }
 
 // text word count
 export function changeTextWordCountInUI(value) {
 	if ( value === "custom" ) { // -2 (custom)
-		SettingsElement.textWordCount.off.id = "";
-		SettingsElement.textWordCount.count.words10.id = "";
-		SettingsElement.textWordCount.count.words25.id = "";
-		SettingsElement.textWordCount.count.words50.id = "";
-		SettingsElement.textWordCount.count.words100.id = "";
-		SettingsElement.textWordCount.count.custom.id = "selected";
+		SettingsElement.textWordsCountConfig.off.id = "";
+		SettingsElement.textWordsCountConfig.words10.id = "";
+		SettingsElement.textWordsCountConfig.words25.id = "";
+		SettingsElement.textWordsCountConfig.words50.id = "";
+		SettingsElement.textWordsCountConfig.words100.id = "";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "selected";
 	} else if ( value === "off" ) { // -1 (off)
-		SettingsElement.textWordCount.off.id = "selected";
-		SettingsElement.textWordCount.count.words10.id = "";
-		SettingsElement.textWordCount.count.words25.id = "";
-		SettingsElement.textWordCount.count.words50.id = "";
-		SettingsElement.textWordCount.count.words100.id = "";
-		SettingsElement.textWordCount.count.custom.id = "";
+		SettingsElement.textWordsCountConfig.off.id = "selected";
+		SettingsElement.textWordsCountConfig.words10.id = "";
+		SettingsElement.textWordsCountConfig.words25.id = "";
+		SettingsElement.textWordsCountConfig.words50.id = "";
+		SettingsElement.textWordsCountConfig.words100.id = "";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "";
 	} else if ( value === "10" ) {
-		SettingsElement.textWordCount.off.id = "";
-		SettingsElement.textWordCount.count.words10.id = "selected";
-		SettingsElement.textWordCount.count.words25.id = "";
-		SettingsElement.textWordCount.count.words50.id = "";
-		SettingsElement.textWordCount.count.words100.id = "";
-		SettingsElement.textWordCount.count.custom.id = "";
+		SettingsElement.textWordsCountConfig.off.id = "";
+		SettingsElement.textWordsCountConfig.words10.id = "selected";
+		SettingsElement.textWordsCountConfig.words25.id = "";
+		SettingsElement.textWordsCountConfig.words50.id = "";
+		SettingsElement.textWordsCountConfig.words100.id = "";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "";
 	}	else if ( value === "25" ) {
-		SettingsElement.textWordCount.off.id = "";
-		SettingsElement.textWordCount.count.words10.id = "";
-		SettingsElement.textWordCount.count.words25.id = "selected";
-		SettingsElement.textWordCount.count.words50.id = "";
-		SettingsElement.textWordCount.count.words100.id = "";
-		SettingsElement.textWordCount.count.custom.id = "";
+		SettingsElement.textWordsCountConfig.off.id = "";
+		SettingsElement.textWordsCountConfig.words10.id = "";
+		SettingsElement.textWordsCountConfig.words25.id = "selected";
+		SettingsElement.textWordsCountConfig.words50.id = "";
+		SettingsElement.textWordsCountConfig.words100.id = "";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "";
 	} else if ( value === "50" ) {
-		SettingsElement.textWordCount.off.id = "";
-		SettingsElement.textWordCount.count.words10.id = "";
-		SettingsElement.textWordCount.count.words25.id = "";
-		SettingsElement.textWordCount.count.words50.id = "selected";
-		SettingsElement.textWordCount.count.words100.id = "";
-		SettingsElement.textWordCount.count.custom.id = "";
+		SettingsElement.textWordsCountConfig.off.id = "";
+		SettingsElement.textWordsCountConfig.words10.id = "";
+		SettingsElement.textWordsCountConfig.words25.id = "";
+		SettingsElement.textWordsCountConfig.words50.id = "selected";
+		SettingsElement.textWordsCountConfig.words100.id = "";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "";
 	} else if ( value === "100" ) {
-		SettingsElement.textWordCount.off.id = "";
-		SettingsElement.textWordCount.count.words10.id = "";
-		SettingsElement.textWordCount.count.words25.id = "";
-		SettingsElement.textWordCount.count.words50.id = "";
-		SettingsElement.textWordCount.count.words100.id = "selected";
-		SettingsElement.textWordCount.count.custom.id = "";
+		SettingsElement.textWordsCountConfig.off.id = "";
+		SettingsElement.textWordsCountConfig.words10.id = "";
+		SettingsElement.textWordsCountConfig.words25.id = "";
+		SettingsElement.textWordsCountConfig.words50.id = "";
+		SettingsElement.textWordsCountConfig.words100.id = "selected";
+		SettingsElement.textWordsCountConfig.customWordsCountButton.id = "";
 	}
 }
 
 // timer time
 export function changeTimerSecondsInUI(value) {
 	if ( value === "custom" ) { // -2 (custom)
-		SettingsElement.timer.off.id = "";
-		SettingsElement.timer.time.seconds15.id = "";
-		SettingsElement.timer.time.seconds30.id = "";
-		SettingsElement.timer.time.seconds60.id = "";
-		SettingsElement.timer.time.seconds120.id = "";
-		SettingsElement.timer.time.custom.id = "selected";
+		SettingsElement.timerSecondsCountConfig.off.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "selected";
 	} else if ( value === "off" ) { // -1 (off)
-		SettingsElement.timer.off.id = "selected";
-		SettingsElement.timer.time.seconds15.id = "";
-		SettingsElement.timer.time.seconds30.id = "";
-		SettingsElement.timer.time.seconds60.id = "";
-		SettingsElement.timer.time.seconds120.id = "";
-		SettingsElement.timer.time.custom.id = "";
+		SettingsElement.timerSecondsCountConfig.off.id = "selected";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "";
 	} else if ( value === "15" ) {
-		SettingsElement.timer.off.id = "";
-		SettingsElement.timer.time.seconds15.id = "selected";
-		SettingsElement.timer.time.seconds30.id = "";
-		SettingsElement.timer.time.seconds60.id = "";
-		SettingsElement.timer.time.seconds120.id = "";
-		SettingsElement.timer.time.custom.id = "";
+		SettingsElement.timerSecondsCountConfig.off.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "selected";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "";
 	}	else if ( value === "30" ) {
-		SettingsElement.timer.off.id = "";
-		SettingsElement.timer.time.seconds15.id = "";
-		SettingsElement.timer.time.seconds30.id = "selected";
-		SettingsElement.timer.time.seconds60.id = "";
-		SettingsElement.timer.time.seconds120.id = "";
-		SettingsElement.timer.time.custom.id = "";
+		SettingsElement.timerSecondsCountConfig.off.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "selected";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "";
 	} else if ( value === "60" ) {
-		SettingsElement.timer.off.id = "";
-		SettingsElement.timer.time.seconds15.id = "";
-		SettingsElement.timer.time.seconds30.id = "";
-		SettingsElement.timer.time.seconds60.id = "selected";
-		SettingsElement.timer.time.seconds120.id = "";
-		SettingsElement.timer.time.custom.id = "";
+		SettingsElement.timerSecondsCountConfig.off.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "selected";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "";
 	} else if ( value === "120" ) {
-		SettingsElement.timer.off.id = "";
-		SettingsElement.timer.time.seconds15.id = "";
-		SettingsElement.timer.time.seconds30.id = "";
-		SettingsElement.timer.time.seconds60.id = "";
-		SettingsElement.timer.time.seconds120.id = "selected";
-		SettingsElement.timer.time.custom.id = "";
-	}
-}
-
-// timer visibility
-export function changeTimerVisibilityInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.timer.hidden.off.id = "";
-		SettingsElement.timer.hidden.on.id = "selected";
-	} else {
-		SettingsElement.timer.hidden.off.id = "selected";
-		SettingsElement.timer.hidden.on.id = "";
+		SettingsElement.timerSecondsCountConfig.off.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds15.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds30.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds60.id = "";
+		SettingsElement.timerSecondsCountConfig.seconds120.id = "selected";
+		SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id = "";
 	}
 }
 
 export function changePaceCaretSpeedInUI(value) {
 	if ( value === "last" ) {
-		SettingsElement.pacecaret.speed.off.id = "";
-		SettingsElement.pacecaret.speed.last.id = "selected";
-		SettingsElement.pacecaret.speed.average.id = "";
-		SettingsElement.pacecaret.speed.best.id = "";
-		SettingsElement.pacecaret.speed.custom.id = "";
+		SettingsElement.paceCaretSpeedConfig.off.id = "";
+		SettingsElement.paceCaretSpeedConfig.last.id = "selected";
+		SettingsElement.paceCaretSpeedConfig.average.id = "";
+		SettingsElement.paceCaretSpeedConfig.best.id = "";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
 	}	else if ( value === "average" ) {
-		SettingsElement.pacecaret.speed.off.id = "";
-		SettingsElement.pacecaret.speed.last.id = "";
-		SettingsElement.pacecaret.speed.average.id = "selected";
-		SettingsElement.pacecaret.speed.best.id = "";
-		SettingsElement.pacecaret.speed.custom.id = "";
+		SettingsElement.paceCaretSpeedConfig.off.id = "";
+		SettingsElement.paceCaretSpeedConfig.last.id = "";
+		SettingsElement.paceCaretSpeedConfig.average.id = "selected";
+		SettingsElement.paceCaretSpeedConfig.best.id = "";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
 	} else if ( value === "best" ) {
-		SettingsElement.pacecaret.speed.off.id = "";
-		SettingsElement.pacecaret.speed.last.id = "";
-		SettingsElement.pacecaret.speed.average.id = "";
-		SettingsElement.pacecaret.speed.best.id = "selected";
-		SettingsElement.pacecaret.speed.custom.id = "";
+		SettingsElement.paceCaretSpeedConfig.off.id = "";
+		SettingsElement.paceCaretSpeedConfig.last.id = "";
+		SettingsElement.paceCaretSpeedConfig.average.id = "";
+		SettingsElement.paceCaretSpeedConfig.best.id = "selected";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
 	} else if ( value === "custom" ) {
-		SettingsElement.pacecaret.speed.off.id = "";
-		SettingsElement.pacecaret.speed.last.id = "";
-		SettingsElement.pacecaret.speed.average.id = "";
-		SettingsElement.pacecaret.speed.best.id = "";
-		SettingsElement.pacecaret.speed.custom.id = "selected";
+		SettingsElement.paceCaretSpeedConfig.off.id = "";
+		SettingsElement.paceCaretSpeedConfig.last.id = "";
+		SettingsElement.paceCaretSpeedConfig.average.id = "";
+		SettingsElement.paceCaretSpeedConfig.best.id = "";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "selected";
 	} else {
-		SettingsElement.pacecaret.speed.off.id = "selected";
-		SettingsElement.pacecaret.speed.last.id = "";
-		SettingsElement.pacecaret.speed.average.id = "";
-		SettingsElement.pacecaret.speed.best.id = "";
-		SettingsElement.pacecaret.speed.custom.id = "";
-	}
-}
-
-export function changeUseFloatsInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.stats.usefloats.off.id = "";
-		SettingsElement.stats.usefloats.on.id = "selected";
-	} else {
-		SettingsElement.stats.usefloats.off.id = "selected";
-		SettingsElement.stats.usefloats.on.id = "";
+		SettingsElement.paceCaretSpeedConfig.off.id = "selected";
+		SettingsElement.paceCaretSpeedConfig.last.id = "";
+		SettingsElement.paceCaretSpeedConfig.average.id = "";
+		SettingsElement.paceCaretSpeedConfig.best.id = "";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
 	}
 }
 
 export function changeSpeedUnitInUI(value) {
 	if ( value === "cpm" ) {
-		SettingsElement.stats.unit.cpm.id = "selected";
-		SettingsElement.stats.unit.wpm.id = "";
+		SettingsElement.statsConfig.unit.cpm.id = "selected";
+		SettingsElement.statsConfig.unit.wpm.id = "";
 	} else {
-		SettingsElement.stats.unit.cpm.id = "";
-		SettingsElement.stats.unit.wpm.id = "selected";
-	}
-}
-
-export function changeLiveStatsCalcIntervalInUI(value) {
-	if ( value === "word" ) {
-		SettingsElement.stats.calcInterval.word.id = "selected";
-		SettingsElement.stats.calcInterval.keystroke.id = "";
-		SettingsElement.stats.calcInterval.second.id = "";
-	} else if ( value === "second" ) {
-		SettingsElement.stats.calcInterval.word.id = "";
-		SettingsElement.stats.calcInterval.keystroke.id = "";
-		SettingsElement.stats.calcInterval.second.id = "selected";
-	} else {
-		SettingsElement.stats.calcInterval.word.id = "";
-		SettingsElement.stats.calcInterval.keystroke.id = "selected";
-		SettingsElement.stats.calcInterval.second.id = "";
+		SettingsElement.statsConfig.unit.cpm.id = "";
+		SettingsElement.statsConfig.unit.wpm.id = "selected";
 	}
 }
 
