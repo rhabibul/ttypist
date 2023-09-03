@@ -295,16 +295,16 @@ export function changeLiveStatsInConfig() {
 }
 
 // text include
-export function changeTextIncludeInConfig() {
+export function changeIncludeSpecialsInConfig() {
 	// digit
-	if ( SettingsElement.textInclude.digit.checked ) {
+	if ( SettingsElement.includeSpecialsInTextConfig.digit.checked ) {
 		config.text.include.digit = true;
 	} else {
 		config.text.include.digit = false;
 	}
 
 	// punctuation
-	if ( SettingsElement.textInclude.punctuation.checked ) {
+	if ( SettingsElement.includeSpecialsInTextConfig.punctuation.checked ) {
 		config.text.include.punctuation = true;
 	} else {
 		config.text.include.punctuation = false;

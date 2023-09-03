@@ -930,9 +930,9 @@ function updatePaceCaretSpeedConfig(evt) {
 
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.focus();
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.focus();
 	} else {
-		SettingsElement.pacecaret.speed.paceCaretCustomSpeedInput.value = "";
+		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.value = "";
 	}
 
 	// debug
@@ -944,7 +944,7 @@ function updatePaceCaretSpeedInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
-	if ( SettingsElement.pacecaret.speed.custom.id !== "selected" ) {
+	if ( SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id !== "selected" ) {
 		SettingChangeInUI.changePaceCaretSpeedInUI("custom");
 		SettingChangeInConfig.changePaceCaretSpeedInConfig("custom");
 	}
@@ -960,21 +960,13 @@ function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
 
 	// no value entered in input field (turn off custom button)
 	if ( (this.value === "" || this.value === "0") && !config.pacecaret.speed.custom.off) {
-
-		if ( this.value === "0" ) { // 0wpm speed for pacecaret is not possible
-			setTimeout(() => {
-				SettingChangeInUI.changePaceCaretSpeedInUI("off");
-				SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
-				this.value = "";
-			}, 250);
-		} else {
-			SettingChangeInUI.changePaceCaretSpeedInUI("off");
-			SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
-		}
+		SettingChangeInUI.changePaceCaretSpeedInUI("off");
+		SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
+		if ( this.value === "0" ) this.value = "";
 	}
 
 	// debug
-	console.log("INPUT FOCUS-OUT (paceCaretSpeed)");
+	console.log("FOCUS-OUT (paceCaretSpeed)");
 }
 
 // text font size slider
@@ -1069,22 +1061,10 @@ function updateLiveStats(evt) {
 function updateIncludeSpecialsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	SettingChangeInConfig.changeTextIncludeInConfig();
+	SettingChangeInConfig.changeIncludeSpecialsInConfig();
 
 	// debug
 	console.log("textInclude:", config.text.include.digit, config.text.include.punctuation);
-}
-
-// show decimal places (s2)
-function updateUseFloats(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.stats.usefloats && this.value === "on") || (!config.stats.usefloats && this.value === "off") ) return;
-
-	SettingChangeInUI.changeUseFloatsInUI(this.value);
-	SettingChangeInConfig.changeUseFloatsInConfig(this.value);
-
-	// debug
-	console.log("useFloats:", !config.stats.usefloats, config.stats.usefloats);
 }
 
 // speed unit (s2)
@@ -1097,18 +1077,6 @@ function updateTypingSpeedMeasurementUnitConfig(evt) {
 
 	// debug
 	console.log("speedUnit:", config.stats.unit.cpm, config.stats.unit.wpm);
-}
-
-// live stats interval (s3)
-function updateLiveStatsCalcInterval(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.stats.calcInterval.word && this.value === "word") || (config.stats.calcInterval.keystroke && this.value === "keystroke") || (config.stats.calcInterval.second && this.value === "second") ) return;
-
-	SettingChangeInUI.changeLiveStatsCalcIntervalInUI(this.value);
-	SettingChangeInConfig.changeLiveStatsCalcIntervalInConfig(this.value);
-	
-	// debug
-	console.log("liveStatsInterval:", config.stats.calcInterval.word, config.stats.calcInterval.keystroke, config.stats.calcInterval.second);
 }
 
 // caret style (s5)
