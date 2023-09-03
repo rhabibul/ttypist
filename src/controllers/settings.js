@@ -679,7 +679,7 @@ function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
 	}
 
 	// debug
-	console.log("INPUT FOCUS-OUT (minSpeedThreshold)");
+	console.log("FOCUS-OUT (minspeed)");
 }
 
 // minimum accuracy (s3)
@@ -729,7 +729,7 @@ function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
 	}
 
 	// debug
-	console.log("INPUT FOCUS-OUT (minAccuracyThreshold)");
+	console.log("FOCUS-OUT (minacc)");
 }
 
 // minimum burst (s3)
@@ -742,9 +742,9 @@ function updateMinimumBurstThresholdConfig(evt) {
 
 	// focus in input field when user clicks on flex or fixed buttons
 	if ( this.value === "fixed" || this.value === "flex" ) {
-		SettingsElement.minimum.burst.thresholdInput.focus();
+		SettingsElement.minimumThresholdConfig.burst.thresholdInput.focus();
 	} else {
-		SettingsElement.minimum.burst.thresholdInput.value = "";
+		SettingsElement.minimumThresholdConfig.burst.thresholdInput.value = "";
 	}
 
 	// debug
@@ -757,7 +757,7 @@ function updateMinimumBurstThresholdInput(evt) {
 
 	// turn on "fixed" button active if user starts entering value into input field
 	// without clicking on flex or fixed buttons first
-	if ( SettingsElement.minimum.burst.off.id === "selected" ) {
+	if ( SettingsElement.minimumThresholdConfig.burst.off.id === "selected" ) {
 		SettingChangeInUI.changeMinimumBurstInUI("fixed");
 		SettingChangeInConfig.changeMinimumBurstInConfig("fixed");
 	}
@@ -772,14 +772,14 @@ function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimum.burst.option.fixed.id === "selected" || SettingsElement.minimum.burst.option.flex.id === "selected") ) {
+	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimumThresholdConfig.burst.option.fixed.id === "selected" || SettingsElement.minimumThresholdConfig.burst.option.flex.id === "selected") ) {
 		SettingChangeInUI.changeMinimumBurstInUI("off");
 		SettingChangeInConfig.changeMinimumBurstInConfig("off");
 		this.value = "";
 	}
 
 	// debug
-	console.log("INPUT FOCUS-OUT (minBurstThreshold)");
+	console.log("FOCUS-OUT (minburst)");
 }
 
 // text word count (s5)
