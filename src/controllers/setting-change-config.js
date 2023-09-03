@@ -509,22 +509,6 @@ export function changeSpeedUnitInConfig(value) {
 	}
 }
 
-export function changeLiveStatsCalcIntervalInConfig(value) {
-	if ( value === "word" ) {
-		config.stats.calcInterval.word = true;
-		config.stats.calcInterval.keystroke = false;
-		config.stats.calcInterval.second = false;
-	} else if ( value === "second" ) {
-		config.stats.calcInterval.word = false;
-		config.stats.calcInterval.keystroke = false;
-		config.stats.calcInterval.second = true;
-	} else {
-		config.stats.calcInterval.word = false;
-		config.stats.calcInterval.keystroke = true;
-		config.stats.calcInterval.second = false;
-	}
-}
-
 export function changeCaretStyleInConfig(value) {
 	config.caret.style = value;
 }

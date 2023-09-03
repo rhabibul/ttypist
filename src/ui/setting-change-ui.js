@@ -476,14 +476,14 @@ function addColorsToCaretShape(shapeClicked, shape) {
 
 function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 
+	const caretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#CaretStyleConfig button > span.shape"));
+	const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#PaceCaretStyleConfig button > span.shape"));
 	
 	if ( caretType === "caret" ) {
-		const caretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#CaretStyleConfig button > span.shape"));
 		for ( const shape of caretShapes ) {
 			addColorsToCaretShape(shapeClicked, shape);
 		}
 	} else if ( caretType === "pacecaret" ) {
-		const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#PaceCaretStyleConfig button > span.shape"));
 		for ( const shape of paceCaretShapes ) {
 			addColorsToCaretShape(shapeClicked, shape);
 		}
@@ -492,35 +492,35 @@ function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 
 export function changeCaretStyleInUI(value) {
 	if ( value === "off" ) {
-		changeCaretShapeColor("shape-off", "caret");
+		changeCaretShapeColor("offCaretShape", "caret");
 		SettingsElement.caretStyleConfig.off.id = "selected"
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "underscore" ) {
-		changeCaretShapeColor("shape-underscore", "caret");
+		changeCaretShapeColor("underscoreCaretShape", "caret");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = "selected"
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "line" ) {
-		changeCaretShapeColor("shape-line", "caret");
+		changeCaretShapeColor("lineCaretShape", "caret");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = "selected"
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "box" ) {
-		changeCaretShapeColor("shape-box", "caret");
+		changeCaretShapeColor("boxCaretShape", "caret");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = "selected"
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "block" ) {
-		changeCaretShapeColor("shape-block", "caret");
+		changeCaretShapeColor("blockCaretShape", "caret");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
