@@ -479,7 +479,7 @@ function addColorsToCaretShape(shapeClicked, shape) {
 function changeCaretShapeColor(shapeClicked, caretType = "caret") {
 
 	const caretShapes = Array.from(document.querySelectorAll("div#caretStyleConfig button > span.shape"));
-	const paceCaretShapes = Array.from(document.querySelectorAll("div.configButtonContainer#paceCaretStyleConfig button > span.shape"));
+	const paceCaretShapes = Array.from(document.querySelectorAll("div#paceCaretStyleConfig button > span.shape"));
 
 	if ( caretType === "caret" ) {
 		for ( const shape of caretShapes ) {
@@ -533,35 +533,35 @@ export function changeCaretStyleInUI(value) {
 
 export function changePaceCaretStyleInUI(value) {
 	if ( value === "off" ) {
-		changeCaretShapeColor("shape-off", "pacecaret");
+		changeCaretShapeColor("offCaretShape", "pacecaret");
 		SettingsElement.paceCaretStyleConfig.off.id = "selected"
 		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
 		SettingsElement.paceCaretStyleConfig.style.line.id = ""
 		SettingsElement.paceCaretStyleConfig.style.box.id = ""
 		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "underscore" ) {
-		changeCaretShapeColor("shape-underscore", "pacecaret");
+		changeCaretShapeColor("underscoreCaretShape", "pacecaret");
 		SettingsElement.paceCaretStyleConfig.off.id = ""
 		SettingsElement.paceCaretStyleConfig.style.underscore.id = "selected"
 		SettingsElement.paceCaretStyleConfig.style.line.id = ""
 		SettingsElement.paceCaretStyleConfig.style.box.id = ""
 		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "line" ) {
-		changeCaretShapeColor("shape-line", "pacecaret");
+		changeCaretShapeColor("lineCaretShape", "pacecaret");
 		SettingsElement.paceCaretStyleConfig.off.id = ""
 		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
 		SettingsElement.paceCaretStyleConfig.style.line.id = "selected"
 		SettingsElement.paceCaretStyleConfig.style.box.id = ""
 		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "box" ) {
-		changeCaretShapeColor("shape-box", "pacecaret");
+		changeCaretShapeColor("boxCaretShape", "pacecaret");
 		SettingsElement.paceCaretStyleConfig.off.id = ""
 		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
 		SettingsElement.paceCaretStyleConfig.style.line.id = ""
 		SettingsElement.paceCaretStyleConfig.style.box.id = "selected"
 		SettingsElement.paceCaretStyleConfig.style.block.id = ""
 	} else if ( value === "block" ) {
-		changeCaretShapeColor("shape-block", "pacecaret");
+		changeCaretShapeColor("blockCaretShape", "pacecaret");
 		SettingsElement.paceCaretStyleConfig.off.id = ""
 		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
 		SettingsElement.paceCaretStyleConfig.style.line.id = ""
