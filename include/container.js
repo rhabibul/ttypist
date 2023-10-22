@@ -40,11 +40,17 @@ export class WordsContainer {
   get previous_word() {}
   get current_word() {}
   get next_word() {}
-  get wordAtIndex() {}
+	// word at index
 }
 
 export const word = {
 	text: "",
 	letter_elements: [],
 	letter_index: 0,
+
+	load(latest) {
+		// next/current (index = 0), previous (index = word.length - 1)
+		this.letter_index = 0;
+		
+	}
 }
