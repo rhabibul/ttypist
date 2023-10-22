@@ -7,22 +7,14 @@ export class WordsContainer {
   #word_index; // index of the word which needs to be typed
 
   constructor() {
-    this.#text = new String();
-    this.#word_elements = new Array();
-    this.#word_index = new Number();
+    this.#text = "";
+    this.#word_elements = [];
+    this.#word_index = 0;
   }
 	replaceTextWordsWith(latest) {
-		this.#word_elements = latest;
-		this.#word_index = 0;
-
-		// reset input field and delete previous word elements in DOM
-		TypingAreaElements.textInputField.value = "";
-		TypingAreaElements.textContainerElement.innerHTML = "";
-
-		// load word elements in DOM
-		for ( const wordElement of this.#word_elements ) {
-    	TypingAreaElements.textContainerElement.insertAdjacentElement("beforeend", wordElement);
-    }
+		// 1. update previous words with new one and reset word index
+		// 2. reset input field and delete previous word elements in DOM
+		// 3. load new word elements in DOM
 	}
 	resetCurrentWordIndex() {
 		this.#word_index = 0;
@@ -53,5 +45,6 @@ export class WordsContainer {
 
 export const word = {
 	text: "",
-	letterElementsContainer: new Object(),
+	letter_elements: [],
+	letter_index: 0,
 }
