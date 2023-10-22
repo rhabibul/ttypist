@@ -21,6 +21,7 @@ export const time = {
 }
 
 export const typedchar = {
+// export const keystroke = {
 	value: "",
   keydown: 0,
   keyup: 0,

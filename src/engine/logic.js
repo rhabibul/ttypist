@@ -20,7 +20,7 @@ export function registerkeydown(evt) {
 
 	if ( !user.istyping ) {
 		time.begin = performance.now();
-		user.istyping = true;
+		user.istyping = true; 
 	}
 
 	typedchar.reset();
@@ -196,7 +196,7 @@ export function registerinput(evt) {
 
 	if ( mInput.keydownUnidentified ) {
 		
-		TypingAreaElements.input.focus();
+		TypingAreaElements.textInputField.focus();
 
 		if ( !config.user.istyping ) {
 			time.begin = performance.now();
@@ -207,7 +207,7 @@ export function registerinput(evt) {
 
 		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
 
-			TypingAreaElements.input.value = "";
+			TypingAreaElements.textInputField.value = "";
 			
 			CaretController.removecaretfrom(word.activeletter);
 			word.loadword(text.nextword, { nextword: true });
@@ -244,12 +244,12 @@ export function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
-		TypingAreaElements.input.value = "";
+		TypingAreaElements.textInputField.value = "";
 		wasSpace = false;
 	}
 
 	if ( user.hastypedallwords ) {
-		TypingAreaElements.input.blur();
+		TypingAreaElements.textInputField.blur();
 		CaretController.removecaretfrom(word.activeletter);
 		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
 		Test.restart();
@@ -269,7 +269,7 @@ export function addunderline(word) {
 }
 
 // setTimeout(() => {
-// 	Misc.autotyper(600);
+// 	Misc.autotyper(200);
 // }, 3000);
 
 export { text, word };

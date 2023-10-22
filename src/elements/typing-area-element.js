@@ -1,2 +1,2 @@
-export const input = document.getElementById("textInputField");
-export const text = document.getElementsByTagName("text")[0];
+export const textInputField = document.getElementById("textInputField");
+export const textContainerElement = document.getElementsByTagName("text")[0];

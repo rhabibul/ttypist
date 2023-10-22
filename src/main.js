@@ -14,11 +14,11 @@ export const word = new Word();
 
 export const Test = {
 	init() {		
-		TypingAreaElements.input.addEventListener("keydown", registerkeydown);
-		TypingAreaElements.input.addEventListener("keypress", registerkeypress);
-		TypingAreaElements.input.addEventListener("beforeinput", registerbeforeinput);
-		TypingAreaElements.input.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
-		TypingAreaElements.input.addEventListener("keyup", registerkeyup);
+		TypingAreaElements.textInputField.addEventListener("keydown", registerkeydown);
+		TypingAreaElements.textInputField.addEventListener("keypress", registerkeypress);
+		TypingAreaElements.textInputField.addEventListener("beforeinput", registerbeforeinput);
+		TypingAreaElements.textInputField.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
+		TypingAreaElements.textInputField.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
 		user.istyping = false;
@@ -29,8 +29,8 @@ export const Test = {
 		text.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addcaretto(word.activeletter);
-		TypingAreaElements.input.value = "";
-		TypingAreaElements.input.focus();
+		TypingAreaElements.textInputField.value = "";
+		TypingAreaElements.textInputField.focus();
 	}
 }
 

@@ -24,7 +24,7 @@ function enableButton(button, selected = false) {
 	}
 }
 
-TypingAreaElements.text.addEventListener("click", () => { TypingAreaElements.input.focus() });
+TypingAreaElements.textContainerElement.addEventListener("click", () => { TypingAreaElements.textInputField.focus() });
 
 // tape mode
 SettingsElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
