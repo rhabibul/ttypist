@@ -2,50 +2,50 @@ import { config } from "../include/config.js";
 import * as TypingAreaElements from "../src/elements/typing-area-element.js";
 
 export const text = {
-	string: "",
-	word_elements: [],
-	word_index: 0, // index of the word which is being currently typed
+	txt: "",
+	word: [],
+	index: 0,
 
-	replaceTextWordsWith(latest) {
+	load(text) {
 		// 1. update previous words with new one and reset word index
 		// 2. reset input field and delete previous word elements in DOM
 		// 3. load new word elements in DOM
 	},
-  raw() {
+  text() {
 		return this.string;
 	},
-  get length() {
-		return this.#word_elements.length;
-	}
-  get word_index() {
-		return this.#word_index;
-	}
-  set word_index(index) {
-		this.#word_index = index;
-	}
-  get previous_word() {}
-  get current_word() {}
-  get next_word() {}
-
-	at(index) {
-		if ( index < 0 || index > this.length() - 1 ) return;
-		return this.letter_elements[index];
-	}
+  length() {
+		return this.word.length;
+	},
+	at(i) {
+		if ( (i < 0) || (i > this.length() - 1) ) return;
+		return this.word[i];
+	},
+	setWordIndexTo(index) {
+		this.index = index;
+	},
 	resetWordIndex() {
-		this.#word_index = 0;
-	}
+		this.index = 0;
+	},
 	decrementWordIndex() {
-		this.#word_index = this.#word_index - 1;
-	}
+		this.index = this.index - 1;
+	},
   incrementWordIndex() {
-		this.#word_index = this.#word_index + 1;
-	}
+		this.index = this.index + 1;
+	},
+	previous_word() {
+		if ( this.index - 1 >= 0 ) {
+
+		} 
+	},
+  current_word() {},
+  next_word() {},
 }
 
 export const word = {
-	string: "",
-	letter_elements: [],
-	letter_index: 0,
+	txt: "",
+	letter: [],
+	index: 0,
 	
 	load(word, isPreviousWord = false) {
 
@@ -70,6 +70,9 @@ export const word = {
 		if ( index < 0 || index > this.length() - 1 ) return;
 		return this.letter_elements[index];
 	},
+	setLetterIndexTo(index) {
+		this.index = index;
+	},
 	resetLetterIndex() {
 		this.#word_index = 0;
 	},
@@ -78,5 +81,8 @@ export const word = {
 	},
   incrementLetterIndex() {
 		this.#word_index = this.#word_index + 1;
-	}
+	},
+	previous_letter() {},
+	current_letter() {},
+	next_letter() {},
 }
