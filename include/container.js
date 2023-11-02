@@ -17,6 +17,9 @@ export const text = {
   length() {
 		return this.word.length;
 	},
+	self() {
+		return this.word[0]?.parentElement;
+	},
 	word_at(i) {
 		if ( (i < 0) || (i > this.length() - 1) ) throw "word index out of bound";
 		return this.word[i];
@@ -34,7 +37,7 @@ export const text = {
 		this.index = this.index + 1;
 	},
 	previous_word() {
-		if ( this.index < 0 ) throw "word index is negative";
+		if ( this.index < 0 ) throw `word[${this.index}] index is negative`;
 		return this.word[this.index - 1];
 	},
   current_word() {},
@@ -51,9 +54,9 @@ export const word = {
 		this.letter = Array.from(word?.children);
 
 		if ( !isPreviousWord ) {
-			this.index = 0; // next/current word
+			this.index = 0; // for next/current word
 		} else {
-			this.index = this.letter.length - 1; // previous word
+			this.index = this.letter.length - 1; // for previous word
 		}
 	},
 	raw() {
@@ -66,7 +69,7 @@ export const word = {
 		return this.letter[0]?.parentElement;
 	},
 	letter_at(index) {
-		if ( index < 0 || index > this.length() - 1 ) throw "letter index out of bound";
+		if ( index < 0 || index > this.length() - 1 ) throw `letter[${this.index}] index out of bound`;
 		return this.letter[index];
 	},
 	setLetterIndexTo(index) {
