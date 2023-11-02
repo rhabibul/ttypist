@@ -11,14 +11,14 @@ export const text = {
 		// 2. reset input field and delete previous word elements in DOM
 		// 3. load new word elements in DOM
 	},
-  text() {
-		return this.string;
+  raw() {
+		return this.txt;
 	},
   length() {
 		return this.word.length;
 	},
-	at(i) {
-		if ( (i < 0) || (i > this.length() - 1) ) return;
+	word_at(i) {
+		if ( (i < 0) || (i > this.length() - 1) ) throw "word index out of bound";
 		return this.word[i];
 	},
 	setWordIndexTo(index) {
@@ -34,9 +34,8 @@ export const text = {
 		this.index = this.index + 1;
 	},
 	previous_word() {
-		if ( this.index - 1 >= 0 ) {
-
-		} 
+		if ( this.index < 0 ) throw "word index is negative";
+		return this.word[this.index - 1];
 	},
   current_word() {},
   next_word() {},
@@ -49,38 +48,38 @@ export const word = {
 	
 	load(word, isPreviousWord = false) {
 
-		this.letter_elements = Array.from(word?.children);
+		this.letter = Array.from(word?.children);
 
 		if ( !isPreviousWord ) {
-			this.letter_index = 0; // next/current word
+			this.index = 0; // next/current word
 		} else {
-			this.letter_index = this.letter_elements.length - 1; // previous word
+			this.index = this.letter.length - 1; // previous word
 		}
 	},
-	text() {
+	raw() {
 		return this.string;
 	},
 	length() {
-		return this.letter_elements.length;
+		return this.letter.length;
 	},
 	self() {
-		return this.letter_elements[0]?.parentElement;
+		return this.letter[0]?.parentElement;
 	},
-	at(index) {
-		if ( index < 0 || index > this.length() - 1 ) return;
-		return this.letter_elements[index];
+	letter_at(index) {
+		if ( index < 0 || index > this.length() - 1 ) throw "letter index out of bound";
+		return this.letter[index];
 	},
 	setLetterIndexTo(index) {
 		this.index = index;
 	},
 	resetLetterIndex() {
-		this.#word_index = 0;
+		this.index = 0;
 	},
 	decrementLetterIndex() {
-		this.#word_index = this.#word_index - 1;
+		this.index = this.index - 1;
 	},
   incrementLetterIndex() {
-		this.#word_index = this.#word_index + 1;
+		this.index = this.index + 1;
 	},
 	previous_letter() {},
 	current_letter() {},
