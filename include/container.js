@@ -19,9 +19,6 @@ export const text = {
 	setCurrentWordIndex(i) {
 		this.index = i;
 	},
-	resetWordIndex() {
-		this.index = 0;
-	},
 	decrementWordIndex() {
 		this.index = this.index - 1;
 	},
@@ -40,14 +37,13 @@ export const text = {
 		if ( this.index >= this.word.length - 1 ) throw `w[${this.index}] - no word after`;
 		return this.word[this.index + 1];
 	},
-	word_at(i) {
-		if ( (i < 0) || (i > this.word.length() - 1) ) throw "index out of bounds";
-		return this.word[i];
+	word_at(index) {
+		if ( (index < 0) || (index > this.word.length() - 1) ) throw "index out of bounds";
+		return this.word[index];
 	},
 }
 
 export const word = {
-	txt: "",
 	letter: [],
 	index: 0,
 	
@@ -67,15 +63,11 @@ export const word = {
 	self() {
 		return this.letter[0]?.parentElement;
 	},
-	letter_at(index) {
-		if ( (index < 0) || (index > this.length() - 1) ) throw `index out of bound`;
-		return this.letter[index];
+	getCurrentLetterIndex() {
+		return this.index;
 	},
-	setLetterIndexTo(index) {
+	setCurrentLetterIndex(index) {
 		this.index = index;
-	},
-	resetLetterIndex() {
-		this.index = 0;
 	},
 	decrementLetterIndex() {
 		this.index = this.index - 1;
@@ -84,6 +76,13 @@ export const word = {
 		this.index = this.index + 1;
 	},
 	previous_letter() {},
-	current_letter() {},
+	current_letter() {
+		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw `l[${this.index}] index is out of bounds`
+		return this.letter[this.index];
+	},
 	next_letter() {},
+	letter_at(index) {
+		if ( (index < 0) || (index > this.length() - 1) ) throw `index out of bound`;
+		return this.letter[index];
+	},
 }
