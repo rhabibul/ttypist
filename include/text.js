@@ -17,12 +17,15 @@ export default class Text {
   }
 
   loadwords(words) {
+    // update previous words with new one and reset word index
     this.#words = words;
     this.#wordindex = 0;
     
+    // reset input field and delete previous word elements in DOM
 		TypingAreaElements.textInputField.value = "";
 		TypingAreaElements.textContainerElement.innerHTML = "";
 
+    // load new word elements in DOM
 		for ( const wordElement of this.#words ) {
     	TypingAreaElements.textContainerElement.insertAdjacentElement("beforeend", wordElement);
     }

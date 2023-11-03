@@ -1,18 +1,11 @@
-import { config } from "../include/config.js";
-import * as TypingAreaElements from "../src/elements/typing-area-element.js";
-
 export const text = {
 	txt: "",
 	word: [],
 	index: 0,
 
-	load(text) {
-		// 1. update previous words with new one and reset word index
-		// 2. reset input field and delete previous word elements in DOM
-		// 3. load new word elements in DOM
-	},
-  raw() {
-		return this.txt;
+	load(payload) {
+		this.word = payload;
+		this.index = 0;
 	},
   length() {
 		return this.word.length;
@@ -20,12 +13,11 @@ export const text = {
 	self() {
 		return this.word[0]?.parentElement;
 	},
-	word_at(i) {
-		if ( (i < 0) || (i > this.word.length() - 1) ) throw "index out of bounds";
-		return this.word[i];
+	getCurrentWordIndex() {
+		return this.index;
 	},
-	setWordIndexTo(index) {
-		this.index = index;
+	setCurrentWordIndex(i) {
+		this.index = i;
 	},
 	resetWordIndex() {
 		this.index = 0;
@@ -48,6 +40,10 @@ export const text = {
 		if ( this.index >= this.word.length - 1 ) throw `w[${this.index}] - no word after`;
 		return this.word[this.index + 1];
 	},
+	word_at(i) {
+		if ( (i < 0) || (i > this.word.length() - 1) ) throw "index out of bounds";
+		return this.word[i];
+	},
 }
 
 export const word = {
@@ -65,9 +61,6 @@ export const word = {
 			this.index = this.letter.length - 1; // for previous word
 		}
 	},
-	raw() {
-		return this.string;
-	},
 	length() {
 		return this.letter.length;
 	},
@@ -75,7 +68,7 @@ export const word = {
 		return this.letter[0]?.parentElement;
 	},
 	letter_at(index) {
-		if ( index < 0 || index > this.length() - 1 ) throw `letter[${this.index}] index out of bound`;
+		if ( (index < 0) || (index > this.length() - 1) ) throw `index out of bound`;
 		return this.letter[index];
 	},
 	setLetterIndexTo(index) {
