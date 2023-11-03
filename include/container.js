@@ -21,7 +21,7 @@ export const text = {
 		return this.word[0]?.parentElement;
 	},
 	word_at(i) {
-		if ( (i < 0) || (i > this.length() - 1) ) throw "word index out of bound";
+		if ( (i < 0) || (i > this.word.length() - 1) ) throw "index out of bounds";
 		return this.word[i];
 	},
 	setWordIndexTo(index) {
@@ -37,11 +37,17 @@ export const text = {
 		this.index = this.index + 1;
 	},
 	previous_word() {
-		if ( this.index < 0 ) throw `word[${this.index}] index is negative`;
+		if ( this.index < 0 ) throw `w[${this.index}] - no word before`;
 		return this.word[this.index - 1];
 	},
-  current_word() {},
-  next_word() {},
+  current_word() {
+		if ( (this.index < 0) || (this.index > this.word.length - 1) ) throw `w[${this.index}] index is out of bounds`
+		return this.word[this.index];
+	},
+  next_word() {
+		if ( this.index >= this.word.length - 1 ) throw `w[${this.index}] - no word after`;
+		return this.word[this.index + 1];
+	},
 }
 
 export const word = {
