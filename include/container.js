@@ -15,7 +15,7 @@ export const text = {
 	getCurrentWordIndex() {
 		return this.index;
 	},
-	setCurrentWordIndex(i) {
+	setCurrentWordIndexTo(i) {
 		this.index = i;
 	},
 	decrementWordIndex() {
@@ -65,7 +65,7 @@ export const word = {
 	getCurrentLetterIndex() {
 		return this.index;
 	},
-	setCurrentLetterIndex(index) {
+	setCurrentLetterIndexTo(index) {
 		this.index = index;
 	},
 	decrementLetterIndex() {

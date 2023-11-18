@@ -7,11 +7,11 @@
  * 
  * > html attribute query methods
  *   		element.attribute [for e.g, details.open]
+ * 		  element.toggleAttribute("attribute")
  *	 		element.hasAttribute("attribute")
  *	 		element.removeAttribute("attribute")
  *	 		element.getAttribute("attribute")
  *	 		element.setAttribute("attribute", "value")
- * 		  element.toggleAttribute("attribute")
 **/
 // import { config } from "../include/config.js";
 // import * as SettingsElement from "./elements/settingsElements.js";

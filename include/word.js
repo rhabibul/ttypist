@@ -1,5 +1,4 @@
 export default class Word {
-  #text;
   #word; // contains all <letter></letter> tags for a single <word></word> tag
   #letterindex; // keeps track of the index of <letter></letter> tag
 
