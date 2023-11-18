@@ -8,21 +8,11 @@ import { Test, text, word } from "../main.js";
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function keydown(evt) {
-	console.log("keydown ", evt.key);
-}
-export function keyup(evt) {
-	console.log("keyup ", evt.key);
-}
-export function keypress(evt) {
-	console.log("keypress ", evt.key);
-}
-export function beforeinput(evt) {
-	console.log("beforeinput ", evt.data);
-}
-export function input(evt) {
-	console.log("input ", evt.data);
-}
+export function keydown(evt) {}
+export function keypress(evt) {}
+export function beforeinput(evt) {}
+export function input(evt) {}
+export function keyup(evt) {}
 
 // 1. keydown
 export function registerkeydown(evt) {

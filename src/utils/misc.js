@@ -8,20 +8,6 @@ export function isspace(letter) {
   return letter?.textContent.charCodeAt(0) === 160;
 }
 
-export function NodeList(cssQueryString) {
-  return document.querySelectorAll(cssQueryString);
-}
-
-export function HTMLCollection(name, option) {
-  if ( option?.tagname ) {
-    return document.getElementsByTagName(name);
-  } else if ( option?.classname ) {
-    return document.getElementsByClassName(name);
-  } else {
-    console.error("wrong option provided to get HTMLCollection (only classname/tagname is valid)");
-  }
-}
-
 export function totalchar() {
   let cnt = 0;
   Array.from(HTMLCollection("word", { tagname: true })).forEach((word) => {

@@ -389,7 +389,7 @@ details summary {
 	user-select: none;
 }
 details summary > div.text.value.in-use {
-	width: calc(var(--setting-buttons-container-width) - 30px);
+	width: calc(var(--setting-buttons-container-width) - 40px);
 	height: 100%;
 	position: absolute;
 	left: 0px;
@@ -407,7 +407,7 @@ details summary > div.symbol {
 	position: absolute;
 	right: 0px;
 
-	width: calc(var(--setting-button-height) - 1px);
+	width: calc(var(--setting-button-height) + 10px);
 	height: calc(var(--setting-button-height) - 1px);
 
 	display: flex;

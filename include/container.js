@@ -1,5 +1,7 @@
 export const text = {
 	word: [],
+	word_element: [],
+	word_text: [],
 	index: 0,
 
 	load(payload) {
@@ -44,6 +46,8 @@ export const text = {
 
 export const word = {
 	letter: [],
+	letter_element: [],
+	letter_text: [],
 	index: 0,
 	
 	load(word, isPreviousWord = false) {

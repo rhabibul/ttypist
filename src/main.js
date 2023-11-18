@@ -15,16 +15,17 @@ export const word = new Word();
 
 export const Test = {
 	init() {		
-		TypingAreaElements.textInputField.addEventListener("keydown", keydown);
-		TypingAreaElements.textInputField.addEventListener("keypress", keypress);
-		TypingAreaElements.textInputField.addEventListener("beforeinput", beforeinput);
-		TypingAreaElements.textInputField.addEventListener("input", input); // InputElement.value | InputEvent.data | InputEvent.inputType
-		TypingAreaElements.textInputField.addEventListener("keyup", keyup);
-		// TypingAreaElements.textInputField.addEventListener("keydown", registerkeydown);
-		// TypingAreaElements.textInputField.addEventListener("keypress", registerkeypress);
-		// TypingAreaElements.textInputField.addEventListener("beforeinput", registerbeforeinput);
-		// TypingAreaElements.textInputField.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
-		// TypingAreaElements.textInputField.addEventListener("keyup", registerkeyup);
+		// TypingAreaElements.textInputField.addEventListener("keydown", keydown);
+		// TypingAreaElements.textInputField.addEventListener("keypress", keypress);
+		// TypingAreaElements.textInputField.addEventListener("beforeinput", beforeinput);
+		// TypingAreaElements.textInputField.addEventListener("input", input); // InputElement.value | InputEvent.data | InputEvent.inputType
+		// TypingAreaElements.textInputField.addEventListener("keyup", keyup);
+
+		TypingAreaElements.textInputField.addEventListener("keydown", registerkeydown);
+		TypingAreaElements.textInputField.addEventListener("keypress", registerkeypress);
+		TypingAreaElements.textInputField.addEventListener("beforeinput", registerbeforeinput);
+		TypingAreaElements.textInputField.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
+		TypingAreaElements.textInputField.addEventListener("keyup", registerkeyup);
 	},
 	restart() {
 		user.istyping = false;
