@@ -1,0 +1,13 @@
+🟡 difficulty
+--------------------------------------------------------------------------------
+
+RULE
+	- ease is the classic typing test experience
+	- expert fails the test if you submit (press space) an incorrect word
+	- master fails if you press a single incorrect key (need to type with 100% accuracy)
+
+> in all three difficulty levels backspace is allowed (if user has not disabled it)
+> lets not have any dependencies for difficulty, ease is the default, expert fails test
+  if user submits wrong word and master fails test if single incorrect letter is typed
+	in both expert and master insertion, deletion, replacement is possible, forgive needs
+	to be taken care of in case of expert

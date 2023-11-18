@@ -1,0 +1,961 @@
+LEARNINGS FROM PROJECT
+
+dataset attribute
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+
+characters were not shown when keydown & keyup events were set on input tag
+https://stackoverflow.com/questions/43285016/character-does-not-get-typed-when-input-has-keydown-event-listener-and-in-debug
+   reason was that i used evt.preventDefault(), after omitting this statement 
+   the letters showed up when typing, actually you don’t have to remove
+   evt.preventDefault() from both keydown & keypup events, only removing it
+   from keydown will solve the problem
+   note if you have evt.preventDefault() in keydown event only then it won’t
+   register any key, so don’t put the statement in keydown event.
+evt.repeat
+   this works in keydown (and maybe in keypress event), but it does not
+   work in keyup event, in keyup its always false, so look for key 
+   repeat in keydown event
+
+get operating system and browser version details
+   navigator.userAgent and navigator.appVersion there’s one more which 
+   not all browswers support, navigator.userAgentData (only chrome 
+   supports in MacBook)
+	
+navigator.userAgent
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+
+navigator.userAgentData returns an object named ‘NavigatorUAData’ with the following members fields
+NavigatorUADat = {
+	brands: Array(3)
+	   0: {brand: 'Google Chrome', version: '111'}
+	   1: {brand: 'Not(A:Brand', version: '8'}
+	   2: {brand: 'Chromium', version: '111'}
+        length: 3
+	mobild: false,
+	platform: “macOS”,
+}
+
+UNICODE (utf full form UCS(unicode) transformation format)
+ASCII, UTF-8, code points, character encodings: https://www.youtube.com/watch?v=ut74oHojxqo
+ASCII Character Encoding: https://www.youtube.com/watch?v=rIEkE6y3vdo&list=PLxfrSxK7P38X7XfG4X8Y9cdOURvC7ObMF&index=19
+	 8-bit ascii characters
+		0???????
+		 ^^
+		 00 control characters (32 characters)
+		 01  !"#$%&'()*+,-./0123456789:;<=>?   (punctuation characters, 32nd character is space)
+		 10 @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_   (uppercase letters)
+		 11 `abcdefghijklmnopqrstuvwxyz{|}~    (lowercase letters, 127th character is DEL)
+
+Unicode Code Points and UTF-8 Encoding
+https://www.youtube.com/watch?v=tbdym9ZtepQ&list=PLxfrSxK7P38X7XfG4X8Y9cdOURvC7ObMF&index=20
+
+UTF-8 Encoding Examples
+https://www.youtube.com/watch?v=c_hfKgektt4
+	  unicode Code Points
+	  unicode in itself is not considered an encoding, it is just an assignment
+	  a mapping of a character to binary patter of 1s and 0s, the 
+	  pattern of 1s & 0s
+	  ranges from 0 to 0x10FFFF (1114111 in decimal)
+
+		            "nhr"               
+
+         'n'     +    ‘h’     +    'r'
+
+         110     +    104     +    114
+
+       01101110  +  01101000  +  01110010
+
+             011011100111001001101000
+
+	  if you go downwards, then you’re encoding
+	  if you go upwards, then you’re decoding
+
+	  in computers, encoding is the process of putting a sequence of characters
+	  (letters, numbers, punctuation, and certain symbols) into a specialized
+      format for efficient transmission or storage. Decoding is the opposite 
+      process, the conversion of an encoded format back into the original 
+      sequence of characters
+
+	  UTF-8 ENCODING
+  	  	0???’????							 	(1 byte utf-8 encoding)
+	  	110?’???? 10??’????						(2 byte utf-8 encoding)
+	  	1110’???? 10??’???? 10??’????				(3 byte utf-8 encoding)
+	  	1111’0??? 10??’???? 10??’???? 10??’????		(4 byte utf-8 encoding)
+
+	  therefore there will as many 1s as there will be bytes i.e, if its 3 
+	  byte utf-8 encoding then first byte will contain 3 1s and a 0 at the 
+	  beginning, rest bytes will start with 10
+
+       ascii is 7 bits character
+       extended ascii is 8 bits character
+       first 0 to 127 characters of unicode are same as ascii
+   
+	- Unicode Encoding! UTF-32, UCS-2, UTF-16, UTF-8 https://www.youtube.com/watch?v=uTJoJtNYcaQ
+
+		- every character in unicode has a codepoint which is equal an index/id
+
+		- utf-32 aka ucs-4 (4-byte universal character set)
+       	  in utf-32 every single codepoint (1 character) is of 32 bits i.e,
+		  one character of utf-32 is 4 bytes in size
+
+		- ucs-2 !== utf-16  (ucs-2 is 2-byte universal character set)
+		  ucs-2 is a fixed-with 16-bit encoding, utf-16 encoding is
+		  variable-length, as code points are encoded with one or two 
+	   	  16-bit code units
+
+		- utf-8 uses 8 bits to represent a character (8 bit blocks)
+		  if you want to encode a string of bits then follow these steps
+		  depending on the length of your string of bits
+
+		  case-1 (1-byte utf-8 encoding can store maximum of 7 bits)
+
+		  	codepoint < 128 (7-bit maximum)
+		  	  - padStart with 0s until 8 bits is made
+		  	example
+				!(33) -> 00100001
+                          ^^
+				9(103)-> 01100111
+                          ^
+
+
+		  case-2 (2-byte utf-8 encoding can store maximum 11 bits)
+
+			128 <= codepoint < 2048
+			  - padStart with 0s until 11 bits is made
+			  - first byte  = 110 + first 5 bits (of the padded bit string)
+			  - second byte =  10 + next  6 bits (of the padded bit string)
+
+
+		  case-3 (3-byte utf-8 encoding can store maximum 16 bits)
+
+			2048 <= codepoint < 65’536
+			  - padStart with 0s until 16 bits is made
+			  -  first byte = 1110 + first 4 bits (of the padded bit string)
+			  - second byte =   10 + next  6 bits (of the padded bit string)
+			  -  third byte =   10 + next  6 bits (of the padded bit string)
+
+
+		  case-4 (4-byte utf-8 encoding can store maximum 21 bits)		
+
+			65’536 <= codepoint <
+			  - padStart with 0s until 21 bits is made
+			  -  first byte = 11110 + first 3 bits (of the padded bit string)
+			  - second byte =    10 + next  6 bits (of the padded bit string)
+			  -  third byte =    10 + next  6 bits (of the padded bit string)
+			  - fourth byte =    10 + next  6 bits (of the padded bit string)
+
+
+		  in summary
+		  	if less than 7 bits then
+		  		start with 0s until 8 bits
+		  	if greater than 7 bits then
+		  		start with as many 1s as how many bytes you need, then add a 0
+				for every byte after the first start with 10,
+				add 0s as needed (to fillup enough bits for a byte)
+
+		  fundamentally, computers just deal with numbers, they store letters and
+		  other characters by assigning a number for each one
+		  utf-8, utf-16, utf-32 are encoding schemes i.e, string of bits are
+		  arranged according these encoding’s rules for any unicode character
+		  ascii has assigned a number to each letter, digit, punctuation and 
+		  non-printable character, similary each unicode character have also been
+		  are assigned a unique number by the unicode standard, to represent ascii
+		  characters only 7 bits are sufficient, but unicode characters which has
+		  number greater than 127 cannot be encoded in 7 bits, so we use utf-8,
+		  utf-16 or utf-32 encoding schemes to encode the unicode character, we
+		  choose encoding scheme depending on the number of bits present in
+		  the unicode character, if a character has number of bits greater 
+		  than 14 then can can select utf-32 or 4-byte utf-8 encoding scheme to
+		  encode this unicode character
+
+	- How Unicode Characters Become Glyphs on Your Screen? https://www.youtube.com/watch?v=bt4MwIpcp2M
+
+		- character !== glyph
+		- font is a file consisting of several tables for:
+			- glyph outlines
+			- mapping unicode characters to glyphs
+			- glyph substitutions
+			- glyph position information
+			- various metrics
+			- (and more..)
+
+
+javascript:void(0)
+An Introduction to JavaScript Void 0: Explained With Examples [javascript:void(0) or (void 0 == value)]
+(https://www.simplilearn.com/tutorials/javascript-tutorial/javascript-void-
+function#:~:text=BootcampExplore%20Program-,What%20Does%20JavaScript%20Void%200%20Mean?,expression%20in%20a%20web%20page.)
+   
+
+
+OPEN SOURCE LICENSING
+	What is copyleft?
+	https://snyk.io/learn/what-is-copyleft-license/
+
+	Copyleft is a method of making intellectual property reusable and modifiable 
+	without any restrictions, except that anything new produced using the original
+	asset must also be available freely. This can apply to everything from works
+	of art to software.
+
+	What is a Copyleft License?
+     https://snyk.io/learn/what-is-copyleft-license/
+
+	Copyleft licenses allow software to be modified and re-distributed by anyone 
+	as long as the same rights are also preserved in derivative works.
+
+	Copyleft uses copyright to ensure the software remains free. Copyright law
+	preserves
+	the rights to the owner of the work to control all reproduction, modification,
+	and use of the copyrighted material.
+
+	Copyleft uses this law to enforce freedom of use (including all other rights)
+	and grant subsequent users to modify, distribute, and use the software as they
+	please. While copyright limits freedom, copyleft enforces it on all subsequent
+	material based on the original work.
+
+	Copyleft vs Copyright in open source
+	Copyleft is the opposite of copyright, and is used widely in Open Source
+	development, the copyleft license allows creators, contributors, and 
+	maintainers to make changes to open source projects, and share them with
+ 	the community.
+
+	GNU AGPL (Affero General Public License)
+	https://www.gnu.org/licenses/agpl-3.0.en.html
+
+
+JAVASCRIPT DOM MANIPULATION
+	- document.documentElement (html element)
+
+	- Element (fields)
+		.firstElementChild
+		.lastElementChild
+		.childElementCount
+		.previousElementSibling
+		.nextElementSibling
+
+	- Element (methods)
+		.before()
+		.after()
+		.append()
+
+	- document.createElement(“elementname”)
+	- document.removeChild()
+	- document.appendChild()
+	- document.replaceChild(new, old)
+	- document.write()
+
+childNodes vs. children
+	- childNodes (element nodes, text nodes, comment nodes)
+	- children (child elements, not text nodes, not comment nodes)
+nextSibling vs. nextElementSibling
+	
+DOM is w3c standard
+	- core dom
+	- xml dom
+	- html dom
+
+nodeName, nodeType, nodeValue, textContent, innerText, outerText, innerHTML	
+
+lets study dom manipulation, and gather as much as good built-in methods
+and properties for our project, especially for deletion and insertion
+
+let rawElements = document.getElementsByTagName(“name”)
+let arrayedFromRawElements = Array.from(document.getElementsByTagName(“name”))
+
+note:
+  - if element is added to dom, it is updated both in dom & rawElements
+  - if element is added to dom, it is updated in dom but not in arrayedFromRawElements
+  - similary is the case when you will use .getElementsByClassName()
+
+
+Element
+	- HMTLElement
+	- SVGElement
+
+
+An HTML element is set off from other text in a document by "tags", which consist
+of the element name surrounded by "<" and ">". The name of an element inside a
+tag is case insensitive
+
+
+NodeList vs. HTMLCollection 📌
+	- if you update the DOM then the list which contains HTMLCollection
+	  will also be update, but there will be no change in the list 
+	  which contains NodeList
+
+
+window.navigator
+  - appCodeName
+  - appVersion
+  - cookieEnabled
+  - deviceMemory
+  - language
+  - maxTouchPoints
+
+HTMLCollection
+an HTMLCollection in the DOM is live, it is automatically updated when the
+underlying document is changed
+methods & properties
+	- collection.length
+	- collection[index] 	-> undefined
+	- collection.item(index)	-> null
+	- collection.namedItem(“valueOfNameAttribute”) // <a name=“valueOfNameAttribute”, href=“#”>
+	- collection.valueOfNameAttribute
+
+
+for example
+  	<span name="span_element" class="item"> content </span>
+
+	const HTMLCollection = document.getElementsByClassName("item");
+
+	HTMLCollection.length
+	HTMLCollection[0]
+	HTMLCollection.item(0)
+	HTMLCollection.namedItem("span_element")
+	HTMLCollection.span_element
+
+NodeList
+it is an array-like collection (list) of node objects
+methods & properties
+	- list.length
+	- list.entries() -> returns an iterator with the key/value pairs from the list
+	- list.forEach(function callback() => {})
+	- list.item(index)
+	- list.keys()
+	- list.values()
+
+
+a NodeList is not an array, but we can loop through a NodeList and refer to its
+nodes with an index
+
+HTMLCollection vs. NodeList
+	- https://www.w3schools.com/jsref/dom_obj_html_nodelist.asp
+	- both are array-like collections (lists) of nodes (elements) extracted from
+	  a document, the nodes can be accessed by index numbers, the index starts
+	  at 0
+	- both have length property that returns the number of elements in the list
+	- an HTMLCollection is a collection of document elements
+	- a NodeList is a collection of document nodes (element nodes, attribute nodes,
+      and text nodes)
+	- HTMLCollection items can be accessed by their name, id, or index number
+	- NodeList items can only be accessed by their index number
+	- an HTMLCollection is always a live collection, for example if you add
+	  a <li> element to a list in the DOM, the list in the HTMLCollection 
+	  will also change
+	- a NodeList is most often a static collection, for example if you add
+	  a <li> element to a list in the DOM, the list in NodeList 
+	  will not change
+	- getElementsByClassName() and getElementsByTagName() methods erturn a live
+	  HTMLCollection, Element.childNodes returns live NodeList, querySelectorAll()
+	  method returns a static NodeList
+	- document represents the whole content of an html file
+	  documentElement represents the whole <html></html> tag
+
+
+HTMLElement Properties
+         attributes: NamedNodeMap {0: name1, 1: name2, ...}
+  attributeStyleMap: StylePropertyMap {}
+         childNodes: NodeList [node1, node2, ...]
+           children: HTMLCollection [element1, element2, ...]
+          classList: DOMTokenList [name1, name2, ..., value: "name1 name2 ..."]
+          className: "name1 name2 name3 ..."
+            dataset: DOMStringMap {name1: value1, name2: value2, ...}
+
+Browser  Object Model (BOM)
+Document Object Model (DOM)
+
+window > document > documentElement
+meaning that document object is a property of window object and documentElement
+is the child of document object
+
+------------------------------------------ DOM ------------------------------------------
+
+HTML Elements are Nodes
+	- All HTML elements are nodes
+	- Elements are nodes, Attributes are nodes, Texts are nodes
+	- Some elements contain other nodes
+	- Some elements contain text nodes
+	- Some elements contain attribute nodes
+
+
+window.Worker // let x = new Worker(“js/file/path”)
+window.WebAssembly
+window.WebSocket
+window.ServiceWorker
+window.Promise
+window.Permissions
+window.Performance
+window.postMessage()
+
+window.top === window.self === window.window === window.globalThis
+
+window.addEventListener("online", (e) => {});
+window.addEventListener("offline", (e) => {});
+
+input.addEventListener("keydown", (e) => {})
+input.addEventListener("keypress", (e) => {})
+input.addEventListener("beforeinput", (e) => {})
+input.addEventListener("input", (e) => {})
+input.addEventListener("keyup", (e) => {})
+
+input.addEventListener("compositionstart", fn)
+input.addEventListener("compositionupdate", fn)
+input.addEventListener("compositionend", fn)
+
+JavaScript Types
+	Array
+	ArrayBuffer
+	Boolean
+	DataView
+	Date
+	Error
+	Map
+	Object
+	RegExp
+	Set
+	String
+	TypedArray (Int8Array, Uint8Array etc)
+	null
+	undefined
+
+window
+	blur()
+	focus()
+	prompt()
+	alert()
+	postMessage()
+	parseInt()
+	parseFloat()
+	isNaN()
+	isFinite()
+	eval()
+	globalThis
+	console
+		clear
+		log
+		error
+		debug
+		warn
+		memory
+			totalJSHeapSize
+			usedJSHeapSize
+			jsHeapSizeLimit
+	Int8Array
+	Uint8Array
+	Uint8ClampedArray
+	Int16Array
+	Uint16Array
+	Int32Array
+	Uint32Array
+	BigInt64Array
+	BigUint64Array
+	Float32Array
+	Float64Array
+	UIEvent
+	TypeError
+	SyntaxError
+	ReferenceError
+	RangeError
+	Symbol
+	Array
+	String
+	Number
+	BigInt
+	Object
+	Set
+	Map
+	screenLeft
+	screenTop
+	screenX
+	screenY
+	pageXOffset
+	pageYOffset
+	outerHeight
+	outerWidth
+	innerHeight
+	innerWidth
+	Clipboard
+		read
+		write
+		readText
+		writeText
+	ClipboardEvent
+		dispatchEvent(new ClipboardEvent(type, options))
+		addEventListener(“copy”, (event) => {})
+		addEventListener(“cut”, (event) => {})
+		addEventListener(“paste”, (event) => {})
+	CookieChangeEvent
+	CookieStore
+		set
+		get
+		getAll
+		delete
+	CookieManager
+		getSubscriptions
+		subscribe
+		unsubscribe
+	Cache
+		match
+		matchAll
+		add
+		addAll
+		put
+		delete
+		keys
+	CacheStorage
+		delete
+		has
+		keys
+		match
+		open
+	caches
+	sessionStorage
+	localStorage
+	Storage
+		clear
+		getItem
+		key
+		removeItem
+		setItem
+		length
+	Screen
+		availHeight
+		availLeft
+		availWidth
+		colorDepth
+		height
+		orientation
+			angle
+			type
+		pixelDepth
+		width
+	NodeList
+		entries
+		keys
+		values
+		item
+		length
+		operator[index]
+	Navigator
+		appCodeName
+		appName
+		appVersion
+		deviceMemory
+		language
+		languages
+		onLine
+		maxTouchPoints
+		platform
+		userAgent
+		userAgentData
+			brands: Array(3)
+			mobile
+			platform
+		virtualKeyboard
+			A VirtualKeyboard object you can use to opt-out of the
+			automatic virtual keyboard behavior, show or hide the
+			virtual keyboard programmatically, and get the current
+			position and size of the virtual keyboard.
+			https://developer.chrome.com/docs/web-platform/virtual-keyboard/
+		vendor
+		visualViewport
+			height
+			width
+			scale
+			offsetLeft
+			offsetTop
+			pageLeft
+			pageTop
+		toolbar
+			visible
+		statusbar
+			visible
+
+Document
+	URL
+	activeElement
+	all
+	location
+		hash
+		host
+		hostname
+		href
+		origin
+		pathname
+		port
+		protocol
+	childElementCount
+	childNodes
+	children
+	cookie
+	domain
+	dir
+	doctype
+	designMode
+	hidden
+	defaultView
+	compatMode
+	contentType
+	firstElementChild
+	lastElementChild
+	fullscreen // depricated
+	fullscreenEnabled
+	fullscreenElement
+	requestFullscreen()
+	exitFullscreen()
+	 	function toggleFullScreen() {
+        	if (!document.fullscreenElement) {
+          		document.documentElement.requestFullscreen();
+        	} else if (document.exitFullscreen) {
+          		document.exitFullscreen();
+        	}
+      	}
+      	document.addEventListener( "keydown", (e) => {
+        	if (e.key === "Enter") {
+            	toggleFullScreen();
+          	}
+       }, false);
+		
+		addEventListener(“fullscreenchange”, callback); // standard
+		addEventListener(“mozfullscreenchange”, callback); // firefox
+		addEventListener(“webkitfullscreenchange”, callback); // chrome, safari, opera
+		addEventListener(“msfullscreenchange”, callback); // IE, Edge
+
+		addEventListener(“fullscreenerror”, callback);
+	hasFocus()
+	append()
+	prepend()
+	
+
+Element
+	before()
+	after()
+	prepend()
+	append()
+	remove()
+	cloneNode()
+	contains(node)
+	getRootNode()
+	hasChildNodes()
+	insertBefore()
+	isEqualNode()
+	isSameNode()
+	replaceChildren()
+	replaceWith()
+	firstElementChild
+	lastElementChild
+	previousElementSibling
+	nextElementSibling
+	childElementCount
+	children: HTMLCollection
+	childNodes: NodeList
+	nodeName
+	nodeType
+	nodeValue
+	firstChild
+	lastChild
+	previousSibling
+	nextSibling
+	parentNode
+	parentElement
+	ownerDocument
+	textContent
+	isConnected
+	classList
+	className
+	clientWidth
+	clientHeight
+	clientLeft
+	clientTop
+	closest()
+	getBoundingClientRect()
+	getClientRects()
+	getElementsByTagName()
+	getElementsByClassName()
+	attributes
+	document.createTextNode()
+	document.createElement()
+	document.createEvent()
+	EventTarget.dispatchEvent()
+	document.createAttribute(“attr_name”) // attr.value = “value”
+	Element.setAttributeNode(attr_created_using_createAttribute)
+	removeAttributeNode()
+	hasAttribute()
+	getAttribute()
+	getAttributeNames()
+	setAttribute()
+	removeAttribute()
+	toggleAttribute()
+	id
+	innerHTML
+	outerHTML
+	insertAdacentElement()
+	insertAdacentHTML()
+	insertAdacentText()
+	localName
+	matches(css-selectors-string)
+	querySelector()
+	querySelectorAll()
+	requestFullscreen()
+	scroll()
+	scrollBy()
+	scrollTo()
+	scrollIntoView()
+	scrollIntoViewIfNeeded()
+	scrollWidth
+	scrollHeight
+	scrollLeft
+	scrollTop
+	tagName
+
+EventTarget
+	addEventListener
+	dispatchEvent
+	removeEventListener
+
+
+————————————————————————————————————————————————————————————————————————————————————
+      detect mobiles devices  
+
+      1. properties of the navigator
+         navigator.userAgent
+         navigator.userAgentData
+         navigator.platform
+            -> indicates the machine type for which the browser was compiled
+      2. touch event
+         'ontouchstart' in document.documentElement
+         navigator.maxTouchPoints
+            -> returns maximum number of simultaneous touch points supported by 
+               current device
+            -> if laptop support touch and is in keyboard mode, it  returns 1,
+               when in tablet mode it returns 10 or more
+            -> a mobile is generally 10 or more
+      3. window.orientation or window.screen.orientation (not recommended)
+      4. window.matchMedia()
+            window.matchMedia('(pointer: coarse)').matches;
+            window.matchMedia('(any-pointer: coarse)').matches;
+            window.matchMedia('only screen and (max-width: 768px)').matches;
+            window.matchMedia('only screen and (max-width: 768px)').matches;
+
+            https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer
+
+localStorage | sessionStorage
+methods & properties
+	storage.setItem(key, value)
+	storage.getItem(key)
+	storage.removeItem(key)
+	storage.key(index) -> null (if does not exists)
+	storage.clear()
+	storage.length
+
+	storage.key		-> undefined
+	storage[“key”]		-> undefined
+	storage.getItem(“key”) 	-> null
+
+currentTarget | target
+currentTarget and target are properties of the event object when we listen to a
+particular event,
+	Element.addEventListener(“Event”, function (e) {
+		// `currentTarget` and `Target` are `e`’s properties
+	}
+
+difference
+	currentTarget is the element that the event was bound to, it never changes
+	target is the element user clicked, in the case of click event, it can be
+	the original element ro any of its children depending on where user 
+	clicks on exactly
+
+addEventListener(“eventtype”, (eventobject) => {})
+	Element.addEventListener(“copy”, (e) => {})
+	Element.addEventListener(“cut”, (e) => {})
+	Element.addEventListener(“paste”, (e) => {})
+
+	FocusEvent
+		fired when an element has gained focus
+		Element.addEventListener(“focus”, (e) => {})
+
+		fired when an element has gained focus, after focus event
+		Element.addEventListener(“focusin”, (e) => {})
+
+		fired when an element has lost focus
+		Element.addEventListener(“blur”, (e) => {})
+
+		fired when an element has lost focus, after blur event
+		Element.addEventListener(“focusout”, (e) => {})
+
+Element.toggleAttribute(passBooleanAttributeName)
+	<input disabled type=“text”>
+	input.toggleAttribute(“disabled”);
+
+
+
+ARTICLES READ
+	- https://github.com/github/mona-sans#usage
+	- https://developer.mozilla.org/en-US/docs/Web/API/Element
+	- https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
+	- https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling
+	- https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
+	- https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+	- https://blog.devgenius.io/4-ways-to-detect-mobile-browsers-in-javascript-943b66657524
+	- https://stackoverflow.com/questions/6850164/get-the-device-width-in-javascript
+	- https://developer.mozilla.org/en-US/docs/Web/API/InputEvent/inputType
+	- https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
+	- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow
+	- https://www.w3schools.com/jsref/dom_obj_html_nodelist.asp
+	- https://developer.mozilla.org/en-US/docs/Web/API/Storage
+	- https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+	- https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+	- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+	- https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+	- https://www.google.com/amp/s/www.freecodecamp.org/news/how-to-center-a-div-with-css-10-different-ways/amp/
+	
+COURSES COMPLETED
+	- https://www.youtube.com/watch?v=6UK7ftaqX9U&list=PLu8EoSxDXHP5CIFvt9-ze3IngcdAc2xKG&index=7
+	- https://www.youtube.com/watch?v=bMknfKXIFA8&t=4761s
+
+———————————————————————————————————————————————————————————————————————————————————
+#text node object properties
+    length: 4
+    data: "xtra"
+    textContent: "xtra"
+    nodeValue: "xtra"
+    nodeName: "#text"
+    wholeText: "xtra"
+    nodeType: 3
+    parentNode: word
+    parentElement: word
+    firstChild: null
+    lastChild: null
+    previousElementSibling: letter
+    nextElementSibling: letter
+    previousSibling: letter
+    nextSibling: letter
+    childNodes: NodeList []
+    ownerDocument: document
+    isConnected: true
+    baseURI: "http://127.0.0.1:5500/keydown-on-document.html”
+    assignedSlot: null
+
+#comment node object properties
+    length: 5
+    data: " hey "
+    textContent: " hey "
+    nodeValue: " hey "
+    nodeName: "#comment"
+    nodeType: 8
+    parentNode: word
+    parentElement: word
+    firstChild: null
+    lastChild: null
+    previousElementSibling: letter
+    nextElementSibling: letter
+    previousSibling: letter
+    nextSibling: letter
+    childNodes: NodeList []
+    ownerDocument: document
+    isConnected: true
+    baseURI: "http://127.0.0.1:5500/keydown-on-document.html”
+
+HTMLCollection
+	- recommended by mdn (make copy using Array.from)
+
+even if you use HTMLCollection without converting it to array using Array.from, at the
+end of the day you will have to micro manage letter & word indexes when insertion or
+deletion happens
+
+HTMLCollection se fyda hai ki jab insertion aur deletion hoga toh list me visible hoga
+aur Array.from(HTMLCollection) me visible nahi hoga
+
+———————————————————————————————————————————————————————————————————————————————————
+
+CSS Pseudo Elements
+		::before (its the first child of an html element)
+		::after  (its the last child of an html elemnet)
+		::first-letter
+		::first-line
+		::selection
+		::placeholder
+
+For any non-empty HTML document, documentElement will always be an <html> element. 
+For any non-empty XML document, documentElement will always be whatever element
+is the root element of the document.
+
+there are 2 varieties of NodeList: live and static, in some cases, the NodeList is 
+live, which means that changes in the DOM automatically update the collection.
+for example, Node.childNodes is live.
+in other cases, the NodeList is static, where any changes in the DOM do not affect
+the content of the collection. The ubiquitous document.querySelectorAll() 
+method returns a static NodeList
+
+Node.childNodes returns live NodeList
+document.querySelectorAll() returns static NodeList
+
+NodeList.length
+NodeList.item(index) -> null
+NodeList[index] -> undefined
+NodeList.entries()
+NodeList.keys()
+NodeList.values()
+NodeList.forEach((node) => {}, args)
+
+
+learnt to style input[type=“color”] (removing default stylings)
+https://codingartistweb.com/2021/09/styling-input-type-color-pure-css-tutorial/
+https://stackoverflow.com/questions/68626608/how-to-remove-styling-from-input-type-color
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------
+<dialog></dialog> | <dialog open></dialog>
+		open (as boolean attribute)
+		.show()
+		.close()
+		.showModal()
+use dialog html element with ::backdrop and backdrop-filer: blur()
+		https://css-tricks.com/some-hands-on-with-the-html-dialog-element/
+------------------------------------------------------------------------------------------------------------
+punctuation
+	fullstop .
+	question mark ?
+	quotation marks ""
+	apostrophe '
+	comma ,
+	hyphen -
+	colon :
+	semicolon ;
+	parenthesis ()
+	square brackets []
+	braces {}
+	ellipsis ...
+	slash /
+
+
+please note:
+	if Config.caret.type === "block" then the underline of the letter if highlight
+	mode is letter then whatever block caret's background color is, the underline 
+	color of that letter will be same as the caret's background color
+
+// use cursor not-allowed & boolean attribute disabled
+
+details (order of events): click > toggle
+note: click on details happens first then click on window because of bubbling
+
+when input is focussed out then bring focus to text area, i.e, have focusout listener
+on color selector and color text input
+whenever there's focus out of settings (input, button etc), put focus on input 
+box for text so that users can immediately start typing
+
+// hidden is a boolean attribute by the way
+element.toggleAttribute("hidden")
+
+// get variable from inline style
+element.style.getPropertyValue("--var");
+
+// get variable from wherever
+getComputedStyle(element).getPropertyValue("--var");
+
+// set variable on inline style
+element.style.setProperty("--var", value);
+------------------------------------------------------------------------------------------------------------

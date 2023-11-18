@@ -1,0 +1,14 @@
+relative size change:
+	- font size (16px -> 32px -> 48px)
+	- font weight (100 -> 900)
+			- text underline needs to be adjusted according to font weight
+	- caret
+			- line (1px -> 2px -> 3px)
+			- underline (2px -> 3px -> 4px)
+			- box (will remain 1px regardless of font size)
+			- block (not required, implicitly gets adjusted acorrding to font size)
+	- text underline
+			- same as underline caret which is (2px -> 3px -> 4px)
+	- whitespace (i will will determine the width & height later)
+			- bullet
+			- bar

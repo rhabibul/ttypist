@@ -1,0 +1,17 @@
+text underline
+--------------------------------------------------------------------------------
+
+underline: true | false
+
+Config.underline.on
+	- if highlight mode is letter then add/remove underline letter by letter when
+	  insertion or deletion or caret moves normally forward as user types letters
+		correctly
+	- if highlight mode is word then add/remove underline word by word
+	
+Config.underline.off
+
+please note:
+	if Config.caret.type === "block" then the underline of the letter if highlight
+	mode is letter then whatever block caret's background color is, the underline 
+	color of that letter will be same as the caret's background color

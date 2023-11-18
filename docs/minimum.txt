@@ -1,0 +1,5 @@
+minimum burst
+	- fixed option is doesn't care about word length
+	- flex option takes care of the word length, for longer word length it decreases
+	  the speed set by user, it splits the long word into chunks of 5 letters then
+		applies the speed of the user and..

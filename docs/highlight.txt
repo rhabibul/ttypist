@@ -1,0 +1,20 @@
+highlight
+--------------------------------------------------------------------------------
+
+CORE BEHAVIOUR
+	- off
+		if true, then no letter/word highlighting visible, whole sentence's text is
+		of single solid color caret's position in the sentence will tell which 
+		letter/word the user is typing
+
+	- mode
+			- word
+				active word is either lighter/brighter then rest of the words
+				in the sentence
+			- letter
+				typed text is lighter/brighter and future text is brighter/lighter
+				in color
+
+when highlight mode is letter and underline word is enabled then emualte play.typeracer's
+behaviour i.e, underline active word and as user types a letter correctly make 
+that letter fade/bright depending on highlight.flip's value

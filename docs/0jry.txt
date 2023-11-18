@@ -1,0 +1,3029 @@
+ABOUT THE PROJECT:
+	- There's a word tag which has letter tags that contains single alpanumeric
+		symbol, the last letter tag in a word tag contains a non-breaking space.
+
+	- Each letter is given border left, at any given time only one of the letter
+		tags will have a differenct color and rest of them will have same color and
+		this color will be same as words container's background color. This is how
+		cursor is emulated in this project.
+				=> words container's color EQUAL letters border left color
+
+--------------------------------------------------------------------------------
+
+FEATURES TO BE IMPLEMENTED:
+	1. 	Option to select between different cursors. ❌
+	2. 	Option to to select the thickness of line cursor. ❌
+	3. 	Divide caret into block, line, underline as individual css property. ❌
+	4. 	Auto random word generation ❌
+	5. 	Option to restart test without reloading page ❌
+	6. 	Highlight mode
+			Change what is highlighted during the test --> letter❌ | word📌
+				- letter: (keybr + monkeytype)
+					= note: first add fade class then move cursor to next letter
+					= forgive errors me bus tum letter ko red kr k caret ko aage badha do
+					  agar forgive error off hai to error letter ko insert karo, aur bina
+						us errored letter ko user backspace daba de clear nhi krta tabtak
+						caret ko aage mat badhana, user space dabai tab v nhi. jab sab error
+						clear krke user aage badhe toh jis letter k liye galat letter type
+						ki gai thi us letter ko red kr den aur caret ko aage badha dena.
+
+				- word: (monkeytype)
+					 	a. if letter correctly typed then move caret forward by one letter.
+						b. if wrong letter typed then insert it with darkred color in-between
+							 or after the current word it its typed after the last non-whitespace
+							 character (letters.length - 1)
+						
+				- in both scenarios we will insert error letters whenever it is typed
+
+	7. 	If a user hits alt, opt, ctrl, meta or shift key then we should not count
+		 	it as error and avoiding giving an error highlight to the word/letter.
+
+	8. 	Error collection
+					Array of word = [w1, w2, ... ,wN]
+					Array of stack = [stack1, stack2, ... ,stackN]
+
+					stack: ✅
+							- empty: determine if stack is empty or not
+							-  push: an error letter
+							-   pop: delete the top error letter and return it
+							-   top: view the top error letter
+					
+					give an id to each error letter of the word, then push it on the stack
+					for that particular word.
+					when the user hits backspace, pop an element from the stack find that
+					letter in the word using its id and delete it. the cursor should not
+					move.
+
+		9. 	while pressing ctrl/alt/opt + backspace the caret should be put after 
+				these ({[]}),.;:'"`~!@#$%^&*/?<> symbols 
+
+				for example use ctrl+bs or opt+bs on this string which contains 
+				all these symbols.
+				~adf`adf!adf@ad#adf$adf%adfd^dfd&adfds*dfa(dfadsf)dfsd-dsf_dfdf=sdfasf+dfa{dfsf[dfsdf}dsfsaf]sfsdf\dfds|dfsad’f”sdfds;sdffd:dfasdf/sdf?df.sdf>fdsf,sdf<adf
+
+
+
+
+
+--------------------------------------------------------------------------------
+Windows
+		ctrl + backspace	(clear one word)  ✅
+		alt  + backspace	(clear all words) ✅
+
+Mac
+		opt + backspace 	(clear one word) ✅
+		cmd + backspace		(clear all words)✅
+
+
+
+
+--------------------------------------------------------------------------------
+Quick Ideas:
+		Avoiding caret blinking for letters other than first letter.
+				- just add animation properties to first letter.
+				- as soon as a key is pressed remove the animation property.
+
+		Implementation ❌ (dumped this solution & used the alternate solution)
+				- Firstly don't have 'caret' class on first letter of first word then 'blink' 
+					class do the job of adding it.
+				- remove the 'blink' class as soon as the user types his/her first letter.
+				- when user hits (cmd + backspace) then add the 'blink' class again.
+				- when user goes to first letter of first word by hitting (ctrl + backspace)
+					or (opt/alt + backspace) then add 'blink' class again.
+				- when user uses his/her backspace key to go all the way to first letter 
+					of first word then add a 'blink' caret again.
+				
+				Issue
+						- the blinking caret vanishes away when we hit an incorrect letter
+							also so debug it later.
+				
+				Alternate Solution ✅
+						- You can set animation-delay property.
+						- This way you will emulate the same behaviour as VSCode's caret.
+
+
+
+
+--------------------------------------------------------------------------------
+WEIRD BEHAVIOURS:
+	- Sometimes when you type, the caret doesn't move?
+		It happens because you click somewhere or for any other action the focus is
+		removed input tag.
+	
+
+Note:
+		&nbsp; and &#160; is non-breaking space
+		&#32; is ascii space character (ascii value: 32)
+
+		letters[active_letter].textContent for the letter which contains &nbsp; 
+		returnsa string of length 1, 160 is return if we get the value of &nbsp; 
+		using charCodeAt() method
+
+		therefore we need to map 160 to 32 i.e, &nbsp; to space character.
+
+Speed:
+		1 word = 5 characters
+		93 / 5 = 18.6 => 19 words of length 5
+		14s = 19 words
+		1s = 19/14 words
+		60s = 19/14 * 60 => 81wpm
+
+
+
+
+--------------------------------------------------------------------------------
+WHAT I WANT:
+		> Use only:
+				- keydown, keyup
+				- keyboardevent.code, keyboardevent.key
+
+		> &nbsp; | &#160; is a non-break whitespace and not a space character which
+			has ascii value 32. nbsp is a string of length 1, whose char code is 160,
+			which you can get using "".charCodeAt(0)
+			
+		> caret moves forward one letter at a time as the user types
+
+		> backspace should work like normal texteditor, it should clear letters
+			all the way to first letter of first word if the user keeps on hitting backspace.
+			
+		> alt  + backspace
+			opt  + backspace
+			ctrl + backspace
+				- All these key combinations should work the same way as it works in 
+					a texteditor i.e, clear an entire word and put the caret at the 
+					first letter of the current word. If caret is at first letter of a word
+					then you should clear the previous word and put the creat on first
+					letter of previous word.
+
+				- Also have special behaviour for these special symbols when using these
+					key combinations i.e, caret should stop before these symbols.
+					~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+					
+		> hightlight modes
+				- letter:
+						implement every feature of letter hightlight mode of "keybr"
+				- word:
+						implement every feature of word hightlight mode of "monkeytype"
+				- in both modes if forget error is turned on then insert letters.
+
+		> ✅ caret style (none, line, underline, box, block)
+				- BLINKING LINE CARET
+							apply border left to all individual letters and give all of them transparent
+							color except one and all the other three borders (right, top, bottom) 
+							should be set to none.
+
+				- BLINKING UNDERLINE CARET
+							apply border bottom to all individual letters and give all of them
+							transparent color except one and all the other borders (left, right, top) 
+							should be set to none. 
+					
+				- BLINKING BOX CARET
+							apply border left, right, top and bottom to all individual letters and give
+							all of them transparent color except one. 
+
+				- NON-BLINKING BLOCK CARET
+							apply defferent text color and background color to a letter on which the
+							caret is present, rest of the letters should be untouched.
+
+		> words length choice
+				- users will get which type & length of words they want to practice
+					(study english grammer for type of words)
+
+		> ✅ default caret:
+				- default color is black
+				- default thickness will be thin of type line caret
+			
+		
+		> ✅ test end:
+				- test ends as soon as the user types the last letter of last word.
+
+		> deletion of wrongly typed letters:
+				- while backspacing
+					deletes on letter at a time so NO concept of stopping at special
+					symbols like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+				- while cmd+backspace
+					deletes all a wrongly/correctly typed letters at once putting the
+					caret on first letter of first word. NO concept of stopping on
+					special characters
+				- while ctrl+backspace or alt+backspace
+					deletes on word at a time, need to take a special care of special
+					character like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+
+					Note: 
+					Please test these two combinations on windows & mac extensively
+					to understand their behaviour in a text editor
+
+					Test this string by moving along with arrow keys & also deleting them
+					with ctrl+bs & alt+bs key combinations.
+					a~b`c!d@e#f$g%h^i&j*k(l)m-n=o_p+q{r[s]t}u|v\w;x:y"z'a,b<c.d>e/f?g
+
+		> hide letter/word
+				- if hightlight mode is letter then once the user types the letter correctly
+					make it invisible by adding "display: none". do the same thing for word tag
+					if hightlight mode is word.
+				
+
+
+
+
+
+--------------------------------------------------------------------------------
+RANDOM THOUGHTS:
+		> No matter what, the user has turned on forgive errors or not we will count
+		  each and every character typed by the user. If the user has forgive errors 
+			off, then we will insert it otherwise not.
+
+ISSUES:
+
+		> Special keys:
+				- when user hits (alt/opt, ctrl, meta, shift) any of these keys, it should
+					not be regarded as error. ✅
+				- while inserting wronly typed letters, don't insert these special keys.
+
+
+
+
+--------------------------------------------------------------------------------
+🌟 GameLogic
+
+> clicking on restart will start a new test
+
+> inserterror is turned 'on'
+> inserterror is turned 'off'
+
+
+> forgiveerror is turned 'on'
+		- insert wrongly type letters, whenever user types a letter correctly then
+			move the caret forward.
+		- if user hits a space after typing first letter (not before that) then
+			take caret to next word marking the previous word red colored.
+		- hitting space before typing first letter will insert the space character "⸱"
+			and after that whenever user hits space then go to next word.
+
+> forgiveerror is turned 'off'
+		- only way to move the caret is to correct all mistakes and type letters
+		  correctly, care will move to next word only when all inserted letters
+			are deleted.
+		- if forgiveerror is turned of then by default inserterror will be turned on
+		- as soon as the user starts typing incorrect letter it will get inserted
+			user needs to clear the incorrectly typed letters inorder to move the caret
+			forward.
+
+
+> deletion is turned 'on'
+> deletion is turned 'off'
+
+
+Goal:
+	- Implement Sentence object
+	- Implement hightlight mode (letter, word)
+
+Note: no error insertion and forgiveerror & deletion is turned on.
+
+let test = new Test();
+
+Inside test object
+		> if test is completed by the user then we will create a new test object, 
+			if test is stopped abruptly then we will discared the stats and use the 
+			same object to start a new test by creating a new sentence object.
+		
+		> you need a button to start new test
+
+		> creating sentence object will load random words, so test object will just
+		  create a new sentence. (word generation will be customised using config
+			object).
+
+		> test object will put letter/word hightlight according to config object and
+		  put caret on first letter of first word.
+			
+		> if user wants to change any setting of the game then current test will be
+		  discareded, no new test object will be created just we will load new
+			random words by creating new sentence object.
+
+		> if test is complete then we will store the stats and create a new test
+		  object.
+
+		> game logic will be a method in test object.
+
+				if ( letter typed is a space ) {
+					
+					1. if forgive errors is 'on' then move to next word regardless of whether
+						typed letter key is wrong or correct.
+						
+					2. if forgive errors is 'off' then check whether the active letter is space
+						and typed key is also a space, only then move to next word otherwise
+						insert the wrongly typed space in the word.
+
+				} else if ( keytyped is correct ) {
+
+					- remove caret from current letter
+					- increment letter index
+					- put caret on next letter
+
+					if ( test.isOver() ) {
+						delegate these tasks to test object
+							- end timer here
+							- remove active letter/word hightlight & caret
+							- display stats
+							- remove eventlistener
+							- start new test
+					}
+
+				} else if ( metakey + backspace ) {
+
+						- remove caret from current letter/word
+						- remove active status for current word (if hightlight mode is word)
+						- remove incorrect class & extra errors for each word typed
+						- reset active letter & word indexes
+						- add caret to first letter of first word
+
+				} else if ( ctrl/alt + backspace ) {
+
+						- remove caret from current letter
+						- remove incorrect class from current word (if caret is on 1st letter)
+						- remove any extra errors inserted for the word
+						- if caret is already at first letter of the word then
+									- remove active status from current word (if hightlight mode is word)
+									- decrease word index (go to previous word if not the first word)
+									- add active status word (if hightlight mode is word)
+									- add caret to first letter of the word
+						- reset active letter index of the current word
+						- remove incorrect class from current word (if caret is somewhere in middle of the word)
+						- add caret to first letter of the word
+						
+				} else if ( backspace ) {
+						
+						- remove incorrect class from active word
+						- if  active letter index > 0 then
+								- take caret to previous letter of the current word as long as there 
+									is a letter before it i.e, activeLetterIndex > 0
+								- remove caret from active letter
+								- decrement active letter index
+								- add caret to previous letter
+						- if active letter is at 0
+								- caret is at first letter of the word then put caret on last 
+									letter of previous word i.e, put caret on space character
+								- remove caret from current letter
+								- remove active status from active word (if hightlight mode is word)
+								- decrement word index
+								- set active letter index for this previous word to (word.length - 1)
+								- put caret on the last letter of this previous word
+
+				} else {
+					
+						- if typedkey is not an invisible character then add incorrect class
+						  to the active word.
+				}
+
+
+--------------------------------------------------------------------------------
+🌟 keyinfo
+
+KeyboardEvent
+						DOM_KEY_LOCATION_STANDARD =  0
+						DOM_KEY_LOCATION_LEFT 		=  1
+						DOM_KEY_LOCATION_RIGHT 	 	=  2
+						DOM_KEY_LOCATION_NUMPAD 	=  3
+						key
+						code
+						repeat
+						location -> (0, 1, 2, 3)
+						altKey
+						ctrlKey
+						metaKey	
+						shiftKey
+						isComposing
+
+			e.key
+						(Control, Shift, Alt, Meta)
+			e.code 
+						(ControlLeft,	ControlRight)
+						(AltLeft,	AltRight)
+						(ShiftLeft,	ShiftRight)
+						(MetaLeft, MetaRight)
+location
+ 			0 is standard
+			1 is left
+			2 is right
+			3 is numpad's keys (locked, unlocked)
+			You can distinguish normal arrow keys vs numpad arrows and numpad digits
+			vs number row digits using the location property. Numpad version's value
+			will be 3 and standard ones will have value 0.
+
+   ArrowUp	-  KeyW	 - 	Numpad8
+ ArrowLeft	-  KeyA	 - 	Numpad4
+ArrowRight	-  KeyD	 - 	Numpad6
+ ArrowDown	-  KeyS	 - 	Numpad2
+
+addEventListener
+					keyup
+					keydown
+					input
+					focus
+					click
+					focusout
+					mouseleave
+					mouseenter
+					compositionend
+					compositionstart
+
+whitespace
+				> "&nbsp;".charCodeAt(0) = 160
+				> "⸱".charCodeAt(0)	= 11825
+					<span style="padding: 0px 4px;">⸱</span>
+
+--------------------------------------------------------------------------------
+TEST CONFIGURATION OPTIONS
+
+> caret
+> flipcolor
+> hightlight
+
+> deletion
+> inserterror
+> instantdeath
+
+> forgiveerror
+
+  turned 'on'
+  		- insert wrongly type letters, whenever user types a letter correctly then
+  			move the caret forward.
+  		- if user hits a space after typing first letter (not before that) then
+  			take caret to next word marking the previous word red colored.
+  		- hitting space before typing first letter will insert the space character "⸱"
+  			and after that whenever user hits space then go to next word.
+  
+  turned 'off'
+  		- only way to move the caret is to correct all mistakes and type letters
+  		  correctly, care will move to next word only when all inserted letters
+  			are deleted.
+  		- if forgiveerror is turned of then by default inserterror will be turned on
+  		- as soon as the user starts typing incorrect letter it will get inserted
+  			user needs to clear the incorrectly typed letters inorder to move the caret
+  			forward.
+
+
+typical texteditor
+	- i am typing, if i mistake its up to me to correct it by using backspace or,
+	  key combinations to delete mistake
+	- there's no concept of stopping on error or instant death on first error
+	- users can use just backspace for deletion, use modifier keys with backspace
+	  to delete one word at a time or delete whole sentence
+	- there will be in-place insertion of errored letters
+	- on ttypist:
+			- user will decide whether to insert errored letters or not
+			- user will decide if caret should stop on error (stop on letter or stop on word)
+			  note that stopping is independent of highlight mode (letter/word)
+			- user will decide highlight mode
+
+--------------------------------------------------------------------------------
+#                                                                              #
+##                                                                            ## 
+####                                                                        ####
+#######                                                                  #######
+##########                                                            ##########
+#############                                                      #############
+################                                                ################
+###################                                          ###################
+###################### TEXTS ABOVE ARE MY INITIAL HUSTLES ######################
+###################                                          ###################
+################                                                ################
+#############                                                      #############
+##########                                                            ##########
+#######                                                                  #######
+####                                                                        ####
+##                                                                            ## 
+#                                                                              #
+--------------------------------------------------------------------------------
+
+
+
+Thursday, 23 March, 2023
+
+note:
+   - the size of a javascript string is always 2 bytes per character
+   - unicode character representation in js is "\u{codepoint}"
+     "\u{1F605}" = '😅'
+
+cheat detector (check if bot is emulating typing)
+ 	- if typing speed > 360wpm then block user
+ 	- check for standard deviation (all keypress has almost same time during between
+	  keydown & keyup then it is a bot)
+ 	- check for evt.isTrusted field value to avoid bots taking the test
+
+ 	- find out if there is any way to dispatch an event (InputEvent, KeyboardEvent, etc..)
+	  using javascript with isTrusted field set to true
+
+--------------------------------------------------------------------------------
+Friday, 24 March, 2023
+
+separating whitespace
+	- separate letter with whitespace into its own word tag
+		<sentence>
+      <word>
+        <letter>a</letter>
+        <letter>b</letter>
+        <letter>c</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+      <word>
+        <letter>d</letter>
+        <letter>e</letter>
+        <letter>f</letter>
+      </word>
+      <word>
+        <letter>&nbsp;</letter>
+      </word>
+    </sentence>
+
+before inserting errors check whether its valid symbol (alphabet, digit, punc)
+and not some criptic symbols which we get when hitting different key combination
+like cmd+alt+anykey
+
+if whole word is typed incorrectly then add a error class to word element
+if letter is correctly typed then add correct class to letter element
+if letter is incorrectly typed then add incorrect class to letter element
+
+while backspacing remove correct/incorrect classes, applies to all type of
+backspacing like normal bs, alt+bs, ctrl+bs
+
+i was having doubt about why to use Config.caret.on,
+Config.caret.on will be used when user selects the off caret button, so we will
+display input box,
+
+
+--------------------------------------------------------------------------------
+Saturday, 25 March, 2023
+
+find out how to play sounds on keypress on google
+
+- figure out how to manage whisespace code & characters
+- write word generator according to the new format of sentence
+- write a timer class (stopwatch is ready)
+- rename Time class to something meaningful
+
+HOLYSHIT 🔥
+today i got the solution to reduce the spacing in case of box caret, tried outline
+property in css, basically outline has width, offset, color, style properties,
+in box model the order is content, border, outline width is the same as border 
+width, but offset is the distance between border and outline so if you give postive
+value to offset in outline then it will go away from border but if negative value
+is given then it will go closer to border, you can even make outline and border
+overlap, which implies you can set a value for outline-offset which will go
+inside border, fuck!!
+there it is, no need to have border just give appropriate value for outline-offset
+without border (border: none), that way no letter width will increase and you'll
+have you box, line, caret without width change.
+ok i need to implement it right now
+implemented a little bit right now, but realized that we don't have much Control
+over it i.e, in border we could style all four border separately but in outline
+you will have to style all border sides with same styling which would not allow
+me to reduce the width of line caret, but help to reduce the extra width on all
+four sides of the letter in box caret mode completely, now box caret mode feels
+like block and underline caret mode i.e, there's no width change now in box caret
+mode like underline & block caret modes.
+yeah! boy.
+
+
+--------------------------------------------------------------------------------
+Sunday, 26 March, 2023 (7pm)
+
+infact you don’t need to even add outline-width, outline-color (hidden),
+outline-style, outline-offset in .box class which is added to every letter,
+instead you can have all these styling in the #box id itself, which is added to
+active letter as user types, this won’t affect any width/height change of 
+any/active letter
+its not required to have outline stylings in all letter tags only if active
+letter has it does the job, so i had put all outline stylings in #box id 
+instead of .box class
+
+--------------------------------------------------------------------------------
+Tuesday, 28 March, 2023 (3:27am)
+
+HOLYSHIT 🔥
+an idea struct me about input event, i know that keydown and keyup events don't
+trigger characters in on mobile devices
+and i am registering keydown & keyup events on an input box, so if a user types
+in an input field characters are displayed in the input box
+this is what clicked me while i was in toilet (hag rha tha bc)
+keys like capslock, shift, ctrl, opt/alt, meta, arrow keys, esc, tab, enter
+does not get registered in input event listener but hitting backspace returns null
+
+evt.data 
+returns a string with inserted characters, this may be an empty string if
+the change doesn't insert text, such as when characters are deleted
+
+keys like capslock, shift, ctrl, opt/alt, meta, arrow keys, esc, tab, enter
+does not get registered in input event listener but hitting backspace
+returns null
+in mobile version keydown and keyup event objects fields are undefined
+so cannot be used for backspace and modifier keys in mobile devices
+
+input.value has an interesting behaviour, like evt.data it doesn't register
+any modifer keys like alt, ctrl, cmd and special keys like enter, tab,
+capslock, arrow keys, shifts, esc, function keys but it increasing the
+size of the string which is typed by the user by a length of 1 (character 
+typed is concatenated with the string at the end)
+and if backspace is typed then size of the string which is present in
+input as a value property is decreased by 1 (i.e, last character of the
+string is deleted)
+
+so input.value can also be used along with evt.data, because in mobile
+as i have check in my android phone, it has some weird behavior (evt.data)
+compared to laptop's browser
+what happens in browswer in my laptop is in every keypress only a single
+character is returned by evt.data (character which is typed)
+but in mobile phone somes strings are concatenated like input.value
+but the good thing is whenever we hit a backspace a 'null' string is returned
+and in case of input.value the size of the string is reduced by 1 i.e,
+last typed character is deleted
+
+--------------------------------------------------------------------------------
+Wednesday, 29 March, 2023
+
+ios
+  Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15
+  (KHTML, like Gecko) Version/16.3 Mobile/15E148 Safari/604.1
+
+android
+  Mozilla/5.0 (Linux; Android 11; moto e40) AppleWebKit/537.36
+  (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36
+
+arm mac (chrome browser)
+  data not available
+
+intel mac (chrome browser)
+  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+  (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+intel mac (safari browser)
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+  (KHTML, like Gecko) Version/16.3 Safari/605.1.15"
+
+windows (edge browser)
+  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+  (KHTML, like Geco) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.54
+windows (chrome browser)
+  Mozilla/5.0 (Windows NT 10-0; Win64; X64) AppleWebKit/537,36
+  (KHTML, like ecko) Chrome/111.0.0.0 Safari/537.36
+
+
+--------------------------------------------------------------------------------
+Thursday, 30 March, 2023
+
+HOLYSHIT 🔥
+today i finally go the solution which removes width change in line caret as well
+it is achieved using box-shadow property
+
+box-shadow: offset-x | offset-y | blur-radius | color
+	offset-x (width + direction)
+		- negative value will put caret before letter
+		- positive value will put caret after letter
+
+	offset-y (width + directioin)
+		- negative value will put caret above letter
+		- positive value will put caret below letter
+
+it is not as refined as borders, sometimes other borders also start to show
+but its very thin (almost neglible to the eye)
+
+so ditching box-shadow for line & undercaret as of now...
+no bro we're using it still (Wed 31 May 2023)
+
+--------------------------------------------------------------------------------
+Sun, 2 April, 2023
+
+i need ui (bg colors) like flaticon website
+
+
+--------------------------------------------------------------------------------
+Mon, 3 April, 2023
+
+include: {
+	digitof: {
+		numrow: true,
+		numpad: false,
+	},
+	punctuation: false,
+}
+
+
+Q: Find out relation between speed and keystorke timing?
+
+
+--------------------------------------------------------------------------------
+Tue, 4 April, 2023
+
+if storedconfig is not present then the following value is returned by localStorage
+	localStorage.getItem('storedconfig'); // null
+	localStorage.storedconfig; // undefined
+	localStorage['storedconfig']; // undefined
+
+you need to update Config object which is in memory and which is stored in local
+storage, and retrieve the local storage's config and load settings according to
+this local config,
+
+
+--------------------------------------------------------------------------------
+Wed, 5 April, 2023
+
+implemented localStorage object integration, but it only works for whitespace
+and caret (yeah these are the only two settings which are available in this
+ttypist's version... lol!)
+
+
+--------------------------------------------------------------------------------
+Thu, 6 April, 2023
+
+phrase
+	- a phrase is a group of words acting as a unit that not include a
+		subject and a predicate
+clause
+	- a clause is a group of words acting as a unit that does have both
+		a subject and a predicate
+sentence
+	- a phrase can never stand by itself as a complete sentence while a
+		clause might be able to
+
+since words are randomly generated so the text formed is not sentence clearly
+so renamed sentence tag to phrase tag
+
+lets put the phrase class object inside word object
+
+
+--------------------------------------------------------------------------------
+Fri, 7 April, 2023
+
+if you want to copy all file/folder name from a folder then use the conventional
+of selecting and copying, but paste it in a text file if you want just want the
+file/folder names
+for example, i moved these screenshots to new folder by copying (cmd+c) and 
+moving (cmd + opt + v), i did moved it to a new folder inside finder, but when
+i pasted using cmd+v all the filenames got pasted like this...
+		control-pad.png
+		keyboard-codes.png
+		keyboard-sections.png
+		keysizes.png
+		numpad.png
+		qwerty.png
+
+
+--------------------------------------------------------------------------------
+Sat, 15 April, 2023
+
+charger kharab ho gya tha, 100 rupee deke cable to join karbaya lawgate k ek
+dukaan se...
+
+clear intension
+	- don't be random in your tasks
+	- make your intensions crystal clear about what you want to do (motivational ad.. lol!)
+
+tolearn
+		dom manipulation 📌 1
+			- get methods for insertion/deletion
+			- get random access to word/letter element
+		css grids 📌 2 👈
+			- for designing keyboard
+		setup offline font 📌 3 ✅ (Sun 16 Apr 2023 between 12am to 2:30am)
+			- roboto mono, mona sans, nunito
+		random topics
+			- sessionStorage & localStorage ✅
+					- storage.setItem(key, value)
+					- storage.clear()
+					- storage.remove(key)
+					- storge['key']
+					- storage.key
+					- storage.getItem(key)
+			- json
+					- JSON.stringify()
+					- JSON.parse()
+			- cookies
+			- sass, scss, svg
+			- asynchronous javascript
+
+
+--------------------------------------------------------------------------------
+Sun, 15 April, 2023
+
+some random thoughts:
+	- find a way to backup ttypist/docs in google drive or icloud
+	- or maybe put whole dev folder in icloud drive
+
+ttypist: inspired by keybr, monkeytype, play.typeracer, 10fastfingers
+	- it has an excellent keyboard emulator (ui)
+	- it has losts of customization features which monkeytype also has
+	- it has pure texteditor behaviour
+	- it has "world class" guided lessons to learn touch typing
+	- it has a unique feature of selecting characters for practice from the
+	  keyboard emulator itself i.e, click & select (ui)
+	- it supports all indian state's native languages for typing like hindi,
+	  bengali, gujarati, marathi, punjabi etc
+	- for aspirants of government exams (typing exam), there is multiple modes
+	  of typing test (all format of test taken by government for typing in any
+		indian language)
+	- it has typing races
+	- ttypist will support russian, arabic (international languages)
+
+
+	-	text-decoration-line,
+		text-decoration-thickness,
+		text-underline-offset,
+		text-decoration-color,
+		try to use these properties on word tags instead of letter tags
+		so that underline could be added for active word in word highlight mode and
+		errors can also be highlighted with red coloured underline
+	-	add underlineword property in config object
+	-	try adding animation delay or transition which makes slow removal of caret 
+	  from active letter and a bit low addition of caret to active  letter 
+		(Although not required but give it a try in future)
+	- use "off" instead of "on" in Config
+	- break Config into more than one parts, TextConfig & Config
+	- implement classnames incorrect, correct, extra, error, active in word 
+	  and letter tag
+	- Create ui classes like SettingUI, CaretUI
+	- delegate each and every ui changes in setting.js for config objects to 
+	  SettingUI object
+	- setting.js should only contain code modifying config object and for required
+	  ui changes call SettingUI object with appropriate method
+	- it will feel like texteditor on ttypist
+	- UI
+  		- turnon
+  		- turnoff
+  		- settextcolor
+  		- setbackgroundcolor
+  		- setproperty(propert, value)
+  		- reset
+	- InputEvent.data Read only
+	  returns a string with the inserted characters. This may be an empty string
+		if the change doesn't insert text (such as when deleting characters)
+		therefore you can use the fact that if a character is deleted i.e, backspace
+		is pressed the InputEvent.data is empty string ("")
+	- just have one file, archive the notes folder from github (code folder)
+	- to learn
+			- css grids
+			- asynchronous javascript
+			- dom manipulation
+			- svg
+			- sass, scss
+			- json
+			- sessionStorage & localStorage
+			- cookies
+			- setup offline font
+			    - roboto mono
+			   	- mona sans
+					- nunito
+	- Tech Stacks
+			- Next.js
+			- React.js
+			- TypeScript
+			- Talwind CSS
+			- GraphQL
+			- MongoDB
+			- PostgreSQL
+			- Redis
+	- what moneytype currently doesn't have is typing races
+	  but ttypist will have typing races
+	- calc(-1 * var(--caret-width-line))
+	- study dom manipulation in js in depth along with tree & graph concepts in dsa
+	- learn more about js module system, see how large projects manage their source code
+	- project idea: wordle
+	- find list of stem word in txt format
+	- window.addEventListener("storage", (e) => {});
+
+	- css grids
+		auto-fill & auto-fit with minmax()
+	 	grid-template-areas
+
+		justify-* is row axis (x-axis)
+		align-* is column axis (y-axis)
+
+		both are true in css flexbox as well as long as flex-direction is column, if it 
+		is changed to row then everything flips
+
+		justify-items
+		align-items
+		
+		justify-content
+		align-content
+		
+		justify-self
+		align-self
+		
+		justify-* is row axis
+		align-* is column axis
+
+	- give flex: 1; to all items of the flex container so that no extra space is 
+	  left if flex-wrap: wrap; is set
+	
+	- dead key
+			- A dead key is a key or combination of keys which produces no character 
+				by itself, but which in combination or sequence with another key produces
+				a modified character, such as a character with diacritical 
+				marks (e.g., "ö", "é", "â")
+	- IME
+		input method editor
+		An input method editor (IME), also known as a front end processor, is an 
+		application that performs the conversion between keystrokes and ideographs or
+		other characters, usually by user-guided dictionary lookup, often used in 
+		East Asian languages (e.g., Chinese, Japanese, Korean). An IME MAY also be 
+		used for dictionary-based word completion, such as on mobile devices.
+
+	- 5.3.2. Event Modifier Initializers
+		The MouseEvent and KeyboardEvent interfaces share a set of keyboard modifier
+		attributes and support a mechanism for retrieving additional modifier states
+		The following dictionary enables authors to initialize keyboard modifier 
+		attributes of the MouseEvent and KeyboardEvent interfaces, as well as the 
+		additional modifier states queried via getModifierState(). The steps for 
+		constructing events using this dictionary are defined in the event
+		constructors section.
+
+		dictionary EventModifierInit : UIEventInit {
+		  boolean ctrlKey = false;
+		  boolean shiftKey = false;
+		  boolean altKey = false;
+		  boolean metaKey = false;
+
+		  boolean modifierAltGraph = false;
+		  boolean modifierCapsLock = false;
+		  boolean modifierFn = false;
+		  boolean modifierFnLock = false;
+		  boolean modifierHyper = false;
+		  boolean modifierNumLock = false;
+		  boolean modifierScrollLock = false;
+		  boolean modifierSuper = false;
+		  boolean modifierSymbol = false;
+		  boolean modifierSymbolLock = false;
+		};
+	
+		use KeyboardEventObject.getModifierState() to see whether modifier key is on or not
+
+	- The keypress event is traditionally associated with detecting a character 
+		value rather than a physical key, and might not be available on all keys 
+		in some configurations. The keypress event type is defined in this specification
+		for reference and completeness, but this specification deprecates the use of
+		this event type. When in editing contexts, authors can subscribe to 
+		the beforeinput event instead.
+
+	- event order
+			input.addEventListener("keydown", (e) => {})
+			input.addEventListener("keypress", (e) => {})
+			input.addEventListener("beforeinput", (e) => {})
+			input.addEventListener("input", (e) => {})
+			input.addEventListener("keyup", (e) => {})
+
+			input.addEventListener("compositionstart", fn)
+			input.addEventListener("compositionupdate", fn)
+			input.addEventListener("compositionend", fn)
+
+
+--------------------------------------------------------------------------------
+Tue, 18 April, 2023
+
+pace caret (compete with yourself)
+	- initially i was thinking that i will have a variable in config object which
+	  will be used to determine whether it is trusted keydown or not,
+	- but you don't need to do that because if we do that then typing bots will
+	  bypass the isTrusted check and users can cheat
+	- can we just normally apply whatever caret is selected and according the to the
+	  required speed we can animate typing i.e, move caret according to a fixed
+	  time interval using setInterval api
+
+--------------------------------------------------------------------------------
+Fri, 5 May, 2023
+
+stats
+wpm - total amount of characters in the correctly typed words (including spaces),
+      divided by 5 and normalised to 60 seconds.
+raw wpm - calculated just like wpm, but also includes incorrect words.
+acc - percentage of correctly pressed keys.
+char - correct characters / incorrect characters. Calculated after the test has ended.
+consistency - based on the variance of your raw wpm. Closer to 100% is better. 
+              calculated using the coefficient of variation of raw wpm and mapped 
+							onto a scale from 0 to 100.
+							
+note: include test length (total time user typed) in stats section
+
+--------------------------------------------------------------------------------
+Sat, 6 May, 2023
+
+today i am going to implement forgive error (try to see how will it look like)
+i won't be implementing tape mode in "word mode" because the changes in width
+i.e, translation of word to the left when user moves to next word is very
+abrupt, which makes typists loose focus if they're typing really fast,
+i will implement tape mode in "letter mode", which is fine & cool too :)
+
+HOLYSHIT 🔥
+figured out how to implement tape mode (letter mode) works on monkeytype website
+previous i was using transform css property with translateX which didn't seem 
+to work well
+monkeytype uses margin-left i.e, it gives the words wrapper a fixed margin, gives
+the wrapper a property of overflow hidden and whenever user types in a correct
+letter just substract the margin with the width of the letter, when user hits
+backspace then add the margin with the width of the letter, if user hits any
+moodifer key then first calculate width (no. of letter in word x with of single letter)
+then substract it from margin,
+thats it man, there you have it you tape mode (which seemed impossible at first)
+you could also use left property (css position properties)
+i think transform: translateX(-Npx) will also work because i was using wrong value
+for letter width at first
+so there are three ways to implement tape mode (letter scrolling left & right)
+1. margin-left
+2. left
+3. transform: translateX()
+4. you can use filter: blur() & opacity with ::before & ::after for fading 
+   overflowing text on both sides (i don't know how to do it as of now)
+
+
+&ZeroWidthSpace;
+
+word generator setting
+guided lessions will use tape mode by default like typing.academy, so that user
+gets feedback to they've typed something without looking at the keyboard,
+something has moved on the display when they typed which would boost their
+confidence, but one downside of this would be that they will form the muscle
+memory for tape mode which would not give them the actually typing experience
+like texteditor format which ttypist will be know for, so fuck ditch this idea
+you would have the choice to choose between tape & normal mode, by default tests
+and guided lessons will start in normal typing mode
+
+bro typing.academy is an excellent website for beginners to learn touch typing
+almost all features are there in it that i want to implement, like keyboard
+emulator (helper) as user types is really,
+you need to bring all the features of monkeytype, play.typeracer, keybr, typing.academy
+into one place, thats it.. period!
+
+smooth caret ka pata nhi par smooth line scroll (transition) should be best out of
+all the typing websites, tape mode me left aur right me text fade out v best hona
+chaheye, aur normal mode me top aur bottom line fade v best hona chaheye
+
+smooth line scroll
+	- user will get option to disable/enable line scroll
+	- 4 lines will be visible by default
+	- when lines will scroll upwards then top line ka adhaa faded hoga, bottom line
+	  ka v adhaa faded hoga
+		i mean when top line will scroll up then before vanishing its half portion
+		will be fadeed out (linearly fading from most clear at bottom to least clear
+		at the top)
+		aur bottom line jo aaiga wo uske liye ulta hoga (linearly fading from bottom
+		to be least clear and top to be most clear)
+
+
+inspirations
+	> monkeytype
+			- all the customization configurations
+	> play.typeracer
+		  - underline
+			- typing race
+	> keybr
+		  - forgive
+			- word generation
+			- letter heat map (weakest to strongest)
+			- whitespace (dot, space, bar)
+			- worlds best fullscreen mode experience on a typing websites
+	> typing.academy
+			- guided lessons
+			- tape mode
+			- +additonal features for learning touch type
+
+will added all those patterns of letters which i used to think in my mind when
+i was learning to touch type like
+
+go up
+	aq sw de fr gt hy ju ki lo ;P
+go down
+	az sx dc fv gb hb jn km l, ;.
+go sideways
+	gr ge gw gq hu hi ho hp
+	gv gc gx gz hn hm h, h.
+	gt hy gb hb
+	at st dt ft jy ky ly ;y
+	tr te tw tq yu yi yo yp
+	
+you know i what i mean, be complete beginner or experienced typists, there will
+be something for everybody, no need to go anywhere else.
+it will have normal typing, guided lessons, typing races (once i learn backend)
+
+initially ttypist will be in english (lessons, normal typing), later when i learn
+hindi typing, it will also include every feature in hindi also
+
+remember
+	please note that everything in ttypist will be of free of cost, account system
+	will be there, in future will use machine learning to improve users typing
+	experience by giving them valuable feedback on which letters/words they're weak etc..
+
+
+--------------------------------------------------------------------------------------
+monkeytype
+	behavior
+		> test difficulty: normal | expert | master
+			normal is the classic type test experience
+			expert fails the test if user submit (press space) an incorrect word
+			master fails if user press a single incorrect key (achieve 100% accuracy)
+		> blind mode: off | on
+	  	no errors or incorrect words are highlighted. Helps you to focus on raw speed
+		> min wpm | min acc | min burst (off, fixed, flex(threshold decreases for longer words))
+
+	input
+		> freedom mode (off | on)
+		  allows you to delete any word, even if it was typed correctly
+
+		> strict space (off | on) [this handles if hitting space moves caret to next word or not]
+		  pressing space at the beginning of a word will insert a space character
+			when this mode is enabled
+
+		> opposite shift mode (off | on | keymap (keymap layout setting))
+		  will force you to use opposite shift keys for shifting, using an incorrect
+			one will count as an error. B, Y, ^ are ignore (maybe i will have different opinion)
+	
+		> stop on error (off | word | letter)
+		  letter mode will stop input when pressing any incorrect letters.
+			word mode will not allow you to continue to the next word until you correct
+			all mistakes
+		
+		> confidence mode (off | on | max) [max is handled by turning off backspace]
+		  when enabled, you will not be able to go back to previous words to fix mistakes
+			when turned up to the max, you won't be able to backspace at all
+		
+		> quick end (off | on) [basically its the endtestwithspace option on ttypist :)]
+			this only applies to the words mode - when enabled, the test will end as soon
+			as the last word has been typed, even if it's incorrect. when disabled, you
+			need to manually confirm the last incorrect entry with a space
+		
+		> indicate typos (off | below❌ | replace✅)
+		> hide extra letters (off | on) [error.insert will handle it]
+
+	caret
+		> smooth caret (off | on) ❌
+		> caret (off | line | box | underline | block)
+		> pacecaret (off | line | box | underline | block)
+		  displays a second caret that moves at constant speed.
+			off | avg of all time | lastspeed | avg of last 10 race
+	
+	appearance
+		> highlight mode (off | letter | word)
+		  change what is highlighted during the test
+		> tape mode (off | on) [letter tape mode]
+		> smooth line scroll ✅
+		  animate line transition
+		> show all lines
+		  show all lines of word
+		> show decimal places
+		> font size
+		> font family
+		> font weight
+		> keymap (off | static | react | next)
+		  displays your current layout while taking a test
+			react shows what key you pressed
+			next show what key you need to press next
+	
+	theme
+		> flip text color
+		  by default, typed text is brighter than the future text. when eneabled, the
+			colors will be flipped and the future text will be brighter than the already
+			typed text (in ttypist the order will be opposite of monkeytype's order)
+		> theme: "molokai"
+
+	hide elements
+		> live wpm (hide | show)
+		> live accuracy (hide | show)
+		> live burst (hide | show)
+		  displays live burst during the test of the last word user typed
+		> out of focus warning
+		  show an out of focus reminder after 1 second of being 'out of focus'
+			(not being able to type)
+		> caps lock warning
+
+keybr
+	> whitespace
+	> forgive
+
+typing.academy
+	> tape mode
+	> lessons (make a new account where you'll 7 day free trial and take all the
+	           lessons once to determine which lessons to put on ttypist)
+	
+play.typeracer
+	 	> underline word
+		> words input box
+
+NOTES
+		* live stats can be shown after every keystroke or after every 1 second or
+		  after typing a word i.e, hitting space
+		
+		* figure out how to show/provide these features (definitely i'm not using the monkeytype's style)
+				- time: 15 30 60 120 or chose
+				- word: 10 25 50 100 or chose
+				- quote: all short medium long 
+				- root words
+				- phonetic alphabet
+				- dictionary
+				- lorem epsum
+--------------------------------------------------------------------------------------
+
+get back to learning css grids (do practicals along with theory)
+
+make keyboard layout very flex i.e, function row, numpad, arrow column etc should
+be able to exist independently (removing components wont affect rest of the layouts)
+layout every piece of ttypist website's page/components using css grids
+
+3 shades of dark & light theme
+
+4 lines will be visible by default
+
+pace caret handler will select all letters at once, have a letter index, use 
+this index to add/remove pace caret at constant speed (using setinterval with
+appropriate time in ms)
+
+mousemove should deactivate test area and make settings & stats sections visible
+
+
+fullscreen icon (copied from youtube video's ui)
+	<svg>
+		<g> <path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path> </g>
+		<g> <path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path> </g>
+		<g> <path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path> </g>
+		<g> <path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path> </g>
+	</svg>
+
+the goal is to stop user from going back to previous word and correctinig their
+mistakes, as well as providing a way to stop backspacing at all,
+stopping user from backspace at all can be achieved using backspace.off config,
+we only need to find a way to prevent user from going to previous word for 
+erorr correction,
+there must be a way to stop user from submitting a wrong word and proceeding to
+next word until user has correctly all the mistakes of current word,
+
+difficulty
+	- beginner is the classic type test experience.
+	- expert fails the test if you submit (press space) an incorrect word.
+	- master fails if you press a single incorrect key (100% accuracy).
+
+stoponerror
+	- off, will not stop on errors
+	- letter, will stop input when pressing any incorrect letters.
+	- word, will not allow you to continue to the next word until you correct all mistakes.
+
+confidence
+	- low, default behaviour, can go back as much as user wants to correct mistakes
+	- high, will not be able to go back to previous words to fix mistakes, but 
+	  current word errors can be fixed by using backspace
+	- max, won't be able to backspace at all i.e, backspacing will be turned of (backspace.off = true)
+
+
+bro.. bro.. there's stoponerror setting which does the thing which you're talking
+about which is stoponerror.word doesn't allow user from submitting 
+
+mobile version will have tape mode enabled by default
+how to store fonts, icons, images on localStorage
+
+------------------------------------------------------------------------------------------------------------
+KeyboardEvent:
+		DOM_KEY_LOCATION_STANDARD =  0
+		DOM_KEY_LOCATION_LEFT 		=  1
+		DOM_KEY_LOCATION_RIGHT 	 	=  2
+		DOM_KEY_LOCATION_NUMPAD 	=  3
+
+	- string
+			code
+			key
+			type
+
+	- booleans
+			isTrusted
+			altKey
+			metaKey
+			ctrlKey
+			shiftKey
+			bubbles
+			repeat
+			cancelBubble
+			cancelable
+			composed
+			defaultPrevented
+			isComposing
+			returnValue
+
+	- number
+			location -> (0, 1, 2, 3)
+			charCode
+			detail
+			keyCode
+			eventPhase
+			timeStamp
+			which
+
+	- object
+			view
+			currentTarget
+			sourceCapabilities
+
+	- htmlelement
+			target
+			srcElement
+
+e.key
+			(Control, Shift, Alt, Meta)
+e.code 
+			(ControlLeft,	ControlRight)
+			(AltLeft,	AltRight)
+			(ShiftLeft,	ShiftRight)
+			(MetaLeft, MetaRight)
+location
+			0 is standard
+			1 is left
+			2 is right
+			3 is numpad's keys (locked, unlocked)
+
+		ArrowUp	-  KeyW	 - 	Numpad8
+	ArrowLeft	-  KeyA	 - 	Numpad4
+ArrowRight	-  KeyD	 - 	Numpad6
+	ArrowDown	-  KeyS	 - 	Numpad2
+
+use
+	addEventListener("keydown", () => {})
+	addEventListener("keyup", () => {})
+
+================================================================================
+
+please do mention that user can select multiple buttons at the same time in some
+settings like warnings, modifier etc..
+
+note 🫵 📌
+	hitting forgive error will turn off error.replace and turn error.insert,
+	hitting error.replace will turn off forgive error
+
+	if error.off is turned ON then forgive, error.insert, error.replace, error.stop.letter,
+	error.stop.word will be turned OFF and letter will move without inserting, replacing,
+	errors i.e, no error letter/word will be highlighted and caret will move forward
+	even if user types in incorrect letters, this will help user to focus on raw speed
+
+	if error.stop.letter is turned on, then turn off forgive errors, turn off error.replace
+	and turn off error.insert
+	if error.stop.word is turned on, then error.insert, error.replace is possible,
+	user just needs to correct its mistakes and submit the correct word, but user
+	cannot submit an incorrect word, so we should not let user's errors to be
+	forgiven therefore turn off forgive
+
+	if backspace.off is set to true then confidence will switch to max and vice-versa
+
+if dynamicsettingchange is on then as user selects options in settings make the
+required changes at the moment itself i.e, don't restart test,
+but if it is turned off then restart the test with required changes, in this case
+don't allow user to type again until they manually restart test
+
+when user is practicing numrow digits, then only numrow's digits should be used
+if the user uses numpad's digits then it will be counted as error and user will
+be informed about the same,
+same will be the case for numpad's digits, if user types numrow's digits then
+error should be indicated
+
+there's no concept of out of focus in ttypist, visual focus in and focus out will
+be there
+
+on keydown start the process of making the string for forgive ui, on key up check
+if the string formed is either 3 or 4 and compare its last 3 characters with
+the next 3 characters
+
+the first goal is to implement the texteditor main features which is insertion (error),
+and deletion(+backspace, +modifier)
+
+todo
+	- implement all config button (including their dependencies), ui part only
+	- texteditor feature (+backspace, +modifier) i.e, error insertion
+	- then one by one implementing all config options
+
+#################### 👴 archived config option behaviour 👴 ####################
+<text>
+	<word>
+		<letter></letter>
+		<letter></letter>
+		<letter></letter>
+	</word>
+	<word>
+		<letter>&nbsp;</letter>
+	</word>
+	<word>
+		<letter></letter>
+		<letter></letter>
+		<letter></letter>
+	</word>
+</text>
+
+--------------------------------------------------------------------------------
+backspace
+
+- ON?
+	enable key combinations like (ctrl/opt/alt + bs) & (meta + bs) & (backspace)
+- OFF?
+	disable backspace/deletion (if current word & later words are typed incorrectly 
+	then allow backspace deletion)
+
+deletion (deletion of wrongly typed letters)
+	- only backspacing
+		deletes one letter at a time so NO concept of stopping at special
+		symbols like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+
+	- backspace should work like normal texteditor, it should clear letters
+		all the way to first letter of first word if the user keeps on hitting
+		backspace
+
+	- meta + backspace
+		deletes all a wrongly/correctly typed letters at once putting the
+		caret on first letter of first word.
+		no concept of stopping on special characters
+
+	- delete one word at a time
+	  alt  + bs
+		opt  + bs
+		ctrl + bs
+		deletes on word at a time, need to take a special care of special
+		character like `~!@#$%^&*()-_+=[]\{}|;':",./<>?
+
+		note: '_' is considered as text not special symbol when deleting
+
+		Test this string by moving along with arrow keys & also deleting them
+		with key combinations ctrl+bs & alt+bs
+		akda~adfb`adfc!adfd@adfe#eref$werg%werh^adi&dfaj*sfsdek(adfl)adfm-adfn=sdfosf_dfdpadf+dfaq{erer[erws]fct}feu|werv\ftagsw;dwcex:geeey"gwedz'gecsa,gecwxb<gecwxc.fedctd>awcce/tecwf?gecwcg
+	  ab~ab`ab!ab@ab#ab$ab%ab^ab&ab*ab(ab)ab_ab-ab+ab=ab{ab}ab[ab]ab|ab\ab'ab"ab;ab:ab/ab?ab.ab>ab,ab<ab
+
+		- if text is before caret then delete till first special character
+		  note that underscore and digits are considered as text when it is 
+			mixed with text, so you when delete, stop after them (digit/underscore)
+			use ctrl/alt + bs on these strings
+			slfsle_)&#*$(#$*)fjfkfi38748lf
+				    ^
+			slfsle8)&#*$(#$*)
+					  ^
+			2`~!_@#$%^&*_()-064=+[]\_{}|hr23_;':",hr_34./<0>?
+			^   ^           ^             ^ ^       ^ ^
+
+		- if special character is before caret
+					- then delete only that special character if there's only 1 special character
+					- if there are multple special characters together (they're all same or different)
+					  then delete all of them at once until first text character is encountered
+
+windows:
+	- ctrl + backspace (works like opt + backspace)
+	- alt + backspace (doesn't work as expected)
+			- so users of mac only can enjoy alt+bs not windows
+	- fn + backspace/arrow (works like cmd key)
+	- disable meta + bs by default (users can change it if they want to)
+	- only ctrl/opt + bs (no alt+bs)
+
+IMPORTANT POINTERS
+	- clear an entire word and put the caret at the first letter of the current word
+	- if caret is at first letter of a word then you should clear the previous word
+		and put the creat on first letter of previous word
+
+	- stoppers: mimic behaviour of backspacing in case special symbols are present
+				      in the text i.e, caret should stop before the characters below
+				      ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+							please note that space character also acts like stoppers while 
+							deleting using modifier keys
+
+--------------------------------------------------------------------------------
+difficulty
+
+- normal is the classic typing test experience
+- expert fails the test if you submit (press space) an incorrect word
+- master fails if you press a single incorrect key (need to type with 100% accuracy)
+
+--------------------------------------------------------------------------------
+confidence
+
+- low, default behaviour, can go back as much as user wants to correct mistakes
+  or if they're mad
+- high, will not be able to go back to previous words to fix mistakes, but 
+	current word errors can be fixed by using backspace
+- max, won't be able to backspace at all i.e, backspacing will be turned of (backspace.off = true)
+
+if !confidence.off && confidence.mode.max then turn off backspace (backspace.off = true)
+
+--------------------------------------------------------------------------------
+error
+
+CORE RULES
+	stop
+		- off will not stop on letter/word upon error, insert, forgive, replace 
+		  is possible
+		- letter will stop input when pressing any incorrect letters
+		- word will not allow user to continue to the next word until user correct
+		  all mistakes
+
+> error.off
+> error.insert
+		- maximum 10 letter between two letters and maxium 15 letters between two words
+> error.replace
+		- if turned on then insert and forgive should be turned off
+> error.forgive
+> error.stop.off
+> error.stop.letter
+> error.stop.word
+
+error
+  - insert
+    maximum of 10 character can be inserted between two words and maximum of 15
+    characters can be inserted between a word and a whitespace word
+
+error:
+	- stop
+			- off (no action)
+			- letter (will turn off insert & forgive)
+					- no error insertion, so turn off error.insert
+			  	- stop input when pressing any incorrect letters i.e, don't proceed caret
+      - word
+				 	- error insertion will be there, so turn on error.insert, since user
+					  will not be allowed to proceed further until they correct all their
+						mistakes therefore turn on backspacing
+			   	- not allowed to continue to the next word until user corrects all mistakes
+				    i.e, caret is allowed to move back and forth within the current word but
+				    not allowed to proceed to next word
+
+	- insert
+			- underline the letter which you're inserting if Config.underline is turned on
+				whatever be the highlight mode (letter/word)
+			- on  (insert errored letters)
+			- off (do not insert errored letters)
+			- add maximum of 6 letters between letters of a word
+			- add maximum of 20 letters after a word i.e, before whitespace 
+			  character (in word which contains whitespace)
+			- insertion of space, depending on type of whitespace characters should be
+			  inserted, in case of space insert a space with lightpink/red background
+				like you have in tape mode, with bullet & bar insert them with lightred/pink
+				background
+
+	- forgive
+	  	- to emulate keybr's behaviour,  turn off error.stop.letter & error.stop.word
+			  turn on error.insert
+			- insert incorrect letters, if user hits correct letter then delete all
+			  errored letters, mark the letter as red for which incorrect letters were
+			  inserted(typed) and move the caret to next letter/word
+			- after typing the last letter of a word, instead of typing space if you type
+				three characters of next word correctly in sequence, i.e, the typed 3 
+				charcters should exactly be equal to the first 3 characters of the next word
+				then caret moves to fourth character of the next word marking the space 
+				character as error
+			- you're allowed to type one extra character before typing those 3 
+				(anything more than 1, will not move caret to next word's fourth letter)
+			- when caret is in <word><letter>&nbsp;</letter></word>, then build a string
+				if error.forgive is turned on, if length of string becomes 3 or 4 then take
+				suffix of length 3 and compare it with prefix of length of next word, if it
+				matches then move caret to 4'th letter of next word
+				but mean while if user types in space (which needs to typed in order to move
+				caret to next word) during building this string then caret moves to first 
+				letter of next word (which is the default behaviour of forgive errors)
+				
+				another observation📌
+				please note that, it doesn't have to be a space character only, any caret
+				can move to 4th character for any character as long as user types in the
+				next 3 character in sequence correctly
+				user can type only 1 character wrongly before typing that 3 characters
+				correctly in squence, that means you string should have altleast length
+				4 and last 3 characters should match 3 characters after the character which
+				needs to be typed
+
+				implementation
+				on keydown if the typed letter is incorrect then start making the string
+				for forgive error, on keyup compare the string formed if length 3/4,
+				otherwise if the length is greater then don't compare,
+				if user hits backspace then decrease the length of the by deleting last
+				character (backspace deletes the last incorrectly inserted character,
+				so the internal string form should also mimic that, after deleting
+				if string length becomes 3/4 again then compare it again for forgiving)
+				
+			- skim & observe keybr's forgive for more info...
+
+note 🫵
+	hitting forgive error will turn off error.replace and turn error.insert,
+	hitting error.replace will turn off forgive error
+
+	if error.off is turned ON then forgive, error.insert, error.replace, error.stop.letter,
+	error.stop.word will be turned OFF and letter will move without inserting, replacing,
+	errors i.e, no error letter/word will be highlighted and caret will move forward
+	even if user types in incorrect letters, this will help user to focus on raw speed
+
+	if error.stop.letter is turned on, then turn off forgive errors, turn off error.replace
+	and turn off error.insert
+	if error.stop.word is turned on, then error.insert, error.replace is possible,
+	user just needs to correct its mistakes and submit the correct word, but user
+	cannot submit an incorrect word, so we should not let user's errors to be
+	forgiven therefore turn off forgive
+
+	if backspace.off is set to true then confidence will switch to max and vice-versa
+
+use border bottom instead of css text decoration to underline the errored letter
+in a 
+if you use border bottom then there's no break in underline, you get a smooth and
+continuous underline
+use border-bottom-width, border-bottom-style, border-bottom-color
+i need to underline whole word, so i will use js to give border bottom
+to all letters for desired word
+
+insert error only if it is alphabet (lowercase, uppercase), digits, ascii symbols
+reset of the modifier keys like Enter, CapsLock, Meta etc should also be ingored
+along with criptic characters which are inserted when using keycombinations like
+shft + alt + anykey
+
+we will need "incorrect" classname when letter highlight mode is turned on, we
+will have color red for all those letters which are typed incorrectly and
+classname "incorrect" will help us do that,
+
+classnames: will be added/removed as the user types/deletes letter/word
+		- "correct"
+		- "incorrect"
+			if its letter highlight mode then "incorrect" clasname will show the  
+			letter was incorrectly typed by making it red colored
+			if its word highlight mode then "incorrect" classname will have more darker
+			shade of red color on the errored letter, rest of the correct letters 
+			will have lighter shade of red
+		- "error"
+			used for only words be it any highlight mode (letter/word)
+		- "extra"
+
+we're not going to move the caret if user types incorrect letter, we will either
+not move at all or if user hits the correct...
+
+note bro there's no concept of going to next work by just hitting space character
+so i am not going to implement this feature 
+if error.insert is off then we will emulate monkeytype's feature i.e, if user
+types an incorrect letter than move the caret to next letter and mark the
+wrong letter as errored, if after typing last non-space letter (character just
+before the space) then add the extra letters, if user hits space anytime while
+typing the sentence then move to next word leaving all the errored and extra
+letters as it is.
+
+
+default: (like keybr)
+	- no matter whether highlight mode is letter or word, behaviour will be same
+		for both
+	  if user types wrong letter than don't move the caret forward (stays before
+		that letter), once user types the letter correctly then move the caret to
+		next letter and mark the previous (wrongly typed) letter as red color
+
+underline:
+	border-bottom (incase of error, added on per letter basis)
+	text-decoration (incase of underline active word is turned on, added per word basis)
+	
+border bottom will be used instead of text decoration later
+border bottom on all letters of a word will give the word continous 
+underline unlike text-decoration, but the way now line and box caret is
+implemented makes this hack also obselete
+
+PLEASE NOTE THIS
+I WILL USE AI (MACHINE LEARNING) TO HELP PEOPLE IMPROVE THEIR TYPING SPEED
+
+--------------------------------------------------------------------------------
+highlight
+
+CORE BEHAVIOUR
+	- off
+		if true, then no letter/word highlighting visible, whole sentence's text is
+		of single solid color caret's position in the sentence will tell which 
+		letter/word the user is typing
+
+	- mode
+			- word
+				active word is either lighter/brighter then rest of the words
+				in the sentence
+			- letter
+				typed text is lighter/brighter and future text is brighter/lighter
+				in color
+
+when highlight mode is letter & underline word is turned on then emualte
+play.typeracer's behaviour i.e,
+	- underline active word
+	- as user types a letter correctly make that letter fade/bright depending on
+	  fliptextcolor's value
+
+--------------------------------------------------------------------------------
+pacecaret
+
+1. margin-left
+2. left
+3. transform: translateX(-x)
+
+for bluring text on left & right and bluring top & bottom lines use filter: blur(),
+opacity, ::before & ::after css properties or find similary
+properties to achieve the desired result
+
+
+smooth line scroll
+	- user will get option to disable/enable line scroll
+	- 4 lines will be visible by default
+	- when lines will scroll upwards then top line ka adhaa faded hoga, bottom line
+	  ka v adhaa faded hoga
+		i mean when top line will scroll up then before vanishing its half portion
+		will be fadeed out (linearly fading from most clear at bottom to least clear
+		at the top)
+		aur bottom line jo aaiga wo uske liye ulta hoga (linearly fading from bottom
+		to be least clear and top to be most clear)
+
+turn off forgive errors when user uses tape mode because there's width change
+when all the inserted letters are deleted when user types in the correct letter
+i.e, caret shifts to the left from its fixed position whenever there's letter
+deletion
+
+60 words per minute, meaning typing sixty words of length 5 in 60 seconds, it
+means typing 300 characters in 60 seconds would give you 60wpm, so what is the
+interval of time between two consecutive keystrokes
+300 characters in 60000 milliseconds, means 1 character should be typed in 
+60000/300 = 200ms (time difference between two consecutive keystrokes must be 200ms)
+so if 200ms is for 60wpm then for 1wpm it will be 200/60 [(10/3)ms]
+
+1 wpm = 10/3 ms
+
+300 character = 60000 ms
+  1 character = 60000 / 300 ms
+
+you need to convert the wpm to character per minute in order to get interval in milliseconds
+ms for 80wpm = 60000 / (80 * 5)
+
+--------------------------------------------------------------------------------
+keyboard 
+
+keypress reaction (ui)
+   when keydown add background-color & color to the key box
+   when keyup remove background-color & color from the key box
+
+Config.keybaord.reaction
+   - off, turn of ui keyboard
+   - static, just displays user's current layout while taking a test but doesn't 
+	   react to any keypress
+   - react, shows what user pressed
+   - next, shows what user need to press next
+
+--------------------------------------------------------------------------------
+tape
+
+InputElement.value | InputEvent.data | InputEvent.inputType
+
+InputEvent (mdn)
+https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
+
+InputEvent (w3c)
+https://rawgit.com/w3c/input-events/v1/index.html#events-inputevents
+
+InputEvent.inputType attribute values
+https://rawgit.com/w3c/input-events/v1/index.html#interface-InputEvent-Attributes
+
+--------------------------------------------------------------------------------
+practice
+
+when user is practicing numrow digits, then only numrow's digits should be used
+if the user uses numpad's digits then it will be counted as error and user will
+be informed about the same,
+same will be the case for numpad's digits, if user types numrow's digits then
+error should be indicated,
+similary is the case for shift key, be it the user is typing brackets, capitals
+or special symbols, user needs to use the opposite shift key (initially QWERTY
+will be supported)
+
+--------------------------------------------------------------------------------
+underline
+
+Config.underline.on
+	- if highlight mode is letter then add/remove underline letter by letter when
+	  insertion or deletion or caret moves normally forward as user types letters
+		correctly
+	- if highlight mode is word then add/remove underline word by word
+	
+Config.underline.off
+
+please note:
+	if Config.caret.type === "block" then the underline of the letter if highlight
+	mode is letter then whatever block caret's background color is, the underline 
+	color of that letter will be same as the caret's background color
+
+#################### 👴 archived config option behaviour 👴 ####################
+
+
+
+one possible ui for ttypist which would make it feel different, you can put the
+settings section one side of the viewport i.e, test area on one side and setting
+area in another side
+
+monkeytype provides custom practice as funbox but ttypist will allow user to
+selected from menu and keyboard section what they want to practice typing,
+there will be keyboard selection section like all the key names will be hidden
+only keyboard section name will be visible with buttons, user can select and
+deselect sections and then practice only selected sections
+
+whitespace
+when user changes white from space to bullet/bar then intially give it a hard
+color then then give the primary color, so that user sees it visually that
+whitespace has changed
+also regardless of whether highlight mode is letter or word or highlight mode is
+turned off, when caret comes before the whitespace (bullet/bar), it should light up
+
+
+i will do competitive programming for my country, i will put my country to the top
+in the field of competitive programming world
+i will do touch typing competitions as well, will put my country to the top in
+touch typing world as well
+i maybe broke but i will be on the top 1% of whatever i do in life...
+i'll leave the country, probably would go in the middleeast countries work as a
+labour but i will not stop coding..
+
+
+there should be two views of settings section, one would be condensed and the
+other will be expanded (description of what the setting does)
+
+if a user turns off errors then caret should move depending on error.stop value
+no user has stopped error,
+i'm confused now, i will need to rearrange and add more options in error section
+
+when user wants to reset their settings then what will you do?
+i will store the default config in string format in a variable using JSON.stringify()
+method, and whenever users wants to reset their settings then i will convert that
+stringified config object to javascript object using JSON.parse() method and 
+assign the values of the parsed config object to user's config object, also after
+assignment i will store it in localStorage
+
+new folder structure for the project, inspired from a github user's projects,
+the-hyp0cr1t3: this guy is a pro at making commandline software, he uses cmake
+with c/c++ to make CLI software, i wish lpu had not fucked me that hard in 4th
+semester, then i would also have been in this phase of c++ development man..
+no worries i will cover up soon, i too will make this kind of software mate..
+
+
+add styles to pseudo elements using javscript via css classes or
+css variables
+
+💡
+.hidden-scrollbar::-webkit-scrollbar {
+   visibility: hidden;
+}
+document.getElementById("editor").classList.add('hidden-scrollbar');
+document.getElementById("editor").classList.remove('hidden-scrollbar');
+
+later add min wpm, min acc, min burst options as well since they're the easiest
+to implement,
+
+monketytype:
+	difficulty(+normal +expert? +master)
+	word submission [controls letter/word input (correct/incorrect)]
+
+	freedom mode(off on) [default, users won't get a choice on this because ttypist is emulating texteditor]
+	allows to delete any word, even if it was typed correctly
+
+	stop on error(off word letter)
+	controls movement of caret forward
+
+	confidence(off on max) [controls the backspace]
+	"on" won't allow to go back to previous word, but backspace can be used on current word
+	"max" disables backspace key
+	
+	indicate typos(+off -[below] +replace) [error.insert, error.replace, error.forgive]
+	blind(off on) [error.off]
+	no errors or incorrect words are highlighted
+
+	hide extra letters 	(off on)? (will not be implemented, bcoz it feels/looks weird or confusing on monkeytype if this setting is enabled)
+	hide extra letters feels very awkward because monkeytype only insert letter after
+	the last letter..
+	
+	there's two ways to hide extra letters
+		- error.off (blind mode)
+		- error.stop.letter
+
+	strict space(off on) [will be implemented, i.e, hitting space will move caret to next word]
+	pressing space at the beginning of a word will insert a space character
+
+	quickend (end test with a space regardless of whether highlight mode is letter or word)
+
+in monekeytype what happens is that when a user types an incorrect letter it is not
+insert, it either shows incorrectly typed letter below or replaces the letter to
+be typed with incorrect letter, or by default it just moves the caret forward
+one letter and marking the previous letter as red, it only inserts extra letters
+after the last character of the word, why am i telling you all this...
+initially i was confused on how to implement difficulty.expert mode, in monkeytype
+if user hits a space then caret moves to next letter, so if a user types a space
+in between the word then it is considered wrong word and word gets submitted
+thus failing the test
+on ttypist caret will move forward regardless of letter is being typed correctly
+or incorrectly only in blind mode, caret going to next letter by typing a space
+is not possible (ttypist implicitly uses strict space mode i.e, hitting space
+before last letter of a word won't move caret to next word),
+btw i have just decided to allow users to choose this setting also,
+by default user will either insert, replace, forgive errors and when user goes
+past last letter and then user submits the word by hitting space character then
+it will be considered as submittng the word as incorrect
+
+how a user will submit a wrong word?
+- insert (insert will by default follow keybr's behaviour)
+- replace (how will replace ensure that user has submitted incorrect word?)
+- forgive (it will be turned off when expert mode is turned on, ...wait! forgive 
+  can also submit a wrong word)
+
+🫵
+after making all kids errors (insert, replace, forgive) if user hits a space when
+he/she is supposed to then the word is considered to be incorrect (add class "error")
+
+thinking to emulate keybr's behaviour by default, which is inserting errrors
+when user types in incorrect letter, when user hits the correct letter then
+mark the letter as red and leave the inserted errors as it is with dark red color
+
+i'm not finding any way configure monkeytype to insert extra letters in between
+the letters of the word, it seems monkeytype only allows users to insert extra
+letters after last letter of a word
+
+how will replace ensure that user has submitted incorrect word?
+insert and forgive ka toh fix ho gya hai user kaise submit karega incorrect word
+
+...wait! forgive can also submit a wrong word, you know the mechanism how forgive
+errors work? right? in short if a user types in the letter correctly after inserting
+extra letters then those extra letters are deleted and the letter to be typed is
+marked as red and caret moves to next letter, so my friend if a user goes till
+the last letter of the word, given that user has been forgiven in between for
+his/her mistakes then the word will be considered as incorrect, user can also
+correct their mistakes of a forgiven error word by going back till the last error
+and clearing it and typing it correctly again..
+
+i now discovered that space is considered a part of the current word being typed
+
+i think you should put the space in the character in the word itself, a big NO
+from the depth of my heart, i will micro manage everything but space will have
+its own word tag
+
+conclusion
+since ttypist implicitly use strict space (caret doesn't moves to next word by
+hitting space), so user cannot submit an incorrect word by just hitting space
+in between the word, they can however submit an incorrect word when they hit
+any other character (other than space which needs to be typed in order to move
+caret to next word) after last letter of the word,
+user can submit an incorrect word when they're in insert, replace or forgive
+mode as well, as discussed aboved
+so difficulty.expert is possible in ttypist (initially i thought how is it possible
+with strict space mode), it is completely possible vro!
+
+on most websites don't allow to delete previous word if they're typed correctly,
+monkeytype does (users have to turn ON feature by themselves)
+play.typeracer allows backspacing only on currently word not on correctly typed
+previous word, btw you cannot move forward (submit incorrect word) on this
+website, so you always submit a correct word and you're not allowed to go back to
+the previous word which you typed correctly,
+same is the case for monkeytype by default i.e, it doesn't allow to go back if
+previous word was correctly typed but monkeytype allows you to submit
+an incorrect word (ttypist also will allow),
+
+it makes sense also that why user will bother or has the need to go back the
+word which he/she has typed correctly and again retype it,
+
+but my friend its ttypist, and ttypist follows the principles of a pure texteditor
+so ttypist will allow users by default to delete any amount of previously typed
+words..
+
+write short notes on all the conclusions drawn above.. then proceed to other configs
+
+📌 aayush bhaiya ka feature request
+		   - cyber punk font (with sound - gunshot)
+			 - san andrease font ("oh shit here we go again" song on )
+
+play.typeracer
+	- backspacing is allowed only if previous word is incorrect
+	  backspacing is allowed in active word (even if previous letters are typed correctly)
+	- tape mode there available (only word tape mode not letter)
+	- letter and word highlight mode is there with some restriction on word highlight
+	  mode i.e, caret is not available in word highlight mode, its available in
+		letter highlight mode (letter highlight mode is called partial highlighting)
+	- current word is underlined in partial highlighting, underline is also available
+	  in word highlight mode, but it is not available word tape mode
+
+i was thinking to implement word highlight also in ttypist after seeing play.typeracer's
+word highlight mode,
+word always stays on the left of the container, it is in word highlight mode also
+there's no caret (caret is off), as user submits the word by typing is correctly
+then that word gets deleted and next word comes to its place i.e, next words
+gets shifted to the left to bring the next word on the extreme left of the container
+so that it can become active word
+ttypist won't implement word tape mode because it looks and feels awful, the
+displacement is very abrupt and too much, it won't be good for the eye for those
+typists who type very fast
+
+
+ARROW KEYS ARE IN THE GAME BABY (I DREAMT OF IT AN FINALLY IT'S GONNA BE ADDED)
+enable arrow keys
+only if error.off is true
+allow selection of text using shift+arrow-left/right since input box can be
+visible allow alt+arrow-left/right
+even allow just arrow up/down or arrow left/right
+make it feel like text editor full specked out
+
+don't have to add class "off" and id "off" in letter tags, if a user choses to
+turn of caret then it is not required to have specific stylings like other caret
+styles does, we don't need any caret so we don't need the id and class of off,
+therefore when creating letters don't add off as class but instead add empty
+string, while moving the caret if caret style is chosen off then add empty string
+here as well
+
+--------------------------------------------------------------------------------
+
+one last time gathering (extracting features from by favourite typing websites)
+
+https://www.keybr.com/
+https://www.monkeytype.com/
+https://play.typeracer.com/
+https://www.typing.academy/
+
+play.typeracer
+	- word tape mode
+
+typing.academy
+	- letter tape mode (fade in/out image and idea for scrolling text left)
+
+yeah baby, we're now ready to implement all features of ttypist, there's not feature
+left which you know miraculous on other website (other than monkeytype) that needs
+to be used here in ttypist,
+use the config's ttypist can be made to emulate any standard website that exists
+out there...
+
+Fri 16 Jun 2:14 AM
+All features to be implemented are gathered from other websites, now its time to
+make those features a native feature of ttypist with its own taste...
+
+NOTE
+	don't forget to use the evt.isTrusted property to detect possible bots clicking
+	the buttons, so use evt.isTrusted for avoiding bots to click setting buttons
+
+	before storing value attribute's value from a button don't forget to convert a
+	string to number in value attribute of a button which stores numbers
+
+  
+-------------------------------------------------------------------------------------------
+💡✨
+-moz-osx-font-smoothing: auto;
+-webkit-font-smoothing: subpixel-antialiased;
+
+-moz-osx-font-smoothing (firefox)
+		auto - allow the browser to select an optimization for font smoothing,
+						typically grayscale.
+		grayscale - render text with grayscale anti-aliasing, as opposed to the subpixel
+								switching from subpixel rendering to anti-aliasing for light text 
+								on dark backgrounds makes it look lighter.
+
+-webkit-font-smoothing (macOS)
+		       auto - let the browser decide, uses subpixel anti-aliasing when available.
+		       none - turn font smoothing off; display text with jagged sharp edges.
+		antialiased - smooth the font on the level of the pixel, as opposed to the subpixel.
+									switching from subpixel rendering to anti-aliasing for light text 
+									on dark backgrounds makes it look lighter.
+		subpixel-antialiased - on most non-retina displays, this will give the sharpest text.
+-------------------------------------------------------------------------------------------
+
+
+- have click event listeners on all buttons (DONE)
+- update necessary ui changes when clickedon a button i.e, select the clicked button
+  and unselect the previously selected one
+- update in config object
+- also handle all dependencies among different config options and update in both
+  config and ui
+
+what names should i keep for function names?
+well you will have to use camel case in the first place...
+have concrete to the point names,
+
+changeWhateverConfigUI(value)
+changeWhateverConfigInConfig(value)
+
+these two functions will also handle dependencies, ui one will update all ui
+related dependencies, and config one will do the same but in config object
+
+- whitespace color (dot, bar)
+		- different color is not used, primary & secondary color are only, i.e, color 
+			is same but opacities are less and different for active and inactive
+		- inactive whitespace opacity is kept at 0.4 and active whitespace 
+			opacity is kept at 0.8
+		- there's a problem now with this, if primary and secondary colors are drastically
+			different then dot colors of primary and secondary text are very different
+		- one way to solve is to take color of the background instead of text (primary, secondary)
+			by background i mean backgroud color of the text continer which will depend on
+			the colorscheme
+		- another way to solve is to change the color typed text whitespaces to secondary
+			color which would match the colors of whitespaces with primary and secondary colors
+			i.e, when user has different colors for primary and secondary which are visually
+			very different then whitespace colors will match and only two shadeps of colors 
+			will be there, one primary (text + whitespace) and other secondary (text + whitespace)
+			if we don't do this then there will be three colors, one primary color (text + whitespace)
+			second will be text color of secondary color and 3rd will be primary color with less
+			opacity in typed text area (the dot and bar whitespaces)
+		- all these are bullshit, because there was a simple solution for it, actually
+		  because of a bug and a little bit of css produces the desired result of the
+			mess that i have created above with words,
+			i wasn't adding class "correct" to whitespace letter, but even after adding
+			class correct it didn't work because "correct" gives only color but the dot
+			is a ::after pseudo after element (element's width & height is used to
+			draw the dot) so giving it a color via "correct" class was not working out
+			so i selected the pseudo element with css again in a different block and
+			gave it the secondary color like this..
+
+				text word letter.whitespace.bullet.correct::after {
+ 					 background-color: var(--text-color-secondary);
+				}
+			
+
+THIS DISCUSSION WITH MYSELF LED TO THE CREATION OF NEW CONFIG NAMED "move to next on space"
+AND THE DELETION OF "strict space"
+- skip
+		- turns off strictspace i.e, user is allowed to move to next word by hitting space
+		- when user hits space in-between a word then use autotyper to move caret in a very
+			lightening speed (400+ wpm) to next word (putting caret on first letter of next word)
+		- when user uses backspace then take caret to the letter for which space was hit to
+			move to the next word, but if user uses (backspace + modifier) then clear whole
+			word (which is default behaviour btw)
+		- skip has two features
+				- if user makes a typo which is not space then the current letter will
+					be marked incorrect and caret will move to next letter of the word
+				- if user makes a space typo (i.e, typed space when not required), then
+					letters not typed will be left unharmed (no highlighting) and whole
+					word will be marked incorrect and caret will move to next word
+		- when user has typed all the letters of a word and he/she is about to type
+			space in order to move to the next word than if user types in an incorrect
+			letter then it is inserted but on ttypist if skip is turn on then caret
+			will move to next word skpping the space character also and won't insert
+			any characters, but if user hits a space in between the word then caret
+			will move to next word
+
+		- if strict space is turned on and skip is also turned on then on hitting
+		a space typo will move caret to next letter like normal behaviour
+		- if strict space is turned off and skip is turned on then hitting space
+		will move caret to next word
+
+		- if a user turns off strict space then caret will only skip letters on space,
+		which means that only space won't be inserted rest letters will be inserted,
+		
+- replace
+		- typos will be replaced with the character which need to be typed
+		- if space is hit as a typo then a light background color will be used instead
+			of replacing the letter with current whitespace symbol, because if we
+			replace typo space with current whitespace symbol then it will split the
+			current word into multiple words (if multiple space typo is made), which
+			would not look good visually, there should not be any separation
+
+by default skip me hum skip krte rahenge letters jabtak user ulta fulta type karte
+rahega, aur by default replace me letters replace karte rehna jabtak user ulta fulta
+type karte rahega, par agar "toNextOnSpace" turned "ON" toh skip aur replace mode
+me space hit krne pe caret next word pe chala jaiga,
+ya bsdk option he na de users ko, aur monkeytype ko emulate kare, yahi dono mode me
+space hit karne pe next word pe chala jaiga caret..
+yaar bahot confusing ho jaiga users k liye ye option, bsdk kon chahega ki space
+daba ne se next word pe caret chala jai
+
+
+find a way to turn the ON button (fixed button in case of burst) when user clicks
+on the input by himself/herself to enter value for speed or accuracy or burst
+like you can use focusin & focusout eventlisteners along with input eventlisteners
+on the threshold input tags of the custom inputs..
+
+burst input (ui)
+ya found that way, see when we are in input function then user is typing in the
+input field so we need to check if this.value is off then turnd it on in case
+burst make it fixed (default value), caution: we should not check if input field
+is empty because jabtak hum check empty ke condition pe pahuchenge tab tak input
+field non empty ho gya hoga, aur fir user empty field clear be kar sakta hai
+so you need to check on every keystroke if this.value is off or not
+there's one more case that i need to handle which is if user clears the input fields
+and loses focus from the input field and ON button is still active then you need
+to make off button active
+
+close all details tag if left opened
+how will you prevent from closing details tag if user is clicking inside its list
+keydown is ok i.e, if user hits escape then list will be closed but click has problem
+you need to select all the list and check if user has clicked on the list then
+don't close the details tag, if multiple details tag is left opened then
+all will remain opened if user is interacting with anyone of those details tag
+but if user hits esc button or clicks anywhere other than list sections of details
+tag then all opened details tag should be closed
+therefore you also need to have an iterable object containing all lists of all
+details tag
+you can use elem.parentElement property to get details tag, so you don't have to
+main two objects in memory to contain details tag and their lists separately
+its more convenient to have click listeners on details list instead of the details
+tag itself,
+so chaning the details object to contain list of details tag...
+
+🫵🫵🫵🫵🫵🫵🫵🫵🫵
+--------------------------------------------------------------------------------
+Mon 10 Jul 2023 9:00 PM (ideas till this time)
+// use cursor not-allowed & boolean attribute disabled
+
+details (order of events): click > toggle
+note: click on details happens first then click on window because of bubbling
+
+when input is focussed out then bring focus to text area, i.e, have focusout listener
+on color selector and color text input
+whenever there's focus out of settings (input, button etc), put focus on input 
+box for text so that users can immediately start typing
+
+// hidden is a boolean attribute by the way
+element.toggleAttribute("hidden")
+
+// get variable from inline style
+element.style.getPropertyValue("--my-var");
+
+// get variable from wherever
+getComputedStyle(element).getPropertyValue("--my-var");
+
+// set variable on inline style
+element.style.setProperty("--my-var", value);
+
+don't have to add class "off" and id "off" in letter tags, if a user choses to
+turn of caret then it is not required to have specific stylings like other caret
+styles does, we don't need any caret so we don't need the id and class of off,
+therefore when creating letters don't add off as class but instead add empty
+string, while moving the caret if caret style is chosen off then add empty string
+here as well
+
+// write comments to document your code (bsdk khud ka likha hua code samajh nhi
+   ata kuch time baad)
+
+// get the value from dataset details tag's list item then put it in label on 
+   user's choice of selection
+
+<text>
+	<word>
+		<letter></letter>
+		<letter></letter>
+		<letter></letter>
+	</word>
+	<word>
+		<letter></letter>
+	</word>
+	<word>
+		<letter></letter>
+		<letter></letter>
+		<letter></letter>
+	</word>
+</text>
+
+
+default behaviour of ttypist
+	- write notes on how did you implemented a particular feature
+	- primary text is the text which is not typed yet and secondary text is the
+	  text which has been typed already
+	- out of focus and in focus ui changes are implicit (no choice for users to turn it off) [shut up..]
+	- errors will be inserted, if users types in incorrect letter than extra letters
+	  will be inserted, and as soon as user types in the correct letter then caret
+		moves to next letter/word (if is was space then, background lightred must be
+		given to space letter), leaving behind those extra letters with darkred color
+		and previous letter (for which extra letters were typed) with red color
+	- by default ttypist will have strict space enabled (user won't have option to 
+  	disbaled it though)
+	- ttypist will support blind mode though where caret moves forward even when
+		user inputs incorrect letter
+	- freedome mode
+	  by default almost all websites don't allow to go back to the previous word
+	  if it is typed correctly, it this is not the case with real texteditors
+		so this feature won't be implemented in ttypist,
+		users won't get a choice on this because ttypist is emulating texteditor
+		this will make users alert about using backspace and meta keys with backspace
+		pro users of texteditors are by default develop the nature to use backspacing
+		and backspacing with meta keys properly and consciously,
+		i won't allow users to unconsciously hit backspace, they'll have to pay the
+		price of deleting the previous letter/word regardless of whether they were
+		correct or incorrect, this is normal behaviour of texteditors
+		therefore, there's no strictspace and quickend in ttypist, all other typing
+		websites don't have these two configs other than monkeytype, ttypist is
+		going with the majority
+		by default space will be inserted in ttyist unlike space moves caret to next
+		word in monkeytype
+
+	- implicitly width of text underline, caret(line & underline --> 1px to 1.5px to 2px),
+	  whitespace(dot, bar) needs to adjust according to font(size, weight, family)
+
+NOTE
+	don't forget to use the evt.isTrusted property to detect possible bots clicking
+	the buttons, so use evt.isTrusted for avoiding bots to click setting buttons
+
+	before storing value attribute's value from a button don't forget to convert a
+	string to number in value attribute of a button which stores numbers
+	
+ARROW KEYS
+		enable arrow keys
+		allow selection of text using shift + arrow left/right since input box can be visible
+		allow alt + arrow left/right
+		even allow just using arrow up or down |  arrow left or right
+		make it feel like text editor fully specked out
+
+STRICTSPACE
+default: "hitting space doesn't move caret to next word instead inserts it"
+but can be changed to "hitting space before typing the last letter of the word
+moves caret to next word"
+
+################################################################################
+
+🟡 backspace
+deletion (deletion of wrongly typed letters)
+	- only backspacing
+		deletes one letter at a time so NO concept of stopping at special
+		symbols like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+
+	- backspace should work like normal texteditor, it should clear letters
+		all the way to first letter of first word if the user keeps on hitting
+		backspace
+
+	- meta + backspace
+		deletes all a wrongly/correctly typed letters at once putting the
+		caret on first letter of first word.
+		no concept of stopping on special characters
+
+	- delete one word at a time
+	  alt  + bs
+		opt  + bs
+		ctrl + bs
+		deletes on word at a time, need to take a special care of special
+		character like `~!@#$%^&*()-_+=[]\{}|;':",./<>?
+
+		note: '_' is considered as text not special symbol when deleting
+
+		Test this string by moving along with arrow keys & also deleting them
+		with key combinations ctrl+bs & alt+bs
+		akda~adfb`adfc!adfd@adfe#eref$werg%werh^adi&dfaj*sfsdek(adfl)adfm-adfn=sdfosf_dfdpadf+dfaq{erer[erws]fct}feu|werv\ftagsw;dwcex:geeey"gwedz'gecsa,gecwxb<gecwxc.fedctd>awcce/tecwf?gecwcg
+	  ab~ab`ab!ab@ab#ab$ab%ab^ab&ab*ab(ab)ab_ab-ab+ab=ab{ab}ab[ab]ab|ab\ab'ab"ab;ab:ab/ab?ab.ab>ab,ab<ab
+
+		- if text is before caret then delete till first special character
+		  note that underscore and digits are considered as text when it is 
+			mixed with text, so you when delete, stop after them (digit/underscore)
+			use ctrl/alt + bs on these strings
+			slfsle_)&#*$(#$*)fjfkfi38748lf
+				    ^
+			slfsle8)&#*$(#$*)
+					  ^
+			2`~!_@#$%^&*_()-064=+[]\_{}|hr23_;':",hr_34./<0>?
+			^   ^           ^             ^ ^       ^ ^
+
+		- if special character is before caret
+					- then delete only that special character if there's only 1 special character
+					- if there are multple special characters together (they're all same or different)
+					  then delete all of them at once until first text character is encountered
+
+windows:
+	- ctrl + backspace (works like opt + backspace)
+	- alt + backspace (doesn't work as expected)
+			- so users of mac only can enjoy alt+bs not windows
+	- fn + backspace/arrow (works like cmd key)
+	- disable meta + bs by default (users can change it if they want to)
+	- only ctrl/opt + bs (no alt+bs)
+
+IMPORTANT POINTERS
+	- clear an entire word and put the caret at the first letter of the current word
+	- if caret is at first letter of a word then you should clear the previous word
+		and put the creat on first letter of previous word
+
+	- stoppers: mimic behaviour of backspacing in case special symbols are present
+				      in the text i.e, caret should stop before the characters below
+				      ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+							please note that space character also acts like stoppers while 
+							deleting using modifier keys
+
+
+🟡 difficulty
+- ease is the classic typing test experience
+- expert fails the test if you submit (press space) an incorrect word
+- master fails if you press a single incorrect key (need to type with 100% accuracy)
+
+DEPENDENCIES
+	- expert
+			- possible
+			- not possible
+	- master
+			- possible
+					- confidence (low | high | max)
+			- not possible
+					- insert(false)
+					- replace(false)
+					- forgive(false)
+					- stop -> off(true) | letter(false) | word(false)
+
+🟡 confidence
+don't worry about freedom mode, confidence.low takes care of it, confidence.low
+is equal to freedom mode
+confidence.low does the work of freedom mode (so on monkeytype there's redundancy i guess)
+by default most websties doesn't allow caret to go back to previous word if it
+was typed correctly, monkeytype allows to bypass it by using freedom mode config,
+but i think that confidence.low alone encounters freedom mode in monkeytype you can 
+turn on/off confidence mode
+strictspace is kept so that if any monkeytype user comes then he can have monkeytype's
+behaviour of going to next word by hitting space
+testendswithspace is kept that 
+
+- low, default behaviour, can go back as much as user wants to correct mistakes
+- high, will not be able to go back to previous words to fix mistakes whether
+  previous word was typed correctly or incorrectly, but  current word errors can
+	be fixed by using backspace
+- peak, won't be able to backspace at all i.e, backspacing will be turned off
+
+- if confidence is at peak then backspace should be turned off
+- if backspace is turn off then confidence must be at peak
+- going from peak confidence to low or high confidence must enable backspace again
+- only peak confidence will affect deleteOnCorrect
+> if backspace is enabled then user can go back & forth between low and high confidence
+  infinitely
+
+
+
+
+🟡 error
+CORE RULES
+	stop
+		- off will not stop on letter/word upon error, insert, forgive, replace 
+		  is possible
+		- letter will stop input when pressing any incorrect letters
+		- word will not allow user to continue to the next word until user correct
+		  all mistakes
+
+DEPENDENCIES
+> error.off
+> error.insert
+		- maximum 10 letter between two letters and maxium 15 letters between two words
+> error.replace
+		- if turned on then insert and forgive should be turned off
+> error.forgive
+> error.stop.off
+> error.stop.letter
+> error.stop.word
+
+error
+  - insert
+    maximum of 10 character can be inserted between two words and maximum of 15
+    characters can be inserted between a word and a whitespace word
+
+error:
+	- stop
+			- off (no action)
+			- letter (will turn off insert & forgive)
+					- no error insertion, so turn off error.insert
+			  	- stop input when pressing any incorrect letters i.e, don't proceed caret
+      - word
+				 	- error insertion will be there, so turn on error.insert, since user
+					  will not be allowed to proceed further until they correct all their
+						mistakes therefore turn on backspacing
+			   	- not allowed to continue to the next word until user corrects all mistakes
+				    i.e, caret is allowed to move back and forth within the current word but
+				    not allowed to proceed to next word
+
+	- insert
+			- maximum of 6 letters can be inserted between two letters and maximum of
+			  20 letters can be inserted after word (i.e, in whitespace word)
+			- turn off strictspace on insert because errors will be inserted
+			- underline the letter which you're inserting if Config.underline is turned on
+				whatever be the highlight mode (letter/word)
+			- on  (insert errored letters)
+			- off (do not insert errored letters)
+			- add maximum of 6 letters between letters of a word
+			- add maximum of 20 letters after a word i.e, before whitespace 
+			  character (in word which contains whitespace)
+			- insertion of space, depending on type of whitespace characters should be
+			  inserted, in case of space insert a space with lightpink/red background
+				like you have in tape mode, with bullet & bar insert them with lightred/pink
+				background
+
+	- replace (by default hitting space moves caret to next word)
+			- typos will be replaced with the character which need to be typed
+			- if space is hit as a typo then a light background color will be used instead
+			  of replacing the letter with current whitespace symbol, because if we
+				replace typo space with current whitespace symbol then it will split the
+				current word into multiple words (if multiple space typo is made), which
+				would not look good visually, there should not be any separation
+			- if strictspace is turned "ON" then replace current letter with space if
+			  space is typed where it is not required
+				if strictspace is turned "OFF" then go to next word on hitting space where
+				it is not expected to hit space
+
+	- skip (by default hitting space moves caret to next word)
+			- turns off strictspace i.e, user is allowed to move to next word by hitting space
+			- when user hits space in-between a word then use autotyper to move caret in a very
+				lightening speed (400+ wpm) to next word (putting caret on first letter of next word)
+			- when user uses backspace then take caret to the letter for which space was hit to
+				move to the next word, but if user uses (backspace + modifier) then clear whole
+				word (which is default behaviour btw)
+			- skip has two features
+					- if user makes a typo which is not space then the current letter will
+					  be marked incorrect and caret will move to next letter of the word
+					- if user makes a space typo (i.e, typed space when not required), then
+					  letters not typed will be left unharmed (no highlighting) and whole
+						word will be marked incorrect and caret will move to next word
+			- when user has typed all the letters of a word and he/she is about to type
+			  space in order to move to the next word than if user types in an incorrect
+				letter then it is inserted but on ttypist if skip is turn on then caret
+				will move to next word skipping the space character also and won't insert
+				any characters, but if user hits a space in between the word then caret
+				will move to next word
+			- if strictspace is turned "ON" then skip letters when space is hit, i.e,
+		    follow normal behaviour of skipping if wrong letter is hit,
+				if strictspace is turned "OFF" then skip to next word
+			- on space caret should be animated i.e, when caret moves to next word it
+			  should feel like caret is travelling through the untyped letters but it
+				is not being typed, it should travel extremely fast (no too fast but altleast
+				the user should notice it)
+
+	- forgive
+			- turn off strictspace on forgive error because errors will be inserted
+	  	- to emulate keybr's behaviour,  turn off error.stop.letter & error.stop.word
+			  turn on error.insert
+			- insert incorrect letters, if user hits correct letter then delete all
+			  errored letters, mark the letter as red for which incorrect letters were
+			  inserted(typed) and move the caret to next letter/word
+			- after typing the last letter of a word, instead of typing space if you type
+				three characters of next word correctly in sequence, i.e, the typed 3 
+				charcters should exactly be equal to the first 3 characters of the next word
+				then caret moves to fourth character of the next word marking the space 
+				character as error
+			- you're allowed to type one extra character before typing those 3 
+				(anything more than 1, will not move caret to next word's fourth letter)
+			- when caret is in <word><letter>&nbsp;</letter></word>, then build a string
+				if error.forgive is turned on, if length of string becomes 3 or 4 then take
+				suffix of length 3 and compare it with prefix of length of next word, if it
+				matches then move caret to 4'th letter of next word
+				but mean while if user types in space (which needs to typed in order to move
+				caret to next word) during building this string then caret moves to first 
+				letter of next word (which is the default behaviour of forgive errors)
+				
+				another observation📌
+				please note that, it doesn't have to be a space character only, any caret
+				can move to 4th character for any character as long as user types in the
+				next 3 character in sequence correctly
+				user can type only 1 character wrongly before typing that 3 characters
+				correctly in squence, that means you string should have altleast length
+				4 and last 3 characters should match 3 characters after the character which
+				needs to be typed
+
+				implementation
+				on keydown if the typed letter is incorrect then start making the string
+				for forgive error, on keyup compare the string formed if length 3/4,
+				otherwise if the length is greater then don't compare,
+				if user hits backspace then decrease the length of the by deleting last
+				character (backspace deletes the last incorrectly inserted character,
+				so the internal string form should also mimic that, after deleting
+				if string length becomes 3/4 again then compare it again for forgiving)
+				
+			- skim & observe keybr's forgive for more info...
+
+note 📌
+	hitting forgive error will turn off error.replace and turn error.insert,
+	hitting error.replace will turn off forgive error
+
+	if error.off is turned ON then forgive, error.insert, error.replace, error.stop.letter,
+	error.stop.word will be turned OFF and letter will move without inserting, replacing,
+	errors i.e, no error letter/word will be highlighted and caret will move forward
+	even if user types in incorrect letters, this will help user to focus on raw speed
+
+	if error.stop.letter is turned on, then turn off forgive errors, turn off error.replace
+	and turn off error.insert
+	if error.stop.word is turned on, then error.insert, error.replace is possible,
+	user just needs to correct its mistakes and submit the correct word, but user
+	cannot submit an incorrect word, so we should not let user's errors to be
+	forgiven therefore turn off forgive
+
+	if backspace.off is set to true then confidence will switch to max and vice-versa
+
+use border bottom instead of css text decoration to underline the errored letter
+in a 
+if you use border bottom then there's no break in underline, you get a smooth and
+continuous underline
+use border-bottom-width, border-bottom-style, border-bottom-color
+i need to underline whole word, so i will use js to give border bottom
+to all letters for desired word
+
+insert error only if it is alphabet (lowercase, uppercase), digits, ascii symbols
+reset of the modifier keys like Enter, CapsLock, Meta etc should also be ingored
+along with criptic characters which are inserted when using keycombinations like
+shft + alt + anykey
+
+we will need "incorrect" classname when letter highlight mode is turned on, we
+will have color red for all those letters which are typed incorrectly and
+classname "incorrect" will help us do that,
+
+classnames: will be added/removed as the user types/deletes letter/word
+		- "correct"
+		- "incorrect"
+			if its letter highlight mode then "incorrect" clasname will show the  
+			letter was incorrectly typed by making it red colored
+			if its word highlight mode then "incorrect" classname will have more darker
+			shade of red color on the errored letter, rest of the correct letters 
+			will have lighter shade of red
+		- "error"
+			used for only words be it any highlight mode (letter/word)
+		- "extra"
+
+we're not going to move the caret if user types incorrect letter, we will either
+not move at all or if user hits the correct...
+
+note bro there's no concept of going to next work by just hitting space character
+so i am not going to implement this feature 
+if error.insert is off then we will emulate monkeytype's feature i.e, if user
+types an incorrect letter than move the caret to next letter and mark the
+wrong letter as errored, if after typing last non-space letter (character just
+before the space) then add the extra letters, if user hits space anytime while
+typing the sentence then move to next word leaving all the errored and extra
+letters as it is.
+
+
+default: (like keybr)
+	- no matter whether highlight mode is letter or word, behaviour will be same
+		for both
+	  if user types wrong letter than don't move the caret forward (stays before
+		that letter), once user types the letter correctly then move the caret to
+		next letter and mark the previous (wrongly typed) letter as red color
+		basically in keybr error.stop.letter is turned on by default
+
+underline:
+	border-bottom (incase of error, added on per letter basis)
+	text-decoration (incase of underline active word is turned on, added per word basis)
+	
+border bottom will be used instead of text decoration later
+border bottom on all letters of a word will give the word continous 
+underline unlike text-decoration, but the way now line and box caret is
+implemented makes this hack also obselete
+
+
+PLEASE NOTE THIS
+I WILL USE AI (MACHINE LEARNING) TO HELP PEOPLE IMPROVE THEIR TYPING SPEED
+
+
+🟡 highlight
+CORE BEHAVIOUR
+	- off
+		if true, then no letter/word highlighting visible, whole sentence's text is
+		of single solid color caret's position in the sentence will tell which 
+		letter/word the user is typing
+
+	- mode
+			- word
+				active word is either lighter/brighter then rest of the words
+				in the sentence
+			- letter
+				typed text is lighter/brighter and future text is brighter/lighter
+				in color
+
+when highlight mode is letter & underline word is turned on then emualte
+play.typeracer's behaviour i.e,
+	- underline active word
+	- as user types a letter correctly make that letter fade/bright depending on
+	  fliptextcolor's value
+
+
+🟡 pace caret
+1. margin-left
+2. left
+3. transform: translateX(-x)
+
+for bluring text on left & right and bluring top & bottom lines use filter: blur(),
+opacity, ::before & ::after css properties or find similary
+properties to achieve the desired result
+
+
+smooth line scroll
+	- user will get option to disable/enable line scroll
+	- 4 lines will be visible by default
+	- when lines will scroll upwards then top line ka adhaa faded hoga, bottom line
+	  ka v adhaa faded hoga
+		i mean when top line will scroll up then before vanishing its half portion
+		will be fadeed out (linearly fading from most clear at bottom to least clear
+		at the top)
+		aur bottom line jo aaiga wo uske liye ulta hoga (linearly fading from bottom
+		to be least clear and top to be most clear)
+
+turn off forgive errors when user uses tape mode because there's width change
+when all the inserted letters are deleted when user types in the correct letter
+i.e, caret shifts to the left from its fixed position whenever there's letter
+deletion
+
+60 words per minute, meaning typing sixty words of length 5 in 60 seconds, it
+means typing 300 characters in 60 seconds would give you 60wpm, so what is the
+interval of time between two consecutive keystrokes
+300 characters in 60000 milliseconds, means 1 character should be typed in 
+60000/300 = 200ms (time difference between two consecutive keystrokes must be 200ms)
+so if 200ms is for 60wpm then for 1wpm it will be 200/60 [(10/3)ms]
+
+1 wpm = 10/3 ms
+
+300 character = 60000 ms
+  1 character = 60000 / 300 ms
+
+you need to convert the wpm to character per minute in order to get interval in milliseconds
+ms for 80wpm = 60000 / (80 * 5)
+
+
+🟡 keyboard
+minimum burst
+	- fixed option is doesn't care about word length
+	- flex option takes care of the word length, for longer word length it decreases
+	  the speed set by user, it splits the long word into chunks of 5 letters then
+		applies the speed of the user and..
+
+🟡 keyboard
+keypress reaction (ui)
+   when keydown add background-color & color to the key box
+   when keyup remove background-color & color from the key box
+
+Config.keybaord.reaction
+   - off, turn of ui keyboard
+   - static, just displays user's current layout while taking a test but doesn't react to any keypress
+   - react, shows what user pressed
+   - next, shows what user need to press next
+
+
+🟡 tape
+you can actually have word tape mode as well, play.typeracer's "one line of scrolling text"
+mode looks good and its less hurting to the eyes, it doesn't have caret though,
+you can emulate it with caret added on top of it with word deletion also (bs, bs+meta)
+it will look good
+here's what the ui should look like, the text will be centerd like letter tape
+mode but there will be a vertical thin line depending on the direction of scroll
+rtl or ltr left side of the vertical line will be completely opaque or right side
+show that it emulates play.typeracer ui instead of monkeytype's
+
+🟡 input box
+InputElement.value | InputEvent.data | InputEvent.inputType
+
+InputEvent (mdn)
+https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
+
+InputEvent (w3c)
+https://rawgit.com/w3c/input-events/v1/index.html#events-inputevents
+
+InputEvent.inputType attribute values
+https://rawgit.com/w3c/input-events/v1/index.html#interface-InputEvent-Attributes
+
+
+
+🟡 practice
+guidedlession: false, // guided lessons
+providedtext: false,  // custom text (alphanumeric, specials ascii symbols)
+numpad: false,        // only numpad digits and symbols
+numrow: false,        // only numrow digits [0-9]
+alphanumeric: false,  // ascii characters [a-z, A-Z] and digits [0-9]
+bracket: false,       // {[(<>)]}
+arrowkey: false,      // ArrowUp, ArrowLeft, ArrowRight, ArrowDown, KeyW, KeyA, KeyS, KeyD, Numpad8, Numpad4, Numpad6, Numpad2
+special: false,       // `~!@#$%^&*()-_=+[{\|;:'".>,</?"}]
+functionkey: false,   // F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F11, F12
+
+
+when user is practicing numrow digits, then only numrow's digits should be used
+if the user uses numpad's digits then it will be counted as error and user will
+be informed about the same,
+same will be the case for numpad's digits, if user types numrow's digits then
+error should be indicated,
+similary is the case for shift key, be it the user is typing brackets, capitals
+or special symbols, user needs to use the opposite shift key (initially QWERTY
+will be supported)
+
+punctuation
+	fullstop .
+	question mark ?
+	quotation marks ""
+	apostrophe '
+	comma ,
+	hyphen -
+	colon :
+	semicolon ;
+	parenthesis ()
+	square brackets []
+	braces {}
+	ellipsis ...
+	slash /
+
+
+🟡 underline
+Config.underline.on
+	- if highlight mode is letter then add/remove underline letter by letter when
+	  insertion or deletion or caret moves normally forward as user types letters
+		correctly
+	- if highlight mode is word then add/remove underline word by word
+	
+Config.underline.off
+
+please note:
+	if Config.caret.type === "block" then the underline of the letter if highlight
+	mode is letter then whatever block caret's background color is, the underline 
+	color of that letter will be same as the caret's background color
+
+
+
+🟡 live stats
+When to call update stats function?
+> whenever user hits a charcter, either it will be correct or incorrect so whenever
+  the program flow goes inside these two blocks the first thing you do is make the
+  necessary ui change, then call update state if live.after.every1keystroke is
+  turned on.
+> whenever user hits a space and the character which needs to be typed is a space
+  then caret moves to next word, so before moving to next word (ui change i.e,
+	putting caret on first letter of next word), call update stats function if
+	live.after.every1word is turned on
+> see a timer will always run to calculate time taken to type all letters in the
+  text, the timer will either be turned on or turned off, if it is on then it will
+	be visible in the ui and it will tick every second i.e, timer will increase
+	by 1 after every second, but if timer is off then also timer will tick after
+	every second but it will not be visible,
+	so in the timer function we will check everytime if Config.live.after.every1second
+	is turned on and call update stats
+
+
+
+🟡 whitespace
+◌ ○ ◉ 𐍈 · ⸱ • ∙ ◦ •
+don't need them anymore since ::after/::before does the job very well
+
+- when user changes white from space to bullet/bar then intially give it a hard
+color then then give the primary color, so that user sees it visually that
+whitespace has changed
+- regardless of whether highlight mode is letter or word or highlight mode is
+turned off, when caret comes before the whitespace (bullet/bar), it should light up
+- if user types in the whitepsace (space/bullet/bar) incorrectly then give a red
+color when user types it correctly and caret moves forward, if whitespace is space
+then give a lightpink background color to indicate typo
+
+
+🟡 ARROW KEYS
+WILL BE IMPLEMENTED AT THE END
+enable arrow keys
+only if error.off is true
+allow selection of text using shift+arrow-left/right since input box can be visible
+allow alt+arrow-left/right
+even allow just arrow up/down or arrow left/right
+make it feel like text editor full specked out
+
+
+wpm
+	total amount of characters in the correctly typed words (including spaces)
+	divided by 5 and normalised to 60 seconds.
+
+raw wpm
+	calculated just like wpm, but also includes incorrect words
+
+accuracy
+	percentage of correctly pressed keys
+
+char
+	correct characters / incorrect characters, calculated after the test has ended
+
+consistency
+	based on the variance of your raw wpm. Closer to 100% is better, calculated
+	using the coefficient of variation of raw wpm and mapped onto a scale 
+	from 0 to 100
+
+wpm | raw | accuracy | time | consistency | characters (correct|incorrect|extra|missed)
+
+keyboard heatmap
+graphs from keybr and monkeytype
+--------------------------------------------------------------------------------
+
+
+Are insert & strictspace inversely proportional to eachother?
+i think you should extend the concept of strict space in the context of skip & replace to insert as
+well, i.e, hitting space when strict space is turned off will move caret to next word
+great idea man!
+
+how strictspace got the same behavior for forgive error also?
+you’re not allowed to skip to next word when forgive error is enabled, therefore
+enable strictspace if it is disabled when forgive error is enabled, because when
+strictspace is disabled then in insert mode hitting space character will move caret
+to next word and the concept of forgive error will behave abnormally
+i think you don’t need this also, let the feature of skipping to next word on space
+be available even for insert error with forgive error i.e, if user hits a space
+even if forgive error is used (which means errors get deleted as soon as correct letter
+is typed) then caret will move to next word, but since it was forgive error so errors
+will be deleted (incorrect letters will get vanished unlike in only insert mode where
+errors will remain intact)
+this way strictspace will have only one sole purpose of skipping to next word using space
+or inserting space in case of insert error and skipping caret to next letter for skip & replace
+strictspace enabled, insert space or skip to next letter or replace space with current letter
+strictspace disabled, caret moves to first letter of next word in insert, skip, replace modes
+incase of insert mode with forgive error when strictspace is enabled then normal behavior or
+forgive error and insert mode will apply, but if strictspace is disabled then space character
+will move caret to first letter of next word and the inserted errors (if there is any) will get
+vanished (deleted since forgive error is enabled), had it been only insert and forgive disabled
+then errors would have been left unharmed (and users could go back and delete them)
+
+there’s a difference between error.skip & strictspace
+error.skip will skip letters only on error (including space error), whereas strictspace determines
+atleast for error.skip that whether to move caret to next word on space (strictspace off), or
+move caret to next letter on space error
+in case of insert mode strictspace enabled will insert space normally like any other character
+and but if strictspace is disabled then space will move caret to next word leaving out non-space
+errors inserted in the previous word (note if forgive error is turned on in insert mode then
+those non-space errors will get deleted)
+similarly for replace mode..
+
+JS GUIDE
+don't forget to use the evt.isTrusted property to detect possible bots clicking
+the buttons, so use evt.isTrusted for avoiding bots to click setting buttons
+algo before storing value attribute's value from a button don't forget to convert
+a string to number in value attribute of a button which stores numbers
+
+TEXT UNDERLINE
+use border bottom instead of css text decoration to underline the errored letter in a 
+if you use border bottom then there's no break in underline, you get a smooth and
+continuous underline
+use border-bottom-width, border-bottom-style, border-bottom-color
+i need to underline whole word, so i will use js to give border bottom
+to all letters for desired word
+
+STRICTSPACE
+default: "hitting space doesn't move caret to next word instead inserts it"
+but can be changed to "hitting space before typing the last letter of the word
+moves caret to next word"
+
+we will need "incorrect" classname when letter highlight mode is turned on, we
+will have color red for all those letters which are typed incorrectly and
+classname "incorrect" will help us do that,
+
+classnames: will be added/removed as the user types/deletes letter/word
+		- "correct"
+		- "incorrect"
+			if its letter highlight mode then "incorrect" clasname will show the  
+			letter was incorrectly typed by making it red colored
+			if its word highlight mode then "incorrect" classname will have more darker
+			shade of red color on the errored letter, rest of the correct letters 
+			will have lighter shade of red
+		- "error"
+			used for only words be it any highlight mode (letter/word)
+		- "extra"
+
+NO GOING BACK TO NEXT WORD ON SPACE (no this choice is given to user)
+note bro there's no concept of going to next work by just hitting space character
+so i am not going to implement this feature 
+if error.insert is off then we will emulate monkeytype's feature i.e, if user
+types an incorrect letter than move the caret to next letter and mark the
+wrong letter as errored, if after typing last non-space letter (character just
+before the space) then add the extra letters, if user hits space anytime while
+typing the sentence then move to next word leaving all the errored and extra
+letters as it is.
+
+underline:
+	border-bottom (incase of error, added on per letter basis)
+	text-decoration (incase of underline active word is turned on, added per word basis)
+	border bottom will be used instead of text decoration later, border bottom on
+	all letters of a word will give the word continous underline unlike 
+	text-decoration, but the way now line and box caret is implemented makes this
+	hack also obselete
+	note: border bottom will be used for underscore caret only and text decoration will
+	be used for underling the current word
+
+
+you’re not allowed to skip to next word when forgive error is enabled, therefore
+enable strictspace if it is disabled when forgive error is enabled, because when
+strictspace is disabled then in insert mode hitting space character will move caret
+to next word and the concept of forgive error will behave abnormally
+
+are insert & strictspace inversely proportional to eachother?
+i think you should extend the concept of strict space which is applicable in the
+context of skip & replace to insert as well, i.e, hitting space when strict
+space is disabled will move caret to next word great idea man!
+
+i think you don’t need this also, let the feature of skipping to next word on space
+be available even for insert error with forgive error i.e, if user hits a space
+even if forgive error is used (which means errors get deleted as soon as correct letter
+is typed) then caret will move to next word, but since it was forgive error so errors
+will be deleted (incorrect letters will get vanished unlike in only insert mode where
+errors will remain intact)
+
+this way strictspace will have only one sole purpose of skipping to next word using space
+or inserting space in case of insert error and skipping caret to next letter for skip & replace
+
+there’s a difference between error.skip & strictspace
+error.skip will skip letters only on error (including space error), whereas
+strictspace determines atleast for error.skip that whether to move caret to next
+word on space (strictspace == false), or move caret to next letter on space error
+
+
+LOL! 🤣
+important: strictspace decides whether to skip to next word or not
+arrey bsdk, skip mode iske liye he toh hai,
+bsdk once again.. skip means skipping only to next letter and not to next word
+strictspace will control space error only meaning if user types other types of
+letter other than space error then skip will move caret to next letter in the word
+
+
+random
+	freedom mode?
+	allow delete of previous words (even correct words) all the way to the 1st letter
+	of 1st word
+
+	don't worry about freedom mode, confidence.low takes care of it, confidence.low
+	is equal to freedom mode on ttypist.com
+	confidence.low does the work of freedom mode (so on monkeytype there's redundancy
+	i guess) by default most websties doesn't allow caret to go back to previous
+	word if it was typed correctly, monkeytype allows to bypass it by using freedom
+	mode config, but i think that confidence.low alone encounters freedom mode in
+	monkeytype you can turn on/off confidence mode
+	strictspace is kept so that if any monkeytype user comes then he can have monkeytype's
+	behaviour of going to next word by hitting space
+	testendswithspace is kept that
+
+dynamic setting changes
+if enabled then apply changes immediately without ending the test, the test
+should resume from where it left after applying changes
+if disabled then end test first, then apply necessary changes and start a brand
+new test
+
+--------------------------------------------------------------------------------
+Thu 24 Aug 2023 2:52 PM
+
+NIL
+Did nothing between these days, stopped going to classes, still thinking whether
+to drop college or not. How do i tell my closed ones that i don't want to continue
+with all these??
+
+--------------------------------------------------------------------------------
+Sat 18 Nov 2023 8:30 AM

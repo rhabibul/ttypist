@@ -1,0 +1,12 @@
+tape
+--------------------------------------------------------------------------------
+
+you can actually have word tape mode as well, play.typeracer's "one line of scrolling text"
+mode looks good and its less hurting to the eyes, it doesn't have caret though,
+you can emulate it with caret added on top of it with word deletion also (bs, bs + meta)
+it will look good
+HERE'S WHAT THE UI SHOULD LOOK LIKE 
+	- the text will be centerd like letter tape mode but there will be a vertical thin line
+	- depending on the direction of scroll rtl or ltr left side of the vertical line will 
+	  be completely opaque or right side show that it emulates play.typeracer ui instead
+	  of monkeytype's

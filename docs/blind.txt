@@ -1,0 +1,3 @@
+caret moves blindly i.e, without highlighting any errors
+when enabled, all error handling buttons will be disabled
+only buttons which allow deletion would be allowed to click

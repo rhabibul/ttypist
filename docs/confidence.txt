@@ -1,0 +1,18 @@
+confidence
+--------------------------------------------------------------------------------
+
+rule
+	- low, default behaviour, can go back as much as user wants to correct mistakes
+	- high, will not be able to go back to previous words to fix mistakes whether
+	  previous word was typed correctly or incorrectly, but current word's errors
+		can be fixed by using backspace
+	- peak, won't be able to backspace at all i.e, backspacing will be turned off
+
+dependencies
+	- if confidence is at peak then backspace should be disabled and vice-versa i.e,
+	  if backspace is disabled then confidence should be at peak
+	- switching from peak confidence to low/high confidence should enable backspace
+	- note that when backspace is enabled then user can switch to low or high confidence
+	- confidence low means deletion of both types of word i.e, incorrect words and
+	  correct words is possible but if deleteCorrectWord is disabled then
+		confidence low will only delete incorrect words

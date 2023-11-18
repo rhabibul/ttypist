@@ -1,5 +1,4 @@
 export const text = {
-	txt: "",
 	word: [],
 	index: 0,
 

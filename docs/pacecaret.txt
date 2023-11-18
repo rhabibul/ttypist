@@ -1,0 +1,44 @@
+note: give pacecaret same color as caret but with reduced opacity
+
+pacecaret
+--------------------------------------------------------------------------------
+
+1. margin-left
+2. left
+3. transform: translateX(-x)
+
+for bluring text on left & right and bluring top & bottom lines use filter: blur(),
+opacity, ::before & ::after css properties or find similary
+properties to achieve the desired result
+
+smooth line scroll
+	- user will get option to disable/enable line scroll
+	- 4 lines will be visible by default
+	- when lines will scroll upwards then top line ka adhaa faded hoga, bottom line
+	  ka v adhaa faded hoga
+		i mean when top line will scroll up then before vanishing its half portion
+		will be fadeed out (linearly fading from most clear at bottom to least clear
+		at the top)
+		aur bottom line jo aaiga wo uske liye ulta hoga (linearly fading from bottom
+		to be least clear and top to be most clear)
+
+turn off forgive errors when user uses tape mode because there's width change
+when all the inserted letters are deleted when user types in the correct letter
+i.e, caret shifts to the left from its fixed position whenever there's letter
+deletion
+
+60 words per minute, meaning typing sixty words of length 5 in 60 seconds, it
+means typing 300 characters in 60 seconds would give you 60wpm, so what is the
+interval of time between two consecutive keystrokes
+300 characters in 60000 milliseconds, means 1 character should be typed in 
+60000/300 = 200ms (time difference between two consecutive keystrokes must be 200ms)
+so if 200ms is for 60wpm then for 1wpm it will be 200/60 [(10/3)ms]
+
+1 wpm = 10/3 ms
+
+300 character = 60000 ms
+  1 character = 60000 / 300 ms
+
+you need to convert the wpm to character per minute in order to get interval in milliseconds
+ms for 80wpm = 60000 / (80 * 5)
+

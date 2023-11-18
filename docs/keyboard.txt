@@ -1,0 +1,12 @@
+keyboard reaction
+--------------------------------------------------------------------------------
+
+RULE
+   - off, turn of ui keyboard
+   - static, just displays user's current layout while taking a test but doesn't react to any keypress
+   - react, shows what user pressed
+   - next, shows what user need to press next
+
+keypress reaction (ui)
+   when keydown add background-color & color to the key box
+   when keyup remove background-color & color from the key box

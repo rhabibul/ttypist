@@ -1,0 +1,14 @@
+whitespace
+--------------------------------------------------------------------------------
+
+◌ ○ ◉ 𐍈 · ⸱ • ∙ ◦ •
+don't need them anymore since ::after/::before does the job very well
+
+- when user changes white from space to bullet/bar then intially give it a hard
+color then then give the primary color, so that user sees it visually that
+whitespace has changed
+- regardless of whether highlight mode is letter or word or highlight mode is
+turned off, when caret comes before the whitespace (bullet/bar), it should light up
+- if user types in the whitepsace (space/bullet/bar) incorrectly then give a red
+color when user types it correctly and caret moves forward, if whitespace is space
+then give a lightpink background color to indicate typo

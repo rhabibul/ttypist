@@ -1,0 +1,234 @@
+note:
+	when website loads then config's values should also be updated in html like font
+	weight & size and other data which needs to be displayed to the user
+
+error
+	- off
+	- forgive
+	- insert
+	- skip
+	- replace
+
+stop on error
+	- off
+	- letter
+	- word
+
+NOTE: strictspace changes behaviour of insert, skip, replace
+
+--------------------------------------------------------------------------------
+strictspace
+
+RULE
+	- enabled strictspace will force caret to follow the rules of insert, skip, replace modes
+	- disabled strictspace will force caret to move to next word on insert, skip, replace modes
+
+strictspace is enabled (move to next word)
+	- insert mode
+		 - if strictspace is enabled then space characters will be inserted when
+		   typed in between the letters of the word
+		 - if strictspace is disabled then space character won’t be inserted, instead
+		   caret should move to next word leaving behind the inserted errors if
+			 forgive error is disabled
+	- skip mode
+	- replace mode
+	  if strictspace is disabled in all three modes then caret will move to next
+		word otherwise space will have its bahaviour according to the particular modes
+
+
+--------------------------------------------------------------------------------
+error
+
+RULE
+	- off, 
+
+- insert
+		- inserts incorrect letter including space character
+		- max. of 5 letter between two letter of a word can be inserted and max. 20
+		  letter after typing the word can be inserted
+		- insertion of space, depending on type of whitespace characters should be
+			inserted, in case of space insert a space with lightpink/red background
+			like you have in tape mode, with bullet & bar insert them with lightred/pink
+			background
+		- strictspace enabled, errors will be inserted including space character
+		- strictspace disabled, errors will still be inserted but hitting space
+		  character in between letters of the word will move caret to next word, if
+			forgive error is enabled meanwhile then those inserted errors will be 
+			deleted before moving the caret to next word
+		- strictspace enabled, insert space or skip to next letter or replace space
+		  with current letter
+      strictspace disabled, caret moves to first letter of next word in insert,
+			skip, replace modes
+		- incase of insert mode with forgive error when strictspace is enabled then
+		  normal behavior of forgive error and insert mode will apply, but if
+			strictspace is disabled then space character will move caret to first letter
+			of next word and the inserted errors (if there is any) should disappear
+			(deleted since forgive error is enabled), had it been only insert and
+			forgive disabled then errors would have been left unharmed (and users
+			could go back and delete them)
+		- 🫵 in case of insert mode strictspace enabled will insert space normally like
+		  any other character and but if strictspace is disabled then space will move
+			caret to next word leaving out non-space errors inserted in the previous
+			word (note if forgive error is turned on in insert mode then those
+			non-space errors will get deleted)
+
+- skip
+		- strictspace enabled, any type of typo (including space error), caret will 
+		  skip to next letter on error even if space typo is made then caret will
+			move to next word
+	  - strictspace disbaled, any type of typo (excluding space error), caret will
+		  skip to next letter on error and on space typo caret will move to next word
+		- turns off strictspace i.e, user is allowed to move to next word by hitting space
+		- when user hits space in-between a word then use autotyper to move caret in a very
+			lightening speed (400+ wpm) to next word (putting caret on first letter of next word)
+		- when user uses backspace then take caret to the letter for which space was hit to
+			move to the next word, but if user uses (backspace + modifier) then clear whole
+			word (which is default behaviour btw)
+		- skip has two features
+				- if user makes a typo which is not space then the current letter will
+					be marked as incorrect and caret will move to next letter of the word
+				- if user makes a space typo (i.e, typed space when not required), then
+					letters not typed will be left unharmed (no highlighting) and whole
+					word will be marked incorrect and caret will move to next word
+		- when user has typed all the letters of a word and he/she is about to type
+			space in order to move to the next word than if user types in an incorrect
+			letter then it is inserted but on ttypist if skip is turn on then caret
+			will move to next word skipping the space character also and won't insert
+			any characters, but if user hits a space in between the word then caret
+			will move to next word
+		- if strictspace is turned "ON" then skip letters when space is hit, i.e,
+			follow normal behaviour of skipping if wrong letter is hit,
+			if strictspace is turned "OFF" then skip to next word
+		- on space caret should be animated i.e, when caret moves to next word it
+			should feel like caret is travelling through the untyped letters but it
+			is not being typed, it should travel extremely fast (no too fast but altleast
+			the user should notice it)
+
+- replace
+		- typos will be replaced with the character which need to be typed
+		- if space is hit as a typo then a light background color will be used
+		  instead of replacing the letter with current whitespace symbol, because
+			if we replace typo space with current whitespace symbol then it will split
+			the current word into multiple words (if multiple space typo is made),
+			which would not look good visually, there should not be any separation
+		- if strictspace is turned "ON" then replace current letter with space if
+			space is typed where it is not required
+			if strictspace is turned "OFF" then go to next word on hitting space where
+			it is not expected to hit space
+		- strictspace(“on”), any type of typo (including space error), typo will be
+		  replaced with the letter which was supposed to be typed, even when space
+			typo occurs space character will be replaced as maybe the current
+			whitespace character or just a blank box with light background will decide
+			while implementing, the one which look better will be selected
+		- strictspace enabled, any type of typo (excluding space error), typo will
+		  be replaced with the letter which was supposed to be typed but space
+			character will move caret to next word
+
+- forgive (works only in insert mode)
+    - strictspace enabled, space is inserted along with other error characters
+		  strictspace disabled, on space caret moves to next word but before that
+			other inserted characters should be deleted
+		- turn off strictspace on forgive error because errors will be inserted
+		- to emulate keybr's behaviour,  turn off error.stop.letter & error.stop.word
+			turn on error.insert
+		- insert incorrect letters, if user hits correct letter then delete all
+			errored letters, mark the letter as red for which incorrect letters were
+			inserted(typed) and move the caret to next letter/word
+		- after typing the last letter of a word, instead of typing space if you type
+			three characters of next word correctly in sequence, i.e, the typed 3 
+			charcters should exactly be equal to the first 3 characters of the next word
+			then caret moves to fourth character of the next word marking the space 
+			character as error
+		- you're allowed to type one extra character before typing those 3 
+			(anything more than 1, will not move caret to next word's fourth letter)
+		- when caret is in <word><letter>&nbsp;</letter></word>, then build a string
+			if error.forgive is turned on, if length of string becomes 3 or 4 then take
+			suffix of length 3 and compare it with prefix of length of next word, if it
+			matches then move caret to 4'th letter of next word
+			but mean while if user types in space (which needs to typed in order to move
+			caret to next word) during building this string then caret moves to first 
+			letter of next word (which is the default behaviour of forgive errors)
+			
+			another observation📌
+			please note that, it doesn't have to be a space character only, any caret
+			can move to 4th character for any character as long as user types in the
+			next 3 character in sequence correctly
+			user can type only 1 character wrongly before typing that 3 characters
+			correctly in squence, that means your string should have altleast length
+			4 and last 3 characters should match 3 characters after the character which
+			needs to be typed
+
+			implementation
+			on keydown if the typed letter is incorrect then start making the string
+			for forgive error, on keyup compare the string formed if length 3 or 4 then
+			compare otherwise if the length is greater than that then don't compare,
+			if user hits backspace then decrease the length of the by deleting last
+			character (backspace deletes the last incorrectly inserted character,
+			so the internal string form should also mimic that, after deleting
+			if string length becomes 3/4 again then compare it again for forgiving)
+			
+		- skim & observe keybr's forgive for more info...
+
+
+note 📌
+	forgive error will turn off replace and turn insert
+	replace and skip will turn off forgive error
+
+	if error.off is turned ON then forgive, error.insert, error.replace, error.stop.letter,
+	error.stop.word will be turned OFF and letter will move without inserting, replacing,
+	errors i.e, no error letter/word will be highlighted and caret will move forward
+	even if user types in incorrect letters, this will help user to focus on raw speed
+
+	if error.stop.letter is turned on, then turn off forgive errors, turn off error.replace
+	and turn off error.insert
+	if error.stop.word is turned on, then error.insert, error.replace is possible,
+	user just needs to correct its mistakes and submit the correct word, but user
+	cannot submit an incorrect word, so we should not let user's errors to be
+	forgiven therefore turn off forgive
+
+	if backspace.off is set to true then confidence will switch to max and vice-versa
+
+--------------------------------------------------------------------------------
+stop on error
+
+RULE
+	- off will not stop caret on letter/word upon error so insert, skip, replace, forgive is possible
+	- letter will stop input when pressing any incorrect letters
+	- word will not allow user to continue to the next word until user correct all mistakes
+
+error.stop.letter doesn't caret about whether word submitted is correct or incorrect, it will
+just stop caret (i.e, caret won't proceed forward) if wrong letter is typed,
+that means errors should not be inserted, replaced or skipped otherwise concept of stopping
+will not exist at all
+backspacing is allowed in both letter and word stop mode
+
+error.stop.off
+error.stop.letter
+	- stop caret if error occurs, error insert, skip, replace, forgive not possible
+error.stop.word
+	- insert, replace, skip (will put caret to last letter, after that it will not move)
+	  is possible because these types of errors can be corrected by using backspace
+		forgive error is also possible, if error is forgiven then word will be marked as
+		incorrect (error classname will be left on the word), also the errored letter will
+		be marked as red, so user needs to go back and re-type the word from where they
+		have made the mistake
+	- user is not allowed to continue to the next word until he/she corrects all mistakes
+    i.e, caret is allowed to move back and forth within the current word but
+    not allowed to proceed to next word
+
+
+                               --- RANDOM ---
+
+error count
+	- when user is practicing numrow digits, then only numrow's digits should be used
+	  if the user uses numpad's digits then it will be counted as error and user will
+	  be informed about the same,
+	- similarly will be the case for numpad's digits, if user types numrow's digits then
+	  error should be indicated,
+	- same is the case for shift key, be it the user is typing brackets, capitals
+	  or special symbols, user needs to use the opposite shift key (initially QWERTY
+	  will be supported)
+
+error.insert
+	- underline the letter which you're inserting if config.underline is enabled
+		regardless of which highlight mode is used (letter/word)

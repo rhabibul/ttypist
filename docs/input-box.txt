@@ -1,0 +1,13 @@
+input box
+--------------------------------------------------------------------------------
+
+InputElement.value | InputEvent.data | InputEvent.inputType
+
+InputEvent (mdn)
+https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
+
+InputEvent (w3c)
+https://rawgit.com/w3c/input-events/v1/index.html#events-inputevents
+
+InputEvent.inputType attribute values
+https://rawgit.com/w3c/input-events/v1/index.html#interface-InputEvent-Attributes

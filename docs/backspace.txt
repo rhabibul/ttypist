@@ -1,0 +1,64 @@
+🟡 backspace
+--------------------------------------------------------------------------------
+deletion (deletion of wrongly typed letters)
+	- only backspacing
+		deletes one letter at a time so NO concept of stopping at special
+		symbols like ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+
+	- backspace should work like normal texteditor, it should clear letters
+		all the way to first letter of first word if the user keeps on hitting
+		backspace
+
+	- meta + backspace
+		deletes all a wrongly/correctly typed letters at once putting the
+		caret on first letter of first word.
+		no concept of stopping on special characters
+
+	- delete one word at a time
+	  alt  + bs
+		opt  + bs
+		ctrl + bs
+		deletes on word at a time, need to take a special care of special
+		character like `~!@#$%^&*()-_+=[]\{}|;':",./<>?
+
+		note: '_' is considered as text not special symbol when deleting
+
+		Test this string by moving along with arrow keys & also deleting them
+		with key combinations ctrl+bs & alt+bs
+		akda~adfb`adfc!adfd@adfe#eref$werg%werh^adi&dfaj*sfsdek(adfl)adfm-adfn=sdfosf_dfdpadf+dfaq{erer[erws]fct}feu|werv\ftagsw;dwcex:geeey"gwedz'gecsa,gecwxb<gecwxc.fedctd>awcce/tecwf?gecwcg
+	  ab~ab`ab!ab@ab#ab$ab%ab^ab&ab*ab(ab)ab_ab-ab+ab=ab{ab}ab[ab]ab|ab\ab'ab"ab;ab:ab/ab?ab.ab>ab,ab<ab
+
+		- if text is before caret then delete till first special character
+		  note that underscore and digits are considered as text when it is 
+			mixed with text, so you when delete, stop after them (digit/underscore)
+			use ctrl/alt + bs on these strings
+			slfsle_)&#*$(#$*)fjfkfi38748lf
+				    ^
+			slfsle8)&#*$(#$*)
+					  ^
+			2`~!_@#$%^&*_()-064=+[]\_{}|hr23_;':",hr_34./<0>?
+			^   ^           ^             ^ ^       ^ ^
+
+		- if special character is before caret
+					- then delete only that special character if there's only 1 special character
+					- if there are multple special characters together (they're all same or different)
+					  then delete all of them at once until first text character is encountered
+
+windows:
+	- ctrl + backspace (works like opt + backspace)
+	- alt + backspace (doesn't work as expected)
+			- so users of mac only can enjoy alt+bs not windows
+	- fn + backspace/arrow (works like cmd key)
+	- disable meta + bs by default (users can change it if they want to)
+	- only ctrl/opt + bs (no alt+bs)
+
+IMPORTANT POINTERS
+	- clear an entire word and put the caret at the first letter of the current word
+	- if caret is at first letter of a word then you should clear the previous word
+		and put the creat on first letter of previous word
+
+	- stoppers: mimic behaviour of backspacing in case special symbols are present
+				      in the text i.e, caret should stop before the characters below
+				      ~`!@#$%^&*()-=_+{[]}|\;:"',<.>/?
+							please note that space character also acts like stoppers while 
+							deleting using modifier keys

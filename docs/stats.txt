@@ -1,0 +1,42 @@
+stats
+--------------------------------------------------------------------------------
+
+When to call update stats function?
+- whenever user hits a charcter, either it will be correct or incorrect so whenever
+  the program flow goes inside these two blocks the first thing you do is make the
+  necessary ui change, then call update state if live.after.every1keystroke is
+  turned on.
+- whenever user hits a space and the character which needs to be typed is a space
+  then caret moves to next word, so before moving to next word (ui change i.e,
+	putting caret on first letter of next word), call update stats function if
+	live.after.every1word is turned on
+- see a timer will always run to calculate time taken to type all letters in the
+  text, the timer will either be turned on or turned off, if it is on then it will
+	be visible in the ui and it will tick every second i.e, timer will increase
+	by 1 after every second, but if timer is off then also timer will tick after
+	every second but it will not be visible,
+	so in the timer function we will check everytime if Config.live.after.every1second
+	is turned on and call update stats
+
+wpm
+	total amount of characters in the correctly typed words (including spaces)
+	divided by 5 and normalised to 60 seconds.
+
+raw wpm
+	calculated just like wpm, but also includes incorrect words
+
+accuracy
+	percentage of correctly pressed keys
+
+char
+	correct characters / incorrect characters, calculated after the test has ended
+
+consistency
+	based on the variance of your raw wpm. Closer to 100% is better, calculated
+	using the coefficient of variation of raw wpm and mapped onto a scale 
+	from 0 to 100
+
+wpm | raw | accuracy | time | consistency | characters (correct|incorrect|extra|missed)
+
+keyboard heatmap
+graphs from keybr and monkeytype
