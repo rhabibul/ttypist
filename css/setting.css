@@ -389,7 +389,7 @@ details summary {
 	user-select: none;
 }
 details summary > div.text.value.in-use {
-	width: calc(var(--setting-buttons-container-width) - 40px);
+	width: calc(var(--setting-buttons-container-width) - 41px);
 	height: 100%;
 	position: absolute;
 	left: 0px;
@@ -402,12 +402,13 @@ details summary > div.text.value.in-use {
 	font-size: 0.9rem;
 	font-weight: 450;
 	border-right: 1px solid var(--setting-button-border-color);
+	/* border: 1px solid red; */
 }
 details summary > div.symbol {
 	position: absolute;
 	right: 0px;
 
-	width: calc(var(--setting-button-height) + 10px);
+	width: calc(var(--setting-button-height) + 11px);
 	height: calc(var(--setting-button-height) - 1px);
 
 	display: flex;

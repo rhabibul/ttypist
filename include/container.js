@@ -1,11 +1,20 @@
+export function generateRandomWords(count = 10) {
+	
+}
+
+export function createWordElements(string) {
+
+}
+
+
 export const text = {
-	word: [],
-	word_element: [],
 	word_text: [],
+	word_element: [],
 	index: 0,
 
-	load(payload) {
-		this.word = payload;
+	load(string) {
+		this.word_text = string.split(' ');
+		this.word_element = createWordElements(string);
 		this.index = 0;
 	},
   length() {
@@ -45,9 +54,8 @@ export const text = {
 }
 
 export const word = {
-	letter: [],
-	letter_element: [],
 	letter_text: [],
+	letter_element: [],
 	index: 0,
 	
 	load(word, isPreviousWord = false) {

@@ -8,11 +8,13 @@ import { Test, text, word } from "../main.js";
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function keydown(evt) {}
 export function keypress(evt) {}
 export function beforeinput(evt) {}
 export function input(evt) {}
 export function keyup(evt) {}
+export function keydown(evt) {
+	
+}
 
 // 1. keydown
 export function registerkeydown(evt) {
@@ -177,7 +179,6 @@ export function registerkeydown(evt) {
 
 			word.loadword(text.nextword, { nextword: true });
 			word.loadword(text.nextword, { nextword: true });
-			
 			if ( config.text.underline ) {
 				addunderline(text.activeword);
 			}

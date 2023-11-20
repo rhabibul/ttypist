@@ -10,7 +10,7 @@ export function isspace(letter) {
 
 export function totalchar() {
   let cnt = 0;
-  Array.from(HTMLCollection("word", { tagname: true })).forEach((word) => {
+  Array.from(document.getElementsByTagName("word")).forEach((word) => {
     cnt += word?.children.length;
   });
   return cnt;
