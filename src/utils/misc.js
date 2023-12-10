@@ -16,7 +16,6 @@ export function totalchar() {
   return cnt;
 }
 
-// 
 export function randomwords() {
   // modify the string here with all config options like capitalizations of letters
   // word type, word length, word count etc
