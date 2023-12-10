@@ -1,14 +1,13 @@
-import { config } from "../include/config.js";
-import Text from "../include/text.js";
-import Word from "../include/word.js";
+import Text from "./include/text.js";
+import Word from "./include/word.js";
 
 import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret-controller.js";
 import * as TypingAreaElements from "./elements/typing-area-element.js";
 
-import { time, typedchar, mInput, user } from "../include/trackers.js";
-import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./engine/logic.js";
-import { keydown, keypress, beforeinput, input, keyup } from "./engine/logic.js";
+import { time, typedchar, mInput, user } from "./include/trackers.js";
+import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./logic/logic.js";
+import { keydown, keypress, beforeinput, input, keyup } from "./logic/logic.js";
 
 export const text = new Text();
 export const word = new Word();
@@ -41,6 +40,8 @@ export const Test = {
 	}
 }
 
+// static-elements.js
+// include -> src   =>  src/include
 function main() {	
 	// need different names
 	Test.init();

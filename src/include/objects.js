@@ -1,6 +1,6 @@
 import { config } from "./config";
 
-export function generateRandomWords(count = 10) {
+export function generateRandomWords(count = 25) {
 	
 }
 
@@ -46,15 +46,13 @@ export function createWordElements(strings) {
 	return word_elements;
 }
 
-
+// maintain a array of strings for text separately
 export const text = {
-	word_text: [],
 	word_element: [],
 	index: 0,
 
-	load(string_array) {
-		this.word_text = string_array;
-		this.word_element = createWordElements(string_array);
+	load(arrayOfWords) {
+		this.word_element = createWordElements(arrayOfWords);
 		this.index = 0;
 	},
   length() {
@@ -75,37 +73,21 @@ export const text = {
   incrementWordIndex() {
 		this.index = this.index + 1;
 	},
-	previousWordElement() {
-		if ( this.index < 0 ) throw `Out of bounds: [${this.index}]`;
+	previous_word() {
+		if ( this.index < 0 ) throw `index: ${this.index}`;
 		return this.word_element[this.index - 1];
 	},
-  currentWordElement() {
-		if ( (this.index < 0) || (this.index > this.word.length - 1) ) throw `Out of bounds: [${this.index}]`;
+  current_word() {
+		if ( (this.index < 0) || (this.index > this.word.length - 1) ) throw `index: ${this.index}`;
 		return this.word_element[this.index];
 	},
-	nextWordElement() {
-		if ( this.index >= this.word.length - 1 ) throw `Out of bounds: [${this.index}]`;
+	next_word() {
+		if ( this.index >= this.word.length - 1 ) throw `index: ${this.index}`;
 		return this.word_element[this.index + 1];
 	},
-	previousWordText() {
-		if ( this.index < 0 ) throw `Out of bounds: [${this.index}]`;
-		return this.word_text[this.index - 1];
-	},
-  currentWordText() {
-		if ( (this.index < 0) || (this.index > this.word_element.length - 1) ) throw `Out of bounds: [${this.index}]`;
-		return this.word_text[this.index];
-	},
-  nextWordText() {
-		if ( this.index >= this.word_element.length - 1 ) throw `Out of bounds: [${this.index}]`;
-		return this.word_text[this.index + 1];
-	},
-	wordElementAt(index) {
-		if ( (index < 0) || (index > this.word_element.length - 1) ) throw `Out of bounds: [${this.index}]`;
+	word_at(index) {
+		if ( (index < 0) || (index > this.word_element.length - 1) ) throw `index: ${this.index}`;
 		return this.word_element[index];
-	},
-	wordTextAt(index) {
-		if ( (index < 0) || (index > this.word_element.length - 1) ) throw `Out of bounds: [${this.index}]`;
-		return this.word_text[index];
 	},
 }
 
@@ -116,16 +98,16 @@ export const word = {
 	
 	load(word, isPreviousWord = false) {
 
-		this.letter = Array.from(word?.children);
+		this.letter_element = Array.from(word?.children);
 
-		if ( !isPreviousWord ) {
-			this.index = 0; // for next/current word
-		} else {
+		if ( isPreviousWord ) {
 			this.index = this.letter.length - 1; // for previous word
+		} else {
+			this.index = 0; // for next/current word
 		}
 	},
 	length() {
-		return this.letter.length;
+		return this.letter_element.length;
 	},
 	self() {
 		return this.letter[0]?.parentElement;
@@ -144,12 +126,12 @@ export const word = {
 	},
 	previous_letter() {},
 	current_letter() {
-		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw `l[${this.index}] index is out of bounds`
+		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw `index: ${this.index}`
 		return this.letter[this.index];
 	},
 	next_letter() {},
 	letter_at(index) {
-		if ( (index < 0) || (index > this.length() - 1) ) throw `index out of bound`;
+		if ( (index < 0) || (index > this.length() - 1) ) throw `index: ${this.index}`;
 		return this.letter[index];
 	},
 }

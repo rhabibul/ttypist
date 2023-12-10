@@ -1,4 +1,4 @@
-import { config } from "../../include/config.js"
+import { config } from "../include/config.js"
 import * as SettingsElement from "../elements/setting-element.js";
 
 // keyboard reaction

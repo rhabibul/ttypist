@@ -1,6 +1,6 @@
-import { config } from "../include/config.js";
-import * as TypingAreaElements from "../src/elements/typing-area-element.js";
-import { addunderline, removeunderline } from "../src/engine/logic.js";
+import { config } from "./config.js";
+import * as TypingAreaElements from "../elements/typing-area-element.js";
+import { addunderline, removeunderline } from "../logic/logic.js";
 
 export default class Text {
   #text; // stores whole text as array of strings

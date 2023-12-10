@@ -1,9 +1,9 @@
-import { config } from "../../include/config.js";
+import { config } from "../include/config.js";
 import * as SettingsElement from "../elements/setting-element.js";
 import * as SettingChangeInConfig from "./setting-change-config.js";
 import * as SettingChangeInUI from "../ui/setting-change-ui.js";
 import * as TypingAreaElements from "../elements/typing-area-element.js";
-import { css } from "../../include/constants.js";
+import { css } from "../include/constants.js";
 import { Test } from "../main.js";
 
 // disable button
@@ -310,7 +310,6 @@ function updateFlipTextHighlightConfig(evt) {
 	css.style.setProperty("--text-primary-color", secondary);
 	css.style.setProperty("--text-secondary-color", primary);
 
-	TypingAreaElements.input.focus();
 
 	// debug
 	console.log("flipTextHighlight:", !config.text.highlight.flip, config.text.highlight.flip);
@@ -1134,7 +1133,6 @@ function updateCaretStyleConfig(evt) {
 		letter.classList.add(this.value);
 		if ( letter.id === config.caret.style ) letter.id = this.value;
 	}
-	TypingAreaElements.input.focus();	
 
 	SettingChangeInUI.changeCaretStyleInUI(this.value);
 	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
@@ -1224,8 +1222,6 @@ allDetails.textFontFamily.items.forEach((item) => {
 		allDetails.textFontFamily.inUseTextBox.textContent = config.text.font.family; // update in ui
 		css.style.setProperty("--text-font-family", config.text.font.family);
 		tickMarkCorrectOption(evt, "textFontFamily");
-		
-		TypingAreaElements.input.focus();
 
 		// debug
 		console.log("font-family:", config.text.font.family);

@@ -78,12 +78,12 @@
   --text-font-weight: 415;
   --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
-  --text-secondary-color: #9a9a9a;
+  --text-secondary-color: #9a9a9a9c;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-error-color: red; /* normal letter error color */
   --text-error-color--extra: #a30d0d; /* extra inserted letter error color */
-  --text-whitespace-color: #b3b3b3; /* dot/bar whitespace color */
+  --text-whitespace-color: rgb(179, 179, 179); /* dot/bar whitespace color */
   --text-whitespace-color-active: #303030; /* dot/bar whitespace color when active */
   --text-whitespace-bullet-dimension: 4px;
 
