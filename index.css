@@ -216,14 +216,14 @@ text word letter.whitespace.bullet::after {
   justify-content: center;
   transform: translateY(1px);
   background-color: var(--text-primary-color);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 text word letter.whitespace.bullet.correct::after {
   background-color: var(--text-secondary-color);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 text word letter.whitespace.bullet.ws-active::after {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 #selected {
