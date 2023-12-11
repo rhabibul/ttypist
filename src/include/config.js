@@ -51,12 +51,7 @@ export const config = {
     word: {
       count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
       type: "dictionary", // dictionary | gibberish | quote | story | algorithm
-      length: {
-        off: true, // random
-        short: false, // short(<6)
-        medium: false, // medium(>=6, <11)
-        long: false, // long(>=11, inf)
-      }
+      length: "off", // off | short(<6) | medium(>=6, <11) | long(>=11, inf)
     },
     include: {
       digit: false, // include numbers along with words
@@ -96,6 +91,7 @@ export const config = {
     },
   },
 }
+
 // whitespace
 //      bar: 9251, '␣'
 //   bullet: 8226, '•'
