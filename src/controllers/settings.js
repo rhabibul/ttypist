@@ -157,10 +157,6 @@ SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", u
 SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
 SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
 
-// typing speed measurement unit
-SettingsElement.statsConfig.unit.wpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
-SettingsElement.statsConfig.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
-
 // keyboard reaction
 SettingsElement.UIKeyboardReactionConfig.off.addEventListener("click", updateUIKeyboardReactionConfig);
 SettingsElement.UIKeyboardReactionConfig.static.addEventListener("click", updateUIKeyboardReactionConfig);
@@ -278,13 +274,13 @@ function updateTextUnderlineConfig(evt) {
 // text whitespace (s4)
 function updateTextWhitespaceConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.text.whitespace.off && this.value === "off") || (config.text.whitespace.style.bullet && this.value === "bullet") || (config.text.whitespace.style.space && this.value === "space") || (config.text.whitespace.style.bar && this.value === "bar") ) return;
+	if ( (config.text.whitespace === "off" && this.value === "off") || (config.text.whitespace === "bullet" && this.value === "bullet") || (config.text.whitespace === "space" && this.value === "space") || (config.text.whitespace === "bar" && this.value === "bar") ) return;
 
 	SettingChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingChangeInConfig.changeTextWhitespaceInConfig(this.value);
 
 	// debug
-	console.log("whitespace:", config.text.whitespace.off, config.text.whitespace.style.space, config.text.whitespace.style.bullet, config.text.whitespace.style.bar, config.text.whitespace.character, config.text.whitespace.code);
+	console.log("whitespace:", config.text.whitespace);
 }
 
 // strictspace
@@ -775,7 +771,7 @@ function updateCaretColorSelectorInput(evt) {
 
 	css.style.setProperty("--caret-color", this.value);
 	SettingsElement.caretColorConfig.textInput.value = this.value;
-	config.caret.color = this.value; // update in config
+	config.text.color.caret = this.value;
 }
 
 // caret color text input field
@@ -784,7 +780,7 @@ function updateCaretColorTextInput(evt) {
 
 	css.style.setProperty("--caret-color", this.value);
 	SettingsElement.caretColorConfig.selectorInput.value = this.value;
-	config.caret.color = this.value; // update in config
+	config.text.color.caret = this.value;
 }
 
 // text include
@@ -800,20 +796,20 @@ function updateIncludeSpecialsInTextConfig(evt) {
 // caret style
 function updateCaretStyleConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( this.value === config.caret.style ) return;
+	if ( this.value === config.caret ) return;
 	
 	// change caret in text
 	for ( const letter of document.getElementsByTagName("letter") ) {
-		letter.classList.remove(config.caret.style);
+		letter.classList.remove(config.caret);
 		letter.classList.add(this.value);
-		if ( letter.id === config.caret.style ) letter.id = this.value;
+		if ( letter.id === config.caret ) letter.id = this.value;
 	}
 
 	SettingChangeInUI.changeCaretStyleInUI(this.value);
 	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
 
 	// debug
-	console.log("caret:", config.caret.style);
+	console.log("caret:", config.caret);
 }
 
 var detclick = false;

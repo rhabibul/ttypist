@@ -169,7 +169,7 @@ export function changeDifficultyInUI(value) {
 	}
 }
 
-// confidence
+// user confidence (controls backspacing)
 export function changeConfidenceInUI(value) {
 	if ( value === "high" ) {
 		SettingsElement.userConfidenceConfig.low.id = "";
@@ -272,45 +272,6 @@ export function changeOppositeShiftModeInUI(value) {
 	}
 }
 
-// minimum speed
-export function changeMinimumSpeedInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.minimumThresholdConfig.speed.off.id = "";
-		SettingsElement.minimumThresholdConfig.speed.on.id = "selected";
-	} else {
-		SettingsElement.minimumThresholdConfig.speed.off.id = "selected";
-		SettingsElement.minimumThresholdConfig.speed.on.id = "";
-	}
-}
-
-// minimum accuracy
-export function changeMinimumAccuracyInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.minimumThresholdConfig.accuracy.off.id = "";
-		SettingsElement.minimumThresholdConfig.accuracy.on.id = "selected";
-	} else {
-		SettingsElement.minimumThresholdConfig.accuracy.off.id = "selected";
-		SettingsElement.minimumThresholdConfig.accuracy.on.id = "";
-	}
-}
-
-// minimum burst
-export function changeMinimumBurstInUI(value) {
-	if ( value === "fixed" ) {
-		SettingsElement.minimumThresholdConfig.burst.off.id = "";
-		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "selected";
-		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "";
-	} else if ( value === "flex") {
-		SettingsElement.minimumThresholdConfig.burst.off.id = "";
-		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "";
-		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "selected";
-	} else {
-		SettingsElement.minimumThresholdConfig.burst.off.id = "selected";
-		SettingsElement.minimumThresholdConfig.burst.option.fixed.id = "";
-		SettingsElement.minimumThresholdConfig.burst.option.flex.id = "";
-	}
-}
-
 // text word count
 export function changeTextWordCountInUI(value) {
 	if ( value === "custom" ) { // -2 (custom)
@@ -405,50 +366,6 @@ export function changeTimerSecondsInUI(value) {
 	}
 }
 
-export function changePaceCaretSpeedInUI(value) {
-	if ( value === "last" ) {
-		SettingsElement.paceCaretSpeedConfig.off.id = "";
-		SettingsElement.paceCaretSpeedConfig.last.id = "selected";
-		SettingsElement.paceCaretSpeedConfig.average.id = "";
-		SettingsElement.paceCaretSpeedConfig.best.id = "";
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
-	}	else if ( value === "average" ) {
-		SettingsElement.paceCaretSpeedConfig.off.id = "";
-		SettingsElement.paceCaretSpeedConfig.last.id = "";
-		SettingsElement.paceCaretSpeedConfig.average.id = "selected";
-		SettingsElement.paceCaretSpeedConfig.best.id = "";
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
-	} else if ( value === "best" ) {
-		SettingsElement.paceCaretSpeedConfig.off.id = "";
-		SettingsElement.paceCaretSpeedConfig.last.id = "";
-		SettingsElement.paceCaretSpeedConfig.average.id = "";
-		SettingsElement.paceCaretSpeedConfig.best.id = "selected";
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
-	} else if ( value === "custom" ) {
-		SettingsElement.paceCaretSpeedConfig.off.id = "";
-		SettingsElement.paceCaretSpeedConfig.last.id = "";
-		SettingsElement.paceCaretSpeedConfig.average.id = "";
-		SettingsElement.paceCaretSpeedConfig.best.id = "";
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "selected";
-	} else {
-		SettingsElement.paceCaretSpeedConfig.off.id = "selected";
-		SettingsElement.paceCaretSpeedConfig.last.id = "";
-		SettingsElement.paceCaretSpeedConfig.average.id = "";
-		SettingsElement.paceCaretSpeedConfig.best.id = "";
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id = "";
-	}
-}
-
-export function changeSpeedUnitInUI(value) {
-	if ( value === "cpm" ) {
-		SettingsElement.statsConfig.unit.cpm.id = "selected";
-		SettingsElement.statsConfig.unit.wpm.id = "";
-	} else {
-		SettingsElement.statsConfig.unit.cpm.id = "";
-		SettingsElement.statsConfig.unit.wpm.id = "selected";
-	}
-}
-
 function addColorsToCaretShape(shapeClicked, shape) {
 	if ( shapeClicked === shape.classList[1] ) {
 		// make caret active which is clicked
@@ -476,97 +393,51 @@ function addColorsToCaretShape(shapeClicked, shape) {
 	}
 }
 
-function changeCaretShapeColor(shapeClicked, caretType = "caret") {
+function changeCaretShapeColor(shapeClicked) {
 
 	const caretShapes = Array.from(document.querySelectorAll("div#caretStyleConfig button > span.shape"));
-	const paceCaretShapes = Array.from(document.querySelectorAll("div#paceCaretStyleConfig button > span.shape"));
 
-	if ( caretType === "caret" ) {
-		for ( const shape of caretShapes ) {
-			addColorsToCaretShape(shapeClicked, shape);
-		}
-	} else if ( caretType === "pacecaret" ) {
-		for ( const shape of paceCaretShapes ) {
-			addColorsToCaretShape(shapeClicked, shape);
-		}
+	for ( const shape of caretShapes ) {
+		addColorsToCaretShape(shapeClicked, shape);
 	}
 }
 
 export function changeCaretStyleInUI(value) {
 	if ( value === "off" ) {
-		changeCaretShapeColor("offCaretShape", "caret");
+		changeCaretShapeColor("offCaretShape");
 		SettingsElement.caretStyleConfig.off.id = "selected"
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "underscore" ) {
-		changeCaretShapeColor("underscoreCaretShape", "caret");
+		changeCaretShapeColor("underscoreCaretShape");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = "selected"
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "line" ) {
-		changeCaretShapeColor("lineCaretShape", "caret");
+		changeCaretShapeColor("lineCaretShape");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = "selected"
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "box" ) {
-		changeCaretShapeColor("boxCaretShape", "caret");
+		changeCaretShapeColor("boxCaretShape");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = "selected"
 		SettingsElement.caretStyleConfig.style.block.id = ""
 	} else if ( value === "block" ) {
-		changeCaretShapeColor("blockCaretShape", "caret");
+		changeCaretShapeColor("blockCaretShape");
 		SettingsElement.caretStyleConfig.off.id = ""
 		SettingsElement.caretStyleConfig.style.underscore.id = ""
 		SettingsElement.caretStyleConfig.style.line.id = ""
 		SettingsElement.caretStyleConfig.style.box.id = ""
 		SettingsElement.caretStyleConfig.style.block.id = "selected"
-	}
-}
-
-export function changePaceCaretStyleInUI(value) {
-	if ( value === "off" ) {
-		changeCaretShapeColor("offCaretShape", "pacecaret");
-		SettingsElement.paceCaretStyleConfig.off.id = "selected"
-		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
-		SettingsElement.paceCaretStyleConfig.style.line.id = ""
-		SettingsElement.paceCaretStyleConfig.style.box.id = ""
-		SettingsElement.paceCaretStyleConfig.style.block.id = ""
-	} else if ( value === "underscore" ) {
-		changeCaretShapeColor("underscoreCaretShape", "pacecaret");
-		SettingsElement.paceCaretStyleConfig.off.id = ""
-		SettingsElement.paceCaretStyleConfig.style.underscore.id = "selected"
-		SettingsElement.paceCaretStyleConfig.style.line.id = ""
-		SettingsElement.paceCaretStyleConfig.style.box.id = ""
-		SettingsElement.paceCaretStyleConfig.style.block.id = ""
-	} else if ( value === "line" ) {
-		changeCaretShapeColor("lineCaretShape", "pacecaret");
-		SettingsElement.paceCaretStyleConfig.off.id = ""
-		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
-		SettingsElement.paceCaretStyleConfig.style.line.id = "selected"
-		SettingsElement.paceCaretStyleConfig.style.box.id = ""
-		SettingsElement.paceCaretStyleConfig.style.block.id = ""
-	} else if ( value === "box" ) {
-		changeCaretShapeColor("boxCaretShape", "pacecaret");
-		SettingsElement.paceCaretStyleConfig.off.id = ""
-		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
-		SettingsElement.paceCaretStyleConfig.style.line.id = ""
-		SettingsElement.paceCaretStyleConfig.style.box.id = "selected"
-		SettingsElement.paceCaretStyleConfig.style.block.id = ""
-	} else if ( value === "block" ) {
-		changeCaretShapeColor("blockCaretShape", "pacecaret");
-		SettingsElement.paceCaretStyleConfig.off.id = ""
-		SettingsElement.paceCaretStyleConfig.style.underscore.id = ""
-		SettingsElement.paceCaretStyleConfig.style.line.id = ""
-		SettingsElement.paceCaretStyleConfig.style.box.id = ""
-		SettingsElement.paceCaretStyleConfig.style.block.id = "selected"
 	}
 }
 
@@ -577,29 +448,5 @@ export function changeBlindModeInUI(value) {
 	} else {
 		SettingsElement.goBlindConfig.off.id = "selected";
 		SettingsElement.goBlindConfig.on.id = "";
-	}
-}
-
-export function changeTextWordLengthInUI(value) {
-	if ( value === "short" ) {
-		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.short.id = "selected";
-		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
-	} else if ( value === "medium" ) {
-		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.medium.id = "selected";
-		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
-	} else if ( value === "long" ) {
-		SettingsElement.lengthOfWordsInTextConfig.off.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.long.id = "selected";
-	} else if ( value === "off" ) {
-		SettingsElement.lengthOfWordsInTextConfig.off.id = "selected";
-		SettingsElement.lengthOfWordsInTextConfig.short.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.medium.id = "";
-		SettingsElement.lengthOfWordsInTextConfig.long.id = "";
 	}
 }

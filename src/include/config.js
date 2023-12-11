@@ -42,7 +42,7 @@ export const config = {
   },
   text: {
     underline: true, // underline the current word
-    whitespace: "space", // off | space | dot | bar
+    whitespace: "bullet", // off | space | dot | bar
     highlight: { // by default, future text is brighter than the already typed text
       off: false,
       mode: {
@@ -72,7 +72,7 @@ export const config = {
     font: {
       size: 1.2, // size of letter
       weight: 445, // thickness of letter
-      family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
+      family: "Roboto Mono", // roboto mono | fira code | syne mono | source code pro
     },
   },
   keyboard: {
@@ -91,8 +91,3 @@ export const config = {
   arrowkeys: false, // move caret in text (all direction) using arrow keys (mythical)
   time: 0, // timer time in seconds
 }
-
-// whitespace
-//      bar: 9251, '␣'
-//   bullet: 8226, '•'
-//    space: 160, '&nbsp'
