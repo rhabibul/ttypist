@@ -35,20 +35,6 @@ export function changeKeyboardLayoutEmulateInConfig(value) {
 	}
 }
 
-// dynamic setting
-export function changeDynamicSettingsInConfig(value) {
-	if ( value === "off" ) {
-		config.website.setting.dynamic = false;
-	} else {
-		config.website.setting.dynamic = true;
-	}
-}
-
-// website theme
-export function changeWebsiteThemeInConfig(value) {
-	config.website.theme = value;
-}
-
 // tape mode
 export function changeTapeModeInConfig(value) {
 	if ( value === "letter" ) {
@@ -96,10 +82,10 @@ export function changeTextHightlightInConfig(value) {
 
 // flip text highlight
 export function changeFlipTextHightlightInConfig(value) {
-	if ( value === "on" ) {
-		config.text.highlight.flip = true;
-	} else {
+	if ( value === "off" ) {
 		config.text.highlight.flip = false;
+	} else {
+		config.text.highlight.flip = true;
 	}
 }
 
@@ -114,35 +100,7 @@ export function changeTextUnderlineInConfig(value) {
 
 // text whitespace
 export function changeTextWhitespaceInConfig(value) {
-	if ( value === "bullet" ) {
-		config.text.whitespace.off = false;
-		config.text.whitespace.style.bullet = true;
-		config.text.whitespace.style.space = false;
-		config.text.whitespace.style.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.bullet.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.bullet.dataset.character);
-	} else if ( value === "bar" ) {
-		config.text.whitespace.off = false;
-		config.text.whitespace.style.bullet = false;
-		config.text.whitespace.style.space = false;
-		config.text.whitespace.style.bar = true;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.bar.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.bar.dataset.character);
-	} else if ( value === "space" ) {
-		config.text.whitespace.off = false;
-		config.text.whitespace.style.bullet = false;
-		config.text.whitespace.style.space = true;
-		config.text.whitespace.style.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.style.space.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.style.space.dataset.character);
-	} else {
-		config.text.whitespace.off = true;
-		config.text.whitespace.style.bullet = false;
-		config.text.whitespace.style.space = false;
-		config.text.whitespace.style.bar = false;
-		config.text.whitespace.code = Number(SettingsElement.textWhitespaceConfig.off.dataset.code);
-		config.text.whitespace.character = String(SettingsElement.textWhitespaceConfig.off.dataset.character);
-	}
+	config.text.whitespace = value;
 }
 
 // strict space
@@ -316,171 +274,24 @@ export function changeOppositeShiftModeInConfig(value) {
 	}
 }
 
-// minimum speed
-export function changeMinimumSpeedInConfig(value) {
-	if ( value === "on" ) {
-		config.minimum.speed.off = false;
-	} else {
-		config.minimum.speed.off = true;
-	}
-}
-
-// minimum accuracy
-export function changeMinimumAccuracyInConfig(value) {
-	if ( value === "on" ) {
-		config.minimum.accuracy.off = false;
-	} else {
-		config.minimum.accuracy.off = true;
-	}
-}
-
-// minimum burst
-export function changeMinimumBurstInConfig(value) {
-	if ( value === "fixed" ) {
-		config.minimum.burst.off = false;
-		config.minimum.burst.option.fixed = true;
-		config.minimum.burst.option.flex = false;
-	} else if ( value === "flex" ) {
-		config.minimum.burst.off = false;
-		config.minimum.burst.option.fixed = false;
-		config.minimum.burst.option.flex = true;
-	} else {
-		config.minimum.burst.off = true;
-		config.minimum.burst.option.fixed = false;
-		config.minimum.burst.option.flex = false;
-	}
-}
-
 // text word count
 export function changeTextWordCountInConfig(value) {
-  if ( value === "custom" ) {
-		// -2 will be the value for custom input when custom button is clicked but value 
-		// is not yet entered in input field
-		config.text.word.count = -2; // -2 (custom)
-	} else if ( value === "off" ) {
-		config.text.word.count = -1; // -1 (off)
-	} else if ( value === "infinite" ) {
-		config.text.word.count = 0; // 0 (infinite)
-	} else if ( value === "10" ) {
-		config.text.word.count = 10;
-	} else if ( value === "25" ) {
-		config.text.word.count = 25;
-	} else if ( value === "50" ) {
-		config.text.word.count = 50;
-	} else if ( value === "100" ) {
-		config.text.word.count = 100;
-	}
+	config.text.word.count = Number(value);
 }
 
 // timer time
 export function changeTimerSecondsInConfig(value) {
-	if ( value === "custom" ) {
-		// -2 will be the value for custom input when custom button is active but value 
-		// is not yet entered in input field
-		config.time = -2; // -2 (custom)
-	} else if ( value === "off" ) {
-		config.time = -1; // -1 (off)
-	} else if ( value === "infinite" ) {
-		config.time = 0; // 0 (infinite)
-	} else if ( value === "15" ) {
-		config.time = 15;
-	} else if ( value === "30" ) {
-		config.time = 30;
-	} else if ( value === "60" ) {
-		config.time = 60;
-	} else if ( value === "120" ) {
-		config.time = 120;
-	}
-}
-
-export function changePaceCaretSpeedInConfig(value) {
-	if ( value === "last" ) {
-		config.pacecaret.off = false;
-		config.pacecaret.speed.last = true;
-		config.pacecaret.speed.average = false;
-		config.pacecaret.speed.best = false;
-		config.pacecaret.speed.custom.off = true;
-	}	else if ( value === "average" ) {
-		config.pacecaret.off = false;
-		config.pacecaret.speed.last = false;
-		config.pacecaret.speed.average = true;
-		config.pacecaret.speed.best = false;
-		config.pacecaret.speed.custom.off = true;
-	} else if ( value === "best" ) {
-		config.pacecaret.off = false;
-		config.pacecaret.speed.last = false;
-		config.pacecaret.speed.average = false;
-		config.pacecaret.speed.best = true;
-		config.pacecaret.speed.custom.off = true;
-	} else if ( value === "custom" ) {
-		config.pacecaret.off = false;
-		config.pacecaret.speed.last = false;
-		config.pacecaret.speed.average = false;
-		config.pacecaret.speed.best = false;
-		config.pacecaret.speed.custom.off = false;
-	} else {
-		config.pacecaret.off = true;
-		config.pacecaret.speed.last = false;
-		config.pacecaret.speed.average = false;
-		config.pacecaret.speed.best = false;
-		config.pacecaret.speed.custom.off = true;
-	}	
-}
-
-export function changeUseFloatsInConfig(value) {
-	if ( value === "on" ) {
-		config.stats.usefloats = true;
-	} else {
-		config.stats.usefloats = false;
-	}
-}
-
-export function changeSpeedUnitInConfig(value) {
-	if ( value === "cpm" ) {
-		config.stats.unit.cpm = true;
-		config.stats.unit.wpm = false;
-	} else {
-		config.stats.unit.cpm = false;
-		config.stats.unit.wpm = true;
-	}
+	config.time = Number(value);
 }
 
 export function changeCaretStyleInConfig(value) {
-	config.caret.style = value;
-}
-
-export function changePaceCaretStyleInConfig(value) {
-	config.pacecaret.style = value;
+	config.caret = value;
 }
 
 export function changeBlindModeInConfig(value) {
 	if ( value === "on" ) {
-		config.goblind = true;
+		config.blind = true;
 	} else {
-		config.goblind = false;
-	}
-}
-
-export function changeTextWordLengthInConfig(value) {
-	if ( value === "short" ) {
-		config.text.word.length.off = false;
-		config.text.word.length.short = true;
-		config.text.word.length.medium = false;
-		config.text.word.length.long = false;
-	} else if ( value === "medium" ) {
-		config.text.word.length.off = false;
-		config.text.word.length.short = false;
-		config.text.word.length.medium = true;
-		config.text.word.length.long = false;
-	} else if ( value === "long" ) {
-		config.text.word.length.off = false;
-		config.text.word.length.short = false;
-		config.text.word.length.medium = false;
-		config.text.word.length.long = true;
-	} else if ( value === "off" ) {
-		config.text.word.length.off = true;
-		config.text.word.length.short = false;
-		config.text.word.length.medium = false;
-		config.text.word.length.long = false;
+		config.blind = false;
 	}
 }
