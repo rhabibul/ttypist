@@ -108,25 +108,6 @@ SettingsElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfi
 SettingsElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
 SettingsElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
 
-// minimum speed
-SettingsElement.minimumThresholdConfig.speed.off.addEventListener("click", updateMinimumSpeedThresholdConfig);
-SettingsElement.minimumThresholdConfig.speed.on.addEventListener("click",  updateMinimumSpeedThresholdConfig);
-SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("input",    updateMinimumSpeedThresholdInput);
-SettingsElement.minimumThresholdConfig.speed.thresholdInput.addEventListener("focusout", updateMinimumSpeedThresholdInputOnFoucsOut);
-
-// minimum accuracy
-SettingsElement.minimumThresholdConfig.accuracy.off.addEventListener("click", updateMinimumAccuracyThresholdConfig);
-SettingsElement.minimumThresholdConfig.accuracy.on.addEventListener("click",  updateMinimumAccuracyThresholdConfig);
-SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.addEventListener("input",    updateMinimumAccuracyThresholdInput);
-SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.addEventListener("focusout", updateMinimumAccuracyThresholdInputOnFoucsOut);
-
-// minimum burst
-SettingsElement.minimumThresholdConfig.burst.off.addEventListener("click",          updateMinimumBurstThresholdConfig);
-SettingsElement.minimumThresholdConfig.burst.option.fixed.addEventListener("click", updateMinimumBurstThresholdConfig);
-SettingsElement.minimumThresholdConfig.burst.option.flex.addEventListener("click",  updateMinimumBurstThresholdConfig);
-SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("input",    updateMinimumBurstThresholdInput);
-SettingsElement.minimumThresholdConfig.burst.thresholdInput.addEventListener("focusout", updateMinimumBurstThresholdInputOnFoucsOut);
-
 // caret style
 SettingsElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
 SettingsElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
@@ -166,33 +147,11 @@ SettingsElement.textWordsCountConfig.customWordsCountButton.addEventListener("cl
 SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
 SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
 
-// text word length
-SettingsElement.lengthOfWordsInTextConfig.off.addEventListener("click", updateLengthOfWordsInTextConfig);
-SettingsElement.lengthOfWordsInTextConfig.short.addEventListener("click", updateLengthOfWordsInTextConfig);
-SettingsElement.lengthOfWordsInTextConfig.medium.addEventListener("click", updateLengthOfWordsInTextConfig);
-SettingsElement.lengthOfWordsInTextConfig.long.addEventListener("click", updateLengthOfWordsInTextConfig);
-
 // font size slider
 SettingsElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
 
 // font weight slider
 SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
-
-// pacecaret speed
-SettingsElement.paceCaretSpeedConfig.off.addEventListener("click", updatePaceCaretSpeedConfig);
-SettingsElement.paceCaretSpeedConfig.last.addEventListener("click", updatePaceCaretSpeedConfig);
-SettingsElement.paceCaretSpeedConfig.average.addEventListener("click", updatePaceCaretSpeedConfig);
-SettingsElement.paceCaretSpeedConfig.best.addEventListener("click", updatePaceCaretSpeedConfig);
-SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.addEventListener("click", updatePaceCaretSpeedConfig);
-SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.addEventListener("input", updatePaceCaretSpeedInputField);
-SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.addEventListener("focusout", updatePaceCaretSpeedInputFieldOnFocusOut);
-
-// pacecaret style
-SettingsElement.paceCaretStyleConfig.off.addEventListener("click", updatePaceCaretStyleConfig);
-SettingsElement.paceCaretStyleConfig.style.underscore.addEventListener("click", updatePaceCaretStyleConfig);
-SettingsElement.paceCaretStyleConfig.style.line.addEventListener("click", updatePaceCaretStyleConfig);
-SettingsElement.paceCaretStyleConfig.style.box.addEventListener("click", updatePaceCaretStyleConfig);
-SettingsElement.paceCaretStyleConfig.style.block.addEventListener("click", updatePaceCaretStyleConfig);
 
 // include specials in text (digit, punctuation)
 SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
@@ -201,17 +160,6 @@ SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click"
 // typing speed measurement unit
 SettingsElement.statsConfig.unit.wpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
 SettingsElement.statsConfig.unit.cpm.addEventListener("click", updateTypingSpeedMeasurementUnitConfig);
-
-// warnings
-SettingsElement.warningConfig.capslock.addEventListener("click", updateWarningConfig);
-SettingsElement.warningConfig.numlock.addEventListener("click", updateWarningConfig);
-SettingsElement.warningConfig.scrolllock.addEventListener("click", updateWarningConfig);
-SettingsElement.warningConfig.focusout.addEventListener("click", updateWarningConfig);
-
-// live stats
-SettingsElement.statsConfig.live.speed.addEventListener("click", updateLiveStats);
-SettingsElement.statsConfig.live.accuracy.addEventListener("click", updateLiveStats);
-SettingsElement.statsConfig.live.burst.addEventListener("click", updateLiveStats);
 
 // keyboard reaction
 SettingsElement.UIKeyboardReactionConfig.off.addEventListener("click", updateUIKeyboardReactionConfig);
@@ -588,7 +536,7 @@ function updateStopOnErrorConfig(evt) {
 // blind mode
 function updateGoBlindConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	if ( (config.goblind && this.value === "on") || (!config.goblind && this.value === "off") ) return;
+	if ( (config.blind && this.value === "on") || (!config.blind && this.value === "off") ) return;
 
 	SettingChangeInUI.changeBlindModeInUI(this.value);
 	SettingChangeInConfig.changeBlindModeInConfig(this.value);
@@ -615,7 +563,7 @@ function updateGoBlindConfig(evt) {
 	}
 	
 	// debug
-	console.log("blindMode:", !config.goblind, config.goblind);
+	console.log("blindMode:", !config.blind, config.blind);
 }
 
 // opposite shift mode
@@ -628,156 +576,6 @@ function updateUseOppositeShiftConfig(evt) {
 
 	// debug
 	console.log("oppositeShift:", !config.oppositeshift, config.oppositeshift);
-}
-
-// minimum speed
-function updateMinimumSpeedThresholdConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.minimum.speed.off && this.value === "off") || (!config.minimum.speed.off && this.value === "on") ) return;
-
-	SettingChangeInUI.changeMinimumSpeedInUI(this.value);
-	SettingChangeInConfig.changeMinimumSpeedInConfig(this.value);
-
-	// focus in input field when user clicks on "on" button
-	if ( this.value === "on" ) {
-		SettingsElement.minimumThresholdConfig.speed.thresholdInput.focus();
-	} else {
-		SettingsElement.minimumThresholdConfig.speed.thresholdInput.value = "";
-	}
-
-	// debug
-	console.log("minspeed:", config.minimum.speed.off, !config.minimum.speed.off);
-}
-
-// minimum speed threashold input (s1)
-function updateMinimumSpeedThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// if off button is selected then unselect it
-	if ( SettingsElement.minimumThresholdConfig.speed.off.id === "selected" ) {
-		SettingChangeInUI.changeMinimumSpeedInUI("on");
-		SettingChangeInConfig.changeMinimumSpeedInConfig("on");
-	}
-
-	config.minimum.speed.threshold = Number(this.value); // update in config
-
-	// debug
-	console.log("minSpeedThreshold:", config.minimum.speed.threshold);
-}
-
-// minimum speed threshold input (focusout)
-function updateMinimumSpeedThresholdInputOnFoucsOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && SettingsElement.minimumThresholdConfig.speed.on.id === "selected" ) {
-		SettingChangeInUI.changeMinimumSpeedInUI("off");
-		SettingChangeInConfig.changeMinimumSpeedInConfig("off");
-		this.value = "";
-	}
-
-	// debug
-	console.log("FOCUS-OUT (minspeed)");
-}
-
-// minimum accuracy (s3)
-function updateMinimumAccuracyThresholdConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.minimum.accuracy.off && this.value === "off") || (!config.minimum.accuracy.off && this.value === "on") ) return;
-
-	SettingChangeInUI.changeMinimumAccuracyInUI(this.value);
-	SettingChangeInConfig.changeMinimumAccuracyInConfig(this.value);
-
-	// focus in input field when user clicks on "on" button
-	if ( this.value === "on" ) {
-		SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.focus();
-	} else {
-		SettingsElement.minimumThresholdConfig.accuracy.thresholdInput.value = "";
-	}
-
-	// debug
-	console.log("minacc:", config.minimum.accuracy.off, !config.minimum.accuracy.off);
-}
-
-// minimum accuracy threashold input (s1)
-function updateMinimumAccuracyThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-	
-	// if off button is selected then unselect it
-	if ( SettingsElement.minimumThresholdConfig.accuracy.off.id === "selected" ) {
-		SettingChangeInUI.changeMinimumAccuracyInUI("on");
-		SettingChangeInConfig.changeMinimumAccuracyInConfig("on");
-	}
-
-	config.minimum.accuracy.threshold = Number(this.value); // update in config
-
-	// debug
-	console.log("minAccuracyThreshold:", config.minimum.accuracy.threshold);
-}
-
-// minimum accuracy threshold input (focusout)
-function updateMinimumAccuracyThresholdInputOnFoucsOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && SettingsElement.minimumThresholdConfig.accuracy.on.id === "selected" ) {
-		SettingChangeInUI.changeMinimumAccuracyInUI("off");
-		SettingChangeInConfig.changeMinimumAccuracyInConfig("off");
-		this.value = "";
-	}
-
-	// debug
-	console.log("FOCUS-OUT (minacc)");
-}
-
-// minimum burst (s3)
-function updateMinimumBurstThresholdConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.minimum.burst.off && this.value === "off") || (config.minimum.burst.option.fixed && this.value === "fixed") || (config.minimum.burst.option.flex && this.value === "flex") ) return;
-
-	SettingChangeInUI.changeMinimumBurstInUI(this.value);
-	SettingChangeInConfig.changeMinimumBurstInConfig(this.value);
-
-	// focus in input field when user clicks on flex or fixed buttons
-	if ( this.value === "fixed" || this.value === "flex" ) {
-		SettingsElement.minimumThresholdConfig.burst.thresholdInput.focus();
-	} else {
-		SettingsElement.minimumThresholdConfig.burst.thresholdInput.value = "";
-	}
-
-	// debug
-	console.log("minBurst:", config.minimum.burst.off, config.minimum.burst.option.fixed, config.minimum.burst.option.flex);
-}
-
-// minimum burst threashold input (s1)
-function updateMinimumBurstThresholdInput(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// turn on "fixed" button active if user starts entering value into input field
-	// without clicking on flex or fixed buttons first
-	if ( SettingsElement.minimumThresholdConfig.burst.off.id === "selected" ) {
-		SettingChangeInUI.changeMinimumBurstInUI("fixed");
-		SettingChangeInConfig.changeMinimumBurstInConfig("fixed");
-	}
-	config.minimum.burst.threshold = Number(this.value);  // update in config
-
-	// debug
-	console.log("minBurstThreshold [input]:", config.minimum.burst.threshold);
-}
-
-// minimum burst threshold input (focusout)
-function updateMinimumBurstThresholdInputOnFoucsOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// no value entered in input field
-	if ( (this.value === "" || this.value === "0") && (SettingsElement.minimumThresholdConfig.burst.option.fixed.id === "selected" || SettingsElement.minimumThresholdConfig.burst.option.flex.id === "selected") ) {
-		SettingChangeInUI.changeMinimumBurstInUI("off");
-		SettingChangeInConfig.changeMinimumBurstInConfig("off");
-		this.value = "";
-	}
-
-	// debug
-	console.log("FOCUS-OUT (minburst)");
 }
 
 // text word count
@@ -843,7 +641,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
 
-	Test.restart();
+	Test.restart(); // load new words & reset everything for new test
 
 	// debug
 	console.log("FOCUS-OUT (numberOfWords)");
@@ -861,8 +659,11 @@ function updateTimerSecondsCountConfig(evt) {
 		if ( this.value === "off" ) {
 			SettingChangeInUI.changeTextWordCountInUI("25");
 			SettingChangeInConfig.changeTextWordCountInConfig("25");
-			Test.restart();
+
+			Test.restart(); // load new words & reset everything for new test
+
 			return;
+			
 		} else { // timer mode is enabled so disable words mode
 			SettingChangeInUI.changeTextWordCountInUI("off");
 			SettingChangeInConfig.changeTextWordCountInConfig("off");
@@ -893,7 +694,7 @@ function updateTimerSecondsCountInputField(evt) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
-	config.time = Number(this.value); // update in config (i.e, override -2 initial value)
+	config.time = Number(this.value); // update in config
 
 	// debug
 	console.log("numberOfSeconds [input]:", config.time);
@@ -918,55 +719,6 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	console.log("FOCUS-OUT (numberOfSeconds)");
 }
 
-// pacecaret speed
-function updatePaceCaretSpeedConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.pacecaret.off && this.value === "off") || (config.pacecaret.speed.last && this.value === "last") || (config.pacecaret.speed.average && this.value === "average") || (config.pacecaret.speed.best && this.value === "best") || (!config.pacecaret.speed.custom.off && this.value === "custom") ) return;
-
-	SettingChangeInUI.changePaceCaretSpeedInUI(this.value);
-	SettingChangeInConfig.changePaceCaretSpeedInConfig(this.value);
-
-	// focus in input field when custom button is clicked, otherwise clear input field
-	if ( this.value === "custom" ) {
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.focus();
-	} else {
-		SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedInput.value = "";
-	}
-
-	// debug
-	console.log("paceCaretSpeed:", config.pacecaret.off, config.pacecaret.speed.last, config.pacecaret.speed.average, config.pacecaret.speed.best, config.pacecaret.speed.custom.off);
-}
-
-// pacecaret speed input
-function updatePaceCaretSpeedInputField(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// make custom button active if not
-	if ( SettingsElement.paceCaretSpeedConfig.paceCaretCustomSpeedButton.id !== "selected" ) {
-		SettingChangeInUI.changePaceCaretSpeedInUI("custom");
-		SettingChangeInConfig.changePaceCaretSpeedInConfig("custom");
-	}
-	config.pacecaret.speed.custom.value = Number(this.value); // update in config
-
-	// debug
-	console.log("paceCaretSpeed [input]:", config.pacecaret.speed.custom.value);
-}
-
-// pacecaret speed input (focusout)
-function updatePaceCaretSpeedInputFieldOnFocusOut(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// no value entered in input field (turn off custom button)
-	if ( (this.value === "" || this.value === "0") && !config.pacecaret.speed.custom.off) {
-		SettingChangeInUI.changePaceCaretSpeedInUI("off");
-		SettingChangeInConfig.changePaceCaretSpeedInConfig("off");
-		if ( this.value === "0" ) this.value = "";
-	}
-
-	// debug
-	console.log("FOCUS-OUT (paceCaretSpeed)");
-}
-
 // text font size slider
 function updateTextFontSizeConfig(evt) {
 	if ( !evt.isTrusted ) return;
@@ -989,7 +741,7 @@ function updateTextFontWeightConfig(evt) {
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColorConfig.primary.textInput.value = this.value; // update in text input field for primary color
+	SettingsElement.textColorConfig.primary.textInput.value = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
@@ -997,7 +749,7 @@ function updatePrimaryTextColorSelectorInput(evt) {
 function updateSecondaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 	css.style.setProperty("--text-secondary-color", this.value);
-	SettingsElement.textColorConfig.secondary.textInput.value = this.value;  // update in text input field for secondary color
+	SettingsElement.textColorConfig.secondary.textInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
@@ -1005,7 +757,7 @@ function updateSecondaryTextColorSelectorInput(evt) {
 function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColorConfig.primary.selectorInput = this.value; // update in color picker input field for primary color
+	SettingsElement.textColorConfig.primary.selectorInput = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
@@ -1035,71 +787,6 @@ function updateCaretColorTextInput(evt) {
 	config.caret.color = this.value; // update in config
 }
 
-// warning
-function updateWarningConfig(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// capslock
-	if ( SettingsElement.warningConfig.capslock.checked ) {
-		config.warning.capslock = true;
-	} else {
-		config.warning.capslock = false;
-	}
-
-	// numlock
-	if ( SettingsElement.warningConfig.numlock.checked ) {
-		config.warning.numlock = true;
-	} else {
-		config.warning.numlock = false;
-	}
-	
-	// scrolllock
-	if ( SettingsElement.warningConfig.scrolllock.checked ) {
-		config.warning.scrolllock = true;
-	} else {
-		config.warning.scrolllock = false;
-	}
-
-	// focusout
-	if ( SettingsElement.warningConfig.focusout.checked ) {
-		config.warning.focusout = true;
-	} else {
-		config.warning.focusout = false;
-	}
-
-	// debug
-	console.log("warning:", config.warning.capslock, config.warning.numlock, config.warning.scrolllock, config.warning.focusout);
-}
-
-// live stats (s3)
-function updateLiveStats(evt) {
-	if ( !evt.isTrusted ) return;
-
-	// speed
-	if ( SettingsElement.statsConfig.live.speed.checked ) {
-		config.stats.live.speed = true;
-	} else {
-		config.stats.live.speed = false;
-	}
-
-	// accuracy
-	if ( SettingsElement.statsConfig.live.accuracy.checked ) {
-		config.stats.live.accuracy = true;
-	} else {
-		config.stats.live.accuracy = false;
-	}
-
-	// burst
-	if ( SettingsElement.statsConfig.live.burst.checked ) {
-		config.stats.live.burst = true;
-	} else {
-		config.stats.live.burst = false;
-	}
-
-	// debug
-	console.log("liveStats:", config.stats.live.speed, config.stats.live.accuracy, config.stats.live.burst);
-}
-
 // text include
 function updateIncludeSpecialsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
@@ -1108,18 +795,6 @@ function updateIncludeSpecialsInTextConfig(evt) {
 
 	// debug
 	console.log("textInclude:", config.text.include.digit, config.text.include.punctuation);
-}
-
-// typing speed measurement unit
-function updateTypingSpeedMeasurementUnitConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (config.stats.unit.cpm && this.value === "cpm") || (config.stats.unit.wpm && this.value === "wpm") ) return;
-
-	SettingChangeInUI.changeSpeedUnitInUI(this.value);
-	SettingChangeInConfig.changeSpeedUnitInConfig(this.value);
-
-	// debug
-	console.log("speedUnit:", config.stats.unit.cpm, config.stats.unit.wpm);
 }
 
 // caret style
@@ -1139,18 +814,6 @@ function updateCaretStyleConfig(evt) {
 
 	// debug
 	console.log("caret:", config.caret.style);
-}
-
-// pacecaret style
-function updatePaceCaretStyleConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( this.value === config.pacecaret.style ) return;
-
-	SettingChangeInUI.changePaceCaretStyleInUI(this.value);
-	SettingChangeInConfig.changePaceCaretStyleInConfig(this.value);
-
-	// debug
-	console.log("pacecaret:", config.pacecaret.style);
 }
 
 var detclick = false;
@@ -1179,12 +842,11 @@ window.document.addEventListener("keydown", (evt) => {
 });
 
 // debugging
-det.forEach((detail) => {
-	detail.addEventListener("toggle", (evt) => {
-		if ( !evt.isTrusted ) return;
-		console.log("details:", detail.classList[0], detail.open);
-	});
-});
+// det.forEach((detail) => {
+// 	detail.addEventListener("toggle", (evt) => {
+// 		console.log(detail.open);
+// 	});
+// });
 
 const allDetails = {
 	textFontFamily: {

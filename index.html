@@ -70,18 +70,6 @@
 
     <div class="setting">
       <div class="column c1">
-        <div class="row tape">
-          <div class="label">
-            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
-            <div class="text">tape mode</div>
-          </div>
-          <div id="tapeModeConfig" class="s3 configButtonContainer">
-            <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
-            <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
-          </div>
-        </div>
-
         <div class="row textinput">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInput" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -0.5 21 21"><g transform="translate(-379, -800)"> <g transform="translate(56, 160)"> <path d="M327.2,654 L325.1,654 L325.1,646 L327.2,646 L327.2,644 L323,644 L323,656 L327.2,656 L327.2,654 Z M333.5,644 L333.5,646 L341.9,646 L341.9,654 L333.5,654 L333.5,656 L344,656 L344,644 L333.5,644 Z M331.4,658 L333.5,658 L333.5,660 L327.2,660 L327.2,658 L329.3,658 L329.3,642 L327.2,642 L327.2,640 L333.5,640 L333.5,642 L331.4,642 L331.4,658 Z"></path></svg> </div>
@@ -373,82 +361,21 @@
             <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
           </div>
         </div>
-
-        <div class="row minspeed">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum speed</div>
-          </div>
-          <div id="minimumSpeedConfig" class="s2-1 s3 configButtonContainer">
-            <div class="minimumSpeedButton s2">
-              <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
-            </div>
-            <div class="customInputContainer minimumSpeedCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox speedThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row minacc">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" fill="var(--setting-icon-color)" viewBox="0 -0.5 17 17">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum accuracy</div>
-          </div>
-          <div id="minimumAccuracyConfig" class="s2-1 s3 configButtonContainer">
-            <div class="minimumAccuracyButton s2">
-              <button class="off" value="off" tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="on"  value="on"  tabindex="0" role="button" type="button">on</button>
-            </div>
-            <div class="customInputContainer minimumAccuracyCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox accuracyThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row minburst">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconBomb" viewBox="0 -0.5 17 17" fill="var(--setting-icon-color)">
-                <path d="M15.427,0.016 C15.334,0.968 14.573,1.271 13.332,1.655 C12.748,1.837 12.127,2.034 11.62,2.375 C10.73,1.902 10.109,2.012 10.109,2.012 L8.808,3.628 C10.087,4.039 11.175,4.845 11.912,5.899 L13.2,4.296 C13.2,4.296 13.295,3.608 12.242,2.783 C12.62,2.583 13.067,2.439 13.529,2.296 C14.664,1.944 15.854,1.464 15.999,9.09494702e-13 L15.427,0.016 L15.427,0.016 Z"></path>
-                <path d="M7.857,4.364 C7.261,4.165 6.627,4.052 5.962,4.052 C2.669,4.052 -0.001,6.722 -0.001,10.016 C-0.001,13.31 2.669,15.979 5.962,15.979 C9.256,15.979 11.925,13.31 11.925,10.016 C11.925,8.788 11.554,7.65 10.919,6.701 C10.193,5.616 9.119,4.787 7.857,4.364 L7.857,4.364 Z M6.299,6.077 C3.592,6.077 2.137,7.586 2.137,10.043 L1.031,10.043 C1.031,7.408 3.243,5.233 6.069,4.964 C6.068,4.964 6.457,6.077 6.299,6.077 L6.299,6.077 Z"></path>
-              </svg>
-            </div>
-            <div class="text">minimum burst</div>
-          </div>
-          <div id="minimumBurstConfig" class="s3-1 s4 configButtonContainer">
-            <div class="minimumBurstButton s3">
-              <button class="off"   value="off"   tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="fixed" value="fixed" tabindex="0" role="button" type="button">fixed</button>
-              <button class="flex"  value="flex"  tabindex="0" role="button" type="button">flex</button>
-            </div>
-            <div class="customInputContainer minimumBurstCustomInputContainer s1">
-              <div class="inputContainer custom">
-                <input class="inputBox burstThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       
       <div class="column c2">
+        <div class="row tape">
+          <div class="label">
+            <div class="symbol"><svg class="iconTapeMode" fill="var(--setting-icon-color)" width="256px" height="256px" viewBox="0 -64 640 640"><path d="M224 192c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm400 224H380.6c41.5-40.7 67.4-97.3 67.4-160 0-123.7-100.3-224-224-224S0 132.3 0 256s100.3 224 224 224h400c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400-64c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"></path></svg></div>
+            <div class="text">tape mode</div>
+          </div>
+          <div id="tapeModeConfig" class="s3 configButtonContainer">
+            <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
+            <button class="letter" value="letter" tabindex="0" role="button" type="button">letter</button>
+            <button class="word"   value="word"   tabindex="0" role="button" type="button">word</button>
+          </div>
+        </div>
+
         <div class="row caretstyle">
           <div class="label">
             <div class="symbol">
@@ -556,7 +483,7 @@
             <div class="text">text size</div>
           </div>
           <div id="textFontSizeConfig" class="s1 configButtonContainer">
-            <div class="textFontSizeInputContainer"><input class="textFontSizeInput" type="range" min="16" max="48" step="1" value="19"></div>
+            <div class="textFontSizeInputContainer"><input class="textFontSizeInput" type="range" min="16" max="48" step="4" value="19"></div>
             <div class="text value">20</div>
           </div>
         </div>
@@ -612,7 +539,7 @@
                 <path fill="var(--setting-icon-color)" opacity="1.0" d="M256,273.07c-9.353,0-16.964,7.612-16.964,16.964s7.612,16.964,16.964,16.964s16.964-7.612,16.964-16.964 S265.352,273.07,256,273.07z"></path>
               </svg>
             </div>
-            <div class="text">timer</div>
+            <div class="text">timer seconds count</div>
           </div>
           <div id="timerSecondsCountConfig" class="s5-2 s7 configButtonContainer">
             <div class="timerTimeButton s5">
@@ -632,27 +559,6 @@
           </div>
         </div>
 
-        <div class="row lengthofword">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconNumberCount" width="64px" height="64px" viewBox="-3 -3 26.00 26.00">
-                <rect   fill="var(--setting-icon-color)" opacity="0.1" stroke-width="0" width="26.00" height="26.00" x="-3" y="-3" rx="13"></rect>
-                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="7.25" x2="16" y2="7.25"></line>
-                <line stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" x1="4" y1="12.75" x2="16" y2="12.75"></line>
-                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M7.75 4L6.75 16"> </path>
-                <path stroke="var(--setting-icon-color)" opacity="1.0" stroke-width="2" stroke-linecap="round" d="M13.25 4L12.25 16"> </path>
-              </svg>
-            </div>
-            <div class="text value">avg word length</div>
-          </div>
-          <div id="lengthOfWordsInTextConfig" class="s4 configButtonContainer">
-            <button class="off"    value="off"    tabindex="0" role="button" type="button" id="selected">off</button>
-            <button class="short"  value="short"  tabindex="0" role="button" type="button">short</button>
-            <button class="medium" value="medium" tabindex="0" role="button" type="button">medium</button>
-            <button class="long"   value="long"   tabindex="0" role="button" type="button">long</button>
-          </div>
-        </div>
-
         <div class="row includespecials">
           <div class="label">
             <div class="symbol"> <svg class="iconTextInclude" stroke="var(--setting-icon-color)" stroke-width="0.65" width="256px" height="256px" viewBox="0 0 20 20" fill="none"> <path fill="var(--setting-icon-color)" fill-rule="evenodd" d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"></path></svg></div>
@@ -666,129 +572,6 @@
             <div class="includeSpecialsInTextCheckboxButton includePunctuationInText">
               <input id="includePunctuation" data-value="punctuation" tabindex="0" type="checkbox" name="textIncludeCheckboxButton">
               <label for="includePunctuation">punctuation</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="row pacecaretstyle">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">pace caret</div>
-          </div>
-          <div id="paceCaretStyleConfig" class="s5 configButtonContainer">
-              <button class="offPaceCaret"        value="off"        tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="underscorePaceCaret" value="underscore" tabindex="0" role="button" type="button"><span class="shape underscoreCaretShape"></span></button>
-              <button class="linePaceCaret"       value="line"       tabindex="0" role="button" type="button"><span class="shape lineCaretShape"></span></button>
-              <button class="boxPaceCaret"        value="box"        tabindex="0" role="button" type="button"><span class="shape boxCaretShape"></span></button>
-              <button class="blockPaceCaret"      value="block"      tabindex="0" role="button" type="button"><span class="shape blockCaretShape"></span></button>
-          </div>
-        </div>
-
-        <div class="row pacecaretspeed">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconCaret" width="256px" height="256px" viewBox="0 0 24 24" fill="none">
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M9 4L10 4C11.1046 4 12 4.89543 12 6L12 18C12 19.1046 11.1046 20 10 20L9 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M15 4L14 4C12.8954 4 12 4.89543 12 6L12 18C12 19.1046 12.8954 20 14 20L15 20" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path stroke="var(--setting-icon-color)" stroke-width="2" opacity="1" d="M10 12H14" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-            <div class="text">pace caret speed</div>
-          </div>
-          <div id="paceCaretSpeedConfig" class="s4-2 s6 configButtonContainer">
-            <div class="paceCaretSpeedConfigButton s4">
-              <button class="off"     value="off"     tabindex="0" role="button" type="button" id="selected">off</button>
-              <button class="last"    value="last"    tabindex="0" role="button" type="button">last</button>
-              <button class="average" value="average" tabindex="0" role="button" type="button">average</button>
-              <button class="best"    value="best"    tabindex="0" role="button" type="button">best</button>
-            </div>
-            <div class="customInputContainer paceCaretSpeedCustomInputContainer s2">
-              <div class="inputContainer custom s1">
-                <input class="inputBox paceCaretSpeedThreshold" type="number" min="0" tabindex="0" placeholder="60">
-                <div class="symbol"><svg class="iconEditPen" width="256px" height="256px" viewBox="0 0 32.00 32.00"><path d="M0 32l7.808-2.176 18.304-18.272-5.728-5.6-18.24 18.24zM22.112 4.256l5.728 5.568 2.976-2.976q1.184-1.184 1.184-2.848t-1.184-2.816-2.816-1.184-2.816 1.184z"></path></svg></div>
-              </div>
-              <button value="custom" class="button paceCaretSpeedCustomInputButton s1" tabindex="0" role="button" type="button">custom</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row typingspeedunit">
-          <div class="label">
-            <div class="symbol"><svg class="speedometer" fill="var(--setting-icon-color)" height="200px" width="200px" viewBox="0 0 488.6 488.6"> <path d="M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2 c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1 c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z"></path></svg></div>
-            <div class="text">typing speed unit</div>
-          </div>
-          <div id="typingSpeedMeasurementUnitConfig" class="s2 configButtonContainer">
-            <button class="cpm" tabindex="0" role="button" type="button" value="cpm">cpm</button>
-            <button class="wpm" tabindex="0" role="button" type="button" value="wpm" id="selected">wpm</button>
-          </div>
-        </div>
-        
-        <div class="row warning">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconWarning" width="256px" height="256px" viewBox="0 0 24 24">
-                <path fill="var(--setting-icon-color)" opacity="0.3" d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45Z"></path>
-                <path fill="var(--setting-icon-color)" opacity="1.0" d="M11,13V9a1,1,0,0,1,2,0v4a1,1,0,0,1-2,0Zm1,2.5A1.5,1.5,0,1,0,13.5,17,1.5,1.5,0,0,0,12,15.5Z"></path>
-              </svg>
-            </div>
-            <div class="text">warnings</div>
-          </div>
-          <div id="keyWarningConfig" class="s4 configButtonContainer">
-            <div class="warningCheckboxButtonContainer-1 s2">
-              <div class="warningCheckboxButton capslock">
-                <input id="capslock" data-value="capslock" tabindex="0" type="checkbox" name="warningCheckboxButton" checked>
-                <label for="capslock">capslock</label>
-              </div>
-              <div class="warningCheckboxButton numlock">
-                <input id="numlock" data-value="numlock" tabindex="0" type="checkbox" name="warningCheckboxButton">
-                <label for="numlock">numlock</label>
-              </div>
-            </div>
-            <div class="warningCheckboxButtonContainer-2 s2">
-              <div class="warningCheckboxButton scrolllock">
-                <input id="scrolllock" data-value="scrolllock" tabindex="0" type="checkbox" name="warningCheckboxButton">
-                <label for="scrolllock">scrolllock</label>
-              </div>
-              <div class="warningCheckboxButton outoffocus">
-                <input id="outoffocus" data-value="outoffocus" tabindex="0" type="checkbox" name="warningCheckboxButton" checked>
-                <label for="outoffocus">focusout</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row livestats">
-          <div class="label">
-            <div class="symbol">
-              <svg class="iconLiveStatus" width="256px" height="256px" viewBox="0 0 48 48">
-                <rect   fill="none" width="48" height="48" fill="none"></rect>
-                <circle fill="var(--setting-icon-color)" opacity="1.00" cx="24" cy="24" r="5"></circle>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M17.4,31.5a2.1,2.1,0,0,1-2.8,3,14.3,14.3,0,0,1,0-21,2.1,2.1,0,0,1,2.8,3,10,10,0,0,0,0,15Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.75" d="M38,24a14.2,14.2,0,0,1-4.6,10.5,2.1,2.1,0,0,1-2.8-3,10,10,0,0,0,0-15,2.1,2.1,0,1,1,2.8-3A14.2,14.2,0,0,1,38,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M46,24a21.1,21.1,0,0,1-6.6,15.4,2,2,0,0,1-2.8-2.8,17.4,17.4,0,0,0,0-25.2,2,2,0,0,1,2.8-2.8A21.1,21.1,0,0,1,46,24Z"></path>
-                <path   fill="var(--setting-icon-color)" opacity="0.50" d="M11.4,36.6a2,2,0,0,1-2.8,2.8,21.3,21.3,0,0,1,0-30.8,2,2,0,0,1,2.8,2.8,17.4,17.4,0,0,0,0,25.2Z"></path>
-              </svg>
-            </div>
-            <div class="text">live stats</div>
-          </div>
-          <div id="liveStatsConfig" class="s3 configButtonContainer">
-            <div class="liveStatsCheckboxButton speed" data-value="speed">
-              <input tabindex="0" type="checkbox" id="speed" name="liveStatsCheckboxButton">
-              <label for="speed">speed</label>
-            </div>
-            <div class="liveStatsCheckboxButton accuracy" data-value="accuracy">
-              <input tabindex="0" type="checkbox" id="accuracy" name="liveStatsCheckboxButton">
-              <label for="accuracy">accuracy</label>
-            </div>
-            <div class="liveStatsCheckboxButton burst" data-value="burst">
-              <input tabindex="0" type="checkbox" id="burst" name="liveStatsCheckboxButton">
-              <label for="burst">burst</label>
             </div>
           </div>
         </div>

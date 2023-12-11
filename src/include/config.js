@@ -1,21 +1,9 @@
 export const config = {
-  theme: "light", // light | midnight | dark
-  setting: {
-    dynamic: true,
-    view: "condensed", // condensed | expanded
-  },
-  tape: { // text in one line, text scrolls horizontally either from ltr or rtl direction
-    off: true,
-    mode: {
-      letter: false,
-      word: false,
-    }
-  },
-  time: -1, // -2(custom) | -1(off) | 0(infinite) | 15 | 30 | 60 | 120
-  arrows: true, // move caret using arrow keys (mythical)
+  caret: "line", // off | underscore | line | box | block
+  time: 0, // 0, 15, 30, 60, 120 (0 means off)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   quickend: true, // if disabled then confirm end of test with a space
-  goblind: false, // no errors are highlighted
+  blind: false, // no errors are highlighted
   strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
   error: {
     off: false, // if errors are disabled caret stops on error
@@ -46,23 +34,18 @@ export const config = {
     expert: false, // fails the test if user submit an incorrect word, current word can be edited to correct mistakes
     master: false, // fails the test if user press a single incorrect key
   },
+  tape: {
+    off: true,
+    mode: {
+      letter: false,
+      word: false,
+    }
+  },
+  caret: "line", // off | underscore | line | box | block
   caret: {
     off: false, // none
     style: "line", // off | underscore | line | box | block
     color: "black",
-  },
-  pacecaret: {
-    off: true,
-    style: "off", // off | underscore | line | box | block
-    speed: {
-      previous: false, // previous speed
-      best: false, // personal best speed
-      average: false, // average of last 10 speeds
-      custom: {
-        off: true,
-        value: 0, // provide custom speed (in wpm) to compete against
-      }
-    },
   },
   text: {
     underline: true, // underline the current word
@@ -84,7 +67,6 @@ export const config = {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
     },
-    capitalization: "off", // off | onlyFirstLetter | everyFirstLetter | randomlyFirstLetter | untidy
     whitespace: {
       off: false, // nospace
       style: {
@@ -101,7 +83,7 @@ export const config = {
         letter: true,
         word: false,
       },
-      isflipped: false, // flip primary & secondary text color highlighting
+      flip: false, // flip primary & secondary text color highlighting
     },
     color: {
       primary: "#061f2c", // future text, text which needs to be typed (default: more bright)
@@ -112,24 +94,6 @@ export const config = {
       weight: 445, // thickness of letter
       family: "Roboto Mono", // roboto | fira | courier | ubuntu | syne | source
     },
-  },
-  minimum: {
-    speed: {
-      off: true,
-      threshold: 0,
-    },
-    accuracy: {
-      off: true,
-      threshold: 0,
-    },
-    burst: {
-      off: true,
-      threshold: 0,
-      option: {
-        fixed: false, // fix the speed set by user for all words (short, medium, long)
-        flex: false, // reduce speed set by user for longer words
-      },
-    }
   },
   keyboard: {
     off: true,
@@ -144,30 +108,5 @@ export const config = {
       next: false,
     },
   },
-  stats: {
-    unit: {
-      cpm: false, // characters per minute
-      wpm: true, // words per minute
-    },
-    usefloats: false, // display floating point number
-    live: {
-      speed: false,    // live speed in wpm/cpm
-      accuracy: false, // live accuracy
-      burst: false,    // live burst, speed of last word typed
-    },
-    liveCalcInterval: {
-      word: false, // calculate stats after every word
-      keystroke: true, // calculate stats after each keystroke
-      second: false, // calculate stats after every one second
-    },
-  },
-  warning: {
-    capslock: false, // capslock key is left turned on
-    numlock: false, // numlock key is left turned on
-    scrolllock: false, // scolllock key is left turned on
-    focusout: true, // warning out of focus while taking test (typing)
-  },
-  guidedlessons: false, // learn touchtyping through guided lessons
-  customtext: false, // ascii text only
-  oppositethumbforspace: false, // emulates opposite thumb by splitting space bar into two parts
+  arrows: true, // move caret in text (all direction) using arrow keys (mythical)
 }
