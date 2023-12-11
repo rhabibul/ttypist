@@ -42,6 +42,15 @@ export const config = {
   },
   text: {
     underline: true, // underline the current word
+    whitespace: "space", // off | space | dot | bar
+    highlight: { // by default, future text is brighter than the already typed text
+      off: false,
+      mode: {
+        letter: true,
+        word: false,
+      },
+      flip: false, // flip primary & secondary text color highlighting
+    },
     input: {
       hidden: true, // hide input box below text
       visible: false, // show input box below text
@@ -54,15 +63,6 @@ export const config = {
     include: {
       digit: false, // include numbers along with words
       punctuation: false, // .?",-';:()[]{}/...
-    },
-    whitespace: "space", // off | space | dot | bar
-    highlight: { // by default, future text is brighter than the already typed text
-      off: false,
-      mode: {
-        letter: true,
-        word: false,
-      },
-      flip: false, // flip primary & secondary text color highlighting
     },
     color: {
       primary: "#061f2c", // future text, text which needs to be typed (default: more bright)

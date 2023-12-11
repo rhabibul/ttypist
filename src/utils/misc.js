@@ -40,7 +40,7 @@ export function wordelements(s) {
     for (let j = 0; j < s[i].length; ++j) {
       letter = document.createElement("letter");
       letter.textContent = s[i][j];
-      letter.classList.add(config.caret.style);
+      letter.classList.add(config.caret);
       word.appendChild(letter);
     }
 
@@ -52,16 +52,16 @@ export function wordelements(s) {
     word = document.createElement("word");
     letter = document.createElement("letter");    
 
-    letter.classList.add(config.caret.style);
+    letter.classList.add(config.caret);
     letter.classList.add("whitespace");
     
-    if ( config.text.whitespace.style.bullet ) {
+    if ( config.text.whitespace === "bullet" ) {
       letter.classList.add("bullet");
       letter.innerHTML = "&nbsp;";
-    } else if ( config.text.whitespace.style.bar ) {
+    } else if ( config.text.whitespace === "bar" ) {
       letter.classList.add("bar");
       letter.innerHTML = "␣";
-    } else if ( config.text.whitespace.style.space ) {
+    } else if ( config.text.whitespace === "space" ) {
       letter.classList.add("space");
       letter.innerHTML = "&nbsp;";
     } else {

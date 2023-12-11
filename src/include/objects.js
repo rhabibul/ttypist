@@ -1,50 +1,8 @@
 import { config } from "./config";
 
-export function generateRandomWords(count = 25) {
-	
-}
+export function generateRandomWords(count = 25) { }
 
-export function createWordElements(strings) {
-	let word_elements = [];
-	let word, letter;
-
-	for ( let i = 0; i < strings.length; ++i ) {
-
-		word = document.createElement("word");
-		
-		for ( let j = 0; j < strings[i].length; ++j ) {
-			letter = document.createElement("letter");
-			letter.textContent = strings[i][j];
-			letter.classList.add(config.caret.style);
-			word.appendChild(letter);
-		}
-
-		word_elements.push(word);
-
-		// after every word add a word with whitespace
-    letter = document.createElement("letter");
-    letter.classList.add(config.caret.style);
-    letter.classList.add("whitespace");
-		
-		if ( config.text.whitespace.style.bullet ) {
-      letter.classList.add("bullet");
-      letter.innerHTML = "&nbsp;";
-    } else if ( config.text.whitespace.style.bar ) {
-      letter.classList.add("bar");
-      letter.innerHTML = "␣";
-    } else if ( config.text.whitespace.style.space ) {
-      letter.classList.add("space");
-      letter.innerHTML = "&nbsp;";
-    } else {
-      letter.classList.add("off");
-      letter.innerHTML = "";
-    }
-
-		word_elements.push(document.createElement("word").appendChild(letter));
-	}
-
-	return word_elements;
-}
+export function createWordElements(strings) { }
 
 // maintain a array of strings for text separately
 export const text = {
