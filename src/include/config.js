@@ -1,7 +1,5 @@
 export const config = {
-  arrows: false, // move caret in text (all direction) using arrow keys (mythical)
   caret: "line", // off | underscore | line | box | block
-  time: 0, // 0, 15, 30, 60, 120 (0 means off)
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   quickend: true, // if disabled then confirm end of test with a space
   blind: false, // no errors are highlighted
@@ -90,6 +88,8 @@ export const config = {
       next: false,
     },
   },
+  arrowkeys: false, // move caret in text (all direction) using arrow keys (mythical)
+  time: 0, // timer time in seconds
 }
 
 // whitespace
