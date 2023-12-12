@@ -1,7 +1,7 @@
 import { config } from "../include/config.js";
 import * as SettingsElement from "../include/elements.js";
-import * as SettingChangeInConfig from "./configUpdateOnButtonClick.js";
-import * as SettingChangeInUI from "./updateButtonClickUI.js";
+import * as SettingChangeInConfig from "./updateConfigOnButtonClick.js";
+import * as SettingChangeInUI from "./updateUIOnButtonClick.js";
 import { css } from "../include/constants.js";
 import { Test } from "../main.js";
 
