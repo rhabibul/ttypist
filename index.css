@@ -135,13 +135,13 @@ body {
   row-gap: 10px;
 
   color: #192028;
-  background-color: lightgreen;
+  background-color: cyan;
 }
 
 text {
   max-width: 800px;
 
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 20px 10px 20px 20px;
 
   display: flex; /* these keeps all the words in a single line */
