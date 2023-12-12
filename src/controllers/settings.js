@@ -5,7 +5,7 @@ import * as SettingChangeInUI from "./updateButtonClickUI.js";
 import { css } from "../include/constants.js";
 import { Test } from "../main.js";
 
-SettingsElement.textContainerElement.addEventListener("click", () => { TypingAreaElements.textInputField.focus() });
+SettingsElement.textContainerElement.addEventListener("click", () => { SettingsElement.textInputField.focus() });
 
 // tape mode
 SettingsElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
