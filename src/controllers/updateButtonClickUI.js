@@ -1,41 +1,4 @@
-import { config } from "../include/config.js"
-import * as SettingsElement from "../elements/setting-element.js";
-
-// keyboard reaction
-export function changeKeyboardReactionInUI(value) {
-	if ( value === "next" ) {
-		SettingsElement.UIKeyboardReactionConfig.off.id = "";
-		SettingsElement.UIKeyboardReactionConfig.static.id = "";
-		SettingsElement.UIKeyboardReactionConfig.react.id = "";
-		SettingsElement.UIKeyboardReactionConfig.next.id = "selected";
-	} else if ( value === "static" ) {
-		SettingsElement.UIKeyboardReactionConfig.off.id = "";
-		SettingsElement.UIKeyboardReactionConfig.static.id = "selected";
-		SettingsElement.UIKeyboardReactionConfig.react.id = "";
-		SettingsElement.UIKeyboardReactionConfig.next.id = "";
-	} else if ( value === "react" ) {
-		SettingsElement.UIKeyboardReactionConfig.off.id = "";
-		SettingsElement.UIKeyboardReactionConfig.static.id = "";
-		SettingsElement.UIKeyboardReactionConfig.react.id = "selected";
-		SettingsElement.UIKeyboardReactionConfig.next.id = "";
-	} else {
-		SettingsElement.UIKeyboardReactionConfig.off.id = "selected";
-		SettingsElement.UIKeyboardReactionConfig.static.id = "";
-		SettingsElement.UIKeyboardReactionConfig.react.id = "";
-		SettingsElement.UIKeyboardReactionConfig.next.id = "";
-	}
-}
-
-// emulate keyboard
-export function changeKeyboardLayoutEmulateInUI(value) {
-	if ( value === "on" ) {
-		SettingsElement.UIKeyboardLayoutEmulateConfig.off.id = "";
-		SettingsElement.UIKeyboardLayoutEmulateConfig.on.id = "selected";
-	}	else {
-		SettingsElement.UIKeyboardLayoutEmulateConfig.off.id = "selected";
-		SettingsElement.UIKeyboardLayoutEmulateConfig.on.id = "";
-	}
-}
+import * as SettingsElement from "../include/elements.js";
 
 // tape mode
 export function changeTapeModeInUI(value) {

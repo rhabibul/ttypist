@@ -1,7 +1,7 @@
 import { config } from "../include/config.js";
-import * as SettingsElement from "../elements/setting-element.js";
-import * as SettingChangeInConfig from "./setting-change-config.js";
-import * as SettingChangeInUI from "../ui/setting-change-ui.js";
+import * as SettingsElement from "../include/elements.js";
+import * as SettingChangeInConfig from "./configUpdateOnButtonClick.js";
+import * as SettingChangeInUI from "./updateButtonClickUI.js";
 import * as TypingAreaElements from "../elements/typing-area-element.js";
 import { css } from "../include/constants.js";
 import { Test } from "../main.js";
@@ -156,16 +156,6 @@ SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", u
 // include specials in text (digit, punctuation)
 SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
 SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
-
-// keyboard reaction
-SettingsElement.UIKeyboardReactionConfig.off.addEventListener("click", updateUIKeyboardReactionConfig);
-SettingsElement.UIKeyboardReactionConfig.static.addEventListener("click", updateUIKeyboardReactionConfig);
-SettingsElement.UIKeyboardReactionConfig.react.addEventListener("click", updateUIKeyboardReactionConfig);
-SettingsElement.UIKeyboardReactionConfig.next.addEventListener("click", updateUIKeyboardReactionConfig);
-
-// keyboard layout emulate
-SettingsElement.UIKeyboardLayoutEmulateConfig.off.addEventListener("click", updateUIKeyboardLayoutEmulateConfig);
-SettingsElement.UIKeyboardLayoutEmulateConfig.on.addEventListener("click", updateUIKeyboardLayoutEmulateConfig);
 
 // text word length
 function updateLengthOfWordsInTextConfig(evt) {
@@ -850,11 +840,6 @@ const allDetails = {
 		SVGs: Array.from(document.querySelectorAll("details.textFontFamilyList div.list div.item div.symbol svg.tick")),
 		inUseTextBox: document.querySelector("details.textFontFamilyList summary div.text.value.in-use"),
 	},
-	keyboardLayout: {
-		items: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list > *")),
-		SVGs: Array.from(document.querySelectorAll("details.UIKeyboardLayoutList div.list div.item div.symbol svg.tick")),
-		inUseTextBox: document.querySelector("details.UIKeyboardLayoutList summary div.text.value.in-use"),
-	},
 }
 
 // put tick mark on select item
@@ -883,20 +868,5 @@ allDetails.textFontFamily.items.forEach((item) => {
 
 		// debug
 		console.log("font-family:", config.text.font.family);
-	});
-});
-
-// details: keyboardLayout
-allDetails.keyboardLayout.items.forEach((item) => {
-	item.addEventListener("click", (evt) => {
-		if ( !evt.isTrusted ) return;
-		if ( evt.currentTarget.dataset.value === config.keyboard.layout.map ) return;
-
-		config.keyboard.layout.map = evt.currentTarget.dataset.value; // update in config
-		allDetails.keyboardLayout.inUseTextBox.textContent = config.keyboard.layout.map; // update in ui
-		tickMarkCorrectOption(evt, "keyboardLayout");
-		
-		// debug
-		console.log(config.keyboard.layout.map);
 	});
 });

@@ -1,39 +1,5 @@
 import { config } from "../include/config.js"
-import * as SettingsElement from "../elements/setting-element.js";
-
-// keyboard reaction
-export function changeKeyboardReactionInConfig(value) {
-	if ( value === "next" ) {
-		config.keyboard.reaction.off = false;
-		config.keyboard.reaction.static = false;
-		config.keyboard.reaction.react = false;
-		config.keyboard.reaction.next = true;
-	} else if ( value === "static" ) {
-		config.keyboard.reaction.off = false;
-		config.keyboard.reaction.static = true;
-		config.keyboard.reaction.react = false;
-		config.keyboard.reaction.next = false;
-	} else if ( value === "react" ) {
-		config.keyboard.reaction.off = false;
-		config.keyboard.reaction.static = false;
-		config.keyboard.reaction.react = true;
-		config.keyboard.reaction.next = false;
-	} else {
-		config.keyboard.reaction.off = true;
-		config.keyboard.reaction.static = false;
-		config.keyboard.reaction.react = false;
-		config.keyboard.reaction.next = false;
-	}
-}
-
-// keyboard emulate
-export function changeKeyboardLayoutEmulateInConfig(value) {
-	if ( value === "on" ) {
-		config.keyboard.layout.emulate = true;
-	}	else {
-		config.keyboard.layout.emulate = false;
-	}
-}
+import * as SettingsElement from "../include/elements.js";
 
 // tape mode
 export function changeTapeModeInConfig(value) {
