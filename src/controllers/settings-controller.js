@@ -2,7 +2,7 @@ import { config } from "../include/config.js";
 import * as StaticElement from "../include/elements.js";
 import * as SettingChangeInConfig from "./updateConfigOnButtonClick.js";
 import * as SettingChangeInUI from "./updateUIOnButtonClick.js";
-import { Test } from "../main.js";
+import { ignition } from "../main.js";
 
 StaticElement.textContainerElement.addEventListener("click", () => { StaticElement.textInputField.focus() });
 
@@ -495,7 +495,7 @@ function updateTextWordsCountConfig(evt) {
 	} else {
 		StaticElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
 
-		Test.restart(); // reset & restart test
+		ignition.restart(); // reset & restart ignition
 	}
 }
 
@@ -529,7 +529,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
 
-	Test.restart(); // reset & restart test
+	ignition.restart(); // reset & restart ignition
 }
 
 // timer seconds
@@ -544,7 +544,7 @@ function updateTimerSecondsCountConfig(evt) {
 	if ( this.value === "off" ) {
 		SettingChangeInUI.changeTextWordCountInUI("25");
 		SettingChangeInConfig.changeTextWordCountInConfig("25");
-		Test.restart(); // reset & restart test
+		ignition.restart(); // reset & restart ignition
 		return;
 	} else { // timer mode is enabled so disable words mode
 		SettingChangeInUI.changeTextWordCountInUI("off");

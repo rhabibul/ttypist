@@ -28,14 +28,11 @@ input[type=number]::-webkit-outer-spin-button {
 div.setting {
 	width: 920px;
 	display: flex;
-	/* flex-direction: column; */
+	/* flex-direction: column;  */
 	/* align-items: center; */
 	justify-content: center;
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
-	background-color: white;
-	border-radius: 10px;
-	padding: 15px 0px;
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {
