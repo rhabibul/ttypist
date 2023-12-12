@@ -3,7 +3,7 @@ import Word from "./include/word.js";
 
 import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret-controller.js";
-import * as TypingAreaElements from "./include/elements.js";
+import * as StaticElement from "./include/elements.js";
 
 import { time, typedchar, mInput, user } from "./include/trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./logic.js";
@@ -13,11 +13,11 @@ export const word = new Word();
 
 export const Test = {
 	init() {		
-		TypingAreaElements.textInputField.addEventListener("keydown", registerkeydown);
-		TypingAreaElements.textInputField.addEventListener("keypress", registerkeypress);
-		TypingAreaElements.textInputField.addEventListener("beforeinput", registerbeforeinput);
-		TypingAreaElements.textInputField.addEventListener("input", registerinput);
-		TypingAreaElements.textInputField.addEventListener("keyup", registerkeyup);
+		StaticElement.textInputField.addEventListener("keydown", registerkeydown);
+		StaticElement.textInputField.addEventListener("keypress", registerkeypress);
+		StaticElement.textInputField.addEventListener("beforeinput", registerbeforeinput);
+		StaticElement.textInputField.addEventListener("input", registerinput);
+		StaticElement.textInputField.addEventListener("keyup", registerkeyup);
 		// InputElement.value | InputEvent.data | InputEvent.inputType
 	},
 	restart() {
@@ -29,13 +29,11 @@ export const Test = {
 		text.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addCaretTo(word.activeletter);
-		TypingAreaElements.textInputField.value = "";
-		TypingAreaElements.textInputField.focus();
+		StaticElement.textInputField.value = "";
+		StaticElement.textInputField.focus();
 	}
 }
 
-// static-elements.js
-// include -> src   =>  src/include
 function main() {	
 	// need different names
 	Test.init();

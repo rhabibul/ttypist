@@ -1,154 +1,141 @@
 import { config } from "../include/config.js";
-import * as SettingsElement from "../include/elements.js";
+import * as StaticElement from "../include/elements.js";
 import * as SettingChangeInConfig from "./updateConfigOnButtonClick.js";
 import * as SettingChangeInUI from "./updateUIOnButtonClick.js";
-import { css } from "../include/constants.js";
 import { Test } from "../main.js";
 
-SettingsElement.textContainerElement.addEventListener("click", () => { SettingsElement.textInputField.focus() });
+StaticElement.textContainerElement.addEventListener("click", () => { StaticElement.textInputField.focus() });
 
 // tape mode
-SettingsElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
-SettingsElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
-SettingsElement.tapeModeConfig.mode.word.addEventListener("click",   updateTapeModeConfig);
+StaticElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
+StaticElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
+StaticElement.tapeModeConfig.mode.word.addEventListener("click",   updateTapeModeConfig);
 
 // text input field
-SettingsElement.textInputFieldConfig.hidden.addEventListener("click",  updateTextInputFieldConfig);
-SettingsElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
+StaticElement.textInputFieldConfig.hidden.addEventListener("click",  updateTextInputFieldConfig);
+StaticElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
 
 // text underline
-SettingsElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
-SettingsElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
+StaticElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
+StaticElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
 
 // text whitespace
-SettingsElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
-SettingsElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
-SettingsElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
-SettingsElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
+StaticElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
+StaticElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
+StaticElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
+StaticElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
 
 // text highlight
-SettingsElement.textHighlightConfig.off.addEventListener("click",         updateTextHighlightConfig);
-SettingsElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
-SettingsElement.textHighlightConfig.mode.word.addEventListener("click",   updateTextHighlightConfig);
+StaticElement.textHighlightConfig.off.addEventListener("click",         updateTextHighlightConfig);
+StaticElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
+StaticElement.textHighlightConfig.mode.word.addEventListener("click",   updateTextHighlightConfig);
 
 // flip text highlight
-SettingsElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
-SettingsElement.flipTextHighlightConfig.on.addEventListener("click",  updateFlipTextHighlightConfig);
+StaticElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
+StaticElement.flipTextHighlightConfig.on.addEventListener("click",  updateFlipTextHighlightConfig);
 
 // modifier keys
-SettingsElement.modifierKeyConfig.alt.addEventListener("click",  updateModifierKeyConfig);
-SettingsElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
-SettingsElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
+StaticElement.modifierKeyConfig.alt.addEventListener("click",  updateModifierKeyConfig);
+StaticElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
+StaticElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
 
 // delete text
-SettingsElement.deleteConfig.off.addEventListener("click", updateTextDeletionConfig);
-SettingsElement.deleteConfig.on.addEventListener("click", updateTextDeletionConfig);
+StaticElement.deleteConfig.off.addEventListener("click", updateTextDeletionConfig);
+StaticElement.deleteConfig.on.addEventListener("click", updateTextDeletionConfig);
 
 // delete correct text
-SettingsElement.delcorrectConfig.off.addEventListener("click", updateDeletePreviousCorrectWordConfig);
-SettingsElement.delcorrectConfig.on.addEventListener("click",  updateDeletePreviousCorrectWordConfig);
+StaticElement.delcorrectConfig.off.addEventListener("click", updateDeletePreviousCorrectWordConfig);
+StaticElement.delcorrectConfig.on.addEventListener("click",  updateDeletePreviousCorrectWordConfig);
 
 // confidence
-SettingsElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
-SettingsElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
-SettingsElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
+StaticElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
+StaticElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
+StaticElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
 
 // difficulty
-SettingsElement.testDifficultyConfig.ease.addEventListener("click",   updateTestDifficultyConfig);
-SettingsElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
-SettingsElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
+StaticElement.testDifficultyConfig.ease.addEventListener("click",   updateTestDifficultyConfig);
+StaticElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
+StaticElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
 
 // strict space
-SettingsElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
-SettingsElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
+StaticElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
+StaticElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
 
 // error handling
-SettingsElement.errorHandlingConfig.off.addEventListener("click",      updateErrorHandlingConfig);
-SettingsElement.errorHandlingConfig.insert.addEventListener("click",   updateErrorHandlingConfig);
-SettingsElement.errorHandlingConfig.skip.addEventListener("click",     updateErrorHandlingConfig);
-SettingsElement.errorHandlingConfig.replace.addEventListener ("click", updateErrorHandlingConfig);
+StaticElement.errorHandlingConfig.off.addEventListener("click",      updateErrorHandlingConfig);
+StaticElement.errorHandlingConfig.insert.addEventListener("click",   updateErrorHandlingConfig);
+StaticElement.errorHandlingConfig.skip.addEventListener("click",     updateErrorHandlingConfig);
+StaticElement.errorHandlingConfig.replace.addEventListener ("click", updateErrorHandlingConfig);
 
 // forgive extra error
-SettingsElement.errorHandlingConfig.forgive.off.addEventListener("click", updateForgiveErrorConfig);
-SettingsElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
+StaticElement.errorHandlingConfig.forgive.off.addEventListener("click", updateForgiveErrorConfig);
+StaticElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
 
 // stop on error
-SettingsElement.errorHandlingConfig.stop.off.addEventListener("click",    updateStopOnErrorConfig);
-SettingsElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
-SettingsElement.errorHandlingConfig.stop.word.addEventListener("click",   updateStopOnErrorConfig);
+StaticElement.errorHandlingConfig.stop.off.addEventListener("click",    updateStopOnErrorConfig);
+StaticElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
+StaticElement.errorHandlingConfig.stop.word.addEventListener("click",   updateStopOnErrorConfig);
 
 // go blind
-SettingsElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
-SettingsElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig);
+StaticElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
+StaticElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig);
 
 // quickend
-SettingsElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
-SettingsElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfig);
+StaticElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
+StaticElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfig);
 
 // use opposite shift mode
-SettingsElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
-SettingsElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
+StaticElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
+StaticElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
 
 // caret style
-SettingsElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
-SettingsElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
-SettingsElement.caretStyleConfig.style.line.addEventListener("click", updateCaretStyleConfig);
-SettingsElement.caretStyleConfig.style.box.addEventListener("click", updateCaretStyleConfig);
-SettingsElement.caretStyleConfig.style.block.addEventListener("click", updateCaretStyleConfig);
+StaticElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
+StaticElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
+StaticElement.caretStyleConfig.style.line.addEventListener("click", updateCaretStyleConfig);
+StaticElement.caretStyleConfig.style.box.addEventListener("click", updateCaretStyleConfig);
+StaticElement.caretStyleConfig.style.block.addEventListener("click", updateCaretStyleConfig);
 
 // caret color
-SettingsElement.caretColorConfig.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
-SettingsElement.caretColorConfig.textInput.addEventListener("input", updateCaretColorTextInput);
+StaticElement.caretColorConfig.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
+StaticElement.caretColorConfig.textInput.addEventListener("input", updateCaretColorTextInput);
 
 // primary text color
-SettingsElement.textColorConfig.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
-SettingsElement.textColorConfig.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
+StaticElement.textColorConfig.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
+StaticElement.textColorConfig.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
 
 // secondary text color
-SettingsElement.textColorConfig.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
-SettingsElement.textColorConfig.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
+StaticElement.textColorConfig.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
+StaticElement.textColorConfig.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
 // timer seconds count
-SettingsElement.timerSecondsCountConfig.off.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.seconds15.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.customSecondsCountButton.addEventListener("click", updateTimerSecondsCountConfig);
-SettingsElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("input", updateTimerSecondsCountInputField);
-SettingsElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
+StaticElement.timerSecondsCountConfig.off.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.seconds15.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.customSecondsCountButton.addEventListener("click", updateTimerSecondsCountConfig);
+StaticElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("input", updateTimerSecondsCountInputField);
+StaticElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
 
 // text word count
-SettingsElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.words10.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.words25.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
-SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
-SettingsElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
+StaticElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.words10.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.words25.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
+StaticElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
+StaticElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
 
 // font size slider
-SettingsElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
+StaticElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
 
 // font weight slider
-SettingsElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
+StaticElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
 
 // include specials in text (digit, punctuation)
-SettingsElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
-SettingsElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
-
-// text word length
-function updateLengthOfWordsInTextConfig(evt) {
-	if ( !evt.isTrusted ) return;
-	if ( (this.value === "off" && config.text.word.length.off) || (this.value === "short" && config.text.word.length.short) || (this.value === "medium" && config.text.word.length.medium) || (this.value === "long" && config.text.word.length.long) ) return;
-
-	SettingChangeInUI.changeTextWordLengthInUI(this.value);
-	SettingChangeInConfig.changeTextWordLengthInConfig(this.value);
-
-	// debug
-	console.log("word length:", config.text.word.length.off, config.text.word.length.short, config.text.word.length.medium, config.text.word.length.long);
-}
+StaticElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
+StaticElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
 
 // keyboard reaction (s4)
 function updateUIKeyboardReactionConfig(evt) {
@@ -157,9 +144,6 @@ function updateUIKeyboardReactionConfig(evt) {
 
 	SettingChangeInUI.changeKeyboardReactionInUI(this.value);
 	SettingChangeInConfig.changeKeyboardReactionInConfig(this.value);
-
-	// debug
-	console.log("keyboardReation:", config.keyboard.reaction.off, config.keyboard.reaction.static, config.keyboard.reaction.react, config.keyboard.reaction.next);
 }
 
 // keyboard layout emulate
@@ -169,9 +153,6 @@ function updateUIKeyboardLayoutEmulateConfig(evt) {
 
 	SettingChangeInUI.changeKeyboardLayoutEmulateInUI(this.value);
 	SettingChangeInConfig.changeKeyboardLayoutEmulateInConfig(this.value);
-
-	// debug
-	console.log("keyboardLayoutEmulate:", !config.keyboard.layout.emulate, config.keyboard.layout.emulate);
 }
 
 // text input
@@ -181,9 +162,6 @@ function updateTextInputFieldConfig(evt) {
 
 	SettingChangeInUI.changeTextInputInUI(this.value);
 	SettingChangeInConfig.changeTextInputInConfig(this.value);
-
-	// debug
-	console.log("textInput:", config.text.input.hidden, config.text.input.visible);
 }
 
 // tape mode (s3)
@@ -193,9 +171,6 @@ function updateTapeModeConfig(evt) {
 	
 	SettingChangeInUI.changeTapeModeInUI(this.value);
 	SettingChangeInConfig.changeTapeModeInConfig(this.value);
-
-	// debug
-	console.log("tapeMode:", config.tape.off, config.tape.mode.letter, config.tape.mode.word);
 }
 
 // text highlight (s3)
@@ -204,10 +179,7 @@ function updateTextHighlightConfig(evt) {
 	if ( (config.text.highlight.off && this.value === "off") || (config.text.highlight.mode.letter && this.value === "letter") || (config.text.highlight.mode.word && this.value === "word")) return;
 
 	SettingChangeInUI.changeTextHightlightInUI(this.value);
-	SettingChangeInConfig.changeTextHightlightInConfig(this.value)
-
-	// debug
-	console.log("textHighlight:", config.text.highlight.off, config.text.highlight.mode.letter, config.text.highlight.mode.word);
+	SettingChangeInConfig.changeTextHightlightInConfig(this.value);
 }
 
 // flip text highlight
@@ -218,16 +190,13 @@ function updateFlipTextHighlightConfig(evt) {
 	SettingChangeInUI.changeFlipTextHightlightInUI(this.value);
 	SettingChangeInConfig.changeFlipTextHightlightInConfig(this.value);
 
-	// flip primary & secondary colors
 	const computedStyles = window.getComputedStyle(document.querySelector(":root"));
+
 	let primary = computedStyles.getPropertyValue("--text-primary-color");
 	let secondary = computedStyles.getPropertyValue("--text-secondary-color");
-	css.style.setProperty("--text-primary-color", secondary);
-	css.style.setProperty("--text-secondary-color", primary);
 
-
-	// debug
-	console.log("flipTextHighlight:", !config.text.highlight.flip, config.text.highlight.flip);
+	StaticElement.root.style.setProperty("--text-primary-color", secondary);
+	StaticElement.root.style.setProperty("--text-secondary-color", primary);
 }
 
 // text underline
@@ -237,9 +206,6 @@ function updateTextUnderlineConfig(evt) {
 
 	SettingChangeInUI.changeTextUnderlineInUI(this.value);
 	SettingChangeInConfig.changeTextUnderlineInConfig(this.value);
-
-	// debug
-	console.log("textUnderline:", !config.text.underline, config.text.underline);
 }
 
 // text whitespace (s4)
@@ -249,9 +215,6 @@ function updateTextWhitespaceConfig(evt) {
 
 	SettingChangeInUI.changeTextWhitespaceInUI(this.value);
 	SettingChangeInConfig.changeTextWhitespaceInConfig(this.value);
-
-	// debug
-	console.log("whitespace:", config.text.whitespace);
 }
 
 // strictspace
@@ -261,9 +224,6 @@ function updateStrictSpaceConfig(evt) {
 
 	SettingChangeInUI.changeStrictSpaceInUI(this.value);
 	SettingChangeInConfig.changeStrictSpaceInConfig(this.value);
-
-	// debug
-	console.log("strictspace:", !config.strictspace, config.strictspace);
 }
 
 // quickend
@@ -273,9 +233,6 @@ function updateQuickEndConfig(evt) {
 
 	SettingChangeInUI.changeQuickEndInUI(this.value);
 	SettingChangeInConfig.changeQuickEndInConfig(this.value);
-
-	// debug
-	console.log("quickend:", !config.quickend, config.quickend);
 }
 
 // difficulty
@@ -285,9 +242,6 @@ function updateTestDifficultyConfig(evt) {
 
 	SettingChangeInUI.changeDifficultyInUI(this.value);
 	SettingChangeInConfig.changeDifficultyInConfig(this.value)
-
-	// debug
-	console.log("difficulty:", config.difficulty.ease, config.difficulty.expert, config.difficulty.master);
 }
 
 // confidence (s3)
@@ -321,9 +275,6 @@ function updateUserConfidenceConfig(evt) {
 		SettingChangeInUI.changeDeletePreviousCorrectWordInUI("off");
 		SettingChangeInConfig.changeDeletePreviousCorrectWordInConfig("off");
 	}
-
-	// debug
-	console.log("confidence:", config.confidence.low, config.confidence.high, config.confidence.peak);
 }
 
 // text deletion
@@ -350,9 +301,6 @@ function updateTextDeletionConfig(evt) {
 		SettingChangeInUI.changeConfidenceInUI("low");
 		SettingChangeInConfig.changeConfidenceInConfig("low");
 	}
-
-	// debug
-	console.log("delete:", !config.delete, config.delete);
 }
 
 // deletion not allowed on correct
@@ -373,19 +321,12 @@ function updateDeletePreviousCorrectWordConfig(evt) {
 			SettingChangeInConfig.changeTextDeletionInConfig("on");	
 		}
 	}
-	
-	// debug
-	console.log("delcorrect:", !config.delcorrect, config.delcorrect);
 }
 
 // modifier keys (s3)
 function updateModifierKeyConfig(evt) {
 	if ( !evt.isTrusted ) return;
-	
 	SettingChangeInConfig.changeModifierKeyInConfig();
-
-	// debug
-	console.log("modifier:", config.modifier.alt, config.modifier.ctrl, config.modifier.meta);
 }
 
 // error (s4)
@@ -426,9 +367,6 @@ function updateErrorHandlingConfig(evt) {
 		SettingChangeInUI.changeForgiveErrorInUI("off");
 		SettingChangeInConfig.changeForgiveErrorInConfig("off");
 	}
-
-	// debug
-	console.log("error:", config.error.off, config.error.insert, config.error.skip, config.error.replace);
 }
 
 // forgive error
@@ -450,9 +388,6 @@ function updateForgiveErrorConfig(evt) {
 		SettingChangeInUI.changeBlindModeInUI("off");
 		SettingChangeInConfig.changeBlindModeInConfig("off");
 	}
-	
-	// debug
-	console.log("forgiveError:", !config.error.forgive, config.error.forgive);
 }
 
 // stop on error (s3)
@@ -495,9 +430,6 @@ function updateStopOnErrorConfig(evt) {
 			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
-
-	// debug
-	console.log("stopOnError:", config.error.stop.off, config.error.stop.letter, config.error.stop.word);
 }
 
 // blind mode
@@ -528,9 +460,6 @@ function updateGoBlindConfig(evt) {
 			SettingChangeInConfig.changeErrorInConfig("insert");
 		}
 	}
-	
-	// debug
-	console.log("blindMode:", !config.blind, config.blind);
 }
 
 // opposite shift mode
@@ -540,9 +469,6 @@ function updateUseOppositeShiftConfig(evt) {
 
 	SettingChangeInUI.changeOppositeShiftModeInUI(this.value);
 	SettingChangeInConfig.changeOppositeShiftModeInConfig(this.value);
-
-	// debug
-	console.log("oppositeShift:", !config.oppositeshift, config.oppositeshift);
 }
 
 // text word count
@@ -565,14 +491,12 @@ function updateTextWordsCountConfig(evt) {
 
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		SettingsElement.textWordsCountConfig.customWordsCountInput.focus();
+		StaticElement.textWordsCountConfig.customWordsCountInput.focus();
 	} else {
-		SettingsElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
-		Test.restart();
-	}
+		StaticElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
 
-	// debug
-	console.log("numberOfWords:", config.text.word.count);
+		Test.restart(); // reset & restart test
+	}
 }
 
 // text word count input (s1)
@@ -580,16 +504,13 @@ function updateTextWordsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
-	if ( SettingsElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
+	if ( StaticElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTextWordCountInUI("custom");
 		SettingChangeInConfig.changeTextWordCountInConfig("custom");
 	}
 
-	 // update in config (i.e, override -2 initial value)
+	// update in config
 	config.text.word.count = Number(this.value);
-
-	// debug
-	console.log("numberOfWords [input]:", config.text.word.count);
 }
 
 // text word count input (focus out)
@@ -597,7 +518,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "" || this.value === "0") && (SettingsElement.textWordsCountConfig.customWordsCountButton.id === "selected") ) {
+	if ( (this.value === "" || this.value === "0") && (StaticElement.textWordsCountConfig.customWordsCountButton.id === "selected") ) {
 		SettingChangeInUI.changeTextWordCountInUI("25");
 		SettingChangeInConfig.changeTextWordCountInConfig("25");
 		this.value = "";
@@ -608,10 +529,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 		SettingChangeInConfig.changeTextWordCountInConfig("100");
 	}
 
-	Test.restart(); // load new words & reset everything for new test
-
-	// debug
-	console.log("FOCUS-OUT (numberOfWords)");
+	Test.restart(); // reset & restart test
 }
 
 // timer seconds
@@ -622,49 +540,40 @@ function updateTimerSecondsCountConfig(evt) {
 	SettingChangeInUI.changeTimerSecondsInUI(this.value);
 	SettingChangeInConfig.changeTimerSecondsInConfig(this.value);
 
-		// if timer mode is disabled then enable default words mode
-		if ( this.value === "off" ) {
-			SettingChangeInUI.changeTextWordCountInUI("25");
-			SettingChangeInConfig.changeTextWordCountInConfig("25");
-
-			Test.restart(); // load new words & reset everything for new test
-
-			return;
-			
-		} else { // timer mode is enabled so disable words mode
-			SettingChangeInUI.changeTextWordCountInUI("off");
-			SettingChangeInConfig.changeTextWordCountInConfig("off");
-		}	
+	// if timer mode is disabled then enable default words mode
+	if ( this.value === "off" ) {
+		SettingChangeInUI.changeTextWordCountInUI("25");
+		SettingChangeInConfig.changeTextWordCountInConfig("25");
+		Test.restart(); // reset & restart test
+		return;
+	} else { // timer mode is enabled so disable words mode
+		SettingChangeInUI.changeTextWordCountInUI("off");
+		SettingChangeInConfig.changeTextWordCountInConfig("off");
+	}	
 
 	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		SettingsElement.timerSecondsCountConfig.customSecondsCountInput.focus();
+		StaticElement.timerSecondsCountConfig.customSecondsCountInput.focus();
 	} else {
-		SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value = "";
+		StaticElement.timerSecondsCountConfig.customSecondsCountInput.value = "";
 	}
-
-	// debug
-	console.log("numberOfSeconds:", config.time);
 }
 
 // timer custom input
 function updateTimerSecondsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	if ( SettingsElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
+	if ( StaticElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTextWordCountInUI("off");
 		SettingChangeInConfig.changeTextWordCountInConfig("off");
 	}
 	
 	// make custom input button active if not
-	if ( SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
+	if ( StaticElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
 	config.time = Number(this.value); // update in config
-
-	// debug
-	console.log("numberOfSeconds [input]:", config.time);
 }
 
 // timer custom input (focus out)
@@ -672,7 +581,7 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 	
 	// 0 or no value is entered in input field
-	if ( (SettingsElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && ((SettingsElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") || (this.value === "")) ) {
+	if ( (StaticElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && ((StaticElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") || (this.value === "")) ) {
 		this.value = "";
 		SettingChangeInUI.changeTimerSecondsInUI("off");
 		SettingChangeInConfig.changeTimerSecondsInConfig("off");
@@ -681,17 +590,14 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 		SettingChangeInUI.changeTextWordCountInUI("25");
 		SettingChangeInConfig.changeTextWordCountInConfig("25");
 	}
-
-	// debug
-	console.log("FOCUS-OUT (numberOfSeconds)");
 }
 
 // text font size slider
 function updateTextFontSizeConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	css.style.setProperty("--text-font-size", `${this.value}px`);
-	SettingsElement.textFontSizeConfig.fontSizeDisplayBox.textContent = this.value;
+	StaticElement.root.style.setProperty("--text-font-size", `${this.value}px`);
+	StaticElement.textFontSizeConfig.fontSizeDisplayBox.textContent = this.value;
 	config.text.font.size = Number(this.value); // update in config
 }
 
@@ -699,40 +605,44 @@ function updateTextFontSizeConfig(evt) {
 function updateTextFontWeightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	css.style.setProperty("--text-font-weight", `${this.value}`);
-	SettingsElement.textFontWeightConfig.fontWeightDisplayBox.textContent = this.value;
+	StaticElement.root.style.setProperty("--text-font-weight", `${this.value}`);
+	StaticElement.textFontWeightConfig.fontWeightDisplayBox.textContent = this.value;
 	config.text.font.weight = Number(this.value); // update in config
 }
 
 // primary text color (selector)
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColorConfig.primary.textInput.value = this.value;
+	
+	StaticElement.root.style.setProperty("--text-primary-color", this.value);
+	StaticElement.textColorConfig.primary.textInput.value = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
 // secondary text color (selector)
 function updateSecondaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
-	css.style.setProperty("--text-secondary-color", this.value);
-	SettingsElement.textColorConfig.secondary.textInput.value = this.value;
+
+	StaticElement.root.style.setProperty("--text-secondary-color", this.value);
+	StaticElement.textColorConfig.secondary.textInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
 // primary text color (text input)
 function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
-	css.style.setProperty("--text-primary-color", this.value);
-	SettingsElement.textColorConfig.primary.selectorInput = this.value;
+
+	StaticElement.root.style.setProperty("--text-primary-color", this.value);
+	StaticElement.textColorConfig.primary.selectorInput = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
 // secondary text color (text input)
 function updateSecondaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
-	css.style.setProperty("--text-secondary-color", this.value);
-	SettingsElement.textColorConfig.secondary.selectorInput.value = this.value;
+
+	StaticElement.root.style.setProperty("--text-secondary-color", this.value);
+	StaticElement.textColorConfig.secondary.selectorInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
@@ -740,8 +650,8 @@ function updateSecondaryTextColorTextInput(evt) {
 function updateCaretColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	css.style.setProperty("--caret-color", this.value);
-	SettingsElement.caretColorConfig.textInput.value = this.value;
+	StaticElement.root.style.setProperty("--caret-color", this.value);
+	StaticElement.caretColorConfig.textInput.value = this.value;
 	config.text.color.caret = this.value;
 }
 
@@ -749,19 +659,15 @@ function updateCaretColorSelectorInput(evt) {
 function updateCaretColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	css.style.setProperty("--caret-color", this.value);
-	SettingsElement.caretColorConfig.selectorInput.value = this.value;
+	StaticElement.root.style.setProperty("--caret-color", this.value);
+	StaticElement.caretColorConfig.selectorInput.value = this.value;
 	config.text.color.caret = this.value;
 }
 
 // text include
 function updateIncludeSpecialsInTextConfig(evt) {
 	if ( !evt.isTrusted ) return;
-
 	SettingChangeInConfig.changeIncludeSpecialsInConfig();
-
-	// debug
-	console.log("textInclude:", config.text.include.digit, config.text.include.punctuation);
 }
 
 // caret style
@@ -778,9 +684,6 @@ function updateCaretStyleConfig(evt) {
 
 	SettingChangeInUI.changeCaretStyleInUI(this.value);
 	SettingChangeInConfig.changeCaretStyleInConfig(this.value);
-
-	// debug
-	console.log("caret:", config.caret);
 }
 
 var detclick = false;
@@ -808,12 +711,8 @@ window.document.addEventListener("keydown", (evt) => {
 	if ( evt.key === "Escape" ) { det.forEach((dt) => { dt.removeAttribute("open"); }); }
 });
 
-// debugging
-// det.forEach((detail) => {
-// 	detail.addEventListener("toggle", (evt) => {
-// 		console.log(detail.open);
-// 	});
-// });
+
+// detail.addEventListener("toggle", (evt) => { //detail.open });
 
 const allDetails = {
 	textFontFamily: {
@@ -844,10 +743,7 @@ allDetails.textFontFamily.items.forEach((item) => {
 
 		config.text.font.family = evt.currentTarget.dataset.value; // update in config
 		allDetails.textFontFamily.inUseTextBox.textContent = config.text.font.family; // update in ui
-		css.style.setProperty("--text-font-family", config.text.font.family);
+		StaticElement.root.style.setProperty("--text-font-family", config.text.font.family);
 		tickMarkCorrectOption(evt, "textFontFamily");
-
-		// debug
-		console.log("font-family:", config.text.font.family);
 	});
 });

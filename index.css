@@ -78,7 +78,7 @@
   --text-font-weight: 415;
   --text-font-family: var(--RobotoMono);
   --text-primary-color: #001e2e;
-  --text-secondary-color: #9a9a9a9c;
+  --text-secondary-color: #9a9a9a;
   --text-underline-offset: 1px;
   --text-underline-thickness: 2px;
   --text-error-color: red; /* normal letter error color */
