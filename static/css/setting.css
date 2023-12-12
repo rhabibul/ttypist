@@ -33,6 +33,9 @@ div.setting {
 	justify-content: center;
 	font-family: var(--RobotoMono);
 	font-size: 0.8rem;
+	background-color: white;
+	padding: 10px 0px;
+	border-radius: 15px;
 }
 div.setting div.column.c1,
 div.setting div.column.c2 {

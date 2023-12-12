@@ -42,7 +42,7 @@ export const config = {
   },
   text: {
     underline: true, // underline the current word
-    whitespace: "bullet", // off | space | dot | bar
+    whitespace: "space", // off | space | dot | bar
     highlight: { // by default, future text is brighter than the already typed text
       off: false,
       mode: {
