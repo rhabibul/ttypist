@@ -1,6 +1,6 @@
 import { config } from "./include/config.js";
 import * as CaretController from "./controllers/caret-controller.js";
-import * as TypingAreaElements from "./elements/typing-area-element.js";
+import * as TypingAreaElements from "./include/elements.js";
 import * as Misc from "./utils/misc.js";
 import { time, typedchar, mInput, user } from "./include/trackers.js";
 import { Test, text, word } from "./main.js";
@@ -8,13 +8,11 @@ import { Test, text, word } from "./main.js";
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function keypress(evt) {}
-export function beforeinput(evt) {}
-export function input(evt) {}
-export function keyup(evt) {}
-export function keydown(evt) {
-	
-}
+export function handle_keypress(evt) {}
+export function handle_beforeinput(evt) {}
+export function handle_input(evt) {}
+export function handle_keyup(evt) {}
+export function handle_keydown(evt) {}
 
 // 1. keydown
 export function registerkeydown(evt) {

@@ -3,28 +3,22 @@ import Word from "./include/word.js";
 
 import * as Misc from "./utils/misc.js";
 import * as CaretController from "./controllers/caret-controller.js";
-import * as TypingAreaElements from "./elements/typing-area-element.js";
+import * as TypingAreaElements from "./include/elements.js";
 
 import { time, typedchar, mInput, user } from "./include/trackers.js";
 import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./logic.js";
-import { keydown, keypress, beforeinput, input, keyup } from "./logic.js";
 
 export const text = new Text();
 export const word = new Word();
 
 export const Test = {
 	init() {		
-		// TypingAreaElements.textInputField.addEventListener("keydown", keydown);
-		// TypingAreaElements.textInputField.addEventListener("keypress", keypress);
-		// TypingAreaElements.textInputField.addEventListener("beforeinput", beforeinput);
-		// TypingAreaElements.textInputField.addEventListener("input", input); // InputElement.value | InputEvent.data | InputEvent.inputType
-		// TypingAreaElements.textInputField.addEventListener("keyup", keyup);
-
 		TypingAreaElements.textInputField.addEventListener("keydown", registerkeydown);
 		TypingAreaElements.textInputField.addEventListener("keypress", registerkeypress);
 		TypingAreaElements.textInputField.addEventListener("beforeinput", registerbeforeinput);
-		TypingAreaElements.textInputField.addEventListener("input", registerinput); // InputElement.value | InputEvent.data | InputEvent.inputType
+		TypingAreaElements.textInputField.addEventListener("input", registerinput);
 		TypingAreaElements.textInputField.addEventListener("keyup", registerkeyup);
+		// InputElement.value | InputEvent.data | InputEvent.inputType
 	},
 	restart() {
 		user.istyping = false;
