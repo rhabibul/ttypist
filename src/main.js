@@ -1,6 +1,7 @@
 import { config } from "./include/config.js";
-import * as CaretController from "./controllers/caret-controller.js";
-import * as StaticElement from "./include/elements.js";
+import * as CaretController from "./controllers/CaretController.js";
+import * as UIController from "./controllers/UIController.js"
+import * as HTMLElement from "./include/elements.js";
 import * as Misc from "./utils/misc.js";
 import { time, typedchar, mInput, user } from "./include/trackers.js";
 
@@ -47,14 +48,14 @@ export function registerkeydown(evt) {
 		CaretController.removeCaretFrom(word.activeletter);
 
 		if ( config.text.underline && (text.activewordindex > 0) ) {
-			removeunderline(text.prevword);
+			UIController.removeTextUnderlineFrom(text.prevword);
 			text.incrementwordindex();
 		}
 
 		word.loadword(text.nextword, { nextword: true });
 		
 		if ( config.text.underline ) {
-			addunderline(word.me());
+			UIController.addTextUnderlineTo(word.me());
 		}
 		CaretController.addCaretTo(word.activeletter);
 		
@@ -112,7 +113,7 @@ export function registerkeydown(evt) {
 
 			if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
-				removeunderline(text.activeword);
+				UIController.removeTextUnderlineFrom(text.activeword);
 				
 				if ( Misc.isspace(text.word_at(text.activewordindex - 1).children[0])) {
 					text.word_at(text.activewordindex - 1).children[0].classList.remove("correct");
@@ -122,7 +123,7 @@ export function registerkeydown(evt) {
 				CaretController.removeCaretFrom(word.activeletter);
 				word.activeletter.classList.remove("correct");
 				word.loadword(text.prevword, { prevword: true });
-				addunderline(text.activeword);
+				UIController.addTextUnderlineTo(text.activeword);
 				CaretController.addCaretTo(word.activeletter);
 				
 				for ( const letter of text.activeword.children ) {
@@ -155,12 +156,12 @@ export function registerkeydown(evt) {
 			} else if ( word.activeletterindex === 0 && text.activewordindex > 0 ) {
 
 				CaretController.removeCaretFrom(word.activeletter);
-				removeunderline(text.activeword);
+				UIController.removeTextUnderlineFrom(text.activeword);
 				word.loadword(text.prevword, { prevword: true });
 				
 				if ( config.text.underline && (text.activewordindex > 0) && Misc.isspace(word.activeletter)) {
 					text.decrementwordindex();
-					addunderline(text.activeword);
+					UIController.addTextUnderlineTo(text.activeword);
 					text.incrementwordindex();
 				}
 				word.activeletter.classList.remove("correct");
@@ -173,12 +174,12 @@ export function registerkeydown(evt) {
 	} else { // error handling
 		if ( config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
 			CaretController.removeCaretFrom(word.activeletter);
-			removeunderline(word.me());
+			UIController.removeTextUnderlineFrom(word.me());
 
 			word.loadword(text.nextword, { nextword: true });
 			word.loadword(text.nextword, { nextword: true });
 			if ( config.text.underline ) {
-				addunderline(text.activeword);
+				UIController.addTextUnderlineTo(text.activeword);
 			}
 			CaretController.addCaretTo(word.activeletter);	
 		}
@@ -206,37 +207,25 @@ export function registerkeyup(evt) {
 	if ( !evt.isTrusted ) return;
 
 	if ( wasSpace ) {
-		StaticElement.textInputField.value = "";
+		HTMLElement.textInputField.value = "";
 		wasSpace = false;
 	}
 
 	if ( user.hastypedallwords ) {
-		StaticElement.textInputField.blur();
+		HTMLElement.textInputField.blur();
 		CaretController.removeCaretFrom(word.activeletter);
 		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
 		ignition.restart();
 	}
 }
 
-export function removeunderline(word) {
-	for ( const letter of word.children ) {
-		letter.classList.remove("underline");
-	}
-}
-
-export function addunderline(word) {
-	for (const letter of word.children ) {	
-		letter.classList.add("underline");
-	}
-}
-
 export const ignition = {
 	init() {		
-		StaticElement.textInputField.addEventListener("keydown", registerkeydown);
-		StaticElement.textInputField.addEventListener("keypress", registerkeypress);
-		StaticElement.textInputField.addEventListener("beforeinput", registerbeforeinput);
-		StaticElement.textInputField.addEventListener("input", registerinput);
-		StaticElement.textInputField.addEventListener("keyup", registerkeyup);
+		HTMLElement.textInputField.addEventListener("keydown", registerkeydown);
+		HTMLElement.textInputField.addEventListener("keypress", registerkeypress);
+		HTMLElement.textInputField.addEventListener("beforeinput", registerbeforeinput);
+		HTMLElement.textInputField.addEventListener("input", registerinput);
+		HTMLElement.textInputField.addEventListener("keyup", registerkeyup);
 		// InputElement.value | InputEvent.data | InputEvent.inputType
 	},
 	restart() {
@@ -248,8 +237,8 @@ export const ignition = {
 		text.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addCaretTo(word.activeletter);
-		StaticElement.textInputField.value = "";
-		StaticElement.textInputField.focus();
+		HTMLElement.textInputField.value = "";
+		HTMLElement.textInputField.focus();
 	}
 }
 

@@ -1,6 +1,6 @@
 import { config } from "./config.js";
 import * as HTMLElement from "../include/elements.js";
-import { addunderline, removeunderline } from "../main.js";
+import * as UIController from "../controllers/UIController.js";
 
 export default class Text {
   #text; // stores whole text as array of strings
@@ -31,7 +31,7 @@ export default class Text {
     }
     
     if ( config.text.underline ) {
-      addunderline(this.#words[this.#wordindex]);
+      UIController.addTextUnderlineTo(this.#words[this.#wordindex]);
     }
   }
 

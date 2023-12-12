@@ -19,10 +19,10 @@ export const text = {
 	self() {
 		return this.word_element[0]?.parentElement;
 	},
-	getCurrentWordIndex() {
+	getWordIndex() {
 		return this.index;
 	},
-	setCurrentWordIndexTo(i) {
+	setWordIndexTo(i) {
 		this.index = i;
 	},
 	decrementWordIndex() {
@@ -70,10 +70,10 @@ export const word = {
 	self() {
 		return this.letter[0]?.parentElement;
 	},
-	getCurrentLetterIndex() {
+	getLetterIndex() {
 		return this.index;
 	},
-	setCurrentLetterIndexTo(index) {
+	setLetterIndexTo(index) {
 		this.index = index;
 	},
 	decrementLetterIndex() {
