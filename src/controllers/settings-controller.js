@@ -1,141 +1,141 @@
 import { config } from "../include/config.js";
-import * as StaticElement from "../include/elements.js";
+import * as HTMLElement from "../include/elements.js";
 import * as SettingChangeInConfig from "./updateConfigOnButtonClick.js";
 import * as SettingChangeInUI from "./updateUIOnButtonClick.js";
 import { ignition } from "../main.js";
 
-StaticElement.textContainerElement.addEventListener("click", () => { StaticElement.textInputField.focus() });
+HTMLElement.textContainerElement.addEventListener("click", () => { HTMLElement.textInputField.focus() });
 
 // tape mode
-StaticElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
-StaticElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
-StaticElement.tapeModeConfig.mode.word.addEventListener("click",   updateTapeModeConfig);
+HTMLElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);
+HTMLElement.tapeModeConfig.mode.letter.addEventListener("click", updateTapeModeConfig);
+HTMLElement.tapeModeConfig.mode.word.addEventListener("click",   updateTapeModeConfig);
 
 // text input field
-StaticElement.textInputFieldConfig.hidden.addEventListener("click",  updateTextInputFieldConfig);
-StaticElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
+HTMLElement.textInputFieldConfig.hidden.addEventListener("click",  updateTextInputFieldConfig);
+HTMLElement.textInputFieldConfig.visible.addEventListener("click", updateTextInputFieldConfig);
 
 // text underline
-StaticElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
-StaticElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
+HTMLElement.textUnderlineConfig.off.addEventListener("click", updateTextUnderlineConfig);
+HTMLElement.textUnderlineConfig.on.addEventListener("click",  updateTextUnderlineConfig);
 
 // text whitespace
-StaticElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
-StaticElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
-StaticElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
-StaticElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
+HTMLElement.textWhitespaceConfig.off.addEventListener("click",          updateTextWhitespaceConfig);
+HTMLElement.textWhitespaceConfig.style.bullet.addEventListener("click", updateTextWhitespaceConfig);
+HTMLElement.textWhitespaceConfig.style.space.addEventListener("click",  updateTextWhitespaceConfig);
+HTMLElement.textWhitespaceConfig.style.bar.addEventListener("click",    updateTextWhitespaceConfig);
 
 // text highlight
-StaticElement.textHighlightConfig.off.addEventListener("click",         updateTextHighlightConfig);
-StaticElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
-StaticElement.textHighlightConfig.mode.word.addEventListener("click",   updateTextHighlightConfig);
+HTMLElement.textHighlightConfig.off.addEventListener("click",         updateTextHighlightConfig);
+HTMLElement.textHighlightConfig.mode.letter.addEventListener("click", updateTextHighlightConfig);
+HTMLElement.textHighlightConfig.mode.word.addEventListener("click",   updateTextHighlightConfig);
 
 // flip text highlight
-StaticElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
-StaticElement.flipTextHighlightConfig.on.addEventListener("click",  updateFlipTextHighlightConfig);
+HTMLElement.flipTextHighlightConfig.off.addEventListener("click", updateFlipTextHighlightConfig);
+HTMLElement.flipTextHighlightConfig.on.addEventListener("click",  updateFlipTextHighlightConfig);
 
 // modifier keys
-StaticElement.modifierKeyConfig.alt.addEventListener("click",  updateModifierKeyConfig);
-StaticElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
-StaticElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
+HTMLElement.modifierKeyConfig.alt.addEventListener("click",  updateModifierKeyConfig);
+HTMLElement.modifierKeyConfig.ctrl.addEventListener("click", updateModifierKeyConfig);
+HTMLElement.modifierKeyConfig.meta.addEventListener("click", updateModifierKeyConfig);
 
 // delete text
-StaticElement.deleteConfig.off.addEventListener("click", updateTextDeletionConfig);
-StaticElement.deleteConfig.on.addEventListener("click", updateTextDeletionConfig);
+HTMLElement.deleteConfig.off.addEventListener("click", updateTextDeletionConfig);
+HTMLElement.deleteConfig.on.addEventListener("click", updateTextDeletionConfig);
 
 // delete correct text
-StaticElement.delcorrectConfig.off.addEventListener("click", updateDeletePreviousCorrectWordConfig);
-StaticElement.delcorrectConfig.on.addEventListener("click",  updateDeletePreviousCorrectWordConfig);
+HTMLElement.delcorrectConfig.off.addEventListener("click", updateDeletePreviousCorrectWordConfig);
+HTMLElement.delcorrectConfig.on.addEventListener("click",  updateDeletePreviousCorrectWordConfig);
 
 // confidence
-StaticElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
-StaticElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
-StaticElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
+HTMLElement.userConfidenceConfig.low.addEventListener("click",  updateUserConfidenceConfig);
+HTMLElement.userConfidenceConfig.high.addEventListener("click", updateUserConfidenceConfig);
+HTMLElement.userConfidenceConfig.peak.addEventListener("click", updateUserConfidenceConfig);
 
 // difficulty
-StaticElement.testDifficultyConfig.ease.addEventListener("click",   updateTestDifficultyConfig);
-StaticElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
-StaticElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
+HTMLElement.testDifficultyConfig.ease.addEventListener("click",   updateTestDifficultyConfig);
+HTMLElement.testDifficultyConfig.expert.addEventListener("click", updateTestDifficultyConfig);
+HTMLElement.testDifficultyConfig.master.addEventListener("click", updateTestDifficultyConfig);
 
 // strict space
-StaticElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
-StaticElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
+HTMLElement.strictSpaceConfig.off.addEventListener("click", updateStrictSpaceConfig);
+HTMLElement.strictSpaceConfig.on.addEventListener("click",  updateStrictSpaceConfig);
 
 // error handling
-StaticElement.errorHandlingConfig.off.addEventListener("click",      updateErrorHandlingConfig);
-StaticElement.errorHandlingConfig.insert.addEventListener("click",   updateErrorHandlingConfig);
-StaticElement.errorHandlingConfig.skip.addEventListener("click",     updateErrorHandlingConfig);
-StaticElement.errorHandlingConfig.replace.addEventListener ("click", updateErrorHandlingConfig);
+HTMLElement.errorHandlingConfig.off.addEventListener("click",      updateErrorHandlingConfig);
+HTMLElement.errorHandlingConfig.insert.addEventListener("click",   updateErrorHandlingConfig);
+HTMLElement.errorHandlingConfig.skip.addEventListener("click",     updateErrorHandlingConfig);
+HTMLElement.errorHandlingConfig.replace.addEventListener ("click", updateErrorHandlingConfig);
 
 // forgive extra error
-StaticElement.errorHandlingConfig.forgive.off.addEventListener("click", updateForgiveErrorConfig);
-StaticElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
+HTMLElement.errorHandlingConfig.forgive.off.addEventListener("click", updateForgiveErrorConfig);
+HTMLElement.errorHandlingConfig.forgive.on.addEventListener("click",  updateForgiveErrorConfig);
 
 // stop on error
-StaticElement.errorHandlingConfig.stop.off.addEventListener("click",    updateStopOnErrorConfig);
-StaticElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
-StaticElement.errorHandlingConfig.stop.word.addEventListener("click",   updateStopOnErrorConfig);
+HTMLElement.errorHandlingConfig.stop.off.addEventListener("click",    updateStopOnErrorConfig);
+HTMLElement.errorHandlingConfig.stop.letter.addEventListener("click", updateStopOnErrorConfig);
+HTMLElement.errorHandlingConfig.stop.word.addEventListener("click",   updateStopOnErrorConfig);
 
 // go blind
-StaticElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
-StaticElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig);
+HTMLElement.goBlindConfig.off.addEventListener("click", updateGoBlindConfig);
+HTMLElement.goBlindConfig.on.addEventListener("click",  updateGoBlindConfig);
 
 // quickend
-StaticElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
-StaticElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfig);
+HTMLElement.quickEndConfig.off.addEventListener("click", updateQuickEndConfig);
+HTMLElement.quickEndConfig.on.addEventListener("click",  updateQuickEndConfig);
 
 // use opposite shift mode
-StaticElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
-StaticElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
+HTMLElement.useOppositeShiftConfig.off.addEventListener("click", updateUseOppositeShiftConfig);
+HTMLElement.useOppositeShiftConfig.on.addEventListener("click",  updateUseOppositeShiftConfig);
 
 // caret style
-StaticElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
-StaticElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
-StaticElement.caretStyleConfig.style.line.addEventListener("click", updateCaretStyleConfig);
-StaticElement.caretStyleConfig.style.box.addEventListener("click", updateCaretStyleConfig);
-StaticElement.caretStyleConfig.style.block.addEventListener("click", updateCaretStyleConfig);
+HTMLElement.caretStyleConfig.off.addEventListener("click", updateCaretStyleConfig);
+HTMLElement.caretStyleConfig.style.underscore.addEventListener("click", updateCaretStyleConfig);
+HTMLElement.caretStyleConfig.style.line.addEventListener("click", updateCaretStyleConfig);
+HTMLElement.caretStyleConfig.style.box.addEventListener("click", updateCaretStyleConfig);
+HTMLElement.caretStyleConfig.style.block.addEventListener("click", updateCaretStyleConfig);
 
 // caret color
-StaticElement.caretColorConfig.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
-StaticElement.caretColorConfig.textInput.addEventListener("input", updateCaretColorTextInput);
+HTMLElement.caretColorConfig.selectorInput.addEventListener("input", updateCaretColorSelectorInput);
+HTMLElement.caretColorConfig.textInput.addEventListener("input", updateCaretColorTextInput);
 
 // primary text color
-StaticElement.textColorConfig.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
-StaticElement.textColorConfig.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
+HTMLElement.textColorConfig.primary.selectorInput.addEventListener("input", updatePrimaryTextColorSelectorInput);
+HTMLElement.textColorConfig.primary.textInput.addEventListener("input", updatePrimaryTextColorTextInput);
 
 // secondary text color
-StaticElement.textColorConfig.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
-StaticElement.textColorConfig.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
+HTMLElement.textColorConfig.secondary.selectorInput.addEventListener("input", updateSecondaryTextColorSelectorInput);
+HTMLElement.textColorConfig.secondary.textInput.addEventListener("input", updateSecondaryTextColorTextInput);
 
 // timer seconds count
-StaticElement.timerSecondsCountConfig.off.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.seconds15.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.customSecondsCountButton.addEventListener("click", updateTimerSecondsCountConfig);
-StaticElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("input", updateTimerSecondsCountInputField);
-StaticElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
+HTMLElement.timerSecondsCountConfig.off.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.seconds15.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.seconds30.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.seconds60.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.seconds120.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.customSecondsCountButton.addEventListener("click", updateTimerSecondsCountConfig);
+HTMLElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("input", updateTimerSecondsCountInputField);
+HTMLElement.timerSecondsCountConfig.customSecondsCountInput.addEventListener("focusout", updateTimerSecondsCountInputFieldOnFocusOut);
 
 // text word count
-StaticElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.words10.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.words25.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
-StaticElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
-StaticElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
+HTMLElement.textWordsCountConfig.off.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.words10.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.words25.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.words50.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.words100.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.customWordsCountButton.addEventListener("click", updateTextWordsCountConfig);
+HTMLElement.textWordsCountConfig.customWordsCountInput.addEventListener("input", updateTextWordsCountInputField);
+HTMLElement.textWordsCountConfig.customWordsCountInput.addEventListener("focusout", updateTextWordsCountInputFieldOnFoucsOut);
 
 // font size slider
-StaticElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
+HTMLElement.textFontSizeConfig.fontSizeInput.addEventListener("input", updateTextFontSizeConfig);
 
 // font weight slider
-StaticElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
+HTMLElement.textFontWeightConfig.fontWeightInput.addEventListener("input", updateTextFontWeightConfig);
 
 // include specials in text (digit, punctuation)
-StaticElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
-StaticElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
+HTMLElement.includeSpecialsInTextConfig.digit.addEventListener("click", updateIncludeSpecialsInTextConfig);
+HTMLElement.includeSpecialsInTextConfig.punctuation.addEventListener("click", updateIncludeSpecialsInTextConfig);
 
 // keyboard reaction (s4)
 function updateUIKeyboardReactionConfig(evt) {
@@ -195,8 +195,8 @@ function updateFlipTextHighlightConfig(evt) {
 	let primary = computedStyles.getPropertyValue("--text-primary-color");
 	let secondary = computedStyles.getPropertyValue("--text-secondary-color");
 
-	StaticElement.root.style.setProperty("--text-primary-color", secondary);
-	StaticElement.root.style.setProperty("--text-secondary-color", primary);
+	HTMLElement.root.style.setProperty("--text-primary-color", secondary);
+	HTMLElement.root.style.setProperty("--text-secondary-color", primary);
 }
 
 // text underline
@@ -491,9 +491,9 @@ function updateTextWordsCountConfig(evt) {
 
 	// focus in input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		StaticElement.textWordsCountConfig.customWordsCountInput.focus();
+		HTMLElement.textWordsCountConfig.customWordsCountInput.focus();
 	} else {
-		StaticElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
+		HTMLElement.textWordsCountConfig.customWordsCountInput.value = ""; // clear input field
 
 		ignition.restart(); // reset & restart ignition
 	}
@@ -504,7 +504,7 @@ function updateTextWordsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// make custom button active if not
-	if ( StaticElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
+	if ( HTMLElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTextWordCountInUI("custom");
 		SettingChangeInConfig.changeTextWordCountInConfig("custom");
 	}
@@ -518,7 +518,7 @@ function updateTextWordsCountInputFieldOnFoucsOut(evt) {
 	if ( !evt.isTrusted ) return;
 
 	// no value entered in input field (turn off custom button)
-	if ( (this.value === "" || this.value === "0") && (StaticElement.textWordsCountConfig.customWordsCountButton.id === "selected") ) {
+	if ( (this.value === "" || this.value === "0") && (HTMLElement.textWordsCountConfig.customWordsCountButton.id === "selected") ) {
 		SettingChangeInUI.changeTextWordCountInUI("25");
 		SettingChangeInConfig.changeTextWordCountInConfig("25");
 		this.value = "";
@@ -553,9 +553,9 @@ function updateTimerSecondsCountConfig(evt) {
 
 	// focus to input field when custom button is clicked, otherwise clear input field
 	if ( this.value === "custom" ) {
-		StaticElement.timerSecondsCountConfig.customSecondsCountInput.focus();
+		HTMLElement.timerSecondsCountConfig.customSecondsCountInput.focus();
 	} else {
-		StaticElement.timerSecondsCountConfig.customSecondsCountInput.value = "";
+		HTMLElement.timerSecondsCountConfig.customSecondsCountInput.value = "";
 	}
 }
 
@@ -563,13 +563,13 @@ function updateTimerSecondsCountConfig(evt) {
 function updateTimerSecondsCountInputField(evt) {
 	if ( !evt.isTrusted ) return;
 
-	if ( StaticElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
+	if ( HTMLElement.textWordsCountConfig.customWordsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTextWordCountInUI("off");
 		SettingChangeInConfig.changeTextWordCountInConfig("off");
 	}
 	
 	// make custom input button active if not
-	if ( StaticElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
+	if ( HTMLElement.timerSecondsCountConfig.customSecondsCountButton.id !== "selected" ) {
 		SettingChangeInUI.changeTimerSecondsInUI("custom");
 		SettingChangeInConfig.changeTimerSecondsInConfig("custom");
 	}
@@ -581,7 +581,7 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 	if ( !evt.isTrusted ) return;
 	
 	// 0 or no value is entered in input field
-	if ( (StaticElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && ((StaticElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") || (this.value === "")) ) {
+	if ( (HTMLElement.timerSecondsCountConfig.customSecondsCountButton.id === "selected") && ((HTMLElement.timerSecondsCountConfig.customSecondsCountInput.value === "0") || (this.value === "")) ) {
 		this.value = "";
 		SettingChangeInUI.changeTimerSecondsInUI("off");
 		SettingChangeInConfig.changeTimerSecondsInConfig("off");
@@ -596,8 +596,8 @@ function updateTimerSecondsCountInputFieldOnFocusOut(evt) {
 function updateTextFontSizeConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--text-font-size", `${this.value}px`);
-	StaticElement.textFontSizeConfig.fontSizeDisplayBox.textContent = this.value;
+	HTMLElement.root.style.setProperty("--text-font-size", `${this.value}px`);
+	HTMLElement.textFontSizeConfig.fontSizeDisplayBox.textContent = this.value;
 	config.text.font.size = Number(this.value); // update in config
 }
 
@@ -605,8 +605,8 @@ function updateTextFontSizeConfig(evt) {
 function updateTextFontWeightConfig(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--text-font-weight", `${this.value}`);
-	StaticElement.textFontWeightConfig.fontWeightDisplayBox.textContent = this.value;
+	HTMLElement.root.style.setProperty("--text-font-weight", `${this.value}`);
+	HTMLElement.textFontWeightConfig.fontWeightDisplayBox.textContent = this.value;
 	config.text.font.weight = Number(this.value); // update in config
 }
 
@@ -614,8 +614,8 @@ function updateTextFontWeightConfig(evt) {
 function updatePrimaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 	
-	StaticElement.root.style.setProperty("--text-primary-color", this.value);
-	StaticElement.textColorConfig.primary.textInput.value = this.value;
+	HTMLElement.root.style.setProperty("--text-primary-color", this.value);
+	HTMLElement.textColorConfig.primary.textInput.value = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
@@ -623,8 +623,8 @@ function updatePrimaryTextColorSelectorInput(evt) {
 function updateSecondaryTextColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--text-secondary-color", this.value);
-	StaticElement.textColorConfig.secondary.textInput.value = this.value;
+	HTMLElement.root.style.setProperty("--text-secondary-color", this.value);
+	HTMLElement.textColorConfig.secondary.textInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
@@ -632,8 +632,8 @@ function updateSecondaryTextColorSelectorInput(evt) {
 function updatePrimaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--text-primary-color", this.value);
-	StaticElement.textColorConfig.primary.selectorInput = this.value;
+	HTMLElement.root.style.setProperty("--text-primary-color", this.value);
+	HTMLElement.textColorConfig.primary.selectorInput = this.value;
 	config.text.color.primary = this.value; // update in config
 }
 
@@ -641,8 +641,8 @@ function updatePrimaryTextColorTextInput(evt) {
 function updateSecondaryTextColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--text-secondary-color", this.value);
-	StaticElement.textColorConfig.secondary.selectorInput.value = this.value;
+	HTMLElement.root.style.setProperty("--text-secondary-color", this.value);
+	HTMLElement.textColorConfig.secondary.selectorInput.value = this.value;
 	config.text.color.secondary = this.value; // update in config
 }
 
@@ -650,8 +650,8 @@ function updateSecondaryTextColorTextInput(evt) {
 function updateCaretColorSelectorInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--caret-color", this.value);
-	StaticElement.caretColorConfig.textInput.value = this.value;
+	HTMLElement.root.style.setProperty("--caret-color", this.value);
+	HTMLElement.caretColorConfig.textInput.value = this.value;
 	config.text.color.caret = this.value;
 }
 
@@ -659,8 +659,8 @@ function updateCaretColorSelectorInput(evt) {
 function updateCaretColorTextInput(evt) {
 	if ( !evt.isTrusted ) return;
 
-	StaticElement.root.style.setProperty("--caret-color", this.value);
-	StaticElement.caretColorConfig.selectorInput.value = this.value;
+	HTMLElement.root.style.setProperty("--caret-color", this.value);
+	HTMLElement.caretColorConfig.selectorInput.value = this.value;
 	config.text.color.caret = this.value;
 }
 
@@ -743,7 +743,7 @@ allDetails.textFontFamily.items.forEach((item) => {
 
 		config.text.font.family = evt.currentTarget.dataset.value; // update in config
 		allDetails.textFontFamily.inUseTextBox.textContent = config.text.font.family; // update in ui
-		StaticElement.root.style.setProperty("--text-font-family", config.text.font.family);
+		HTMLElement.root.style.setProperty("--text-font-family", config.text.font.family);
 		tickMarkCorrectOption(evt, "textFontFamily");
 	});
 });

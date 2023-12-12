@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import * as TypingAreaElements from "../include/elements.js";
+import * as HTMLElement from "../include/elements.js";
 import { addunderline, removeunderline } from "../main.js";
 
 export default class Text {
@@ -12,8 +12,8 @@ export default class Text {
     this.#words = new Array();
     this.#wordindex = 0;
     
-    TypingAreaElements.textInputField.value = "";
-    TypingAreaElements.textContainerElement.innerHTML = "";
+    HTMLElement.textInputField.value = "";
+    HTMLElement.textContainerElement.innerHTML = "";
   }
 
   loadwords(words) {
@@ -22,12 +22,12 @@ export default class Text {
     this.#wordindex = 0;
     
     // reset input field and delete previous word elements in DOM
-		TypingAreaElements.textInputField.value = "";
-		TypingAreaElements.textContainerElement.innerHTML = "";
+		HTMLElement.textInputField.value = "";
+		HTMLElement.textContainerElement.innerHTML = "";
 
     // load new word elements in DOM
 		for ( const wordElement of this.#words ) {
-    	TypingAreaElements.textContainerElement.insertAdjacentElement("beforeend", wordElement);
+    	HTMLElement.textContainerElement.insertAdjacentElement("beforeend", wordElement);
     }
     
     if ( config.text.underline ) {

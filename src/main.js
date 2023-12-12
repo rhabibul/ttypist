@@ -13,21 +13,16 @@ export const word = new Word();
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function handle_keypress(evt) {}
-export function handle_beforeinput(evt) {}
-export function handle_input(evt) {}
-export function handle_keyup(evt) {}
-export function handle_keydown(evt) {}
+export function handleKeypressEvent(evt) {}
+export function handleBeforeinputEvent(evt) {}
+export function handleInputEvent(evt) {}
+export function handleKeyupEvent(evt) {}
+export function handleKeydownEvent(evt) {}
 
 // 1. keydown
 export function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
-
-	if ( (evt.key === "Unidentified") || (evt.code === "") ) {
-		mInput.keydownUnidentified = true;
-		return;
-	}
 
 	if ( !user.istyping ) {
 		time.begin = performance.now();
@@ -41,7 +36,7 @@ export function registerkeydown(evt) {
 
 		word.activeletter.classList.add("correct");
 		
-		if ( !config.text.highlight.isflipped ) {
+		if ( !config.text.highlight.flip ) {
 			word.activeletter.classList.remove("ws-active");
 		} else {
 			word.activeletter.classList.add("ws-active");
@@ -84,7 +79,7 @@ export function registerkeydown(evt) {
 					CaretController.addCaretTo(word.activeletter);
 				}	
 
-				if ( !config.text.highlight.isflipped ) { 
+				if ( !config.text.highlight.flip ) { 
 					word.activeletter.classList.add("ws-active");
 				}
 
@@ -203,49 +198,6 @@ export function registerbeforeinput(evt) {
 // 4. input
 export function registerinput(evt) {
 	if ( !evt.isTrusted ) return;
-
-	if ( mInput.keydownUnidentified ) {
-		
-		StaticElement.textInputField.focus();
-
-		if ( !config.user.istyping ) {
-			time.begin = performance.now();
-			config.user.istyping = true;
-		}
-
-		if ( evt.data !== null ) mInput.data = evt.data[evt.data.length - 1];
-
-		if ( mInput.data === " " && Misc.isspace(word.activeletter) ) { // space is typed
-
-			StaticElement.textInputField.value = "";
-			
-			CaretController.removeCaretFrom(word.activeletter);
-			word.loadword(text.nextword, { nextword: true });
-			CaretController.addCaretTo(word.activeletter);
-			
-		} else if ( mInput.data === word.activeletter.textContent ) { // correct char is typed
-			
-			CaretController.removeCaretFrom(word.activeletter);
-	
-			if ( word.activeletterindex < word.lastletterindex ) {
-				CaretController.addCaretTo(word.nextletter);
-			} else {
-	
-				if ( word.activeletterindex === word.lastletterindex ) {
-					if ( text.activewordindex < text.lastwordindex ) { // load next word
-						word.loadword(text.nextword, { nextword: true });
-						CaretController.addCaretTo(word.activeletter);
-					}	
-	
-					if ( text.activewordindex === text.lastwordindex ) { // test complete
-						time.end = window.performance.now();
-						ignition.restart();
-					}
-				}	
-			}
-		}
-	}
-	mInput.reset();
 }
 
 // 5. keyup
