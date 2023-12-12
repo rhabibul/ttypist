@@ -6,8 +6,8 @@ import * as CaretController from "./controllers/caret-controller.js";
 import * as TypingAreaElements from "./elements/typing-area-element.js";
 
 import { time, typedchar, mInput, user } from "./include/trackers.js";
-import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./logic/logic.js";
-import { keydown, keypress, beforeinput, input, keyup } from "./logic/logic.js";
+import { registerkeydown, registerkeypress, registerbeforeinput, registerinput, registerkeyup } from "./logic.js";
+import { keydown, keypress, beforeinput, input, keyup } from "./logic.js";
 
 export const text = new Text();
 export const word = new Word();

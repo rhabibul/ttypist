@@ -1,9 +1,9 @@
-import { config } from "../include/config.js";
-import * as CaretController from "../controllers/caret-controller.js";
-import * as TypingAreaElements from "../elements/typing-area-element.js";
-import * as Misc from "../utils/misc.js";
-import { time, typedchar, mInput, user } from "../include/trackers.js";
-import { Test, text, word } from "../main.js";
+import { config } from "./include/config.js";
+import * as CaretController from "./controllers/caret-controller.js";
+import * as TypingAreaElements from "./elements/typing-area-element.js";
+import * as Misc from "./utils/misc.js";
+import { time, typedchar, mInput, user } from "./include/trackers.js";
+import { Test, text, word } from "./main.js";
 
 let wasSpace = false;
 mInput.keydownUnidentified = true;
