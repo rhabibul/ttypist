@@ -2,29 +2,10 @@ import { config } from "../include/config.js";
 import * as SettingsElement from "../include/elements.js";
 import * as SettingChangeInConfig from "./configUpdateOnButtonClick.js";
 import * as SettingChangeInUI from "./updateButtonClickUI.js";
-import * as TypingAreaElements from "../elements/typing-area-element.js";
 import { css } from "../include/constants.js";
 import { Test } from "../main.js";
 
-// disable button
-function disableButton(button) {
-	button.id = "";
-	button.style.cursor = "not-allowed";
-	if ( !button.hasAttribute("disabled") ) {
-		button.toggleAttribute("disabled");
-	}
-}
-
-// enable button
-function enableButton(button, selected = false) {
-	if ( selected ) button.id = "selected";
-	button.style.cursor = "pointer";
-	if ( button.hasAttribute("disabled") ) {
-		button.removeAttribute("disabled");
-	}
-}
-
-TypingAreaElements.textContainerElement.addEventListener("click", () => { TypingAreaElements.textInputField.focus() });
+SettingsElement.textContainerElement.addEventListener("click", () => { TypingAreaElements.textInputField.focus() });
 
 // tape mode
 SettingsElement.tapeModeConfig.off.addEventListener("click",         updateTapeModeConfig);

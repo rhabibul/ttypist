@@ -1,5 +1,5 @@
 :root {
-	--setting-separator-line-border-color: #a9a9a9;
+	--setting-separator-line-border-color: #cfcfcf;
 }
 input[type="text"],
 input[type="number"] {
@@ -135,33 +135,20 @@ div.configButtonContainer button:disabled:hover {
 	background-color: rgb(255, 221, 221);
 }
 
-div.column.c1 div.row.minspeed,
-div.column.c1 div.row.minacc,
-div.column.c1 div.row.minburst,
-div.column.c2 div.row.timerseconds,
-div.column.c2 div.row.pacecaretspeed,
 div.row.textcolor,
-div.column.c2 div.row.warning,
+div.column.c2 div.row.timerseconds,
 div.column.c2 div.row.textwordcount {
 	height: 80px;
 }
-div#minimumSpeedConfig.s2-1.s3,
-div#minimumAccuracyConfig.s2-1.s3,
-div#minimumBurstConfig.s3-1.s4,
 div#textWordsCountConfig.s5-2.s7,
-div#timerSecondsCountConfig.s5-2.s7,
-div#paceCaretSpeedConfig.s4-2.s6 {
+div#timerSecondsCountConfig.s5-2.s7 {
 	width: var(--setting-buttons-container-width);
 	display: flex;
 	flex-direction: column;
 	row-gap: 3px;
 }
-div#minimumSpeedConfig.s2-1.s3 > *,
-div#minimumAccuracyConfig.s2-1.s3 > *,
-div#minimumBurstConfig.s3-1.s4 > *,
 div#textWordsCountConfig.s5-2.s7 > *,
-div#timerSecondsCountConfig.s5-2.s7 > *,
-div#paceCaretSpeedConfig.s4-2.s6  > * {
+div#timerSecondsCountConfig.s5-2.s7 > * {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;

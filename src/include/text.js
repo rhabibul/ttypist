@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import * as TypingAreaElements from "../elements/typing-area-element.js";
+import * as TypingAreaElements from "../include/elements.js";
 import { addunderline, removeunderline } from "../logic.js";
 
 export default class Text {

@@ -1,5 +1,5 @@
 import { config } from "../include/config.js";
-import * as TypingAreaElements from "../elements/typing-area-element.js";
+import * as TypingAreaElements from "../include/elements.js";
 // import w3k from "../../static/texts/words/w3k.js";
 import w1k from "../../static/texts/words/w1k.js";
 // import rootword from "../../static/texts/words/root-words.js";
