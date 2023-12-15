@@ -2,7 +2,6 @@ import { config } from "../include/config.js";
 import * as HTMLElement from "../include/elements.js";
 import w1k from "../../static/texts/dictionary/w1k.js";
 
-
 export function totalLetterCount() {
   let cnt = 0;
   Array.from(document.getElementsByTagName("word")).forEach((word) => {
@@ -12,11 +11,11 @@ export function totalLetterCount() {
 }
 
 export function getRandomWords() {
-  let words = new Array(config.text.word.count);
+  let random_words = new Array(config.text.word.count);
   for (let i = 0; i < config.text.word.count; ++i) {
-    words[i] = w1k[Math.floor(Math.random() * w1k.length)];
+    random_words[i] = w1k[Math.floor(Math.random() * w1k.length)];
   }
-  return words;
+  return random_words;
 }
 
 function wordContainingSpace() {

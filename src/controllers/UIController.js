@@ -12,10 +12,10 @@ export function addTextUnderlineTo(word) {
 	}
 }
 
-export function addWordElementsInDOM(words) {
+export function loadWordElementsInDOM(words) {
 	HTMLElement.textContainerElement.innerHTML = "";
 	HTMLElement.textInputField.value = "";
-
+	
 	for ( const word of words ) {
 		HTMLElement.textContainerElement.insertAdjacentElement("beforeend", word);
 	}

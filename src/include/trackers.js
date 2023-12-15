@@ -20,9 +20,9 @@ export const time = {
   }
 }
 
-export const typedchar = {
+export const keypress = {
 // export const keystroke = {
-	value: "",
+	char: "",
   keydown: 0,
   keyup: 0,
   repeated: false,

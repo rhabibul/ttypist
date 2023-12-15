@@ -3,7 +3,7 @@ import * as CaretController from "./controllers/CaretController.js";
 import * as UIController from "./controllers/UIController.js"
 import * as HTMLElement from "./include/elements.js";
 import * as Misc from "./utils/misc.js";
-import { time, typedchar, mInput, user } from "./include/trackers.js";
+import { time, keypress, mInput, user } from "./include/trackers.js";
 
 import Text from "./include/text.js";
 import Word from "./include/word.js";
@@ -14,14 +14,11 @@ export const word = new Word();
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function handleKeypressEvent(evt) {}
-export function handleBeforeinputEvent(evt) {}
-export function handleInputEvent(evt) {}
-export function handleKeyupEvent(evt) {}
-export function handleKeydownEvent(evt) {}
+function isspace() {
+	return word.activeletter.classList.contains(config.text.whitespace);
+}
 
-// 1. keydown
-export function registerkeydown(evt) {
+export function registerKeydownEvent(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -30,10 +27,11 @@ export function registerkeydown(evt) {
 		user.istyping = true; 
 	}
 
-	typedchar.reset();
-  typedchar.value = evt.key;
+	keypress.reset();
+  keypress.char = evt.key;
 	
-	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
+	// space hit at correct time
+	if ( isspace() && (keypress.char === " ") ) {
 
 		word.activeletter.classList.add("correct");
 		
@@ -59,7 +57,7 @@ export function registerkeydown(evt) {
 		}
 		CaretController.addCaretTo(word.activeletter);
 		
-	} else if ( typedchar.value === word.activeletter.textContent ) { // correct char is typed
+	} else if ( keypress.char === word.activeletter.textContent ) { // correct char is typed
 
 		CaretController.removeCaretFrom(word.activeletter);
 		word.activeletter.classList.add("correct");
@@ -92,7 +90,7 @@ export function registerkeydown(evt) {
 				}
 			}	
 		}
-	} else if ( typedchar.value === "Backspace" ) { // deletion
+	} else if ( keypress.char === "Backspace" ) { // deletion
 
 		// caret is on first letter of first word, so no deletion
 		if ( word.activeletterindex === 0 && text.activewordindex === 0 ) return;
@@ -172,37 +170,11 @@ export function registerkeydown(evt) {
 			}
 		}
 	} else { // error handling
-		if ( config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
-			CaretController.removeCaretFrom(word.activeletter);
-			UIController.removeTextUnderlineFrom(word.me());
-
-			word.loadword(text.nextword, { nextword: true });
-			word.loadword(text.nextword, { nextword: true });
-			if ( config.text.underline ) {
-				UIController.addTextUnderlineTo(text.activeword);
-			}
-			CaretController.addCaretTo(word.activeletter);	
-		}
+		
 	}
 }
 
-// 2. keypress
-export function registerkeypress(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// 3. beforeinput
-export function registerbeforeinput(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// 4. input
-export function registerinput(evt) {
-	if ( !evt.isTrusted ) return;
-}
-
-// 5. keyup
-export function registerkeyup(evt) {
+export function registerKeyupEvent(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -214,27 +186,23 @@ export function registerkeyup(evt) {
 	if ( user.hastypedallwords ) {
 		HTMLElement.textInputField.blur();
 		CaretController.removeCaretFrom(word.activeletter);
-		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
+		console.log(((Misc.totalLetterCount() / 5) / (time.duration / 1000)) * 60);
 		ignition.restart();
 	}
 }
 
 export const ignition = {
 	init() {		
-		HTMLElement.textInputField.addEventListener("keydown", registerkeydown);
-		HTMLElement.textInputField.addEventListener("keypress", registerkeypress);
-		HTMLElement.textInputField.addEventListener("beforeinput", registerbeforeinput);
-		HTMLElement.textInputField.addEventListener("input", registerinput);
-		HTMLElement.textInputField.addEventListener("keyup", registerkeyup);
-		// InputElement.value | InputEvent.data | InputEvent.inputType
+		HTMLElement.textInputField.addEventListener("keydown", registerKeydownEvent);
+		HTMLElement.textInputField.addEventListener("keyup", registerKeyupEvent);
 	},
 	restart() {
 		user.istyping = false;
 		user.hastypedallwords = false;
-		typedchar.reset();
+		keypress.reset();
 		time.reset();
 		mInput.reset();
-		text.loadwords(Misc.wordelements(Misc.randomwords()));
+		text.loadwords(Misc.createWordElementsFrom(Misc.getRandomWords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addCaretTo(word.activeletter);
 		HTMLElement.textInputField.value = "";

@@ -1,15 +1,20 @@
-import { config } from "./config";
+import { config } from "./config.js";
 import * as Misc from "../utils/misc.js";
+import * as HTMLElement from "./elements.js";
+import * as UIController from "../controllers/UIController.js";
 
 export const text = {
 	word_text: [],
 	word_element: [],
 	index: 0,
 
-	load(arrayOfWords) {
-		this.word_text = arrayOfWords;
-		this.word_element = createWordElementsFrom(arrayOfWords);
+	load_words() {
 		this.index = 0;
+		this.word_element = Misc.createWordElementsFrom(Misc.getRandomWords());
+		for ( const word of this.word_element ) {
+			this.word_text.push(word.textContent);
+		}
+		UIController.loadWordElementsInDOM(this.word_element);
 	},
   length() {
 		return this.word_element.length;
@@ -26,6 +31,10 @@ export const text = {
   incrementWordIndex() {
 		this.index = this.index + 1;
 	},
+	getWordAt(i) {
+		if ( (i < 0) || (i > this.word_element.length - 1) ) throw i;
+		return this.word_element[i];
+	},
 	previous_word() {
 		if ( this.index < 0 ) throw this.index;
 		return this.word_element[this.index - 1];
@@ -38,10 +47,6 @@ export const text = {
 		if ( this.index >= this.word_element.length - 1 ) throw this.index;
 		return this.word_element[this.index + 1];
 	},
-	word_at(i) {
-		if ( (i < 0) || (i > this.word_element.length - 1) ) throw i;
-		return this.word_element[i];
-	},
 }
 
 export const word = {
@@ -49,12 +54,16 @@ export const word = {
 	letter_element: [],
 	index: 0,
 	
-	load(word, isPreviousWord = false) {
+	load_letters(word, isPreviousWord = false) {
+
+		for ( const letter of word.children ) {
+			this.letter_text.push(letter.textContent);
+		}
 
 		this.letter_element = Array.from(word?.children);
 
 		if ( isPreviousWord ) {
-			this.index = this.letter.length - 1; // for previous word
+			this.index = this.letter_element.length - 1; // for previous word
 		} else {
 			this.index = 0; // for next/current word
 		}
@@ -79,14 +88,14 @@ export const word = {
 		return this.letter_element[this.index - 1];
 	},
 	current_letter() {
-		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw this.index;
+		if ( (this.index < 0) || (this.index > this.letter_element.length - 1) ) throw this.index;
 		return this.letter_element[this.index];
 	},
 	next_letter() {
 		if ( this.index >= this.letter_element.length - 1 ) throw this.index;
 		return this.letter_element[this.index + 1];
 	},
-	letter_at(i) {
+	getLetterAt(i) {
 		if ( (i < 0) || (i > this.letter_element.length - 1) ) throw i;
 		return this.letter_element[i];
 	},

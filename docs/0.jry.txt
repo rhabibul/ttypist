@@ -3030,3 +3030,14 @@ Sat 18 Nov 2023 8:30 AM
 
 9:15 AM
 understanding the project till now coz its been a long time that i have worked up it
+.
+.
+.....WASTED!
+
+--------------------------------------------------------------------------------
+Fri 15 DEC 3:30 PM
+
+was working this whole day, now thought of logging some thoughts
+
+on keydown evt.repeat changes i.e, if you press the key for long enough it will
+set itself to true

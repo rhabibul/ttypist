@@ -56,7 +56,7 @@ export const config = {
       visible: false, // show input box below text
     },
     word: {
-      count: 25, // -2(custom) | -1(off) | 0(infinite) | 10 | 25 | 50 | 100
+      count: 10, // 0 | 10 | 25 | 50 | 100
       type: "dictionary", // dictionary | gibberish | quote | story | algorithm
       length: "off", // off | short(<6) | medium(>=6, <11) | long(>=11, inf)
     },
