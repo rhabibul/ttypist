@@ -21,7 +21,6 @@ export function handle_keydown(evt) {
 	} else if ( evt.key === word.current_letter(true) ) {
 
 		CaretController.removeCaretFrom(word.current_letter());
-				
 		if ( word.getLetterIndex() < word.length() - 1 ) { // move caret to next letter
 			word.incrementLetterIndex();
 			CaretController.addCaretTo(word.current_letter());
@@ -40,7 +39,6 @@ export function handle_keydown(evt) {
 	} else if ( evt.key === "Backspace" ) {
 
 		if ( (text.getWordIndex() === 0) && (word.getLetterIndex() === 0) ) return;
-		
 		if ( evt.metaKey ) { // win/cmd + backspace
 			CaretController.removeCaretFrom(word.current_letter());
 			text.setWordIndexTo(0);
