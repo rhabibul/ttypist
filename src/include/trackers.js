@@ -1,36 +1,30 @@
-export const user = {
-	istyping: false,
-	hastypedallwords: false,
-	system: {
-		device: "",
-		operating_system: "",
-		browser: "",
-	}
-}
+export const test = {
+	in_progress: false,
+	has_finished: false,
 
-export const time = {
-  begin: 0,
-  end: 0,
-  get duration() {
-    return this.end - this.begin;
-  },  
+  started_at: 0,
+  ended_at: 0,
+  duration() {
+    return this.ended_at - this.started_at;
+  },
   reset() {
-    this.begin = 0;
-    this.end = 0;
+    this.started_at = 0;
+    this.ended_at = 0;
+		this.in_progress = false;
+		this.has_finished = false;
   }
 }
 
 export const keypress = {
-// export const keystroke = {
 	char: "",
   keydown: 0,
   keyup: 0,
-  repeated: false,
+  repeat: false,
   reset() {
-		this.typedchar = "";
+		this.char = "";
     this.keydown = 0;
     this.keyup = 0;
-    this.repeated = false;
+    this.repeat = false;
   }
 };
 
