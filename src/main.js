@@ -19,7 +19,7 @@ export function handle_keydown(evt) {
 		word.load_letters(text.current_word());
 		CaretController.addCaretTo(word.current_letter());
 
-	} else if ( evt.key === word.current_letter().textContent ) {
+	} else if ( evt.key === word.current_letter(true) ) {
 
 		CaretController.removeCaretFrom(word.current_letter());
 				
@@ -50,7 +50,16 @@ export function handle_keydown(evt) {
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/ctrl + backspace
 
 		} else { // backspace/delete
-
+			if ( word.getLetterIndex() > 0 ) { // can delete more letters in this word
+				CaretController.removeCaretFrom(word.current_letter());
+				word.decrementLetterIndex();
+				CaretController.addCaretTo(word.current_letter());
+			} else if ( (word.getLetterIndex() === 0) && (text.getWordIndex() > 0) ) { // no letters left in current word to delete
+				CaretController.removeCaretFrom(word.current_letter());
+				word.load_letters(text.previous_word(), true);
+				text.decrementWordIndex();
+				CaretController.addCaretTo(word.current_letter());
+			}
 		}
 
 	} else {

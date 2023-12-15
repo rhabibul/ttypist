@@ -11,6 +11,7 @@ export const text = {
 	load_words() {
 		this.index = 0;
 		this.word_element = Misc.createWordElementsFrom(Misc.getRandomWords());
+		this.word_text = [];
 		for ( const word of this.word_element ) {
 			this.word_text.push(word.textContent);
 		}
@@ -31,21 +32,45 @@ export const text = {
   incrementWordIndex() {
 		this.index = this.index + 1;
 	},
-	getWordAt(i) {
-		if ( (i < 0) || (i > this.word_element.length - 1) ) throw i;
-		return this.word_element[i];
+	previous_word(flag = false) {
+		if ( this.index < 0 ) {
+			throw `OUT-OF-BOUNDS: No word at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.word_text[this.index - 1];
+		} else {
+			return this.word_element[this.index - 1];
+		}
 	},
-	previous_word() {
-		if ( this.index < 0 ) throw this.index;
-		return this.word_element[this.index - 1];
+  current_word(flag = false) {
+		if ( (this.index < 0) || (this.index > this.word_element.length - 1) ) {
+			throw `OUT-OF-BOUNDS: No word at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.word_text[this.index];
+		} else {
+			return this.word_element[this.index];
+		}
 	},
-  current_word() {
-		if ( (this.index < 0) || (this.index > this.word_element.length - 1) ) throw this.index;
-		return this.word_element[this.index];
+	next_word(flag = false) {
+		if ( this.index >= this.word_element.length - 1 ) {
+			throw `OUT-OF-BOUNDS: No word at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.word_text[this.index + 1];
+		} else {
+			return this.word_element[this.index + 1];
+		}
 	},
-	next_word() {
-		if ( this.index >= this.word_element.length - 1 ) throw this.index;
-		return this.word_element[this.index + 1];
+	getWordAt(i, flag = false) {
+		if ( (i < 0) || (i > this.word_element.length - 1) ) {
+			throw `OUT-OF-BOUNDS: No word at this (${i}) index.`;
+		}
+		if ( flag ) {
+			return this.word_text[i];
+		} else {
+			return this.word_element[i];
+		}
 	},
 }
 
@@ -56,6 +81,7 @@ export const word = {
 	
 	load_letters(word, isPreviousWord = false) {
 
+		this.letter_text = [];
 		for ( const letter of word.children ) {
 			this.letter_text.push(letter.textContent);
 		}
@@ -83,21 +109,45 @@ export const word = {
   incrementLetterIndex() {
 		this.index = this.index + 1;
 	},
-	previous_letter() {
-		if ( this.index < 0 ) throw `index: ${this.index}`;
-		return this.letter_element[this.index - 1];
+	previous_letter(flag = false) {
+		if ( this.index < 0 ) {
+			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.letter_text[this.index - 1];
+		} else {
+			return this.letter_element[this.index - 1];
+		}
 	},
-	current_letter() {
-		if ( (this.index < 0) || (this.index > this.letter_element.length - 1) ) throw this.index;
-		return this.letter_element[this.index];
+	current_letter(flag = false) {
+		if ( (this.index < 0) || (this.index > this.letter_element.length - 1) ) {
+			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.letter_text[this.index];
+		} else {
+			return this.letter_element[this.index];
+		}
 	},
-	next_letter() {
-		if ( this.index >= this.letter_element.length - 1 ) throw this.index;
-		return this.letter_element[this.index + 1];
+	next_letter(flag = false) {
+		if ( this.index >= this.letter_element.length - 1 ) {
+			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
+		}
+		if ( flag ) {
+			return this.letter_text[this.index + 1];
+		} else {
+			return this.letter_element[this.index + 1];
+		}
 	},
-	getLetterAt(i) {
-		if ( (i < 0) || (i > this.letter_element.length - 1) ) throw i;
-		return this.letter_element[i];
+	getLetterAt(i, flag = false) {
+		if ( (i < 0) || (i > this.letter_element.length - 1) ) {
+			throw `OUT-OF-BOUNDS: No letter at this (${i}) index.`;
+		}
+		if ( flag ) {
+			return this.letter_text[i];
+		} else {
+			return this.letter_element[i];
+		}
 	},
 
 	insert() {},
