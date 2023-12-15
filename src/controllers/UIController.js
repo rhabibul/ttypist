@@ -12,7 +12,7 @@ export function addTextUnderlineTo(word) {
 	}
 }
 
-export function addTextInDOM(words) {
+export function addWordElementsInDOM(words) {
 	HTMLElement.textContainerElement.innerHTML = "";
 	HTMLElement.textInputField.value = "";
 

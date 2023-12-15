@@ -1,14 +1,9 @@
 import { config } from "../include/config.js";
-import * as TypingAreaElements from "../include/elements.js";
-// import w3k from "../../static/texts/words/w3k.js";
+import * as HTMLElement from "../include/elements.js";
 import w1k from "../../static/texts/dictionary/w1k.js";
-// import rootword from "../../static/texts/words/root-words.js";
 
-export function isspace(letter) {
-  return letter?.textContent.charCodeAt(0) === 160;
-}
 
-export function totalchar() {
+export function totalLetterCount() {
   let cnt = 0;
   Array.from(document.getElementsByTagName("word")).forEach((word) => {
     cnt += word?.children.length;
@@ -16,64 +11,58 @@ export function totalchar() {
   return cnt;
 }
 
-export function randomwords() {
-  // modify the string here with all config options like capitalizations of letters
-  // word type, word length, word count etc
+export function getRandomWords() {
   let words = new Array(config.text.word.count);
   for (let i = 0; i < config.text.word.count; ++i) {
-    // words[i] = rootword[Math.floor(Math.random() * rootword.length)];
     words[i] = w1k[Math.floor(Math.random() * w1k.length)];
-    // words[i] = w3k[Math.floor(Math.random() * w3k.length)];
   }
   return words;
 }
 
-export function wordelements(s) {  
+function wordContainingSpace() {
+  let word = document.createElement("word");
+  let letter = document.createElement("letter");    
 
-  let wordarray = new Array();
+  word.classList.add("whitespace")
+  letter.classList.add(config.caret);
+  
+  if ( config.text.whitespace === "bullet" ) {
+    letter.classList.add("bullet");
+    letter.innerHTML = "&nbsp;";
+  } else if ( config.text.whitespace === "bar" ) {
+    letter.classList.add("bar");
+    letter.innerHTML = "␣";
+  } else if ( config.text.whitespace === "space" ) {
+    letter.classList.add("space");
+    letter.innerHTML = "&nbsp;";
+  } else {
+    letter.classList.add("off");
+    letter.innerHTML = "";
+  }
+  
+  word.appendChild(letter);
+
+  return word;
+}
+
+export function createWordElementsFrom(words) {  
+
+  let text = [];
   let word, letter;
 
-  for (let i = 0; i < s.length; ++i) {
-    
+  for (let i = 0; i < words.length; ++i) {
     word = document.createElement("word");
-    
-    for (let j = 0; j < s[i].length; ++j) {
+    for (let j = 0; j < words[i].length; ++j) {
       letter = document.createElement("letter");
-      letter.textContent = s[i][j];
+      letter.textContent = words[i][j];
       letter.classList.add(config.caret);
       word.appendChild(letter);
     }
-
-    wordarray.push(word);
-
-    if ( config.quickend && (i === s.length - 1) ) return wordarray;
-
-    // create a word which will only contain a letter with whitespace in it
-    word = document.createElement("word");
-    letter = document.createElement("letter");    
-
-    letter.classList.add(config.caret);
-    letter.classList.add("whitespace");
-    
-    if ( config.text.whitespace === "bullet" ) {
-      letter.classList.add("bullet");
-      letter.innerHTML = "&nbsp;";
-    } else if ( config.text.whitespace === "bar" ) {
-      letter.classList.add("bar");
-      letter.innerHTML = "␣";
-    } else if ( config.text.whitespace === "space" ) {
-      letter.classList.add("space");
-      letter.innerHTML = "&nbsp;";
-    } else {
-      letter.classList.add("off");
-      letter.innerHTML = "";
-    }
-    
-    word.appendChild(letter);
-    wordarray.push(word);
+    text.push(word);
+    text.push(wordContainingSpace());
   }
 
-  return wordarray;
+  return text;
 }
 
 export function autotyper(wpm, till = -1) {
@@ -89,15 +78,11 @@ export function autotyper(wpm, till = -1) {
 	}
 	id = setInterval(() => {
     // keep some delay between keydown & keyup to avoid getting caught by cheat detector
-		TypingAreaElements.input.dispatchEvent(new KeyboardEvent("keydown", { key: s[i] }));
-		TypingAreaElements.input.dispatchEvent(new KeyboardEvent("keyup",   { key: s[i] }));
+		HTMLElement.textInputField.dispatchEvent(new KeyboardEvent("keydown", { key: s[i] }));
+		HTMLElement.textInputField.dispatchEvent(new KeyboardEvent("keyup",   { key: s[i] }));
 		++i;
 		if ( i == s.length ) clearInterval(id);
 	}, interval);
-}
-
-export function deviceinformation() {
-  return navigator.userAgent;
 }
 
 export function tolower(letter) { // Lowercase: 0'11'?????

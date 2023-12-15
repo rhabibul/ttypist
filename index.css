@@ -192,10 +192,10 @@ input[type="text"]#textInputField {
   caret-color: transparent;
   background-color: var(--caret-color-hidden);
 }
-text word letter.whitespace.bullet {
+text word letter.bullet {
   margin: 0px 1px;
 }
-text word letter.whitespace.bullet::after {
+text word letter.bullet::after {
   content: "";
   position: absolute;
   width: var(--text-whitespace-bullet-dimension);
@@ -209,12 +209,12 @@ text word letter.whitespace.bullet::after {
   background-color: var(--text-primary-color);
   opacity: 0.4;
 }
-text word letter.whitespace.bullet.correct::after {
+text word letter.bullet.ws-active::after { /* when caret is on bullet whitespace */
+  opacity: 0.8;
+}
+text word letter.bullet.correct::after { /* when caret has gone past bullet whitespace */
   background-color: var(--text-secondary-color);
   opacity: 0.4;
-}
-text word letter.whitespace.bullet.ws-active::after {
-  opacity: 0.8;
 }
 
 #selected {

@@ -1,23 +1,18 @@
 import { config } from "./config";
+import * as Misc from "../utils/misc.js";
 
-export function generateRandomWords(count = 25) { }
-
-export function createWordElements(strings) { }
-
-// maintain a array of strings for text separately
 export const text = {
+	word_text: [],
 	word_element: [],
 	index: 0,
 
 	load(arrayOfWords) {
-		this.word_element = createWordElements(arrayOfWords);
+		this.word_text = arrayOfWords;
+		this.word_element = createWordElementsFrom(arrayOfWords);
 		this.index = 0;
 	},
   length() {
 		return this.word_element.length;
-	},
-	self() {
-		return this.word_element[0]?.parentElement;
 	},
 	getWordIndex() {
 		return this.index;
@@ -32,20 +27,20 @@ export const text = {
 		this.index = this.index + 1;
 	},
 	previous_word() {
-		if ( this.index < 0 ) throw `index: ${this.index}`;
+		if ( this.index < 0 ) throw this.index;
 		return this.word_element[this.index - 1];
 	},
   current_word() {
-		if ( (this.index < 0) || (this.index > this.word.length - 1) ) throw `index: ${this.index}`;
+		if ( (this.index < 0) || (this.index > this.word_element.length - 1) ) throw this.index;
 		return this.word_element[this.index];
 	},
 	next_word() {
-		if ( this.index >= this.word.length - 1 ) throw `index: ${this.index}`;
+		if ( this.index >= this.word_element.length - 1 ) throw this.index;
 		return this.word_element[this.index + 1];
 	},
-	word_at(index) {
-		if ( (index < 0) || (index > this.word_element.length - 1) ) throw `index: ${this.index}`;
-		return this.word_element[index];
+	word_at(i) {
+		if ( (i < 0) || (i > this.word_element.length - 1) ) throw i;
+		return this.word_element[i];
 	},
 }
 
@@ -67,9 +62,6 @@ export const word = {
 	length() {
 		return this.letter_element.length;
 	},
-	self() {
-		return this.letter[0]?.parentElement;
-	},
 	getLetterIndex() {
 		return this.index;
 	},
@@ -82,14 +74,23 @@ export const word = {
   incrementLetterIndex() {
 		this.index = this.index + 1;
 	},
-	previous_letter() {},
+	previous_letter() {
+		if ( this.index < 0 ) throw `index: ${this.index}`;
+		return this.letter_element[this.index - 1];
+	},
 	current_letter() {
-		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw `index: ${this.index}`
-		return this.letter[this.index];
+		if ( (this.index < 0) || (this.index > this.letter.length - 1) ) throw this.index;
+		return this.letter_element[this.index];
 	},
-	next_letter() {},
-	letter_at(index) {
-		if ( (index < 0) || (index > this.length() - 1) ) throw `index: ${this.index}`;
-		return this.letter[index];
+	next_letter() {
+		if ( this.index >= this.letter_element.length - 1 ) throw this.index;
+		return this.letter_element[this.index + 1];
 	},
+	letter_at(i) {
+		if ( (i < 0) || (i > this.letter_element.length - 1) ) throw i;
+		return this.letter_element[i];
+	},
+
+	insert() {},
+	delete() {},
 }

@@ -14,7 +14,14 @@ export const word = new Word();
 let wasSpace = false;
 mInput.keydownUnidentified = true;
 
-export function registerKeydownEvent(evt) {
+export function handleKeypressEvent(evt) {}
+export function handleBeforeinputEvent(evt) {}
+export function handleInputEvent(evt) {}
+export function handleKeyupEvent(evt) {}
+export function handleKeydownEvent(evt) {}
+
+// 1. keydown
+export function registerkeydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -26,8 +33,7 @@ export function registerKeydownEvent(evt) {
 	typedchar.reset();
   typedchar.value = evt.key;
 	
-	// space hit at correct time
-	if ( (word.activeletter.classList.contains(config.text.whitespace)) && (typedchar.value === " ") ) {
+	if ( (Misc.isspace(word.activeletter)) && (typedchar.value === " ") ) { // space is typed
 
 		word.activeletter.classList.add("correct");
 		
@@ -166,11 +172,37 @@ export function registerKeydownEvent(evt) {
 			}
 		}
 	} else { // error handling
-		
+		if ( config.error.skip && typedchar.value === " " && word.activeletterindex != 0) {
+			CaretController.removeCaretFrom(word.activeletter);
+			UIController.removeTextUnderlineFrom(word.me());
+
+			word.loadword(text.nextword, { nextword: true });
+			word.loadword(text.nextword, { nextword: true });
+			if ( config.text.underline ) {
+				UIController.addTextUnderlineTo(text.activeword);
+			}
+			CaretController.addCaretTo(word.activeletter);	
+		}
 	}
 }
 
-export function registerKeyupEvent(evt) {
+// 2. keypress
+export function registerkeypress(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// 3. beforeinput
+export function registerbeforeinput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// 4. input
+export function registerinput(evt) {
+	if ( !evt.isTrusted ) return;
+}
+
+// 5. keyup
+export function registerkeyup(evt) {
 
 	if ( !evt.isTrusted ) return;
 
@@ -182,15 +214,19 @@ export function registerKeyupEvent(evt) {
 	if ( user.hastypedallwords ) {
 		HTMLElement.textInputField.blur();
 		CaretController.removeCaretFrom(word.activeletter);
-		console.log(((Misc.totalLetterCount() / 5) / (time.duration / 1000)) * 60);
+		console.log(((Misc.totalchar() / 5) / (time.duration / 1000)) * 60);
 		ignition.restart();
 	}
 }
 
 export const ignition = {
 	init() {		
-		HTMLElement.textInputField.addEventListener("keydown", registerKeydownEvent);
-		HTMLElement.textInputField.addEventListener("keyup", registerKeyupEvent);
+		HTMLElement.textInputField.addEventListener("keydown", registerkeydown);
+		HTMLElement.textInputField.addEventListener("keypress", registerkeypress);
+		HTMLElement.textInputField.addEventListener("beforeinput", registerbeforeinput);
+		HTMLElement.textInputField.addEventListener("input", registerinput);
+		HTMLElement.textInputField.addEventListener("keyup", registerkeyup);
+		// InputElement.value | InputEvent.data | InputEvent.inputType
 	},
 	restart() {
 		user.istyping = false;
@@ -198,7 +234,7 @@ export const ignition = {
 		typedchar.reset();
 		time.reset();
 		mInput.reset();
-		text.loadwords(Misc.createWordElementsFrom(Misc.getRandomWords()));
+		text.loadwords(Misc.wordelements(Misc.randomwords()));
 		word.loadword(text.activeword, { activeword: true });
 		CaretController.addCaretTo(word.activeletter);
 		HTMLElement.textInputField.value = "";
