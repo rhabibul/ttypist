@@ -12,14 +12,12 @@ export function handle_keydown(evt) {
 	
 	if ( evt.repeat ) console.error("key repeat (keydown 📌");
 
-
 	if ( word.current_letter().classList.contains(config.text.whitespace) && evt.key === " " ) {
 		
 		CaretController.removeCaretFrom(word.current_letter());
 		text.incrementWordIndex();
 		word.load_letters(text.current_word());
 		CaretController.addCaretTo(word.current_letter());
-
 
 	} else if ( evt.key === word.current_letter().textContent ) {
 
@@ -39,8 +37,25 @@ export function handle_keydown(evt) {
 				return;
 			}
 		}
-	}
 
+	} else if ( evt.key === "Backspace" ) {
+
+		if ( (text.getWordIndex() === 0) && (word.getLetterIndex() === 0) ) return;
+		
+		if ( evt.metaKey ) { // win/cmd + backspace
+			CaretController.removeCaretFrom(word.current_letter());
+			text.setWordIndexTo(0);
+			word.load_letters(text.current_word());
+			CaretController.addCaretTo(word.current_letter());
+		} else if ( evt.altKey || evt.ctrlKey ) { // alt/ctrl + backspace
+
+		} else { // backspace/delete
+
+		}
+
+	} else {
+		console.log("ERROR");
+	}
 }
 
 export function handle_keyup(evt) {
