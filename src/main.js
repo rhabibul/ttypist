@@ -6,30 +6,46 @@ import * as Misc from "./utils/misc.js";
 import { time, keypress, mInput, user } from "./include/trackers.js";
 import { text, word } from "./include/components.js";
 
-
-let wasSpace = false;
-mInput.keydownUnidentified = true;
-
-function isspace(word) {
-	return word.current_letter().classList.contains(config.text.whitespace);
-}
-
 export function handle_keydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 	
 	if ( evt.repeat ) console.error("key repeat (keydown 📌");
-	// console.log("down:", evt.key);
-	// console.log(evt);
+
+
+	if ( word.current_letter().classList.contains(config.text.whitespace) && evt.key === " " ) {
+		
+		CaretController.removeCaretFrom(word.current_letter());
+		text.incrementWordIndex();
+		word.load_letters(text.current_word());
+		CaretController.addCaretTo(word.current_letter());
+
+
+	} else if ( evt.key === word.current_letter().textContent ) {
+
+		CaretController.removeCaretFrom(word.current_letter());
+				
+		if ( word.getLetterIndex() < word.length() - 1 ) { // move caret to next letter
+			word.incrementLetterIndex();
+			CaretController.addCaretTo(word.current_letter());
+		} else if ( word.getLetterIndex() === word.length() - 1) { // last letter has been typed
+			if ( text.getWordIndex() < text.length() - 1 ) { // load next word if it exists
+				text.incrementWordIndex();
+				word.load_letters(text.current_word());
+				CaretController.addCaretTo(word.current_letter());
+			}
+			if ( text.getWordIndex() === text.length() - 1 ) {
+				console.log("TEST COMPLETE");
+				return;
+			}
+		}
+	}
 
 }
 
 export function handle_keyup(evt) {
 
 	if ( !evt.isTrusted ) return;
-
-	// console.log("up:", evt.key);
-	// console.log(evt);
 
 }
 

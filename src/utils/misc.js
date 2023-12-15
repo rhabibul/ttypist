@@ -58,6 +58,7 @@ export function createWordElementsFrom(words) {
       word.appendChild(letter);
     }
     text.push(word);
+    if ( config.quickend && i === words.length - 1 ) return text;
     text.push(wordContainingSpace());
   }
 

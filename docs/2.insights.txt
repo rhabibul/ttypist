@@ -1,0 +1,1 @@
+- evt.repeat is activated only in keydown event
