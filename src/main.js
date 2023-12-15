@@ -3,7 +3,6 @@ import * as CaretController from "./controllers/CaretController.js";
 import * as UIController from "./controllers/UIController.js"
 import * as HTMLElement from "./include/elements.js";
 import * as Misc from "./utils/misc.js";
-import { time, keypress, mInput, user } from "./include/trackers.js";
 import { text, word } from "./include/components.js";
 
 export function handle_keydown(evt) {
@@ -33,7 +32,7 @@ export function handle_keydown(evt) {
 				CaretController.addCaretTo(word.current_letter());
 			}
 			if ( text.getWordIndex() === text.length() - 1 ) {
-				console.log("TEST COMPLETE");
+				ignition.start();
 				return;
 			}
 		}
@@ -48,13 +47,31 @@ export function handle_keydown(evt) {
 			word.load_letters(text.current_word());
 			CaretController.addCaretTo(word.current_letter());
 		} else if ( evt.altKey || evt.ctrlKey ) { // alt/ctrl + backspace
-
+			if ( (word.getLetterIndex() > 0) && (word.getLetterIndex() < word.length()) ) { // caret is between two letter of the word
+				CaretController.removeCaretFrom(word.current_letter());
+				word.setLetterIndexTo(0);
+				CaretController.addCaretTo(word.current_letter());
+			} else {
+				if ( word.getLetterIndex() === 0 ) {
+					if ( text.current_word().classList.contains("whitespace") ) { // caret is after last letter of the word (i.e, on whitespace letter)
+						CaretController.removeCaretFrom(word.current_letter());
+						text.decrementWordIndex();
+						word.load_letters(text.current_word());
+						CaretController.addCaretTo(word.current_letter());
+					} else { // caret is at first letter of the word (not whitespace word though)
+						CaretController.removeCaretFrom(word.current_letter());
+						text.setWordIndexTo(text.getWordIndex() - 2);
+						word.load_letters(text.current_word());
+						CaretController.addCaretTo(word.current_letter());
+					}
+				}
+			}			
 		} else { // backspace/delete
-			if ( word.getLetterIndex() > 0 ) { // can delete more letters in this word
+			if ( word.getLetterIndex() > 0 ) { // still can delete more letter in this word
 				CaretController.removeCaretFrom(word.current_letter());
 				word.decrementLetterIndex();
 				CaretController.addCaretTo(word.current_letter());
-			} else if ( (word.getLetterIndex() === 0) && (text.getWordIndex() > 0) ) { // no letters left in current word to delete
+			} else if ( (word.getLetterIndex() === 0) && (text.getWordIndex() > 0) ) { // no letter(s) left in this word to delete
 				CaretController.removeCaretFrom(word.current_letter());
 				word.load_letters(text.previous_word(), true);
 				text.decrementWordIndex();
@@ -63,7 +80,7 @@ export function handle_keydown(evt) {
 		}
 
 	} else {
-		console.log("ERROR");
+		// error handling finally...
 	}
 }
 
@@ -82,7 +99,6 @@ export const ignition = {
 		text.load_words();
 		word.load_letters(text.current_word());
 		CaretController.addCaretTo(word.current_letter());
-		HTMLElement.textInputField.value = "";
 		HTMLElement.textInputField.focus();
 	}
 }
