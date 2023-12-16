@@ -4,12 +4,13 @@ import * as UIController from "./controllers/UIController.js"
 import * as HTMLElement from "./include/elements.js";
 import * as Misc from "./utils/misc.js";
 import { text, word } from "./include/components.js";
+import { isPrintableCharacter } from "./include/constants.js";
 
 export function handle_keydown(evt) {
 
 	if ( !evt.isTrusted ) return;
 	
-	if ( evt.repeat ) console.error("key repeat (keydown 📌");
+	if ( evt.repeat ) console.log("🎹repeat:", evt.key);
 
 	if ( word.current_letter().classList.contains(config.text.whitespace) && evt.key === " " ) {
 		
@@ -78,7 +79,7 @@ export function handle_keydown(evt) {
 		}
 
 	} else {
-		// error handling finally...
+		console.log(isPrintableCharacter(evt.key));
 	}
 }
 

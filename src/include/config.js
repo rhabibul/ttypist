@@ -3,7 +3,7 @@ export const config = {
   oppositeshift: false, // use opposite shift keys for shifting, ignore B, Y, ^
   quickend: true, // if disabled then confirm end of test with a space
   blind: false, // no errors are highlighted
-  strictspace: true, // determines whether to move caret to next word on error.skip and error.replace
+  strictspace: true, // determines whether to move caret to next word on error.skip & error.replace
   error: {
     off: false, // if errors are disabled caret stops on error
     forgive: true, // insert errors, but forgive them (delete) as soon as user types correct letter

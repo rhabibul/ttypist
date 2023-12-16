@@ -28,18 +28,6 @@ export const keypress = {
   }
 };
 
-export const mInput = {
-	data: "",
-	delete: false,
-	keydownUnidentified: false,
-  
-	reset() {
-    this.data = "";
-    this.delete = false,
-		this.keydownUnidentified = false;
-	}
-}
-
 export const keypress_timings = {
   symbol: new Map([
     ["a", []], ["b", []], ["c", []], ["d", []], ["e", []], ["f", []], ["g", []],

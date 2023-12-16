@@ -1,13 +1,20 @@
 export const css = document.querySelector(":root");
 
-export const notprintable = [
-  'Backspace', 'Meta', 'Alt', 'Shift', 'Control', 'CapsLock', 'Enter', 'Tab', 
-  'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape', 'Delete',
+export const not_alphanumeric = [
+  'Meta', 'MetaLeft', 'MetaRight', 'Alt', 'AltLeft', 'AltRight',
+  'Shift', 'ShiftLeft', 'ShiftRight', 'Control', 'ControlLeft', 'ControlRight',
+  'Backspace', 'Delete', 'CapsLock', 'Enter', 'NumpadEnter', 'Tab',
+  'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Escape',
   'Ins', 'End', 'Home', 'Clear', 'Home', 'PageUp', 'PageDown',
   'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
 ];
 
-export const stoppers = [ // _ and 0..9 are not considered as stopppers, they're part of text
+export function isPrintableCharacter(char) {
+  if ( not_alphanumeric.includes(char) ) return false;
+  return true;
+}
+
+export const stop_at = [ // _ and 0..9 are not considered as stopppers, they're part of text
   '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+',
   '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '<', '>', '/', '?', '\\'
 ];

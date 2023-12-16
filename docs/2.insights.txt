@@ -1,1 +1,7 @@
-- evt.repeat is activated only in keydown event
+knowledge
+	- evt.repeat is activated only in keydown event, shift, control, option, meta
+		keys don't force key repeat
+
+fix
+	- block caret clash with text underline i.e, resolve the difference in
+		their colors
