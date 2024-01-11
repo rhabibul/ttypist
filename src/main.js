@@ -13,14 +13,11 @@ export function handle_keydown(evt) {
 	if ( evt.repeat ) console.log("🎹repeat:", evt.key);
 
 	if ( word.current_letter().classList.contains(config.text.whitespace) && evt.key === " " ) {
-		
 		CaretController.removeCaretFrom(word.current_letter());
 		text.incrementWordIndex();
 		word.load_letters(text.current_word());
 		CaretController.addCaretTo(word.current_letter());
-
 	} else if ( evt.key === word.current_letter(true) ) {
-
 		CaretController.removeCaretFrom(word.current_letter());
 		if ( word.getLetterIndex() < word.length() - 1 ) { // move caret to next letter
 			word.incrementLetterIndex();
@@ -36,9 +33,7 @@ export function handle_keydown(evt) {
 				return;
 			}
 		}
-
 	} else if ( evt.key === "Backspace" ) {
-
 		if ( (text.getWordIndex() === 0) && (word.getLetterIndex() === 0) ) return;
 		if ( evt.metaKey ) { // win/cmd + backspace
 			CaretController.removeCaretFrom(word.current_letter());
@@ -66,7 +61,20 @@ export function handle_keydown(evt) {
 				}
 			}			
 		} else { // backspace/delete
-			if ( word.getLetterIndex() > 0 ) { // still can delete more letter in this word
+
+			if ( word.getLetterIndex() > 0 ) { // still we can delete more letter in this word
+
+// let list = [];
+// list.push(letter);
+// list.push(error_letter);
+// let letter = list.pop();
+// if ( letter.contains("extra") ) letter.remove();
+
+				// 🫵 i'm here
+				if ( word.previous_letter().classList.contains("extra") ) {
+					
+				}
+				
 				CaretController.removeCaretFrom(word.current_letter());
 				word.decrementLetterIndex();
 				CaretController.addCaretTo(word.current_letter());
@@ -77,9 +85,11 @@ export function handle_keydown(evt) {
 				CaretController.addCaretTo(word.current_letter());
 			}
 		}
-
 	} else {
-		console.log(isPrintableCharacter(evt.key));
+		if ( isPrintableCharacter(evt.key) ) {
+			let error_letter = Misc.createErrorLetterElement(evt.key);
+			word.current_letter().insertAdjacentElement("beforebegin", error_letter);
+		}
 	}
 }
 

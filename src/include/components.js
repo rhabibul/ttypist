@@ -75,19 +75,11 @@ export const text = {
 }
 
 export const word = {
-	letter_text: [],
 	letter_element: [],
 	index: 0,
 	
 	load_letters(word, isPreviousWord = false) {
-
-		this.letter_text = [];
-		for ( const letter of word.children ) {
-			this.letter_text.push(letter.textContent);
-		}
-
 		this.letter_element = Array.from(word?.children);
-
 		if ( isPreviousWord ) {
 			this.index = this.letter_element.length - 1; // for previous word
 		} else {
@@ -109,35 +101,23 @@ export const word = {
   incrementLetterIndex() {
 		this.index = this.index + 1;
 	},
-	previous_letter(flag = false) {
-		if ( this.index < 0 ) {
-			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
-		}
-		if ( flag ) {
-			return this.letter_text[this.index - 1];
-		} else {
-			return this.letter_element[this.index - 1];
-		}
+	previous_letter() {
+		if ( this.index <= 0 ) throw `No previous letter available (index: ${this.index}).`;
+		return this.letter_element[this.index].previousElementSibling;
 	},
 	current_letter(flag = false) {
 		if ( (this.index < 0) || (this.index > this.letter_element.length - 1) ) {
 			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
 		}
 		if ( flag ) {
-			return this.letter_text[this.index];
+			return this.letter_element[this.index].textContent;
 		} else {
 			return this.letter_element[this.index];
 		}
 	},
-	next_letter(flag = false) {
-		if ( this.index >= this.letter_element.length - 1 ) {
-			throw `OUT-OF-BOUNDS: No letter at this (${this.index}) index.`;
-		}
-		if ( flag ) {
-			return this.letter_text[this.index + 1];
-		} else {
-			return this.letter_element[this.index + 1];
-		}
+	next_letter() {
+		if ( this.index >= this.letter_element.length - 1 ) throw `No next letter available (index: ${this.index})`;
+		return this.letter_element[this.index].nextElementSibling;
 	},
 	getLetterAt(i, flag = false) {
 		if ( (i < 0) || (i > this.letter_element.length - 1) ) {
@@ -149,7 +129,4 @@ export const word = {
 			return this.letter_element[i];
 		}
 	},
-
-	insert() {},
-	delete() {},
 }

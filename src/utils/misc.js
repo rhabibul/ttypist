@@ -2,6 +2,15 @@ import { config } from "../include/config.js";
 import * as HTMLElement from "../include/elements.js";
 import w1k from "../../static/texts/dictionary/w1k.js";
 
+export function createErrorLetterElement(character) {
+  const letter = document.createElement("letter");
+  letter.classList.add("error");
+  letter.classList.add("extra");
+  letter.classList.add(config.caret);
+  letter.textContent = character;
+  return letter;
+}
+
 export function totalLetterCount() {
   let cnt = 0;
   Array.from(document.getElementsByTagName("word")).forEach((word) => {
